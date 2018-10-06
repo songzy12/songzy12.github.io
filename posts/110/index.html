@@ -9,10 +9,15 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="See Running Devstack here. 1
-2
-paver devstack --fast lms &gt; lms.log 2&gt;&1 &
-paver devstack --fast studio &gt; studio.log 2&gt;&1 & &hellip;">
+  <meta name="description" content="Status Code 1xx Informational
+2xx Success
+3xx Redirection
+4xx Client Error
+5xx Server Error
+301 Moved Permanently
+302 Found
+304 Not Modified
+403 &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -108,7 +113,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/05/16/edx-developer-stack/">edX Developer Stack</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/03/30/html/">HTML</a></h1>
     
     
       <p class="meta">
@@ -117,168 +122,78 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-05-16T14:26:50+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:26 pm</span></time>
+<time class='entry-date' datetime='2016-03-30T16:44:24+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>4:44 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>See Running Devstack <a href="https://openedx.atlassian.net/wiki/display/OpenOPS/Running+Devstack">here</a>.</p>
+  <div class="entry-content"><h2>Status Code</h2>
+
+<ul>
+<li>1xx Informational</li>
+<li>2xx Success</li>
+<li>3xx Redirection</li>
+<li>4xx Client Error</li>
+<li><p>5xx Server Error</p></li>
+<li><p>301 Moved Permanently</p></li>
+<li>302 Found</li>
+<li>304 Not Modified</li>
+<li>403 Forbidden</li>
+</ul>
+
+
+<h2>DOCTYPE</h2>
+
+<p>DTD <a href="http://www.w3school.com.cn/tags/html_ref_dtd.asp">reference</a>: Document Type Definition</p>
+
+<ul>
+<li>HTML5:</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>paver devstack --fast lms &gt; lms.log 2&gt;&1 &
-</span><span class='line'>paver devstack --fast studio &gt; studio.log 2&gt;&1 &</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>OPENEDX_RELEASE</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>default: Downloading: http://files.edx.org/vagrant-images/devstack-periodic-2016-05-05.box
-</span><span class='line'>The requested URL returned error: 403 Forbidden
-</span><span class='line'>
-</span><span class='line'>export OPENEDX_RELEASE="named-release/dogwood.1"</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!DOCTYPE html&gt;</span></code></pre></td></tr></table></div></figure>
 
 
 <ul>
-<li><a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#x3a;&#115;&#116;&#97;&#x66;&#x66;&#64;&#x65;&#120;&#97;&#109;&#x70;&#108;&#x65;&#x2e;&#99;&#111;&#x6d;">&#x73;&#x74;&#x61;&#102;&#x66;&#64;&#x65;&#120;&#x61;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#99;&#x6f;&#x6d;</a> / edx</li>
-<li><a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#x76;&#101;&#114;&#x69;&#x66;&#x69;&#101;&#100;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#118;&#x65;&#x72;&#x69;&#102;&#105;&#x65;&#x64;&#x40;&#x65;&#x78;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a> / edx</li>
-<li><a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#x61;&#x75;&#100;&#x69;&#x74;&#x40;&#101;&#120;&#97;&#109;&#x70;&#108;&#101;&#x2e;&#99;&#111;&#x6d;">&#x61;&#117;&#x64;&#105;&#x74;&#64;&#101;&#120;&#97;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#111;&#x6d;</a> / edx</li>
-<li><a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#104;&#x6f;&#110;&#111;&#114;&#x40;&#101;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#x2e;&#x63;&#111;&#x6d;">&#x68;&#111;&#x6e;&#111;&#x72;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;</a> / edx</li>
+<li>HTML 4.01:</li>
 </ul>
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant up
-</span><span class='line'>vagrant ssh
-</span><span class='line'>sudo su edxapp</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;
+</span><span class='line'>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+</span><span class='line'>"http://www.w3.org/TR/html4/loose.dtd"&gt;
+</span><span class='line'>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" 
+</span><span class='line'>"http://www.w3.org/TR/html4/frameset.dtd"&gt;</span></code></pre></td></tr></table></div></figure>
 
+
+<h2>Contnt-Type</h2>
 
 <ul>
-<li>This will source the edxapp environment (<code>/edx/app/edxapp/edxapp_env</code>) so that the venv python and rbenv ruby are in your search path.</li>
-<li>It will also set the current working directory to the edx-platform repository (<code>/edx/app/edxapp/edx-platform</code>).</li>
+<li>application/x-www-form-urlencoded</li>
 </ul>
 
 
-<h2>LMS Workflow</h2>
-
-<p>LMS: Learning Management System.</p>
-
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>paver devstack lms &gt; lms.log 2&gt;&1 &
-</span><span class='line'>paver devstack --fast lms &gt; lms.log 2&gt;&1 &
+</pre></td><td class='code'><pre><code class=''><span class='line'>POST http://www.example.com HTTP/1.1
+</span><span class='line'>Content-Type: application/x-www-form-urlencoded;charset=utf-8
 </span><span class='line'>
-</span><span class='line'>Starting development server at http://0.0.0.0:8000/</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>title=test&sub%5B%5D=1&sub%5B%5D=2&sub%5B%5D=3</span></code></pre></td></tr></table></div></figure>
 
 
-<p>WSGI: Web Server Gateway Interface</p>
-
-<h2>Studio Workflow</h2>
-
-<p>CMS: course management system</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>paver devstack studio &gt; studio.log 2&gt;&1 &
-</span><span class='line'>paver devstack --fast studio &gt; studio.log 2&gt;&1 &
-</span><span class='line'>
-</span><span class='line'>Starting development server at http://0.0.0.0:8001/</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Forum Workflow</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo su forum
-</span><span class='line'>bundle install
-</span><span class='line'>ruby app.rb -p 18080</span></code></pre></td></tr></table></div></figure>
-
-
-<hr />
-
-<h2>Vagrant</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir devstack
-</span><span class='line'>cd devstack
-</span><span class='line'>curl -L https://raw.githubusercontent.com/edx/configuration/master/vagrant/release/devstack/Vagrantfile &gt; Vagrantfile
-</span><span class='line'>vagrant plugin install vagrant-vbguest
-</span><span class='line'>vagrant up
-</span><span class='line'>vagrant ssh</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>update</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>curl -o vagrant_1.7.2_x86_64.deb https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
-</span><span class='line'>sudo dpkg -i vagrant_1.7.2_x86_64.deb</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>remove box</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant box list
-</span><span class='line'>vagrant status
-</span><span class='line'>vagrant halt
-</span><span class='line'>vagrant destroy
-</span><span class='line'>vagrant box remove --force --all dogwood-devstack-2016-03-09</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>port in use</h3>
-
-<p>The forwarded port to 9200 is already in use
-on the host machine.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>netstat -peanut
-</span><span class='line'>id
-</span><span class='line'>vi Vagrantfile</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>NFS</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>==&gt; default: Mounting NFS shared folders...</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install nfs-kernel-server
-</span><span class='line'>sudo apt-get install nfs-common</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>SSH</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>The SSH command responded with a non-zero exit status.</span></code></pre></td></tr></table></div></figure>
-
-
+<ul>
+<li>multipart/form-data</li>
+</ul>
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -288,43 +203,455 @@ on the host machine.</p>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>==&gt; default: FATAL: all hosts have already failed -- aborting
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>POST http://www.example.com HTTP/1.1
+</span><span class='line'>Content-Type:multipart/form-data; boundary=----WebKitFormBoundaryrGKCBY7qhFd3TrwA
 </span><span class='line'>
-</span><span class='line'>==&gt; default: INFO:ansible.callback_plugins.datadog_tasks_timing:
-</span><span class='line'>==&gt; default: Playbook vagrant-devstack finished: Fri Mar 25 13:12:31 2016, 276 total tasks.  0:18:28 elapsed.
-</span><span class='line'>==&gt; default:            to retry, use: --limit @/root/vagrant-devstack.retry
-</span><span class='line'>==&gt; default:
-</span><span class='line'>==&gt; default: localhost                  : ok=260  changed=65   unreachable=0    failed=1</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>------WebKitFormBoundaryrGKCBY7qhFd3TrwA
+</span><span class='line'>Content-Disposition: form-data; name="text"
+</span><span class='line'>
+</span><span class='line'>title
+</span><span class='line'>------WebKitFormBoundaryrGKCBY7qhFd3TrwA
+</span><span class='line'>Content-Disposition: form-data; name="file"; filename="chrome.png"
+</span><span class='line'>Content-Type: image/png
+</span><span class='line'>
+</span><span class='line'>PNG ... content of chrome.png ...
+</span><span class='line'>------WebKitFormBoundaryrGKCBY7qhFd3TrwA--</span></code></pre></td></tr></table></div></figure>
 
 
+<ul>
+<li>application/json</li>
+</ul>
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rm -rf devstack/</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>POST http://www.example.com HTTP/1.1 
+</span><span class='line'>Content-Type: application/json;charset=utf-8
+</span><span class='line'>
+</span><span class='line'>{"title":"test","sub":[1,2,3]}</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>VirtualBox</h2>
+<ul>
+<li>text/xml</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vboxmanage --version</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>POST http://www.example.com HTTP/1.1 
+</span><span class='line'>Content-Type: text/xml
+</span><span class='line'>
+</span><span class='line'>&lt;?xml version="1.0"?&gt;
+</span><span class='line'>&lt;methodCall&gt;
+</span><span class='line'>    &lt;methodName&gt;examples.getStateName&lt;/methodName&gt;
+</span><span class='line'>    &lt;params&gt;
+</span><span class='line'>        &lt;param&gt;
+</span><span class='line'>            &lt;value&gt;&lt;i4&gt;41&lt;/i4&gt;&lt;/value&gt;
+</span><span class='line'>        &lt;/param&gt;
+</span><span class='line'>    &lt;/params&gt;
+</span><span class='line'>&lt;/methodCall&gt;</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Port Forwarding</p>
+<h2>XML CDATA</h2>
+
+<p>SVG: Scalable Vector Graphics</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Failed to load unit 'pgm' (VERR_MAP_FAILED).</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"\x3C/script&gt;"
+</span><span class='line'>"&lt;"+"/script&gt;"
+</span><span class='line'>"&lt;\/script&gt;"</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Discard saved state.</p>
+<p>entity reference:
+* &amp;lt: &lt;
+* &amp;gt: >
+* &amp;amp(ampersand = and): &amp;
+* &amp;apos(apostrophe): &lsquo;
+* &amp;quot: "</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;message&gt;if salary &lt; 1000 then&lt;/message&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>CDATA: Unparsed Character Data.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;![CDATA[
+</span><span class='line'>function matchwo(a,b) {
+</span><span class='line'>    if (a &lt; b && a &lt; 0) then {
+</span><span class='line'>        return 1;
+</span><span class='line'>    }
+</span><span class='line'>}
+</span><span class='line'>]]&gt;</span></code></pre></td></tr></table></div></figure>
+
 
 <hr />
 
+<h2>a</h2>
+
+<ul>
+<li>An unvisited link is underlined and blue</li>
+<li>A visited link is underlined and purple</li>
+<li><p>An active link is underlined and red</p></li>
+<li><p>href: Specifies the URL of the page the link goes to</p></li>
+<li>rel: Specifies the relationship between the current document and the linked document</li>
+<li>target: Specifies where to open the linked document(blank, self, parent, top)</li>
+</ul>
+
+
+<h2>audio</h2>
+
+<p>We can just use the <code>audio</code> tag in HTML5 to play a piece of music like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;audio controls="controls" autobuffer="autobuffer" autoplay="autoplay"&gt;
+</span><span class='line'>    &lt;source src="data:audio/wav;base64,{ { audioBase64 } }" /&gt;
+</span><span class='line'>&lt;/audio&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h2>br</h2>
+
+<ul>
+<li>HTML: <code>&lt;br&gt;</code></li>
+<li>XHTML: <code>&lt;br /&gt;</code></li>
+</ul>
+
+
+<h2>div</h2>
+
+<ul>
+<li>block level element: <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;ul&gt;</code>(unordered list), <code>&lt;table&gt;</code>, <code>&lt;div&gt;</code>(division)</li>
+<li>inline element: <code>&lt;b&gt;</code>(bold), <code>&lt;td&gt;</code>(table data), <code>&lt;a&gt;</code>(anchor), <code>&lt;img&gt;</code>, <code>&lt;span&gt;</code></li>
+</ul>
+
+
+<h2>dl</h2>
+
+<ul>
+<li>dl: description lists</li>
+<li>dd: describes</li>
+<li>dt: term</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;dl&gt;
+</span><span class='line'>    &lt;dt&gt;Coffee&lt;/dt&gt;
+</span><span class='line'>    &lt;dd&gt;- black hot drink&lt;/dd&gt;
+</span><span class='line'>    &lt;dt&gt;Milk&lt;/dt&gt;
+</span><span class='line'>    &lt;dd&gt;- white cold drink&lt;/dd&gt;
+</span><span class='line'>&lt;/dl&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>img</h2>
+
+<h3>crossOrigin</h3>
+
+<ul>
+<li>anonymous: A cross-origin request is performed. But no credential is sent</li>
+<li>use-credentials: A cross-origin request performed with credential is sent</li>
+</ul>
+
+
+<h3>alt</h3>
+
+<ul>
+<li>The text should describe the image if the image contains information</li>
+<li>The text should explain where the link goes if the image is inside an <code>&lt;a&gt;</code> element</li>
+<li>Use <code>alt=""</code> if the image is only for decoration</li>
+</ul>
+
+
+<h2>link</h2>
+
+<ul>
+<li>href: Specifies the location of the linked document</li>
+<li>media: Specifies on what device the linked document will be displayed</li>
+<li>rel: Required. Specifies the relationship between the current document and the linked document</li>
+<li>type: Specifies the media type of the linked document</li>
+</ul>
+
+
+<h2>meta</h2>
+
+<p>The following tags describe metadata: <code>&lt;title&gt;</code>, <code>&lt;style&gt;</code>, <code>&lt;meta&gt;</code>, <code>&lt;link&gt;</code>, <code>&lt;script&gt;</code>, and <code>&lt;base&gt;</code>.</p>
+
+<p>Meta elements are typically used to specify page description, keywords, author of the document, last modified, and other metadata.</p>
+
+<ul>
+<li>HTML5:</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;meta charset="UTF-8"&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>HTML 4.01:</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;meta http-equiv="content-type" content="text/html; charset=UTF-8"&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refresh document every 30 seconds:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;meta http-equiv="refresh" content="30"&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>kbd</h2>
+
+<p>keyboard input.</p>
+
+<h2>strong</h2>
+
+<ul>
+<li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>: headings</li>
+<li><code>&lt;em&gt;</code>: emphasized text</li>
+<li><code>&lt;strong&gt;</code>: important text</li>
+<li><code>&lt;mark&gt;</code>: marked/highlighted text</li>
+</ul>
+
+
+<h2>style</h2>
+
+<h3>media</h3>
+
+<p>This attribute is used to specify that the style is for special devices (like iPhone), speech or print media.</p>
+
+<ul>
+<li>all: Default. Suitable for all devices</li>
+<li>aural: Speech synthesizers</li>
+<li>braille: Braille feedback devices</li>
+<li>handheld: Handheld devices (small screen, limited bandwidth)</li>
+<li>projection: Projectors</li>
+<li>print: Print preview mode/printed pages</li>
+<li>screen: Computer screens</li>
+<li>tty: Teletypes and similar media using a fixed-pitch character grid</li>
+<li>tv: Television type devices (low resolution, limited scroll ability)</li>
+</ul>
+
+
+<h3>hidden</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>object.style.overflow="visible|hidden|scroll|auto|initial|inherit" </span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>visible: Content is NOT clipped and may be shown outside the element box</li>
+<li>hidden: Content outside the element box is not shown</li>
+<li>scroll: Scroll bars are added, and content is clipped when necessary</li>
+<li>auto: Content is clipped and scroll bars are added when necessary</li>
+<li>initial: Sets this property to its default value</li>
+<li>inherit: Inherits this property from its parent element## post</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;method&gt; &lt;request-URL&gt; &lt;version&gt;
+</span><span class='line'>&lt;headers&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;entity-body&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>table</h2>
+
+<ul>
+<li><code>&lt;tr&gt;</code>: table rows</li>
+<li><code>&lt;th&gt;</code>: table headings</li>
+<li><code>&lt;td&gt;</code>: table data</li>
+</ul>
+
+
+<h2>srcsec</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;img src="image-src.png" srcset="image-1x.png 1x, image-2x.png 2x,
+</span><span class='line'>                                 image-3x.png 3x, image-4x.png 4x"&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>asp</h2>
+
+<p>asp: Active Server Pages. ASP runs only on Windows.</p>
+
+<ul>
+<li>Request</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
+</span><span class='line'>Response.Write "Welcome " & Server.HTMLEncode(Request.QueryString("name")) & "!"
+</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Response</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
+</span><span class='line'>If Len(Request.QueryString("name")) &gt; 0 Then
+</span><span class='line'>     Response.Cookies("name") = Request.QueryString("name") 
+</span><span class='line'>End If
+</span><span class='line'>
+</span><span class='line'>Response.Write "Welcome " & Server.HTMLEncode(Response.Cookies("name")) & "!"
+</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Server</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
+</span><span class='line'>Dim oAdoCon, oAdoRec, oAdoStm, oCdoCon, oCdoMsg, oSciDic, oSciFsm, oMswAdr
+</span><span class='line'>
+</span><span class='line'>Set oAdoCon = Server.CreateObject("ADODB.Connection")
+</span><span class='line'>Set oAdoRec = Server.CreateObject("ADODB.Recordset")
+</span><span class='line'>Set oAdoStm = Server.CreateObject("ADODB.Stream")
+</span><span class='line'>Set oCdoCon = Server.CreateObject("CDO.Configuration")
+</span><span class='line'>Set oCdoMsg = Server.CreateObject("CDO.Message")
+</span><span class='line'>Set oSciDic = Server.CreateObject("Scripting.Dictionary")
+</span><span class='line'>Set oSciFsm = Server.CreateObject("Scripting.FileSystemObject")
+</span><span class='line'>Set oMswAdr = Server.CreateObject("MSWC.AdRotator")
+</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Application</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
+</span><span class='line'>Application("Ali") = "My ASP Application"
+</span><span class='line'>Response.Write "Welcome to " & Server.HTMLEncode(Application("Ali")) & "!"
+</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Session</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
+</span><span class='line'>If Len(Request.QueryString("name")) &gt; 0 Then
+</span><span class='line'>     Session("name") = Request.QueryString("name") 
+</span><span class='line'>End If
+</span><span class='line'>
+</span><span class='line'>Response.Write "Welcome " & Server.HTMLEncode(Session("name")) & "!"
+</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Error</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
+</span><span class='line'>On Error Resume Next
+</span><span class='line'>
+</span><span class='line'>Response.Write 1 / 0 ' Division by zero
+</span><span class='line'>
+</span><span class='line'>If Err.Number &lt;&gt; 0 Then
+</span><span class='line'>     Response.Write "Error Code: " & Server.HTMLEncode(Err.Number) & "&lt;br /&gt;"
+</span><span class='line'>     Response.Write "Error Source: " & Server.HTMLEncode(Err.Source) & "&lt;br /&gt;"
+</span><span class='line'>     Response.Write "Error Description: " & Server.HTMLEncode(Err.Description) & "&lt;br /&gt;"
+</span><span class='line'>     Err.Clear 
+</span><span class='line'>End If 
+</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
+
 </div>
   
-  
-    <footer>
-      <a rel="full-article" href="/blog/2016/05/16/edx-developer-stack/">Read on &rarr;</a>
-    </footer>
   
 
 

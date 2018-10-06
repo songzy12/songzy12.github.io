@@ -9,12 +9,12 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="irb 1
-ruby -e ' puts "hello world" ' IRB(interactive ruby). 1
-irb rvm Ruby enVironment Manager. 1
+  <meta name="description" content="argsort 1
+nearest = (-sim[i, :]).argsort()[1: top_k + 1] Returns the indices that would sort an array. 1
 2
 3
-gpg2 --keyserver hkp://keys.gnupg.net --recv- &hellip;">
+&gt;&gt;&gt; x = np.array([3, 1, 2])
+&gt &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -110,7 +110,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/11/06/ruby/">Ruby</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/11/05/numpy/">Numpy</a></h1>
     
     
       <p class="meta">
@@ -119,38 +119,42 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-11-06T21:52:52+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:52 pm</span></time>
+<time class='entry-date' datetime='2016-11-05T16:45:55+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>4:45 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>irb</h2>
+  <div class="entry-content"><h2>argsort</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ruby -e ' puts "hello world" '</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>nearest = (-sim[i, :]).argsort()[1: top_k + 1]</span></code></pre></td></tr></table></div></figure>
 
 
-<p>IRB(interactive ruby).</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>irb</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>rvm</h2>
-
-<p>Ruby enVironment Manager.</p>
+<p>Returns the indices that would sort an array.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gpg2 --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
-</span><span class='line'>curl -sSL https://get.rvm.io | bash -s stable --ruby
-</span><span class='line'>source ~/.rvm/scripts/rvm</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; x = np.array([3, 1, 2])
+</span><span class='line'>&gt;&gt;&gt; np.argsort(x)
+</span><span class='line'>array([1, 2, 0])</span></code></pre></td></tr></table></div></figure>
 
 
+<h2>genfromtxt</h2>
 
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>dataset = genfromtxt(open('data/train.csv','r'), delimiter=',', dtype='f8')[1:]</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>savetxt</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>savetxt('data/submission2.csv', rf.predict(test), delimiter=',', fmt='%f')</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>shape</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -158,112 +162,54 @@ MathJax.Hub.Config({
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rvm current
-</span><span class='line'>rvm list
-</span><span class='line'>
-</span><span class='line'>rvm use ruby-1.9.3
-</span><span class='line'>gem install bundler
-</span><span class='line'>bundle install</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; y = np.zeros((2, 3, 4))
+</span><span class='line'>&gt;&gt;&gt; y.shape
+</span><span class='line'>(2, 3, 4)
+</span><span class='line'>&gt;&gt;&gt; y.shape = (3, 8)
+</span><span class='line'>&gt;&gt;&gt; y
+</span><span class='line'>array([[ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
+</span><span class='line'>       [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
+</span><span class='line'>       [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.]])</span></code></pre></td></tr></table></div></figure>
 
 
+<h2>ones</h2>
 
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>RVM is not a function, selecting rubies with 'rvm use ...' will not work.</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>source ~/.rvm/scripts/rvm</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>rake</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake aborted!
-</span><span class='line'>LoadError: cannot load such file -- bundler/setup</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Gemfile</h2>
-
-<p>The specifier <code>~&gt;</code> has a special meaning, best shown by example. <code>~&gt; 2.0.3</code> is identical to <code>&gt;= 2.0.3</code> and <code>&lt; 2.1</code>. <code>~&gt; 2.1</code> is identical to <code>&gt;= 2.1</code> and <code>&lt; 3.0</code>. <code>~&gt; 2.2.beta</code> will match prerelease versions like <code>2.2.beta.12</code>.</p>
-
-<h2>bundler</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>no such file to load -- bundler/setup</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo gem install bundler</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>install</h3>
-
-<p>When you run <code>bundle install</code> the first time, bundler will resolve all of the dependencies, all the way down, and install what you need</p>
-
-<p>Bundler remembers the exact versions it installed in <code>Gemfile.lock</code>.</p>
-
-<p>The next time you run <code>bundle install</code>, bundler skips the dependency resolution and installs the same gems as it installed last time.</p>
-
-<h3>update</h3>
-
-<p><code>bundle update</code> will ignore the <code>Gemfile.lock</code>, and resolve all the dependencies again.</p>
-
-<ul>
-<li>If the gems specified in <code>Gemfile</code> don&rsquo;t have version, it will upgrade to whatever latest.</li>
-<li>If the gems specified in <code>Gemfile</code> have version controlled with <code>~&gt;</code>, it will upgrade to the latest at the final digit, the patch version.</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bundle install --without production</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>show</h3>
-
-<p>Use <code>bundle show [gemname]</code> to see where a bundled gem is installed.</p>
-
-<h3>exec</h3>
-
-<p>If you want to run <code>rake db:migrate</code> where you’re asking Rake (which doesn’t neccessarily use Bundler to fetch dependencies) to run a couple of Rails’ tasks (that consumes Rails code and its dependencies). You’ll then need to run it as <code>bundle exec rake db:migrate</code> to make sure it’ll be using the proper Rails dependencies for your project.</p>
-
-<hr />
-
-<h2>%w</h2>
-
-<p><code>%w(foo bar)</code> is a shortcut for <code>["foo", "bar"]</code>. Meaning it&rsquo;s a notation to write an array of strings separated by spaces instead of commas and without quotes around them.</p>
-
-<h2>Array</h2>
+<p>The difference between <code>(R,)</code> and <code>(1,R)</code> is literally the number of indicies that you need to use. <code>ones((1,R))</code> is a 2-D array that happens to have only one row. <code>ones(R)</code> is a vector.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Array(0..9)
-</span><span class='line'>=&gt; [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-</span><span class='line'>Array(0...9)
-</span><span class='line'>=&gt; [0, 1, 2, 3, 4, 5, 6, 7, 8]</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>numpy.dot(M[:,0].reshape(R, 1), numpy.ones((1, R)))
+</span><span class='line'>np.dot(M[:,0], np.ones(R))
+</span><span class='line'>M[:,0].sum()
+</span><span class='line'>M.sum(axis=0)</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>STDOUT</h2>
+<h2>random</h2>
+
+<h3>randint</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>STDOUT.sync = true
-</span><span class='line'>puts "hi, there"
-</span><span class='line'>STDOUT.flush</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>numpy.random.randint(low, high=None, size=None, dtype='l')
+</span><span class='line'>
+</span><span class='line'>    Return random integers from low (inclusive) to high (exclusive). If high is None (the default), then results are from [0, low).</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>choice</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Generate a uniform random sample from np.arange(5) of size 3 without replacement:
+</span><span class='line'>&gt;&gt;&gt; np.random.choice(5, 3, replace=False)
+</span><span class='line'>array([3,1,0])
+</span><span class='line'>&gt;&gt;&gt; #This is equivalent to np.random.permutation(np.arange(5))[:3]</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

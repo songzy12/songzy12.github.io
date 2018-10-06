@@ -9,11 +9,8 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="nltk brown 1
-2
-from nltk.corpus import brown
-print brown.raw()[:10000] 1
-u"\n\n\tThe/at Fulton/np-tl County/nn-tl Grand/jj-tl Jury/nn-tl said/vbd &hellip;">
+  <meta name="description" content="npm npm run will check package.json. grunt grunt will check Gruntfile.js.
+">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -109,7 +106,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/12/24/nltk/">Nltk</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/12/19/auth0/">Auth0</a></h1>
     
     
       <p class="meta">
@@ -118,84 +115,20 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-12-24T13:57:27+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>1:57 pm</span></time>
+<time class='entry-date' datetime='2016-12-19T17:12:03+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>5:12 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>nltk</h2>
+  <div class="entry-content"><h2>npm</h2>
 
-<ul>
-<li>brown</li>
-</ul>
+<p><code>npm run</code> will check <code>package.json</code>.</p>
 
+<h2>grunt</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>from nltk.corpus import brown
-</span><span class='line'>print brown.raw()[:10000]</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>u"\n\n\tThe/at Fulton/np-tl County/nn-tl Grand/jj-tl Jury/nn-tl said/vbd Friday/nr an/at investigation/nn of/in Atlanta's/np$ recent/jj primary/nn election/nn produced/vbd ``/`` no/at evidence/nn ''/'' that/cs any/dti irregularities/nns took/vbd place/nn ./.\n\n\n\tThe/at jury/nn further/rbr said/vbd in/in term-end/nn presentments/nns that/cs the/at City/nn-tl Executive/jj-tl Committee/nn-tl ,/, which/wdt had/hvd over-all/jj charge/nn of/in the/at election/nn ,/, ``/`` deserves/vbz the/at praise/nn and/cc thanks/nns of/in the/at City/nn-tl of/in-tl Atlanta/np-tl ''/'' for/in the/at manner/nn in/in which/wdt the/at election/nn was/bedz conducted/vbn ./.\n\n\n\t"</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>texttiling</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>from nltk.tokenize.texttiling import *
-</span><span class='line'>from nltk.corpus import brown
-</span><span class='line'>
-</span><span class='line'>file_in = 'caiwufenxi.wordseg'
-</span><span class='line'>stopwords = 'stopwords.txt' 
-</span><span class='line'>tt = TextTilingTokenizer(demo_mode=True, stopwords=open(stopwords).read())
-</span><span class='line'>s, ss, d, b = tt.tokenize(open(file_in).read())</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>jieba</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># encoding=utf-8
-</span><span class='line'>import jieba
-</span><span class='line'>
-</span><span class='line'>seg_list = jieba.cut("我来到北京清华大学", cut_all=True)
-</span><span class='line'>print("Full Mode: " + "/ ".join(seg_list))  # 全模式
-</span><span class='line'>
-</span><span class='line'>seg_list = jieba.cut("我来到北京清华大学", cut_all=False)
-</span><span class='line'>print("Default Mode: " + "/ ".join(seg_list))  # 精确模式
-</span><span class='line'>
-</span><span class='line'>seg_list = jieba.cut("他来到了网易杭研大厦")  # 默认是精确模式
-</span><span class='line'>print(", ".join(seg_list))
-</span><span class='line'>
-</span><span class='line'>seg_list = jieba.cut_for_search("小明硕士毕业于中国科学院计算所，后在日本京都大学深造")  # 搜索引擎模式
-</span><span class='line'>print(", ".join(seg_list))</span></code></pre></td></tr></table></div></figure>
-
+<p><code>grunt</code> will check <code>Gruntfile.js</code>.</p>
 </div>
   
   

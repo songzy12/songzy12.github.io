@@ -9,18 +9,10 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="EditText 1
-2
-3
-4
-5
-6
-7
-8
-9
-editText.addTextChangedListener(new TextWatcher() {
-@Override
-public void onTextChanged(CharSequence charSequence, int &hellip;">
+  <meta name="description" content="Context Where?
+* when creating views, adapters and Toast messages.
+* when accessing System Services(LayoutInflater, InputMethodManager).
+* when &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -116,7 +108,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/08/21/android-widget/">Android Widget</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/08/21/android-content/">Android Content</a></h1>
     
     
       <p class="meta">
@@ -132,45 +124,75 @@ MathJax.Hub.Config({
   </header>
 
 
-  <div class="entry-content"><h2>EditText</h2>
+  <div class="entry-content"><h2>Context</h2>
+
+<p>Where?
+* when creating views, adapters and Toast messages.
+* when accessing System Services(<code>LayoutInflater</code>, <code>InputMethodManager</code>).
+* when accessing components(Content Resolver).</p>
+
+<p>Two types of Context:
+* Application context: <code>getApplicationContext()</code>, <code>getApplication()</code>
+    * to display a Toast message.
+    * to access settings and resources shared across.  multiple activity instances
+    * if you need a context with global scope.
+* Activity context: <code>this</code>, <code>getBaseContext()</code>, <code>getActivity()</code></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>editText.addTextChangedListener(new TextWatcher() {
-</span><span class='line'>@Override
-</span><span class='line'>public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
-</span><span class='line'>    // Only handle addition of characters
-</span><span class='line'>    if(count &gt; before) {
-</span><span class='line'>        // Write the last entered character to the pipe
-</span><span class='line'>        String s = charSequence.subSequence(before, count).toString();
-</span><span class='line'>    }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>FileOutputStream fout = openFileOutput(filename, MODE_PRIVATE);
+</span><span class='line'>byte[]  bytes = message.getBytes();
+</span><span class='line'>fout.write(bytes);
+</span><span class='line'>fout.close();</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>ImageView</h2>
 
-<p>scaleType:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Log.i(TAG, getFilesDir().getAbsolutePath() + "/");</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>/data/data/</code> 为系统内部存储文件路径，<code>/data/data/&lt;package name&gt;/</code>，所有内部存储中保存的文件在用户卸载应用的时候会被删除。</p>
 
 <ul>
-<li>center</li>
-<li>fitCenter</li>
+<li><code>Context.getFilesDir()</code>: 返回 <code>/data/data/&lt;package name&gt;/files</code> 的 <code>File</code> 对象。</li>
+<li><code>Context.openFileInput()</code>, <code>Context.openFileOutput()</code>，只能读取和写入 <code>files</code> 下的文件，返回的是 <code>FileInputStream</code> 和<code>FileOutputStream</code> 对象。</li>
+<li><code>Context.fileList()</code>，返回 <code>files</code> 下所有的文件名，返回的是 <code>String[]</code> 对象。</li>
+<li><code>Context.deleteFile(String)</code>，删除 <code>files</code> 下指定名称的文件。</li>
+<li><code>Context.getCacheDir()</code>，该方法返回 <code>/data/data/&lt;package name&gt;/cache</code> 的 <code>File</code> 对象。</li>
+<li><code>getDir(String name, int mode)</code>，返回 <code>/data/data/&lt;package name&gt;/</code> 下的指定名称的文件夹 <code>File</code> 对象，如果该文件夹不存在则用指定名称创建一个新的文件夹。</li>
 </ul>
 
 
-<h3>setLayoutParams</h3>
+<h2>Intents</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>img.setLayoutParams(new LinearLayout.LayoutParams(newWidth,newHeight))</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Intent intent =  new Intent(); 
+</span><span class='line'>intent.setClass(PaintPadActivity.this, TextActivity.class);
+</span><span class='line'>startActivityForResult(intent, PaintPadActivity.WHAT_TO_WRITE);</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>setImageBitmap</h3>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Bundle bundle = new Bundle();
+</span><span class='line'>bundle.putString("font", "lingxin.ttf");
+</span><span class='line'>Intent data = getIntent();
+</span><span class='line'>data.putExtras(bundle);
+</span><span class='line'>TextActivity.this.setResult(WHAT_TO_WRITE, data);
+</span><span class='line'>TextActivity.this.finish();</span></code></pre></td></tr></table></div></figure>
+
+
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -180,185 +202,41 @@ MathJax.Hub.Config({
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.picture);
-</span><span class='line'>img.setImageBitmap(bitmap);
-</span><span class='line'>
-</span><span class='line'>public void setImageBitmap(Bitmap bm) {
-</span><span class='line'>// if this is used frequently, mayhandle bitmaps explicitly
-</span><span class='line'>// to reduce the intermediate drawable object
-</span><span class='line'>    setImageDrawable(newBitmapDrawable(mContext.getResources(), bm));
+</pre></td><td class='code'><pre><code class=''><span class='line'>protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+</span><span class='line'>  super.onActivityResult(requestCode, resultCode, data);
+</span><span class='line'>  switch (requestCode) {
+</span><span class='line'>      case WHAT_TO_WRITE:
+</span><span class='line'>            //
+</span><span class='line'>            break;
+</span><span class='line'>  }
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>getParent</h3>
+<h2>PackageManager</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ImageView img = mImages[i][j];
-</span><span class='line'>LinearLayout pa = (LinearLayout) img.getParent();
-</span><span class='line'>pa.removeView(img);</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PackageManager pm = context.getPackageManager();
+</span><span class='line'>PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+</span><span class='line'>version = pi.versionName;</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>LinearLayout</h2>
+<h2>SharedPreference</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>LinearLayout linralayout = new LinearLayout(context);
-</span><span class='line'>linralayout.setOrientation(LinearLayout.VERTICAL);
-</span><span class='line'>linralayout.setPadding(0, 0, 0, 0); // setPadding(left, top, right, bottom);
-</span><span class='line'>this.addView(linralayout);</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Context.getSharedPreferences(String name, int mode)
+</span><span class='line'>PreferenceManager.getDefaultSharedPreferences(Context);</span></code></pre></td></tr></table></div></figure>
 
 
 <ul>
-<li>content: The content of the box, where text and images appear</li>
-<li>padding: Clears an area around the content. The padding is transparent</li>
-<li>border: A border that goes around the padding and content</li>
-<li>margin: Clears an area outside the border. The margin is transparent</li>
+<li>name: <code>/data/data/&lt;package name&gt;/shared_prefs</code></li>
+<li>mode: Context.MODE_PRIVATE, Context.MODE_WORLD_READABLE, Context.MODE_WORLD_WRITEABLE</li>
 </ul>
 
 
-<h2>RadioGroup</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>RadioGroup style=(RadioGroup) findViewById(R.id.style);
-</span><span class='line'>RadioButton lingxin=(RadioButton) findViewById(R.id.lingxin);
-</span><span class='line'>style.setOnCheckedChangeListener( new OnCheckedChangeListener(){
-</span><span class='line'>  public void onCheckedChanged(RadioGroup group, int checkedId) {
-</span><span class='line'>      if(lingxin.getId() == checkedId){
-</span><span class='line'>        //
-</span><span class='line'>      }
-</span><span class='line'>    }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>ScrollView</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;android.support.v4.widget.SwipeRefreshLayout
-</span><span class='line'>    xmlns:android="http://schemas.android.com/apk/res/android"
-</span><span class='line'>    xmlns:tools="http://schemas.android.com/tools"
-</span><span class='line'>    android:id="@+id/swipeContainer"
-</span><span class='line'>    android:layout_width="match_parent"
-</span><span class='line'>    android:layout_height="match_parent"&gt;
-</span><span class='line'>    
-</span><span class='line'>    &lt;WebView android:id="@+id/webView"
-</span><span class='line'>        android:layout_width="wrap_content"
-</span><span class='line'>      android:layout_height="wrap_content" /&gt;
-</span><span class='line'>&lt;/android.support.v4.widget.SwipeRefreshLayout&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>int offset = textView.getMeasuredHeight()
-</span><span class='line'>        - scrollView.getMeasuredHeight();
-</span><span class='line'>if (offset &lt; 0) {
-</span><span class='line'>    offset = 0;
-</span><span class='line'>}
-</span><span class='line'>scrollView.scrollTo(0, offset);</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>SwipeRefreshLayout</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefreshListener {
-</span><span class='line'>  private SwipeRefreshLayout swipeContainer;
-</span><span class='line'>  @Override
-</span><span class='line'>    protected void onCreate(Bundle savedInstanceState) {
-</span><span class='line'>        super.onCreate(savedInstanceState);
-</span><span class='line'>      setContentView(R.layout.activity_main);
-</span><span class='line'>        
-</span><span class='line'>        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
-</span><span class='line'>        swipeContainer.setOnRefreshListener(this);  
-</span><span class='line'>  }   
-</span><span class='line'>
-</span><span class='line'>  @Override
-</span><span class='line'>  public void onRefresh() {
-</span><span class='line'>      Log.i(TAG, "refreshing");
-</span><span class='line'>      swipeContainer.setRefreshing(false);
-</span><span class='line'>  }     
-</span><span class='line'>}   </span></code></pre></td></tr></table></div></figure>
-
-
-<h2>ViewHolder</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>static class ViewHolder {
-</span><span class='line'>    public TextView info;
-</span><span class='line'>}
-</span><span class='line'>@Override
-</span><span class='line'>public View getView(int position, View convertView, ViewGroup parent) {
-</span><span class='line'>    ViewHolder holder;
-</span><span class='line'>    if(convertView == null) {
-</span><span class='line'>        holder = new ViewHolder();
-</span><span class='line'>        convertView = mInflater.inflate(R.layout.list_item, null);
-</span><span class='line'>        holder.info = (TextView)item.findViewById(R.id.info);
-</span><span class='line'>        convertView.setTag(holder);
-</span><span class='line'>    } else {
-</span><span class='line'>        holder = (ViewHolder)convertView.getTag();
-</span><span class='line'>        holder.info.setText("World");
-</span><span class='line'>    }
-</span><span class='line'>    return convertView;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
+<p><code>preferences.xml</code>.</p>
 </div>
   
   

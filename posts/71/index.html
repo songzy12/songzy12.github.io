@@ -9,12 +9,20 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="Sentence-selection and yodaqa. 1
+  <meta name="description" content="1
+_tkinter.TclError: no display name and no $DISPLAY environment variable 1
 2
-$ cd yodaqa
-$ data/ml/embsel/gen.sh curated ../Sentence-selection/ 1
+import matplotlib
+matplotlib.use('Agg') pyplot 1
 2
-Could not GET 'http://ailao.eu/maven/eu/ &hellip;">
+3
+4
+5
+6
+7
+8
+9
+from &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -110,7 +118,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/11/08/yodaqa/">Yodaqa</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/11/05/matplotlib/">Matplotlib</a></h1>
     
     
       <p class="meta">
@@ -119,86 +127,74 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-11-08T18:16:28+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>6:16 pm</span></time>
+<time class='entry-date' datetime='2016-11-05T16:46:28+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>4:46 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="https://github.com/brmson/Sentence-selection">Sentence-selection</a> and <a href="https://github.com/brmson/yodaqa">yodaqa</a>.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd yodaqa
-</span><span class='line'>$ data/ml/embsel/gen.sh curated ../Sentence-selection/</span></code></pre></td></tr></table></div></figure>
+  <div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>_tkinter.TclError: no display name and no $DISPLAY environment variable</span></code></pre></td></tr></table></div></figure>
 
 
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Could not GET 'http://ailao.eu/maven/eu/ailao/gloveDict/1.0-stanford/gloveDict-1.0-stanford.pom'
-</span><span class='line'>Could not GET 'http://ailao.eu/maven/com/github/jcrfsuite/jcrfsuite/0.5/jcrfsuite-0.5.pom'</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import matplotlib
+</span><span class='line'>matplotlib.use('Agg')</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>const.py</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>LISTPATH="data/trainlist.p"
-</span><span class='line'>PANS1='data/ans1.txt'
-</span><span class='line'>PANS0='data/ans0.txt'</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>train.py</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(M, b, w, results) = train(LISTPATH, PANS1, PANS0)</span></code></pre></td></tr></table></div></figure>
-
-
-
+<h2>pyplot</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(M,b,results)=trainMb(trainlist,ans1,ans0)
-</span><span class='line'>w=trainClues(trainlist,ans1,ans0)
-</span><span class='line'>
-</span><span class='line'>for q in trainlist:
-</span><span class='line'>  prop_num+=len(q.y)</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from matplotlib import pyplot as plt
+</span><span class='line'>plt.scatter(x, y, c) # color
+</span><span class='line'>plt.plot(x, y)
+</span><span class='line'>plt.xlabel('x')
+</span><span class='line'>plt.ylabel('y')
+</span><span class='line'>plt.savefig(image_name)
+</span><span class='line'>plt.clf() # clear the figure
+</span><span class='line'>plt.bar(x, y, align='center')
+</span><span class='line'>plt.show()</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>trainMb</h3>
+<h2>pylab</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mrrs,crossmrr,M,b=cross_validate_all(M,b,trainlist)
-</span><span class='line'>trainmrr=mrr(M,b,trainlist)
-</span><span class='line'>l,alpha=trainConsts()</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from matplotlib import pylab
+</span><span class='line'>
+</span><span class='line'>pylab.xlabel("Sentence Gap index")
+</span><span class='line'>pylab.ylabel("Gap Scores")
+</span><span class='line'>pylab.plot(range(len(s)), s, label="Gap Scores")
+</span><span class='line'>pylab.plot(range(len(ss)), ss, label="Smoothed Gap scores")
+</span><span class='line'>pylab.plot(range(len(d)), d, label="Depth scores")
+</span><span class='line'>pylab.stem(range(len(b)), b)
+</span><span class='line'>pylab.legend()
+</span><span class='line'>fname = 'image.png'
+</span><span class='line'>pylab.savefig(fname)</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>trainClues</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(x,y)=getInputsClues(trainlist,ans1,ans0)</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>basicgrad.py</h2>
-
-<h3>testGrad</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>for q in li:
-</span><span class='line'>  labels=q.y</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>q</h3>
+<h2>subplot, pie</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -233,84 +229,46 @@ MathJax.Hub.Config({
 <span class='line-number'>31</span>
 <span class='line-number'>32</span>
 <span class='line-number'>33</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class q(object):
-</span><span class='line'>    """Holds question with all its answers and T/F values as well as counted probabilities"""
-</span><span class='line'>    q=[]
-</span><span class='line'>    a=[]
-</span><span class='line'>    y=[]
-</span><span class='line'>    t=[]
-</span><span class='line'>    tcount=[]
-</span><span class='line'>    clues=[]
-</span><span class='line'>    qtext=[]
-</span><span class='line'>    atext=[]
-</span><span class='line'>    counts=[]
-</span><span class='line'>    idf=[]
-</span><span class='line'>    def __init__(self,q,a1,a0,qtext,atext1,atext0,clues1=0,clues0=0):
-</span><span class='line'>        self.q=np.transpose(np.array(q,ndmin=2))  # question emb. (column)
-</span><span class='line'>        a1=np.array(a1,ndmin=2)  # correct ans. emb. (answers in rows)
-</span><span class='line'>        a0=np.array(a0,ndmin=2)  # incorrect
-</span><span class='line'>        self.a=np.hstack((np.transpose(a1),np.transpose(a0)))  # answer matrix (answer per column, correct come first)
-</span><span class='line'>        self.y=np.hstack((np.ones(len(a1)),np.zeros(len(a0))))  # answer labels
-</span><span class='line'>        self.qtext=qtext
-</span><span class='line'>        self.atext=atext1
-</span><span class='line'>        self.atext.extend((atext0))
-</span><span class='line'>        self.setCounts()
-</span><span class='line'>        self.setClues(clues1,clues0)
-</span><span class='line'>    def sett(self,M,b):
-</span><span class='line'>        """ compute answer labels based on model M,b """
-</span><span class='line'>        self.t=s.expit(z(self.q,M,self.a,b)[0])  # answer labels as estimated by the model
-</span><span class='line'>    def settcount(self,results):
-</span><span class='line'>        self.tcount=results
-</span><span class='line'>    def setClues(self,clues1,clues0):
-</span><span class='line'>        self.clues=np.hstack((clues1,clues0))
-</span><span class='line'>    def setCounts(self):
-</span><span class='line'>        """ compute counts of common words in question and each answer """
-</span><span class='line'>      pass</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>fig = plt.figure()
+</span><span class='line'>ax = fig.add_subplot(111)
+</span><span class='line'>ax.plot(centers[2], color='#00BFFF', label='1')
+</span><span class='line'>ax.plot(centers[4], color='#BA55D3', label='2')
+</span><span class='line'>ax.plot(centers[1], color='g', label='3')
+</span><span class='line'>ax.plot(centers[3], color='b', linewidth=3, label='4')
+</span><span class='line'>ax.plot(centers[0], color='r', linewidth=3, label='5')
+</span><span class='line'>plt.xlabel('Jump span (in second)')
+</span><span class='line'>plt.ylabel('Probability')
+</span><span class='line'>
+</span><span class='line'>ax.legend()
+</span><span class='line'># plt.title('User Preference Clustering by Jump Span')
+</span><span class='line'>x1, x2, y1, y2 = plt.axis()
+</span><span class='line'>plt.axis([x1, x2, 0, y2])
+</span><span class='line'>
+</span><span class='line'># pie chart
+</span><span class='line'>fracs = [np.count_nonzero(labels==2), np.count_nonzero(labels==4), np.count_nonzero(labels==1), np.count_nonzero(labels==3), np.count_nonzero(labels==0)]
+</span><span class='line'>colors = ['#00BFFF', '#BA55D3', 'g', 'b', 'r']
+</span><span class='line'>explode=(0, 0.05, 0, 0, 0)
+</span><span class='line'>
+</span><span class='line'>ax1 = fig.add_subplot(3, 3, 2)
+</span><span class='line'>ax1.set_position([0.5,0.6,0.3,0.3])
+</span><span class='line'>ax1.axis('equal')
+</span><span class='line'>patches, texts, autotexts = ax1.pie(fracs, colors=colors, autopct='%1.1f%%')
+</span><span class='line'>print autotexts
+</span><span class='line'>for patch, txt in zip(patches, autotexts):
+</span><span class='line'>    # the angle at which the text is located
+</span><span class='line'>    ang = (patch.theta2 + patch.theta1) / 2.
+</span><span class='line'>    # new coordinates of the text, 0.7 is the distance from the center 
+</span><span class='line'>    x = patch.r * 1.3 * np.cos(ang*np.pi/180)
+</span><span class='line'>    y = patch.r * 1.3 * np.sin(ang*np.pi/180)
+</span><span class='line'>    # if patch is narrow enough, move text to new coordinates
+</span><span class='line'>    print patch.theta2 - patch.theta1
+</span><span class='line'>    if (patch.theta2 - patch.theta1) &lt; 30.:
+</span><span class='line'>        txt.set_position((x, y))</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>mrr</h3>
-
-<p>Mean Reciprocal Rank: The mean reciprocal rank is a statistic measure for evaluating any process that produces a list of possible responses to a sample of queries, ordered by probability of correctness. The reciprocal rank of a query response is the multiplicative inverse of the rank of the first correct answer. The mean reciprocal rank is the average of the reciprocal ranks of results for a sample of queries Q.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>for q in li:
-</span><span class='line'>  q.sett(M,b)
-</span><span class='line'>  mrr+=1/firstTrue(q.y,q.t)</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>getInputsClues</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>x[poz+i]=[q.t[i],q.clues[0,i]]</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>ttlist</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>for i in range(0,len(ans1)):
-</span><span class='line'>    li.append(q(qa[i],a1a[ones:ones+ans1[i]],a0a[zeros:zeros+ans0[i]],questions[i],
-</span><span class='line'>                answers1[ones:ones+ans1[i]],answers0[zeros:zeros+ans0[i]],clues1[:,ones:ones+ans1[i]],clues0[:,zeros:zeros+ans0[i]]))
-</span><span class='line'>    ones+=ans1[i]
-</span><span class='line'>    zeros+=ans0[i]</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>vecfromtext.py</h2>
-
-<h3>loadList</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ans1=np.loadtxt(PANS1).astype(int)
-</span><span class='line'>li = pickle.load( open( LISTPATH, "rb" ) )</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>textArrays</h3>
+<h2>grid</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -322,44 +280,46 @@ MathJax.Hub.Config({
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>def textArrays(qpath,apath1,apath0):
-</span><span class='line'>    """ Returns qa text vectors from files with jacana formating.
-</span><span class='line'>    Text == array of tokens.
-</span><span class='line'>    It is a tuple of:
-</span><span class='line'>      * a list of question texts
-</span><span class='line'>      * a list of texts of all correct answers (across all questions)
-</span><span class='line'>      * a list of texts of all incorrect answers
-</span><span class='line'>      * for each question, #of correct answers (used for computing the index in list of all correct answers)
-</span><span class='line'>      * for each question, #of incorrect answers
-</span><span class='line'>    """</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>save.py</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>saveQlist(QPATH,APATH1,APATH0,GLOVEPATH,GLOVEPATH2,LISTPATH,PANS1,PANS0,new_dict=True,c1=CPATH1,c0=CPATH0)</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>saveQlist</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>"""From jacana formated documents of questions, true answers, false answers
-</span><span class='line'>saves list of Qs to PLIST path"""
-</span><span class='line'>(q,a1,a0,ans1,ans0)=textArrays(QPATH,APATH1,APATH0)
-</span><span class='line'>(qa,a1a,a0a)=prepForGrad(q,a1,a0,ans1,ans0,GLOVEPATH2)
-</span><span class='line'>sentences=(q,a1,a0)
-</span><span class='line'>li=ttlist(qa,a1a,a0a,ans1,ans0,sentences,c1,c0)
-</span><span class='line'>pickle.dump( li, open( PLIST , "wb" ) )
-</span><span class='line'>np.savetxt(PANS1,ans1)
-</span><span class='line'>np.savetxt(PANS0,ans0)</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import matplotlib.pyplot as plt
+</span><span class='line'>import matplotlib.ticker as plticker
+</span><span class='line'>
+</span><span class='line'>data = [50 * random.random() for i in range(20)]
+</span><span class='line'>
+</span><span class='line'>x = range(len(data))
+</span><span class='line'>
+</span><span class='line'>fig = plt.figure()
+</span><span class='line'>axes = plt.gca()
+</span><span class='line'>axes.set_xlim([0, 20])
+</span><span class='line'>
+</span><span class='line'>ax = fig.add_subplot(1, 1, 1)
+</span><span class='line'>major_ticks = range(0, 20, 2)
+</span><span class='line'>minor_ticks = range(0, 50, 5)
+</span><span class='line'>ax.set_xticks(major_ticks)
+</span><span class='line'>
+</span><span class='line'>ax.grid(which='both')
+</span><span class='line'>
+</span><span class='line'>plt.scatter(x, data)
+</span><span class='line'># plt.grid()
+</span><span class='line'>
+</span><span class='line'>plt.xlabel('Users')
+</span><span class='line'>plt.ylabel('Average jump span')
+</span><span class='line'>#plt.savefig('user_jump_span.png')
+</span><span class='line'>plt.show()</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

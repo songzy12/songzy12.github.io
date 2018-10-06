@@ -9,15 +9,14 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="MFC 1
-OutputDebugString("hi, there"); 1
+  <meta name="description" content="Here. virtualenv 1
+2
+sudo pip install vietualenvwrapper
+source /usr/local/bin/virtualenvwrapper.sh 1
 2
 3
-4
-5
-6
-#include&lt;fstream&gt; std::ofstream log;
-log.open("log.txt", std::ofstream::out | std::ofstream:: &hellip;">
+mkvirtualenv django_project
+deactivate &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -113,7 +112,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/11/28/windows/">Windows</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/11/18/django/">Django</a></h1>
     
     
       <p class="meta">
@@ -122,17 +121,21 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-11-28T15:01:53+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>28</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>3:01 pm</span></time>
+<time class='entry-date' datetime='2016-11-18T14:19:20+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:19 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>MFC</h2>
+  <div class="entry-content"><p><a href="http://jeffknupp.com/blog/2013/12/18/starting-a-django-16-project-the-right-way/">Here</a>.</p>
+
+<h2>virtualenv</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>OutputDebugString("hi, there");</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo pip install vietualenvwrapper
+</span><span class='line'>source /usr/local/bin/virtualenvwrapper.sh</span></code></pre></td></tr></table></div></figure>
 
 
 
@@ -140,75 +143,52 @@ MathJax.Hub.Config({
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#include&lt;fstream&gt;
-</span><span class='line'>
-</span><span class='line'>std::ofstream log;
-</span><span class='line'>log.open("log.txt", std::ofstream::out | std::ofstream::app);
-</span><span class='line'>log &lt;&lt; "hitHandleTest: " &lt;&lt; i &lt;&lt; ": " &lt;&lt; pCurGliph-&gt;hitHandleTest(point) &lt;&lt; std::endl;
-</span><span class='line'>log.close();</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mkvirtualenv django_project
+</span><span class='line'>deactivate
+</span><span class='line'>workon django_project</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>bat</h2>
-
-<h3>call</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>call run.bat</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>虚拟桌面</h2>
-
-<h3>Win 10</h3>
-
-<ul>
-<li>切換這個桌面中的工作視窗： Alt + Tab</li>
-<li>呼叫虛擬桌面，展開多桌面工作管理： Win + Tab</li>
-<li>快速切換虛擬桌面視野： Win + Ctrl + 左右</li>
-<li>快速新增與關閉虛擬桌面： Win + Ctrl + D ， Win + Ctrl + F4</li>
-<li>快速分割不同畫面： Win + 上下左右</li>
-</ul>
-
-
-<h3>Ubuntu</h3>
-
-<ul>
-<li>快速切換虛擬桌面視野： Alt + Ctrl + 上下左右</li>
-<li>展開多桌面工作管理： Alt + Ctrl + Shift + 上下左右</li>
-</ul>
-
-
-<h2>FindWindow</h2>
-
-<p>If <code>lpClassName</code> points to a string, it specifies the window class name.</p>
-
-<p>If <code>lpWindowName</code> is NULL, all window names (window&rsquo;s title) match.</p>
+<h2>django</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>HWND disk,mask;
-</span><span class='line'>disk = FindWindow("ProgMan",NULL);
-</span><span class='line'>mask = FindWindow("Shell_TrayWnd",NULL);</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pip install django
+</span><span class='line'>which django-admin.py</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>ShowWindow</h2>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ShowWindow(mask,SW_HIDE);
-</span><span class='line'>ShowWindow(disk,SW_HIDE);
-</span><span class='line'>Sleep(1000);
-</span><span class='line'>ShowWindow(mask,SW_SHOW);
-</span><span class='line'>ShowWindow(disk,SW_SHOW); </span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>django-admin.py startproject django_project</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Beep</h2>
+<h2>south</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pip install south</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Tutorial <a href="https://south.readthedocs.io/en/latest/tutorial/">here</a>.</p>
+
+<p>All migrations to our own apps will be done using South, including the &ldquo;initial&rdquo; migration.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pip freeze &gt; requirements.txt</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>vi settings.py</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>fabric</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pip install fabric</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>vi fabfile.py</code></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -228,27 +208,45 @@ MathJax.Hub.Config({
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
 <span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>int a[]={392,392,440,392,523,494,
-</span><span class='line'>392,392,440,392,587,523,
-</span><span class='line'>392,392,784,659,523,494,440,
-</span><span class='line'>698,698,659,523,587,523};
-</span><span class='line'>int b[]={375,125,500,500,500,1000,
-</span><span class='line'>375,125,500,500,500,1000,
-</span><span class='line'>375,125,500,500,500,500,1000,
-</span><span class='line'>375,125,500,500,500,1000};
-</span><span class='line'>string c[]={"Ha","ppy ","birth","day ","to ","you~ ",
-</span><span class='line'>"Ha","ppy ","birth","day ","to ","you~ ",
-</span><span class='line'>"Ha","ppy ","birth","day ","to ","you~ ","~",
-</span><span class='line'>"Ha","ppy ","birth","day ","to ","you~ "};
-</span><span class='line'>for(int i=0;i&lt;25;i++) {
-</span><span class='line'>  cout&lt;&lt;c[i];
-</span><span class='line'>  Beep(a[i],b[i]);
-</span><span class='line'>  if(i==5||i==11||i==18||i==24)
-</span><span class='line'>  cout&lt;&lt;endl;   
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from fabric.api import local, lcd
+</span><span class='line'>
+</span><span class='line'>def prepare_deployment(branch_name):
+</span><span class='line'>    local('python manage.py test django_project')
+</span><span class='line'>    local('git add -p && git commit') # or local('hg add && hg commit')
+</span><span class='line'>    
+</span><span class='line'>def deploy():
+</span><span class='line'>    with lcd('/path/to/my/prod/area/'):
+</span><span class='line'>
+</span><span class='line'>        # With git...
+</span><span class='line'>        local('git pull /my/path/to/dev/area/')
+</span><span class='line'>
+</span><span class='line'>        # With Mercurial...
+</span><span class='line'>        local('hg pull /my/path/to/dev/area/')
+</span><span class='line'>        local('hg update')
+</span><span class='line'>
+</span><span class='line'>        # With both
+</span><span class='line'>        local('python manage.py migrate myapp')
+</span><span class='line'>        local('python manage.py test myapp')
+</span><span class='line'>        local('/my/command/to/restart/webserver')</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>ClipCursor</h2>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ fab prepare_deployment
+</span><span class='line'>$ fab deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>unittest</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi test_&lt;appname&gt;.py</span></code></pre></td></tr></table></div></figure>
+
+
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -258,75 +256,49 @@ MathJax.Hub.Config({
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>RECT rect;
-</span><span class='line'>rect.bottom=300;
-</span><span class='line'>rect.right=300;
-</span><span class='line'>rect.top=200;
-</span><span class='line'>rect.left=200;
-</span><span class='line'>ClipCursor(&rect);
-</span><span class='line'>Sleep(3000);
-</span><span class='line'>ClipCursor(NULL);</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import datetime
+</span><span class='line'>
+</span><span class='line'>from django.test import TestCase
+</span><span class='line'>from myapp.models import Post
+</span><span class='line'>
+</span><span class='line'>class BlogPostTestCase(TestCase):
+</span><span class='line'>    def setUp(self):
+</span><span class='line'>        Post.objects.create(id=1, 
+</span><span class='line'>            title='Starting a Django 1.6 Project the Right Way', 
+</span><span class='line'>            date=datetime.datetime.now(),
+</span><span class='line'>            category='Django')
+</span><span class='line'>        Post.objects.create(id=2, 
+</span><span class='line'>            title='Python\'s Hardest Problem', 
+</span><span class='line'>            date=datetime.datetime.now(),
+</span><span class='line'>            category='Python')
+</span><span class='line'>
+</span><span class='line'>    def test_posts_have_category(self):
+</span><span class='line'>        """Animals that can speak are correctly identified"""
+</span><span class='line'>        first_post = Post.objects.get(id=1)
+</span><span class='line'>        second_post = Post.objects.get(id=2)
+</span><span class='line'>        self.assertEqual(first_post.category, 'Django')
+</span><span class='line'>        self.assertEqual(second_post.category, 'Python')</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>BlockInput</h2>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>BlockInput(TRUE);
-</span><span class='line'>Sleep(1000);
-</span><span class='line'>BlockInput(FALSE); </span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>./manage.py test &lt;appname&gt;</span></code></pre></td></tr></table></div></figure>
 
-
-<h2>mciSendString</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#include&lt;mmsystem.h&gt; // Windows Multimedia
-</span><span class='line'>#pragma comment(lib,"winmm.lib")
-</span><span class='line'>mciSendString("set cdaudio door open",NULL,0,NULL);
-</span><span class='line'>Sleep(1000); // sleep for 1 second
-</span><span class='line'>mciSendString("set cdaudio door closed wait",NULL,0,NULL);</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>SendMessage</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#include&lt;winuser.h&gt;
-</span><span class='line'>#pragma comment(lib,"user32.lib")
-</span><span class='line'>SendMessage(FindWindow(0,0),WM_SYSCOMMAND,SC_MONITORPOWER,2); // shut off
-</span><span class='line'>Sleep(1000);
-</span><span class='line'>SendMessage(FindWindow(0,0),WM_SYSCOMMAND,SC_MONITORPOWER,-1); // power on</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>PostMessage</h2>
-
-<p>Each message consists of a message identifier and two parameters, wParam(16-bit word) and lParam(32-bit long).</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>BOOL CALLBACK EnumWindowsProc(HWND hwnd,LPARAM lPram) {
-</span><span class='line'>    PostMessage(hwnd,WM_CLOSE,0,0);
-</span><span class='line'>    return (true);
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>EnumWindows</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>EnumWindows(EnumWindowsProc, 0);</span></code></pre></td></tr></table></div></figure>
-
-
-<p>In <code>lparam</code>, you can pass a simple variable to the <code>EnumProc</code> method.</p>
 </div>
   
   

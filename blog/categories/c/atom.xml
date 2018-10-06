@@ -4,7 +4,7 @@
   <title><![CDATA[Category: C | Zhengyang Song's Notepad]]></title>
   <link href="http://songzy12.github.io/blog/categories/c/atom.xml" rel="self"/>
   <link href="http://songzy12.github.io/"/>
-  <updated>2018-10-06T13:59:48+08:00</updated>
+  <updated>2018-10-06T14:27:13+08:00</updated>
   <id>http://songzy12.github.io/</id>
   <author>
     <name><![CDATA[Zhengyang Song]]></name>
@@ -12,45 +12,6 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
-  
-  <entry>
-    <title type="html"><![CDATA[CSAPP]]></title>
-    <link href="http://songzy12.github.io/blog/2017/02/27/csapp/"/>
-    <updated>2017-02-27T11:22:01+08:00</updated>
-    <id>http://songzy12.github.io/blog/2017/02/27/csapp</id>
-    <content type="html"><![CDATA[<h2>bit, byte, word</h2>
-
-<p>A bit is a BInary digiT. So a bit is a zero or a one.</p>
-
-<p>A byte is a sequence of bits. Since the mid 1960&rsquo;s a byte has been 8 bits in length. Since the number of things that you can enter on a computer keyboard is smaller than 256, a code for a keystoke is represented with a code within a byte.</p>
-
-<p>A word is the number of bits that are manipulated as a unit by the particular CPU of the computer. Data is fetched from memory to the processor in word size chunks and manipulated by the ALU in word size chunks.</p>
-
-<p><a href="http://www.cs.scranton.edu/~cil102/data_bits.html">Reference</a>.</p>
-
-<h2>32 bit, 64 bit</h2>
-
-<p>The terms 32-bit and 64-bit refer to the way a computer&rsquo;s processor (also called a CPU), handles information.</p>
-
-<p>Size of a pointer should be 8 byte on any 64-bit C/C++ compiler, but not necessarily size of int.</p>
-
-<p>In many programming environments for C and C-derived languages on 64-bit machines, int variables are still 32 bits wide, but long integers and pointers are 64 bits wide. These are described as having an LP64 data model. Another alternative is the ILP64 data model in which all three data types are 64 bits wide, and even SILP64 where short integers are also 64 bits wide.</p>
-
-<p><a href="https://en.wikipedia.org/wiki/64-bit_computing">Reference</a></p>
-
-<h2>float, double</h2>
-
-<p>CSAPP 2.4.2 <a href="https://doc.lagout.org/programmation/Computer%20Systems%20-%20A%20Programmers%20Perspective.pdf">Reference</a></p>
-
-<h2>scanf</h2>
-
-<ul>
-<li><code>float</code>: <code>%f</code></li>
-<li><code>double</code>: <code>%lf</code></li>
-</ul>
-
-]]></content>
-  </entry>
   
   <entry>
     <title type="html"><![CDATA[C]]></title>

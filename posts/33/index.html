@@ -12,10 +12,18 @@
   <meta name="description" content="1
 2
 3
-RUN bash /informix_start.sh && /setup_tc_db.sh && bash /informix_stop.sh CMD bash /informix_start.sh && bash && bash /informix_stop.sh 1
-2
-3
-4 &hellip;">
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+const fs = require('fs');
+const JFUM = require('jfum'); const jfum = new JFUM({ minFileSize: 1, maxFileSize: 50242880 &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -111,7 +119,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2017/02/09/informix/">Informix</a></h1>
+      <h1 class="entry-title"><a href="/blog/2017/01/23/jfum/">Jfum</a></h1>
     
     
       <p class="meta">
@@ -120,7 +128,7 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2017-02-09T23:52:38+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>11:52 pm</span></time>
+<time class='entry-date' datetime='2017-01-23T00:36:25+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>23</span><span class='date-suffix'>rd</span>, <span class='date-year'>2017</span></span> <span class='time'>12:36 am</span></time>
         
       </p>
     
@@ -130,66 +138,32 @@ MathJax.Hub.Config({
   <div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>RUN bash /informix_start.sh && /setup_tc_db.sh && bash /informix_stop.sh
-</span><span class='line'>
-</span><span class='line'>CMD bash /informix_start.sh && bash && bash /informix_stop.sh</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>WORKDIR /home/informix/tc-database-scripts/
-</span><span class='line'>RUN oninit && ant setup_db && onmode -ky
-</span><span class='line'>WORKDIR /home/informix
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>const fs = require('fs');
+</span><span class='line'>const JFUM = require('jfum');
 </span><span class='line'>
-</span><span class='line'>EXPOSE 2020/tcp 2021/tcp
-</span><span class='line'>CMD oninit -vy && tail -f /opt/IBM/informix/demo/server/online.log</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Only <code>oninit</code> is not enough for the <code>$PATH</code>.</p>
-
-<h2>ibmcom/informix-developer-database</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo docker build -t tc-informix .
+</span><span class='line'>const jfum = new JFUM({
+</span><span class='line'>    minFileSize: 1,
+</span><span class='line'>    maxFileSize: 50242880,                     // 50 mB
+</span><span class='line'>    acceptFileTypes: /\.(csv)$/i
+</span><span class='line'>});
 </span><span class='line'>
-</span><span class='line'>sudo docker run -it --name iif_developer_edition --privileged -p 9088:9088 -p 9089:9089 -p 27017:27017 -p 27018:27018 -p 27883:27883 -e LICENSE=accept ibmcom/informix-developer-database</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>app.post('/api/upload/stores', jfum.postHandler.bind(jfum), function(req, res) {
+</span><span class='line'>    const file = req.jfum.files[0];
+</span><span class='line'>    const input = fs.createReadStream(file.path);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
 
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>. /home/informix/ifx_dev.env </span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>export INFORMIXDIR="/opt/IBM/informix"
-</span><span class='line'>export PATH=${INFORMIXDIR}/bin:${INFORMIXDIR}/lib:${INFORMIXDIR}/lib/esql:${PATH}</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ENV INFORMIXDIR /opt/IBM/informix
-</span><span class='line'>ENV ANT_HOME /opt/apache-ant-1.9.8
-</span><span class='line'>ENV PATH $INFORMIXDIR/bin:$INFORMIXDIR/lib:$PATH:$ANT_HOME/bin</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>appiriodevops/informix</h2>
-
-<p>Dockerfile:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -202,52 +176,34 @@ MathJax.Hub.Config({
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>FROM appiriodevops/informix:base
-</span><span class='line'>
-</span><span class='line'>WORKDIR /home/informix/
-</span><span class='line'>ADD . trunk
-</span><span class='line'>RUN cp /home/informix/build.properties /home/informix/trunk/
-</span><span class='line'>WORKDIR /home/informix/trunk/
-</span><span class='line'>RUN oninit && ant setup_db && onmode -ky
-</span><span class='line'>WORKDIR /home/informix
-</span><span class='line'>
-</span><span class='line'>EXPOSE 2020/tcp 2021/tcp
-</span><span class='line'>CMD oninit -vy && tail -f /opt/IBM/informix/demo/server/online.log</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/**
+</span><span class='line'> * Runs the graphql query for import
+</span><span class='line'> * @param schema The graphql schema
+</span><span class='line'> * @param query The graphql query
+</span><span class='line'> * @param variables The variables
+</span><span class='line'> * @param callback The callback to call after running the query
+</span><span class='line'> */
+</span><span class='line'>function runGraphQl(schema, query, variables, callback) {
+</span><span class='line'>  graphql(schema, query, {},{}, variables)
+</span><span class='line'>    .then(function (result) {
+</span><span class='line'>      let r = {};
+</span><span class='line'>      if (!result.errors) r = {ret: 'success', data: result.data}
+</span><span class='line'>      else r = {ret: 'failed', data: result.errors}
+</span><span class='line'>      r = JSON.stringify(r) + '|||'
+</span><span class='line'>      callback(null, r);
+</span><span class='line'>    })
+</span><span class='line'>    .catch(callback);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
 
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>REPOSITORY                           TAG                 IMAGE ID            CREATED             SIZE
-</span><span class='line'>tc-informix-origin                   latest              a2b61148da50        38 seconds ago      7.56 GB
-</span><span class='line'>tc-informix                          latest              bebc9580cc81        21 hours ago        2.02 GB
-</span><span class='line'>ibmcom/informix-developer-database   latest              036452f28e51        2 months ago        1.74 GB
-</span><span class='line'>appiriodevops/informix               base                0941a807c39b        7 months ago        7.11 GB</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>informix_start.sh</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bash /setup_tc_db.sh
-</span><span class='line'>
-</span><span class='line'>#trap "/bin/bash /informix_stop.sh; exit $?" SIGHUP SIGINT SIGTERM SIGKILL
-</span><span class='line'>#while [ 1 ]; do sleep 1; done
-</span><span class='line'>#bash /informix_stop.sh
-</span><span class='line'>bash
-</span><span class='line'>bash /informix_stop.sh</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>setup_tc_db.sh</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -259,26 +215,160 @@ MathJax.Hub.Config({
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/bash
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/**
+</span><span class='line'> * show import error messages
+</span><span class='line'> * @param errors the errors array
+</span><span class='line'> * @someSuccessed some record import successed
+</span><span class='line'> * @param modelName , the model name
+</span><span class='line'> */
+</span><span class='line'>function showImportErrors(totalNumber,successedNumber,faileds , modelName) {
 </span><span class='line'>
-</span><span class='line'># create dbspace
-</span><span class='line'>touch /home/informix/data/spaces/datadbs.000
-</span><span class='line'>chmod 660 /home/informix/data/spaces/datadbs.000
-</span><span class='line'>onspaces -c -d datadbs -p /home/informix/data/spaces/datadbs.000 -o 0 -s 1240000
+</span><span class='line'>  const title = totalNumber &gt; faileds.length ?
+</span><span class='line'>    `${successedNumber} number of ${modelName.toLowerCase()}s successfully saved,
+</span><span class='line'>     but the following ${failed.length} number of users failed.`
+</span><span class='line'>    : `All ${modelName.toLowerCase()}s import failed.`;
 </span><span class='line'>
+</span><span class='line'>  let content = '&lt;b&gt;' + title + '&lt;/b&gt;';
+</span><span class='line'>  content += '&lt;ul&gt;';
+</span><span class='line'>  for (let i = 0; i &lt; faileds.length; i++) {
+</span><span class='line'>    content += `&lt;li&gt; ${modelName} failed to save due to ${faileds[i].data[0].message}&lt;/li&gt;`;
+</span><span class='line'>  }
+</span><span class='line'>  content += '&lt;/ul&gt;';
+</span><span class='line'>  showAlert(content, totalNumber &gt; faileds.length ? 'alert-success' : 'alert-danger');
+</span><span class='line'>}
 </span><span class='line'>
-</span><span class='line'>cd /home/informix/tc-database-scripts
-</span><span class='line'>/opt/apache-ant-1.9.8/bin/ant setup_db</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>/**
+</span><span class='line'> * Attach jquery file uploader to the element
+</span><span class='line'> * @param token The auth token
+</span><span class='line'> * @param refreshFn The refresh function
+</span><span class='line'> * @param modelName , the model name
+</span><span class='line'> */
+</span><span class='line'>function attachFileUploader(token, refreshFn, modelName) {
+</span><span class='line'>  $('#fileupload').fileupload({
+</span><span class='line'>    sequentialUploads: true,
+</span><span class='line'>    acceptFileTypes: /\.(csv)$/i,
+</span><span class='line'>    beforeSend: function(xhr) {
+</span><span class='line'>      xhr.setRequestHeader('X-AuthToken', token.apiKey);
+</span><span class='line'>    },
+</span><span class='line'>    done: function (e, data) {
+</span><span class='line'>      const resultsStrArray = data.result.split('|||');
+</span><span class='line'>      let successedNumber = 0;
+</span><span class='line'>      const faileds = [];
+</span><span class='line'>      for (let i = 0; i &lt; resultsStrArray.length - 1; i++) {
+</span><span class='line'>        const r = JSON.parse(resultsStrArray[i]);
+</span><span class='line'>        if (r.ret === 'success') {
+</span><span class='line'>          successedNumber += 1;
+</span><span class='line'>        } else {
+</span><span class='line'>          faileds.push(r);
+</span><span class='line'>        }
+</span><span class='line'>      }
+</span><span class='line'>      if (faileds.length == 0) {
+</span><span class='line'>        showAlert(`${successedNumber} number of ${modelName.toLowerCase()}s successfully saved.`, 'alert-success');
+</span><span class='line'>      } else {
+</span><span class='line'>        showImportErrors(resultsStrArray.length - 1, successedNumber, faileds, modelName);
+</span><span class='line'>      }
+</span><span class='line'>      refreshFn();
+</span><span class='line'>    },
+</span><span class='line'>    fail: function(event, err) {
+</span><span class='line'>      let rspTxt = err.jqXHR.responseText;
+</span><span class='line'>      try{
+</span><span class='line'>        const errorJson = JSON.parse(rspTxt);
+</span><span class='line'>        rspTxt = errorJson[0].message || rspTxt;
+</span><span class='line'>      }catch (e){}
+</span><span class='line'>      showAlert('Import Failed due to ' + (rspTxt || 'server inner error') + '.' , 'alert-danger');
+</span><span class='line'>    }
+</span><span class='line'>  });
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>permission</h2>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  329: Database not found or no system permission.
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// Bootstraps the app
+</span><span class='line'>$(() =&gt; {
+</span><span class='line'>  if(!token.isSuperAdmin) $('#stores-link').addClass('hide');
+</span><span class='line'>  refreshEntities();
+</span><span class='line'>  attachFileUploader(token, refreshEntities , 'User');
 </span><span class='line'>
-</span><span class='line'>  144: ISAM error: key value locked</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>  let timer;
+</span><span class='line'>  $("#search-input").keyup(function() {
+</span><span class='line'>    clearTimeout(timer);
+</span><span class='line'>    let ms = 200; // milliseconds
+</span><span class='line'>    let val = this.value;
+</span><span class='line'>    timer = setTimeout(function() {
+</span><span class='line'>      search(val);
+</span><span class='line'>    }, ms);
+</span><span class='line'>  });
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

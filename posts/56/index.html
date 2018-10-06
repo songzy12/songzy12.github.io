@@ -9,11 +9,9 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="Squashing Git Commits https://gist.github.com/patik/b8a9dc5cd356f9f6f980 1
-2
-git reset --soft HEAD~3
-git commit -m "Squashing Git Commits" 1
-git push &hellip;">
+  <meta name="description" content="流程 将 problem_parser/es/data 文件 cp 至 answer_selection/data.
+生成 Qtrain.txt 1
+http://10.9.10.174:9201/forum/verbose/_search?pretty=1&q=question_body: &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -109,7 +107,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/12/14/git/">Git</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/11/21/word2vec/">Word2vec</a></h1>
     
     
       <p class="meta">
@@ -118,522 +116,117 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-12-14T01:47:26+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>1:47 am</span></time>
+<time class='entry-date' datetime='2016-11-21T13:50:37+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>1:50 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>Squashing Git Commits</h2>
-
-<p><a href="https://gist.github.com/patik/b8a9dc5cd356f9f6f980">https://gist.github.com/patik/b8a9dc5cd356f9f6f980</a></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git reset --soft HEAD~3
-</span><span class='line'>git commit -m "Squashing Git Commits"</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git push origin +master</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git log --author=songzy
-</span><span class='line'>git reset f7f4aec68
-</span><span class='line'>git log -2
-</span><span class='line'>git reset 7e26106
-</span><span class='line'>git log -2
-</span><span class='line'>git clean -df
-</span><span class='line'>git checkout -- .</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>git reset</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git reset &lt;file&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Remove the specified file from the staging area, but leave the working directory unchanged.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git reset</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Reset the staging area to match the most recent commit, but leave the working directory unchanged.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git reset --hard</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Reset the staging area and the working directory to match the most recent commit.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git reset &lt;commit&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Move the current branch tip backward to <commit>, reset the staging area to match, but leave the working directory alone.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git reset --hard &lt;commit&gt;
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Move the current branch tip backward to <commit> and reset both the staging area and the working directory to match.</p>
-
-<p>Whereas reverting is designed to safely undo a public commit, git reset is designed to undo local changes.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git add foo.py
-</span><span class='line'>git commit -m "Start developing a crazy feature"
-</span><span class='line'>git commit -a -m "Continue my crazy feature"
-</span><span class='line'>git reset --hard HEAD~2
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The <code>git reset HEAD~2</code> command moves the current branch backward by two commits.</p>
-
-<h2>git rebase</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># Add the remote, call it "upstream":
-</span><span class='line'>
-</span><span class='line'>git remote add upstream https://github.com/whoever/whatever.git
-</span><span class='line'>
-</span><span class='line'># Fetch all the branches of that remote into remote-tracking branches,
-</span><span class='line'># such as upstream/master:
-</span><span class='line'>
-</span><span class='line'>git fetch upstream
-</span><span class='line'>
-</span><span class='line'># Make sure that you're on your master branch:
-</span><span class='line'>
-</span><span class='line'>git checkout master
-</span><span class='line'>
-</span><span class='line'># Rewrite your master branch so that any commits of yours that
-</span><span class='line'># aren't already in upstream/master are replayed on top of that
-</span><span class='line'># other branch:
-</span><span class='line'>
-</span><span class='line'>git rebase upstream/master
-</span><span class='line'>
-</span><span class='line'>git push -f origin master</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>git branch</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git show-branch -a</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Show branches and their commits</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git branch &lt;branch&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Create a new branch called <branch>. This does not check out the new branch.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git branch -d &lt;branch&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Delete the specified branch.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git branch -D &lt;branch&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Force delete the specified branch, even if it has unmerged changes.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git branch -m &lt;branch&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Rename the current branch to <code>&lt;branch&gt;</code>.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout $branch2
-</span><span class='line'>git merge $branch1</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Merge branch1 into branch2.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>warning: refname 'HEAD' is ambiguous.</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git branch -m HEAD temp
-</span><span class='line'>git branch -d temp</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>git checkout</h2>
-
-<p>Give up the current modification and go back to the last commit</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout -- .</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git log --oneline
-</span><span class='line'>
-</span><span class='line'>b7119f2 Continue doing crazy things
-</span><span class='line'>872fa7e Try something crazy
-</span><span class='line'>a1e8fb5 Make some important changes to hello.py
-</span><span class='line'>435b61d Create hello.py
-</span><span class='line'>9773e52 Initial import</span></code></pre></td></tr></table></div></figure>
-
-
-<p>You can find the ID of the revision you want to see.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout a1e8fb5
-</span><span class='line'>git checkout master</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Nothing you do in here will be saved in your repository.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout a1e8fb5 hello.py
-</span><span class='line'>git checkout HEAD hello.py</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Unlike checking out a commit, this does affect the current state of your project.</p>
-
-<hr />
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git status
-</span><span class='line'>HEAD detached From 91ea20b</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout source
-</span><span class='line'>error: Your local changes to the following files would be overwritten by checkout:
-</span><span class='line'>        source/_posts/2016-02-25-github.markdown
-</span><span class='line'>Please, commit your changes or stash them before you can switch branches.
-</span><span class='line'>Aborting</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git stash
-</span><span class='line'>git checkout source</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>git clean</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git clean -n</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This will show you which files are going to be removed without actually doing it.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git clean -f</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Remove untracked files from the current directory.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git clean -f &lt;path&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Remove untracked files, but limit the operation to the specified path.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git clean -df</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Remove untracked files and untracked directories from the current directory.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git clean -xf</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Remove untracked files from the current directory as well as any files that Git usually ignores.</p>
-
-<h2>git clone</h2>
-
-<p>If you clone a repository, the default branch you have is whatever the remote&rsquo;s <code>HEAD</code> points to (<code>HEAD</code> is actually a symbolic ref that points to a branch name).</p>
-
-<p>A symbolic ref is a regular file that stores a string that begins with <code>ref: refs/</code>. For example, your <code>.git/HEAD</code> is a regular file whose contents is <code>ref: refs/heads/master</code>.</p>
-
-<p><code>HEAD@{1}</code> is always last value of <code>HEAD</code>, <code>ORIG_HEAD</code> is last value of <code>HEAD</code> before dangerous operation.</p>
-
-<h2>git commit</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git commit --amend </span></code></pre></td></tr></table></div></figure>
-
-
-<p>Combine the staged changes with the previous commit and replace the previous commit with the resulting snapshot.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git commit -a</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Commit all your local changes. (like <code>git add .</code> followed by <code>git commit</code>)</p>
-
-<h2>git config</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vi ~/.gitconfig</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git config --global user.email "your_email@example.com"
-</span><span class='line'>git config --global user.email</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>git diff</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git diff filename</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>git fetch</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git fetch</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Fetch all of the branches from the repository. This also downloads all of the required commits and files from the other repository.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git checkout master
-</span><span class='line'>git log origin/master
-</span><span class='line'>git merge origin/master</span></code></pre></td></tr></table></div></figure>
-
-
-<hr />
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>error: RPC failed; result=18, HTTP code = 0</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git fetch origin master
-</span><span class='line'>git merge origin/master</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>git format-patch</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ git format-patch -o ./patches -2
-</span><span class='line'>0001-C.patch
-</span><span class='line'>0002-D.patch</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git am ./patches/*</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>git log</h2>
-
-<p>Check all the change paths to file <code>Predictor.java</code>.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git log --follow -p Predictor.java
-</span><span class='line'>git log -p -1</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>git merge</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git merge --squash &lt;branch_name&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>將另一個 branch 的 commit 合併為一筆，特別適合需要做實驗的 fixes bug 或 new feature，最後只留結果。合併完不會幫你先 commit。</p>
-
-<h2>git pull</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>如果远程分支是与当前分支合并，则冒号后面的部分可以省略。</p>
-
-<p><a href="https://www.atlassian.com/git/tutorials/resetting-checking-out-and-reverting/">Here</a>.</p>
-
-<hr />
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ssh: connect to host github.com port 22: Connection refused</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vi ~/.ssh/config
-</span><span class='line'>
-</span><span class='line'>Host github.com
-</span><span class='line'>  Hostname ssh.github.com
-</span><span class='line'>  Port 443</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>git push</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git push &lt;远程主机名&gt; &lt;本地分支名&gt;:&lt;远程分支名&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git push origin HEAD:master</span></code></pre></td></tr></table></div></figure>
-
-
-<p>See the commits tab(rather than project tab). It is all there.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ssh -v -T songzy12@git.tsinghuax.org</span></code></pre></td></tr></table></div></figure>
-
-
-<p>IP filtered, move to your lab.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>fatal: Could not read from remote repository.</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Server down.</p>
-
-<h2>git remote</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git remote set-url origin git@github.com:songzy12/certificate_predictor.git</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>git revert</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git revert &lt;commit&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Generate a new commit that undoes all of the changes introduced in <code>&lt;commit&gt;</code>, then apply it to the current branch.</p>
+  <div class="entry-content"><h2>流程</h2>
 
 <ul>
-<li>it doesn’t change the project history</li>
-<li>it is able to target an individual commit at an arbitrary point in the history</li>
+<li>将 problem_parser/es/data 文件 cp 至 answer_selection/data.</li>
+<li>生成 Qtrain.txt</li>
 </ul>
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git commit -m "Make some changes that will be undone"
-</span><span class='line'>git revert HEAD</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://10.9.10.174:9201/forum/verbose/_search?pretty=1&q=question_body:数据结构</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>git rm</h2>
+<h2>Attentive Interactive Neural Networks</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git rm -r --cached ".\source\_posts\Git Shell.lnk"</span></code></pre></td></tr></table></div></figure>
+<p>Modify <code>trainClues</code> in <code>train.py</code>.</p>
 
+<p>Add <code>setAttentions</code> in <code>class q</code> of <code>basicgrad.py</code></p>
 
-<p>The git rm command will allows you to remote a file from git control. The –cached option to git remove allows you to leave it on your hard drive.</p>
+<p>Modify <code>getInputs</code> in <code>basicgrad.py</code>.</p>
 
-<h2>git stash</h2>
+<p>Add some fields to the existing <code>es</code>.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git stash
-</span><span class='line'>git stash list
-</span><span class='line'>git stash pop
-</span><span class='line'>git stash clear
-</span><span class='line'>git stash drop</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; db.contents.find({"anonymous":true}).count()
+</span><span class='line'>&gt; 769
+</span><span class='line'>&gt; db.contents.find().count()
+</span><span class='line'>597709</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>fileMode</h2>
+<p></p>
 
 <ul>
-<li>100644: normal file</li>
-<li>100755: executable file</li>
-<li>120000: symbolic link</li>
+<li>question_title, question_body, answer</li>
+<li>max_core - x[_score] &lt; threshold</li>
 </ul>
 
 
-<p>The mode is taken from normal UNIX modes but is much less flexible – these three modes are the only ones that are valid for files (blobs) in Git (although other modes are used for directories and submodules).</p>
+<h2>Answer Sentence Selection</h2>
 
-<p>The 6 digits show the file mode using the classical UNIX notations. First two digits show file type, the third one is about set-uid/set-gid/sticky bits, and you know the last three. 4\2\1 is just r\w\x.</p>
+<p><a href="https://github.com/brmson/Sentence-selection">here</a></p>
+
+<p>Add file <code>training_data_generator.py</code>.</p>
+
+<p>Modify <code>std_run.sh</code>.</p>
+
+<p>Modify <code>textArrays</code> from <code>vecfromtext.py</code>.</p>
+
+<p>Modify <code>prepForGrad</code> from <code>bow.py</code>.</p>
+
+<p>Modify <code>getGloveDict</code> from <code>vecfromtext.py</code>.</p>
+
+<p>Replace <code>glove.6B.50d.txt</code> for <code>wiki.zh.text.jieba.model</code>.</p>
+
+<p>Modify <code>GLOVELEN</code>, <code>GLOVEPATH2</code> from <code>const.py</code>.</p>
+
+<p>Modify <code>boxSentence</code> from <code>bow.py</code>.</p>
+
+<p>Modify <code>q.setCounts</code> from <code>basicgrad.py</code>.</p>
+
+<p>Debug: <code>saveMb</code> from <code>vecfromtext.py</code>. Since <code>M</code> is too big so it is in the next page.</p>
+
+<p>Add file <code>test.py</code>, based on <code>sett</code> and <code>firstTrue</code> from <code>basicgrad.py</code>.</p>
+
+<p>Add method <code>loadMb</code> from <code>vecfromtext.py</code>.</p>
+
+<p>Add method <code>saveTest</code> from <code>save.py</code>.</p>
+
+<p>Add file <code>test.py</code> for test.</p>
+
+<h2>Word2vec</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>man 2 stat</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /usr/local/lib/python2.7/dist-packages/gensim/models/word2vec.py</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://www.52nlp.cn/%E4%B8%AD%E8%8B%B1%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E8%AF%AD%E6%96%99%E4%B8%8A%E7%9A%84word2vec%E5%AE%9E%E9%AA%8C">here</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>wget https://dumps.wikimedia.org/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2
+</span><span class='line'>python process_wiki.py zhwiki-latest-pages-articles.xml.bz2 wiki.zh.text
+</span><span class='line'>opencc -i wiki.zh.text -o wiki.zh.text.jian -c zht2zhs.ini</span></code></pre></td></tr></table></div></figure>
+
+
+<p>mecab: <a href="http://www.52nlp.cn/%E7%94%A8mecab%E6%89%93%E9%80%A0%E4%B8%80%E5%A5%97%E5%AE%9E%E7%94%A8%E7%9A%84%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E7%B3%BB%E7%BB%9F">here</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mecab -d  ./msr_mecab_test/final/ -O wakati wiki.zh.text.jian -o wiki.zh.text.jian.seg -b 10000000
+</span><span class='line'>iconv -c -t UTF-8 &lt; wiki.zh.text.jian.seg &gt; wiki.zh.text.jian.seg.utf-8
+</span><span class='line'>python train_word2vec_model.py wiki.zh.text.jian.seg.utf-8 wiki.zh.text.model wiki.zh.text.vector</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Word Movers Distance</h2>
+
+<p><a href="http://nbviewer.jupyter.org/github/vene/vene.github.io/blob/pelican/content/blog/word-movers-distance-in-python.ipynb">Here</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>wget https://s3.amazonaws.com/mordecai-geo/GoogleNews-vectors-negative300.bin.gz</span></code></pre></td></tr></table></div></figure>
 
 
 
@@ -643,38 +236,14 @@ MathJax.Hub.Config({
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>   S_IFLNK    0120000   symbolic link
-</span><span class='line'>   S_IFREG    0100000   regular file
-</span><span class='line'>
-</span><span class='line'>   S_IRWXU    00700     mask for file owner permissions
-</span><span class='line'>   S_IRUSR    00400     owner has read permission
-</span><span class='line'>   S_IWUSR    00200     owner has write permission
-</span><span class='line'>   S_IXUSR    00100     owner has execute permission
-</span><span class='line'>   S_IRWXG    00070     mask for group permissions
-</span><span class='line'>   S_IRGRP    00040     group has read permission
-</span><span class='line'>   S_IWGRP    00020     group has write permission
-</span><span class='line'>   S_IXGRP    00010     group has execute permission
-</span><span class='line'>   S_IRWXO    00007     mask for permissions for others (not in group)
-</span><span class='line'>   S_IROTH    00004     others have read permission           
-</span><span class='line'>   S_IWOTH    00002     others have write permission
-</span><span class='line'>   S_IXOTH    00001     others have execute permission</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import gensim
+</span><span class='line'>model = gensim.models.Word2Vec.load("wiki.zh.text.model")
+</span><span class='line'>s1 = list(jieba.cut(jz1))
+</span><span class='line'>s2 = list(jieba.cut(jz2))
+</span><span class='line'>res = -model.wmdistance(s1, s2)</span></code></pre></td></tr></table></div></figure>
 
 
-<p>To ignore file mode changes:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>repo forall -c git config core.fileMode false</span></code></pre></td></tr></table></div></figure>
-
+<p><a href="https://radimrehurek.com/gensim/models/word2vec.html">here</a>.</p>
 </div>
   
   

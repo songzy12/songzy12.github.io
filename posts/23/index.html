@@ -9,8 +9,13 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="事情的起因是舍友问了这样一道题目： 1
-一枚硬币, 扔出 H 的概率为 p, T 的概率为 q, 计算首次扔出 T\underbrace{H\dots H}_{k} 所需投掷次数的数学期望。 我们先来考虑 \underbrace{H\dots H}_{k} 这样简单后的情形， &hellip;">
+  <meta name="description" content="www.hackthis.co.uk levels main 1 1
+&lt;!-- username: in, password: out --&gt; levels main 2 1
+2
+3
+4
+5
+&lt;label for="user"&gt;Username:&lt;/label&gt &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -106,7 +111,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2017/03/22/expectation-of-random-variables/">Expectation of Random Variables</a></h1>
+      <h1 class="entry-title"><a href="/blog/2017/03/18/main/">Main</a></h1>
     
     
       <p class="meta">
@@ -115,144 +120,48 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2017-03-22T13:11:13+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2017</span></span> <span class='time'>1:11 pm</span></time>
+<time class='entry-date' datetime='2017-03-18T15:46:25+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>3:46 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p>事情的起因是舍友问了这样一道题目：</p>
+  <div class="entry-content"><p><code>www.hackthis.co.uk</code></p>
+
+<h2>levels main 1</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>一枚硬币, 扔出 H 的概率为 p, T 的概率为 q, 计算首次扔出 T\underbrace{H\dots H}_{k} 所需投掷次数的数学期望。 </span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!-- username: in, password: out --&gt;</span></code></pre></td></tr></table></div></figure>
 
 
-<p>我们先来考虑 <code>\underbrace{H\dots H}_{k}</code> 这样简单后的情形，然后试图将其推广到任意模式的一般情况。</p>
-
-<p>记 随机变量 <code>X_k</code> 为 首次投掷出 <code>\underbrace{H\dots H}_{k}</code> 所需的次数。</p>
-
-<h3>法一</h3>
-
-<p>设我们要求的数学期望为 <code>e</code>, 则有</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>e = q (1+e) + p q (2+e) + p p q (3+e) + p^{k-1} q (k+e) + p^k k </span></code></pre></td></tr></table></div></figure>
-
-
-<p>这是对前 <code>k</code> 位可能出现的模式进行分类讨论得到的。</p>
-
-<p>记 <code>S=1+2p+3p^2+\dots+kp^{k-1}</code>, 可得 <code>S=1/q((1-p^k)/q-kp^k)</code>.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>e 
-</span><span class='line'>= q(1+2p+3p^2+\dots+kp^{k-1})+kp^k+q(1+p+\dots+p^{k-1})e
-</span><span class='line'>= q 1/q ((1-p^k)/q-kp^k) + kp^k + q 1/q(1-p^k) e
-</span><span class='line'>= (1-p^k)/q + (1-p^k) e</span></code></pre></td></tr></table></div></figure>
-
-
-<p>从而</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>e = 1/q (1/p ^k - 1)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>这与我们上面的结果是吻合的。</p>
-
-<p>推广：首次投掷出 HTHHT</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>e = q(1+e) + pp(2+e) + pqq(3+e) + pqpq(4+e) + pqppp(5+e) + pqppq 5</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>法二</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>X_k = (X_{k-1} + 1)\cdot p + (X_{k-1} + 1 + X_k)\cdot q
-</span><span class='line'>X_0 = 0 </span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>X_k = 1/p X_{k-1} + 1/p</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>X_k = 1/q (1/p ^k - 1)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>而递推式的由来在于</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  Pr(X_k = n) 
-</span><span class='line'>= Pr(X_{k-1} = n-1) p + \sum_m [ Pr(X_{k-1}=m) q Pr(X_{k}=n-m-1) ]
-</span><span class='line'>= p Pr(X_{k-1}+1 = n) + q \sum_m [ Pr(X_{k-1}=m) Pr(X_{k}+1=n-m) ] </span></code></pre></td></tr></table></div></figure>
-
-
-<p>也就是</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>X_k = p (X_{k-1}+1) + q (X_{k-1}+X_{k}+1)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>这是由于对于随机变量 <code>X, Y, Z</code>, 若 <code>Z=X+Y</code>，则</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Pr(Z=n) = \sum_m [Pr(X=m) Pr(Y=n-m)]</span></code></pre></td></tr></table></div></figure>
-
-
-<p>递推法可以使得我们顺便求出所有的 <code>X_k</code></p>
-
-<p>推广：首次投掷出 HTHHT</p>
-
-<h3>法三</h3>
-
-<p>If <code>f(x)</code> is the generating function of the probability <code>p_n</code> of the ending after <code>n</code> tosses</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>f(x) = \sum_n p_n x^n</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Consider the following toss strings, probabilities, and terms</p>
+<h2>levels main 2</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>T                                q           qx
-</span><span class='line'>HT                                pq          pqx^2
-</span><span class='line'>HHT                               p^2q        p^2qx^3
-</span><span class='line'>\underbrace{H\dots H}_{k-1}T  p^{k-1}q    p^{k-1}qx^k
-</span><span class='line'>\underbrace{H\dots H}_k           p^{k}       p^kx^k</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;label for="user"&gt;Username:&lt;/label&gt; &lt;span style="color: #000000"&gt;resu&lt;/span&gt;
+</span><span class='line'>&lt;input type="Text" name="user" id="user" autocomplete="off"&gt;&lt;br&gt;
+</span><span class='line'>&lt;label for="user"&gt;Password:&lt;/label&gt; &lt;span style="color: #000000"&gt;ssap&lt;/span&gt;
+</span><span class='line'>&lt;input type="Password" name="pass" id="pass" autocomplete="off"&gt;&lt;br&gt;
+</span><span class='line'>&lt;input type="submit" value="Submit" class="button"&gt;</span></code></pre></td></tr></table></div></figure>
 
 
-<p>We get the generating function of the probability of ending after <code>n</code> tosses to be</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>f(x) 
-</span><span class='line'>= \sum_m (\sum_{t=1}^k p^{t-1}qx^t)^m p^kx^k
-</span><span class='line'>= p^kx^k / (1-\sum_{t=1}^k p^{t-1}qx^t)</span></code></pre></td></tr></table></div></figure>
-
-
-
+<h2>levels main 3</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>f'(1) = \sum p_n n = </span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript'&gt; $(function(){ $('.level-form').submit(function(e){ if(document.getElementById('user').value == 'heaven' && document.getElementById('pass').value == 'hell') { } else { e.preventDefault(); alert('Incorrect login') } })})&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
 
 
-<p>推广：首次投掷出 HTHHT</p>
+<h2>levels main 4</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;input type="hidden" name="passwordfile" value="../../extras/ssap.xml"&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>levels main 5</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -260,12 +169,90 @@ MathJax.Hub.Config({
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>T        qx
-</span><span class='line'>HH        p^2x^2
-</span><span class='line'>HTT       pq^2x^3
-</span><span class='line'>HTHT  p^2q^2x^4
-</span><span class='line'>HTHHH p^4qx^5
-</span><span class='line'>HTHHT p^3q^2x^5</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script language="JavaScript" type="text/javascript"&gt;
+</span><span class='line'>    var pass;
+</span><span class='line'>    pass=prompt("Password","");
+</span><span class='line'>    if (pass=="9286jas") {
+</span><span class='line'>        window.location.href="/levels/main/5?pass=9286jas";
+</span><span class='line'>    }
+</span><span class='line'>&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>levels main 7</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://www.hackthis.co.uk/robots.txt</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>levels main 8</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;fieldset&gt;
+</span><span class='line'>    &lt;label for="user"&gt;Username:&lt;/label&gt;
+</span><span class='line'>    &lt;input type="Text" name="user" id="user" autocomplete="off"&gt;&lt;br&gt;
+</span><span class='line'>    &lt;label for="user"&gt;Password:&lt;/label&gt;
+</span><span class='line'>    &lt;input type="Password" name="pass" id="pass" autocomplete="off"&gt;&lt;br&gt;
+</span><span class='line'>    &lt;input type="hidden" name="passwordfile" value="extras/secret.txt"&gt;
+</span><span class='line'>    &lt;input type="submit" value="Submit" class="button"&gt;
+</span><span class='line'>&lt;/fieldset&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>view-source:https://www.hackthis.co.uk/levels/extras/secret.txt</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>1011 0000 0000 1011
+</span><span class='line'>1111 1110 1110 1101</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>b00b
+</span><span class='line'>feed</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>B00B
+</span><span class='line'>FEED</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>levels main 9</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;fieldset&gt;
+</span><span class='line'>    &lt;label for="user"&gt;Username:&lt;/label&gt;
+</span><span class='line'>    &lt;input type="Text" name="user" id="user" autocomplete="off"&gt;&lt;br&gt;
+</span><span class='line'>    &lt;label for="user"&gt;Password:&lt;/label&gt;
+</span><span class='line'>    &lt;input type="Password" name="pass" id="pass" autocomplete="off"&gt;&lt;br&gt;
+</span><span class='line'>    &lt;a class='left' href='?forgot'&gt;Request details&lt;/a&gt;
+</span><span class='line'>    &lt;input type="submit" value="Submit" class="button"&gt;
+</span><span class='line'>&lt;/fieldset&gt;</span></code></pre></td></tr></table></div></figure>
 
 
 
@@ -273,10 +260,34 @@ MathJax.Hub.Config({
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>f(x) 
-</span><span class='line'>=\sum (qx+p^2x^2+pq^2x^3+p^2q^2x^4+p^4qx^5)^m p^3q^2x^5
-</span><span class='line'>=</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;fieldset&gt;
+</span><span class='line'>    &lt;label for="email1"&gt;Email:&lt;/label&gt;
+</span><span class='line'>    &lt;input type="text" name="email1" id="email1" autocomplete="off"&gt;&lt;br&gt;
+</span><span class='line'>    &lt;input type="hidden" name="email2" id="email2" value="admin@hackthis.co.uk" autocomplete="off"&gt;
+</span><span class='line'>    &lt;input type="submit" value="Submit" class="button"&gt;
+</span><span class='line'>&lt;/fieldset&gt;</span></code></pre></td></tr></table></div></figure>
 
+
+<p>You need to enter the same email for <code>email1</code> and <code>email2</code>.</p>
+
+<h2>levels main 10</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;input type="hidden" name="passwordfile" value="level10pass.txt"&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>https://www.hackthis.co.uk/levels/extras/level10pass.txt</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>69bfe1e6e44821df7f8a0927bd7e61ef208fdb25deaa4353450bc3fb904abd52:f1abe1b083d12d181ae136cfc75b8d18a8ecb43ac4e9d1a36d6a9c75b6016b61</span></code></pre></td></tr></table></div></figure>
+
+
+<p>CrackStation</p>
+
+<p><code>sha256</code> <code>carl:guess</code></p>
 </div>
   
   

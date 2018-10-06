@@ -9,23 +9,12 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="MathJax 1
+  <meta name="description" content="Setup 1
 2
 3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-&lt;!-- mathjax config similar to math.stackexchange --&gt;
-&lt;script type="text/x-mathjax-config"&gt; &hellip;">
+gem install bundler
+bundle install
+bundle exec rake gen_deploy Usage rake deploy will push the content of directory _deploy/ to remote &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -68,8 +57,8 @@ MathJax.Hub.Config({
   <!-- Begin Jekyll SEO tag v2.5.3 -->
 <title>Octopress - Zhengyang Song&rsquo;s Notepad</title>
 <meta property="og:title" content="Octopress" />
-<meta name="description" content="MathJax```Here note the `https`. 当两个 `$` 之间有其他 html tag 的时候 MathJax 就会不工作。这时候我们可以右键审查元素来确定是哪些符号出现了问题，然后使用 `\` 来将其转义。## rakerake setup_github_pages```Setup a master branch in the _deploy directory for deployment.rake new_post['Octopress']Create source/_posts/2011-07-03-octopress.markdown.rake generateGenerates posts and pages into the public directory.rake watchWatches source/ and sass/ for changes and regenerates.rake previewWatches, and mounts a webserver at http://localhost:4000.rake gen_deployThis will generate your blog, copy the generated files into _deploy/, add them to git, commit and push them up to the master branch. Use Git Shell.sourcerake deploy will push the content of directory _deploy/ to remote repository origin.Then we push all the content of source branch to remote repository octopress.  Note we ignore _deploy in .gitignore.git remote -voctopress       git://github.com/imathis/octopress.git (fetch)octopress       git://github.com/imathis/octopress.git (push)origin  git@github.com:songzy12/songzy12.github.io.git (fetch)origin  git@github.com:songzy12/songzy12.github.io.git (push)git remote remove octopressgit remote add octopress https://github.com/songzy12/octopress.gitDon&rsquo;t forget to commit the source for your blog.git add .git commit -m 'your message'git branch mastergit checkout mastergit branch -d sourcegit push octopressrake gen_deploy_deployrobots.txt（统一小写）是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被漫游器获取的。允许所有的机器人：User-agent: *Disallow:Sitemap指令被几大搜索引擎支持（包括Google、Yahoo、Bing和Ask），指定了网站Sitemaps文件的位置。 Sitemaps文件包含了网站页面所在的URL的一个列表。Sitemap: &lt;http://www.example.com/sitemap.xml&gt;RakefileInsert one line after line 118 of Rakefile to avoid rendering error of GFM.open(filename, 'w') do |post|    post.puts "---"    post.puts "layout: post"    post.puts "title: \"#{title.gsub(/&amp;/,'&amp;amp;')}\""    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}"    post.puts "comments: true"    post.puts "categories: "    post.puts     post.puts "---"endModify line 26 and line 27 of Rakefile to make the new post extension simple.new_post_ext    = "md"  new_page_ext    = "md"_config.ymlModify line 6 and 7 of _config.yml to redefine the title and subtitle.orderingOnly reverse chronological and chronological ordering is supported in Jekyll. Here.Rename the file and change the date filed in the header.Wait for several minutes so that Github can finish the updates about website. Use Ctrl+F5.moreBe care of the tag which will appear in real html files. Just leave a space ahead. &lt;!-- more --&gt;markdownBasic syntax for GFM(Github Flavored Markdown): here.We use Linguist to perform language detection and syntax highlighting. Valid keywords: here.compasscompass commandcompass compile [path/to/project]Compile the project&rsquo;s sass files into css.LiquidLiquid Exception: Variable '{ {1,'a'}' was not properly terminated with regexp: /\}\}/I hack this by replace it with &ldquo;{ {&rdquo; &hellip;jekylljekyll 2.5.3 | Error:  Pygments can't parse unknown language: &lt;/p&gt;.Modify the Ruby file plugins/pygments_code.rb, add #{code} after #{lang}.jekyll 2.5.3 | Error:  Invalid argument @ rb_sysopen - D:/Users/Andy/Documents/GitHub/octopress/.pygments-cache/&lt;/p&gt;-a9ad3a2d399e94a44393597f19fb81e4.htmljekyll build --trace jekyll buildjekyll 2.5.3 | Error:  undefined method `[]' for nil:NilClassIt is caused by highlighter. See _config.yml:markdown: rdiscountrdiscount:  extensions:    - autolink    - footnotes    - smarthighlighter: pygmentsThough Github flavored markdown uses redcarpet2, this markdown parser is not supported by Jekyll by default.Modifying hosts can make the accesss of Github faster, due to the reason of googleapi.rake previewThe system cannot find the path specified.In my case RUBY_PLATFORM is i386-mingw32 and else block adds &gt;/dev/null which is valid silencer for linux but gives the error in windows.All works well under Ubuntu.server_port     = "4000"      # port for preview server eg. localhost:4000rackup --port #{server_port}" />
-<meta property='og:description' content="MathJax```Here note the `https`. 当两个 `$` 之间有其他 html tag 的时候 MathJax 就会不工作。这时候我们可以右键审查元素来确定是哪些符号出现了问题，然后使用 `\` 来将其转义。## rakerake setup_github_pages```Setup a master branch in the _deploy directory for deployment.rake new_post['Octopress']Create source/_posts/2011-07-03-octopress.markdown.rake generateGenerates posts and pages into the public directory.rake watchWatches source/ and sass/ for changes and regenerates.rake previewWatches, and mounts a webserver at http://localhost:4000.rake gen_deployThis will generate your blog, copy the generated files into _deploy/, add them to git, commit and push them up to the master branch. Use Git Shell.sourcerake deploy will push the content of directory _deploy/ to remote repository origin.Then we push all the content of source branch to remote repository octopress.  Note we ignore _deploy in .gitignore.git remote -voctopress       git://github.com/imathis/octopress.git (fetch)octopress       git://github.com/imathis/octopress.git (push)origin  git@github.com:songzy12/songzy12.github.io.git (fetch)origin  git@github.com:songzy12/songzy12.github.io.git (push)git remote remove octopressgit remote add octopress https://github.com/songzy12/octopress.gitDon&rsquo;t forget to commit the source for your blog.git add .git commit -m 'your message'git branch mastergit checkout mastergit branch -d sourcegit push octopressrake gen_deploy_deployrobots.txt（统一小写）是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被漫游器获取的。允许所有的机器人：User-agent: *Disallow:Sitemap指令被几大搜索引擎支持（包括Google、Yahoo、Bing和Ask），指定了网站Sitemaps文件的位置。 Sitemaps文件包含了网站页面所在的URL的一个列表。Sitemap: &lt;http://www.example.com/sitemap.xml&gt;RakefileInsert one line after line 118 of Rakefile to avoid rendering error of GFM.open(filename, 'w') do |post|    post.puts "---"    post.puts "layout: post"    post.puts "title: \"#{title.gsub(/&amp;/,'&amp;amp;')}\""    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}"    post.puts "comments: true"    post.puts "categories: "    post.puts     post.puts "---"endModify line 26 and line 27 of Rakefile to make the new post extension simple.new_post_ext    = "md"  new_page_ext    = "md"_config.ymlModify line 6 and 7 of _config.yml to redefine the title and subtitle.orderingOnly reverse chronological and chronological ordering is supported in Jekyll. Here.Rename the file and change the date filed in the header.Wait for several minutes so that Github can finish the updates about website. Use Ctrl+F5.moreBe care of the tag which will appear in real html files. Just leave a space ahead. &lt;!-- more --&gt;markdownBasic syntax for GFM(Github Flavored Markdown): here.We use Linguist to perform language detection and syntax highlighting. Valid keywords: here.compasscompass commandcompass compile [path/to/project]Compile the project&rsquo;s sass files into css.LiquidLiquid Exception: Variable '{ {1,'a'}' was not properly terminated with regexp: /\}\}/I hack this by replace it with &ldquo;{ {&rdquo; &hellip;jekylljekyll 2.5.3 | Error:  Pygments can't parse unknown language: &lt;/p&gt;.Modify the Ruby file plugins/pygments_code.rb, add #{code} after #{lang}.jekyll 2.5.3 | Error:  Invalid argument @ rb_sysopen - D:/Users/Andy/Documents/GitHub/octopress/.pygments-cache/&lt;/p&gt;-a9ad3a2d399e94a44393597f19fb81e4.htmljekyll build --trace jekyll buildjekyll 2.5.3 | Error:  undefined method `[]' for nil:NilClassIt is caused by highlighter. See _config.yml:markdown: rdiscountrdiscount:  extensions:    - autolink    - footnotes    - smarthighlighter: pygmentsThough Github flavored markdown uses redcarpet2, this markdown parser is not supported by Jekyll by default.Modifying hosts can make the accesss of Github faster, due to the reason of googleapi.rake previewThe system cannot find the path specified.In my case RUBY_PLATFORM is i386-mingw32 and else block adds &gt;/dev/null which is valid silencer for linux but gives the error in windows.All works well under Ubuntu.server_port     = "4000"      # port for preview server eg. localhost:4000rackup --port #{server_port}" />
+<meta name="description" content="Setupgem install bundlerbundle installbundle exec rake gen_deployUsagerake deploy will push the content of directory _deploy/ to remote repository origin.Then we push all the content of source branch to remote repository octopress.Note we ignore _deploy in .gitignore.$ git remote -vorigin  git@github.com:songzy12/songzy12.github.io.git (fetch)origin  git@github.com:songzy12/songzy12.github.io.git (push)$ git add .$ git commit -m 'source update'$ git push octopress$ cd _deploy$ git init$ git remote add octopress https://github.com/songzy12/octopress.git$ cd ..$ rake gen_deployRakefileInsert one line after line 118 of Rakefile to avoid rendering error of GFM.open(filename, 'w') do |post|    post.puts "---"    post.puts "layout: post"    post.puts "title: \"#{title.gsub(/&amp;/,'&amp;amp;')}\""    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}"    post.puts "comments: true"    post.puts "categories: "    post.puts     post.puts "---"endModify line 26 and line 27 of Rakefile to make the new post extension simple.new_post_ext    = "md"  new_page_ext    = "md"moreBe care of the tag which will appear in real html files. Just leave a space ahead. &lt;!-- more --&gt;rakerake setup_github_pagesSetup a master branch in the _deploy directory for deployment.rake new_post['Octopress']Create source/_posts/2011-07-03-octopress.markdown.rake generateGenerates posts and pages into the public directory.rake watchWatches source/ and sass/ for changes and regenerates.rake previewWatches, and mounts a webserver at http://localhost:4000.rake gen_deployThis will generate your blog, copy the generated files into _deploy/, add them to git, commit and push them up to the master branch. Use Git Shell.MathJax```Here note the `https`. 当两个 `$` 之间有其他 html tag 的时候 MathJax 就会不工作。这时候我们可以右键审查元素来确定是哪些符号出现了问题，然后使用 `\` 来将其转义。## _deploy`robots.txt`（统一小写）是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被漫游器获取的。允许所有的机器人：User-agent: *Disallow:```Sitemap指令被几大搜索引擎支持（包括Google、Yahoo、Bing和Ask），指定了网站Sitemaps文件的位置。 Sitemaps文件包含了网站页面所在的URL的一个列表。Sitemap: &lt;http://www.example.com/sitemap.xml&gt;_config.ymlModify line 6 and 7 of _config.yml to redefine the title and subtitle.orderingOnly reverse chronological and chronological ordering is supported in Jekyll. Here.Rename the file and change the date filed in the header.Wait for several minutes so that Github can finish the updates about website. Use Ctrl+F5.markdownBasic syntax for GFM(Github Flavored Markdown): here.We use Linguist to perform language detection and syntax highlighting. Valid keywords: here.compasscompass commandcompass compile [path/to/project]Compile the project&rsquo;s sass files into css.LiquidLiquid Exception: Variable '{ {1,'a'}' was not properly terminated with regexp: /\}\}/I hack this by replace it with &ldquo;{ {&rdquo; &hellip;jekylljekyll 2.5.3 | Error:  Pygments can't parse unknown language: &lt;/p&gt;.Modify the Ruby file plugins/pygments_code.rb, add #{code} after #{lang}.jekyll 2.5.3 | Error:  Invalid argument @ rb_sysopen - D:/Users/Andy/Documents/GitHub/octopress/.pygments-cache/&lt;/p&gt;-a9ad3a2d399e94a44393597f19fb81e4.htmljekyll build --trace jekyll buildjekyll 2.5.3 | Error:  undefined method `[]' for nil:NilClassIt is caused by highlighter. See _config.yml:markdown: rdiscountrdiscount:  extensions:    - autolink    - footnotes    - smarthighlighter: pygmentsThough Github flavored markdown uses redcarpet2, this markdown parser is not supported by Jekyll by default.Modifying hosts can make the accesss of Github faster, due to the reason of googleapi.rake previewThe system cannot find the path specified.In my case RUBY_PLATFORM is i386-mingw32 and else block adds &gt;/dev/null which is valid silencer for linux but gives the error in windows.All works well under Ubuntu.server_port     = "4000"      # port for preview server eg. localhost:4000rackup --port #{server_port}" />
+<meta property='og:description' content="Setupgem install bundlerbundle installbundle exec rake gen_deployUsagerake deploy will push the content of directory _deploy/ to remote repository origin.Then we push all the content of source branch to remote repository octopress.Note we ignore _deploy in .gitignore.$ git remote -vorigin  git@github.com:songzy12/songzy12.github.io.git (fetch)origin  git@github.com:songzy12/songzy12.github.io.git (push)$ git add .$ git commit -m 'source update'$ git push octopress$ cd _deploy$ git init$ git remote add octopress https://github.com/songzy12/octopress.git$ cd ..$ rake gen_deployRakefileInsert one line after line 118 of Rakefile to avoid rendering error of GFM.open(filename, 'w') do |post|    post.puts "---"    post.puts "layout: post"    post.puts "title: \"#{title.gsub(/&amp;/,'&amp;amp;')}\""    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}"    post.puts "comments: true"    post.puts "categories: "    post.puts     post.puts "---"endModify line 26 and line 27 of Rakefile to make the new post extension simple.new_post_ext    = "md"  new_page_ext    = "md"moreBe care of the tag which will appear in real html files. Just leave a space ahead. &lt;!-- more --&gt;rakerake setup_github_pagesSetup a master branch in the _deploy directory for deployment.rake new_post['Octopress']Create source/_posts/2011-07-03-octopress.markdown.rake generateGenerates posts and pages into the public directory.rake watchWatches source/ and sass/ for changes and regenerates.rake previewWatches, and mounts a webserver at http://localhost:4000.rake gen_deployThis will generate your blog, copy the generated files into _deploy/, add them to git, commit and push them up to the master branch. Use Git Shell.MathJax```Here note the `https`. 当两个 `$` 之间有其他 html tag 的时候 MathJax 就会不工作。这时候我们可以右键审查元素来确定是哪些符号出现了问题，然后使用 `\` 来将其转义。## _deploy`robots.txt`（统一小写）是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被漫游器获取的。允许所有的机器人：User-agent: *Disallow:```Sitemap指令被几大搜索引擎支持（包括Google、Yahoo、Bing和Ask），指定了网站Sitemaps文件的位置。 Sitemaps文件包含了网站页面所在的URL的一个列表。Sitemap: &lt;http://www.example.com/sitemap.xml&gt;_config.ymlModify line 6 and 7 of _config.yml to redefine the title and subtitle.orderingOnly reverse chronological and chronological ordering is supported in Jekyll. Here.Rename the file and change the date filed in the header.Wait for several minutes so that Github can finish the updates about website. Use Ctrl+F5.markdownBasic syntax for GFM(Github Flavored Markdown): here.We use Linguist to perform language detection and syntax highlighting. Valid keywords: here.compasscompass commandcompass compile [path/to/project]Compile the project&rsquo;s sass files into css.LiquidLiquid Exception: Variable '{ {1,'a'}' was not properly terminated with regexp: /\}\}/I hack this by replace it with &ldquo;{ {&rdquo; &hellip;jekylljekyll 2.5.3 | Error:  Pygments can't parse unknown language: &lt;/p&gt;.Modify the Ruby file plugins/pygments_code.rb, add #{code} after #{lang}.jekyll 2.5.3 | Error:  Invalid argument @ rb_sysopen - D:/Users/Andy/Documents/GitHub/octopress/.pygments-cache/&lt;/p&gt;-a9ad3a2d399e94a44393597f19fb81e4.htmljekyll build --trace jekyll buildjekyll 2.5.3 | Error:  undefined method `[]' for nil:NilClassIt is caused by highlighter. See _config.yml:markdown: rdiscountrdiscount:  extensions:    - autolink    - footnotes    - smarthighlighter: pygmentsThough Github flavored markdown uses redcarpet2, this markdown parser is not supported by Jekyll by default.Modifying hosts can make the accesss of Github faster, due to the reason of googleapi.rake previewThe system cannot find the path specified.In my case RUBY_PLATFORM is i386-mingw32 and else block adds &gt;/dev/null which is valid silencer for linux but gives the error in windows.All works well under Ubuntu.server_port     = "4000"      # port for preview server eg. localhost:4000rackup --port #{server_port}" />
 <link rel="canonical" href="http://songzy12.github.io/blog/2016/10/23/octopress/" />
 <meta property='og:url' content='http://songzy12.github.io/blog/2016/10/23/octopress/' />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
@@ -92,7 +81,7 @@ MathJax.Hub.Config({
       "headline": "Octopress",
       "image": null,
       "datePublished": "2016-10-23T23:33:37+08:00",
-      "description": "MathJax```Here note the `https`. 当两个 `$` 之间有其他 html tag 的时候 MathJax 就会不工作。这时候我们可以右键审查元素来确定是哪些符号出现了问题，然后使用 `\\` 来将其转义。## rakerake setup_github_pages```Setup a master branch in the _deploy directory for deployment.rake new_post['Octopress']Create source/_posts/2011-07-03-octopress.markdown.rake generateGenerates posts and pages into the public directory.rake watchWatches source/ and sass/ for changes and regenerates.rake previewWatches, and mounts a webserver at http://localhost:4000.rake gen_deployThis will generate your blog, copy the generated files into _deploy/, add them to git, commit and push them up to the master branch. Use Git Shell.sourcerake deploy will push the content of directory _deploy/ to remote repository origin.Then we push all the content of source branch to remote repository octopress.  Note we ignore _deploy in .gitignore.git remote -voctopress       git://github.com/imathis/octopress.git (fetch)octopress       git://github.com/imathis/octopress.git (push)origin  git@github.com:songzy12/songzy12.github.io.git (fetch)origin  git@github.com:songzy12/songzy12.github.io.git (push)git remote remove octopressgit remote add octopress https://github.com/songzy12/octopress.gitDon&rsquo;t forget to commit the source for your blog.git add .git commit -m 'your message'git branch mastergit checkout mastergit branch -d sourcegit push octopressrake gen_deploy_deployrobots.txt（统一小写）是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被漫游器获取的。允许所有的机器人：User-agent: *Disallow:Sitemap指令被几大搜索引擎支持（包括Google、Yahoo、Bing和Ask），指定了网站Sitemaps文件的位置。 Sitemaps文件包含了网站页面所在的URL的一个列表。Sitemap: &lt;http://www.example.com/sitemap.xml&gt;RakefileInsert one line after line 118 of Rakefile to avoid rendering error of GFM.open(filename, 'w') do |post|    post.puts \"---\"    post.puts \"layout: post\"    post.puts \"title: \\\"#{title.gsub(/&amp;/,'&amp;amp;')}\\\"\"    post.puts \"date: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}\"    post.puts \"comments: true\"    post.puts \"categories: \"    post.puts     post.puts \"---\"endModify line 26 and line 27 of Rakefile to make the new post extension simple.new_post_ext    = \"md\"  new_page_ext    = \"md\"_config.ymlModify line 6 and 7 of _config.yml to redefine the title and subtitle.orderingOnly reverse chronological and chronological ordering is supported in Jekyll. Here.Rename the file and change the date filed in the header.Wait for several minutes so that Github can finish the updates about website. Use Ctrl+F5.moreBe care of the tag which will appear in real html files. Just leave a space ahead. &lt;!-- more --&gt;markdownBasic syntax for GFM(Github Flavored Markdown): here.We use Linguist to perform language detection and syntax highlighting. Valid keywords: here.compasscompass commandcompass compile [path/to/project]Compile the project&rsquo;s sass files into css.LiquidLiquid Exception: Variable '{ {1,'a'}' was not properly terminated with regexp: /\\}\\}/I hack this by replace it with &ldquo;{ {&rdquo; &hellip;jekylljekyll 2.5.3 | Error:  Pygments can't parse unknown language: &lt;/p&gt;.Modify the Ruby file plugins/pygments_code.rb, add #{code} after #{lang}.jekyll 2.5.3 | Error:  Invalid argument @ rb_sysopen - D:/Users/Andy/Documents/GitHub/octopress/.pygments-cache/&lt;/p&gt;-a9ad3a2d399e94a44393597f19fb81e4.htmljekyll build --trace jekyll buildjekyll 2.5.3 | Error:  undefined method `[]' for nil:NilClassIt is caused by highlighter. See _config.yml:markdown: rdiscountrdiscount:  extensions:    - autolink    - footnotes    - smarthighlighter: pygmentsThough Github flavored markdown uses redcarpet2, this markdown parser is not supported by Jekyll by default.Modifying hosts can make the accesss of Github faster, due to the reason of googleapi.rake previewThe system cannot find the path specified.In my case RUBY_PLATFORM is i386-mingw32 and else block adds &gt;/dev/null which is valid silencer for linux but gives the error in windows.All works well under Ubuntu.server_port     = \"4000\"      # port for preview server eg. localhost:4000rackup --port #{server_port}"
+      "description": "Setupgem install bundlerbundle installbundle exec rake gen_deployUsagerake deploy will push the content of directory _deploy/ to remote repository origin.Then we push all the content of source branch to remote repository octopress.Note we ignore _deploy in .gitignore.$ git remote -vorigin  git@github.com:songzy12/songzy12.github.io.git (fetch)origin  git@github.com:songzy12/songzy12.github.io.git (push)$ git add .$ git commit -m 'source update'$ git push octopress$ cd _deploy$ git init$ git remote add octopress https://github.com/songzy12/octopress.git$ cd ..$ rake gen_deployRakefileInsert one line after line 118 of Rakefile to avoid rendering error of GFM.open(filename, 'w') do |post|    post.puts \"---\"    post.puts \"layout: post\"    post.puts \"title: \\\"#{title.gsub(/&amp;/,'&amp;amp;')}\\\"\"    post.puts \"date: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}\"    post.puts \"comments: true\"    post.puts \"categories: \"    post.puts     post.puts \"---\"endModify line 26 and line 27 of Rakefile to make the new post extension simple.new_post_ext    = \"md\"  new_page_ext    = \"md\"moreBe care of the tag which will appear in real html files. Just leave a space ahead. &lt;!-- more --&gt;rakerake setup_github_pagesSetup a master branch in the _deploy directory for deployment.rake new_post['Octopress']Create source/_posts/2011-07-03-octopress.markdown.rake generateGenerates posts and pages into the public directory.rake watchWatches source/ and sass/ for changes and regenerates.rake previewWatches, and mounts a webserver at http://localhost:4000.rake gen_deployThis will generate your blog, copy the generated files into _deploy/, add them to git, commit and push them up to the master branch. Use Git Shell.MathJax```Here note the `https`. 当两个 `$` 之间有其他 html tag 的时候 MathJax 就会不工作。这时候我们可以右键审查元素来确定是哪些符号出现了问题，然后使用 `\\` 来将其转义。## _deploy`robots.txt`（统一小写）是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被漫游器获取的。允许所有的机器人：User-agent: *Disallow:```Sitemap指令被几大搜索引擎支持（包括Google、Yahoo、Bing和Ask），指定了网站Sitemaps文件的位置。 Sitemaps文件包含了网站页面所在的URL的一个列表。Sitemap: &lt;http://www.example.com/sitemap.xml&gt;_config.ymlModify line 6 and 7 of _config.yml to redefine the title and subtitle.orderingOnly reverse chronological and chronological ordering is supported in Jekyll. Here.Rename the file and change the date filed in the header.Wait for several minutes so that Github can finish the updates about website. Use Ctrl+F5.markdownBasic syntax for GFM(Github Flavored Markdown): here.We use Linguist to perform language detection and syntax highlighting. Valid keywords: here.compasscompass commandcompass compile [path/to/project]Compile the project&rsquo;s sass files into css.LiquidLiquid Exception: Variable '{ {1,'a'}' was not properly terminated with regexp: /\\}\\}/I hack this by replace it with &ldquo;{ {&rdquo; &hellip;jekylljekyll 2.5.3 | Error:  Pygments can't parse unknown language: &lt;/p&gt;.Modify the Ruby file plugins/pygments_code.rb, add #{code} after #{lang}.jekyll 2.5.3 | Error:  Invalid argument @ rb_sysopen - D:/Users/Andy/Documents/GitHub/octopress/.pygments-cache/&lt;/p&gt;-a9ad3a2d399e94a44393597f19fb81e4.htmljekyll build --trace jekyll buildjekyll 2.5.3 | Error:  undefined method `[]' for nil:NilClassIt is caused by highlighter. See _config.yml:markdown: rdiscountrdiscount:  extensions:    - autolink    - footnotes    - smarthighlighter: pygmentsThough Github flavored markdown uses redcarpet2, this markdown parser is not supported by Jekyll by default.Modifying hosts can make the accesss of Github faster, due to the reason of googleapi.rake previewThe system cannot find the path specified.In my case RUBY_PLATFORM is i386-mingw32 and else block adds &gt;/dev/null which is valid silencer for linux but gives the error in windows.All works well under Ubuntu.server_port     = \"4000\"      # port for preview server eg. localhost:4000rackup --port #{server_port}"
     }
   </script>
 <!-- End Jekyll SEO tag -->
@@ -148,7 +137,55 @@ MathJax.Hub.Config({
   </header>
 
 
-<div class="entry-content"><h2>MathJax</h2>
+<div class="entry-content"><h2>Setup</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem install bundler
+</span><span class='line'>bundle install
+</span><span class='line'>bundle exec rake gen_deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Usage</h2>
+
+<p><code>rake deploy</code> will push the content of directory <code>_deploy/</code> to remote repository <code>origin</code>.</p>
+
+<p>Then we push all the content of <code>source</code> branch to remote repository <code>octopress</code>.</p>
+
+<p>Note we ignore <code>_deploy</code> in <code>.gitignore</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ git remote -v
+</span><span class='line'>origin  git@github.com:songzy12/songzy12.github.io.git (fetch)
+</span><span class='line'>origin  git@github.com:songzy12/songzy12.github.io.git (push)
+</span><span class='line'>$ git add .
+</span><span class='line'>$ git commit -m 'source update'
+</span><span class='line'>$ git push octopress</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd _deploy
+</span><span class='line'>$ git init
+</span><span class='line'>$ git remote add octopress https://github.com/songzy12/octopress.git
+</span><span class='line'>$ cd ..
+</span><span class='line'>$ rake gen_deploy</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Rakefile</h2>
+
+<p>Insert one line after line 118 of <code>Rakefile</code> to avoid rendering error of <code>GFM</code>.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -160,31 +197,33 @@ MathJax.Hub.Config({
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!-- mathjax config similar to math.stackexchange --&gt;
-</span><span class='line'>&lt;script type="text/x-mathjax-config"&gt;
-</span><span class='line'>MathJax.Hub.Config({
-</span><span class='line'>  jax: ["input/TeX", "output/HTML-CSS"],
-</span><span class='line'>  tex2jax: {
-</span><span class='line'>    inlineMath: [ ['$', '$'] ],
-</span><span class='line'>    displayMath: [ ['$$', '$$']],
-</span><span class='line'>    processEscapes: true,
-</span><span class='line'>    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-</span><span class='line'>  },
-</span><span class='line'>  messageStyle: "none",
-</span><span class='line'>  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-</span><span class='line'>});
-</span><span class='line'>&lt;/script&gt;
-</span><span class='line'>&lt;script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"&gt;&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>open(filename, 'w') do |post|
+</span><span class='line'>    post.puts "---"
+</span><span class='line'>    post.puts "layout: post"
+</span><span class='line'>    post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
+</span><span class='line'>    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}"
+</span><span class='line'>    post.puts "comments: true"
+</span><span class='line'>    post.puts "categories: "
+</span><span class='line'>    post.puts 
+</span><span class='line'>    post.puts "---"
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Here note the <code>https</code>.</p>
+<p>Modify line 26 and line 27 of <code>Rakefile</code> to make the new post extension simple.</p>
 
-<p>当两个 <code>$</code> 之间有其他 html tag 的时候 MathJax 就会不工作。这时候我们可以右键审查元素来确定是哪些符号出现了问题，然后使用 <code>\</code> 来将其转义。</p>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>new_post_ext    = "md"  
+</span><span class='line'>new_page_ext    = "md"</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>more</h2>
+
+<p>Be care of the tag which will appear in real html files. Just leave a <code>space</code> ahead.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> &lt;!-- more --&gt;</span></code></pre></td></tr></table></div></figure>
+
 
 <h2>rake</h2>
 
@@ -224,35 +263,7 @@ MathJax.Hub.Config({
 
 <p>This will generate your blog, copy the generated files into <code>_deploy/</code>, add them to git, commit and push them up to the master branch. Use <code>Git Shell</code>.</p>
 
-<h2>source</h2>
-
-<p><code>rake deploy</code> will push the content of directory <code>_deploy/</code> to remote repository <code>origin</code>.</p>
-
-<p>Then we push all the content of <code>source</code> branch to remote repository <code>octopress</code>.  Note we ignore <code>_deploy</code> in <code>.gitignore</code>.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git remote -v
-</span><span class='line'>
-</span><span class='line'>octopress       git://github.com/imathis/octopress.git (fetch)
-</span><span class='line'>octopress       git://github.com/imathis/octopress.git (push)
-</span><span class='line'>origin  git@github.com:songzy12/songzy12.github.io.git (fetch)
-</span><span class='line'>origin  git@github.com:songzy12/songzy12.github.io.git (push)</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git remote remove octopress
-</span><span class='line'>git remote add octopress https://github.com/songzy12/octopress.git</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Don&rsquo;t forget to commit the source for your blog.</p>
+<h2>MathJax</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -261,14 +272,34 @@ MathJax.Hub.Config({
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git add .
-</span><span class='line'>git commit -m 'your message'
-</span><span class='line'>git branch master
-</span><span class='line'>git checkout master
-</span><span class='line'>git branch -d source
-</span><span class='line'>git push octopress
-</span><span class='line'>rake gen_deploy</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!-- mathjax config similar to math.stackexchange --&gt;
+</span><span class='line'>&lt;script type="text/x-mathjax-config"&gt;
+</span><span class='line'>MathJax.Hub.Config({
+</span><span class='line'>  jax: ["input/TeX", "output/HTML-CSS"],
+</span><span class='line'>  tex2jax: {
+</span><span class='line'>    inlineMath: [ ['$', '$'] ],
+</span><span class='line'>    displayMath: [ ['$$', '$$']],
+</span><span class='line'>    processEscapes: true,
+</span><span class='line'>    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+</span><span class='line'>  },
+</span><span class='line'>  messageStyle: "none",
+</span><span class='line'>  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+</span><span class='line'>});
+</span><span class='line'>&lt;/script&gt;
+</span><span class='line'>&lt;script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"&gt;&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
 
+
+<p>Here note the <code>https</code>.</p>
+
+<p>当两个 <code>$</code> 之间有其他 html tag 的时候 MathJax 就会不工作。这时候我们可以右键审查元素来确定是哪些符号出现了问题，然后使用 <code>\</code> 来将其转义。</p>
 
 <h2>_deploy</h2>
 
@@ -288,42 +319,6 @@ MathJax.Hub.Config({
 </pre></td><td class='code'><pre><code class=''><span class='line'>Sitemap: &lt;http://www.example.com/sitemap.xml&gt;</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Rakefile</h2>
-
-<p>Insert one line after line 118 of <code>Rakefile</code> to avoid rendering error of <code>GFM</code>.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>open(filename, 'w') do |post|
-</span><span class='line'>    post.puts "---"
-</span><span class='line'>    post.puts "layout: post"
-</span><span class='line'>    post.puts "title: \"#{title.gsub(/&/,'&amp;')}\""
-</span><span class='line'>    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M:%S %z')}"
-</span><span class='line'>    post.puts "comments: true"
-</span><span class='line'>    post.puts "categories: "
-</span><span class='line'>    post.puts 
-</span><span class='line'>    post.puts "---"
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Modify line 26 and line 27 of <code>Rakefile</code> to make the new post extension simple.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>new_post_ext    = "md"  
-</span><span class='line'>new_page_ext    = "md"</span></code></pre></td></tr></table></div></figure>
-
-
-<p></p>
-
 <h2>_config.yml</h2>
 
 <p>Modify line 6 and 7 of <code>_config.yml</code> to redefine the title and subtitle.</p>
@@ -335,14 +330,6 @@ MathJax.Hub.Config({
 <p>Rename the file and change the <code>date</code> filed in the header.</p>
 
 <p>Wait for several minutes so that <code>Github</code> can finish the updates about website. Use <code>Ctrl+F5</code>.</p>
-
-<h2>more</h2>
-
-<p>Be care of the tag which will appear in real html files. Just leave a <code>space</code> ahead.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'> &lt;!-- more --&gt;</span></code></pre></td></tr></table></div></figure>
-
 
 <h2>markdown</h2>
 
@@ -360,8 +347,6 @@ MathJax.Hub.Config({
 
 <p>Compile the project&rsquo;s sass files into css.</p>
 
-<hr />
-
 <h2>Liquid</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -376,11 +361,7 @@ MathJax.Hub.Config({
 </pre></td><td class='code'><pre><code class=''><span class='line'>jekyll 2.5.3 | Error:  Pygments can't parse unknown language: &lt;/p&gt;.</span></code></pre></td></tr></table></div></figure>
 
 
-<p></p>
-
 <p>Modify the Ruby file <code>plugins/pygments_code.rb</code>, add <code>#{code}</code> after <code>#{lang}</code>.</p>
-
-<hr />
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>jekyll 2.5.3 | Error:  Invalid argument @ rb_sysopen - D:/Users/Andy/Documents/GitHub/octopress/.pygments-cache/&lt;/p&gt;-a9ad3a2d399e94a44393597f19fb81e4.html</span></code></pre></td></tr></table></div></figure>

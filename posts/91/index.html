@@ -9,16 +9,14 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="External Storage 1
-2
-3
-4
-5
-6
-7
-8
-9
-String state = Environment.getExternalStorageState(); if (Environment.MEDIA_MOUNTED.equals(state)) { // save to sd &hellip;">
+  <meta name="description" content="here .a 静态库 (archive)
+.c C源代码（需要编译预处理）
+.h C源代码头文件
+.i C源代码（不需编译预处理）
+.o 对象文件
+.s 汇编语言代码
+.so 动态库(shared object) 一步到位的编译指令是: 1
+gcc test.c -o test &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -114,7 +112,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/08/21/android-os/">Android OS</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/08/13/gcc/">GCC</a></h1>
     
     
       <p class="meta">
@@ -123,129 +121,157 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-08-21T20:07:03+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>8:07 pm</span></time>
+<time class='entry-date' datetime='2016-08-13T14:17:43+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:17 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>External Storage</h2>
+  <div class="entry-content"><p><a href="http://wiki.ubuntu.org.cn/index.php?title=Compiling_C&amp;variant=zh-my">here</a></p>
+
+<p><code>.a</code>    静态库 (archive)
+<code>.c</code>    C源代码（需要编译预处理）
+<code>.h</code>    C源代码头文件
+<code>.i</code>    C源代码（不需编译预处理）
+<code>.o</code>    对象文件
+<code>.s</code>    汇编语言代码
+<code>.so</code>   动态库(shared object)</p>
+
+<p>一步到位的编译指令是:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>String state = Environment.getExternalStorageState();
-</span><span class='line'>
-</span><span class='line'>if (Environment.MEDIA_MOUNTED.equals(state)) {
-</span><span class='line'>  // save to sd card
-</span><span class='line'>} else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
-</span><span class='line'>    // read only
-</span><span class='line'>} else {
-</span><span class='line'>    // not avaliable
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gcc test.c -o test</span></code></pre></td></tr></table></div></figure>
 
 
-
+<h2>Preprocessing</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>File sdcard_path = Environment.getExternalStorageDirectory();
-</span><span class='line'>// sdcard_path.toString() == "/storage/emulated/0";
-</span><span class='line'>String myFloder = getResources().getString(folder_name);
-</span><span class='line'>File paintpad = new File(sdcard_path + "/" + myFloder + "/");
-</span><span class='line'>try {
-</span><span class='line'>  if (!paintpad.exists()) {
-</span><span class='line'>      // Note that this method does not throw IOException on failure.
-</span><span class='line'>      paintpad.mkdirs();
-</span><span class='line'>  }
-</span><span class='line'>} catch (Exception e) {
-</span><span class='line'>  e.printStackTrace();
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gcc -E test.c -o test.i</span></code></pre></td></tr></table></div></figure>
 
 
+<p>gcc的-E选项，可以让编译器在预处理后停止，并输出预处理结果。</p>
 
+<h2>Compilation</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"&gt;&lt;/uses-permission&gt; </span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gcc -S test.i -o test.s</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Handler</h2>
+<p>gcc的-S选项，表示在程序编译期间，在生成汇编代码后，停止，-o输出汇编代码文件。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class MyHandler extends Handler {
-</span><span class='line'>    public void handleMessage(Message msg) {
-</span><span class='line'>      Bundle bundle = msg.getData();
-</span><span class='line'>      Date date = new Date();
-</span><span class='line'>      textView.append((new SimpleDateFormat("hh:mm:ss")).format(date) +
-</span><span class='line'>                      "    "+ bundle.getString("msg") + "\n");
-</span><span class='line'>    }
-</span><span class='line'>}   </span></code></pre></td></tr></table></div></figure>
+<p>汇编语言的形式依赖于编译器的目标平台。如果多个源码文件被编译，每个文件将分别产生对应的汇编代码模块。</p>
 
-
-
+<h2>Assembly</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Handler.sendEmptyMessageDelayed(int what, long delayMillis)</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gcc -c test.s -o test.o</span></code></pre></td></tr></table></div></figure>
 
 
+<p>选项 <code>-c</code> 指示 GCC 编译源代码文件，但将对象文件保留在磁盘中并跳过链接对象文件生成可执行文件这一步。在这种情况下，默认的输出文件的文件名同源代码文件名一致，只不过後缀换为 <code>.o</code> 。</p>
 
+<p>当构建对象库或者生成一系列对象文件以备稍後链接用时，一条命令即可从多个源码文件生成对应的对象文件。</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Handler handler = new Handler();
-</span><span class='line'>handler.post(new Runnable() {
-</span><span class='line'>  public void run() {     
-</span><span class='line'>      Log.i(TAG, getFilesDir().getAbsolutePath() + "/" + filename);
-</span><span class='line'>      // Log.i(TAG, Environment.getExternalStorageDirectory()+"");
-</span><span class='line'>      webView.loadUrl("file:///" + getFilesDir().getAbsolutePath() + "/" + filename);
-</span><span class='line'>      swipeContainer.setRefreshing(false);
-</span><span class='line'>  }
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Message</h2>
+<h2>Linking</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Message msg = new Message();
-</span><span class='line'>Bundle bundle = new Bundle();
-</span><span class='line'>bundle.putString("msg", "Connection failed!\n");
-</span><span class='line'>msg.setData(bundle);
-</span><span class='line'>myHandler.sendMessage(msg);</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gcc test.o -o test</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>gcc</code>连接器是<code>gas</code>提供的，负责将程序的目标文件与所需的所有附加的目标文件连接起来，最终生成可执行文件。附加的目标文件包括静态连接库和动态连接库。</p>
+
+<p>静态库链接时搜索路径顺序：</p>
+
+<ol>
+<li>ld会去找GCC命令中的参数<code>-L</code></li>
+<li>再找gcc的环境变量<code>LIBRARY_PATH</code></li>
+<li>再找内定目录 <code>/lib /usr/lib /usr/local/lib</code> 这是当初compile gcc时写在程序内的</li>
+</ol>
+
+
+<p>动态链接时、执行时搜索路径顺序:</p>
+
+<ol>
+<li>编译目标代码时指定的动态库搜索路径</li>
+<li>环境变量<code>LD_LIBRARY_PATH</code>指定的动态库搜索路径</li>
+<li>配置文件<code>/etc/ld.so.conf</code>中指定的动态库搜索路径</li>
+<li>默认的动态库搜索路径<code>/lib</code></li>
+<li>默认的动态库搜索路径<code>/usr/lib</code></li>
+</ol>
+
+
+<p>有关环境变量：
+<code>LIBRARY_PATH</code>环境变量：指定程序静态链接库文件搜索路径
+<code>LD_LIBRARY_PATH</code>环境变量：指定程序动态链接库文件搜索路径</p>
+
+<p>When you link against the <code>*.a</code>, the code from the library is included in the executable itself and the executable can be run without requiring the <code>*.a</code> file to be present. When you link against the <code>*.so</code>, that is not the case and the <code>*.so</code> file must be present at runtime.</p>
+
+<h2>静态库</h2>
+
+<p>静态库是编译器生成的普通的 <code>.o</code> 文件的集合。链接一个程序时用库中的对象文件还是目录中的对象文件都是一样的。静态库的另一个名字叫归档文件(<code>archive</code>)，管理这种归档文件的工具叫 <code>ar</code> 。</p>
+
+<p>这两个源码文件可以用以下命令编译成对象文件：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gcc -c -Wall hellofirst.c hellosecond.c</span></code></pre></td></tr></table></div></figure>
+
+
+<p>程序 <code>ar</code> 配合参数 <code>-r</code> 可以创建一个新库并将对象文件插入。如果库不存在的话，参数 <code>-r</code> 将创建一个新的，并将对象模块添加（如有必要，通过替换）到归档文件中。下面的命令将创建一个包含本例中两个对象模块的名为 <code>libhello.a</code> 的静态库：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ar -r libhello.a hellofirst.o hellosecond.o</span></code></pre></td></tr></table></div></figure>
+
+
+<p>程序 twohellos 可以通过在命令行中指定库用一条命令来编译和链接，命令如下：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gcc twohellos.c libhello.a -o twohellos</span></code></pre></td></tr></table></div></figure>
+
+
+<p>静态库的命名惯例是名字以三个字母 <code>lib</code> 开头并以後缀 <code>.a</code> 结束。所有的系统库都采用这种命名惯例，并且它允许通过 <code>-l(ell)</code> 选项来简写命令行中的库名。下面的命令与先前命令的区别仅在于 <code>gcc</code> 期望的找寻该库的位置不同：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gcc twohellos.c -lhello -o twohellos</span></code></pre></td></tr></table></div></figure>
+
+
+<p>选项 <code>-l</code> 不具有指定路径的能力，但是它要求编译器在系统库目录下找寻该库。 选项<code>-L</code>可以指定具体的目录，使编译器在搜寻系统库目录前先搜寻此目录</p>
+
+<h2>共享库</h2>
+
+<p>对象文件模块中所有地址（变量引用或函数调用）都是相对而不是绝对的，这使得共享模块可以在程序的运行过程中被动态地调用和执行。</p>
+
+<p>要将以上两个源码文件编译成对象文件，可以用下面的命令：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gcc -c -fpic shellofirst.c shellosecond.c</span></code></pre></td></tr></table></div></figure>
+
+
+<p>选项 <code>-c</code> 告诉编译器只生成 <code>.o</code> 的对象文件。 选项 <code>-fpic</code> 使生成的对象模块采用浮动的（可重定位的）地址。缩微词 <code>pic</code> 代表“位置无关代码”（position independent code）。</p>
+
+<p>下面的 gcc 命令将对象文件构建成一个名为 <code>hello.so</code> 的共享库：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gcc -shared shellofirst.o shellosecond.o -o hello.so</span></code></pre></td></tr></table></div></figure>
+
+
+<p>通常情况下，链接器定位并使用 main() 函数作为程序的入口，但是本例中输出模块中没有这种入口点，为抑制错误选项 <code>-shared</code> 是必须的。</p>
+
+<p>下面的命令直接将模块编译并存储为共享库：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gcc -fpic -shared shellofirst.c shellosecond.c -o hello.so</span></code></pre></td></tr></table></div></figure>
+
+
+<p>该程序可以用下面的命令编译并链接共享库：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gcc stwohellos.c hello.so -o stwohellos</span></code></pre></td></tr></table></div></figure>
+
+
+<p>程序 <code>stwohello</code> 已经完成，但要运行它必须让其能定位到共享库 <code>hello.so</code>，因为库中的函数要在程序运行时被加载。 需要注意的是，当前工作目录可能不在共享库的查找路径中，因此需要使用如下的命令行设定环境变量<code>LD_LIBRARY_PATH</code>：</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:./</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

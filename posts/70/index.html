@@ -9,13 +9,12 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="corpora 1
+  <meta name="description" content="1
 2
 3
-4
-from gensim import corpora
-dict1 = corpora.Dictionary(some_documents)
-dict2 = corpora.Dictionary(other_documents) # ids not &hellip;">
+git clone git://github.com/Theano/Theano.git
+cd Theano
+&lt;sudo&gt; pip install &lt;--user&gt; &lt;--no-deps&gt; -e . ">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -111,7 +110,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/11/09/gensim/">Gensim</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/11/05/theano/">Theano</a></h1>
     
     
       <p class="meta">
@@ -120,83 +119,20 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-11-09T14:44:05+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:44 pm</span></time>
+<time class='entry-date' datetime='2016-11-05T16:48:12+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>4:48 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>corpora</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+  <div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>from gensim import corpora
-</span><span class='line'>dict1 = corpora.Dictionary(some_documents)
-</span><span class='line'>dict2 = corpora.Dictionary(other_documents)  # ids not compatible with dict1!
-</span><span class='line'>dict2_to_dict1 = dict1.merge_with(dict2)</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/Theano/Theano.git
+</span><span class='line'>cd Theano
+</span><span class='line'>&lt;sudo&gt; pip install &lt;--user&gt; &lt;--no-deps&gt; -e .</span></code></pre></td></tr></table></div></figure>
 
-
-<p>Corpus in the Matrix Market format.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>corpora.MmCorpus.serialize('test.mm', corpus)
-</span><span class='line'>mm = corpora.MmCorpus('test.mm')
-</span><span class='line'>print (mm[42])</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>models</h2>
-
-<p>Objects of this class realize the transformation between word-document co-occurrence matrix (integers) into a locally/globally weighted TF_IDF matrix (positive floats).</p>
-
-<ul>
-<li>TfidfModel</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>from gensim import models
-</span><span class='line'>tfidf = models.TfidfModel(corpus)
-</span><span class='line'>print tfidf[some_doc]</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>LsiModel</li>
-</ul>
-
-
-<p>bow: bag-of-words</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=2) # initialize an LSI transformation
-</span><span class='line'>corpus_lsi = lsi[corpus_tfidf] # create a double wrapper over the original corpus: bow-&gt;tfidf-&gt;fold-in-lsi
-</span><span class='line'>lsi.print_topics(2)</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>word2vec</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>train(sentences, total_words=None, word_count=0, total_examples=None, queue_factor=2, report_delay=1.0)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Update the model’s neural weights from a sequence of sentences (can be a once-only generator stream). For Word2Vec, each sentence must be a list of unicode strings. (Subclasses may accept other examples.)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>wmdistance(document1, document2, WCD=False, RWMD=False)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Note that if one of the documents have no words that exist in the Word2Vec vocab, float(‘inf’) (i.e. infinity) will be returned.</p>
 </div>
   
   

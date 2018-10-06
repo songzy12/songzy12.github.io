@@ -9,12 +9,9 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="tf.compat.as_str as_str converts an object to a str. tf.Graph 1
-2
-3
-4
-5
-graph = tf.Graph() with graph.as_default(): nce_biases = tf.Variable(tf.zeros &hellip;">
+  <meta name="description" content="copy paste enter copy mode using Control+b [
+navigate to beginning of text, you want to select and hit Control+Space
+move around using arrow keys to &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -110,7 +107,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/11/05/tensorflow/">TensorFlow</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/10/29/tmux/">Tmux</a></h1>
     
     
       <p class="meta">
@@ -119,40 +116,39 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-11-05T20:42:05+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>8:42 pm</span></time>
+<time class='entry-date' datetime='2016-10-29T20:49:55+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>29</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>8:49 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>tf.compat.as_str</h2>
+  <div class="entry-content"><h2>copy paste</h2>
 
-<p><code>as_str</code> converts an object to a <code>str</code>.</p>
-
-<h2>tf.Graph</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>graph = tf.Graph()
-</span><span class='line'>
-</span><span class='line'>with graph.as_default():
-</span><span class='line'>    nce_biases = tf.Variable(tf.zeros([vocab_size]))
-</span><span class='line'>    init = tf.initialize_all_variables()</span></code></pre></td></tr></table></div></figure>
+<ol>
+<li>enter copy mode using Control+b [</li>
+<li>navigate to beginning of text, you want to select and hit Control+Space</li>
+<li>move around using arrow keys to select region</li>
+<li>when you reach end of region simply hit Alt+w to copy the region</li>
+<li>now Control+b ] will paste the selection</li>
+</ol>
 
 
-<h2>tf.truncated_normal</h2>
+<h2>scroll</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>The generated values follow a normal distribution with specified mean and standard deviation, except that values whose magnitude is more than 2 standard deviations from the mean are dropped and re-picked.</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi ~/.tmux.conf</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>tf.reduce_mean</h2>
 
-<p>When you are computing <code>tfMean = tf.reduce_mean(c)</code>, tensorflow doesn&rsquo;t compute it then. It only computes that in a Session. But numpy computes that instantly, when you write <code>np.mean()</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>setw -g mode-mouse on</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>session</h2>
+
+<p>session指的是按下tmux命令后 存在的连接便是session</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -164,45 +160,63 @@ MathJax.Hub.Config({
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>reduce_mean(input_tensor, reduction_indices=None, keep_dims=False, name=None)
-</span><span class='line'>input_tensor: The tensor to reduce. Should have numeric type.
-</span><span class='line'>reduction_indices: The dimensions to reduce. If `None` (the defaut),
-</span><span class='line'>    reduces all dimensions.
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>创建session
+</span><span class='line'>tmux
 </span><span class='line'>
-</span><span class='line'># 'x' is [[1., 1. ]]
-</span><span class='line'>#         [2., 2.]]
-</span><span class='line'>tf.reduce_mean(x) ==&gt; 1.5
-</span><span class='line'>tf.reduce_mean(x, 0) ==&gt; [1.5, 1.5] 
-</span><span class='line'>tf.reduce_mean(x, 1) ==&gt; [1.,  2.]</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>创建并指定session名字
+</span><span class='line'>tmux new -s $session_name
+</span><span class='line'>
+</span><span class='line'>tmux rename -t target_session new_name
+</span><span class='line'>
+</span><span class='line'>重命名session
+</span><span class='line'>Ctrl+b $
+</span><span class='line'>
+</span><span class='line'>删除session
+</span><span class='line'>Ctrl+b :kill-session
+</span><span class='line'>
+</span><span class='line'>临时退出session
+</span><span class='line'>Ctrl+b d
+</span><span class='line'>
+</span><span class='line'>列出session
+</span><span class='line'>tmux ls
+</span><span class='line'>
+</span><span class='line'>进入已存在的session
+</span><span class='line'>tmux a -t $session_name
+</span><span class='line'>
+</span><span class='line'>删除所有session
+</span><span class='line'>Ctrl+b :kill-server
+</span><span class='line'>
+</span><span class='line'>删除指定session
+</span><span class='line'>tmux kill-session -t $session_name</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>tf.initialize_all_variables</h2>
 
-<p>The difference is that with <code>tf.Variable</code> you have to provide an initial value when you declare it. With <code>tf.placeholder</code> you don&rsquo;t have to provide an initial value and you can specify it at run time with the <code>feed_dict</code> argument inside <code>Session.run</code></p>
-
-<p>In short, you use <code>tf.Variable</code> for trainable variables such as weights (W) and biases (B) for your model.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>weights = tf.Variable(
-</span><span class='line'>    tf.truncated_normal([IMAGE_PIXELS, hidden1_units],
-</span><span class='line'>                    stddev=1.0 / math.sqrt(float(IMAGE_PIXELS))), name='weights')
-</span><span class='line'>
-</span><span class='line'>biases = tf.Variable(tf.zeros([hidden1_units]), name='biases')</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tmux rename-session -t current-name new-name</span></code></pre></td></tr></table></div></figure>
 
 
-<p><code>tf. placeholder</code> is used to feed actual training examples.</p>
+<h2>window</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>images_placeholder = tf.placeholder(tf.float32, shape=(batch_size, IMAGE_PIXELS))
-</span><span class='line'>labels_placeholder = tf.placeholder(tf.int32, shape=(batch_size))</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This is how you feed the training examples during the training:</p>
+<p>window在session里，可以有N个window，并且window可以在不同的session里移动</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -210,69 +224,145 @@ MathJax.Hub.Config({
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>for step in xrange(FLAGS.max_steps):
-</span><span class='line'>    feed_dict = {
-</span><span class='line'>       images_placeholder: images_feed,
-</span><span class='line'>       labels_placeholder: labels_feed,
-</span><span class='line'>     }
-</span><span class='line'>    _, loss_value = sess.run([train_op, loss], feed_dict=feed_dict)</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>创建window
+</span><span class='line'>Ctrl+b c
+</span><span class='line'>
+</span><span class='line'>删除window
+</span><span class='line'>Ctrl+b &
+</span><span class='line'>
+</span><span class='line'>下一个window
+</span><span class='line'>Ctrl+b n
+</span><span class='line'>
+</span><span class='line'>上一个window
+</span><span class='line'>Ctrl+b p
+</span><span class='line'>
+</span><span class='line'>重命名window
+</span><span class='line'>Ctrl+b ,
+</span><span class='line'>
+</span><span class='line'>在多个window里搜索关键字
+</span><span class='line'>Ctrl+b f
+</span><span class='line'>
+</span><span class='line'>在相邻的两个window里切换
+</span><span class='line'>Ctrl+b l</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Your <code>tf.variables</code> will be trained (modified) as the result of this training.</p>
+<h2>panel</h2>
 
-<h2>tf.nn.embedding_lookup</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># Look up embeddings for inputs
-</span><span class='line'>embed = tf.nn.embedding_lookup(embeddings, train_inputs)</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>tf.nn.nce_loss</h2>
-
-<p>Computes and returns the noise-contrastive estimation training loss.</p>
-
-<p>Note: By default this uses a log-uniform (Zipfian) distribution for sampling,
-so your labels must be sorted in order of decreasing frequency to achieve
-good results.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>loss = tf.reduce_mean(
-</span><span class='line'>    tf.nn.nce_loss(nce_weights, nce_biases, embed, train_labels,
-</span><span class='line'>                   num_sampled, vocab_size))</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>tf.train</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># Construct the SGD optimizer using a learning rate of 1.0.
-</span><span class='line'>optimizer = tf.train.GradientDescentOptimizer(1.0).minimize(loss)</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>tf.Session</h2>
+<p>pane在window里，可以有N个pane，并且pane可以在不同的window里移动、合并、拆分</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>with tf.Session(graph=graph) as sess:
-</span><span class='line'>    init.run()
-</span><span class='line'>    print('Initialized')</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>创建pane
+</span><span class='line'>横切split pane horizontal
+</span><span class='line'>Ctrl+b ” (问号的上面，shift+’)
+</span><span class='line'>
+</span><span class='line'>竖切split pane vertical
+</span><span class='line'>Ctrl+b % （shift+5）
+</span><span class='line'>
+</span><span class='line'>按顺序在pane之间移动
+</span><span class='line'>Ctrl+b o
+</span><span class='line'>
+</span><span class='line'>上下左右选择pane
+</span><span class='line'>Ctrl+b 方向键上下左右
+</span><span class='line'>
+</span><span class='line'>调整pane的大小
+</span><span class='line'>Ctrl+b :resize-pane -U #向上
+</span><span class='line'>Ctrl+b :resize-pane -D #向下
+</span><span class='line'>Ctrl+b :resize-pane -L #向左
+</span><span class='line'>Ctrl+b :resize-pane -R #向右
+</span><span class='line'>在上下左右的调整里，最后的参数可以加数字 用以控制移动的大小，例如：
+</span><span class='line'>Ctrl+b :resize-pane -D 50
+</span><span class='line'>
+</span><span class='line'>在同一个window里左右移动pane
+</span><span class='line'>Ctrl+b { （往左边，往上面）
+</span><span class='line'>Ctrl+b } （往右边，往下面）
+</span><span class='line'>
+</span><span class='line'>删除pane
+</span><span class='line'>Ctrl+b x
+</span><span class='line'>
+</span><span class='line'>更换pane排版
+</span><span class='line'>Ctrl+b “空格”
+</span><span class='line'>
+</span><span class='line'>移动pane至window
+</span><span class='line'>Ctrl+b !
+</span><span class='line'>
+</span><span class='line'>移动pane合并至某个window
+</span><span class='line'>Ctrl+b :join-pane -t $window_name
+</span><span class='line'>
+</span><span class='line'>显示pane编号
+</span><span class='line'>Ctrl+b q
+</span><span class='line'>
+</span><span class='line'>按顺序移动pane位置
+</span><span class='line'>Ctrl+b Ctrl+o
+</span><span class='line'>
+</span><span class='line'>滚动输出
+</span><span class='line'>Ctrl+b [</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>eval</h2>
 
-<p><code>t.eval()</code> is a shortcut for calling <code>tf.get_default_session().run(t)</code></p>
-
-<p>You can use <code>sess.run()</code> to fetch the values of many tensors in the same step</p>
-
-<p>Note that each call to <code>eval</code> and <code>run</code> will execute the whole graph from scratch.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>normed_embeddings.eval()</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>failed to connect to server</span></code></pre></td></tr></table></div></figure>
 
+
+<p>You get this error indeed if there are no session open. If there are no sessions open there is no tmux server running so it can&rsquo;t connect to it.</p>
 </div>
   
   

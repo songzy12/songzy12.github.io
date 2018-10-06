@@ -9,20 +9,10 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="1
-_tkinter.TclError: no display name and no $DISPLAY environment variable 1
-2
-import matplotlib
-matplotlib.use('Agg') pyplot 1
-2
-3
-4
-5
-6
-7
-8
-9
-from &hellip;">
+  <meta name="description" content="HashMap, HashTable, HashSet Hashtable It does not allow null for both key and value
+It does not maintain insertion order
+It is synchronized
+It is &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -118,7 +108,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/11/05/matplotlib/">Matplotlib</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/09/19/java/">Java</a></h1>
     
     
       <p class="meta">
@@ -127,26 +117,90 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-11-05T16:46:28+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>4:46 pm</span></time>
+<time class='entry-date' datetime='2016-09-19T20:07:03+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>8:07 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>_tkinter.TclError: no display name and no $DISPLAY environment variable</span></code></pre></td></tr></table></div></figure>
+  <div class="entry-content"><h2>HashMap, HashTable, HashSet</h2>
+
+<ul>
+<li>Hashtable
+
+<ul>
+<li>It does not allow null for both key and value</li>
+<li>It does not maintain insertion order</li>
+<li>It is synchronized</li>
+<li>It is thread safe</li>
+<li>It use Enumerator to iterate through elements</li>
+</ul>
+</li>
+<li>HashMap
+
+<ul>
+<li>It allows null for both key and value</li>
+<li>It does not maintain insertion order</li>
+<li>It is not synchronized</li>
+<li>It is not thread safe, but you can use <code>Collections.synchronizedMap(new HashMap&lt;K, V&gt;())</code></li>
+</ul>
+</li>
+<li>HashSet
+
+<ul>
+<li>It provides <code>add</code> method rather than <code>put</code> method</li>
+<li>You also use its <code>contains</code> method to check whether the object is already available in HashSet.</li>
+</ul>
+</li>
+</ul>
+
+
+<h2>classpath</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>javac log_process/*.java -classpath log_process/*.jar
+</span><span class='line'>java -cp log_process/*.jar:. log_process.Main web5 web5-process</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>static</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>error: non-static method get_user() cannot be referenced from a static context</span></code></pre></td></tr></table></div></figure>
 
 
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import matplotlib
-</span><span class='line'>matplotlib.use('Agg')</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Grader grader = new Grader();
+</span><span class='line'>grader.get_user();</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>pyplot</h2>
+<h2>Calendar</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Calendar c = Calendar.getInstance();
+</span><span class='line'>int year = c.get(Calendar.YEAR);  
+</span><span class='line'>int month = c.get(Calendar.MONTH);  
+</span><span class='line'>int day = c.get(Calendar.DAY_OF_MONTH);</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Date</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Date dNow = new Date( );
+</span><span class='line'>SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
+</span><span class='line'>System.out.println("Current Date: " + ft.format(dNow));</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>File</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -155,20 +209,23 @@ MathJax.Hub.Config({
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>from matplotlib import pyplot as plt
-</span><span class='line'>plt.scatter(x, y, c) # color
-</span><span class='line'>plt.plot(x, y)
-</span><span class='line'>plt.xlabel('x')
-</span><span class='line'>plt.ylabel('y')
-</span><span class='line'>plt.savefig(image_name)
-</span><span class='line'>plt.clf() # clear the figure
-</span><span class='line'>plt.bar(x, y, align='center')
-</span><span class='line'>plt.show()</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>File f = new File("temp/myapp/bin/../../file.txt");
+</span><span class='line'>System.out.println(f.getPath()); 
+</span><span class='line'>System.out.println(f.getAbsolutePath()); 
+</span><span class='line'>try {
+</span><span class='line'>  System.out.println(f.getCanonicalPath()); 
+</span><span class='line'>} catch(Exception e) {
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>pylab</h2>
+<ul>
+<li><code>C:\temp\file.txt</code> This is a path, an absolute path, and a canonical path.</li>
+<li><code>.\file.txt</code> This is a path. It&rsquo;s neither an absolute path nor a canonical path.</li>
+<li><code>C:\temp\myapp\bin\..\\..\file.txt</code> This is a path and an absolute path. It&rsquo;s not a canonical path.</li>
+</ul>
+
+
+<h2>Looger</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -181,20 +238,112 @@ MathJax.Hub.Config({
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>from matplotlib import pylab
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Logger logger = Logger.getLogger("test");
+</span><span class='line'>FileHandler fh;
+</span><span class='line'>try {
+</span><span class='line'>    fh = new FileHandler("test.log");
+</span><span class='line'>    logger.addHandler(fh);
+</span><span class='line'>    SimpleFormatter formatter = new SimpleFormatter();
+</span><span class='line'>    fh.setFormatter(formatter);
+</span><span class='line'>    // logger.setUseParentHandlers(false);
+</span><span class='line'>    logger.info("hi, there");
+</span><span class='line'>} catch (Exception e) {
+</span><span class='line'>    e.printStackTrace();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Matcher</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Pattern p = Pattern.compile("(\\d+)([a-z])"); //正则表达式
+</span><span class='line'>String s = "123aa22as34345bb234cc00cdasdfas222" ;
+</span><span class='line'>Matcher m = p.matcher(s);
+</span><span class='line'>while (m.find()){
+</span><span class='line'>    System.out.println( " m.group(): " + m.group());
+</span><span class='line'>    System.out.println( " m.group(1): " + m.group(1));
+</span><span class='line'>    //System.out.println(ss.substring( m. start(1),m. end(2)));
+</span><span class='line'>    System.out.println( " m.group(2): " + m.group(2));
+</span><span class='line'>}
+</span><span class='line'>System.out.println( "groupCount(): " + m.groupCount()); </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Random</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>int rand = new Random().nextInt(as.size());</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Socket</h2>
+
+<p>Socket Client Example:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import java.net.*;
+</span><span class='line'>import java.io.*;
 </span><span class='line'>
-</span><span class='line'>pylab.xlabel("Sentence Gap index")
-</span><span class='line'>pylab.ylabel("Gap Scores")
-</span><span class='line'>pylab.plot(range(len(s)), s, label="Gap Scores")
-</span><span class='line'>pylab.plot(range(len(ss)), ss, label="Smoothed Gap scores")
-</span><span class='line'>pylab.plot(range(len(d)), d, label="Depth scores")
-</span><span class='line'>pylab.stem(range(len(b)), b)
-</span><span class='line'>pylab.legend()
-</span><span class='line'>fname = 'image.png'
-</span><span class='line'>pylab.savefig(fname)</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>public class GreetingClient {
+</span><span class='line'>   public static void main(String [] args) {
+</span><span class='line'>      String serverName = args[0];
+</span><span class='line'>      int port = Integer.parseInt(args[1]);
+</span><span class='line'>      try {
+</span><span class='line'>         System.out.println("Connecting to " + serverName +
+</span><span class='line'>       " on port " + port);
+</span><span class='line'>         Socket client = new Socket(serverName, port);
+</span><span class='line'>         System.out.println("Just connected to " 
+</span><span class='line'>       + client.getRemoteSocketAddress());
+</span><span class='line'>         OutputStream outToServer = client.getOutputStream();
+</span><span class='line'>         DataOutputStream out = new DataOutputStream(outToServer);
+</span><span class='line'>         out.writeUTF("Hello from "
+</span><span class='line'>                      + client.getLocalSocketAddress());
+</span><span class='line'>         InputStream inFromServer = client.getInputStream();
+</span><span class='line'>         DataInputStream in =
+</span><span class='line'>                        new DataInputStream(inFromServer);
+</span><span class='line'>         System.out.println("Server says " + in.readUTF());
+</span><span class='line'>         client.close();
+</span><span class='line'>      } catch(IOException e) {
+</span><span class='line'>         e.printStackTrace();
+</span><span class='line'>      }
+</span><span class='line'>   }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>subplot, pie</h2>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -231,44 +380,177 @@ MathJax.Hub.Config({
 <span class='line-number'>33</span>
 <span class='line-number'>34</span>
 <span class='line-number'>35</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>fig = plt.figure()
-</span><span class='line'>ax = fig.add_subplot(111)
-</span><span class='line'>ax.plot(centers[2], color='#00BFFF', label='1')
-</span><span class='line'>ax.plot(centers[4], color='#BA55D3', label='2')
-</span><span class='line'>ax.plot(centers[1], color='g', label='3')
-</span><span class='line'>ax.plot(centers[3], color='b', linewidth=3, label='4')
-</span><span class='line'>ax.plot(centers[0], color='r', linewidth=3, label='5')
-</span><span class='line'>plt.xlabel('Jump span (in second)')
-</span><span class='line'>plt.ylabel('Probability')
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import java.net.*;
+</span><span class='line'>import java.io.*;
 </span><span class='line'>
-</span><span class='line'>ax.legend()
-</span><span class='line'># plt.title('User Preference Clustering by Jump Span')
-</span><span class='line'>x1, x2, y1, y2 = plt.axis()
-</span><span class='line'>plt.axis([x1, x2, 0, y2])
+</span><span class='line'>public class GreetingServer extends Thread {
+</span><span class='line'>   private ServerSocket serverSocket;
+</span><span class='line'>   
+</span><span class='line'>   public GreetingServer(int port) throws IOException {
+</span><span class='line'>      serverSocket = new ServerSocket(port);
+</span><span class='line'>      serverSocket.setSoTimeout(10000);
+</span><span class='line'>   }
 </span><span class='line'>
-</span><span class='line'># pie chart
-</span><span class='line'>fracs = [np.count_nonzero(labels==2), np.count_nonzero(labels==4), np.count_nonzero(labels==1), np.count_nonzero(labels==3), np.count_nonzero(labels==0)]
-</span><span class='line'>colors = ['#00BFFF', '#BA55D3', 'g', 'b', 'r']
-</span><span class='line'>explode=(0, 0.05, 0, 0, 0)
-</span><span class='line'>
-</span><span class='line'>ax1 = fig.add_subplot(3, 3, 2)
-</span><span class='line'>ax1.set_position([0.5,0.6,0.3,0.3])
-</span><span class='line'>ax1.axis('equal')
-</span><span class='line'>patches, texts, autotexts = ax1.pie(fracs, colors=colors, autopct='%1.1f%%')
-</span><span class='line'>print autotexts
-</span><span class='line'>for patch, txt in zip(patches, autotexts):
-</span><span class='line'>    # the angle at which the text is located
-</span><span class='line'>    ang = (patch.theta2 + patch.theta1) / 2.
-</span><span class='line'>    # new coordinates of the text, 0.7 is the distance from the center 
-</span><span class='line'>    x = patch.r * 1.3 * np.cos(ang*np.pi/180)
-</span><span class='line'>    y = patch.r * 1.3 * np.sin(ang*np.pi/180)
-</span><span class='line'>    # if patch is narrow enough, move text to new coordinates
-</span><span class='line'>    print patch.theta2 - patch.theta1
-</span><span class='line'>    if (patch.theta2 - patch.theta1) &lt; 30.:
-</span><span class='line'>        txt.set_position((x, y))</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>   public void run() {
+</span><span class='line'>      while(true) {
+</span><span class='line'>         try {
+</span><span class='line'>            System.out.println("Waiting for client on port " +
+</span><span class='line'>            serverSocket.getLocalPort() + "...");
+</span><span class='line'>            Socket server = serverSocket.accept();
+</span><span class='line'>            System.out.println("Just connected to "
+</span><span class='line'>                  + server.getRemoteSocketAddress());
+</span><span class='line'>            DataInputStream in =
+</span><span class='line'>                  new DataInputStream(server.getInputStream());
+</span><span class='line'>            System.out.println(in.readUTF());
+</span><span class='line'>            DataOutputStream out =
+</span><span class='line'>                 new DataOutputStream(server.getOutputStream());
+</span><span class='line'>            out.writeUTF("Thank you for connecting to "
+</span><span class='line'>              + server.getLocalSocketAddress() + "\nGoodbye!");
+</span><span class='line'>            server.close();
+</span><span class='line'>         } catch(SocketTimeoutException s) {
+</span><span class='line'>            System.out.println("Socket timed out!");
+</span><span class='line'>            break;
+</span><span class='line'>         } catch(IOException e) {
+</span><span class='line'>            e.printStackTrace();
+</span><span class='line'>            break;
+</span><span class='line'>         }
+</span><span class='line'>      }
+</span><span class='line'>   }
+</span><span class='line'>   public static void main(String [] args) {
+</span><span class='line'>      int port = Integer.parseInt(args[0]);
+</span><span class='line'>      try {
+</span><span class='line'>         Thread t = new GreetingServer(port);
+</span><span class='line'>         t.start();
+</span><span class='line'>      } catch(IOException e) {
+</span><span class='line'>         e.printStackTrace();
+</span><span class='line'>      }
+</span><span class='line'>   }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>grid</h2>
+<p>Compile client and server and then start server as follows:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>java GreetingServer 6066
+</span><span class='line'>Waiting for client on port 6066...
+</span><span class='line'>
+</span><span class='line'>java GreetingClient localhost 6066
+</span><span class='line'>Connecting to localhost on port 6066
+</span><span class='line'>Just connected to localhost/127.0.0.1:6066
+</span><span class='line'>Server says Thank you for connecting to /127.0.0.1:6066
+</span><span class='line'>Goodbye!</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>StreamTokenizer</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>InputStream in;
+</span><span class='line'>StreamTokenizer st = new StreamTokenizer(in);
+</span><span class='line'>// This method resets this tokenizer's syntax table so that all characters are "ordinary."
+</span><span class='line'>st.resetSyntax(); 
+</span><span class='line'>// This method specifies that all characters c in the range low &lt;= c &gt;= high are word constituents.
+</span><span class='line'>st.wordChars(0, Character.MAX_VALUE);
+</span><span class='line'>// This method specifies that all characters c in the range low &lt;= c &lt;= high are white space characters.
+</span><span class='line'>st.whitespaceChars(0, ' ');
+</span><span class='line'>while (st.nextToken() != st.TT_EOF) // end of file, TT_EOL: end of line
+</span><span class='line'>  add(at.sval); // string value, nval: number value</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>void whitespaceChars(int low, int hi)
+</span><span class='line'>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>String</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>String test = " a    t\n";
+</span><span class='line'>System.out.println(test.replaceAll("\\s", ""));</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>Thread</h2>
+
+<p>Runnable.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public class HelloRunnable implements Runnable {
+</span><span class='line'>    public void run() {
+</span><span class='line'>        System.out.println("Hello from a thread!");
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    public static void main(String args[]) {
+</span><span class='line'>        (new Thread(new HelloRunnable())).start();
+</span><span class='line'>    }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Thread.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public class HelloThread extends Thread {
+</span><span class='line'>    public void run() {
+</span><span class='line'>        System.out.println("Hello from a thread!");
+</span><span class='line'>    }
+</span><span class='line'>    public static void main(String args[]) {
+</span><span class='line'>        (new HelloThread()).start();
+</span><span class='line'>    }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The first idiom(<code>Runnable</code>) is more general.</p>
+
+<p>The interrupt mechanism is implemented using an internal flag known as the interrupt status. Invoking <code>Thread.interrupt</code> sets this flag. When a thread checks for an interrupt by invoking the static method <code>Thread.interrupted</code>, interrupt status is cleared. The non-static <code>isInterrupted</code> method, which is used by one thread to query the interrupt status of another, does not change the interrupt status flag.</p>
+
+<h2>Timer</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -295,32 +577,76 @@ MathJax.Hub.Config({
 <span class='line-number'>23</span>
 <span class='line-number'>24</span>
 <span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import matplotlib.pyplot as plt
-</span><span class='line'>import matplotlib.ticker as plticker
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import java.util.Timer;
+</span><span class='line'>import java.util.TimerTask;
 </span><span class='line'>
-</span><span class='line'>data = [50 * random.random() for i in range(20)]
-</span><span class='line'>
-</span><span class='line'>x = range(len(data))
-</span><span class='line'>
-</span><span class='line'>fig = plt.figure()
-</span><span class='line'>axes = plt.gca()
-</span><span class='line'>axes.set_xlim([0, 20])
-</span><span class='line'>
-</span><span class='line'>ax = fig.add_subplot(1, 1, 1)
-</span><span class='line'>major_ticks = range(0, 20, 2)
-</span><span class='line'>minor_ticks = range(0, 50, 5)
-</span><span class='line'>ax.set_xticks(major_ticks)
-</span><span class='line'>
-</span><span class='line'>ax.grid(which='both')
-</span><span class='line'>
-</span><span class='line'>plt.scatter(x, data)
-</span><span class='line'># plt.grid()
-</span><span class='line'>
-</span><span class='line'>plt.xlabel('Users')
-</span><span class='line'>plt.ylabel('Average jump span')
-</span><span class='line'>#plt.savefig('user_jump_span.png')
-</span><span class='line'>plt.show()</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>Timer timer = new Timer(true);   
+</span><span class='line'>// true 说明这个timer以daemon方式运行（优先级低，  
+</span><span class='line'>// 程序结束timer也自动结束），注意，javax.swing   
+</span><span class='line'>// 包中也有一个Timer类，如果import中用到swing包，   
+</span><span class='line'>// 要注意名字的冲突。   
+</span><span class='line'>  
+</span><span class='line'>TimerTask task = new TimerTask() {   
+</span><span class='line'>    public void run() {   
+</span><span class='line'>    ... //每次需要执行的代码放到这里面。   
+</span><span class='line'>    }   
+</span><span class='line'>};   
+</span><span class='line'>  
+</span><span class='line'>//以下是几种调度task的方法：   
+</span><span class='line'>  
+</span><span class='line'>timer.schedule(task, time);   
+</span><span class='line'>// time为Date类型：在指定时间执行一次。   
+</span><span class='line'>  
+</span><span class='line'>timer.schedule(task, firstTime, period);   
+</span><span class='line'>// firstTime为Date类型,period为long   
+</span><span class='line'>// 从firstTime时刻开始，每隔period毫秒执行一次。   
+</span><span class='line'>  
+</span><span class='line'>timer.schedule(task, delay)   
+</span><span class='line'>// delay 为long类型：从现在起过delay毫秒执行一次   
+</span><span class='line'>  
+</span><span class='line'>timer.schedule(task, delay, period)   
+</span><span class='line'>// delay为long,period为long：从现在起过delay毫秒以后，每隔period   
+</span><span class='line'>// 毫秒执行一次</span></code></pre></td></tr></table></div></figure>
 
+
+<hr />
+
+<h2>ClassNotFountException</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>java.lang.ClassNotFoundException: com.mysql.jdbc.Driver</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>SQLException</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>java.sql.SQLException: No suitable driver found for jdbc:mysql://127.0.0.1:3306/oxcoder</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install libmysql-java
+</span><span class='line'>export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>LogCat</h2>
+
+<p>Filter Settings:
+* by Application Name: com.example.musicplayer
+* by Log Level: verbose</p>
 </div>
   
   

@@ -9,12 +9,10 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="Bitmap 1
+  <meta name="description" content="See Running Devstack here. 1
 2
-3
-4
-Bitmap bitmap=BitmapFactory.decodeResource(getResources(), R.drawable.green);
-bitmap=Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(), &hellip;">
+paver devstack --fast lms &gt; lms.log 2&gt;&1 &
+paver devstack --fast studio &gt; studio.log 2&gt;&1 & &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -110,7 +108,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/06/22/android-graphics/">Android Graphics</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/05/16/edx-developer-stack/">edX Developer Stack</a></h1>
     
     
       <p class="meta">
@@ -119,82 +117,98 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-06-22T20:07:03+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>8:07 pm</span></time>
+<time class='entry-date' datetime='2016-05-16T14:26:50+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:26 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>Bitmap</h2>
+  <div class="entry-content"><p>See Running Devstack <a href="https://openedx.atlassian.net/wiki/display/OpenOPS/Running+Devstack">here</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>paver devstack --fast lms &gt; lms.log 2&gt;&1 &
+</span><span class='line'>paver devstack --fast studio &gt; studio.log 2&gt;&1 &</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>OPENEDX_RELEASE</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Bitmap bitmap=BitmapFactory.decodeResource(getResources(), R.drawable.green);
-</span><span class='line'>bitmap=Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
-</span><span class='line'>// Bitmap source, int x, int y, int width, int height, Matrix m, boolean filter
-</span><span class='line'>// Rect: (x,y) (width, height); filter: bilinear interpolation</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>default: Downloading: http://files.edx.org/vagrant-images/devstack-periodic-2016-05-05.box
+</span><span class='line'>The requested URL returned error: 403 Forbidden
+</span><span class='line'>
+</span><span class='line'>export OPENEDX_RELEASE="named-release/dogwood.1"</span></code></pre></td></tr></table></div></figure>
 
 
 <ul>
-<li>upsize: bilinear or bicubic interpolation</li>
-<li>downsize: area averaging</li>
+<li><a href="&#x6d;&#97;&#x69;&#108;&#116;&#111;&#x3a;&#x73;&#116;&#x61;&#x66;&#102;&#x40;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#x65;&#46;&#99;&#111;&#109;">&#115;&#x74;&#x61;&#102;&#102;&#64;&#x65;&#120;&#x61;&#109;&#x70;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d;</a> / edx</li>
+<li><a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#58;&#118;&#x65;&#114;&#105;&#102;&#105;&#x65;&#100;&#64;&#101;&#x78;&#97;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;">&#118;&#101;&#x72;&#105;&#102;&#105;&#x65;&#100;&#64;&#x65;&#x78;&#97;&#109;&#x70;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;</a> / edx</li>
+<li><a href="&#109;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#97;&#x75;&#100;&#x69;&#116;&#64;&#x65;&#120;&#x61;&#x6d;&#112;&#x6c;&#101;&#46;&#99;&#111;&#x6d;">&#x61;&#x75;&#100;&#105;&#116;&#64;&#x65;&#x78;&#97;&#x6d;&#112;&#x6c;&#101;&#x2e;&#99;&#111;&#x6d;</a> / edx</li>
+<li><a href="&#109;&#x61;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#104;&#x6f;&#110;&#x6f;&#x72;&#64;&#x65;&#120;&#x61;&#109;&#112;&#108;&#x65;&#46;&#x63;&#111;&#109;">&#x68;&#111;&#x6e;&#x6f;&#114;&#x40;&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#x65;&#46;&#99;&#x6f;&#109;</a> / edx</li>
 </ul>
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>String fullPath = sdcard_path + "/" + myFloder + "/" + timeStamp + suffixName;
-</span><span class='line'>try {
-</span><span class='line'>  bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(fullPath));
-</span><span class='line'>} catch (FileNotFoundException e) {
-</span><span class='line'>  e.printStackTrace();
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant up
+</span><span class='line'>vagrant ssh
+</span><span class='line'>sudo su edxapp</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Canvas</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>drawCircle(float cx, float cy, float radius,Paint paint)
-</span><span class='line'>drawArc(RectF oval, float startAngle, float sweepAngle, boolean useCenter, Paint paint)
-</span><span class='line'>drawBitmap(Bitmap bitmap, Rect src, Rect dst, Paint paint)</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li>This will source the edxapp environment (<code>/edx/app/edxapp/edxapp_env</code>) so that the venv python and rbenv ruby are in your search path.</li>
+<li>It will also set the current working directory to the edx-platform repository (<code>/edx/app/edxapp/edx-platform</code>).</li>
+</ul>
 
 
+<h2>LMS Workflow</h2>
 
+<p>LMS: Learning Management System.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Canvas canvas;
-</span><span class='line'>if (rotation != 0)
-</span><span class='line'>  canvas.rotate(-rotation, x, y);
-</span><span class='line'>canvas.drawText(PaintPadActivity.text, x, y, Brush.getPen());
-</span><span class='line'>if (rotation != 0)
-</span><span class='line'>  canvas.rotate(rotation, x, y);</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>paver devstack lms &gt; lms.log 2&gt;&1 &
+</span><span class='line'>paver devstack --fast lms &gt; lms.log 2&gt;&1 &
+</span><span class='line'>
+</span><span class='line'>Starting development server at http://0.0.0.0:8000/</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Matrix</h2>
+<p>WSGI: Web Server Gateway Interface</p>
+
+<h2>Studio Workflow</h2>
+
+<p>CMS: course management system</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Matrix matrix=new Matrix();
-</span><span class='line'>matrix.setRotate(degree, px, py); // rotate degree centered at (px, py)
-</span><span class='line'>matrix.postScale(sx, sy); // scale center at (0, 0) </span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>paver devstack studio &gt; studio.log 2&gt;&1 &
+</span><span class='line'>paver devstack --fast studio &gt; studio.log 2&gt;&1 &
+</span><span class='line'>
+</span><span class='line'>Starting development server at http://0.0.0.0:8001/</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Shader</h2>
+<h2>Forum Workflow</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo su forum
+</span><span class='line'>bundle install
+</span><span class='line'>ruby app.rb -p 18080</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>Vagrant</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -202,15 +216,115 @@ MathJax.Hub.Config({
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Shader s = new SweepGradient(0, 0, mColors, null);
-</span><span class='line'>// mPaint.setShader(new SweepGradient(screenX, screenY, Color.RED, Color.YELLOW)); 
-</span><span class='line'>mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-</span><span class='line'>mPaint.setShader(s);
-</span><span class='line'>Canvas canvas;
-</span><span class='line'>canvas.drawOval(new RectF(-r, -r, r, r), mPaint);</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir devstack
+</span><span class='line'>cd devstack
+</span><span class='line'>curl -L https://raw.githubusercontent.com/edx/configuration/master/vagrant/release/devstack/Vagrantfile &gt; Vagrantfile
+</span><span class='line'>vagrant plugin install vagrant-vbguest
+</span><span class='line'>vagrant up
+</span><span class='line'>vagrant ssh</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>update</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl -o vagrant_1.7.2_x86_64.deb https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
+</span><span class='line'>sudo dpkg -i vagrant_1.7.2_x86_64.deb</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>remove box</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant box list
+</span><span class='line'>vagrant status
+</span><span class='line'>vagrant halt
+</span><span class='line'>vagrant destroy
+</span><span class='line'>vagrant box remove --force --all dogwood-devstack-2016-03-09</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>port in use</h3>
+
+<p>The forwarded port to 9200 is already in use
+on the host machine.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>netstat -peanut
+</span><span class='line'>id
+</span><span class='line'>vi Vagrantfile</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>NFS</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>==&gt; default: Mounting NFS shared folders...</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install nfs-kernel-server
+</span><span class='line'>sudo apt-get install nfs-common</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>SSH</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>The SSH command responded with a non-zero exit status.</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>==&gt; default: FATAL: all hosts have already failed -- aborting
+</span><span class='line'>
+</span><span class='line'>==&gt; default: INFO:ansible.callback_plugins.datadog_tasks_timing:
+</span><span class='line'>==&gt; default: Playbook vagrant-devstack finished: Fri Mar 25 13:12:31 2016, 276 total tasks.  0:18:28 elapsed.
+</span><span class='line'>==&gt; default:            to retry, use: --limit @/root/vagrant-devstack.retry
+</span><span class='line'>==&gt; default:
+</span><span class='line'>==&gt; default: localhost                  : ok=260  changed=65   unreachable=0    failed=1</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rm -rf devstack/</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>VirtualBox</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vboxmanage --version</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Port Forwarding</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Failed to load unit 'pgm' (VERR_MAP_FAILED).</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Discard saved state.</p>
+
+<hr />
 
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/05/16/edx-developer-stack/">Read on &rarr;</a>
+    </footer>
   
 
 

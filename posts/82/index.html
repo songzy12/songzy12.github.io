@@ -9,12 +9,13 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="dist-packages 1
-2
-3
-&gt;&gt;&gt; import site
-&gt;&gt;&gt; site.getsitepackages()
-['/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist- &hellip;">
+  <meta name="description" content="OpenStack cloud.iiis.systems
+http://wiki.iiis.systems/w/index.php/OpenStack_User_Guide VPN: gw.iiis.co
+test
+123456
+songzhengyang
+IlppYUrxCKF1
+10.2.2. &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -110,7 +111,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/09/11/python-dist/">Python Dist Packages</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/08/27/ansible/">Ansible</a></h1>
     
     
       <p class="meta">
@@ -119,21 +120,128 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-09-11T14:44:05+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:44 pm</span></time>
+<time class='entry-date' datetime='2016-08-27T19:13:58+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:13 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>dist-packages</h2>
+  <div class="entry-content"><h2>OpenStack</h2>
+
+<ul>
+<li>cloud.iiis.systems</li>
+<li><a href="http://wiki.iiis.systems/w/index.php/OpenStack_User_Guide">http://wiki.iiis.systems/w/index.php/OpenStack_User_Guide</a></li>
+</ul>
+
+
+<p>VPN:</p>
+
+<ul>
+<li>gw.iiis.co</li>
+<li>test</li>
+<li>123456</li>
+<li>songzhengyang</li>
+<li>IlppYUrxCKF1</li>
+<li>10.2.2.44</li>
+</ul>
+
+
+<h2>Windows</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo pip install http://github.com/diyan/pywinrm/archive/master.zip#egg=pywinrm</span></code></pre></td></tr></table></div></figure>
+
+
+<p>DHCP: dynamic host configuration protocol
+NAT: network address transfer</p>
+
+<p>private IP:</p>
+
+<ul>
+<li>class A: 10.0.0.0 ~ 10.255.255.255</li>
+<li>class B: 172.16.0.0 ~ 172.31.255.255</li>
+<li>class C: 192.168.0.0 ~ 192.168.255.255</li>
+</ul>
+
+
+<h3>PowerShell</h3>
+
+<p>Run this PowerShell script <a href="https://github.com/ansible/ansible/blob/devel/examples/scripts/ConfigureRemotingForAnsible.ps1">here</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>因为在此系统中禁止执行脚本。</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>get-help about_signing
+</span><span class='line'>set-ExecutionPolicy RemoteSigned</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>对注册表项的访问被拒绝。</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PowerShell version 3 or higher is required.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Copy this PowerShell script <a href="https://github.com/cchurch/ansible/blob/devel/examples/scripts/upgrade_to_ps3.ps1">here</a>.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; import site
-</span><span class='line'>&gt;&gt;&gt; site.getsitepackages()
-</span><span class='line'>['/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages']</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>此更新不适用于您的计算机。
+</span><span class='line'>
+</span><span class='line'>错误：DNS名不存在</span></code></pre></td></tr></table></div></figure>
+
+
+<p>按顺序选择操作（1/2/&frac34;/q）.
+手动对时。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>get-host
+</span><span class='line'>$host.version</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>expand –F:* .\Windows6.1-KB2533623-x64.msu .
+</span><span class='line'>dism.exe /online /Add-Package /PackagePath:.\Windows6.1-KB2533623-x64.cab</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>Ubuntu</h2>
+
+<p>Windows support for Ansible refers to this doc <a href="http://ansible-tran.readthedocs.org/en/latest/docs/intro_windows.html">here</a>.</p>
+
+<h3>install</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install software-properties-common
+</span><span class='line'>sudo apt-add-repository ppa:ansible/ansible
+</span><span class='line'>sudo apt-get update
+</span><span class='line'>sudo apt-get install ansible</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>inventory</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vi /etc/ansible/hosts</span></code></pre></td></tr></table></div></figure>
 
 
 
@@ -141,18 +249,100 @@ MathJax.Hub.Config({
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; import gensim
-</span><span class='line'>&gt;&gt;&gt; gensim 
-</span><span class='line'>&lt;module 'gensim' from '/usr/local/lib/python2.7/dist-packages/gensim/__init__.pyc'&gt;</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[ubuntu]
+</span><span class='line'>127.0.0.1
+</span><span class='line'>10.9.10.15  ansible_ssh_user=songzy</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>pip</h2>
+<h3>ssh key</h3>
+
+<p>server:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>pip install --use pyhs2</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ls ~/.ssh
+</span><span class='line'>ssh-keygen
+</span><span class='line'>cat ~/.ssh/id_rsa.pub
+</span><span class='line'>ssh-add ~/.ssh/id_rsa
+</span><span class='line'>
+</span><span class='line'>Identity added: /home/andy/.ssh/id_rsa (/home/andy/.ssh/id_rsa)</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>pkg_resources</h2>
+<p>client:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>songzy12@taoli.tsinghuax.org | UNREACHABLE! =&gt; {
+</span><span class='line'>    "changed": false, 
+</span><span class='line'>    "msg": "SSH Error: data could not be sent to the remote host. Make sure this host can be reached over ssh", 
+</span><span class='line'>    "unreachable": true
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>export ANSIBLE_SCP_IF_SSH=y</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh: connect to host 127.0.0.1 port 22: Connection refused</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install openssh-server
+</span><span class='line'>sudo service ssh start</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>10.9.10.15 | UNREACHABLE! =&gt; {
+</span><span class='line'>    "changed": false, 
+</span><span class='line'>    "msg": "Failed to connect to the host via ssh.", 
+</span><span class='line'>    "unreachable": true
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ansible all -m ping</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>ad-hoc commands</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ansible all -m ping
+</span><span class='line'>ansible all -a "ls"</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>playbooks</h3>
+
+<p><code>vi playbook.yml</code></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -161,73 +351,53 @@ MathJax.Hub.Config({
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; from pkg_resources import parse_version
-</span><span class='line'>&gt;&gt;&gt; parse_version('1.9.a.dev') == parse_version('1.9a0dev')
-</span><span class='line'>True
-</span><span class='line'>&gt;&gt;&gt; parse_version('2.1-rc2') &lt; parse_version('2.1')
-</span><span class='line'>True
-</span><span class='line'>&gt;&gt;&gt; parse_version('0.6a9dev-r41475') &lt; parse_version('0.6a9')
-</span><span class='line'>True</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- hosts: all
+</span><span class='line'>  tasks:
+</span><span class='line'>  - name: test connection
+</span><span class='line'>    ping:
+</span><span class='line'>    
+</span><span class='line'>- hosts: ubuntu
+</span><span class='line'>  tasks:
+</span><span class='line'>  - name: test script
+</span><span class='line'>    script: test_touch.sh
+</span><span class='line'>    
+</span><span class='line'>  - name: test shell
+</span><span class='line'>    shell: ls
+</span><span class='line'>    register: ps
+</span><span class='line'>    
+</span><span class='line'>  - debug: msg=</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>vi test_touch.sh</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>touch test_touch.txt</span></code></pre></td></tr></table></div></figure>
 
 
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>release = pkg_resources.get_distribution('sandman').version
-</span><span class='line'>version = '.'.join(release.split('.')[:2])</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ansible-playbook playbook.yml -vv</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>virtualenv</h2>
+<h3>ip</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd my_project_folder
-</span><span class='line'>virtualenv venv
-</span><span class='line'>source venv/bin/activate
-</span><span class='line'>pip install requests
-</span><span class='line'>deactivate</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>xlrd</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import xlrd
+</pre></td><td class='code'><pre><code class=''><span class='line'>ip route get 8.8.8.8 | awk '{print $NF; exit}'
+</span><span class='line'>hostname -I
 </span><span class='line'>
-</span><span class='line'>table = xlrd.open_workbook(file_name).sheets()[0]
-</span><span class='line'>for row in range(1, table.nrows - 1):
-</span><span class='line'>    print table.row_values(row)</span></code></pre></td></tr></table></div></figure>
-
-
-<hr />
-
-<h2>bs4</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[script.extract() for script in link_soup(["script", "ins"])]
-</span><span class='line'>
-</span><span class='line'>extract(self) method of bs4.element.Tag instance
-</span><span class='line'>    Destructively rips this element out of the tree. </span></code></pre></td></tr></table></div></figure>
-
-
-<h2>pymining</h2>
-
-<p><a href="https://github.com/bartdag/pymining">Here</a>.</p>
-
-<p>BIDE Algorithm.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>support = 1000</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>101.6.244.5</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

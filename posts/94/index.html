@@ -9,11 +9,18 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="apk AndroidManifest.xml
-classes.dex
-res/
-lib/
-META-INF arsc: Android package Resource file. hacking approach unzip apk &amp; disassemble classes.dex &hellip;">
+  <meta name="description" content="flask 1
+pip install Flask WSGI: Web Server Gateway Interface. hello.py 1
+2
+3
+4
+5
+6
+7
+8
+9
+from flask import Flask
+app = Flask(__name__) @app.route &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -109,7 +116,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/08/16/reverse-engineering/">Reverse Engineering</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/07/27/flask/">Flask</a></h1>
     
     
       <p class="meta">
@@ -118,51 +125,22 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-08-16T13:51:20+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>1:51 pm</span></time>
+<time class='entry-date' datetime='2016-07-27T14:44:05+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:44 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>apk</h2>
-
-<ul>
-<li>AndroidManifest.xml</li>
-<li>classes.dex</li>
-<li>res/</li>
-<li>lib/</li>
-<li>META-INF</li>
-</ul>
-
-
-<p>arsc: Android package Resource file.</p>
-
-<h2>hacking approach</h2>
-
-<ul>
-<li>unzip apk &amp; disassemble classes.dex</li>
-<li>perform static analysis on the app</li>
-<li>inject byte-code into the app</li>
-<li>reassemble classes.dex &amp; zip/sign apk</li>
-</ul>
-
-
-<p>dex: dalvik executable</p>
-
-<h2>apktool</h2>
+  <div class="entry-content"><h2>flask</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>apktool d RecentContest_beta.apk
-</span><span class='line'>apktool b RecentContest_beta</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pip install Flask</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>RecentContest</h2>
+<p>WSGI: Web Server Gateway Interface.</p>
 
-<p><a href="http://contests.acmicpc.info/contests.json">contests</a>.</p>
-
-<p>To remove <code>Private</code> access contests from the json result, just insert the following lines after <code>:cond_1</code> of file <code>JsonStringAnalysis.smali</code></p>
+<h3>hello.py</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -171,83 +149,59 @@ MathJax.Hub.Config({
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>const-string v8, "Private"
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from flask import Flask
+</span><span class='line'>app = Flask(__name__)
 </span><span class='line'>
-</span><span class='line'>invoke-virtual {v0, v8}, Ljava/lang/String;-&gt;equals(Ljava/lang/Object;)Z
+</span><span class='line'>@app.route('/')
+</span><span class='line'>def hello_world():
+</span><span class='line'>    return 'Hello, World!'
 </span><span class='line'>
-</span><span class='line'>move-result v8
-</span><span class='line'>
-</span><span class='line'>if-nez v8, :try_end_0</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>if __name__ == '__main__':
+</span><span class='line'>    app.run(debug=True, host='0.0.0.0')</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>testsign</h2>
+<p></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>java -jar testsign.jar RecentContest_beta.apk RecentContest_beta-signed.apk</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>python hello.py</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>smali</h2>
-
-<h3>Types</h3>
-
-<ul>
-<li>V: void</li>
-<li>Z: boolean</li>
-<li>B: byte</li>
-<li>S: short</li>
-<li>C: char</li>
-<li>F: float</li>
-<li>I: int</li>
-<li>J: long</li>
-<li>D: double</li>
-<li>[: array</li>
-</ul>
-
-
-<h3>Classes</h3>
-
-<ul>
-<li>full name space slash separated</li>
-<li>prefixed with L</li>
-<li>suffixed with ;</li>
-</ul>
-
+<h3>externally visible</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Lcom/example/myapp/MyClass;</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>app.run(host='0.0.0.0')</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Methods</h3>
-
-<p>.method keyword method-name parameters/return</p>
+<h3>automatic reload</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>.method private delayedAnimationFrame(J)Z</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>app.run(debug=True)</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>Registers</h3>
+<h3>route</h3>
 
-<ul>
-<li>.locals</li>
-<li>.parameters</li>
-</ul>
-
-
-<h3>Opcodes</h3>
-
-<ul>
-<li>invoke-super vx, vy, &hellip;</li>
-<li>new-instance vx</li>
-<li>invoke-direct vx, vy, &hellip;</li>
-<li>const-string vx</li>
-<li>invoke-virtual vx, vy, &hellip;</li>
-<li>return-void</li>
-</ul>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@app.route('/user/&lt;username&gt;')
+</span><span class='line'>def show_user_profile(username):
+</span><span class='line'>    # show the user profile for that user
+</span><span class='line'>    return 'User %s' % username</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>dex2jar</h2>
+<h3>url_for</h3>
 
-<h2>jd-gui</h2>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{ { url_for('static', filename='HZRecorder.js') } }</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>404 Not Found</h3>
+
+<p>Switch to <code>Ubuntu</code> rather than <code>Windows</code> can solve this.
+```</p>
 </div>
   
   

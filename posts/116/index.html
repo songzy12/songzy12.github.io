@@ -9,20 +9,10 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="Triangle 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-class Triangle{
-public: Vertex *vertex[3]; Vec3f normal; double M[4][4]; Triangle(Vertex *v0, Vertex *v1, Vertex &hellip;">
+  <meta name="description" content="API API: application programming interface. api key: 272693d198659c3ab00bbdeee1df353f
+text-to-speech: here.
+speech-to-text: here.
+One hundred times &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -118,7 +108,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/03/25/mesh-simplification/">Mesh Simplification</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/03/16/speech-to-text/">Speech to Text</a></h1>
     
     
       <p class="meta">
@@ -127,216 +117,42 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-03-25T11:51:15+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>11:51 am</span></time>
+<time class='entry-date' datetime='2016-03-16T21:37:58+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:37 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>Triangle</h2>
+  <div class="entry-content"><h2>API</h2>
+
+<p>API: application programming interface.</p>
+
+<ul>
+<li>api key: <code>272693d198659c3ab00bbdeee1df353f</code></li>
+<li>text-to-speech: <a href="http://apistore.baidu.com/apiworks/servicedetail/867.html">here</a>.</li>
+<li>speech-to-text: <a href="http://apistore.baidu.com/astore/toolshttpproxy?apiId=usy9yg&amp;isAworks=1">here</a>.</li>
+<li><p>One hundred times per second.</p></li>
+<li><p><code>audioBase64</code> is truncated in the debug tool for speech-to-text api.</p></li>
+<li>parameter error: the <code>audioBase64</code> parameter is wrong.</li>
+<li>The t-t-s api returns mp3 data, while the s-t-t api receives wav data.</li>
+<li>The <code>lan</code> parameter is of no use.</li>
+</ul>
+
+
+<h2>browser</h2>
+
+<h3>navigator.getUserMedia</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Triangle{
-</span><span class='line'>public:
-</span><span class='line'>  Vertex *vertex[3];
-</span><span class='line'>  
-</span><span class='line'>  Vec3f normal;
-</span><span class='line'>  double M[4][4];
-</span><span class='line'>  
-</span><span class='line'>  Triangle(Vertex *v0, Vertex *v1, Vertex *v2);
-</span><span class='line'>  ~Triangle();
-</span><span class='line'>  
-</span><span class='line'>  void ComputeNormalMatrix();
-</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>navigator.getUserMedia({audio:true}, success, function(e) {
+</span><span class='line'>alert('Error capturing audio.');
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>normal</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Vec3f v0=vertex[0]-&gt;position;
-</span><span class='line'>Vec3f v1=vertex[1]-&gt;position;
-</span><span class='line'>Vec3f v2=vertex[2]-&gt;position;
-</span><span class='line'>normal = Cross(v1-v0, v2-v0);
-</span><span class='line'>normal.Normalize();</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>M</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>double temp[4]={ normal.x, normal.y, normal.z,
-</span><span class='line'>  -(normal.x * vertex[0]-&gt;position.x 
-</span><span class='line'>  + normal.y * vertex[0]-&gt;position.y 
-</span><span class='line'>  + normal.z * vertex[0]-&gt;position.z)};
-</span><span class='line'>for(int i=0;i&lt;4;i++){
-</span><span class='line'>  for(int j=0;j&lt;4;j++){
-</span><span class='line'>      M[i][j] = temp[i] * temp[j];
-</span><span class='line'>  }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Vertex</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Vertex{
-</span><span class='line'>public:
-</span><span class='line'>  int index;
-</span><span class='line'>  Vec3f position;
-</span><span class='line'>  bool deleted;
-</span><span class='line'>
-</span><span class='line'>  std::vector&lt;Edge *&gt; pairs;
-</span><span class='line'>  std::vector&lt;Triangle *&gt; faces;
-</span><span class='line'>  std::vector&lt;Vertex *&gt; neighbors;
-</span><span class='line'>
-</span><span class='line'>  double Q[4][4];
-</span><span class='line'>  void ComputeMatrix();
-</span><span class='line'>
-</span><span class='line'>  Vertex(Vec3f v);
-</span><span class='line'>  void CleanNeighbor(Vertex *u);
-</span><span class='line'>  ~Vertex();
-</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Q</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>for(int i=0; i&lt;4; i++)
-</span><span class='line'>  for (int j=0; j&lt;4; j++)
-</span><span class='line'>      Q[i][j]=0;
-</span><span class='line'>for(int i=0; i&lt;4; i++)
-</span><span class='line'>  for(int j=0; j&lt;4; j++)
-</span><span class='line'>      for(std::vector&lt;Triangle *&gt;::iterator iter=faces.begin(); iter!=faces.end(); iter++)
-</span><span class='line'>          Q[i][j] += (*iter)-&gt; M[i][j];</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Edge</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class Edge{
-</span><span class='line'>public:
-</span><span class='line'>  Vertex *vertex[2];
-</span><span class='line'>  
-</span><span class='line'>  double Q[4][4];
-</span><span class='line'>  double cost;
-</span><span class='line'>  Vec3f vbar;
-</span><span class='line'>  bool deleted;
-</span><span class='line'>
-</span><span class='line'>  void ComputeMatrix();
-</span><span class='line'>    double ComputeCost(Vec3f v);
-</span><span class='line'>  void ComputeVbar();
-</span><span class='line'>
-</span><span class='line'>  bool operator == (const Edge other) const;
-</span><span class='line'>  Edge(Vertex *v0, Vertex *v1);
-</span><span class='line'>  ~Edge();
-</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>Q</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>for(int i=0; i&lt;4; i++){
-</span><span class='line'>  for(int j=0; j&lt;4; j++){
-</span><span class='line'>      Q[i][j]=vertex[0]-&gt;Q[i][j]+vertex[1]-&gt;Q[i][j]; 
-</span><span class='line'>  }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>cost</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>double t[4]={v.x, v.y, v.z, 1};
-</span><span class='line'>      
-</span><span class='line'>double temp[4]={0};
-</span><span class='line'>for(int i=0; i&lt;4; i++){
-</span><span class='line'>  for(int j=0; j&lt;4; j++){
-</span><span class='line'>      temp[i]+=t[j]*Q[j][i];
-</span><span class='line'>  }
-</span><span class='line'>}
-</span><span class='line'>double result=0;
-</span><span class='line'>for(int i=0; i&lt;4; i++){
-</span><span class='line'>  result+=temp[i] * t[i];
-</span><span class='line'>}
-</span><span class='line'>return result;</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>vbar</h3>
+<h3>AudioContext</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -369,50 +185,64 @@ MathJax.Hub.Config({
 <span class='line-number'>29</span>
 <span class='line-number'>30</span>
 <span class='line-number'>31</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>double det=Det(Q[0][0], Q[0][1], Q[0][2], 
-</span><span class='line'>  Q[1][0], Q[1][1], Q[1][2],
-</span><span class='line'>  Q[2][0], Q[2][1], Q[2][2]);
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function success(e){
+</span><span class='line'>    // creates the audio context
+</span><span class='line'>    audioContext = window.AudioContext || window.webkitAudioContext;
+</span><span class='line'>    context = new audioContext();
 </span><span class='line'>
-</span><span class='line'>if(det&gt;1e-9 || det&lt;-1e-9){
-</span><span class='line'>  double x= -1/det * Det(Q[0][1], Q[0][2], Q[0][3],
-</span><span class='line'>      Q[1][1], Q[1][2], Q[1][3],
-</span><span class='line'>      Q[2][1], Q[2][2], Q[2][3]);
-</span><span class='line'>  double y= 1/det * Det(Q[0][0], Q[0][2], Q[0][3],
-</span><span class='line'>      Q[1][0], Q[1][2], Q[1][3],
-</span><span class='line'>      Q[2][0], Q[2][2], Q[2][3]);
-</span><span class='line'>  double z= -1/det * Det(Q[0][0], Q[0][1], Q[0][3],
-</span><span class='line'>      Q[1][0], Q[1][1], Q[1][3],
-</span><span class='line'>      Q[2][0], Q[2][1], Q[2][3]);
-</span><span class='line'>  vbar = Vec3f (x, y, z);
-</span><span class='line'>  cost = ComputeCost(vbar);
-</span><span class='line'>  return;
-</span><span class='line'>}
+</span><span class='line'>  // we query the context sample rate (varies depending on platforms)
+</span><span class='line'>    inputSampleRate = context.sampleRate;
+</span><span class='line'>    outputSampleRate = 8000;
 </span><span class='line'>
+</span><span class='line'>    console.log('succcess');
+</span><span class='line'>    
+</span><span class='line'>    // creates a gain node
+</span><span class='line'>    volume = context.createGain();
 </span><span class='line'>
-</span><span class='line'>double error1=ComputeCost(vertex[0]-&gt;position);
-</span><span class='line'>double error2=ComputeCost(vertex[1]-&gt;position);
-</span><span class='line'>double error3=ComputeCost((vertex[0]-&gt;position+vertex[1]-&gt;position)/2);
-</span><span class='line'>cost = error1 &lt; error2 ? (error1 &lt; error3 ? error1: error3):(error2 &lt; error3 ? error2 : error3);
-</span><span class='line'>if(cost == error1) 
-</span><span class='line'>  vbar = vertex[0]-&gt;position;
-</span><span class='line'>else if(cost == error2)
-</span><span class='line'>  vbar = vertex[1]-&gt;position;
-</span><span class='line'>else
-</span><span class='line'>  vbar= (vertex[0]-&gt;position+vertex[1]-&gt;position)/2;
-</span><span class='line'>return;</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>    // creates an audio node from the microphone incoming stream
+</span><span class='line'>    audioInput = context.createMediaStreamSource(e);
+</span><span class='line'>
+</span><span class='line'>    // connect the stream to the gain node
+</span><span class='line'>    audioInput.connect(volume);
+</span><span class='line'>
+</span><span class='line'>    /* From the spec: This value controls how frequently the audioprocess event is 
+</span><span class='line'>    dispatched and how many sample-frames need to be processed each call. 
+</span><span class='line'>    Lower values for buffer size will result in a lower (better) latency. 
+</span><span class='line'>    Higher values will be necessary to avoid audio breakup and glitches */
+</span><span class='line'>    var bufferSize = 2048;
+</span><span class='line'>    recorder = context.createScriptProcessor(bufferSize, 1, 1);
+</span><span class='line'>
+</span><span class='line'>    recorder.onaudioprocess = function(e){
+</span><span class='line'>        if (!recording) return;
+</span><span class='line'>        var left = e.inputBuffer.getChannelData (0);
+</span><span class='line'>        
+</span><span class='line'>        // we clone the samples
+</span><span class='line'>        leftchannel.push (new Float32Array (left));
+</span><span class='line'>        
+</span><span class='line'>        recordingLength += left.length;
+</span><span class='line'>        console.log('recording');
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    // we connect the recorder
+</span><span class='line'>    volume.connect (recorder);
+</span><span class='line'>    recorder.connect (context.destination); 
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Simplify</h2>
+<h3>compress</h3>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>make_heap(edges.begin(), edges.end(), cmp);
-</span><span class='line'>pop_heap(edges.begin(), edges.end(), cmp);
-</span><span class='line'>push_heap(edges.begin(), edges.end(),cmp);</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p>The <code>context.sampleRate</code> returns <code>48000</code>.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -421,13 +251,375 @@ MathJax.Hub.Config({
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Vertex *u = e-&gt;vertex[0];
-</span><span class='line'>Vertex *v = e-&gt;vertex[1];
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function compress(buffer, size) {
+</span><span class='line'>    //合并
+</span><span class='line'>    var data = new Float32Array(size);
+</span><span class='line'>    var offset = 0;
+</span><span class='line'>    
+</span><span class='line'>    for (var i = 0; i &lt; buffer.length; i++) {
+</span><span class='line'>        data.set(buffer[i], offset);
+</span><span class='line'>        offset += buffer[i].length;
+</span><span class='line'>    }
+</span><span class='line'>    //压缩
+</span><span class='line'>    var compression = parseInt(inputSampleRate / outputSampleRate);
+</span><span class='line'>    
+</span><span class='line'>    var length = Math.floor(data.length / compression);
+</span><span class='line'>    // Float32Array: 32 bit (4 byte) floating point Array
+</span><span class='line'>    var result = new Float32Array(length);
 </span><span class='line'>
-</span><span class='line'>v-&gt;Q[i][j]=e-&gt;Q[i][j];
-</span><span class='line'>v-&gt;position = e-&gt;vbar;
+</span><span class='line'>    var index = 0, j = 0;
+</span><span class='line'>    
+</span><span class='line'>    while (index &lt; length) {
+</span><span class='line'>        result[index] = data[j];
+</span><span class='line'>        j += compression;
+</span><span class='line'>        index++;
+</span><span class='line'>    }
+</span><span class='line'>    
+</span><span class='line'>    return result;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>wav</h3>
+
+<p>BLOB: binary large object</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// we stop recording
+</span><span class='line'>recording = false;            
+</span><span class='line'>outputElement.innerHTML = 'Building wav file...';
 </span><span class='line'>
-</span><span class='line'>// refresh the vertexes, edges, faces of v</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>var sampleRate = Math.min(inputSampleRate, outputSampleRate);
+</span><span class='line'>var sampleBits = 16;
+</span><span class='line'>
+</span><span class='line'>var bytes = compress(leftchannel, recordingLength);
+</span><span class='line'>
+</span><span class='line'>var dataLength = bytes.length * (sampleBits / 8);
+</span><span class='line'>
+</span><span class='line'>// we create our wav file
+</span><span class='line'>var buffer = new ArrayBuffer(44 + dataLength);
+</span><span class='line'>var view = new DataView(buffer);
+</span><span class='line'>var channelCount = 1;
+</span><span class='line'>var index = 0;
+</span><span class='line'>
+</span><span class='line'>// RIFF chunk descriptor, 资源交换文件标识符
+</span><span class='line'>writeUTFBytes(view, index, 'RIFF'); index += 4;
+</span><span class='line'>// 下个地址开始到文件尾总字节数,即文件大小-8
+</span><span class='line'>view.setUint32(index, 36 + dataLength, true); index += 4;
+</span><span class='line'>// WAV文件标志
+</span><span class='line'>writeUTFBytes(view, index, 'WAVE'); index += 4;
+</span><span class='line'>// FMT sub-chunk, 波形格式标志 
+</span><span class='line'>writeUTFBytes(view, index, 'fmt '); index += 4;
+</span><span class='line'>// 过滤字节,一般为 0x10 = 16 
+</span><span class='line'>view.setUint32(index, 16, true); index += 4;
+</span><span class='line'>view.setUint16(index, 1, true); index += 2;
+</span><span class='line'>// 通道数 
+</span><span class='line'>view.setUint16(index, channelCount, true); index += 2;
+</span><span class='line'>// 采样率,每秒样本数,表示每个通道的播放速度 
+</span><span class='line'>view.setUint32(index, sampleRate, true); index += 4;
+</span><span class='line'>// 波形数据传输率 (每秒平均字节数) 单声道×每秒数据位数×每样本数据位/8 
+</span><span class='line'>view.setUint32(index, sampleRate * channelCount * (sampleBits / 8), true); index += 4;
+</span><span class='line'>// 快数据调整数 采样一次占用字节数 单声道×每样本的数据位数/8 
+</span><span class='line'>view.setUint16(index, channelCount * (sampleBits / 8), true); index += 2;
+</span><span class='line'>// 每样本数据位数 
+</span><span class='line'>view.setUint16(index, sampleBits, true); index += 2;
+</span><span class='line'>// 数据标识符 
+</span><span class='line'>writeUTFBytes(view, index, 'data'); index += 4;
+</span><span class='line'>// 采样数据总数,即数据总大小-44, index == 44 now
+</span><span class='line'>view.setUint32(index, dataLength, true); index += 4;
+</span><span class='line'>
+</span><span class='line'>// write the PCM samples
+</span><span class='line'>var volume = 1;
+</span><span class='line'>for (var i = 0; i &lt; bytes.length; i++){
+</span><span class='line'>    view.setInt16(index, bytes[i] * (0x7FFF * volume), true);
+</span><span class='line'>    index += 2;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>// our final binary blob
+</span><span class='line'>var blob = new Blob ( [ view ], { type : 'audio/wav' } );</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>download</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var url = (window.URL || window.webkitURL).createObjectURL(blob);
+</span><span class='line'>var link = window.document.getElementById("link");
+</span><span class='line'>link.href = url;
+</span><span class='line'>link.download = 'output.wav';
+</span><span class='line'>var click = document.createEvent("Event");
+</span><span class='line'>click.initEvent("click", true, true);
+</span><span class='line'>link.dispatchEvent(click);</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>base 64</h3>
+
+<p>A base 64 encoder: <a href="http://www.opinionatedgeek.com/dotnet/tools/base64encode/">here</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var audioData = btoa([].reduce.call(new Uint8Array(buffer),function(p,c){return p+String.fromCharCode(c)},''));</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>XMLHttpRequest</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var fd = new FormData();
+</span><span class='line'>fd.append("audioData", audioData);
+</span><span class='line'>var url = "/stt";
+</span><span class='line'>var xhr = new XMLHttpRequest();
+</span><span class='line'>xhr.onreadystatechange=function() {
+</span><span class='line'>    if (xhr.readyState==4 && xhr.status==200) {
+</span><span class='line'>        outputElement.innerHTML=xhr.responseText;
+</span><span class='line'>    }
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>xhr.open("POST", url);
+</span><span class='line'>xhr.send(fd);</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>server</h2>
+
+<p>html: templates/index.html</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import sys, json
+</span><span class='line'>from flask import Flask
+</span><span class='line'>from flask import render_template, url_for
+</span><span class='line'>from flask import request
+</span><span class='line'>from urllib import quote, urlencode
+</span><span class='line'>from urllib2 import Request, urlopen
+</span><span class='line'>
+</span><span class='line'>reload(sys)
+</span><span class='line'>sys.setdefaultencoding('utf-8')
+</span><span class='line'>
+</span><span class='line'>app = Flask(__name__)
+</span><span class='line'>app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
+</span><span class='line'>apikey = "272693d198659c3ab00bbdeee1df353f"
+</span><span class='line'>
+</span><span class='line'>@app.route('/')
+</span><span class='line'>def index():
+</span><span class='line'>    retData = open('tts.txt').read()
+</span><span class='line'>    return render_template('tts.html', audioBase64=retData)
+</span><span class='line'>    
+</span><span class='line'>@app.route('/stt', methods=['GET', 'POST'])
+</span><span class='line'>def stt():
+</span><span class='line'>    # return render_template('stt.html')
+</span><span class='line'>    if request.method != 'POST':
+</span><span class='line'>        return render_template('stt.html')
+</span><span class='line'>    
+</span><span class='line'>    url = 'http://apis.baidu.com/apistore/vop/baiduvopjson'
+</span><span class='line'>    data = {}
+</span><span class='line'>    data['audioBase64'] = request.form['audioData']
+</span><span class='line'>    # data['audioBase64'] = open('stt.txt').read()
+</span><span class='line'>
+</span><span class='line'>    data['format'] = "wav"
+</span><span class='line'>    data['rate'] = "8000"
+</span><span class='line'>    data['channel'] = "1"
+</span><span class='line'>    data['lan'] = "zh"
+</span><span class='line'>
+</span><span class='line'>    decoded_data = urlencode(data)
+</span><span class='line'>    
+</span><span class='line'>    req = Request(url, data = decoded_data)
+</span><span class='line'>
+</span><span class='line'>    req.add_header("Content-Type", "application/x-www-form-urlencoded")
+</span><span class='line'>    req.add_header("apikey", apikey)
+</span><span class='line'>
+</span><span class='line'>    resp = urlopen(req)
+</span><span class='line'>    content = resp.read()
+</span><span class='line'>    if(content):
+</span><span class='line'>        try:
+</span><span class='line'>            retData = json.loads(content)['retData']
+</span><span class='line'>            result = json.loads(retData)['result']
+</span><span class='line'>            return "\n".join(result)
+</span><span class='line'>        except:
+</span><span class='line'>            return content
+</span><span class='line'>
+</span><span class='line'>@app.route('/tts', methods=['GET', 'POST'])
+</span><span class='line'>def tts():
+</span><span class='line'>    if request.method == 'POST':
+</span><span class='line'>        text = quote(request.form['text'].encode('utf-8'))
+</span><span class='line'>        url = 'http://apis.baidu.com/apistore/baidutts/tts?text='+text+'&ctp=1&per=0'
+</span><span class='line'>        req = Request(url)
+</span><span class='line'>        req.add_header("apikey", apikey)
+</span><span class='line'>        resp = urlopen(req)
+</span><span class='line'>        content = resp.read()
+</span><span class='line'>        if(content):
+</span><span class='line'>            content = json.loads(content)
+</span><span class='line'>            retData = content['retData']
+</span><span class='line'>            retData = retData.replace('\/','/')
+</span><span class='line'>            return render_template('tts.html', audioBase64=retData)
+</span><span class='line'>
+</span><span class='line'>    return '''
+</span><span class='line'>        &lt;form action="" method="post"&gt;
+</span><span class='line'>            &lt;p&gt;&lt;input type=text name=text&gt;
+</span><span class='line'>            &lt;p&gt;&lt;input type=submit value=Post&gt;
+</span><span class='line'>        &lt;/form&gt;
+</span><span class='line'>    '''
+</span><span class='line'>
+</span><span class='line'>if __name__ == '__main__':
+</span><span class='line'>    # app.run()
+</span><span class='line'>    app.run(debug=True)</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

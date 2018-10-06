@@ -9,9 +9,8 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="npm If you don’t have package.json already, generate it with: 1
-npm init For example, when can add jQuery as npm dependency by invoking: 1
-npm &hellip;">
+  <meta name="description" content="zipfile 1
+print f.read(f.namelist()[0]) ">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -107,7 +106,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/12/27/nodejs/">Nodejs</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/12/24/data-compression-and-archiving/">Data Compression and Archiving</a></h1>
     
     
       <p class="meta">
@@ -116,95 +115,17 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-12-27T18:47:55+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>6:47 pm</span></time>
+<time class='entry-date' datetime='2016-12-24T14:28:16+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:28 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>npm</h2>
-
-<p>If you don’t have <code>package.json</code> already, generate it with:</p>
+  <div class="entry-content"><h2>zipfile</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>npm init</span></code></pre></td></tr></table></div></figure>
-
-
-<p>For example, when can add jQuery as npm dependency by invoking:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>npm install --save jquery</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If you have a <code>package.json</code> file in your directory and you run <code>npm install</code>, then npm will look at the dependencies that are listed in that file and download the latest versions satisfying semver rules for all of those.</p>
-
-<p><code>vi package.json</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  "scripts": {
-</span><span class='line'>    "start": "node app.js",
-</span><span class='line'>    "test": "./node_modules/.bin/nightwatch --env local",
-</span><span class='line'>    "postinstall": "./node_modules/bower/bin/bower install"
-</span><span class='line'>  }, </span></code></pre></td></tr></table></div></figure>
-
-
-<h2>browserify</h2>
-
-<p>First, start by installing Browserify globally as a command-line tool:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>npm install -g browserify</span></code></pre></td></tr></table></div></figure>
-
-
-<p>We can now pass our app script to browserify:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>browserify app.js -o bundle.js</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And out comes a full, browser-friendly bundle which can be included with a single script tag:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt; script src="bundle.js" &gt; &lt;/ script&gt; </span></code></pre></td></tr></table></div></figure>
-
-
-<p>Stay productive by installing and using watchify to efficiently recompile your bundle on each change:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>watchify app.js -o bundle.js</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>nvm</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>curl https://raw.githubusercontent.com/creationix/nvm/v0.25.0/install.sh | bash
-</span><span class='line'>nvm install stable
-</span><span class='line'>nvm ls
-</span><span class='line'>nvm use stable
-</span><span class='line'>npm rebuild</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>error</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var server = http.createServer(handleRequest);
-</span><span class='line'>server.on('error', function (e) {
-</span><span class='line'>  // Handle your error here
-</span><span class='line'>  console.log(e.stack);
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>print f.read(f.namelist()[0])</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

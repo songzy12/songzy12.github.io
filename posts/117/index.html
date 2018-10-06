@@ -9,16 +9,7 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="fundamental frequency
-formant: frequency, band width, amplitude Qt 1
-2
-3
-4
-5
-6
-7
-#include "mainwindow.h"
-#include &lt;QApplication&gt; QApplication &hellip;">
+  <meta name="description" content="Outline An outline of Android source code: here. Bluetooth architecture: here. Android source code analysis: here. android.bluetooth: frameworks/base &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -114,7 +105,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/03/25/qt/">Qt</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/03/01/bluetooth-profile/">Bluetooth Profile</a></h1>
     
     
       <p class="meta">
@@ -123,113 +114,212 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-03-25T00:04:44+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>12:04 am</span></time>
+<time class='entry-date' datetime='2016-03-01T14:36:00+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>2:36 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><ul>
-<li>fundamental frequency</li>
-<li>formant: frequency, band width, amplitude</li>
+  <div class="entry-content"><h2>Outline</h2>
+
+<p>An outline of Android source code: <a href="http://elinux.org/Master-android">here</a>.</p>
+
+<p>Bluetooth architecture: <a href="https://source.android.com/devices/bluetooth.html">here</a>.</p>
+
+<p>Android source code analysis: <a href="http://blog.csdn.net/luoshengyang">here</a>.</p>
+
+<ul>
+<li>android.bluetooth:
+
+<ul>
+<li>frameworks/base/core/java/android/bluetooth</li>
+<li>implements public API for the Bluetooth adapter and profiles</li>
+</ul>
+</li>
+<li>Bluetooth system service
+
+<ul>
+<li>packages/apps/Bluetooth/src</li>
+<li>implements service and profiles at the Android fraework layer</li>
+</ul>
+</li>
+<li>Bluetooth JNI
+
+<ul>
+<li>packages/apps/Bluetooth/jni</li>
+<li>defines Bluetooth adapter and profiles service JNI: calls into HAL and receives callback from HAL</li>
+</ul>
+</li>
+<li>Bluetooth HAL
+
+<ul>
+<li>hardware/libhardware/include/hardware/bt_*.h</li>
+<li>defines the standard interface that the android.bluetooth adapter and  profiles APIs</li>
+</ul>
+</li>
+<li>Bluetooth stack
+
+<ul>
+<li>external/bluetooth/bluedroid</li>
+<li>implement bluetooth stack: core and profiles</li>
+</ul>
+</li>
 </ul>
 
 
-<h2>Qt</h2>
+<h2>PBAP</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#include "mainwindow.h"
-</span><span class='line'>#include &lt;QApplication&gt;
-</span><span class='line'>
-</span><span class='line'>QApplication app(argc, argv);
-</span><span class='line'>MainWindow w;
-</span><span class='line'>w.show();
-</span><span class='line'>int ret = app.exec();</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li>Copy <code>/frameworks/opt/bluetooth/src/android/bluetooth/client/pbap/</code> from Android 5.0.</li>
+<li>Modify <code>/frameworks/opt/bluetooth/Android.mk</code> to make it suitable.</li>
+</ul>
 
 
+<h2>A2DP</h2>
+
+<p>The implementation of A2DP sink role: <a href="https://android-review.googlesource.com/#/c/98161/">here</a>.</p>
+
+<p>One implementation of sbc-decoder: <a href="github.com/tieto/sbc-decoder">here</a>.</p>
+
+<ul>
+<li>/external/bluetooth/bluedroid/
+
+<ul>
+<li>btif/
+
+<ul>
+<li>co/bta_av_co.c</li>
+<li>include/btif_av_api.h</li>
+<li>include/btif_media.h</li>
+<li>src/btif_av.c</li>
+<li>src/btif_dm.c</li>
+<li>src/btif_media_task.c</li>
+<li>src/btif_storage.c</li>
+</ul>
+</li>
+<li>bta/
+
+<ul>
+<li>av/bta_av_aact.c</li>
+<li>av/bta_av_act.c</li>
+<li>av/bta_av_int.h</li>
+<li>av/bta_av_main.c</li>
+<li>av/bta_av_sbc.c</li>
+<li>av/bta_av_ssm.c</li>
+<li>include/bta_av_co.h</li>
+<li>include/bta_av_sbc.h</li>
+</ul>
+</li>
+<li>audio_a2dp_hw/
+
+<ul>
+<li>audio_a2dp_hw.h</li>
+<li>audio_a2dp_hw.c</li>
+<li>Android.mk</li>
+</ul>
+</li>
+<li>embdrv/
+
+<ul>
+<li>sbc/decoder/include/sbc_decoder.h</li>
+<li>sbc/decoder/srce/sbc_decoder.c</li>
+</ul>
+</li>
+<li>main/</li>
+<li>stack/
+
+<ul>
+<li>avdt/avdt_scb_act.c</li>
+</ul>
+</li>
+<li>Android.mk</li>
+</ul>
+</li>
+<li>/system/core/include/system/audio.h</li>
+<li>/frameworks/base/media/java/android/media/
+
+<ul>
+<li>AudioManager.java</li>
+<li>AudioService.java</li>
+<li>AudioSystem.java</li>
+<li>MediaRecorder.java</li>
+</ul>
+</li>
+<li>/hardware/libhardware_legacy/audio/
+
+<ul>
+<li>Android.mk</li>
+<li>AudioPolicyManagerBase.cpp</li>
+</ul>
+</li>
+<li>/device/softwinner/common/hardware/audio/audio_policy.conf</li>
+<li>/packages/apps/Bluetooth/
+
+<ul>
+<li>src/com/android/bluetooth/a2dp/A2dpStateMachine.java</li>
+<li>AndroidManifest.xml</li>
+</ul>
+</li>
+</ul>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>MainWindow::MainWindow(QWidget *parent) :
-</span><span class='line'>    QMainWindow(parent),
-</span><span class='line'>    ui(new Ui::MainWindow)
-</span><span class='line'>{
-</span><span class='line'>    ui-&gt;setupUi(this);
-</span><span class='line'>    connect(ui-&gt;pushButton, SIGNAL(pressed()), this, SLOT(startSynth()));
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+<p>The sbc-decoder of Android 5.0 lies in</p>
+
+<ul>
+<li>/external/bluetooth/bluedroid/
+
+<ul>
+<li>embdrv/sbc/decoder/</li>
+<li>btif/src/btif_media_task.c</li>
+</ul>
+</li>
+</ul>
 
 
+<h2>HFP</h2>
 
+<p>Directories about A2DP, AVRCP, HFP: <a href="http://blog.csdn.net/wendell_gong/article/details/47950781">here</a>.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>void MainWindow::mousePressEvent(QMouseEvent *event){
-</span><span class='line'>    if (event-&gt;buttons() & Qt::LeftButton){
-</span><span class='line'>        int mouse_x = QCursor::pos().x();
-</span><span class='line'>        int mouse_y = QCursor::pos().y();
-</span><span class='line'>        QWidget *action = QApplication::widgetAt(mouse_x, mouse_y);
-</span><span class='line'>        QPoint GlobalPoint(action-&gt;mapToGlobal(QPoint(0, 0)));
-</span><span class='line'>        int x = GlobalPoint.x();
-</span><span class='line'>        int y = GlobalPoint.y();
-</span><span class='line'>        ui-&gt;horizontalSlider_1-&gt;setValue(x);
-</span><span class='line'>        ui-&gt;horizontalSlider_4-&gt;setValue(y);
-</span><span class='line'>    }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li>/frameworks/base/core/java/android/bluetooth/
 
+<ul>
+<li>BluetoothHeadsetClient.java</li>
+<li>BluetoothHeadsetClientCall.java</li>
+</ul>
+</li>
+<li>/packages/apps/Bluetooth/
 
+<ul>
+<li>src/com/android/bluetooth/hfpclient/
 
+<ul>
+<li>HeadsetClientHalConstants.java</li>
+<li>HeadsetClientService.java</li>
+<li>HeadsetClientStateMachine.java</li>
+</ul>
+</li>
+<li>jni/com_android_bluetooth_hfpclient.cpp</li>
+</ul>
+</li>
+<li>/hardware/libhardware/include/hardware/
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>spectrum.f0 = ui-&gt;horizontalSlider-&gt;value();</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li>bluetooth.h</li>
+<li>bt_hf_client.h</li>
+</ul>
+</li>
+<li>/external/bluetooth/bluedroid/
 
-
-<h2>PortAudio</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#include "portaudio.h"
-</span><span class='line'>
-</span><span class='line'>Pa_Initialize();
-</span><span class='line'>
-</span><span class='line'>Pa_OpenDefaultStream(&stream, 0, 1, paFloat32, SAMPLE_RATE, 256, synthCallback, this);
-</span><span class='line'>Pa_StartStream(stream);
-</span><span class='line'> 
-</span><span class='line'>Pa_StopStream(stream);
-</span><span class='line'>Pa_CloseStream(stream);
-</span><span class='line'>
-</span><span class='line'>Pa_Terminate();</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li>btif/src/btif_hf_client.c</li>
+<li>btif/src/bluetooth.c</li>
+<li>bta/hf_client/</li>
+<li>bta/Android.mk</li>
+</ul>
+</li>
+</ul>
 
 </div>
   
@@ -239,8 +329,6 @@ MathJax.Hub.Config({
     </article>
   
   <div class="pagination">
-    
-      <a class="prev" href="/posts/118">&larr; Older</a>
     
     <a href="/blog/archives">Blog Archives</a>
     

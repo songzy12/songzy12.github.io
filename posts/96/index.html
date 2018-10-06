@@ -9,18 +9,21 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="here. gdb simple.c 1
+  <meta name="description" content="1
 2
 3
 4
 5
 6
-int main()
-{ int a = 5; int b = a + 6; return 0;
-} 1
-2
-gcc -g -O0 simple.c -o simple
-gdb simple Inside GDB, we’ll &hellip;">
+7
+8
+9
+10
+11
+sqlite3 user
+create table tbl(name char(10), age smallint, score float);
+.table
+insert into tbl values('yanggang', 24, 98); &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -116,7 +119,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/08/13/assembly/">Assembly</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/06/27/sqlite/">SQLite</a></h1>
     
     
       <p class="meta">
@@ -125,54 +128,14 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-08-13T13:38:01+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>1:38 pm</span></time>
+<time class='entry-date' datetime='2016-06-27T13:50:37+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>1:50 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="https://www.recurse.com/blog/7-understanding-c-by-learning-assembly">here</a>.</p>
-
-<h2>gdb</h2>
-
-<p>simple.c</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>int main()
-</span><span class='line'>{
-</span><span class='line'>    int a = 5;
-</span><span class='line'>    int b = a + 6;
-</span><span class='line'>    return 0;
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gcc -g -O0 simple.c -o simple
-</span><span class='line'>gdb simple</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Inside GDB, we’ll <code>break</code> on <code>main</code> and <code>run</code> until we get to the return statement. We put the number 2 after <code>next</code> to specify that we want to run <code>next</code> twice:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(gdb) break main
-</span><span class='line'>(gdb) run
-</span><span class='line'>(gdb) next 2</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Now let’s use the <code>disassemble</code> command to show the assembly instructions for the current function. You can also pass a function name to <code>disassemble</code> to specify a different function to examine.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+  <div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -183,180 +146,36 @@ MathJax.Hub.Config({
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(gdb) disassemble
-</span><span class='line'>Dump of assembler code for function main:
-</span><span class='line'>0x0000000100000f50 &lt;main+0&gt;:    push   %rbp
-</span><span class='line'>0x0000000100000f51 &lt;main+1&gt;:    mov    %rsp,%rbp
-</span><span class='line'>0x0000000100000f54 &lt;main+4&gt;:    mov    $0x0,%eax
-</span><span class='line'>0x0000000100000f59 &lt;main+9&gt;:    movl   $0x0,-0x4(%rbp)
-</span><span class='line'>0x0000000100000f60 &lt;main+16&gt;:   movl   $0x5,-0x8(%rbp)
-</span><span class='line'>0x0000000100000f67 &lt;main+23&gt;:   mov    -0x8(%rbp),%ecx
-</span><span class='line'>0x0000000100000f6a &lt;main+26&gt;:   add    $0x6,%ecx
-</span><span class='line'>0x0000000100000f70 &lt;main+32&gt;:   mov    %ecx,-0xc(%rbp)
-</span><span class='line'>0x0000000100000f73 &lt;main+35&gt;:   pop    %rbp
-</span><span class='line'>0x0000000100000f74 &lt;main+36&gt;:   retq   
-</span><span class='line'>End of assembler dump.</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sqlite3 user
+</span><span class='line'>create table tbl(name char(10), age smallint, score float);
+</span><span class='line'>.table
+</span><span class='line'>insert into tbl values('yanggang', 24, 98);
+</span><span class='line'>insert into tbl values('sunboy', 20, 78.5);
+</span><span class='line'>select * from tbl;
+</span><span class='line'>.mode column
+</span><span class='line'>.databases
+</span><span class='line'>.backup main user.sql
+</span><span class='line'>.output user_tbl.sql
+</span><span class='line'>.dump tbl</span></code></pre></td></tr></table></div></figure>
 
 
-<p>In our example above, <code>%eax</code> and <code>%ecx</code> are <code>general purpose registers</code>, while <code>%rbp</code> and <code>%rsp</code> are <code>special purpose registers</code>. <code>%rbp</code> is the <code>base pointer</code>, which points to the base of the current stack frame, and <code>%rsp</code> is the <code>stack pointer</code>, which points to the top of the current stack frame. <code>%rbp</code> always has a higher value than <code>%rsp</code> because the stack starts at a high memory address and grows downwards.</p>
-
-<p>If the <em>pushing</em> consumes all of the space allocated for the <em>call stack</em>, an error called a <em>stack overflow</em> occurs, generally causing the program to crash.</p>
-
-<p>There is usually <strong>exactly one</strong> call stack associated with a running program (or more accurately, with each <em>task</em> or <em>thread</em> of a <em>process</em>), although additional stacks may be created for <em>signal handling</em> or <em>cooperative multitasking</em> (as with setcontext).</p>
-
-<p><img src="https://en.wikipedia.org/wiki/Call_stack#/media/File:Call_stack_layout.svg" alt="call stack layout" />.</p>
-
-<p>Instructions in AT&amp;T syntax are of the format <code>mnemonic source, destination</code>.</p>
+<h2>EXPLAIN</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>0x0000000100000f50 &lt;main+0&gt;:    push   %rbp
-</span><span class='line'>0x0000000100000f51 &lt;main+1&gt;:    mov    %rsp,%rbp</span></code></pre></td></tr></table></div></figure>
-
-
-<p>function prologue or preamble.</p>
-
-<p>First we push the old base pointer onto the stack to save it for later. Then we copy the value of the stack pointer to the base pointer. After this, <code>%rbp</code> points to the base of main’s stack frame.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>0x0000000100000f54 &lt;main+4&gt;:    mov    $0x0,%eax</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The x86 calling convention dictates that a function’s return value is stored in <code>%eax</code>, so the above instruction sets us up to return 0 at the end of our function.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>0x0000000100000f59 &lt;main+9&gt;:    movl   $0x0,-0x4(%rbp)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>The parentheses let us know that this is a memory address. Here, <code>%rbp</code> is called the <em>base register</em>, and <code>-0x4</code> is the <em>displacement</em>.</p>
-
-<p>Because the stack grows downwards, subtracting 4 from the base of the current stack frame moves us into the current frame itself, where local variables are stored. This means that this instruction stores 0 at <code>%rbp - 4</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>0x0000000100000f60 &lt;main+16&gt;:   movl   $0x5,-0x8(%rbp)</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ sqlite3 development.sqlite3
+</span><span class='line'>sqlite&gt; explain query plan SELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = 1;</span></code></pre></td></tr></table></div></figure>
 
 
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(gdb) x &a
-</span><span class='line'>0x7fff5fbff768: 0x00000005
-</span><span class='line'>(gdb) x $rbp - 8
-</span><span class='line'>0x7fff5fbff768: 0x00000005</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>0|0|0|SCAN TABLE reviews</span></code></pre></td></tr></table></div></figure>
 
 
+<h2>AUTOINCREMENT</h2>
 
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>0x0000000100000f73 &lt;main+35&gt;:   pop    %rbp
-</span><span class='line'>0x0000000100000f74 &lt;main+36&gt;:   retq</span></code></pre></td></tr></table></div></figure>
-
-
-<p>function epilogue: We <code>pop</code> the old base pointer off the stack and store it back in <code>%rbp</code> and then <code>retq</code> jumps back to our return address, which is also stored in the stack frame.</p>
-
-<ul>
-<li><code>pushing</code> a value (not necessarily stored in a register) means writing it to the stack.</li>
-<li><code>popping</code> means restoring whatever is on top of the stack into a register.</li>
-</ul>
-
-
-<p>The <em>instruction pointer</em> is a register that stores the memory address of the next instruction. On x86_64, that register is <code>%rip</code>. We can access the instruction pointer using the <code>$rip</code> variable, or alternatively we can use the architecture independent <code>$pc</code>.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(gdb) x/i $pc
-</span><span class='line'>0x100000e94 &lt;natural_generator+4&gt;:  movl   $0x1,-0x4(%rbp)</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>display</code> is like <code>x</code>, except it evaluates its expression every time our program stops:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(gdb) display/i $pc
-</span><span class='line'>1: x/i $pc  0x100000e94 &lt;natural_generator+4&gt;:  movl   $0x1,-0x4(%rbp)</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Instead of <code>next</code>, which moves to the next source line, we’ll use <code>nexti</code>, which moves to the next assembly instruction.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(gdb) nexti
-</span><span class='line'>7           b += 1;
-</span><span class='line'>1: x/i $pc  mov   0x177(%rip),%eax # 0x100001018 &lt;natural_generator.b&gt;
-</span><span class='line'>(gdb) x $rbp - 0x4
-</span><span class='line'>0x7fff5fbff78c: 0x00000001
-</span><span class='line'>(gdb) x &a
-</span><span class='line'>0x7fff5fbff78c: 0x00000001</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Instead, we have an instruction that loads <code>0x100001018</code>, located somewhere after the instruction pointer, into <code>%eax</code>. GDB gives us a helpful comment with the result of the memory operand calculation and a hint telling us that <code>natural_generator.b</code> is stored at this address.</p>
-
-<p>Even though the disassembly shows <code>%eax</code> as the destination, we print <code>$rax</code>, because GDB only sets up variables for full width registers.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(gdb) nexti
-</span><span class='line'>(gdb) p $rax
-</span><span class='line'>$3 = 4294967295
-</span><span class='line'>(gdb) p/x $rax
-</span><span class='line'>$5 = 0xffffffff</span></code></pre></td></tr></table></div></figure>
-
-
-<p>While variables have types that specify if they are signed or unsigned, registers don’t, so GDB is printing the value of <code>%rax</code> unsigned. Let’s try again, by casting <code>%rax</code> to a signed int:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(gdb) p (int)$rax
-</span><span class='line'>$11 = -1</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>(gdb) x/d 0x100001018
-</span><span class='line'>0x100001018 &lt;natural_generator.b&gt;:  -1
-</span><span class='line'>(gdb) x/d &b
-</span><span class='line'>0x100001018 &lt;natural_generator.b&gt;:  -1</span></code></pre></td></tr></table></div></figure>
-
-
-<p>This is because the value for <code>b</code> is hardcoded in a different section of the sample executable, and it’s loaded into memory along with all the machine code by the operating system’s loader when the process is launched.</p>
-
-<h2>static</h2>
-
-<p><a href="http://stackoverflow.com/questions/572547/what-does-static-mean-in-a-c-program">Here</a>.</p>
-
-<ul>
-<li>A static variable inside a function keeps its value between invocations.</li>
-<li>A static global variable or a function is &ldquo;seen&rdquo; only in the file it&rsquo;s declared in</li>
-</ul>
-
-
-<p>In the C programming language, static is used with global variables and functions to set their scope to the containing file. In local variables, static is used to store the variable in the statically allocated memory instead of the automatically allocated memory.</p>
-
-<p>In C++, however, static is also used to define class attributes (shared between all objects of the same class) and methods</p>
-
-<h2>make</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>CFLAGS="-g -O0" make static</span></code></pre></td></tr></table></div></figure>
-
+<p><code>AUTO_INCREMENT</code> is MySQL-specific. SQLite apparently has a similar thing, <code>AUTOINCREMENT</code>.</p>
 </div>
   
   

@@ -9,7 +9,7 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="package.json 1
+  <meta name="description" content="UserSchema.js 1
 2
 3
 4
@@ -22,7 +22,41 @@
 11
 12
 13
-14 "scripts": { "start": "node app.js", "test": "mocha tests/unit/*.js", "e2e": "wdio wdio.conf.js", " &hellip;">
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48 &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -118,7 +152,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2017/02/14/wdio/">Wdio</a></h1>
+      <h1 class="entry-title"><a href="/blog/2017/02/13/graphql/">Graphql</a></h1>
     
     
       <p class="meta">
@@ -127,46 +161,14 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2017-02-14T10:32:34+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>10:32 am</span></time>
+<time class='entry-date' datetime='2017-02-13T22:03:51+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>10:03 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>package.json</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  "scripts": {
-</span><span class='line'>    "start": "node app.js",
-</span><span class='line'>    "test": "mocha tests/unit/*.js",
-</span><span class='line'>    "e2e": "wdio wdio.conf.js",
-</span><span class='line'>    "postinstall": "bower install"
-</span><span class='line'>  },
-</span><span class='line'>  "devDependencies": {
-</span><span class='line'>    "chai": "^3.5.0",
-</span><span class='line'>    "chai-http": "^3.0.0",
-</span><span class='line'>    "mocha": "^3.2.0",
-</span><span class='line'>    "wdio-mocha-framework": "^0.5.8",
-</span><span class='line'>    "wdio-selenium-standalone-service": "0.0.7",
-</span><span class='line'>    "webdriverio": "^4.6.1"
-</span><span class='line'>  }</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>wdio.conf.js</h2>
+  <div class="entry-content"><h2>UserSchema.js</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -234,339 +236,257 @@ MathJax.Hub.Config({
 <span class='line-number'>64</span>
 <span class='line-number'>65</span>
 <span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-<span class='line-number'>69</span>
-<span class='line-number'>70</span>
-<span class='line-number'>71</span>
-<span class='line-number'>72</span>
-<span class='line-number'>73</span>
-<span class='line-number'>74</span>
-<span class='line-number'>75</span>
-<span class='line-number'>76</span>
-<span class='line-number'>77</span>
-<span class='line-number'>78</span>
-<span class='line-number'>79</span>
-<span class='line-number'>80</span>
-<span class='line-number'>81</span>
-<span class='line-number'>82</span>
-<span class='line-number'>83</span>
-<span class='line-number'>84</span>
-<span class='line-number'>85</span>
-<span class='line-number'>86</span>
-<span class='line-number'>87</span>
-<span class='line-number'>88</span>
-<span class='line-number'>89</span>
-<span class='line-number'>90</span>
-<span class='line-number'>91</span>
-<span class='line-number'>92</span>
-<span class='line-number'>93</span>
-<span class='line-number'>94</span>
-<span class='line-number'>95</span>
-<span class='line-number'>96</span>
-<span class='line-number'>97</span>
-<span class='line-number'>98</span>
-<span class='line-number'>99</span>
-<span class='line-number'>100</span>
-<span class='line-number'>101</span>
-<span class='line-number'>102</span>
-<span class='line-number'>103</span>
-<span class='line-number'>104</span>
-<span class='line-number'>105</span>
-<span class='line-number'>106</span>
-<span class='line-number'>107</span>
-<span class='line-number'>108</span>
-<span class='line-number'>109</span>
-<span class='line-number'>110</span>
-<span class='line-number'>111</span>
-<span class='line-number'>112</span>
-<span class='line-number'>113</span>
-<span class='line-number'>114</span>
-<span class='line-number'>115</span>
-<span class='line-number'>116</span>
-<span class='line-number'>117</span>
-<span class='line-number'>118</span>
-<span class='line-number'>119</span>
-<span class='line-number'>120</span>
-<span class='line-number'>121</span>
-<span class='line-number'>122</span>
-<span class='line-number'>123</span>
-<span class='line-number'>124</span>
-<span class='line-number'>125</span>
-<span class='line-number'>126</span>
-<span class='line-number'>127</span>
-<span class='line-number'>128</span>
-<span class='line-number'>129</span>
-<span class='line-number'>130</span>
-<span class='line-number'>131</span>
-<span class='line-number'>132</span>
-<span class='line-number'>133</span>
-<span class='line-number'>134</span>
-<span class='line-number'>135</span>
-<span class='line-number'>136</span>
-<span class='line-number'>137</span>
-<span class='line-number'>138</span>
-<span class='line-number'>139</span>
-<span class='line-number'>140</span>
-<span class='line-number'>141</span>
-<span class='line-number'>142</span>
-<span class='line-number'>143</span>
-<span class='line-number'>144</span>
-<span class='line-number'>145</span>
-<span class='line-number'>146</span>
-<span class='line-number'>147</span>
-<span class='line-number'>148</span>
-<span class='line-number'>149</span>
-<span class='line-number'>150</span>
-<span class='line-number'>151</span>
-<span class='line-number'>152</span>
-<span class='line-number'>153</span>
-<span class='line-number'>154</span>
-<span class='line-number'>155</span>
-<span class='line-number'>156</span>
-<span class='line-number'>157</span>
-<span class='line-number'>158</span>
-<span class='line-number'>159</span>
-<span class='line-number'>160</span>
-<span class='line-number'>161</span>
-<span class='line-number'>162</span>
-<span class='line-number'>163</span>
-<span class='line-number'>164</span>
-<span class='line-number'>165</span>
-<span class='line-number'>166</span>
-<span class='line-number'>167</span>
-<span class='line-number'>168</span>
-<span class='line-number'>169</span>
-<span class='line-number'>170</span>
-<span class='line-number'>171</span>
-<span class='line-number'>172</span>
-<span class='line-number'>173</span>
-<span class='line-number'>174</span>
-<span class='line-number'>175</span>
-<span class='line-number'>176</span>
-<span class='line-number'>177</span>
-<span class='line-number'>178</span>
-<span class='line-number'>179</span>
-<span class='line-number'>180</span>
-<span class='line-number'>181</span>
-<span class='line-number'>182</span>
-<span class='line-number'>183</span>
-<span class='line-number'>184</span>
-<span class='line-number'>185</span>
-<span class='line-number'>186</span>
-<span class='line-number'>187</span>
-<span class='line-number'>188</span>
-<span class='line-number'>189</span>
-<span class='line-number'>190</span>
-<span class='line-number'>191</span>
-<span class='line-number'>192</span>
-<span class='line-number'>193</span>
-<span class='line-number'>194</span>
-<span class='line-number'>195</span>
-<span class='line-number'>196</span>
-<span class='line-number'>197</span>
-<span class='line-number'>198</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>exports.config = {
+</pre></td><td class='code'><pre><code class=''><span class='line'>const modelName = 'User';
+</span><span class='line'>const graphql = require('graphql');
+</span><span class='line'>const model = require('mongoose').model(modelName);
+</span><span class='line'>const {omit, assign} = require('lodash/fp');
 </span><span class='line'>
-</span><span class='line'>    //
-</span><span class='line'>    // ==================
-</span><span class='line'>    // Specify Test Files
-</span><span class='line'>    // ==================
-</span><span class='line'>    // Define which test specs should run. The pattern is relative to the directory
-</span><span class='line'>    // from which `wdio` was called. Notice that, if you are calling `wdio` from an
-</span><span class='line'>    // NPM script (see https://docs.npmjs.com/cli/run-script) then the current working
-</span><span class='line'>    // directory is where your package.json resides, so `wdio` will be called from there.
-</span><span class='line'>    //
-</span><span class='line'>    specs: [
-</span><span class='line'>        './tests/e2e/*.js'
-</span><span class='line'>    ],
-</span><span class='line'>    // Patterns to exclude.
-</span><span class='line'>    exclude: [
-</span><span class='line'>        // 'path/to/excluded/files'
-</span><span class='line'>    ],
-</span><span class='line'>    //
-</span><span class='line'>    // ============
-</span><span class='line'>    // Capabilities
-</span><span class='line'>    // ============
-</span><span class='line'>    // Define your capabilities here. WebdriverIO can run multiple capabilities at the same
-</span><span class='line'>    // time. Depending on the number of capabilities, WebdriverIO launches several test
-</span><span class='line'>    // sessions. Within your capabilities you can overwrite the spec and exclude options in
-</span><span class='line'>    // order to group specific specs to a specific capability.
-</span><span class='line'>    //
-</span><span class='line'>    // First, you can define how many instances should be started at the same time. Let's
-</span><span class='line'>    // say you have 3 different capabilities (Chrome, Firefox, and Safari) and you have
-</span><span class='line'>    // set maxInstances to 1; wdio will spawn 3 processes. Therefore, if you have 10 spec
-</span><span class='line'>    // files and you set maxInstances to 10, all spec files will get tested at the same time
-</span><span class='line'>    // and 30 processes will get spawned. The property handles how many capabilities
-</span><span class='line'>    // from the same test should run tests.
-</span><span class='line'>    //
-</span><span class='line'>    maxInstances: 10,
-</span><span class='line'>    //
-</span><span class='line'>    // If you have trouble getting all important capabilities together, check out the
-</span><span class='line'>    // Sauce Labs platform configurator - a great tool to configure your capabilities:
-</span><span class='line'>    // https://docs.saucelabs.com/reference/platforms-configurator
-</span><span class='line'>    //
-</span><span class='line'>    capabilities: [{
-</span><span class='line'>        // maxInstances can get overwritten per capability. So if you have an in-house Selenium
-</span><span class='line'>        // grid with only 5 firefox instances available you can make sure that not more than
-</span><span class='line'>        // 5 instances get started at a time.
-</span><span class='line'>        maxInstances: 5,
-</span><span class='line'>        //
-</span><span class='line'>        browserName: 'chrome'
-</span><span class='line'>    }],
-</span><span class='line'>    //
-</span><span class='line'>    // ===================
-</span><span class='line'>    // Test Configurations
-</span><span class='line'>    // ===================
-</span><span class='line'>    // Define all options that are relevant for the WebdriverIO instance here
-</span><span class='line'>    //
-</span><span class='line'>    // By default WebdriverIO commands are executed in a synchronous way using
-</span><span class='line'>    // the wdio-sync package. If you still want to run your tests in an async way
-</span><span class='line'>    // e.g. using promises you can set the sync option to false.
-</span><span class='line'>    sync: true,
-</span><span class='line'>    //
-</span><span class='line'>    // Level of logging verbosity: silent | verbose | command | data | result | error
-</span><span class='line'>    logLevel: 'silent',
-</span><span class='line'>    //
-</span><span class='line'>    // Enables colors for log output.
-</span><span class='line'>    coloredLogs: true,
-</span><span class='line'>    //
-</span><span class='line'>    // If you only want to run your tests until a specific amount of tests have failed use
-</span><span class='line'>    // bail (default is 0 - don't bail, run all tests).
-</span><span class='line'>    bail: 0,
-</span><span class='line'>    //
-</span><span class='line'>    // Saves a screenshot to a given path if a command fails.
-</span><span class='line'>    screenshotPath: './errorShots/',
-</span><span class='line'>    //
-</span><span class='line'>    // Set a base URL in order to shorten url command calls. If your url parameter starts
-</span><span class='line'>    // with "/", then the base url gets prepended.
-</span><span class='line'>    baseUrl: 'http://localhost:3000',
-</span><span class='line'>    //
-</span><span class='line'>    // Default timeout for all waitFor* commands.
-</span><span class='line'>    waitforTimeout: 10000,
-</span><span class='line'>    //
-</span><span class='line'>    // Default timeout in milliseconds for request
-</span><span class='line'>    // if Selenium Grid doesn't send response
-</span><span class='line'>    connectionRetryTimeout: 90000,
-</span><span class='line'>    //
-</span><span class='line'>    // Default request retries count
-</span><span class='line'>    connectionRetryCount: 3,
-</span><span class='line'>    //
-</span><span class='line'>    // Initialize the browser instance with a WebdriverIO plugin. The object should have the
-</span><span class='line'>    // plugin name as key and the desired plugin options as properties. Make sure you have
-</span><span class='line'>    // the plugin installed before running any tests. The following plugins are currently
-</span><span class='line'>    // available:
-</span><span class='line'>    // WebdriverCSS: https://github.com/webdriverio/webdrivercss
-</span><span class='line'>    // WebdriverRTC: https://github.com/webdriverio/webdriverrtc
-</span><span class='line'>    // Browserevent: https://github.com/webdriverio/browserevent
-</span><span class='line'>    // plugins: {
-</span><span class='line'>    //     webdrivercss: {
-</span><span class='line'>    //         screenshotRoot: 'my-shots',
-</span><span class='line'>    //         failedComparisonsRoot: 'diffs',
-</span><span class='line'>    //         misMatchTolerance: 0.05,
-</span><span class='line'>    //         screenWidth: [320,480,640,1024]
-</span><span class='line'>    //     },
-</span><span class='line'>    //     webdriverrtc: {},
-</span><span class='line'>    //     browserevent: {}
-</span><span class='line'>    // },
-</span><span class='line'>    //
-</span><span class='line'>    // Test runner services
-</span><span class='line'>    // Services take over a specific job you don't want to take care of. They enhance
-</span><span class='line'>    // your test setup with almost no effort. Unlike plugins, they don't add new
-</span><span class='line'>    // commands. Instead, they hook themselves up into the test process.
-</span><span class='line'>    services: ['selenium-standalone'],
-</span><span class='line'>    // Framework you want to run your specs with.
-</span><span class='line'>    // The following are supported: Mocha, Jasmine, and Cucumber
-</span><span class='line'>    // see also: http://webdriver.io/guide/testrunner/frameworks.html
-</span><span class='line'>    //
-</span><span class='line'>    // Make sure you have the wdio adapter package for the specific framework installed
-</span><span class='line'>    // before running any tests.
-</span><span class='line'>    framework: 'mocha',
-</span><span class='line'>    //
-</span><span class='line'>    // Test reporter for stdout.
-</span><span class='line'>    // The only one supported by default is 'dot'
-</span><span class='line'>    // see also: http://webdriver.io/guide/testrunner/reporters.html
-</span><span class='line'>    // reporters: ['dot'],
-</span><span class='line'>    //
-</span><span class='line'>    // Options to be passed to Mocha.
-</span><span class='line'>    // See the full list at http://mochajs.org/
-</span><span class='line'>    mochaOpts: {
-</span><span class='line'>        ui: 'bdd'
+</span><span class='line'>  // All the query fields
+</span><span class='line'>  queryFields = {
+</span><span class='line'>
+</span><span class='line'>    user: {
+</span><span class='line'>      type,
+</span><span class='line'>      args: { ntId },
+</span><span class='line'>      resolve: (_, {ntId}) =&gt; model.findOne({ntId})
 </span><span class='line'>    },
-</span><span class='line'>    //
-</span><span class='line'>    // =====
-</span><span class='line'>    // Hooks
-</span><span class='line'>    // =====
-</span><span class='line'>    // WebdriverIO provides several hooks you can use to interfere with the test process in order to enhance
-</span><span class='line'>    // it and to build services around it. You can either apply a single function or an array of
-</span><span class='line'>    // methods to it. If one of them returns with a promise, WebdriverIO will wait until that promise got
-</span><span class='line'>    // resolved to continue.
-</span><span class='line'>    //
-</span><span class='line'>    // Gets executed once before all workers get launched.
-</span><span class='line'>    // onPrepare: function (config, capabilities) {
-</span><span class='line'>    // },
-</span><span class='line'>    //
-</span><span class='line'>    // Gets executed just before initialising the webdriver session and test framework. It allows you
-</span><span class='line'>    // to manipulate configurations depending on the capability or spec.
-</span><span class='line'>    // beforeSession: function (config, capabilities, specs) {
-</span><span class='line'>    // },
-</span><span class='line'>    //
-</span><span class='line'>    // Gets executed before test execution begins. At this point you can access all global
-</span><span class='line'>    // variables, such as `browser`. It is the perfect place to define custom commands.
-</span><span class='line'>    // before: function (capabilities, specs) {
-</span><span class='line'>    // },
-</span><span class='line'>    //
-</span><span class='line'>    // Hook that gets executed before the suite starts
-</span><span class='line'>    // beforeSuite: function (suite) {
-</span><span class='line'>    // },
-</span><span class='line'>    //
-</span><span class='line'>    // Hook that gets executed _before_ a hook within the suite starts (e.g. runs before calling
-</span><span class='line'>    // beforeEach in Mocha)
-</span><span class='line'>    // beforeHook: function () {
-</span><span class='line'>    // },
-</span><span class='line'>    //
-</span><span class='line'>    // Hook that gets executed _after_ a hook within the suite starts (e.g. runs after calling
-</span><span class='line'>    // afterEach in Mocha)
-</span><span class='line'>    // afterHook: function () {
-</span><span class='line'>    // },
-</span><span class='line'>    //
-</span><span class='line'>    // Function to be executed before a test (in Mocha/Jasmine) or a step (in Cucumber) starts.
-</span><span class='line'>    // beforeTest: function (test) {
-</span><span class='line'>    // },
-</span><span class='line'>    //
-</span><span class='line'>    // Runs before a WebdriverIO command gets executed.
-</span><span class='line'>    // beforeCommand: function (commandName, args) {
-</span><span class='line'>    // },
-</span><span class='line'>    //
-</span><span class='line'>    // Runs after a WebdriverIO command gets executed
-</span><span class='line'>    // afterCommand: function (commandName, args, result, error) {
-</span><span class='line'>    // },
-</span><span class='line'>    //
-</span><span class='line'>    // Function to be executed after a test (in Mocha/Jasmine) or a step (in Cucumber) starts.
-</span><span class='line'>    // afterTest: function (test) {
-</span><span class='line'>    // },
-</span><span class='line'>    //
-</span><span class='line'>    // Hook that gets executed after the suite has ended
-</span><span class='line'>    // afterSuite: function (suite) {
-</span><span class='line'>    // },
-</span><span class='line'>    //
-</span><span class='line'>    // Gets executed after all tests are done. You still have access to all global variables from
-</span><span class='line'>    // the test.
-</span><span class='line'>    // after: function (result, capabilities, specs) {
-</span><span class='line'>    // },
-</span><span class='line'>    //
-</span><span class='line'>    // Gets executed right after terminating the webdriver session.
-</span><span class='line'>    // afterSession: function (config, capabilities, specs) {
-</span><span class='line'>    // },
-</span><span class='line'>    //
-</span><span class='line'>    // Gets executed after all workers got shut down and the process is about to exit. It is not
-</span><span class='line'>    // possible to defer the end of the process using a promise.
-</span><span class='line'>    // onComplete: function(exitCode) {
-</span><span class='line'>    // }
+</span><span class='line'>    users: {
+</span><span class='line'>      type: new graphql.GraphQLObjectType({
+</span><span class='line'>        name: modelName + 's',
+</span><span class='line'>        fields: assign({ docs: { type: new graphql.GraphQLList(type) }}, paginationFields)
+</span><span class='line'>      }),
+</span><span class='line'>
+</span><span class='line'>      args: assign({
+</span><span class='line'>        criteria: {type: graphql.GraphQLString},
+</span><span class='line'>        sortName: {type: graphql.GraphQLString},
+</span><span class='line'>        sortOrder: {type: graphql.GraphQLString}
+</span><span class='line'>      }, omit('total, pages', paginationFields)),
+</span><span class='line'>      resolve: (_, args) =&gt; {
+</span><span class='line'>
+</span><span class='line'>        let query = {};
+</span><span class='line'>        if (args.criteria) {
+</span><span class='line'>          query = {
+</span><span class='line'>            '$or': [
+</span><span class='line'>              {'ntId': {'$regex': args.criteria, '$options': 'i'}},
+</span><span class='line'>              {'firstName': {'$regex': args.criteria, '$options': 'i'}},
+</span><span class='line'>              {'lastName': {'$regex': args.criteria, '$options': 'i'}}]
+</span><span class='line'>          };
+</span><span class='line'>        }
+</span><span class='line'>        if (args.sortName && args.sortOrder) {
+</span><span class='line'>          args['sort'] = {}
+</span><span class='line'>          args['sort'][args.sortName] = args.sortOrder === 'asc' ? 1 : -1;
+</span><span class='line'>        }
+</span><span class='line'>        return model.paginate(query, omit('token, criteria', args))
+</span><span class='line'>      }
+</span><span class='line'>    },
+</span><span class='line'>  },
+</span><span class='line'>  // All the mutation fields
+</span><span class='line'>  mutationFields = {
+</span><span class='line'>    addUser: {
+</span><span class='line'>      type,
+</span><span class='line'>      args: {token, user: {type: inputTypeCreate}},
+</span><span class='line'>      resolve: (_, {user}) =&gt; new model(user).save()
+</span><span class='line'>    },
+</span><span class='line'>    updateUser: {
+</span><span class='line'>      type,
+</span><span class='line'>      args: {token, ntId, user: {type: inputTypeUpdate}},
+</span><span class='line'>      resolve: (_, {ntId, user}) =&gt; model.findOneAndUpdate({ntId}, user, {new: true, upsert: true})
+</span><span class='line'>    },
+</span><span class='line'>    deleteUser: {
+</span><span class='line'>      type,
+</span><span class='line'>      args: {token, ntId},
+</span><span class='line'>      resolve: (_, {ntId}) =&gt; model.findOneAndRemove({ntId})
+</span><span class='line'>    }
+</span><span class='line'>  };
+</span><span class='line'>
+</span><span class='line'>module.exports = {
+</span><span class='line'>  queryFields,
+</span><span class='line'>  mutationFields
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>refresh</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/**
+</span><span class='line'> * Refresh the users list
+</span><span class='line'> */
+</span><span class='line'>
+</span><span class='line'>function refreshEntities() {
+</span><span class='line'>  const hqlArgs = {page: currentPage, criteria: $.trim(searchCriteria)};
+</span><span class='line'>  if (sortName.length &gt; 0 && sortOrder.length &gt; 0) {
+</span><span class='line'>    hqlArgs['sortName'] = sortName;
+</span><span class='line'>    hqlArgs['sortOrder'] = sortOrder;
+</span><span class='line'>  }
+</span><span class='line'>  graphQl(
+</span><span class='line'>    `query($page: Int!, $criteria: String , $sortName: String, $sortOrder:String) { 
+</span><span class='line'>      users(page: $page, criteria: $criteria , sortName:$sortName , sortOrder:$sortOrder) 
+</span><span class='line'>        { docs {ntId, hasRetail360Access, isAdmin, firstName, lastName} 
+</span><span class='line'>          total, limit, page, pages
+</span><span class='line'>        } 
+</span><span class='line'>      }`,
+</span><span class='line'>    hqlArgs
+</span><span class='line'>    ).then((result) =&gt; {
+</span><span class='line'>      entitiesMap = result.data.users.docs.reduce((curr, next) =&gt; {
+</span><span class='line'>        curr[next.ntId] = next;
+</span><span class='line'>        return curr;
+</span><span class='line'>      }, {});
+</span><span class='line'>      entitiesArray = result.data.users.docs;
+</span><span class='line'>      totalPages = result.data.users.pages;
+</span><span class='line'>      buildTable('#entities-table', {
+</span><span class='line'>        headers: ['First Name', 'Last Name', 'NT ID', 'Retail360 enabled', 'Admin'],
+</span><span class='line'>        sortFields: ['firstName', 'lastName', 'ntId', 'hasRetail360Access', 'isAdmin'],
+</span><span class='line'>        headersWidth: ['2-0', '2-0', '2-0', '1-5', '1-0'],  // the table header width , the 2-0 mean 20%
+</span><span class='line'>        body: entitiesArray.map((u) =&gt; {
+</span><span class='line'>          const user = {};
+</span><span class='line'>          user.td = [u['firstName'], u['lastName'],u['ntId'], u['hasRetail360Access'], u['isAdmin'], ];
+</span><span class='line'>          user.id = u['ntId'];
+</span><span class='line'>          return user;
+</span><span class='line'>        })
+</span><span class='line'>      });
+</span><span class='line'>      generatePagination(totalPages);
+</span><span class='line'>      selectedPageIndex(currentPage);
+</span><span class='line'>    });
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>test.js</h2>
+<h2>paginate</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/**
+</span><span class='line'> * Generates the pagination below the table
+</span><span class='line'> * @param pages The total pages
+</span><span class='line'> */
+</span><span class='line'>function generatePagination(pages) {
+</span><span class='line'>  let pagination;
+</span><span class='line'>  if(pages &lt; 2) pagination = '';
+</span><span class='line'>  else {
+</span><span class='line'>    const allPages = Array.apply(null, {length: pages})
+</span><span class='line'>      .map((c, i) =&gt; `&lt;li&gt;&lt;a href="javascript:;" id="page_index${i + 1}" class="page-index" onclick="paginate(${i + 1})"&gt;${i + 1}&lt;/a&gt;&lt;/li&gt; `);
+</span><span class='line'>    pagination = `
+</span><span class='line'>    &lt;ul class="pagination"&gt;
+</span><span class='line'>      &lt;li&gt;
+</span><span class='line'>        &lt;a href="javascript:;" aria-label="Previous" onclick="prev()"&gt;
+</span><span class='line'>          &lt;span aria-hidden="true"&gt;&laquo;&lt;/span&gt;
+</span><span class='line'>        &lt;/a&gt;
+</span><span class='line'>      &lt;/li&gt;
+</span><span class='line'>      ${allPages.join(' ')}
+</span><span class='line'>      &lt;li&gt;
+</span><span class='line'>        &lt;a href="javascript:;" aria-label="Next" onclick="next()"&gt;
+</span><span class='line'>          &lt;span aria-hidden="true"&gt;&raquo;&lt;/span&gt;
+</span><span class='line'>        &lt;/a&gt;
+</span><span class='line'>      &lt;/li&gt;
+</span><span class='line'>    &lt;/ul&gt;
+</span><span class='line'> `;
+</span><span class='line'>  }
+</span><span class='line'>  $('#pagination').html(pagination);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>/**
+</span><span class='line'> * Go to the given page number
+</span><span class='line'> * @param page The page number
+</span><span class='line'> */
+</span><span class='line'>function paginate(page) {
+</span><span class='line'>  currentPage = page;
+</span><span class='line'>  refreshEntities();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>page index</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/**
+</span><span class='line'> * mark page index to selected
+</span><span class='line'> * @param index the page index
+</span><span class='line'> */
+</span><span class='line'>function selectedPageIndex(index) {
+</span><span class='line'>  $('.page-index').removeClass('selected');
+</span><span class='line'>  $('#page_index' + index).addClass('selected');
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>build table</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -623,61 +543,67 @@ MathJax.Hub.Config({
 <span class='line-number'>53</span>
 <span class='line-number'>54</span>
 <span class='line-number'>55</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>process.env.NODE_ENV = 'test';
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>/**
+</span><span class='line'> * Builds the table dynamically based on provided data
+</span><span class='line'> * @param element The element to attach the generated table
+</span><span class='line'> * @param opts The options to generate table
+</span><span class='line'> */
+</span><span class='line'>function buildTable(element, opts) {
+</span><span class='line'>  const tableElement = $(element);
+</span><span class='line'>  opts = opts || {};
 </span><span class='line'>
-</span><span class='line'>let chai = require('chai');
-</span><span class='line'>let chaiHttp = require('chai-http');
-</span><span class='line'>let server = require('../../app');
-</span><span class='line'>let common = require('../common')
+</span><span class='line'>  tableElement.html("");
+</span><span class='line'>  const tHead = $(`&lt;thead&gt;&lt;/thead&gt;`).appendTo(tableElement);
+</span><span class='line'>  const hRow = $('&lt;tr&gt;&lt;/tr&gt;').appendTo(tHead);
+</span><span class='line'>  const tableSortPrefix= 'table-sort-';
+</span><span class='line'>  $.each(opts.headers, (i, h) =&gt; {
+</span><span class='line'>    const tmpSortName = opts.sortFields[i];
+</span><span class='line'>    hRow.append(`&lt;th id="${tableSortPrefix + tmpSortName}" class="th-witdh-${opts.headersWidth[i]}"&gt; ${h} 
+</span><span class='line'>                    &lt;span class="sort-arrow-hide sort-arrow glyphicon glyphicon-triangle-top"&gt;&lt;/span&gt;
+</span><span class='line'>                 &lt;/th&gt;`);
+</span><span class='line'>    //click event
+</span><span class='line'>    $('#' + tableSortPrefix + tmpSortName).click(function () {
+</span><span class='line'>      const name = $(this).attr('id').substr(tableSortPrefix.length);
 </span><span class='line'>
-</span><span class='line'>let User = require("mongoose").model('User');
-</span><span class='line'>let Admin = require("mongoose").model('Admin');
+</span><span class='line'>      if (name !== sortName) {
+</span><span class='line'>        const arrow = $('#' + tableSortPrefix + sortName).find('.sort-arrow');
+</span><span class='line'>        arrow.removeClass('glyphicon-triangle-top glyphicon-triangle-bottom');
+</span><span class='line'>        arrow.addClass('sort-arrow-hide glyphicon-triangle-top');
+</span><span class='line'>      }
 </span><span class='line'>
-</span><span class='line'>let should = chai.should();
+</span><span class='line'>      const sortArrow = $(this).find('.sort-arrow');
+</span><span class='line'>      if (sortArrow.hasClass('sort-arrow-hide')) {
+</span><span class='line'>        sort(name, 'asc');
+</span><span class='line'>      } else {
+</span><span class='line'>        if (sortArrow.hasClass('glyphicon-triangle-top')) {
+</span><span class='line'>          sort(name, 'desc');
+</span><span class='line'>        } else {
+</span><span class='line'>          sort(name, 'asc');
+</span><span class='line'>        }
+</span><span class='line'>      }
+</span><span class='line'>    });
 </span><span class='line'>
-</span><span class='line'>chai.use(chaiHttp);
-</span><span class='line'>
-</span><span class='line'>describe('Hompage', () =&gt; {
-</span><span class='line'>  it('/ should redirect to /admin/login.html when not logged in', () =&gt; {
-</span><span class='line'>    browser.url('http://localhost:3000');
-</span><span class='line'>    var title = browser.getUrl();
-</span><span class='line'>    title.should.equal('http://localhost:3000/admin/login.html');
+</span><span class='line'>    if (sortName.length &gt; 0 && sortOrder.length &gt; 0) {
+</span><span class='line'>      const arrow = $('#' + tableSortPrefix + sortName).find('.sort-arrow');
+</span><span class='line'>      arrow.removeClass('sort-arrow-hide glyphicon-triangle-top');
+</span><span class='line'>      arrow.addClass('glyphicon-triangle-' + (sortOrder === 'asc' ? 'top' : 'bottom'));
+</span><span class='line'>    }
 </span><span class='line'>  });
-</span><span class='line'>});
+</span><span class='line'>  hRow.append('&lt;th class="th-witdh-1-5"&gt;Actions&lt;/th&gt;');
+</span><span class='line'>  const tBody = $('&lt;tbody&gt;&lt;/tbody&gt;').appendTo(tableElement);
 </span><span class='line'>
-</span><span class='line'>describe('Login and Users page', () =&gt; {
-</span><span class='line'>  before(() =&gt; {
-</span><span class='line'>    common.clearModel(Admin)
-</span><span class='line'>      .then(() =&gt; common.createAdmin(Admin))
-</span><span class='line'>      .then(() =&gt; {
-</span><span class='line'>        return common.makeRequest(
-</span><span class='line'>          chai,
-</span><span class='line'>          server,
-</span><span class='line'>          'mutation($username: String!, $password: String!) {createToken(username: $username, password: $password) {apiKey, isSuperAdmin}}',
-</span><span class='line'>          {username: 'admin', password: 'admin'}
-</span><span class='line'>        );
-</span><span class='line'>      }).then((result) =&gt; {
-</span><span class='line'>        const token = result.body.data.createToken.apiKey;
-</span><span class='line'>        return common.uploadUsers(chai, server, 'test-data/users.csv', token);
-</span><span class='line'>      });
-</span><span class='line'>  });
-</span><span class='line'>
-</span><span class='line'>  after(() =&gt; {
-</span><span class='line'>    common.clearModel(Admin)
-</span><span class='line'>    .then(() =&gt; common.clearModel(User));
+</span><span class='line'>  $.each(opts.body, (i, b) =&gt; {
+</span><span class='line'>    const tRow = $('&lt;tr&gt;&lt;/tr&gt;').appendTo(tBody);
+</span><span class='line'>    $.each(b.td, (i, td) =&gt; tRow.append('&lt;td&gt;'+ _getValue(td) +'&lt;/td&gt;'));
+</span><span class='line'>    tRow.append('&lt;td&gt;' +
+</span><span class='line'>      '&lt;a class="btn btn-sm btn-primary" href="javascript:;" onclick="openModal(\'Edit\', \''+b.id+'\')"&gt;Edit&lt;/a&gt;&nbsp;' +
+</span><span class='line'>      '&lt;a class="btn btn-sm btn-danger" href="javascript:;" onclick="openModal(\'Delete\', \''+b.id+'\')"&gt;Delete&lt;/a&gt;' +
+</span><span class='line'>      '&lt;/td&gt;')
 </span><span class='line'>  })
-</span><span class='line'>
-</span><span class='line'>  it('should login correctly', () =&gt; {
-</span><span class='line'>    const tableSelector = '#entities-table &gt; tbody &gt; tr';
-</span><span class='line'>    browser.url('http://localhost:3000/admin/')
-</span><span class='line'>      .setValue('#inputEmail', 'admin')
-</span><span class='line'>      .setValue('#inputPassword', 'admin')
-</span><span class='line'>      .click('#sign-in')
-</span><span class='line'>      .waitUntil(() =&gt; browser.elements(tableSelector).value.length &gt; 0);
-</span><span class='line'>    const rows = browser.elements(tableSelector);
-</span><span class='line'>    rows.value.length.should.equal(4);
-</span><span class='line'>  });
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

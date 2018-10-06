@@ -9,26 +9,9 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="Sensor 1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-import android.hardware.SensorManager;
-import android.hardware.Sensor; sensorManager = ( &hellip;">
+  <meta name="description" content="Here. Technologies server: Python, Django framework, Mako templates
+browser: JavaScript, CoffeeScript, Backbone.js framework
+CSS: Sass, Bourbon &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -124,7 +107,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/06/22/android-hardware/">Android Hardware</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/05/16/open-edx-architecture/">Open edX Architecture</a></h1>
     
     
       <p class="meta">
@@ -133,14 +116,113 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-06-22T20:07:03+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>8:07 pm</span></time>
+<time class='entry-date' datetime='2016-05-16T14:26:50+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:26 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>Sensor</h2>
+  <div class="entry-content"><p><a href="https://edx.readthedocs.io/projects/edx-developer-guide/en/latest/architecture.html">Here</a>.</p>
+
+<h2>Technologies</h2>
+
+<ul>
+<li>server: Python, Django framework, Mako templates</li>
+<li>browser:  JavaScript, CoffeeScript, Backbone.js framework</li>
+<li>CSS: Sass, Bourbon framework</li>
+</ul>
+
+
+<h2>Components</h2>
+
+<ul>
+<li>discussions: Ruby, Sinatra framework</li>
+<li>searching: Elasticsearch</li>
+<li>background work: Celery, RabbitMQ.(grading, emails, reports, certificates)</li>
+<li>Courses are stored in Mongo</li>
+<li>Per-student data is stored in MySQL</li>
+</ul>
+
+
+<p>Events are published to the <code>analytics pipeline</code> for collection, analysis, and reporting.</p>
+
+<p>LTI: Learning Tools Interoperability.</p>
+
+<h2>Course</h2>
+
+<ul>
+<li>Open edX courses are composed of units called XBlocks.</li>
+<li>Instructor-written Python code is executed in a secure environment called CodeJail.</li>
+<li>JavaScript components can be integrated using JS Input.</li>
+<li><p>Courses can be exported and imported using Open Learning XML (OLX), an XML-based format for courses.</p></li>
+<li><p>Section</p></li>
+<li>Subsection</li>
+<li>Unit</li>
+<li>Component: Advanced, Discussion, HTML, Problem, Video</li>
+</ul>
+
+
+<h2>XBlock</h2>
+
+<p>LON-CAPA problems: Learning Online Network with CAPA.</p>
+
+<p>SOP: same origin policy(same protocol, host, and port).</p>
+
+<p>code quality and style: <code>pylint .</code>, <code>pep8 .</code></p>
+
+<p><a href="https://openedx.atlassian.net/wiki/display/COMM/XBlocks+Directory">Here</a>.</p>
+
+<ul>
+<li>VideoJS Xblock Pro: Video Xblock using Video.js 4.12.11, Features: .vtt substitle upload; tracking log support; more controller and plugins.</li>
+<li>Video JS XBlock: Use Video.js HTML5 player instead of the default one(true full screen, more video speeds, source document download)</li>
+<li>Voice recognizer Xblock: allows students to recognize their voice and can see the what they spoken in text format.</li>
+<li>GradeMe: Button to send request to server to grade user.</li>
+<li>2048 XBlock: Allows students to play 2048 in the platform (ungraded).</li>
+</ul>
+
+
+<p>XBlock handlers are Python methods invoked by AJAX calls from the user’s browser. The runtime provides a mapping from handler names to specific URLs so that the XBlock JavaScript code can make requests to its handlers.</p>
+
+<h2>analytics</h2>
+
+<p>The events are stored as JSON in S3, processed using Hadoop, and digested, aggregated results are published to MySQL. Results are made available via a REST API to Insights, a Django application that instructors and administrators use to explore data that lets them know what their students are doing and how their courses are being used.</p>
+
+<h2>video</h2>
+
+<p><a href="https://openedx.atlassian.net/wiki/display/TNL/Video+Module+architecture">Here</a>.</p>
+
+<ul>
+<li>back-end: <code>edx-platform/common/lib/xmodule/xmodule/video_module/</code></li>
+<li>front-end:
+
+<ul>
+<li>JavaScript code: <code>edx-platform/common/lib/xmodule/xmodule/js/src/video/</code></li>
+<li>Jasmine tests: <code>edx-platform/common/lib/xmodule/xmodule/js/spec/video/</code></li>
+</ul>
+</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>diff ~/edx-platform/lms/static/xmodule_js/src/video/03_video_player.js ~/edx-platform/common/lib/xmodule/xmodule/js/src/video/03_video_player.js</span></code></pre></td></tr></table></div></figure>
+
+
+<p>i18n: internationalization.
+rst: reStructuredText</p>
+
+<p>HOW TO ADD A NEW MODULE:
+* create a new module (for example, video/09_bumper.js)
+* Add it to the list of modules: <code>10_main.js</code></p>
+
+<h2>tracker</h2>
+
+<p>location: <code>/edx/var/log/tracking/tracking.log</code></p>
+
+<ul>
+<li>Python</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -154,30 +236,38 @@ MathJax.Hub.Config({
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import android.hardware.SensorManager;
-</span><span class='line'>import android.hardware.Sensor;
+</pre></td><td class='code'><pre><code class=''><span class='line'>from eventtracking import tracker
 </span><span class='line'>
-</span><span class='line'>sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
-</span><span class='line'>accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-</span><span class='line'>
-</span><span class='line'>sensorEventListener = new SensorEventListener() {
-</span><span class='line'>    public void onSensorChanged(SensorEvent event) {
-</span><span class='line'>      ax = event.values[0];
-</span><span class='line'>      ay = event.values[1];
-</span><span class='line'>      az = event.values[2];
-</span><span class='line'>  }
-</span><span class='line'>
-</span><span class='line'>  public void onAccuracyChanged(Sensor sensor, int accuracy) {
-</span><span class='line'>  }
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>sensorManager.registerListener(sensorEventListener, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>tracker.emit(
+</span><span class='line'>    'edx.addressmodule.address.created',
+</span><span class='line'>    {
+</span><span class='line'>        'name': 'foo',
+</span><span class='line'>        'address': {
+</span><span class='line'>            'postal_code': '90210',
+</span><span class='line'>            'country': 'United States'
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>)</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>JavaScript</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Logger.log("edx.video.awesome_mode_enabled", {"button_pressed": "the really big purple one", "button_id": 15, "..."})</span></code></pre></td></tr></table></div></figure>
+
+
+<p>uglify: 混淆，minify</p>
+
+<ul>
+<li>XBlocks</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>self.runtime.publish(self, "company.xblock.content.viewed", event_data)</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

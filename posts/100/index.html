@@ -9,7 +9,7 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="1
+  <meta name="description" content="Location 1
 2
 3
 4
@@ -20,10 +20,38 @@
 9
 10
 11
-sqlite3 user
-create table tbl(name char(10), age smallint, score float);
-.table
-insert into tbl values('yanggang', 24, 98); &hellip;">
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+import android.location &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -119,7 +147,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/06/27/sqlite/">SQLite</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/06/22/android-location/">Android Location</a></h1>
     
     
       <p class="meta">
@@ -128,14 +156,16 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-06-27T13:50:37+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>1:50 pm</span></time>
+<time class='entry-date' datetime='2016-06-22T20:07:03+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>8:07 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+  <div class="entry-content"><h2>Location</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
@@ -146,36 +176,138 @@ MathJax.Hub.Config({
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sqlite3 user
-</span><span class='line'>create table tbl(name char(10), age smallint, score float);
-</span><span class='line'>.table
-</span><span class='line'>insert into tbl values('yanggang', 24, 98);
-</span><span class='line'>insert into tbl values('sunboy', 20, 78.5);
-</span><span class='line'>select * from tbl;
-</span><span class='line'>.mode column
-</span><span class='line'>.databases
-</span><span class='line'>.backup main user.sql
-</span><span class='line'>.output user_tbl.sql
-</span><span class='line'>.dump tbl</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import android.location.Criteria;
+</span><span class='line'>import android.location.Location;
+</span><span class='line'>import android.location.LocationListener;
+</span><span class='line'>import android.location.LocationManager;
+</span><span class='line'>
+</span><span class='line'>locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);  
+</span><span class='line'>
+</span><span class='line'>criteria = new Criteria();      
+</span><span class='line'>criteria.setAccuracy(Criteria.ACCURACY_FINE);   
+</span><span class='line'>criteria.setAltitudeRequired(true);  
+</span><span class='line'>criteria.setBearingRequired(true);  
+</span><span class='line'>criteria.setCostAllowed(true);      
+</span><span class='line'>criteria.setPowerRequirement(Criteria.POWER_LOW);  
+</span><span class='line'>criteria.setSpeedRequired(true);  
+</span><span class='line'>provider = locationManager.getBestProvider(criteria, true);
+</span><span class='line'>
+</span><span class='line'>locationListener = new LocationListener() {  
+</span><span class='line'>    @Override  
+</span><span class='line'>    public void onLocationChanged(Location location) {  
+</span><span class='line'>      updateLocation(location);
+</span><span class='line'>    }  
+</span><span class='line'>    @Override  
+</span><span class='line'>    public void onStatusChanged(String provider, int status, Bundle extras) {  
+</span><span class='line'>      updateLocation(null);
+</span><span class='line'>    }  
+</span><span class='line'>    @Override  
+</span><span class='line'>    public void onProviderEnabled(String provider) {  
+</span><span class='line'>    }  
+</span><span class='line'>    @Override  
+</span><span class='line'>    public void onProviderDisabled(String provider) {  
+</span><span class='line'>    }  
+</span><span class='line'>};  
+</span><span class='line'>
+</span><span class='line'>locationManager.requestLocationUpdates(provider, 1000, 0,locationListener);
+</span><span class='line'>
+</span><span class='line'>private void updateLocation(Location location){
+</span><span class='line'>  if (location != null) {  
+</span><span class='line'>        location.getLatitude();  
+</span><span class='line'>        location.getLongitude();  
+</span><span class='line'>    }
+</span><span class='line'>}  
+</span><span class='line'>              </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>EXPLAIN</h2>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ sqlite3 development.sqlite3
-</span><span class='line'>sqlite&gt; explain query plan SELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = 1;</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import android.location.GpsSatellite;
+</span><span class='line'>import android.location.GpsStatus;
+</span><span class='line'>
+</span><span class='line'>if(locationManager.isProviderEnabled(android.location.LocationManager.GPS_PROVIDER))
+</span><span class='line'>  textView.append("GPS opened!\n");
+</span><span class='line'>else
+</span><span class='line'>  textView.append("Please open GPS!\n");
+</span><span class='line'>
+</span><span class='line'>statusListener = new GpsStatus.Listener() {  
+</span><span class='line'>    public void onGpsStatusChanged(int event) { // GPS状态变化时的回调，如卫星数  
+</span><span class='line'>        GpsStatus status = locationManager.getGpsStatus(null); //取当前状态  
+</span><span class='line'>        updateGpsStatus(event, status);
+</span><span class='line'>    }
+</span><span class='line'>};
+</span><span class='line'>locationManager.addGpsStatusListener(statusListener);
+</span><span class='line'>
+</span><span class='line'>private void updateGpsStatus(int event, GpsStatus status) {
+</span><span class='line'>  maxSignalNoiseRate.setValue(0f);
+</span><span class='line'>    if (event == GpsStatus.GPS_EVENT_SATELLITE_STATUS) {
+</span><span class='line'>        Iterator&lt;GpsSatellite&gt; it = status.getSatellites().iterator();
+</span><span class='line'>        while (it.hasNext()) {
+</span><span class='line'>          float tmp = it.next().getSnr();
+</span><span class='line'>          if (tmp &gt; maxSignalNoiseRate.getValue())
+</span><span class='line'>              maxSignalNoiseRate.setValue(tmp);
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>0|0|0|SCAN TABLE reviews</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>AUTOINCREMENT</h2>
-
-<p><code>AUTO_INCREMENT</code> is MySQL-specific. SQLite apparently has a similar thing, <code>AUTOINCREMENT</code>.</p>
 </div>
   
   

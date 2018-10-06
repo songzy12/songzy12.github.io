@@ -9,13 +9,13 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="TypeError 1
+  <meta name="description" content="onClickListener Inline 1
 2
-soup = BeautifulSoup(data, 'lxml')
-TypeError: unhashable type 1
-2
-i4x_TsinghuaX_10430494X
-{u'data': u'&lt;problem&gt;\n&lt;p&gt;\u8ba4\ &hellip;">
+3
+4
+5
+6
+findViewById(R.id.button1).setOnClickListener( new View.OnClickListener() { @Override public void onClick(View v &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -111,7 +111,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/07/19/xml-parser/">XML Parser</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/06/22/android-view/">Android View</a></h1>
     
     
       <p class="meta">
@@ -120,52 +120,16 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-07-19T13:50:37+08:00'><span class='date'><span class='date-month'>Jul</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>1:50 pm</span></time>
+<time class='entry-date' datetime='2016-06-22T20:07:03+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>8:07 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>TypeError</h2>
+  <div class="entry-content"><h2>onClickListener</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>soup = BeautifulSoup(data, 'lxml')
-</span><span class='line'>TypeError: unhashable type</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>i4x_TsinghuaX_10430494X
-</span><span class='line'>{u'data': u'&lt;problem&gt;\n&lt;p&gt;\u8ba4\u8bc6\u4e86\u7535\u6d41\u7684\u78c1\u6548\u5e94\u4ee5\u540e, \u4eba\u4eec\u5bf9\u78c1\u573a\u7684\u7814\u7a76\u624d\u6709\u4e86\u5927\u7684\u8fdb\u5c55.&lt;/p&gt;\n&lt;multiplechoiceresponse&gt;\n  &lt;choicegroup type="MultipleChoice"&gt;\n    &lt;choice correct="true"&gt;\u662f&lt;/choice&gt;\n    &lt;choice correct="false"&gt;\u5426&lt;/choice&gt;\n  &lt;/choicegroup&gt;\n&lt;/multiplechoiceresponse&gt;\n\n     \n&lt;solution&gt;\n&lt;div class="detailed-solution"&gt;\n&lt;p&gt;Explanation&lt;/p&gt;\n\n&lt;p&gt;\u5386\u53f2\u4e0a\u662f\u5965\u65af\u7279\u7684\u53d1\u73b0\u63a8\u52a8\u4e86\u5bf9\u78c1\u73b0\u8c61\u7684\u672c\u8d28\u8ba4\u8bc6\u3002&lt;/p&gt;\n\n&lt;/div&gt;\n&lt;/solution&gt;\n\n&lt;/problem&gt;'}</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>db.modulestore.find({"_id.category":"problem", "_id.tag":"i4x", "_id.org":"TsinghuaX", "_id.course":"10430494X"}).limit(1).pretty();</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>"definition" : {
-</span><span class='line'>        "data" : {
-</span><span class='line'>                "data" : "&lt;problem&gt;\n&lt;p&gt;静电场沿闭合回路的积分为零, 就是基尔霍夫第二定律.&lt;/p&gt;\n&lt;multiplechoiceresponse&gt;\n  &lt;choicegroup type=\"MultipleChoice\"&gt;\n    &lt;choice correct=\"true\"&gt;是&lt;/choice&gt;\n    &lt;choice correct=\"false\"&gt;否&lt;/choice&gt;\n  &lt;/choicegroup&gt;\n&lt;/multiplechoiceresponse&gt;\n\n     \n&lt;solution&gt;\n&lt;div class=\"detailed-solution\"&gt;\n&lt;p&gt;Explanation&lt;/p&gt;\n\n&lt;p&gt;稳恒电场本质上是静电场.&lt;/p&gt;\n\n&lt;/div&gt;\n&lt;/solution&gt;\n\n&lt;/problem&gt;"
-</span><span class='line'>        }
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>exercises</h2>
-
-<p>Types of different exercises: <a href="http://edx.readthedocs.io/projects/edx-partner-course-staff/en/latest/exercises_tools/create_exercises_and_tools.html">here</a>.</p>
+<h3>Inline</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -173,15 +137,15 @@ MathJax.Hub.Config({
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>checkbox.xml  
-</span><span class='line'>dropdown.xml  
-</span><span class='line'>math_expression_input.xml 
-</span><span class='line'>multiple_choice.xml  
-</span><span class='line'>numerical_input.xml  
-</span><span class='line'>text_input.xml</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>findViewById(R.id.button1).setOnClickListener( new View.OnClickListener() {
+</span><span class='line'>    @Override
+</span><span class='line'>    public void onClick(View v) {
+</span><span class='line'>        Toast.makeText(this, "Button1 clicked.", Toast.LENGTH_SHORT).show();  
+</span><span class='line'>    }
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
 
 
-
+<h3>Private variable</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -196,31 +160,73 @@ MathJax.Hub.Config({
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>soup = BeautifulSoup(data, 'lxml')
-</span><span class='line'>if soup.choiceresponse:
-</span><span class='line'>    return parse_checkbox(soup)
-</span><span class='line'>elif soup.optionresponse:
-</span><span class='line'>    return parse_dropdown(soup)
-</span><span class='line'>elif soup.formularesponse:
-</span><span class='line'>    return parse_math_expression_input(soup)
-</span><span class='line'>elif soup.multiplechoiceresponse:
-</span><span class='line'>    return parse_multiple_choice(soup)
-</span><span class='line'>elif soup.numericalresponse:
-</span><span class='line'>    return parse_numerical_input(soup)
-</span><span class='line'>elif soup.stringresponse:
-</span><span class='line'>    return parse_text_input(soup)</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>findViewById(R.id.button1).setOnClickListener(mGlobal_OnClickListener);
+</span><span class='line'>findViewById(R.id.button2).setOnClickListener(mGlobal_OnClickListener);
+</span><span class='line'>     
+</span><span class='line'>final OnClickListener mGlobal_OnClickListener = new OnClickListener() {
+</span><span class='line'>    public void onClick(final View v) {
+</span><span class='line'>        switch(v.getId()) {
+</span><span class='line'>            case R.id.button1:
+</span><span class='line'>                Toast.makeText(this, "Button1 clicked.", Toast.LENGTH_SHORT).show();                
+</span><span class='line'>            break;
+</span><span class='line'>            case R.id.button2:
+</span><span class='line'>                Toast.makeText(this, "Button2 clicked.", Toast.LENGTH_SHORT).show();                
+</span><span class='line'>            break;
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>modulestore</h2>
+<h3>Xml reference</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public void button1OnClick(View v) {
+</span><span class='line'>    Toast.makeText(this, "Button1 clicked.", Toast.LENGTH_SHORT).show();                
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;Button
+</span><span class='line'>    android:id="@+id/button1"
+</span><span class='line'>    android:onClick="button1OnClick"/&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Display</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mongo;
-</span><span class='line'>use edxapp;
-</span><span class='line'>db.modulestore.find({"_id.category":"problem", "_id.tag":"i4x", "_id.org":"TsinghuaX", "_id.course":"80512073X"}).limit(10).pretty();
-</span><span class='line'>db.modulestore.findOne({"_id.category":"problem"});</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Display display = getWindowManager().getDefaultDisplay();
+</span><span class='line'>Point size = new Point();
+</span><span class='line'>display.getSize(size);
+</span><span class='line'>System.out.println(size.x + " " + size.y);</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Menu</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;menu xmlns:android="http://schemas.android.com/apk/res/android"
+</span><span class='line'>    xmlns:tools="http://schemas.android.com/tools"
+</span><span class='line'>    tools:context="com.example.geekreader.MainActivity" &gt;
+</span><span class='line'>
+</span><span class='line'>    &lt;item android:id="@+id/analysis"
+</span><span class='line'>        android:title="@string/analysis"/&gt; 
+</span><span class='line'>&lt;/menu&gt;</span></code></pre></td></tr></table></div></figure>
 
 
 
@@ -242,37 +248,23 @@ MathJax.Hub.Config({
 <span class='line-number'>15</span>
 <span class='line-number'>16</span>
 <span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{
-</span><span class='line'>        "_id" : {
-</span><span class='line'>                "tag" : "i4x",
-</span><span class='line'>                "org" : "BerkeleyX",
-</span><span class='line'>                "course" : "CS169_1x",
-</span><span class='line'>                "category" : "problem",
-</span><span class='line'>                "name" : "005669218053441494b20883be8d5b00",
-</span><span class='line'>                "revision" : null
-</span><span class='line'>        },
-</span><span class='line'>        "definition" : {
-</span><span class='line'>                "children" : [ ],
-</span><span class='line'>                "data" : "&lt;problem markdown=\"null\"&gt;\n  &lt;problem&gt;\n    &lt;p&gt;下面哪些是正确的:&lt;/p&gt;\n    &lt;p&gt;(a) &lt;code&gt;my_account.@balance&lt;/code&gt;&lt;/p&gt;\n    &lt;p&gt;(b) &lt;code&gt;my_account.balance&lt;/code&gt;&lt;/p&gt;\n    &lt;p&gt;(c) &lt;code&gt;my_account.balance()&lt;/code&gt;&lt;/p&gt;\n    &lt;choiceresponse&gt;\n      &lt;radiogroup&gt;\n        &lt;choice correct=\"false\"&gt;\n          &lt;text&gt;\n            &lt;span style=\"color: #F90;\"&gt;All Three&lt;/span&gt;\n          &lt;/text&gt;\n        &lt;/choice&gt;\n        &lt;choice correct=\"false\"&gt;\n          &lt;text&gt;\n            &lt;span style=\"color: #063;\"&gt;Only (b)&lt;/span&gt;\n          &lt;/text&gt;\n        &lt;/choice&gt;\n        &lt;choice correct=\"false\"&gt;\n          &lt;text&gt;\n            &lt;span style=\"color: #C00;\"&gt;(a) and (b)&lt;/span&gt;\n          &lt;/text&gt;\n        &lt;/choice&gt;\n        &lt;choice correct=\"true\"&gt;\n          &lt;text&gt;\n            &lt;span style=\"color: #006;\"&gt;(b) and (c)&lt;/span&gt;\n          &lt;/text&gt;\n        &lt;/choice&gt;\n      &lt;/radiogroup&gt;\n    &lt;/choiceresponse&gt;\n  &lt;/problem&gt;\n&lt;/problem&gt;\n"
-</span><span class='line'>        },
-</span><span class='line'>        "metadata" : {
-</span><span class='line'>                "rerandomize" : "never",
-</span><span class='line'>                "showanswer" : "finished",
-</span><span class='line'>                "display_name" : "Multiple Choice"
-</span><span class='line'>        }
+</pre></td><td class='code'><pre><code class=''><span class='line'>@Override
+</span><span class='line'>public boolean onCreateOptionsMenu(Menu menu) {
+</span><span class='line'>    getMenuInflater().inflate(R.menu.main, menu);
+</span><span class='line'>    return true;
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>@Override
+</span><span class='line'>public boolean onOptionsItemSelected(MenuItem item) {
+</span><span class='line'>    switch (item.getItemId()) {
+</span><span class='line'>      case R.id.analysis:
+</span><span class='line'>          CATEGORY_URL = "analysis/";
+</span><span class='line'>          break;
+</span><span class='line'>      default:
+</span><span class='line'>          break;
+</span><span class='line'>    }
+</span><span class='line'>    return super.onOptionsItemSelected(item);
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>xml filename</h2>
-
-<p>财务分析： course-v1:TsinghuaX+80512073X+2016_T1</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; item['metadata']['xml_attributes']['filename']
-</span><span class='line'>[u'problem/3984191f64e140aaa7b43b3187d2a4a5.xml', u'problem/3984191f64e140aaa7b43b3187d2a4a5.xml']</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

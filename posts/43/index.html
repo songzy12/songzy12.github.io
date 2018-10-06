@@ -9,13 +9,19 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="subprocess 1
+  <meta name="description" content="fractions 1
+2
+from fracions import gcd
+print gcd(20, 4) itertools 1
 2
 3
 4
-import subprocess as sub
-p = sub.Popen(['your command', 'arg1', 'arg2', ...],stdout=sub.PIPE,stderr=sub.PIPE)
-output, errors = p. &hellip;">
+5
+6
+groups = []
+uniquekeys = []
+data = sorted(data, key=keyfunc)
+for k, g &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -111,7 +117,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/12/24/interprocess-communication-and-networking/">Interprocess Communication and Networking</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/12/24/numeric-and-mathematical-modules/">Numeric and Mathematical Modules</a></h1>
     
     
       <p class="meta">
@@ -120,39 +126,38 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-12-24T14:24:44+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:24 pm</span></time>
+<time class='entry-date' datetime='2016-12-24T14:16:38+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:16 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>subprocess</h2>
+  <div class="entry-content"><h2>fractions</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from fracions import gcd
+</span><span class='line'>print gcd(20, 4)</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>itertools</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import subprocess as sub
-</span><span class='line'>p = sub.Popen(['your command', 'arg1', 'arg2', ...],stdout=sub.PIPE,stderr=sub.PIPE)
-</span><span class='line'>output, errors = p.communicate()
-</span><span class='line'>print output</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>groups = []
+</span><span class='line'>uniquekeys = []
+</span><span class='line'>data = sorted(data, key=keyfunc)
+</span><span class='line'>for k, g in groupby(data, keyfunc):
+</span><span class='line'>    groups.append(list(g))      # Store group iterator as a list
+</span><span class='line'>    uniquekeys.append(k)</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>socket</h2>
-
-<ul>
-<li>AF_INET: address family IPv4</li>
-<li>SOCK_STREAM: 数据流, TCP</li>
-<li>SOCK_DGRAM: 数据报, UDP</li>
-</ul>
-
-
-<p>80端口是Web服务的标准端口。SMTP服务是25端口，FTP服务是21端口。端口号小于1024的是Internet标准服务的端口，端口号大于1024的，可以任意使用。</p>
-
-<p>TCP连接创建的是双向通道，双方都可以同时给对方发数据。HTTP协议规定客户端必须先发请求给服务器，服务器收到后才发数据给客户端。</p>
-
-<p>服务器可能有多块网卡，可以绑定到某一块网卡的IP地址上，也可以用0.0.0.0绑定到所有的网络地址，还可以用127.0.0.1绑定到本机地址。小于1024的端口号必须要有管理员权限才能绑定。</p>
+<h2>random</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -162,70 +167,14 @@ MathJax.Hub.Config({
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-</span><span class='line'># 监听端口:
-</span><span class='line'>s.bind(('127.0.0.1', 9999))
-</span><span class='line'>s.listen(5)
-</span><span class='line'>print 'Waiting for connection...'
-</span><span class='line'>while True:
-</span><span class='line'>    # 接受一个新连接:
-</span><span class='line'>    sock, addr = s.accept()
-</span><span class='line'>    # 创建新线程来处理TCP连接:
-</span><span class='line'>    t = threading.Thread(target=tcplink, args=(sock, addr))
-</span><span class='line'>    t.start()
-</span><span class='line'>    
-</span><span class='line'>def tcplink(sock, addr):
-</span><span class='line'>    print 'Accept new connection from %s:%s...' % addr
-</span><span class='line'>    sock.send('Welcome!')
-</span><span class='line'>    while True:
-</span><span class='line'>        data = sock.recv(1024)
-</span><span class='line'>        time.sleep(1)
-</span><span class='line'>        if data == 'exit' or not data:
-</span><span class='line'>            break
-</span><span class='line'>        sock.send('Hello, %s!' % data)
-</span><span class='line'>    sock.close()
-</span><span class='line'>    print 'Connection from %s:%s closed.' % addr   </span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-</span><span class='line'># 建立连接:
-</span><span class='line'>s.connect(('127.0.0.1', 9999))
-</span><span class='line'># 接收欢迎消息:
-</span><span class='line'>print s.recv(1024)
-</span><span class='line'>for data in ['Michael', 'Tracy', 'Sarah']:
-</span><span class='line'>    # 发送数据:
-</span><span class='line'>    s.send(data)
-</span><span class='line'>    print s.recv(1024)
-</span><span class='line'>s.send('exit')
-</span><span class='line'>s.close()</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import random
+</span><span class='line'>random.randrange(start, stop[, step]) # random.choice(range(start, stop, step))
+</span><span class='line'>random.randint(a, b)
+</span><span class='line'>random.shuffle(x[, random])
+</span><span class='line'>random.random()
+</span><span class='line'>random.uniform(a, b)
+</span><span class='line'>
+</span><span class='line'>random.choice(seq)</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

@@ -9,12 +9,10 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="here typo Login: admin
-Password: xWzV13u bundle 1
+  <meta name="description" content="rspec 1
 2
-$ bundle install
-Your Ruby version is 2.3.1, but your Gemfile specified 1.9.3 1
-rvm install 1.9.3 &hellip;">
+rspec rspec spec/oracle_of_bacon_spec.rb:10 autotest Start autotest. It will look for tests in spec/. 1
+Autotest style autotest/ &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -110,7 +108,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/11/16/typo/">Typo</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/11/15/rspec/">Rspec</a></h1>
     
     
       <p class="meta">
@@ -119,306 +117,62 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-11-16T21:52:52+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:52 pm</span></time>
+<time class='entry-date' datetime='2016-11-15T19:35:09+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:35 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="https://github.com/saasbook/hw-refactoring-legacy-code-bug-fix">here</a></p>
-
-<h2>typo</h2>
-
-<ul>
-<li>Login: admin</li>
-<li>Password: xWzV13u</li>
-</ul>
-
-
-<h2>bundle</h2>
+  <div class="entry-content"><h2>rspec</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle install
-</span><span class='line'>Your Ruby version is 2.3.1, but your Gemfile specified 1.9.3</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rspec 
+</span><span class='line'>rspec spec/oracle_of_bacon_spec.rb:10</span></code></pre></td></tr></table></div></figure>
 
 
+<h2>autotest</h2>
 
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rvm install 1.9.3</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p>Start <code>autotest</code>. It will look for tests in <code>spec/</code>.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle install --without production
-</span><span class='line'>$ bundle exec rake db:migrate</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Autotest style autotest/rspec_rspec2 doesn't seem to exist. Aborting.</span></code></pre></td></tr></table></div></figure>
 
 
-
+<p>This happens if you&rsquo;re using rspec-3.x + rspec-autotest-1.x and you still have rspec-core-2.x installed.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle exec rake spec
-</span><span class='line'>$ bundle exec rake cucumber</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>autotest --style rspec</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>rake</h2>
+<p>Delete <code>,:pending =&gt; true</code> from the <code>describe 'instance'</code> block, which should immediately cause that set of tests to fail red.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake db:migrate</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bash: autotest: command not found</span></code></pre></td></tr></table></div></figure>
 
 
-
+<p>Gemfile:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake aborted!
-</span><span class='line'>/home/andy/.rvm/gems/ruby-1.9.3-p551/gems/flickraw-0.9.9/lib/flickraw/api.rb:39: syntax error, unexpected tLABEL, expecting ')'
-</span><span class='line'>    def initialize(api_key: FlickRaw.api_key,
-</span><span class='line'>                           ^
-</span><span class='line'>/home/andy/.rvm/gems/ruby-1.9.3-p551/gems/flickraw-0.9.9/lib/flickraw/api.rb:40: syntax error, unexpected tLABEL, expecting '='
-</span><span class='line'>                   shared_secret: FlickRaw.shared_secret)
-</span><span class='line'>                                 ^</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>group :test do
+</span><span class='line'>    gem "autotest"
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>LOC: lines of code</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Not running features.  To run features in autotest, set AUTOFEATURE=true.</span></code></pre></td></tr></table></div></figure>
 
 
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>def initialize(api_key=FlickRaw.api_key, 
-</span><span class='line'>               shared_secret=FlickRaw.shared_secret)</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>export AUTOFEATURE=true</span></code></pre></td></tr></table></div></figure>
 
-
-<p>or <code>vi Gemfile</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'flickraw', '0.9.6'</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>db</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Migrating to SuperclassArticles (20)
-</span><span class='line'>==  SuperclassArticles: migrating =============================================
-</span><span class='line'>-- Merging Articles into Contents table
-</span><span class='line'>-- create_table(:contents)
-</span><span class='line'>   -&gt; 0.0162s
-</span><span class='line'>-- execute("select nextval('contents_id_seq')")
-</span><span class='line'>   -&gt; 0.0005s
-</span><span class='line'>   -&gt; Resetting PostgreSQL sequences
-</span><span class='line'>-- execute("select setval('contents_id_seq',max(id)) from contents")
-</span><span class='line'>   -&gt; 0.0008s
-</span><span class='line'>-- execute("select nextval('contents_id_seq')")
-</span><span class='line'>   -&gt; 0.0005s
-</span><span class='line'>-- remove_index(:articles, :permalink)
-</span><span class='line'>rake aborted!
-</span><span class='line'>An error has occurred, this and all later migrations canceled:</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>vi db/migrate/020_superclass_articles.rb</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#remove_index :articles, :permalink</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>bug-fix</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vi config/routes.rb</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  match 'admin', :to  =&gt; 'admin/dashboard#index', :format =&gt; false, :as =&gt; :admin_dashboard
-</span><span class='line'>  
-</span><span class='line'>  # Admin/XController
-</span><span class='line'>  %w{advanced cache categories comments content profiles feedback general pages
-</span><span class='line'>     resources sidebar textfilters themes trackbacks users settings tags redirects seo post_types }.each do |i|
-</span><span class='line'>    match "/admin/#{i}", :to =&gt; "admin/#{i}#index", :format =&gt; false
-</span><span class='line'>    match "/admin/#{i}(/:action(/:id))", :to =&gt; "admin/#{i}", :action =&gt; nil, :id =&gt; nil, :format =&gt; false
-</span><span class='line'>  end</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vi app/views/admin/dashboard/_welcome.html.erb</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;li&gt; &lt;%= sprintf("%s %d", link_to(_("Categories:"), :controller =&gt; 'admin/categories'), @categories) %&gt;&lt;/li&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vi app/controllers/admin/categories_controller.rb</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  def index; redirect_to :action =&gt; 'new' ; end
-</span><span class='line'>  def new 
-</span><span class='line'>    respond_to do |format|
-</span><span class='line'>      format.html { new_or_edit }
-</span><span class='line'>      format.js { 
-</span><span class='line'>        @category = Category.new
-</span><span class='line'>      }
-</span><span class='line'>    end 
-</span><span class='line'>  end
-</span><span class='line'>  
-</span><span class='line'>  def new_or_edit
-</span><span class='line'>    @categories = Category.find(:all)
-</span><span class='line'>    @category = Category.find(params[:id])
-</span><span class='line'>    @category.attributes = params[:category]
-</span><span class='line'>    if request.post?
-</span><span class='line'>      respond_to do |format|
-</span><span class='line'>        format.html { save_category }
-</span><span class='line'>        format.js do  
-</span><span class='line'>          @category.save
-</span><span class='line'>          @article = Article.new
-</span><span class='line'>          @article.categories &lt;&lt; @category
-</span><span class='line'>          return render(:partial =&gt; 'admin/content/categories')
-</span><span class='line'>        end
-</span><span class='line'>      end 
-</span><span class='line'>      return
-</span><span class='line'>    end 
-</span><span class='line'>    render 'new'
-</span><span class='line'>  end</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ ls app/views/admin/categories
-</span><span class='line'>new.html.erb  new.js.erb</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vi app/controllers/admin/post_types_controller.rb</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  def new_or_edit
-</span><span class='line'>    @post_types = PostType.find(:all)
-</span><span class='line'>    @post_type = case params[:id]
-</span><span class='line'>                when nil 
-</span><span class='line'>                  PostType.new
-</span><span class='line'>                else
-</span><span class='line'>                  PostType.find(params[:id])
-</span><span class='line'>                end
-</span><span class='line'>    @post_type.attributes = params[:post_type]
-</span><span class='line'>    if request.post?
-</span><span class='line'>      save_post_type
-</span><span class='line'>      return
-</span><span class='line'>    end 
-</span><span class='line'>    render 'new'
-</span><span class='line'>  end </span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vi app/controllers/admin/categories_controller.rb</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>@category = case params[:id]
-</span><span class='line'>            when nil 
-</span><span class='line'>              Category.new
-</span><span class='line'>            else
-</span><span class='line'>              Category.find(params[:id])
-</span><span class='line'>            end</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Done!</p>
 </div>
   
   

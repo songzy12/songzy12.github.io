@@ -9,19 +9,12 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="fractions 1
-2
-from fracions import gcd
-print gcd(20, 4) itertools 1
+  <meta name="description" content="csv csv: comma seperated value 1
 2
 3
 4
 5
-6
-groups = []
-uniquekeys = []
-data = sorted(data, key=keyfunc)
-for k, g &hellip;">
+with open("data/rf_benchmark.csv", "wb") as f: writer = csv.writer(f) writer.writerow(["ImageId","Label"]) &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -117,7 +110,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/12/24/numeric-and-mathematical-modules/">Numeric and Mathematical Modules</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/12/24/file-formats/">File Formats</a></h1>
     
     
       <p class="meta">
@@ -126,38 +119,30 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-12-24T14:16:38+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:16 pm</span></time>
+<time class='entry-date' datetime='2016-12-24T14:12:29+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:12 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>fractions</h2>
+  <div class="entry-content"><h2>csv</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>from fracions import gcd
-</span><span class='line'>print gcd(20, 4)</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>itertools</h2>
+<p>csv: comma seperated value</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>groups = []
-</span><span class='line'>uniquekeys = []
-</span><span class='line'>data = sorted(data, key=keyfunc)
-</span><span class='line'>for k, g in groupby(data, keyfunc):
-</span><span class='line'>    groups.append(list(g))      # Store group iterator as a list
-</span><span class='line'>    uniquekeys.append(k)</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>with open("data/rf_benchmark.csv", "wb") as f:
+</span><span class='line'>    writer = csv.writer(f)
+</span><span class='line'>    writer.writerow(["ImageId","Label"])
+</span><span class='line'>    for i, predicted_digit in enumerate(predicted_digits):
+</span><span class='line'>        writer.writerow((i+1, int(predicted_digit)))</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>random</h2>
+<h2>robotparser</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -167,14 +152,14 @@ MathJax.Hub.Config({
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import random
-</span><span class='line'>random.randrange(start, stop[, step]) # random.choice(range(start, stop, step))
-</span><span class='line'>random.randint(a, b)
-</span><span class='line'>random.shuffle(x[, random])
-</span><span class='line'>random.random()
-</span><span class='line'>random.uniform(a, b)
-</span><span class='line'>
-</span><span class='line'>random.choice(seq)</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; import robotparser
+</span><span class='line'>&gt;&gt;&gt; rp = robotparser.RobotFileParser()
+</span><span class='line'>&gt;&gt;&gt; rp.set_url("http://www.musi-cal.com/robots.txt")
+</span><span class='line'>&gt;&gt;&gt; rp.read()
+</span><span class='line'>&gt;&gt;&gt; rp.can_fetch("*", "http://www.musi-cal.com/cgi-bin/search?city=San+Francisco")
+</span><span class='line'>False
+</span><span class='line'>&gt;&gt;&gt; rp.can_fetch("*", "http://www.musi-cal.com/")
+</span><span class='line'>True</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

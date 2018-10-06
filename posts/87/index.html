@@ -9,7 +9,7 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="Android.mk Here. 1
+  <meta name="description" content="External Storage 1
 2
 3
 4
@@ -17,8 +17,8 @@
 6
 7
 8
-LOCAL_PATH := $(call my-dir) include $(CLEAR_VARS) LOCAL_MODULE := hello-jni
-LOCAL_SRC_FILES := hello-jni.c include &hellip;">
+9
+String state = Environment.getExternalStorageState(); if (Environment.MEDIA_MOUNTED.equals(state)) { // save to sd &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -114,7 +114,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/08/22/android-ndk/">Android NDK</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/08/21/android-os/">Android OS</a></h1>
     
     
       <p class="meta">
@@ -123,16 +123,14 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-08-22T20:07:03+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>8:07 pm</span></time>
+<time class='entry-date' datetime='2016-08-21T20:07:03+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>8:07 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>Android.mk</h2>
-
-<p><a href="http://android.mk/">Here</a>.</p>
+  <div class="entry-content"><h2>External Storage</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -142,110 +140,113 @@ MathJax.Hub.Config({
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>LOCAL_PATH := $(call my-dir)
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>String state = Environment.getExternalStorageState();
 </span><span class='line'>
-</span><span class='line'>include $(CLEAR_VARS)
-</span><span class='line'>
-</span><span class='line'>LOCAL_MODULE    := hello-jni
-</span><span class='line'>LOCAL_SRC_FILES := hello-jni.c
-</span><span class='line'>
-</span><span class='line'>include $(BUILD_SHARED_LIBRARY)</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>if (Environment.MEDIA_MOUNTED.equals(state)) {
+</span><span class='line'>  // save to sd card
+</span><span class='line'>} else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
+</span><span class='line'>    // read only
+</span><span class='line'>} else {
+</span><span class='line'>    // not avaliable
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<p>The <code>BUILD_SHARED_LIBRARY</code> is a variable provided by the build system that points to a GNU Makefile script that is in charge of collecting all the information you defined in <code>LOCAL_XXX</code> variables since the latest <code>include $(CLEAR_VARS)</code> and determine what to build, and how to do it exactly. There is also <code>BUILD_STATIC_LIBRARY</code> to generate a static library.</p>
-
-<h2>AndroidManifest</h2>
-
-<h3>installLocation</h3>
-
-<ul>
-<li><code>internalOnly</code></li>
-<li><code>auto</code></li>
-<li><code>preferExternal</code></li>
-</ul>
-
-
-<h3>label/description</h3>
-
-<ul>
-<li>The actual app label is set as the one in <code>&lt;application android:label&gt;</code>. If not set, then package name.</li>
-<li>The activity title is set as the one in <code>&lt;activity android：label&gt;</code>. If not set, then app label.</li>
-<li>The shortcut label is set as the one in main activity <code>&lt;activity android：label&gt;</code>. If not set, then app label.</li>
-</ul>
-
-
-<p>But what if I want the shortcut label to be the same as app label, but different from the main activity title?</p>
-
-<p>It seems that the <code>&lt;intent-filter android:label&gt;</code> is of no use in Android 4.4.</p>
-
-<h3>name</h3>
-
-<ul>
-<li>If the name starts with a dot, always prefix it with the package.</li>
-<li>If the name has a dot anywhere else, do not prefix it.</li>
-<li>If the name has no dot at all, also prefix it with the package.</li>
-</ul>
-
-
-<h3>lauchMode</h3>
-
-<ul>
-<li>standard</li>
-<li>singleTop</li>
-<li>singleTask</li>
-<li>singleInstance</li>
-</ul>
-
-
-<h3>screenOrientation</h3>
-
-<ul>
-<li>landscape</li>
-<li>portrait</li>
-</ul>
-
-
-<h3>intent-filter</h3>
-
-<p>Declares the intent action accepted, in the <code>name</code> attribute.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>android.intent.action.MAIN</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Declares the intent category accepted, in the <code>name</code> attribute.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>android.intent.category.LAUNCHER</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>uses-permission</h3>
-
-<ul>
-<li><code>&lt;uses-permission&gt;</code>: Requests a permission that the application must be granted in order for it to operate correctly.</li>
-<li><code>&lt;permission&gt;</code>: Declares a security permission that can be used to limit access to specific components or features of this or other applications.</li>
-</ul>
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;uses-permission android:name="android.permission.INTERNET"/&gt;</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>File sdcard_path = Environment.getExternalStorageDirectory();
+</span><span class='line'>// sdcard_path.toString() == "/storage/emulated/0";
+</span><span class='line'>String myFloder = getResources().getString(folder_name);
+</span><span class='line'>File paintpad = new File(sdcard_path + "/" + myFloder + "/");
+</span><span class='line'>try {
+</span><span class='line'>  if (!paintpad.exists()) {
+</span><span class='line'>      // Note that this method does not throw IOException on failure.
+</span><span class='line'>      paintpad.mkdirs();
+</span><span class='line'>  }
+</span><span class='line'>} catch (Exception e) {
+</span><span class='line'>  e.printStackTrace();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>uses-sdk</h3>
 
-<p><code>Android 4.4W</code> extends support for <code>Wearables</code>.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Unable to resolve target 'android-19'</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"&gt;&lt;/uses-permission&gt; </span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li><code>project.properties</code>: <code>target=android-20</code>.</li>
-<li><code>AndroidManifest.xml</code>: <code>android:targetSdkVersion="20"</code></li>
-</ul>
+<h2>Handler</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class MyHandler extends Handler {
+</span><span class='line'>    public void handleMessage(Message msg) {
+</span><span class='line'>      Bundle bundle = msg.getData();
+</span><span class='line'>      Date date = new Date();
+</span><span class='line'>      textView.append((new SimpleDateFormat("hh:mm:ss")).format(date) +
+</span><span class='line'>                      "    "+ bundle.getString("msg") + "\n");
+</span><span class='line'>    }
+</span><span class='line'>}   </span></code></pre></td></tr></table></div></figure>
 
 
-<p>Then <code>clean</code> and <code>run</code>.</p>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Handler.sendEmptyMessageDelayed(int what, long delayMillis)</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Handler handler = new Handler();
+</span><span class='line'>handler.post(new Runnable() {
+</span><span class='line'>  public void run() {     
+</span><span class='line'>      Log.i(TAG, getFilesDir().getAbsolutePath() + "/" + filename);
+</span><span class='line'>      // Log.i(TAG, Environment.getExternalStorageDirectory()+"");
+</span><span class='line'>      webView.loadUrl("file:///" + getFilesDir().getAbsolutePath() + "/" + filename);
+</span><span class='line'>      swipeContainer.setRefreshing(false);
+</span><span class='line'>  }
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Message</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Message msg = new Message();
+</span><span class='line'>Bundle bundle = new Bundle();
+</span><span class='line'>bundle.putString("msg", "Connection failed!\n");
+</span><span class='line'>msg.setData(bundle);
+</span><span class='line'>myHandler.sendMessage(msg);</span></code></pre></td></tr></table></div></figure>
+
 </div>
   
   

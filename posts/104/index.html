@@ -9,49 +9,14 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="Location 1
+  <meta name="description" content="mongo 1
+mongo 1
 2
 3
 4
-5
-6
-7
-8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-import android.location &hellip;">
+sudo -i
+rm /edx/var/mongo/mongodb/mongod.lock
+sudo -u mongodb mongod --dbpath /edx/var/mongo/mongodb --repair --repairpath /edx &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -147,7 +112,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/06/22/android-location/">Android Location</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/06/08/edx-platform/">edX Platform</a></h1>
     
     
       <p class="meta">
@@ -156,14 +121,325 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-06-22T20:07:03+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>8:07 pm</span></time>
+<time class='entry-date' datetime='2016-06-08T16:51:49+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>4:51 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>Location</h2>
+  <div class="entry-content"><h2>mongo</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mongo </span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo -i
+</span><span class='line'>rm /edx/var/mongo/mongodb/mongod.lock
+</span><span class='line'>sudo -u mongodb mongod --dbpath /edx/var/mongo/mongodb --repair --repairpath /edx/var/mongo/mongodb
+</span><span class='line'>start mongod</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>paver</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>paver devstack --fast lms &gt; lms.log 2&gt;&1 &
+</span><span class='line'>paver devstack --fast studio &gt; studio.log 2&gt;&1 &</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>pavement.py</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>grep -r devstack pavelib
+</span><span class='line'>pavelib/servers.py</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>pavelib/servers.py</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def devstack(args):
+</span><span class='line'>  sh(django_cmd('cms', settings, 'reindex_course', '--setup'))
+</span><span class='line'>  run_server(
+</span><span class='line'>        args.system[0],
+</span><span class='line'>        fast=args.fast,
+</span><span class='line'>        settings=settings,
+</span><span class='line'>        asset_settings=asset_settings,
+</span><span class='line'>        contracts=not args.no_contracts,
+</span><span class='line'>    )</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def run_server(
+</span><span class='line'>        system, fast=False, settings=None, asset_settings=None, port=None, contracts=False
+</span><span class='line'>):
+</span><span class='line'>  if not settings:
+</span><span class='line'>      DEFAULT_SETTINGS = 'devstack'
+</span><span class='line'>  
+</span><span class='line'>  if not fast and asset_settings:
+</span><span class='line'>      call_task('pavelib.assets.update_assets', args=args)
+</span><span class='line'>
+</span><span class='line'>  args = [settings, 'runserver', '--traceback', '--pythonpath=.', '0.0.0.0:{}'.format(port)]
+</span><span class='line'>  run_process(django_cmd(system, *args))</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>pavelib/utils/cmd.py</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def django_cmd(sys, settings, *args):
+</span><span class='line'>  return cmd("python manage.py", sys, "--settings={}".format(settings), *args)</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>['python manage.py', 'cms', '--settings=devstack', ('reindex_course', '--setup')]
+</span><span class='line'>['python manage.py', 'lms', '--settings=devstack', ('runserver', '--traceback', '--pythonpath=.', '0.0.0.0:8000', '--contracts')]</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>python manage.py lms --settings=devstack runserver --traceback --pythonpath=. 0.0.0.0:8000 --contracts</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>manage.py</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>settings_base='lms/envs'
+</span><span class='line'>default_settings='lms.envs.dev'
+</span><span class='line'>startup='lms.startup'
+</span><span class='line'>
+</span><span class='line'>os.environ["DJANGO_SETTINGS_MODULE"] = edx_args.settings_base.replace('/', '.') + "." + edx_args.settings
+</span><span class='line'>
+</span><span class='line'>startup = importlib.import_module(edx_args.startup)
+</span><span class='line'>startup.run()
+</span><span class='line'>
+</span><span class='line'>from django.core.management import execute_from_command_line
+</span><span class='line'>execute_from_command_line([sys.argv[0]] + django_args)
+</span><span class='line'># ['manage.py', 'runserver', '--traceback', '--pythonpath=.', '0.0.0.0:8000']</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>lms/startup.py</li>
+</ul>
+
+
+<hr />
+
+<h2>django-admin</h2>
+
+<p>django-admin: <a href="https://docs.djangoproject.com/en/1.9/ref/django-admin/">here</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>whereis django-admin
+</span><span class='line'>
+</span><span class='line'>/usr/local/bin/django-admin.py
+</span><span class='line'>/usr/local/lib/python2.7/dist-packages/django</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>management</h2>
+
+<p>execute_from_command_line: <a href="https://github.com/django/django/blob/master/django/core/management/__init__.py">here</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>utility = ManagementUtility(argv)
+</span><span class='line'>utility.execute()</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>self.argv = argv or sys.argv[:]
+</span><span class='line'>self.prog_name = os.path.basename(self.argv[0]) # manage.py</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>subcommand = self.argv[1] # runserver
+</span><span class='line'>
+</span><span class='line'>parser.add_argument('--settings')
+</span><span class='line'>parser.add_argument('--pythonpath')
+</span><span class='line'> 
+</span><span class='line'>settings.INSTALLED_APPS
+</span><span class='line'>
+</span><span class='line'>if subcommand == 'runserver' and '--noreload' not in self.argv:
+</span><span class='line'>  autoreload.check_errors(django.setup)()
+</span><span class='line'>
+</span><span class='line'>self.autocomplete()
+</span><span class='line'>
+</span><span class='line'>self.fetch_command(subcommand).run_from_argv(self.argv)</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>/usr/local/lib/python2.7/dist-packages/django/core/management/commands/runserver.py</code></p>
+
+<hr />
+
+<h2>settings.py</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /edx/app/edxapp/edx-platform/lms/envs/common.py
+</span><span class='line'>cd /edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/simple_history</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>INSTALLED_APPS</li>
+<li>TEMPLATES = [{&lsquo;DIRS&rsquo;:[PROJECT_ROOT / &ldquo;templates&rdquo;,]}]</li>
+</ul>
+
+
+<hr />
+
+<h2>urls.py</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /edx/app/edxapp/edx-platform/lms/urls.py</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>url(r'^$', 'branding.views.index', name="root")</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>vi /edx/app/edxapp/edx-platform/lms/djangoapps/branding/views.py</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>return redirect(reverse('dashboard'))</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>url(r'^dashboard$', 'student.views.dashboard', name="dashboard"),</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>vi /edx/app/edxapp/edx-platform/common/djangoapps/student/views.py</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>return render_to_response('dashboard.html', context)</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>vi /edx/app/edxapp/edx-platform/lms/templates/dashboard.html</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>url(
+</span><span class='line'>    r'^courses/{}/info$'.format(
+</span><span class='line'>        settings.COURSE_ID_PATTERN,
+</span><span class='line'>    ),
+</span><span class='line'>    'courseware.views.course_info',
+</span><span class='line'>    name='info',
+</span><span class='line'>),</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>url(
+</span><span class='line'>    r'^courses/{}/courseware/(?P&lt;chapter&gt;[^/]*)/(?P&lt;section&gt;[^/]*)/$'.format(
+</span><span class='line'>        settings.COURSE_ID_PATTERN,
+</span><span class='line'>    ),
+</span><span class='line'>    'courseware.views.index',
+</span><span class='line'>    name='courseware_section',
+</span><span class='line'>),
+</span><span class='line'>url(
+</span><span class='line'>    r'^courses/{}/courseware/(?P&lt;chapter&gt;[^/]*)/(?P&lt;section&gt;[^/]*)/(?P&lt;position&gt;[^/]*)/?$'.format(
+</span><span class='line'>        settings.COURSE_ID_PATTERN,
+</span><span class='line'>    ),
+</span><span class='line'>    'courseware.views.index',
+</span><span class='line'>    name='courseware_position',
+</span><span class='line'>),</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>vi /edx/app/edxapp/edx-platform/lms/envs/common.py</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>COURSE_KEY_PATTERN = r'(?P&lt;course_key_string&gt;[^/+]+(/|\+)[^/+]+(/|\+)[^/?]+)'
+</span><span class='line'>COURSE_ID_PATTERN = COURSE_KEY_PATTERN.replace('course_key_string', 'course_id')</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>vi /edx/app/edxapp/edx-platform/lms/djangoapps/courseware/views.py</code></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -188,67 +464,47 @@ MathJax.Hub.Config({
 <span class='line-number'>21</span>
 <span class='line-number'>22</span>
 <span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import android.location.Criteria;
-</span><span class='line'>import android.location.Location;
-</span><span class='line'>import android.location.LocationListener;
-</span><span class='line'>import android.location.LocationManager;
+</pre></td><td class='code'><pre><code class=''><span class='line'>from opaque_keys.edx.keys import CourseKey, UsageKey
+</span><span class='line'>def index(request, course_id, chapter=None, section=None,
+</span><span class='line'>          position=None):
+</span><span class='line'>  course_key = CourseKey.from_string(course_id)
+</span><span class='line'>  return _index_bulk_op(request, course_key, chapter, section, position)
 </span><span class='line'>
-</span><span class='line'>locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);  
-</span><span class='line'>
-</span><span class='line'>criteria = new Criteria();      
-</span><span class='line'>criteria.setAccuracy(Criteria.ACCURACY_FINE);   
-</span><span class='line'>criteria.setAltitudeRequired(true);  
-</span><span class='line'>criteria.setBearingRequired(true);  
-</span><span class='line'>criteria.setCostAllowed(true);      
-</span><span class='line'>criteria.setPowerRequirement(Criteria.POWER_LOW);  
-</span><span class='line'>criteria.setSpeedRequired(true);  
-</span><span class='line'>provider = locationManager.getBestProvider(criteria, true);
-</span><span class='line'>
-</span><span class='line'>locationListener = new LocationListener() {  
-</span><span class='line'>    @Override  
-</span><span class='line'>    public void onLocationChanged(Location location) {  
-</span><span class='line'>      updateLocation(location);
-</span><span class='line'>    }  
-</span><span class='line'>    @Override  
-</span><span class='line'>    public void onStatusChanged(String provider, int status, Bundle extras) {  
-</span><span class='line'>      updateLocation(null);
-</span><span class='line'>    }  
-</span><span class='line'>    @Override  
-</span><span class='line'>    public void onProviderEnabled(String provider) {  
-</span><span class='line'>    }  
-</span><span class='line'>    @Override  
-</span><span class='line'>    public void onProviderDisabled(String provider) {  
-</span><span class='line'>    }  
-</span><span class='line'>};  
-</span><span class='line'>
-</span><span class='line'>locationManager.requestLocationUpdates(provider, 1000, 0,locationListener);
-</span><span class='line'>
-</span><span class='line'>private void updateLocation(Location location){
-</span><span class='line'>  if (location != null) {  
-</span><span class='line'>        location.getLatitude();  
-</span><span class='line'>        location.getLongitude();  
-</span><span class='line'>    }
-</span><span class='line'>}  
-</span><span class='line'>              </span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>def _index_bulk_op(request, course_key, chapter, section, position):
+</span><span class='line'>  context = {
+</span><span class='line'>      'csrf': csrf(request)['csrf_token'],
+</span><span class='line'>      'accordion': render_accordion(user, request, course, chapter, section, field_data_cache),
+</span><span class='line'>      'COURSE_TITLE': course.display_name_with_default,
+</span><span class='line'>      'course': course,
+</span><span class='line'>      'init': '',
+</span><span class='line'>      'fragment': Fragment(),
+</span><span class='line'>      'staff_access': staff_access,
+</span><span class='line'>      'studio_url': studio_url,
+</span><span class='line'>      'masquerade': masquerade,
+</span><span class='line'>      'xqa_server': settings.FEATURES.get('XQA_SERVER', "http://your_xqa_server.com"),
+</span><span class='line'>  }
+</span><span class='line'>  context['fragment'] = section_module.render(STUDENT_VIEW, section_render_context)
+</span><span class='line'>  context['section_title'] = section_descriptor.display_name_with_default
+</span><span class='line'>  result = render_to_response('courseware/courseware.html', context)
+</span><span class='line'>  return result/conte</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>courseware.html</h2>
+
+<p><code>vi /edx/app/edxapp/edx-platform/lms/templates/courseware/courseware.html</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>${fragment.body_html()}</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>DATABASES</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>lms.auth.json</span></code></pre></td></tr></table></div></figure>
 
 
 
@@ -261,52 +517,22 @@ MathJax.Hub.Config({
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import android.location.GpsSatellite;
-</span><span class='line'>import android.location.GpsStatus;
-</span><span class='line'>
-</span><span class='line'>if(locationManager.isProviderEnabled(android.location.LocationManager.GPS_PROVIDER))
-</span><span class='line'>  textView.append("GPS opened!\n");
-</span><span class='line'>else
-</span><span class='line'>  textView.append("Please open GPS!\n");
-</span><span class='line'>
-</span><span class='line'>statusListener = new GpsStatus.Listener() {  
-</span><span class='line'>    public void onGpsStatusChanged(int event) { // GPS状态变化时的回调，如卫星数  
-</span><span class='line'>        GpsStatus status = locationManager.getGpsStatus(null); //取当前状态  
-</span><span class='line'>        updateGpsStatus(event, status);
-</span><span class='line'>    }
-</span><span class='line'>};
-</span><span class='line'>locationManager.addGpsStatusListener(statusListener);
-</span><span class='line'>
-</span><span class='line'>private void updateGpsStatus(int event, GpsStatus status) {
-</span><span class='line'>  maxSignalNoiseRate.setValue(0f);
-</span><span class='line'>    if (event == GpsStatus.GPS_EVENT_SATELLITE_STATUS) {
-</span><span class='line'>        Iterator&lt;GpsSatellite&gt; it = status.getSatellites().iterator();
-</span><span class='line'>        while (it.hasNext()) {
-</span><span class='line'>          float tmp = it.next().getSnr();
-</span><span class='line'>          if (tmp &gt; maxSignalNoiseRate.getValue())
-</span><span class='line'>              maxSignalNoiseRate.setValue(tmp);
-</span><span class='line'>        }
-</span><span class='line'>    }
+</pre></td><td class='code'><pre><code class=''><span class='line'>"read_replica": {
+</span><span class='line'>    "ENGINE": "django.db.backends.mysql",
+</span><span class='line'>    "HOST": "localhost",
+</span><span class='line'>    "NAME": "edxapp",
+</span><span class='line'>    "PASSWORD": "password",
+</span><span class='line'>    "PORT": "3306",
+</span><span class='line'>    "USER": "edxapp001"
 </span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mysql --host="localhost" --password="password" --user="edxapp001"
+</span><span class='line'>use read_replica;</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

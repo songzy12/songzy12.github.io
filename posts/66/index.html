@@ -9,15 +9,13 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="here 1
+  <meta name="description" content="corpora 1
 2
 3
 4
-bundle install --without production
-rake db:create
-rake db:migrate
-rake db:seed benchmark vi config/routes.rb 1
-match '/benchmark/:type &hellip;">
+from gensim import corpora
+dict1 = corpora.Dictionary(some_documents)
+dict2 = corpora.Dictionary(other_documents) # ids not &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -113,7 +111,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/11/16/rotten-potatoes/">Rotten Potatoes</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/11/09/gensim/">Gensim</a></h1>
     
     
       <p class="meta">
@@ -122,174 +120,83 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-11-16T15:10:11+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>3:10 pm</span></time>
+<time class='entry-date' datetime='2016-11-09T14:44:05+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>9</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:44 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="https://github.com/saasbook/hw-indices-performance">here</a></p>
+  <div class="entry-content"><h2>corpora</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bundle install --without production
-</span><span class='line'>rake db:create
-</span><span class='line'>rake db:migrate
-</span><span class='line'>rake db:seed</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from gensim import corpora
+</span><span class='line'>dict1 = corpora.Dictionary(some_documents)
+</span><span class='line'>dict2 = corpora.Dictionary(other_documents)  # ids not compatible with dict1!
+</span><span class='line'>dict2_to_dict1 = dict1.merge_with(dict2)</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>benchmark</h2>
-
-<p><code>vi config/routes.rb</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>match '/benchmark/:type' =&gt; 'movies#benchmark', :as =&gt; :benchmark</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>http://localhost:3000/benchmark/movies
-</span><span class='line'>http://localhost:3000/benchmark/moviegoers</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>vi app/controllers/movies_controller.rb</code></p>
+<p>Corpus in the Matrix Market format.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>  def benchmark
-</span><span class='line'>    benchType=params[:type]
-</span><span class='line'>    @results=[]
-</span><span class='line'>    times_to_run=Movie.count/2
-</span><span class='line'>    search_movies=Movie.all(:limit=&gt;times_to_run)
-</span><span class='line'>    search_goers=Moviegoer.all(:limit=&gt;times_to_run)
-</span><span class='line'>    case benchType
-</span><span class='line'>
-</span><span class='line'>    when "movies"
-</span><span class='line'>      start_time=Time.now
-</span><span class='line'>      search_movies.each do |bench_movie|
-</span><span class='line'>         reviews = bench_movie.reviews 
-</span><span class='line'>         reviews.each {|r| r}
-</span><span class='line'>      end 
-</span><span class='line'>      total_time=Time.now - start_time
-</span><span class='line'>      @results&lt;&lt;{:action =&gt; "movie.reviews", :times_run =&gt; times_to_run, :time=&gt;total_time.round(5)}
-</span><span class='line'>    when "moviegoers"
-</span><span class='line'>      start_time=Time.now    
-</span><span class='line'>      search_goers.each do |g| 
-</span><span class='line'>         reviews = g.reviews 
-</span><span class='line'>         reviews.each {|r| r}
-</span><span class='line'>      end 
-</span><span class='line'>      total_time=Time.now - start_time
-</span><span class='line'>      @results&lt;&lt;{:action =&gt; "moviegoer.reviews", :times_run =&gt; times_to_run, :time=&gt;total_time.round(5)}
-</span><span class='line'>    end 
-</span><span class='line'>  end</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>corpora.MmCorpus.serialize('test.mm', corpus)
+</span><span class='line'>mm = corpora.MmCorpus('test.mm')
+</span><span class='line'>print (mm[42])</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>db</h2>
+<h2>models</h2>
 
-<p><code>vi db/seeds.rb:</code></p>
+<p>Objects of this class realize the transformation between word-document co-occurrence matrix (integers) into a locally/globally weighted TF_IDF matrix (positive floats).</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>movie_count=250
-</span><span class='line'>review_count=20 </span></code></pre></td></tr></table></div></figure>
-
-
+<ul>
+<li>TfidfModel</li>
+</ul>
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd db
-</span><span class='line'>$ sqlite3 development.sqlite3
-</span><span class='line'>sqlite&gt; explain query plan SELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = 1;
-</span><span class='line'>0|0|0|SCAN TABLE reviews </span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from gensim import models
+</span><span class='line'>tfidf = models.TfidfModel(corpus)
+</span><span class='line'>print tfidf[some_doc]</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>performance</h2>
-
-<p>Your task is to add a migration, or migrations that will improve the performance by eliminate the use of table scans for the following two queries:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>moviegoer.reviews
-</span><span class='line'>movie.reviews</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li>LsiModel</li>
+</ul>
 
 
-
+<p>bow: bag-of-words</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rails console
-</span><span class='line'>&gt; movies = Movie.all(:limit=&gt;1)
-</span><span class='line'>&gt; movie = movies[0]
-</span><span class='line'>&gt; movie.reviews
-</span><span class='line'>  Review Load (3.7ms)  SELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = 1</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>lsi = models.LsiModel(corpus_tfidf, id2word=dictionary, num_topics=2) # initialize an LSI transformation
+</span><span class='line'>corpus_lsi = lsi[corpus_tfidf] # create a double wrapper over the original corpus: bow-&gt;tfidf-&gt;fold-in-lsi
+</span><span class='line'>lsi.print_topics(2)</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Add index of <code>movie_id</code>, <code>moviegoer_id</code> to reviews.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rails generate migration AddIndexToReviews movie_id:integer:index moviegoer_id:integer:index</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Delete <code>add_column</code> line and run the migration. <code>vi db/migrate/20161116114311_add_index_to_reviews.rb</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class AddIndexToReviews &lt; ActiveRecord::Migration
-</span><span class='line'>  def change
-</span><span class='line'>    add_index :reviews, :movie_id
-</span><span class='line'>    add_index :reviews, :moviegoer_id
-</span><span class='line'>  end 
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
-
-
+<ul>
+<li>word2vec</li>
+</ul>
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sqlite&gt; explain query plan SELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = 1;
-</span><span class='line'>0|0|0|SEARCH TABLE reviews USING INDEX index_reviews_on_movie_id (movie_id=?)</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>train(sentences, total_words=None, word_count=0, total_examples=None, queue_factor=2, report_delay=1.0)</span></code></pre></td></tr></table></div></figure>
 
 
+<p>Update the model’s neural weights from a sequence of sentences (can be a once-only generator stream). For Word2Vec, each sentence must be a list of unicode strings. (Subclasses may accept other examples.)</p>
 
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>wmdistance(document1, document2, WCD=False, RWMD=False)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Note that if one of the documents have no words that exist in the Word2Vec vocab, float(‘inf’) (i.e. infinity) will be returned.</p>
 </div>
   
   

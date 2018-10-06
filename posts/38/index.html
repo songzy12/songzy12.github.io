@@ -9,18 +9,13 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="connect 1
+  <meta name="description" content="re ?P 1
 2
 3
 4
-mysql --host=10.9.10.234 --port=3307 --user=readonly -A
-show databases;
-use edxapp;
-show tables; install 1
-2
-3
-4
-sudo apt install &hellip;">
+&gt;&gt;&gt; import re
+&gt;&gt;&gt; match = re.search('(?P&lt;name&gt;.*) (?P&lt;phone&gt;.*)', 'John 123456')
+&gt;&gt;&gt; match.group &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -116,7 +111,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2017/01/15/mysql/">MySQL</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/12/24/string-services/">String Services</a></h1>
     
     
       <p class="meta">
@@ -125,256 +120,67 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2017-01-15T13:50:37+08:00'><span class='date'><span class='date-month'>Jan</span> <span class='date-day'>15</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>1:50 pm</span></time>
+<time class='entry-date' datetime='2016-12-24T14:29:03+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:29 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>connect</h2>
+  <div class="entry-content"><h2>re</h2>
+
+<h3>?P</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mysql --host=10.9.10.234 --port=3307 --user=readonly -A
-</span><span class='line'>show databases;
-</span><span class='line'>use edxapp;
-</span><span class='line'>show tables;</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; import re
+</span><span class='line'>&gt;&gt;&gt; match = re.search('(?P&lt;name&gt;.*) (?P&lt;phone&gt;.*)', 'John 123456')
+</span><span class='line'>&gt;&gt;&gt; match.group('name')
+</span><span class='line'>'John'</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>install</h2>
+<h3>split</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>re.split(u'，|。', u'a，b。c')</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import re
+</span><span class='line'>DATA = "Hey, you - what are you doing here!?"
+</span><span class='line'>print re.findall(r"[\w']+", DATA)</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>sub</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt install mysql-server
-</span><span class='line'>sudo service mysql status
-</span><span class='line'>sudo service mysql start
-</span><span class='line'>mysql -u root -p</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>re.sub(pattern, repl, string, count=0, flags=0)
+</span><span class='line'>
+</span><span class='line'>  Return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by the replacement repl. If the pattern isn’t found, string is returned unchanged. repl can be a string or a function;
+</span><span class='line'>  If repl is a function, it is called for every non-overlapping occurrence of pattern. The function takes a single match object argument, and returns the replacement string.</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>function</h2>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>DROP FUNCTION IF EXISTS getNthHighestSalary;
-</span><span class='line'>delimiter $$
-</span><span class='line'>CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
-</span><span class='line'>BEGIN
-</span><span class='line'>DECLARE M INT;
-</span><span class='line'>SET M=N-1;
-</span><span class='line'>  RETURN (
-</span><span class='line'>     # Write your MySQL query statement below.
-</span><span class='line'>     SELECT DISTINCT Salary FROM Employee ORDER BY Salary DESC LIMIT M, 1
-</span><span class='line'>  );
-</span><span class='line'>END$$
-</span><span class='line'>delimiter ;</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>union</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>select Salary from Employee union select null order by Salary desc limit 1, 1</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>as</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>select Salary as SecondHighestSalary from Employee 
-</span><span class='line'>union select null 
-</span><span class='line'>order by SecondHighestSalary desc limit 1, 1</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>char &amp; varchar</h2>
-
-<p><a href="https://dev.mysql.com/doc/refman/5.7/en/char.html">Here</a>.</p>
-
-<p>|&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;-|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;&mdash;&mdash;&mdash;-|
-|Value      |CHAR(4)|Storage Required   |VARCHAR(4) |Storage Required|
-|&lsquo;&rsquo;         |&lsquo;    &rsquo; |4 bytes            |&lsquo;&rsquo;         |1 byte         |
-|&lsquo;ab&rsquo;       |&lsquo;ab  &rsquo; |4 bytes            |&lsquo;ab&rsquo;       |3 bytes        |
-|&lsquo;abcd&rsquo;     |&lsquo;abcd&rsquo; |4 bytes            |&lsquo;abcd&rsquo;     |5 bytes        |
-|&lsquo;abcdefgh&rsquo; |&lsquo;abcd&rsquo; |4 bytes            |&lsquo;abcd&rsquo;     |5 bytes        |</p>
-
-<h2>create database</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>CREATE DATABASE oxcoder;</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>create table</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>create table Employee (Id int primary key, Salary int)</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>insert</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>insert into Employee values(1, 100)
-</span><span class='line'>insert into Employee values(2, 200)
-</span><span class='line'>insert into Employee values(3, 300)</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>load data</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>LOAD DATA LOCAL INFILE 'Employee.txt' INTO TABLE Employee FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Note the blank line at the end of file. Be careful to use <code>\t</code> when you have replaced all the <code>\t</code> to <code>space</code></p>
-
-<h2>left join</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>select FirstName, LastName, City, State 
-</span><span class='line'>from Person p 
-</span><span class='line'>LEFT JOIN Address a 
-</span><span class='line'>on p.PersonId = a.PersonId;
-</span><span class='line'>
-</span><span class='line'>SELECT FirstName, LastName, City, State 
-</span><span class='line'>FROM Person 
-</span><span class='line'>LEFT JOIN Address 
-</span><span class='line'>USING(PersonId);
-</span><span class='line'>
-</span><span class='line'>SELECT FirstName, LastName, City, State 
-</span><span class='line'>FROM Person 
-</span><span class='line'>NATURAL LEFT JOIN Address;</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>user</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>show databases;
-</span><span class='line'>use mysql;
-</span><span class='line'>select database();
-</span><span class='line'>
-</span><span class='line'>show tables;
-</span><span class='line'>describe user;
-</span><span class='line'>show full columns from user;
-</span><span class='line'>show index from user;
-</span><span class='line'>
-</span><span class='line'>select host,user,authentication_string from user;
-</span><span class='line'>
-</span><span class='line'>mysql&gt; grant ALL PRIVILEGES
-</span><span class='line'>    -&gt; on oxcoder.*
-</span><span class='line'>    -&gt; to 'guest'@'localhost'
-</span><span class='line'>    -&gt; identified by 'guest';</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>source</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mysql -u guest -p oxcoder;
-</span><span class='line'>source 618292_all.sql;</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mysql -u root -p leetcode &lt; 618292_all.sql</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>show</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>show full columns from pt_user_challenge;
-</span><span class='line'>show warnings;</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>count</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>select count(*) from auth_user;</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>limit</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>[LIMIT {[offset,] row_count | row_count OFFSET offset}]</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>select Salary from Employee order by Salary desc limit 1, 1</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Seems like MySQL can only take numeric constants in the LIMIT syntax.</p>
-
-<h2>delete</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>DELETE FROM table_name [WHERE Clause]</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>MySQLdb</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import MySQLdb
-</span><span class='line'>
-</span><span class='line'>if __name__ == '__main__':
-</span><span class='line'>    db = MySQLdb.connect("localhost", "guest", "guest", "oxcoder")
-</span><span class='line'>    cursor = db.cursor()
-</span><span class='line'>    sql = "select version()"
-</span><span class='line'>    cursor.execute(sql)
-</span><span class='line'>    data = cursor.fetchone()
-</span><span class='line'>    print data
-</span><span class='line'>    db.close()</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; def dashrepl(matchobj):
+</span><span class='line'>...     if matchobj.group(0) == '-': return ' '
+</span><span class='line'>...     else: return '-'
+</span><span class='line'>&gt;&gt;&gt; re.sub('-{1,2}', dashrepl, 'pro----gram-files')
+</span><span class='line'>'pro--gram files'</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

@@ -9,14 +9,15 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="Here. virtualenv 1
-2
-sudo pip install vietualenvwrapper
-source /usr/local/bin/virtualenvwrapper.sh 1
+  <meta name="description" content="here 1
 2
 3
-mkvirtualenv django_project
-deactivate &hellip;">
+4
+bundle install --without production
+rake db:create
+rake db:migrate
+rake db:seed benchmark vi config/routes.rb 1
+match '/benchmark/:type &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -112,7 +113,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/11/18/django/">Django</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/11/16/rotten-potatoes/">Rotten Potatoes</a></h1>
     
     
       <p class="meta">
@@ -121,132 +122,42 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-11-18T14:19:20+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:19 pm</span></time>
+<time class='entry-date' datetime='2016-11-16T15:10:11+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>3:10 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="http://jeffknupp.com/blog/2013/12/18/starting-a-django-16-project-the-right-way/">Here</a>.</p>
-
-<h2>virtualenv</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo pip install vietualenvwrapper
-</span><span class='line'>source /usr/local/bin/virtualenvwrapper.sh</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mkvirtualenv django_project
-</span><span class='line'>deactivate
-</span><span class='line'>workon django_project</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>django</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>pip install django
-</span><span class='line'>which django-admin.py</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>django-admin.py startproject django_project</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>south</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>pip install south</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Tutorial <a href="https://south.readthedocs.io/en/latest/tutorial/">here</a>.</p>
-
-<p>All migrations to our own apps will be done using South, including the &ldquo;initial&rdquo; migration.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>pip freeze &gt; requirements.txt</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>vi settings.py</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>fabric</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>pip install fabric</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>vi fabfile.py</code></p>
+  <div class="entry-content"><p><a href="https://github.com/saasbook/hw-indices-performance">here</a></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>from fabric.api import local, lcd
-</span><span class='line'>
-</span><span class='line'>def prepare_deployment(branch_name):
-</span><span class='line'>    local('python manage.py test django_project')
-</span><span class='line'>    local('git add -p && git commit') # or local('hg add && hg commit')
-</span><span class='line'>    
-</span><span class='line'>def deploy():
-</span><span class='line'>    with lcd('/path/to/my/prod/area/'):
-</span><span class='line'>
-</span><span class='line'>        # With git...
-</span><span class='line'>        local('git pull /my/path/to/dev/area/')
-</span><span class='line'>
-</span><span class='line'>        # With Mercurial...
-</span><span class='line'>        local('hg pull /my/path/to/dev/area/')
-</span><span class='line'>        local('hg update')
-</span><span class='line'>
-</span><span class='line'>        # With both
-</span><span class='line'>        local('python manage.py migrate myapp')
-</span><span class='line'>        local('python manage.py test myapp')
-</span><span class='line'>        local('/my/command/to/restart/webserver')</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle install --without production
+</span><span class='line'>rake db:create
+</span><span class='line'>rake db:migrate
+</span><span class='line'>rake db:seed</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>benchmark</h2>
+
+<p><code>vi config/routes.rb</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>match '/benchmark/:type' =&gt; 'movies#benchmark', :as =&gt; :benchmark</span></code></pre></td></tr></table></div></figure>
 
 
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ fab prepare_deployment
-</span><span class='line'>$ fab deploy</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://localhost:3000/benchmark/movies
+</span><span class='line'>http://localhost:3000/benchmark/moviegoers</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>unittest</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vi test_&lt;appname&gt;.py</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p><code>vi app/controllers/movies_controller.rb</code></p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -270,34 +181,114 @@ MathJax.Hub.Config({
 <span class='line-number'>20</span>
 <span class='line-number'>21</span>
 <span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import datetime
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  def benchmark
+</span><span class='line'>    benchType=params[:type]
+</span><span class='line'>    @results=[]
+</span><span class='line'>    times_to_run=Movie.count/2
+</span><span class='line'>    search_movies=Movie.all(:limit=&gt;times_to_run)
+</span><span class='line'>    search_goers=Moviegoer.all(:limit=&gt;times_to_run)
+</span><span class='line'>    case benchType
 </span><span class='line'>
-</span><span class='line'>from django.test import TestCase
-</span><span class='line'>from myapp.models import Post
-</span><span class='line'>
-</span><span class='line'>class BlogPostTestCase(TestCase):
-</span><span class='line'>    def setUp(self):
-</span><span class='line'>        Post.objects.create(id=1, 
-</span><span class='line'>            title='Starting a Django 1.6 Project the Right Way', 
-</span><span class='line'>            date=datetime.datetime.now(),
-</span><span class='line'>            category='Django')
-</span><span class='line'>        Post.objects.create(id=2, 
-</span><span class='line'>            title='Python\'s Hardest Problem', 
-</span><span class='line'>            date=datetime.datetime.now(),
-</span><span class='line'>            category='Python')
-</span><span class='line'>
-</span><span class='line'>    def test_posts_have_category(self):
-</span><span class='line'>        """Animals that can speak are correctly identified"""
-</span><span class='line'>        first_post = Post.objects.get(id=1)
-</span><span class='line'>        second_post = Post.objects.get(id=2)
-</span><span class='line'>        self.assertEqual(first_post.category, 'Django')
-</span><span class='line'>        self.assertEqual(second_post.category, 'Python')</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>    when "movies"
+</span><span class='line'>      start_time=Time.now
+</span><span class='line'>      search_movies.each do |bench_movie|
+</span><span class='line'>         reviews = bench_movie.reviews 
+</span><span class='line'>         reviews.each {|r| r}
+</span><span class='line'>      end 
+</span><span class='line'>      total_time=Time.now - start_time
+</span><span class='line'>      @results&lt;&lt;{:action =&gt; "movie.reviews", :times_run =&gt; times_to_run, :time=&gt;total_time.round(5)}
+</span><span class='line'>    when "moviegoers"
+</span><span class='line'>      start_time=Time.now    
+</span><span class='line'>      search_goers.each do |g| 
+</span><span class='line'>         reviews = g.reviews 
+</span><span class='line'>         reviews.each {|r| r}
+</span><span class='line'>      end 
+</span><span class='line'>      total_time=Time.now - start_time
+</span><span class='line'>      @results&lt;&lt;{:action =&gt; "moviegoer.reviews", :times_run =&gt; times_to_run, :time=&gt;total_time.round(5)}
+</span><span class='line'>    end 
+</span><span class='line'>  end</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>db</h2>
+
+<p><code>vi db/seeds.rb:</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>movie_count=250
+</span><span class='line'>review_count=20 </span></code></pre></td></tr></table></div></figure>
 
 
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>./manage.py test &lt;appname&gt;</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ cd db
+</span><span class='line'>$ sqlite3 development.sqlite3
+</span><span class='line'>sqlite&gt; explain query plan SELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = 1;
+</span><span class='line'>0|0|0|SCAN TABLE reviews </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>performance</h2>
+
+<p>Your task is to add a migration, or migrations that will improve the performance by eliminate the use of table scans for the following two queries:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>moviegoer.reviews
+</span><span class='line'>movie.reviews</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails console
+</span><span class='line'>&gt; movies = Movie.all(:limit=&gt;1)
+</span><span class='line'>&gt; movie = movies[0]
+</span><span class='line'>&gt; movie.reviews
+</span><span class='line'>  Review Load (3.7ms)  SELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = 1</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add index of <code>movie_id</code>, <code>moviegoer_id</code> to reviews.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rails generate migration AddIndexToReviews movie_id:integer:index moviegoer_id:integer:index</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Delete <code>add_column</code> line and run the migration. <code>vi db/migrate/20161116114311_add_index_to_reviews.rb</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class AddIndexToReviews &lt; ActiveRecord::Migration
+</span><span class='line'>  def change
+</span><span class='line'>    add_index :reviews, :movie_id
+</span><span class='line'>    add_index :reviews, :moviegoer_id
+</span><span class='line'>  end 
+</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sqlite&gt; explain query plan SELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = 1;
+</span><span class='line'>0|0|0|SEARCH TABLE reviews USING INDEX index_reviews_on_movie_id (movie_id=?)</span></code></pre></td></tr></table></div></figure>
+
+
 
 </div>
   

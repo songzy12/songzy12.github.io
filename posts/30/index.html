@@ -9,7 +9,10 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="bower init Packages are defined by a manifest file bower.json. This is similar to Node’s package.json or Ruby’s Gemfile. Interactively create a bower &hellip;">
+  <meta name="description" content="$ $*: equivalent to $1c$2c...
+$@: equivalent to $1 $2 &hellip;
+$#: number of position parameters in decimal
+$?: exit status of the most recently &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -105,7 +108,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2017/02/13/bower/">Bower</a></h1>
+      <h1 class="entry-title"><a href="/blog/2017/02/10/bash/">Bash</a></h1>
     
     
       <p class="meta">
@@ -114,46 +117,245 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2017-02-13T21:30:13+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>9:30 pm</span></time>
+<time class='entry-date' datetime='2017-02-10T15:29:38+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>10</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>3:29 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>bower init</h2>
+  <div class="entry-content"><h2>$</h2>
 
-<p>Packages are defined by a manifest file <code>bower.json</code>. This is similar to Node’s <code>package.json</code> or Ruby’s <code>Gemfile</code>.</p>
+<ul>
+<li><code>$*</code>: equivalent to <code>$1c$2c...</code></li>
+<li><code>$@</code>: equivalent to <code>$1</code> <code>$2</code> &hellip;</li>
+<li><code>$#</code>: number of position parameters in decimal</li>
+<li><code>$?</code>: exit status of the most recently executed foreground pipeline</li>
+<li><code>$-</code>: the current option flags as specified upon invocation</li>
+<li><code>$$</code>: the process ID of the shell</li>
+<li><code>$!</code>: the process ID of the job most recently placed into background</li>
+<li><code>$0</code>: the name of the shell or shell script</li>
+<li><code>$_</code>: the absolution path name used to invoke the shell</li>
+</ul>
 
-<p>Interactively create a <code>bower.json</code> with</p>
+
+<h2>&ndash;</h2>
+
+<p>A double dash (<code>--</code>) is used in bash built-in commands and many other commands to signify the end of command options, after which only positional parameters are accepted.</p>
+
+<p>Example use: lets say you want to grep a file for the string <code>-v</code> - normally <code>-v</code> will be considered the option to reverse the matching meaning (only show lines that do not match), but with <code>--</code> you can grep for string <code>-v</code> like this:</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bower init</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>grep -- -v file</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>bower install</h2>
+<h2>[ ]</h2>
+
+<p><code>[ ]</code> vs <code>[[ ]]</code> are test operators</p>
+
+<ul>
+<li>You no longer have to quote variables like mad because <code>[[</code> handles empty strings and strings with whitespace more intuitively.</li>
+<li>It lets you use <code>&amp;&amp;</code> and <code>||</code> operators for boolean tests and <code>&lt;</code> and <code>&gt;</code> for string comparisons.</li>
+<li>It has a wonderful <code>=~</code> operator for doing regular expression matches.</li>
+<li>You get pattern matching aka globbing for free.</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># installs the project dependencies listed in bower.json
-</span><span class='line'>$ bower install</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if [ -f "$FILE" ]
+</span><span class='line'>if [[ -f $FILE ]]
+</span><span class='line'>
+</span><span class='line'>if [ "$ANSWER" = y -o "$ANSWER" = yes ]
+</span><span class='line'>if [[ $ANSWER =~ ^y(es)?$ ]]
+</span><span class='line'>
+</span><span class='line'>if [[ $ANSWER = y* ]]</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Using <code>bower install &lt;package&gt; --save</code> will add <code>&lt;package&gt;</code> to your project’s bower.json <code>dependencies</code> array.</p>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># install package and add it to bower.json dependencies
-</span><span class='line'>$ bower install &lt;package&gt; --save</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-z字串 字串长度伪则为真。
+</span><span class='line'>-n字串 字串长度不伪则为真。</span></code></pre></td></tr></table></div></figure>
 
 
-<p>Similarly, using <code>bower install &lt;package&gt; --save-dev</code> will add <code>&lt;package&gt;</code> to your project’s bower.json <code>devDependencies</code> array.</p>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'># install package and add it to bower.json devDependencies
-</span><span class='line'>$ bower install &lt;package&gt; --save-dev</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-e文件名 如果文件存在则为真。
+</span><span class='line'>-r文件名 如果文件存在且可读则为真。
+</span><span class='line'>-w文件名 如果文件存在且可写则为真。
+</span><span class='line'>-x文件名 如果文件存在且可执行则为真。
+</span><span class='line'>-s文件名 如果文件存在且至少有一个字符则为真。
+</span><span class='line'>-d文件名 如果文件存在且为目录则为真。
+</span><span class='line'>-f文件名 如果文件存在且为普通文件则为真。
+</span><span class='line'>-c文件名 如果文件存在且为字符型特殊文件则为真。
+</span><span class='line'>-b文件名 如果文件存在且为块特殊文件则为真</span></code></pre></td></tr></table></div></figure>
 
+
+<h2>()</h2>
+
+<p><code>$()</code> is command substitution</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ echo "my hostname is: $(hostname)"
+</span><span class='line'>my uptime is: MYPC</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>$(( ))</code> is arithmetic expansion</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ echo "$(( 5 + 5 ))"
+</span><span class='line'>10</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>${ }</code> This is used to refer to variables and avoid confusion over their name.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ v="hello"
+</span><span class='line'>$ echo "$vbye"
+</span><span class='line'>
+</span><span class='line'>$ echo "${v}bye"
+</span><span class='line'>hellobye</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Also, it is used to reference array elements:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ declare -A my_arr
+</span><span class='line'>$ my_arr[a]="hello"
+</span><span class='line'>$ echo "${my_arr[a]}"
+</span><span class='line'>hello</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>( )</code> and <code>{ }</code> are also used as grouping commands</p>
+
+<p><code>( )</code> runs in a subshell:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ v=5
+</span><span class='line'>$ ( v=2; echo "$v" )
+</span><span class='line'>2
+</span><span class='line'>$ echo "$v"
+</span><span class='line'>5</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Whereas <code>{ list, }</code> does not:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ v=5
+</span><span class='line'>$ { v=2; echo "$v"; }
+</span><span class='line'>2
+</span><span class='line'>$ echo "$v"
+</span><span class='line'>2</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>{ }</h2>
+
+<ul>
+<li><code>${value:-word}</code>: 当变量未定义或者值为空时,返回值为word的内容,否则返回变量的值.</li>
+<li><code>${value:=word}</code>: 与前者类似,只是若变量未定义或者值为空时,在返回word的值的同时将word赋值给value</li>
+<li><code>${value:?message}</code>: 若变量以赋值的话,正常替换.否则将消息message送到标准错误输出(若此替换出现在Shell程序中,那么该程序将终止运行)</li>
+<li><code>${value:+word}</code>: 若变量以赋值的话,其值才用word替换,否则不进行任何替换</li>
+<li><code>${value:offset}</code>, <code>${value:offset:length}</code>: 从变量中提取子串,这里offset和length可以是算术表达式.</li>
+<li><code>${#value}</code>: 变量的字符个数</li>
+<li><code>${value#pattern}</code>, <code>${value##pattern}</code>: 去掉value中与pattern相匹配的部分,条件是value的开头与pattern相匹配 #与##的区别在于一个是最短匹配模式,一个是最长匹配模式.</li>
+<li><code>${value%pattern}</code>, <code>${value%%pattern}</code>: 于(7)类似,只是是从value的尾部于pattern相匹配,%与%%的区别与#与##一样</li>
+<li><code>${value/pattern/string}</code>, <code>${value//pattern/string}</code>: 进行变量内容的替换,把与pattern匹配的部分替换为string的内容,/与//的区别与上同</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>INFORMIX_HOME="${INFORMIX_HOME%/}" # Strip the trailing / (if exists)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>注意: 上述条件变量替换中,除(2)外,其余均不影响变量本身的值</p>
+
+<h2>set</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>set -euxo pipefail</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><code>-x</code>: print commands and their arguments as they are executed</li>
+<li><code>-e</code>: equivalent to <code>cmd1 &amp;&amp; cmd2 &amp;&amp; cmd3</code></li>
+<li><code>-u</code>: The shell prints a message to stderr when it tries to expand a variable that is not set. Also it immediately exits.</li>
+<li><code>-o option-name</code>: set the variable corresponding to option-name.</li>
+<li><code>+o option-name</code>: using <code>+</code> rather than <code>-</code> will cause the option to be turned off.</li>
+<li><code>-o pipefail</code>: Pipelines fail on the first command which fails instead of dying later on down the pipeline. This is especially good when cmd3 is a command that always succeeds (like <code>echo</code>)</li>
+<li><code>-f</code>: disable filename expansion (globbing) upon seeing <code>*</code>, <code>?</code>, etc.</li>
+</ul>
+
+
+<h2>bash</h2>
+
+<p><a href="http://www.tldp.org/LDP/abs/html/options.html">here</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-s   stdin   Read commands from stdin</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>BASH_SOURCE</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/sh
+</span><span class='line'>echo "${BASH_SOURCE[0]}"
+</span><span class='line'>echo "${BASH_SOURCE]}"
+</span><span class='line'>echo "$( dirname "${BASH_SOURCE[0]}" )"
+</span><span class='line'>DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+</span><span class='line'>echo $DIR</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>./abc/test.sh
+</span><span class='line'>./abc/test.sh
+</span><span class='line'>./abc/
+</span><span class='line'>/home/abc</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &amp;&amp; pwd )"</code> 得到shell脚本文件所在完整路径（绝对路径）及文件名（无论<code>source</code>,<code>sh</code>,<code>.</code>三种调用方式），且不改变shell的当前目录。</p>
 </div>
   
   

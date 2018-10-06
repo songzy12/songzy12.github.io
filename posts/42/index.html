@@ -9,20 +9,14 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="sys 1
+  <meta name="description" content="json 1
 2
 3
 4
-5
-6
-7
-8
-import sys
-f_in = open('in.txt', 'r+')
-f_out = open('out.txt', 'w+')
-sys.stdin = f_in
-sys.stdout = f_out f_in.close()
-f_out.close &hellip;">
+import json
+dict = {"hello": "world"}
+json.dumps(dict, separators=(',', ': '))
+json.dumps(dict, sort_keys=True, indent=4, separators &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -118,7 +112,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/12/24/python-runtime-services/">Python Runtime Services</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/12/24/internet-data-handling/">Internet Data Handling</a></h1>
     
     
       <p class="meta">
@@ -127,51 +121,23 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-12-24T14:26:34+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:26 pm</span></time>
+<time class='entry-date' datetime='2016-12-24T14:17:35+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:17 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>sys</h2>
+  <div class="entry-content"><h2>json</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import sys
-</span><span class='line'>f_in = open('in.txt', 'r+')
-</span><span class='line'>f_out = open('out.txt', 'w+')
-</span><span class='line'>sys.stdin = f_in
-</span><span class='line'>sys.stdout = f_out
-</span><span class='line'>
-</span><span class='line'>f_in.close()
-</span><span class='line'>f_out.close()</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>traceback</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>try:
-</span><span class='line'>    execfile("test.py")
-</span><span class='line'>except Exception as e:
-</span><span class='line'>  import traceback, code
-</span><span class='line'>  traceback.print_exc()
-</span><span class='line'>  with open('log.txt', 'w') as f:
-</span><span class='line'>      traceback.print_exc(file=f)
-</span><span class='line'>    code.interact(local=dict(globals(), **locals()))</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import json
+</span><span class='line'>dict = {"hello": "world"}
+</span><span class='line'>json.dumps(dict, separators=(',', ': '))
+</span><span class='line'>json.dumps(dict, sort_keys=True, indent=4, separators=(',', ': '))</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

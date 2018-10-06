@@ -9,7 +9,7 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="UserSchema.js 1
+  <meta name="description" content="packages.json 1
 2
 3
 4
@@ -17,46 +17,7 @@
 6
 7
 8
-9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48 &hellip;">
+9 "scripts": { "start": "node app.js", "test": "node ./node_modules/mocha/bin/mocha --recursive --timeout 500000 test &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -152,7 +113,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2017/02/13/graphql/">Graphql</a></h1>
+      <h1 class="entry-title"><a href="/blog/2017/02/13/mocha/">Mocha</a></h1>
     
     
       <p class="meta">
@@ -161,14 +122,36 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2017-02-13T22:03:51+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>10:03 pm</span></time>
+<time class='entry-date' datetime='2017-02-13T21:19:57+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>9:19 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>UserSchema.js</h2>
+  <div class="entry-content"><h2>packages.json</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  "scripts": {
+</span><span class='line'>    "start": "node app.js",
+</span><span class='line'>    "test": "node ./node_modules/mocha/bin/mocha --recursive --timeout 500000 test/ --bail",
+</span><span class='line'>    "postinstall": "./node_modules/bower/bin/bower install"
+</span><span class='line'>  },
+</span><span class='line'>  "devDependencies": {
+</span><span class='line'>    "mocha": "^3.1.2",
+</span><span class='line'>    "supertest": "^2.0.1"
+</span><span class='line'>  }</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>test.js</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -236,374 +219,248 @@ MathJax.Hub.Config({
 <span class='line-number'>64</span>
 <span class='line-number'>65</span>
 <span class='line-number'>66</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>const modelName = 'User';
-</span><span class='line'>const graphql = require('graphql');
-</span><span class='line'>const model = require('mongoose').model(modelName);
-</span><span class='line'>const {omit, assign} = require('lodash/fp');
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>const request = require('supertest')
+</span><span class='line'>const assert = require('assert')
+</span><span class='line'>const api = request(require('../app'));
 </span><span class='line'>
-</span><span class='line'>  // All the query fields
-</span><span class='line'>  queryFields = {
+</span><span class='line'>const adminUser = {
+</span><span class='line'>  username: 'user',
+</span><span class='line'>  password: '123456',
+</span><span class='line'>  token: null,
+</span><span class='line'>}
 </span><span class='line'>
-</span><span class='line'>    user: {
-</span><span class='line'>      type,
-</span><span class='line'>      args: { ntId },
-</span><span class='line'>      resolve: (_, {ntId}) =&gt; model.findOne({ntId})
-</span><span class='line'>    },
-</span><span class='line'>    users: {
-</span><span class='line'>      type: new graphql.GraphQLObjectType({
-</span><span class='line'>        name: modelName + 's',
-</span><span class='line'>        fields: assign({ docs: { type: new graphql.GraphQLList(type) }}, paginationFields)
-</span><span class='line'>      }),
+</span><span class='line'>function graphQl(query, variables) {
+</span><span class='line'>  var variables = variables || {};
+</span><span class='line'>  return api.post('/api').set('content-type', 'application/json').send(JSON.stringify({
+</span><span class='line'>    query,
+</span><span class='line'>    variables
+</span><span class='line'>  }));
+</span><span class='line'>}
 </span><span class='line'>
-</span><span class='line'>      args: assign({
-</span><span class='line'>        criteria: {type: graphql.GraphQLString},
-</span><span class='line'>        sortName: {type: graphql.GraphQLString},
-</span><span class='line'>        sortOrder: {type: graphql.GraphQLString}
-</span><span class='line'>      }, omit('total, pages', paginationFields)),
-</span><span class='line'>      resolve: (_, args) =&gt; {
+</span><span class='line'>describe('admin', function () {
+</span><span class='line'>  it('login', function (done) {
+</span><span class='line'>    graphQl('mutation($username: String!, $password: String!)' +
+</span><span class='line'>      ' {createToken(username: $username, password: $password) {apiKey, isSuperAdmin}}',
+</span><span class='line'>      JSON.stringify(adminUser)
+</span><span class='line'>    ).expect(200).end(function (err, rsp) {
+</span><span class='line'>      adminUser.token = rsp.body.data.createToken.apiKey;
+</span><span class='line'>      done();
+</span><span class='line'>    });
+</span><span class='line'>  });
+</span><span class='line'>});
 </span><span class='line'>
-</span><span class='line'>        let query = {};
-</span><span class='line'>        if (args.criteria) {
-</span><span class='line'>          query = {
-</span><span class='line'>            '$or': [
-</span><span class='line'>              {'ntId': {'$regex': args.criteria, '$options': 'i'}},
-</span><span class='line'>              {'firstName': {'$regex': args.criteria, '$options': 'i'}},
-</span><span class='line'>              {'lastName': {'$regex': args.criteria, '$options': 'i'}}]
-</span><span class='line'>          };
-</span><span class='line'>        }
-</span><span class='line'>        if (args.sortName && args.sortOrder) {
-</span><span class='line'>          args['sort'] = {}
-</span><span class='line'>          args['sort'][args.sortName] = args.sortOrder === 'asc' ? 1 : -1;
-</span><span class='line'>        }
-</span><span class='line'>        return model.paginate(query, omit('token, criteria', args))
-</span><span class='line'>      }
-</span><span class='line'>    },
-</span><span class='line'>  },
-</span><span class='line'>  // All the mutation fields
-</span><span class='line'>  mutationFields = {
-</span><span class='line'>    addUser: {
-</span><span class='line'>      type,
-</span><span class='line'>      args: {token, user: {type: inputTypeCreate}},
-</span><span class='line'>      resolve: (_, {user}) =&gt; new model(user).save()
-</span><span class='line'>    },
-</span><span class='line'>    updateUser: {
-</span><span class='line'>      type,
-</span><span class='line'>      args: {token, ntId, user: {type: inputTypeUpdate}},
-</span><span class='line'>      resolve: (_, {ntId, user}) =&gt; model.findOneAndUpdate({ntId}, user, {new: true, upsert: true})
-</span><span class='line'>    },
-</span><span class='line'>    deleteUser: {
-</span><span class='line'>      type,
-</span><span class='line'>      args: {token, ntId},
-</span><span class='line'>      resolve: (_, {ntId}) =&gt; model.findOneAndRemove({ntId})
-</span><span class='line'>    }
-</span><span class='line'>  };
-</span><span class='line'>
-</span><span class='line'>module.exports = {
-</span><span class='line'>  queryFields,
-</span><span class='line'>  mutationFields
-</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>refresh</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/**
-</span><span class='line'> * Refresh the users list
-</span><span class='line'> */
-</span><span class='line'>
-</span><span class='line'>function refreshEntities() {
-</span><span class='line'>  const hqlArgs = {page: currentPage, criteria: $.trim(searchCriteria)};
-</span><span class='line'>  if (sortName.length &gt; 0 && sortOrder.length &gt; 0) {
-</span><span class='line'>    hqlArgs['sortName'] = sortName;
-</span><span class='line'>    hqlArgs['sortOrder'] = sortOrder;
-</span><span class='line'>  }
-</span><span class='line'>  graphQl(
-</span><span class='line'>    `query($page: Int!, $criteria: String , $sortName: String, $sortOrder:String) { 
-</span><span class='line'>      users(page: $page, criteria: $criteria , sortName:$sortName , sortOrder:$sortOrder) 
+</span><span class='line'>describe('user-api', function () {
+</span><span class='line'>  const newUserNTID = 'id-' + new Date().getTime();
+</span><span class='line'>  it('get all', function (done) {
+</span><span class='line'>    graphQl(`query($page: Int!, $criteria: String) { 
+</span><span class='line'>      users(page: $page, criteria: $criteria) 
 </span><span class='line'>        { docs {ntId, hasRetail360Access, isAdmin, firstName, lastName} 
 </span><span class='line'>          total, limit, page, pages
 </span><span class='line'>        } 
-</span><span class='line'>      }`,
-</span><span class='line'>    hqlArgs
-</span><span class='line'>    ).then((result) =&gt; {
-</span><span class='line'>      entitiesMap = result.data.users.docs.reduce((curr, next) =&gt; {
-</span><span class='line'>        curr[next.ntId] = next;
-</span><span class='line'>        return curr;
-</span><span class='line'>      }, {});
-</span><span class='line'>      entitiesArray = result.data.users.docs;
-</span><span class='line'>      totalPages = result.data.users.pages;
-</span><span class='line'>      buildTable('#entities-table', {
-</span><span class='line'>        headers: ['First Name', 'Last Name', 'NT ID', 'Retail360 enabled', 'Admin'],
-</span><span class='line'>        sortFields: ['firstName', 'lastName', 'ntId', 'hasRetail360Access', 'isAdmin'],
-</span><span class='line'>        headersWidth: ['2-0', '2-0', '2-0', '1-5', '1-0'],  // the table header width , the 2-0 mean 20%
-</span><span class='line'>        body: entitiesArray.map((u) =&gt; {
-</span><span class='line'>          const user = {};
-</span><span class='line'>          user.td = [u['firstName'], u['lastName'],u['ntId'], u['hasRetail360Access'], u['isAdmin'], ];
-</span><span class='line'>          user.id = u['ntId'];
-</span><span class='line'>          return user;
-</span><span class='line'>        })
-</span><span class='line'>      });
-</span><span class='line'>      generatePagination(totalPages);
-</span><span class='line'>      selectedPageIndex(currentPage);
+</span><span class='line'>      }`, {page: 1, criteria: ''}).expect(200).end(function (err, rsp) {
+</span><span class='line'>      done();
 </span><span class='line'>    });
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>paginate</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/**
-</span><span class='line'> * Generates the pagination below the table
-</span><span class='line'> * @param pages The total pages
-</span><span class='line'> */
-</span><span class='line'>function generatePagination(pages) {
-</span><span class='line'>  let pagination;
-</span><span class='line'>  if(pages &lt; 2) pagination = '';
-</span><span class='line'>  else {
-</span><span class='line'>    const allPages = Array.apply(null, {length: pages})
-</span><span class='line'>      .map((c, i) =&gt; `&lt;li&gt;&lt;a href="javascript:;" id="page_index${i + 1}" class="page-index" onclick="paginate(${i + 1})"&gt;${i + 1}&lt;/a&gt;&lt;/li&gt; `);
-</span><span class='line'>    pagination = `
-</span><span class='line'>    &lt;ul class="pagination"&gt;
-</span><span class='line'>      &lt;li&gt;
-</span><span class='line'>        &lt;a href="javascript:;" aria-label="Previous" onclick="prev()"&gt;
-</span><span class='line'>          &lt;span aria-hidden="true"&gt;&laquo;&lt;/span&gt;
-</span><span class='line'>        &lt;/a&gt;
-</span><span class='line'>      &lt;/li&gt;
-</span><span class='line'>      ${allPages.join(' ')}
-</span><span class='line'>      &lt;li&gt;
-</span><span class='line'>        &lt;a href="javascript:;" aria-label="Next" onclick="next()"&gt;
-</span><span class='line'>          &lt;span aria-hidden="true"&gt;&raquo;&lt;/span&gt;
-</span><span class='line'>        &lt;/a&gt;
-</span><span class='line'>      &lt;/li&gt;
-</span><span class='line'>    &lt;/ul&gt;
-</span><span class='line'> `;
-</span><span class='line'>  }
-</span><span class='line'>  $('#pagination').html(pagination);
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>/**
-</span><span class='line'> * Go to the given page number
-</span><span class='line'> * @param page The page number
-</span><span class='line'> */
-</span><span class='line'>function paginate(page) {
-</span><span class='line'>  currentPage = page;
-</span><span class='line'>  refreshEntities();
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>page index</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/**
-</span><span class='line'> * mark page index to selected
-</span><span class='line'> * @param index the page index
-</span><span class='line'> */
-</span><span class='line'>function selectedPageIndex(index) {
-</span><span class='line'>  $('.page-index').removeClass('selected');
-</span><span class='line'>  $('#page_index' + index).addClass('selected');
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>build table</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>/**
-</span><span class='line'> * Builds the table dynamically based on provided data
-</span><span class='line'> * @param element The element to attach the generated table
-</span><span class='line'> * @param opts The options to generate table
-</span><span class='line'> */
-</span><span class='line'>function buildTable(element, opts) {
-</span><span class='line'>  const tableElement = $(element);
-</span><span class='line'>  opts = opts || {};
-</span><span class='line'>
-</span><span class='line'>  tableElement.html("");
-</span><span class='line'>  const tHead = $(`&lt;thead&gt;&lt;/thead&gt;`).appendTo(tableElement);
-</span><span class='line'>  const hRow = $('&lt;tr&gt;&lt;/tr&gt;').appendTo(tHead);
-</span><span class='line'>  const tableSortPrefix= 'table-sort-';
-</span><span class='line'>  $.each(opts.headers, (i, h) =&gt; {
-</span><span class='line'>    const tmpSortName = opts.sortFields[i];
-</span><span class='line'>    hRow.append(`&lt;th id="${tableSortPrefix + tmpSortName}" class="th-witdh-${opts.headersWidth[i]}"&gt; ${h} 
-</span><span class='line'>                    &lt;span class="sort-arrow-hide sort-arrow glyphicon glyphicon-triangle-top"&gt;&lt;/span&gt;
-</span><span class='line'>                 &lt;/th&gt;`);
-</span><span class='line'>    //click event
-</span><span class='line'>    $('#' + tableSortPrefix + tmpSortName).click(function () {
-</span><span class='line'>      const name = $(this).attr('id').substr(tableSortPrefix.length);
-</span><span class='line'>
-</span><span class='line'>      if (name !== sortName) {
-</span><span class='line'>        const arrow = $('#' + tableSortPrefix + sortName).find('.sort-arrow');
-</span><span class='line'>        arrow.removeClass('glyphicon-triangle-top glyphicon-triangle-bottom');
-</span><span class='line'>        arrow.addClass('sort-arrow-hide glyphicon-triangle-top');
-</span><span class='line'>      }
-</span><span class='line'>
-</span><span class='line'>      const sortArrow = $(this).find('.sort-arrow');
-</span><span class='line'>      if (sortArrow.hasClass('sort-arrow-hide')) {
-</span><span class='line'>        sort(name, 'asc');
-</span><span class='line'>      } else {
-</span><span class='line'>        if (sortArrow.hasClass('glyphicon-triangle-top')) {
-</span><span class='line'>          sort(name, 'desc');
-</span><span class='line'>        } else {
-</span><span class='line'>          sort(name, 'asc');
-</span><span class='line'>        }
-</span><span class='line'>      }
-</span><span class='line'>    });
-</span><span class='line'>
-</span><span class='line'>    if (sortName.length &gt; 0 && sortOrder.length &gt; 0) {
-</span><span class='line'>      const arrow = $('#' + tableSortPrefix + sortName).find('.sort-arrow');
-</span><span class='line'>      arrow.removeClass('sort-arrow-hide glyphicon-triangle-top');
-</span><span class='line'>      arrow.addClass('glyphicon-triangle-' + (sortOrder === 'asc' ? 'top' : 'bottom'));
-</span><span class='line'>    }
-</span><span class='line'>  });
-</span><span class='line'>  hRow.append('&lt;th class="th-witdh-1-5"&gt;Actions&lt;/th&gt;');
-</span><span class='line'>  const tBody = $('&lt;tbody&gt;&lt;/tbody&gt;').appendTo(tableElement);
-</span><span class='line'>
-</span><span class='line'>  $.each(opts.body, (i, b) =&gt; {
-</span><span class='line'>    const tRow = $('&lt;tr&gt;&lt;/tr&gt;').appendTo(tBody);
-</span><span class='line'>    $.each(b.td, (i, td) =&gt; tRow.append('&lt;td&gt;'+ _getValue(td) +'&lt;/td&gt;'));
-</span><span class='line'>    tRow.append('&lt;td&gt;' +
-</span><span class='line'>      '&lt;a class="btn btn-sm btn-primary" href="javascript:;" onclick="openModal(\'Edit\', \''+b.id+'\')"&gt;Edit&lt;/a&gt;&nbsp;' +
-</span><span class='line'>      '&lt;a class="btn btn-sm btn-danger" href="javascript:;" onclick="openModal(\'Delete\', \''+b.id+'\')"&gt;Delete&lt;/a&gt;' +
-</span><span class='line'>      '&lt;/td&gt;')
 </span><span class='line'>  })
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>
+</span><span class='line'>  it('create', function (done) {
+</span><span class='line'>    graphQl('mutation($token: String!, $user: UserInputCreate!) { addUser(token: $token, user: $user) { ntId } }',
+</span><span class='line'>      {
+</span><span class='line'>        user: {
+</span><span class='line'>          firstName: 'fname-unit-test',
+</span><span class='line'>          lastName: 'lname-unit-test',
+</span><span class='line'>          ntId: newUserNTID,
+</span><span class='line'>          hasRetail360Access: true,
+</span><span class='line'>          isAdmin: true
+</span><span class='line'>        },
+</span><span class='line'>        token: adminUser.token
+</span><span class='line'>      }).expect(200).end(function (err, rsp) {
+</span><span class='line'>      assert(rsp.body.data.addUser.ntId === newUserNTID);
+</span><span class='line'>      done();
+</span><span class='line'>    })
+</span><span class='line'>  });
+</span><span class='line'>
+</span><span class='line'>  it('update', function (done) {
+</span><span class='line'>    graphQl(
+</span><span class='line'>      'mutation($ntId: String!, $user: UserInputUpdate!, $token: String!) ' +
+</span><span class='line'>      '{ updateUser(token: $token, ntId: $ntId, user: $user) { ntId } }',
+</span><span class='line'>      {
+</span><span class='line'>        ntId: newUserNTID,
+</span><span class='line'>        user: {
+</span><span class='line'>          firstName: 'fname-unit-test-updated',
+</span><span class='line'>          lastName: 'lname-unit-test',
+</span><span class='line'>          hasRetail360Access: false,
+</span><span class='line'>          isAdmin: false
+</span><span class='line'>        },
+</span><span class='line'>        token: adminUser.token
+</span><span class='line'>      })
+</span><span class='line'>      .expect(200, done);
+</span><span class='line'>  });
+</span><span class='line'>
+</span><span class='line'>  it('find', function (done) {
+</span><span class='line'>    graphQl(`query($page: Int!, $criteria: String) {
+</span><span class='line'>      users(page: $page, criteria: $criteria)
+</span><span class='line'>        { docs {ntId, hasRetail360Access, isAdmin, firstName, lastName}
+</span><span class='line'>          total, limit, page, pages
+</span><span class='line'>        }
+</span><span class='line'>      }`, {page: 1, criteria: newUserNTID}).expect(200).end(function (err, rsp) {
+</span><span class='line'>      assert(rsp.body.data.users.docs[0].ntId === newUserNTID);
+</span><span class='line'>      done();
+</span><span class='line'>    });
+</span><span class='line'>  })
+</span><span class='line'>
+</span><span class='line'>  it('delete', function (done) {
+</span><span class='line'>    graphQl(
+</span><span class='line'>      'mutation($ntId: String!, $token: String!) { deleteUser(token: $token, ntId: $ntId) { ntId } }', {
+</span><span class='line'>        ntId: newUserNTID,
+</span><span class='line'>        token: adminUser.token
+</span><span class='line'>      }).expect(200, done);
+</span><span class='line'>  });
+</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>review</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"Should avoid duplicating code:
+</span><span class='line'>    const parser = parse({delimiter: ','}, function(err, data){
+</span><span class='line'>        console.log(data);
+</span><span class='line'>        length = data.length;
+</span><span class='line'>        count = 0;
+</span><span class='line'>        streamify(data).pipe(transformer)//.pipe(res);
+</span><span class='line'>    });
+</span><span class='line'>-- This block appears 2 times in app.js."</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"Should remove commented out code:
+</span><span class='line'>        streamify(data).pipe(transformer)//.pipe(res);
+</span><span class='line'>  //hRow.append('&lt;th&gt;#&lt;/th&gt;');
+</span><span class='line'>    //tRow.append('&lt;th&gt;'+ (i+1) +'&lt;/th&gt;');"</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"Should be consistent about putting a space after `if` or not:
+</span><span class='line'>      if(!result.errors) {
+</span><span class='line'>      if (count == length) {"</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"Should use `===` instead of `==`:
+</span><span class='line'>      if (count == length) {"</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"Should use single quotes consistently:
+</span><span class='line'>        s = """";
+</span><span class='line'>        s += x + "" records successfully added."";
+</span><span class='line'>...
+</span><span class='line'>        res.writeHead(200, { 'Content-Type': 'text/html' });"</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"Should build the HTML error message to display in the frontend, not in the backend:
+</span><span class='line'>        if (y) {
+</span><span class='line'>            s += "" But the following "" + y + "" records failed: "";
+</span><span class='line'>            result_errors.forEach(function(e){
+</span><span class='line'>                s += ""\tRecord failed to add due to: ""+e +"""" ;
+</span><span class='line'>            })
+</span><span class='line'>        }
+</span><span class='line'>        res.writeHead(200, { 'Content-Type': 'text/html' });"</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"Should terminate statements with semicolon:
+</span><span class='line'>var result_data = []
+</span><span class='line'>var result_errors = []
+</span><span class='line'>var length = 0 
+</span><span class='line'>var count = 0
+</span><span class='line'>    result_data = []
+</span><span class='line'>    result_errors = []"</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"These modules should be under devDependencies, not dependencies:
+</span><span class='line'>    ""graphql-tester"": ""*"",
+</span><span class='line'>    ""nightwatch"": ""*"",
+</span><span class='line'>    ""selenium-download"": ""*"","</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

@@ -9,9 +9,12 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="流程 将 problem_parser/es/data 文件 cp 至 answer_selection/data.
-生成 Qtrain.txt 1
-http://10.9.10.174:9201/forum/verbose/_search?pretty=1&q=question_body: &hellip;">
+  <meta name="description" content="here typo Login: admin
+Password: xWzV13u bundle 1
+2
+$ bundle install
+Your Ruby version is 2.3.1, but your Gemfile specified 1.9.3 1
+rvm install 1.9.3 &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -107,7 +110,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/11/21/word2vec/">Word2vec</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/11/16/typo/">Typo</a></h1>
     
     
       <p class="meta">
@@ -116,117 +119,57 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-11-21T13:50:37+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>1:50 pm</span></time>
+<time class='entry-date' datetime='2016-11-16T21:52:52+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>9:52 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>流程</h2>
+  <div class="entry-content"><p><a href="https://github.com/saasbook/hw-refactoring-legacy-code-bug-fix">here</a></p>
+
+<h2>typo</h2>
 
 <ul>
-<li>将 problem_parser/es/data 文件 cp 至 answer_selection/data.</li>
-<li>生成 Qtrain.txt</li>
+<li>Login: admin</li>
+<li>Password: xWzV13u</li>
 </ul>
 
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>http://10.9.10.174:9201/forum/verbose/_search?pretty=1&q=question_body:数据结构</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Attentive Interactive Neural Networks</h2>
-
-<p>Modify <code>trainClues</code> in <code>train.py</code>.</p>
-
-<p>Add <code>setAttentions</code> in <code>class q</code> of <code>basicgrad.py</code></p>
-
-<p>Modify <code>getInputs</code> in <code>basicgrad.py</code>.</p>
-
-<p>Add some fields to the existing <code>es</code>.</p>
+<h2>bundle</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; db.contents.find({"anonymous":true}).count()
-</span><span class='line'>&gt; 769
-</span><span class='line'>&gt; db.contents.find().count()
-</span><span class='line'>597709</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle install
+</span><span class='line'>Your Ruby version is 2.3.1, but your Gemfile specified 1.9.3</span></code></pre></td></tr></table></div></figure>
 
 
-<p></p>
 
-<ul>
-<li>question_title, question_body, answer</li>
-<li>max_core - x[_score] &lt; threshold</li>
-</ul>
-
-
-<h2>Answer Sentence Selection</h2>
-
-<p><a href="https://github.com/brmson/Sentence-selection">here</a></p>
-
-<p>Add file <code>training_data_generator.py</code>.</p>
-
-<p>Modify <code>std_run.sh</code>.</p>
-
-<p>Modify <code>textArrays</code> from <code>vecfromtext.py</code>.</p>
-
-<p>Modify <code>prepForGrad</code> from <code>bow.py</code>.</p>
-
-<p>Modify <code>getGloveDict</code> from <code>vecfromtext.py</code>.</p>
-
-<p>Replace <code>glove.6B.50d.txt</code> for <code>wiki.zh.text.jieba.model</code>.</p>
-
-<p>Modify <code>GLOVELEN</code>, <code>GLOVEPATH2</code> from <code>const.py</code>.</p>
-
-<p>Modify <code>boxSentence</code> from <code>bow.py</code>.</p>
-
-<p>Modify <code>q.setCounts</code> from <code>basicgrad.py</code>.</p>
-
-<p>Debug: <code>saveMb</code> from <code>vecfromtext.py</code>. Since <code>M</code> is too big so it is in the next page.</p>
-
-<p>Add file <code>test.py</code>, based on <code>sett</code> and <code>firstTrue</code> from <code>basicgrad.py</code>.</p>
-
-<p>Add method <code>loadMb</code> from <code>vecfromtext.py</code>.</p>
-
-<p>Add method <code>saveTest</code> from <code>save.py</code>.</p>
-
-<p>Add file <code>test.py</code> for test.</p>
-
-<h2>Word2vec</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vi /usr/local/lib/python2.7/dist-packages/gensim/models/word2vec.py</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rvm install 1.9.3</span></code></pre></td></tr></table></div></figure>
 
 
-<p><a href="http://www.52nlp.cn/%E4%B8%AD%E8%8B%B1%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E8%AF%AD%E6%96%99%E4%B8%8A%E7%9A%84word2vec%E5%AE%9E%E9%AA%8C">here</a></p>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>wget https://dumps.wikimedia.org/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2
-</span><span class='line'>python process_wiki.py zhwiki-latest-pages-articles.xml.bz2 wiki.zh.text
-</span><span class='line'>opencc -i wiki.zh.text -o wiki.zh.text.jian -c zht2zhs.ini</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle install --without production
+</span><span class='line'>$ bundle exec rake db:migrate</span></code></pre></td></tr></table></div></figure>
 
 
-<p>mecab: <a href="http://www.52nlp.cn/%E7%94%A8mecab%E6%89%93%E9%80%A0%E4%B8%80%E5%A5%97%E5%AE%9E%E7%94%A8%E7%9A%84%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E7%B3%BB%E7%BB%9F">here</a></p>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mecab -d  ./msr_mecab_test/final/ -O wakati wiki.zh.text.jian -o wiki.zh.text.jian.seg -b 10000000
-</span><span class='line'>iconv -c -t UTF-8 &lt; wiki.zh.text.jian.seg &gt; wiki.zh.text.jian.seg.utf-8
-</span><span class='line'>python train_word2vec_model.py wiki.zh.text.jian.seg.utf-8 wiki.zh.text.model wiki.zh.text.vector</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ bundle exec rake spec
+</span><span class='line'>$ bundle exec rake cucumber</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>Word Movers Distance</h2>
-
-<p><a href="http://nbviewer.jupyter.org/github/vene/vene.github.io/blob/pelican/content/blog/word-movers-distance-in-python.ipynb">Here</a>.</p>
+<h2>rake</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>wget https://s3.amazonaws.com/mordecai-geo/GoogleNews-vectors-negative300.bin.gz</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bundle exec rake db:migrate</span></code></pre></td></tr></table></div></figure>
 
 
 
@@ -236,14 +179,246 @@ MathJax.Hub.Config({
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import gensim
-</span><span class='line'>model = gensim.models.Word2Vec.load("wiki.zh.text.model")
-</span><span class='line'>s1 = list(jieba.cut(jz1))
-</span><span class='line'>s2 = list(jieba.cut(jz2))
-</span><span class='line'>res = -model.wmdistance(s1, s2)</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rake aborted!
+</span><span class='line'>/home/andy/.rvm/gems/ruby-1.9.3-p551/gems/flickraw-0.9.9/lib/flickraw/api.rb:39: syntax error, unexpected tLABEL, expecting ')'
+</span><span class='line'>    def initialize(api_key: FlickRaw.api_key,
+</span><span class='line'>                           ^
+</span><span class='line'>/home/andy/.rvm/gems/ruby-1.9.3-p551/gems/flickraw-0.9.9/lib/flickraw/api.rb:40: syntax error, unexpected tLABEL, expecting '='
+</span><span class='line'>                   shared_secret: FlickRaw.shared_secret)
+</span><span class='line'>                                 ^</span></code></pre></td></tr></table></div></figure>
 
 
-<p><a href="https://radimrehurek.com/gensim/models/word2vec.html">here</a>.</p>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def initialize(api_key=FlickRaw.api_key, 
+</span><span class='line'>               shared_secret=FlickRaw.shared_secret)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>or <code>vi Gemfile</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gem 'flickraw', '0.9.6'</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>db</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Migrating to SuperclassArticles (20)
+</span><span class='line'>==  SuperclassArticles: migrating =============================================
+</span><span class='line'>-- Merging Articles into Contents table
+</span><span class='line'>-- create_table(:contents)
+</span><span class='line'>   -&gt; 0.0162s
+</span><span class='line'>-- execute("select nextval('contents_id_seq')")
+</span><span class='line'>   -&gt; 0.0005s
+</span><span class='line'>   -&gt; Resetting PostgreSQL sequences
+</span><span class='line'>-- execute("select setval('contents_id_seq',max(id)) from contents")
+</span><span class='line'>   -&gt; 0.0008s
+</span><span class='line'>-- execute("select nextval('contents_id_seq')")
+</span><span class='line'>   -&gt; 0.0005s
+</span><span class='line'>-- remove_index(:articles, :permalink)
+</span><span class='line'>rake aborted!
+</span><span class='line'>An error has occurred, this and all later migrations canceled:</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>vi db/migrate/020_superclass_articles.rb</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#remove_index :articles, :permalink</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>bug-fix</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi config/routes.rb</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  match 'admin', :to  =&gt; 'admin/dashboard#index', :format =&gt; false, :as =&gt; :admin_dashboard
+</span><span class='line'>  
+</span><span class='line'>  # Admin/XController
+</span><span class='line'>  %w{advanced cache categories comments content profiles feedback general pages
+</span><span class='line'>     resources sidebar textfilters themes trackbacks users settings tags redirects seo post_types }.each do |i|
+</span><span class='line'>    match "/admin/#{i}", :to =&gt; "admin/#{i}#index", :format =&gt; false
+</span><span class='line'>    match "/admin/#{i}(/:action(/:id))", :to =&gt; "admin/#{i}", :action =&gt; nil, :id =&gt; nil, :format =&gt; false
+</span><span class='line'>  end</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi app/views/admin/dashboard/_welcome.html.erb</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;li&gt; &lt;%= sprintf("%s %d", link_to(_("Categories:"), :controller =&gt; 'admin/categories'), @categories) %&gt;&lt;/li&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi app/controllers/admin/categories_controller.rb</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  def index; redirect_to :action =&gt; 'new' ; end
+</span><span class='line'>  def new 
+</span><span class='line'>    respond_to do |format|
+</span><span class='line'>      format.html { new_or_edit }
+</span><span class='line'>      format.js { 
+</span><span class='line'>        @category = Category.new
+</span><span class='line'>      }
+</span><span class='line'>    end 
+</span><span class='line'>  end
+</span><span class='line'>  
+</span><span class='line'>  def new_or_edit
+</span><span class='line'>    @categories = Category.find(:all)
+</span><span class='line'>    @category = Category.find(params[:id])
+</span><span class='line'>    @category.attributes = params[:category]
+</span><span class='line'>    if request.post?
+</span><span class='line'>      respond_to do |format|
+</span><span class='line'>        format.html { save_category }
+</span><span class='line'>        format.js do  
+</span><span class='line'>          @category.save
+</span><span class='line'>          @article = Article.new
+</span><span class='line'>          @article.categories &lt;&lt; @category
+</span><span class='line'>          return render(:partial =&gt; 'admin/content/categories')
+</span><span class='line'>        end
+</span><span class='line'>      end 
+</span><span class='line'>      return
+</span><span class='line'>    end 
+</span><span class='line'>    render 'new'
+</span><span class='line'>  end</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ls app/views/admin/categories
+</span><span class='line'>new.html.erb  new.js.erb</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi app/controllers/admin/post_types_controller.rb</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  def new_or_edit
+</span><span class='line'>    @post_types = PostType.find(:all)
+</span><span class='line'>    @post_type = case params[:id]
+</span><span class='line'>                when nil 
+</span><span class='line'>                  PostType.new
+</span><span class='line'>                else
+</span><span class='line'>                  PostType.find(params[:id])
+</span><span class='line'>                end
+</span><span class='line'>    @post_type.attributes = params[:post_type]
+</span><span class='line'>    if request.post?
+</span><span class='line'>      save_post_type
+</span><span class='line'>      return
+</span><span class='line'>    end 
+</span><span class='line'>    render 'new'
+</span><span class='line'>  end </span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi app/controllers/admin/categories_controller.rb</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@category = case params[:id]
+</span><span class='line'>            when nil 
+</span><span class='line'>              Category.new
+</span><span class='line'>            else
+</span><span class='line'>              Category.find(params[:id])
+</span><span class='line'>            end</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Done!</p>
 </div>
   
   

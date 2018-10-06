@@ -9,13 +9,20 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="re ?P 1
+  <meta name="description" content="sys 1
 2
 3
 4
-&gt;&gt;&gt; import re
-&gt;&gt;&gt; match = re.search('(?P&lt;name&gt;.*) (?P&lt;phone&gt;.*)', 'John 123456')
-&gt;&gt;&gt; match.group &hellip;">
+5
+6
+7
+8
+import sys
+f_in = open('in.txt', 'r+')
+f_out = open('out.txt', 'w+')
+sys.stdin = f_in
+sys.stdout = f_out f_in.close()
+f_out.close &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -111,7 +118,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/12/24/string-services/">String Services</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/12/24/python-runtime-services/">Python Runtime Services</a></h1>
     
     
       <p class="meta">
@@ -120,67 +127,51 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-12-24T14:29:03+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:29 pm</span></time>
+<time class='entry-date' datetime='2016-12-24T14:26:34+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:26 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>re</h2>
-
-<h3>?P</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; import re
-</span><span class='line'>&gt;&gt;&gt; match = re.search('(?P&lt;name&gt;.*) (?P&lt;phone&gt;.*)', 'John 123456')
-</span><span class='line'>&gt;&gt;&gt; match.group('name')
-</span><span class='line'>'John'</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>split</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>re.split(u'，|。', u'a，b。c')</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import re
-</span><span class='line'>DATA = "Hey, you - what are you doing here!?"
-</span><span class='line'>print re.findall(r"[\w']+", DATA)</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>sub</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>re.sub(pattern, repl, string, count=0, flags=0)
-</span><span class='line'>
-</span><span class='line'>  Return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by the replacement repl. If the pattern isn’t found, string is returned unchanged. repl can be a string or a function;
-</span><span class='line'>  If repl is a function, it is called for every non-overlapping occurrence of pattern. The function takes a single match object argument, and returns the replacement string.</span></code></pre></td></tr></table></div></figure>
-
-
-
+  <div class="entry-content"><h2>sys</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; def dashrepl(matchobj):
-</span><span class='line'>...     if matchobj.group(0) == '-': return ' '
-</span><span class='line'>...     else: return '-'
-</span><span class='line'>&gt;&gt;&gt; re.sub('-{1,2}', dashrepl, 'pro----gram-files')
-</span><span class='line'>'pro--gram files'</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import sys
+</span><span class='line'>f_in = open('in.txt', 'r+')
+</span><span class='line'>f_out = open('out.txt', 'w+')
+</span><span class='line'>sys.stdin = f_in
+</span><span class='line'>sys.stdout = f_out
+</span><span class='line'>
+</span><span class='line'>f_in.close()
+</span><span class='line'>f_out.close()</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>traceback</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>try:
+</span><span class='line'>    execfile("test.py")
+</span><span class='line'>except Exception as e:
+</span><span class='line'>  import traceback, code
+</span><span class='line'>  traceback.print_exc()
+</span><span class='line'>  with open('log.txt', 'w') as f:
+</span><span class='line'>      traceback.print_exc(file=f)
+</span><span class='line'>    code.interact(local=dict(globals(), **locals()))</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

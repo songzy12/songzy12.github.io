@@ -9,13 +9,16 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="here 1
+  <meta name="description" content="fundamental frequency
+formant: frequency, band width, amplitude Qt 1
 2
-bundle install
-rspec spec xslt Extensible Stylesheet Language Transformations. 1
-2
-sudo apt-get update
-sudo apt-get install libxslt-dev &hellip;">
+3
+4
+5
+6
+7
+#include "mainwindow.h"
+#include &lt;QApplication&gt; QApplication &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -111,7 +114,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/04/02/oracle-of-bacon/">Oracle of Bacon</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/03/25/qt/">Qt</a></h1>
     
     
       <p class="meta">
@@ -120,76 +123,20 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-04-02T21:52:52+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>9:52 pm</span></time>
+<time class='entry-date' datetime='2016-03-25T00:04:44+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>12:04 am</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><a href="https://github.com/saasbook/hw-oracle-of-bacon">here</a></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bundle install
-</span><span class='line'>rspec spec</span></code></pre></td></tr></table></div></figure>
+  <div class="entry-content"><ul>
+<li>fundamental frequency</li>
+<li>formant: frequency, band width, amplitude</li>
+</ul>
 
 
-<h2>xslt</h2>
-
-<p>Extensible Stylesheet Language Transformations.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get update
-</span><span class='line'>sudo apt-get install libxslt-dev libxml2-dev</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>nokogiri</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>require 'nokogiri' # XML parser
-</span><span class='line'>@doc = Nokogiri::XML(File.read './spellcheck.xml')
-</span><span class='line'>match = @doc.xpath('//match')
-</span><span class='line'>match.methods()
-</span><span class='line'>match.first().text
-</span><span class='line'>data = match.map {|x| x.text}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>cgi</h2>
-
-<p>common gateway interface.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>require 'cgi' # for escaping URIs
-</span><span class='line'>@uri = 'http://oracleofbacon.org/cgi-bin/xml?p='+CGI.escape(@api_key)</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>uri</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>it { should match(URI::regexp) }</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>require 'open-uri' # allows open('http://...') to return body
-</span><span class='line'>xml = URI.parse(uri).read</span></code></pre></td></tr></table></div></figure>
-
-
-<hr />
-
-<p>Define the constructor for OracleOfBacon, which lies in <code>lib/</code>.</p>
-
-<h2>initialize</h2>
+<h2>Qt</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -198,24 +145,34 @@ MathJax.Hub.Config({
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class OracleOfBacon
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include "mainwindow.h"
+</span><span class='line'>#include &lt;QApplication&gt;
 </span><span class='line'>
-</span><span class='line'>    attr_accessor :from, :to
-</span><span class='line'>    attr_reader :api_key, :response, :uri
-</span><span class='line'>
-</span><span class='line'>    def initialize(api_key='')
-</span><span class='line'>        @api_key = api_key
-</span><span class='line'>        @from = 'Kevin Bacon'
-</span><span class='line'>        @to = 'Kevin Bacon'
-</span><span class='line'>    end
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>QApplication app(argc, argv);
+</span><span class='line'>MainWindow w;
+</span><span class='line'>w.show();
+</span><span class='line'>int ret = app.exec();</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>validate</h2>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>MainWindow::MainWindow(QWidget *parent) :
+</span><span class='line'>    QMainWindow(parent),
+</span><span class='line'>    ui(new Ui::MainWindow)
+</span><span class='line'>{
+</span><span class='line'>    ui-&gt;setupUi(this);
+</span><span class='line'>    connect(ui-&gt;pushButton, SIGNAL(pressed()), this, SLOT(startSynth()));
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -229,27 +186,27 @@ MathJax.Hub.Config({
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>class OracleOfBacon
-</span><span class='line'>
-</span><span class='line'>    class InvalidError &lt; RuntimeError ; end
-</span><span class='line'>    class InvalidKeyError &lt; RuntimeError ; end
-</span><span class='line'> 
-</span><span class='line'>    include ActiveModel::Validations
-</span><span class='line'>    validates_presence_of :from
-</span><span class='line'>    validates_presence_of :to
-</span><span class='line'>    validates_presence_of :api_key
-</span><span class='line'>    validate :from_does_not_equal_to
-</span><span class='line'>    
-</span><span class='line'>    def from_does_not_equal_to
-</span><span class='line'>        errors.add(:base, 'From cannot be the same as To') if @from == @to
-</span><span class='line'>    end
-</span><span class='line'>end</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>void MainWindow::mousePressEvent(QMouseEvent *event){
+</span><span class='line'>    if (event-&gt;buttons() & Qt::LeftButton){
+</span><span class='line'>        int mouse_x = QCursor::pos().x();
+</span><span class='line'>        int mouse_y = QCursor::pos().y();
+</span><span class='line'>        QWidget *action = QApplication::widgetAt(mouse_x, mouse_y);
+</span><span class='line'>        QPoint GlobalPoint(action-&gt;mapToGlobal(QPoint(0, 0)));
+</span><span class='line'>        int x = GlobalPoint.x();
+</span><span class='line'>        int y = GlobalPoint.y();
+</span><span class='line'>        ui-&gt;horizontalSlider_1-&gt;setValue(x);
+</span><span class='line'>        ui-&gt;horizontalSlider_4-&gt;setValue(y);
+</span><span class='line'>    }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>raise</h2>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>spectrum.f0 = ui-&gt;horizontalSlider-&gt;value();</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>PortAudio</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -257,12 +214,22 @@ MathJax.Hub.Config({
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>begin  
-</span><span class='line'>  raise 'A test exception.'  
-</span><span class='line'>rescue Exception =&gt; e  
-</span><span class='line'>  puts e.message  
-</span><span class='line'>  puts e.backtrace.inspect  
-</span><span class='line'>end  </span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#include "portaudio.h"
+</span><span class='line'>
+</span><span class='line'>Pa_Initialize();
+</span><span class='line'>
+</span><span class='line'>Pa_OpenDefaultStream(&stream, 0, 1, paFloat32, SAMPLE_RATE, 256, synthCallback, this);
+</span><span class='line'>Pa_StartStream(stream);
+</span><span class='line'> 
+</span><span class='line'>Pa_StopStream(stream);
+</span><span class='line'>Pa_CloseStream(stream);
+</span><span class='line'>
+</span><span class='line'>Pa_Terminate();</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

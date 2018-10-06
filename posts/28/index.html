@@ -9,13 +9,7 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="install 1
-$ npm install mongoose connect 1
-2
-3
-// getting-started.js
-var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/test &hellip;">
+  <meta name="description" content="bower init Packages are defined by a manifest file bower.json. This is similar to Node’s package.json or Ruby’s Gemfile. Interactively create a bower &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -111,7 +105,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2017/02/13/mongoose/">Mongoose</a></h1>
+      <h1 class="entry-title"><a href="/blog/2017/02/13/bower/">Bower</a></h1>
     
     
       <p class="meta">
@@ -120,169 +114,45 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2017-02-13T22:31:32+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>10:31 pm</span></time>
+<time class='entry-date' datetime='2017-02-13T21:30:13+08:00'><span class='date'><span class='date-month'>Feb</span> <span class='date-day'>13</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>9:30 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>install</h2>
+  <div class="entry-content"><h2>bower init</h2>
+
+<p>Packages are defined by a manifest file <code>bower.json</code>. This is similar to Node’s <code>package.json</code> or Ruby’s <code>Gemfile</code>.</p>
+
+<p>Interactively create a <code>bower.json</code> with</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$ npm install mongoose</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bower init</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>connect</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>// getting-started.js
-</span><span class='line'>var mongoose = require('mongoose');
-</span><span class='line'>mongoose.connect('mongodb://localhost/test');</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>open</h2>
+<h2>bower install</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var db = mongoose.connection;
-</span><span class='line'>db.on('error', console.error.bind(console, 'connection error:'));
-</span><span class='line'>db.once('open', function() {
-</span><span class='line'>  // we're connected!
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'># installs the project dependencies listed in bower.json
+</span><span class='line'>$ bower install</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>schema</h2>
+<p>Using <code>bower install &lt;package&gt; --save</code> will add <code>&lt;package&gt;</code> to your project’s bower.json <code>dependencies</code> array.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var kittySchema = mongoose.Schema({
-</span><span class='line'>    name: String
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'># install package and add it to bower.json dependencies
+</span><span class='line'>$ bower install &lt;package&gt; --save</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>model</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var Kitten = mongoose.model('Kitten', kittySchema);</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p>Similarly, using <code>bower install &lt;package&gt; --save-dev</code> will add <code>&lt;package&gt;</code> to your project’s bower.json <code>devDependencies</code> array.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var silence = new Kitten({ name: 'Silence' });
-</span><span class='line'>console.log(silence.name); // 'Silence'</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>methods</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>// NOTE: methods must be added to the schema before compiling it with mongoose.model()
-</span><span class='line'>kittySchema.methods.speak = function () {
-</span><span class='line'>  var greeting = this.name
-</span><span class='line'>    ? "Meow name is " + this.name
-</span><span class='line'>    : "I don't have a name";
-</span><span class='line'>  console.log(greeting);
-</span><span class='line'>}
-</span><span class='line'>
-</span><span class='line'>var Kitten = mongoose.model('Kitten', kittySchema)</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var fluffy = new Kitten({ name: 'fluffy' });
-</span><span class='line'>fluffy.speak(); // "Meow name is fluffy"</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>save</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>fluffy.save(function (err, fluffy) {
-</span><span class='line'>  if (err) return console.error(err);
-</span><span class='line'>  fluffy.speak();
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>find</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Kitten.find(function (err, kittens) {
-</span><span class='line'>  if (err) return console.error(err);
-</span><span class='line'>  console.log(kittens);
-</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Kitten.find({ name: /^fluff/ }, callback);</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>plugin</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>User.plugin(require('mongoose-paginate'));</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>mongoose-paginate</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>it('with default options (page=1, limit=10, lean=false)', function() {
-</span><span class='line'>  return Book.paginate().then(function(result) {
-</span><span class='line'>    expect(result.docs).to.have.length(10);
-</span><span class='line'>    expect(result.docs[0]).to.be.an.instanceof(mongoose.Document);
-</span><span class='line'>    expect(result.total).to.equal(100);
-</span><span class='line'>    expect(result.limit).to.equal(10);
-</span><span class='line'>    expect(result.page).to.equal(1);
-</span><span class='line'>    expect(result.pages).to.equal(10);
-</span><span class='line'>    expect(result.offset).to.equal(0);
-</span><span class='line'>  });
-</span><span class='line'>});</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>sort</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Model.paginate([query], [options], [callback])
-</span><span class='line'>
-</span><span class='line'>[sort] {Object | String} - Sort order. Documentation
-</span><span class='line'>[lean=false] {Boolean} - Should return plain javascript objects instead of Mongoose documents?</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'># install package and add it to bower.json devDependencies
+</span><span class='line'>$ bower install &lt;package&gt; --save-dev</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

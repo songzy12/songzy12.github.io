@@ -9,10 +9,13 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="commands 1
+  <meta name="description" content="bisect 1
 2
-import commands
-commands.getstatusoutput('ls /bin/ls') ">
+3
+4
+5
+6
+bisect.bisect_left(a, x, lo=0, hi=len(a)) Locate the insertion point for x in a to maintain sorted order. bisect.insort_left(a, x &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -108,7 +111,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/12/24/unix-specific-services/">Unix Specific Services</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/12/24/data-types/">Data Types</a></h1>
     
     
       <p class="meta">
@@ -117,19 +120,131 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-12-24T14:13:23+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:13 pm</span></time>
+<time class='entry-date' datetime='2016-12-24T14:11:32+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:11 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>commands</h2>
+  <div class="entry-content"><h2>bisect</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>import commands
-</span><span class='line'>commands.getstatusoutput('ls /bin/ls')</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bisect.bisect_left(a, x, lo=0, hi=len(a))
+</span><span class='line'>  Locate the insertion point for x in a to maintain sorted order.
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>bisect.insort_left(a, x, lo=0, hi=len(a))
+</span><span class='line'>    Insert x in a in sorted order. This is equivalent to a.insert(bisect.bisect_left(a, x, lo, hi), x) assuming that a is already sorted. Keep in mind that the O(log n) search is dominated by the slow O(n) insertion step.</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>collections</h2>
+
+<h3>deque</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from collections import dequeue
+</span><span class='line'>q = dequeue(['a','b','c'])
+</span><span class='line'>q.append('x')
+</span><span class='line'>q.appendleft('y')
+</span><span class='line'>q.pop()
+</span><span class='line'>q.popleft()</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>buffer = deque(maxlen=span)
+</span><span class='line'>for _ in xrange(span):
+</span><span class='line'>    buffer.append(data[data_index])
+</span><span class='line'>    data_index = (data_index + 1) % len(data)</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>defaultdict</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from collections import defaultdict
+</span><span class='line'>dd = defaultdict(lambda: 'N/A')</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>namedtuple</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from collections import namedtuple
+</span><span class='line'>Point = namedtuple('Point', ['x','y'])
+</span><span class='line'>p = Point(1,2)
+</span><span class='line'>p.x
+</span><span class='line'>p.y
+</span><span class='line'>isinstance(p, tuple)</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Counter</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>c = Counter('programming')</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>most_common(self, n=None) unbound collections.Counter method
+</span><span class='line'>    List the n most common elements and their counts from the most
+</span><span class='line'>    common to the least.  If n is None, then list all element counts.
+</span><span class='line'>    
+</span><span class='line'>    &gt;&gt;&gt; Counter('abcdeabcdabcaba').most_common(3)
+</span><span class='line'>    [('a', 5), ('b', 4), ('c', 3)]</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>OrderedDict</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vocab = Counter(reduce(lambda x, y: x + y,[question + answer for question, answer in train]))
+</span><span class='line'>
+</span><span class='line'>from collections import OrderedDict
+</span><span class='line'>with io.open('data/vocab.json', 'w', encoding='utf8') as f:
+</span><span class='line'>    f.write(json.dumps(OrderedDict(sorted(vocab.items(), key=lambda (k,v):v)), ensure_ascii=False, sort_keys=False, indent=4))</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>datetime</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from datetime import datetime
+</span><span class='line'>
+</span><span class='line'>time = '2016-02-26 04:41'
+</span><span class='line'>time = datetime.strptime(time, '%Y-%m-%d %H:%M')
+</span><span class='line'>print time</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

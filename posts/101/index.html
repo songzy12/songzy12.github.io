@@ -9,13 +9,26 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="1
-mongo 10.9.10.220:27017 database->collection->document service 1
+  <meta name="description" content="Sensor 1
 2
 3
-sudo service mongod start
-sudo service mongod stop
-sudo service mongod restart &hellip;">
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+import android.hardware.SensorManager;
+import android.hardware.Sensor; sensorManager = ( &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -111,7 +124,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/06/27/mongodb/">MongoDB</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/06/22/android-hardware/">Android Hardware</a></h1>
     
     
       <p class="meta">
@@ -120,88 +133,14 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-06-27T13:50:37+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>1:50 pm</span></time>
+<time class='entry-date' datetime='2016-06-22T20:07:03+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>8:07 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mongo 10.9.10.220:27017</span></code></pre></td></tr></table></div></figure>
-
-
-<p>database->collection->document</p>
-
-<h2>service</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo service mongod start
-</span><span class='line'>sudo service mongod stop
-</span><span class='line'>sudo service mongod restart</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>stats</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>show dbs
-</span><span class='line'>use mu
-</span><span class='line'>db
-</span><span class='line'>db.stats()
-</span><span class='line'>show collections</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>find</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>db.problem.stats()
-</span><span class='line'>db.problem.findOne()
-</span><span class='line'>db.problem.find().pretty()
-</span><span class='line'>db.problem.find({"id":"0074debadb964eee8a0a18ee7ae44a25_2_1"}).pretty()
-</span><span class='line'>db.modulestore.find({"_id.category":"problem"})</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>projection</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>db.modulestore.find({"_id.category":"problem", "_id.org":{"$ne":"BerkeleyX"}}, {'_id.org':1})</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>or</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>db.problem.find({$or:[{"id":"10d203805d93473486b55e4e9813c535_17_1"}, {"id":"10d203805d93473486b55e4e9813c535_16_1"}]}).pretty()</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>limit</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>db.assetstore.find().limit(50)</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>stats</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>db.stats()</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>dropDatabase</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>db.dropDatabase()</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>pymongo</h2>
+  <div class="entry-content"><h2>Sensor</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -213,18 +152,32 @@ MathJax.Hub.Config({
 <span class='line-number'>8</span>
 <span class='line-number'>9</span>
 <span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>from pymongo import *
-</span><span class='line'>if __name__ == '__main__':
-</span><span class='line'>    client = MongoClient('10.9.10.15', 27017)
-</span><span class='line'>    db = client.mu
-</span><span class='line'>    collection = db.knowledge_point
-</span><span class='line'>    data = {}
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import android.hardware.SensorManager;
+</span><span class='line'>import android.hardware.Sensor;
 </span><span class='line'>
-</span><span class='line'>  cur = collection.find({"_id.category":"problem", "_id.tag":tag, "_id.org":org, "_id.course":course}).limit(10);
-</span><span class='line'>    for item in cur:
-</span><span class='line'>        print item</span></code></pre></td></tr></table></div></figure>
-
-
+</span><span class='line'>sensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+</span><span class='line'>accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+</span><span class='line'>
+</span><span class='line'>sensorEventListener = new SensorEventListener() {
+</span><span class='line'>    public void onSensorChanged(SensorEvent event) {
+</span><span class='line'>      ax = event.values[0];
+</span><span class='line'>      ay = event.values[1];
+</span><span class='line'>      az = event.values[2];
+</span><span class='line'>  }
+</span><span class='line'>
+</span><span class='line'>  public void onAccuracyChanged(Sensor sensor, int accuracy) {
+</span><span class='line'>  }
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>sensorManager.registerListener(sensorEventListener, accelerometer, SensorManager.SENSOR_DELAY_NORMAL);</span></code></pre></td></tr></table></div></figure>
 
 </div>
   

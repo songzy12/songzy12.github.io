@@ -9,13 +9,10 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="climits 1
-INT_MAX cmath hypot 1
-2
-3
-#include &lt;cmath&gt;
-// distance of (x, y) and (X, Y)
-return hypot(x - X, y - Y); cstdlib atoi Ascii to Integer &hellip;">
+  <meta name="description" content="TightVNC Install TightVNC
+Install Java
+Java security: exception site list 1
+Error: access denied ("java.net.socketPermission","127.0.0.1:5901"," &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -111,7 +108,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/09/17/c/">C</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/08/27/vnc/">VNC</a></h1>
     
     
       <p class="meta">
@@ -120,42 +117,63 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-09-17T12:55:45+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>17</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>12:55 pm</span></time>
+<time class='entry-date' datetime='2016-08-27T19:13:58+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:13 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>climits</h2>
+  <div class="entry-content"><h2>TightVNC</h2>
+
+<ul>
+<li>Install TightVNC</li>
+<li>Install Java</li>
+<li>Java security: exception site list</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>INT_MAX</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Error: access denied ("java.net.socketPermission","127.0.0.1:5901","connect,resolve") </span></code></pre></td></tr></table></div></figure>
 
 
-<h2>cmath</h2>
+<h3>TightVNC Viewer</h3>
 
-<h3>hypot</h3>
+<p>After starting VNC service, we can use VNC viewer. The IP address of server can be got from the notification area of task bar. Not sure about what happens when entering 127.0.0.1.</p>
+
+<h3>TightVNC Java Viewer</h3>
+
+<p><a href="https://www.youtube.com/watch?v=kf64OgNokqI">Here</a> is how to set the security levels through the Java Control Panel. Remember to include also the port number in the exception site list, like: <code>127.0.0.1:5800</code>.</p>
+
+<h2>vnc4server</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;cmath&gt;
-</span><span class='line'>// distance of (x, y) and (X, Y)
-</span><span class='line'>return hypot(x - X, y - Y); </span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vnc4server
+</span><span class='line'>vnc4server -kill :1
+</span><span class='line'>./utils/launch.sh --vnc localhost:5901</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>cstdlib</h2>
+<h2>noVNC</h2>
 
-<h3>atoi</h3>
-
-<p>Ascii to Integer.</p>
+<h3>Cygwin</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>int atoi (const char * str);</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>D:\Anaconda\python.exe: can't open file '/cygdrive/e/noVNC/utils/websockify/run': [Errno 2] No such file or directory
+</span><span class='line'>Failed to start WebSockets proxy</span></code></pre></td></tr></table></div></figure>
 
 
+<p>Just hard code line 137 of <code>utils/launch.sh</code>:</p>
 
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#${WEBSOCKIFY} --web ${WEB} ${CERT:+--cert ${CERT}} ${PORT} ${VNC_DEST} &
+</span><span class='line'>./utils/websockify/run --web . 6080 localhost:5901 &</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>SIGCHLD</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -163,87 +181,19 @@ MathJax.Hub.Config({
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;cstdio&gt;
-</span><span class='line'>#include &lt;cstdlib&gt;
-</span><span class='line'>
-</span><span class='line'>char buffer[256];
-</span><span class='line'>fgets(buffer, 256, stdin);
-</span><span class='line'>int i = atoi(buffer);</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Traceback (most recent call last):
+</span><span class='line'>  File "./utils/websockify/run", line 4, in &lt;module&gt;
+</span><span class='line'>    websockify.websocketproxy.websockify_init()
+</span><span class='line'>  File "E:\noVNC\utils\websockify\websockify\websocketproxy.py", line 525, in websockify_init
+</span><span class='line'>    server.start_server()
+</span><span class='line'>  File "E:\noVNC\utils\websockify\websockify\websocket.py", line 986, in start_server
+</span><span class='line'>    signal.SIGCHLD: signal.getsignal(signal.SIGCHLD),
+</span><span class='line'>AttributeError: 'module' object has no attribute 'SIGCHLD'</span></code></pre></td></tr></table></div></figure>
 
 
-<h3>bsearch</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>void* bsearch (const void* key, const void* base,
-</span><span class='line'>               size_t num, size_t size,
-</span><span class='line'>               int (*compar)(const void*,const void*));
-</span><span class='line'>
-</span><span class='line'>Searches the given key in the array pointed to by base (which is formed by num elements, each of size bytes), and returns a void* pointer to a matching element, if found.</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>fgets</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>char * fgets ( char * str, int num, FILE * stream );</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Reads characters from <code>stream</code> and stores them as a C string into <code>str</code> until (<code>num-1</code>) characters have been read or either a <code>newline</code> or the <code>end-of-file</code> is reached, whichever happens first.</p>
-
-<h3>gets</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>char * gets ( char * str );</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Notice that <code>gets</code> is quite different from <code>fgets</code>: not only gets uses <code>stdin</code> as source, but it does not include the ending newline character in the resulting string and does not allow to specify a maximum size for <code>str</code> (which can lead to buffer overflows).</p>
-
-<h3>printf</h3>
-
-<ul>
-<li><code>%g</code>: Use the shortest representation: <code>%e</code> or <code>%f</code></li>
-<li><code>-</code>: Left-justify within the given field width; Right justification is the default (see width sub-specifier).</li>
-</ul>
-
-
-<h3>qsort</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>void qsort (void* base, size_t num, size_t size,
-</span><span class='line'>            int (*compar)(const void*,const void*));
-</span><span class='line'>
-</span><span class='line'>Sorts the num elements of the array pointed to by base, each element size bytes long, using the compar function to determine the order.</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>strtod</h3>
-
-<p>string to double.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>char szOrbits[] = "365.24 29.53";
-</span><span class='line'>char* pEnd;
-</span><span class='line'>double d1, d2;
-</span><span class='line'>d1 = strtod (szOrbits, &pEnd);
-</span><span class='line'>d2 = strtod (pEnd, NULL);</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Parses the C-string <code>str</code> interpreting its content as a floating point number (according to the current locale) and returns its value as a <code>double</code>. If <code>endptr</code> is not a null pointer, the function also sets the value of <code>endptr</code> to point to the first character after the number.</p>
-
-<h2>cstring</h2>
-
-<h3>strtok</h3>
-
-<p>string to tokens.</p>
+<p>Modify line 986 of <code>utils/websockify/websockify/websocket.py</code>.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -259,35 +209,35 @@ MathJax.Hub.Config({
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
 <span class='line-number'>14</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>#include &lt;cstring&gt;
-</span><span class='line'>using namespace std;
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Allow override of signals
+</span><span class='line'>original_signals = {
+</span><span class='line'>    signal.SIGINT: signal.getsignal(signal.SIGINT),
+</span><span class='line'>    signal.SIGTERM: signal.getsignal(signal.SIGTERM),
+</span><span class='line'>    #signal.SIGCHLD: signal.getsignal(signal.SIGCHLD),
+</span><span class='line'>}
+</span><span class='line'>if getattr(signal, 'SIGCHLD', None) is not None:
+</span><span class='line'>    original_signals[signal.SIGCHLD] = signal.getsignal(signal.SIGCHLD),
 </span><span class='line'>
-</span><span class='line'>const char *delim = ",";
-</span><span class='line'>for (int i = 0; i &lt; edge_num; ++i) {
-</span><span class='line'>    if (i != edge_num - 1) 
-</span><span class='line'>        topo[i][strlen(topo[i])-1] = 0;
-</span><span class='line'>    char *token = strtok(topo[i], delim);
-</span><span class='line'>    while (token) {
-</span><span class='line'>        cout&lt;&lt;token&lt;&lt;" ";
-</span><span class='line'>        token = strtok(0, delim);
-</span><span class='line'>    }
-</span><span class='line'>    cout&lt;&lt;endl;    
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>memmove</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>void * memmove ( void * destination, const void * source, size_t num );
+</span><span class='line'>signal.signal(signal.SIGINT, self.do_SIGINT)
+</span><span class='line'>signal.signal(signal.SIGTERM, self.do_SIGTERM)
 </span><span class='line'>
-</span><span class='line'>Copies the values of num bytes from the location pointed by source to the memory block pointed by destination. 
-</span><span class='line'>Copying takes place as if an intermediate buffer were used, allowing the destination and source to overlap.</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>if getattr(signal, 'SIGCHLD', None) is not None:
+</span><span class='line'>    if not multiprocessing:
+</span><span class='line'>        # os.fork() (python 2.4) child reaper
+</span><span class='line'>        signal.signal(signal.SIGCHLD, self.fallback_SIGCHLD)
+</span><span class='line'>    else:
+</span><span class='line'>        # make sure that _cleanup is called when children die
+</span><span class='line'>        # by calling active_children on SIGCHLD
+</span><span class='line'>        signal.signal(signal.SIGCHLD, self.multiprocessing_SIGCHLD)</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>ctime</h2>
+<h3>run</h3>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -301,19 +251,107 @@ MathJax.Hub.Config({
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>struct tm time_cha;
-</span><span class='line'>time_t t1;
-</span><span class='line'>int year, month, day,hour,min,sec;
-</span><span class='line'>init();
-</span><span class='line'>scanf("%d-%d-%d %d:%d:%d",&year,&month,&day,&hour,&min,&sec);
-</span><span class='line'>time_cha.tm_year = year - 1900; 
-</span><span class='line'>time_cha.tm_mon  = month - 1;
-</span><span class='line'>time_cha.tm_mday = day;
-</span><span class='line'>time_cha.tm_hour = hour;
-</span><span class='line'>time_cha.tm_min  = min;
-</span><span class='line'>time_cha.tm_sec  = sec;
-</span><span class='line'>t1 = mktime(&time_cha);</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>WARNING: no 'resource' module, daemonizing is disabled
+</span><span class='line'>WebSocket server settings:
+</span><span class='line'>  - Listen on :6080
+</span><span class='line'>  - Flash security policy server
+</span><span class='line'>  - Web server. Web root: E:\noVNC
+</span><span class='line'>  - No SSL/TLS support (no cert file)
+</span><span class='line'>  - proxying from :6080 to localhost:5901
+</span><span class='line'>handler exception: Can't pickle &lt;type 'thread.lock'&gt;: it's not found as thread.lock
+</span><span class='line'>Traceback (most recent call last):
+</span><span class='line'>  File "&lt;string&gt;", line 1, in &lt;module&gt;
+</span><span class='line'>  File "D:\Anaconda\lib\multiprocessing\forking.py", line 380, in main
+</span><span class='line'>    prepare(preparation_data)
+</span><span class='line'>  File "D:\Anaconda\lib\multiprocessing\forking.py", line 489, in prepare
+</span><span class='line'>    file, path_name, etc = imp.find_module(main_name, dirs)
+</span><span class='line'>ImportError: No module named run</span></code></pre></td></tr></table></div></figure>
 
+
+<p>The way to compile <code>websockify</code> as Windows executable is <a href="https://github.com/kanaka/websockify/wiki/Compiling-Websockify-as-Windows-Executable">here</a>. Then <code>./utils/websockify/dist</code> will contain <code>run.exe</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>run 6080 localhost:5901
+</span><span class='line'>
+</span><span class='line'>handler exception: Can't pickle &lt;type 'thread.lock'&gt;: it's not found as thread.lock
+</span><span class='line'>WARNING: no 'resource' module, daemonizing is disabled
+</span><span class='line'>Usage:
+</span><span class='line'>    run.exe [options] [source_addr:]source_port [target_addr:target_port]
+</span><span class='line'>    run.exe [options] [source_addr:]source_port -- WRAP_COMMAND_LINE
+</span><span class='line'>
+</span><span class='line'>run.exe: error: no such option: --multiprocessing-fork</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Cisco VPN Client</h2>
+
+<h3>Windows</h3>
+
+<p>5 steps to make cisco VPN client work in Win8 and 10 <a href="http://www.gleescape.com/posts/2917">here</a>.</p>
+
+<h3>Ubuntu</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install network-manager-vpnc network-manager-vpnc-gnome</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>CPN Connection Failed</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo tail -f /var/log/syslog</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vpnc
+</span><span class='line'>
+</span><span class='line'>vpnc: peer selected (single) DES as "encryption" method.
+</span><span class='line'>This algorithm is considered too weak today
+</span><span class='line'>If your vpn concentrator admin still insists on using DES
+</span><span class='line'>use the "--enable-1des" option.</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vpnc --enable-1des
+</span><span class='line'>ping 10.2.2.44</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="https://answers.microsoft.com/en-us/windows/forum/windows_7-networking/how-to-enable-ping-response-in-windows-7/5aff5f8d-f138-4c9a-8646-5b3a99f1cae6?auth=1">Here</a> is how to enable ping responce in windows 7.</p>
+
+<h2>EasyStack</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Server disconnected (code: 1000, reason: Client closed abruptly)
+</span><span class='line'>Failed to connect to server (code: 1006)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Delete the Bloxy plug-in.</p>
 </div>
   
   

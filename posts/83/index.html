@@ -9,15 +9,16 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="1
+  <meta name="description" content="Android.mk Here. 1
 2
 3
 4
 5
 6
-sudo -i
-rm /edx/var/mongo/mongodb/mongod.lock
-sudo -u mongodb mongod --dbpath /edx/var/mongo/mongodb --repair --repairpath /edx/var/mongo &hellip;">
+7
+8
+LOCAL_PATH := $(call my-dir) include $(CLEAR_VARS) LOCAL_MODULE := hello-jni
+LOCAL_SRC_FILES := hello-jni.c include &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -113,7 +114,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/09/01/event-listener/">Event Listener</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/08/22/android-ndk/">Android NDK</a></h1>
     
     
       <p class="meta">
@@ -122,70 +123,16 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-09-01T09:44:43+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>9:44 am</span></time>
+<time class='entry-date' datetime='2016-08-22T20:07:03+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>22</span><span class='date-suffix'>nd</span>, <span class='date-year'>2016</span></span> <span class='time'>8:07 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo -i
-</span><span class='line'>rm /edx/var/mongo/mongodb/mongod.lock
-</span><span class='line'>sudo -u mongodb mongod --dbpath /edx/var/mongo/mongodb --repair --repairpath /edx/var/mongo/mongodb
-</span><span class='line'>start mongod
-</span><span class='line'>exit
-</span><span class='line'>sudo su edxapp</span></code></pre></td></tr></table></div></figure>
+  <div class="entry-content"><h2>Android.mk</h2>
 
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>paver devstack lms &gt; lms.log 2&gt;&1 &
-</span><span class='line'>paver devstack --fast studio &gt; studio.log 2&gt;&1 &</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>lms/urls.py
-</span><span class='line'>lms/djangoapps/courseware/mu.py
-</span><span class='line'>
-</span><span class='line'>lms/templates/courseware/courseware.html 
-</span><span class='line'>lms/static/js/mu.js
-</span><span class='line'>
-</span><span class='line'>lms/static/videos</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>mongo</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; db.problem.findOne()
-</span><span class='line'>{
-</span><span class='line'>        "_id" : ObjectId("574d30828524fe0e3644b402"),
-</span><span class='line'>        "text" : "某公司20XX年总负债100万元，其中有息负债30万元，全部为银行贷款，资产负债率40%，其银行贷款利率为8%，该行业平均收益水平为12%，A公司的企业所得税率为25%，请计算A公司的加权平均资本成本?|||multiplechoiceresponse|||{\"A\": {\"detail\": \"10.4%\"}, \"C\": {\"detail\": \"11%\", \"correct\": \"true\"}, \"B\": {\"detail\": \"10.33%\"}, \"D\": {\"detail\": \"9.6%\"}}",
-</span><span class='line'>        "id" : "0074debadb964eee8a0a18ee7ae44a25_2_1"
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-
+<p><a href="http://android.mk/">Here</a>.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -195,290 +142,110 @@ MathJax.Hub.Config({
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
 <span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; db.knowledge_point.findOne()
-</span><span class='line'>{
-</span><span class='line'>        "_id" : ObjectId("574d691d8524fe0e3644b495"),
-</span><span class='line'>        "begin" : 17,
-</span><span class='line'>        "end" : 545,
-</span><span class='line'>        "problem" : [
-</span><span class='line'>                "fdb7429f7aa844e38f04b7f49fbb9f8d_9_1"
-</span><span class='line'>        ],
-</span><span class='line'>        "id" : "cb796df9b2584f609a58a3fa8f858031_0"
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; db.video_knowledge_point.findOne()
-</span><span class='line'>{
-</span><span class='line'>        "_id" : ObjectId("574ed22a8524fe0e3644b641"),
-</span><span class='line'>        "hot_point" : [
-</span><span class='line'>                "23,129",
-</span><span class='line'>                "192,198",
-</span><span class='line'>                "239,277"
-</span><span class='line'>        ],
-</span><span class='line'>        "id" : "86efb9a1b3b949839d9f540f1359f261",
-</span><span class='line'>        "knowledge_point" : [
-</span><span class='line'>                "86efb9a1b3b949839d9f540f1359f261_0",
-</span><span class='line'>                "86efb9a1b3b949839d9f540f1359f261_1",
-</span><span class='line'>                "86efb9a1b3b949839d9f540f1359f261_2",
-</span><span class='line'>                "86efb9a1b3b949839d9f540f1359f261_3"
-</span><span class='line'>        ]
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>problem_knowledgepoint</h2>
-
-<p><code>vi ~/edx-platform/lms/static/js/mu.js</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$.get("/mu/problem/knowledgepoint/"+current_problem_id+"/", function(data){
-</span><span class='line'>    console.log('knowledge point received')
-</span><span class='line'>    console.log(data);
-</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>vi ~/edx-platform/lms/djangoapps/courseware/mu.py</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>def get_problem_knowledgepoint(request, problem_id):
-</span><span class='line'>    print problem_id
-</span><span class='line'>    problem_id = 'fdb7429f7aa844e38f04b7f49fbb9f8d_9_1'
+</pre></td><td class='code'><pre><code class=''><span class='line'>LOCAL_PATH := $(call my-dir)
 </span><span class='line'>
-</span><span class='line'>    client = MongoClient('10.9.10.15', 27017)
-</span><span class='line'>    db = client.mu
-</span><span class='line'>    collection = db.knowledge_point
-</span><span class='line'>    data = {}
-</span><span class='line'>    cur = collection.find({'problem':problem_id})
-</span><span class='line'>    for item in cur:
-</span><span class='line'>        data[problem_id] = data.get(problem_id, []) + item['problem']
-</span><span class='line'>    return HttpResponse(json.dumps(data), content_type = 'application/json')
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>vi ~/edx-platform/lms/urls.py</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>urlpatterns += (
-</span><span class='line'>  url(r'^mu/problem/knowledgepoint/([\w\d]+)/$', 'courseware.mu.get_problem_knowledgepoint', name = 'get_problem_knowledgepoint'),
-</span><span class='line'>)</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>onunload</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>~/edx-platform$ grep -r page_close .
-</span><span class='line'>./common/static/js/src/logger.js
-</span><span class='line'>vi ./common/static/js/src/logger.js</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>window.onunload = function() {
+</span><span class='line'>include $(CLEAR_VARS)
 </span><span class='line'>
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>timeupdate</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>~/edx-platform$ grep -r seek_video .
-</span><span class='line'>./lms/static/xmodule_js/src/video/09_events_plugin.js
-</span><span class='line'>vi ./lms/static/xmodule_js/src/video/09_events_plugin.js
-</span><span class='line'>vi ./lms/static/xmodule_js/src/video/03_video_player.js</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var lastUnixTimeStamp;
-</span><span class='line'>var lastCurrentVideoTime;
-</span><span class='line'>videoplayer.addEventListener('timeupdate',function(){
+</span><span class='line'>LOCAL_MODULE    := hello-jni
+</span><span class='line'>LOCAL_SRC_FILES := hello-jni.c
 </span><span class='line'>
-</span><span class='line'>    if( !lastUnixTimeStamp && !lastCurrentVideoTime ){  
-</span><span class='line'>         //not defined at first timeupdate event
-</span><span class='line'>         lastUnixTimeStamp = new Date().getTime();
-</span><span class='line'>         lastCurrentVideoTime = videoplayer.currentTime;
-</span><span class='line'>         return;
-</span><span class='line'>    }
-</span><span class='line'>    
-</span><span class='line'>    var videoTimeOffset = videoplayer.currentTime - lastCurrentVideoTime; 
-</span><span class='line'>    var realTimeOffset = new Date().getTime() - lastUnixTimeStamp;  
-</span><span class='line'>    lastUnixTimeStamp = new Date().getTime();
-</span><span class='line'>    lastCurrentVideoTime = videoplayer.currentTime;
-</span><span class='line'>  // logic
-</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>include $(BUILD_SHARED_LIBRARY)</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>scrollx</h2>
+<p>The <code>BUILD_SHARED_LIBRARY</code> is a variable provided by the build system that points to a GNU Makefile script that is in charge of collecting all the information you defined in <code>LOCAL_XXX</code> variables since the latest <code>include $(CLEAR_VARS)</code> and determine what to build, and how to do it exactly. There is also <code>BUILD_STATIC_LIBRARY</code> to generate a static library.</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>function scrollx(){
-</span><span class='line'>    $('iframe#mu').css({
-</span><span class='line'>        'border':'none',
-</span><span class='line'>        'position':'fixed',
-</span><span class='line'>        'height':'280px',
-</span><span class='line'>        'right':'0',
-</span><span class='line'>        'bottom':'0'
-</span><span class='line'>    });
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+<h2>AndroidManifest</h2>
+
+<h3>installLocation</h3>
+
+<ul>
+<li><code>internalOnly</code></li>
+<li><code>auto</code></li>
+<li><code>preferExternal</code></li>
+</ul>
 
 
-<h2>type</h2>
+<h3>label/description</h3>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>var data_id = $('div.vert').attr('data-id');
-</span><span class='line'>var type = data_id.split('+')[3].split('@')[1];</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>sequence-nav</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$('div.sequence-nav').click(function(){
-</span><span class='line'>    console.log('sequence-list clicked.')
-</span><span class='line'>})
-</span><span class='line'>
-</span><span class='line'>$('div.sequence-nav').mouseover($.debounce(500, function(){
-</span><span class='line'>        console.log('sequence-nav mouse over.');
-</span><span class='line'>}))</span></code></pre></td></tr></table></div></figure>
+<ul>
+<li>The actual app label is set as the one in <code>&lt;application android:label&gt;</code>. If not set, then package name.</li>
+<li>The activity title is set as the one in <code>&lt;activity android：label&gt;</code>. If not set, then app label.</li>
+<li>The shortcut label is set as the one in main activity <code>&lt;activity android：label&gt;</code>. If not set, then app label.</li>
+</ul>
 
 
-<h2>div.problem</h2>
+<p>But what if I want the shortcut label to be the same as app label, but different from the main activity title?</p>
+
+<p>It seems that the <code>&lt;intent-filter android:label&gt;</code> is of no use in Android 4.4.</p>
+
+<h3>name</h3>
+
+<ul>
+<li>If the name starts with a dot, always prefix it with the package.</li>
+<li>If the name has a dot anywhere else, do not prefix it.</li>
+<li>If the name has no dot at all, also prefix it with the package.</li>
+</ul>
+
+
+<h3>lauchMode</h3>
+
+<ul>
+<li>standard</li>
+<li>singleTop</li>
+<li>singleTask</li>
+<li>singleInstance</li>
+</ul>
+
+
+<h3>screenOrientation</h3>
+
+<ul>
+<li>landscape</li>
+<li>portrait</li>
+</ul>
+
+
+<h3>intent-filter</h3>
+
+<p>Declares the intent action accepted, in the <code>name</code> attribute.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$('div.vert-mod').delegate('div.problem', 'click', function(event){
-</span><span class='line'>    console.log('problem clicked');
-</span><span class='line'>    var temp = $(event.target).parent();
-</span><span class='line'>    while (!temp.attr('id') || !temp.attr('id').startsWith('problem_')) {
-</span><span class='line'>        console.log(temp);
-</span><span class='line'>        temp = temp.parent();
-</span><span class='line'>    }
-</span><span class='line'>    current_problem_id = temp.attr('id').split('_')[1];
-</span><span class='line'>    console.log(current_problem_id);
-</span><span class='line'>    // current_problem_id = event.target;
-</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>android.intent.action.MAIN</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>div.course-index</h2>
+<p>Declares the intent category accepted, in the <code>name</code> attribute.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$('div.course-index').mouseover($.debounce(1000, function(){
-</span><span class='line'>    current_correct_rate = 1.0 * $('button.show').length / $('div.problem').length;
-</span><span class='line'>    console.log('course-index mouse over');
-</span><span class='line'>    console.log('current_corrent_rate: '+current_correct_rate);
-</span><span class='line'>}))</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>android.intent.category.LAUNCHER</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>sendMessage</h2>
+<h3>uses-permission</h3>
+
+<ul>
+<li><code>&lt;uses-permission&gt;</code>: Requests a permission that the application must be granted in order for it to operate correctly.</li>
+<li><code>&lt;permission&gt;</code>: Declares a security permission that can be used to limit access to specific components or features of this or other applications.</li>
+</ul>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>function sendMessage(message){
-</span><span class='line'>    var iframeWin = $('iframe#mu')[0].contentWindow;
-</span><span class='line'>    domain = 'http://112.74.68.45/player/output/huiAS3html.html'
-</span><span class='line'>    iframeWin.postMessage(message, domain)
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;uses-permission android:name="android.permission.INTERNET"/&gt;</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>seq_content</h2>
+<h3>uses-sdk</h3>
+
+<p><code>Android 4.4W</code> extends support for <code>Wearables</code>.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>$('div#seq_content').bind('DOMNodeInserted', $.debounce(250, function(){
-</span><span class='line'>    console.log('seq_content content changed')
-</span><span class='line'>}))</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Unable to resolve target 'android-19'</span></code></pre></td></tr></table></div></figure>
 
+
+<ul>
+<li><code>project.properties</code>: <code>target=android-20</code>.</li>
+<li><code>AndroidManifest.xml</code>: <code>android:targetSdkVersion="20"</code></li>
+</ul>
+
+
+<p>Then <code>clean</code> and <code>run</code>.</p>
 </div>
   
   

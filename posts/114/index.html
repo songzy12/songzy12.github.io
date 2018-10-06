@@ -9,15 +9,23 @@
   <meta name="author" content="Zhengyang Song">
 
   
-  <meta name="description" content="Status Code 1xx Informational
-2xx Success
-3xx Redirection
-4xx Client Error
-5xx Server Error
-301 Moved Permanently
-302 Found
-304 Not Modified
-403 &hellip;">
+  <meta name="description" content="owenzhang
+guestwalk parameters 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+# B, model
+alpha = .1 # learning rate
+beta = 1. # smoothing parameter for adaptive &hellip;">
   
   <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
 
@@ -113,7 +121,7 @@ MathJax.Hub.Config({
       
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2016/03/30/html/">HTML</a></h1>
+      <h1 class="entry-title"><a href="/blog/2016/03/21/click-through-rate/">Click Through Rate</a></h1>
     
     
       <p class="meta">
@@ -122,79 +130,17 @@ MathJax.Hub.Config({
 
 
 
-<time class='entry-date' datetime='2016-03-30T16:44:24+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>4:44 pm</span></time>
+<time class='entry-date' datetime='2016-03-21T21:42:56+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>9:42 pm</span></time>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><h2>Status Code</h2>
+  <div class="entry-content"><p><a href="https://github.com/owenzhang/kaggle-avazu">owenzhang</a>
+<a href="https://github.com/guestwalk/kaggle-avazu">guestwalk</a></p>
 
-<ul>
-<li>1xx Informational</li>
-<li>2xx Success</li>
-<li>3xx Redirection</li>
-<li>4xx Client Error</li>
-<li><p>5xx Server Error</p></li>
-<li><p>301 Moved Permanently</p></li>
-<li>302 Found</li>
-<li>304 Not Modified</li>
-<li>403 Forbidden</li>
-</ul>
-
-
-<h2>DOCTYPE</h2>
-
-<p>DTD <a href="http://www.w3school.com.cn/tags/html_ref_dtd.asp">reference</a>: Document Type Definition</p>
-
-<ul>
-<li>HTML5:</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!DOCTYPE html&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>HTML 4.01:</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;
-</span><span class='line'>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
-</span><span class='line'>"http://www.w3.org/TR/html4/loose.dtd"&gt;
-</span><span class='line'>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" 
-</span><span class='line'>"http://www.w3.org/TR/html4/frameset.dtd"&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Contnt-Type</h2>
-
-<ul>
-<li>application/x-www-form-urlencoded</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>POST http://www.example.com HTTP/1.1
-</span><span class='line'>Content-Type: application/x-www-form-urlencoded;charset=utf-8
-</span><span class='line'>
-</span><span class='line'>title=test&sub%5B%5D=1&sub%5B%5D=2&sub%5B%5D=3</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>multipart/form-data</li>
-</ul>
-
+<h2>parameters</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -209,40 +155,23 @@ MathJax.Hub.Config({
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
 <span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>POST http://www.example.com HTTP/1.1
-</span><span class='line'>Content-Type:multipart/form-data; boundary=----WebKitFormBoundaryrGKCBY7qhFd3TrwA
+</pre></td><td class='code'><pre><code class=''><span class='line'># B, model
+</span><span class='line'>alpha = .1   # learning rate
+</span><span class='line'>beta = 1.    # smoothing parameter for adaptive learning rate
+</span><span class='line'>L1 = 2.5     # L1 regularization, larger value means more regularized
+</span><span class='line'>L2 = 2.5     # L2 regularization, larger value means more regularized
 </span><span class='line'>
-</span><span class='line'>------WebKitFormBoundaryrGKCBY7qhFd3TrwA
-</span><span class='line'>Content-Disposition: form-data; name="text"
+</span><span class='line'># C, feature/hash trick
+</span><span class='line'>D = 67867979             # number of weights to use
+</span><span class='line'>do_interactions = False  # whether to enable poly2 feature interactions
 </span><span class='line'>
-</span><span class='line'>title
-</span><span class='line'>------WebKitFormBoundaryrGKCBY7qhFd3TrwA
-</span><span class='line'>Content-Disposition: form-data; name="file"; filename="chrome.png"
-</span><span class='line'>Content-Type: image/png
-</span><span class='line'>
-</span><span class='line'>PNG ... content of chrome.png ...
-</span><span class='line'>------WebKitFormBoundaryrGKCBY7qhFd3TrwA--</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'># D, training/validation
+</span><span class='line'>epoch = 1      # learn training data for N passes
+</span><span class='line'>holdout = 997  # use every N training instance for holdout validation
+</span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>application/json</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>POST http://www.example.com HTTP/1.1 
-</span><span class='line'>Content-Type: application/json;charset=utf-8
-</span><span class='line'>
-</span><span class='line'>{"title":"test","sub":[1,2,3]}</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>text/xml</li>
-</ul>
-
+<h2>logloss</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -256,44 +185,23 @@ MathJax.Hub.Config({
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>POST http://www.example.com HTTP/1.1 
-</span><span class='line'>Content-Type: text/xml
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def logloss(p, y):
+</span><span class='line'>    ''' FUNCTION: Bounded logloss
 </span><span class='line'>
-</span><span class='line'>&lt;?xml version="1.0"?&gt;
-</span><span class='line'>&lt;methodCall&gt;
-</span><span class='line'>    &lt;methodName&gt;examples.getStateName&lt;/methodName&gt;
-</span><span class='line'>    &lt;params&gt;
-</span><span class='line'>        &lt;param&gt;
-</span><span class='line'>            &lt;value&gt;&lt;i4&gt;41&lt;/i4&gt;&lt;/value&gt;
-</span><span class='line'>        &lt;/param&gt;
-</span><span class='line'>    &lt;/params&gt;
-</span><span class='line'>&lt;/methodCall&gt;</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>        INPUT:
+</span><span class='line'>            p: our prediction
+</span><span class='line'>            y: real answer
+</span><span class='line'>
+</span><span class='line'>        OUTPUT:
+</span><span class='line'>            logarithmic loss of p given y
+</span><span class='line'>    '''
+</span><span class='line'>
+</span><span class='line'>    p = max(min(p, 1. - 10e-15), 10e-15)
+</span><span class='line'>    return -log(p) if y == 1. else -log(1. - p)</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>XML CDATA</h2>
-
-<p>SVG: Scalable Vector Graphics</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>"\x3C/script&gt;"
-</span><span class='line'>"&lt;"+"/script&gt;"
-</span><span class='line'>"&lt;\/script&gt;"</span></code></pre></td></tr></table></div></figure>
-
-
-<p>entity reference:
-* &amp;lt: &lt;
-* &amp;gt: >
-* &amp;amp(ampersand = and): &amp;
-* &amp;apos(apostrophe): &lsquo;
-* &amp;quot: "</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;message&gt;if salary &lt; 1000 then&lt;/message&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>CDATA: Unparsed Character Data.</p>
+<h2>data</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -302,261 +210,182 @@ MathJax.Hub.Config({
 <span class='line-number'>5</span>
 <span class='line-number'>6</span>
 <span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;![CDATA[
-</span><span class='line'>function matchwo(a,b) {
-</span><span class='line'>    if (a &lt; b && a &lt; 0) then {
-</span><span class='line'>        return 1;
-</span><span class='line'>    }
-</span><span class='line'>}
-</span><span class='line'>]]&gt;</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def data(path, D):
+</span><span class='line'>    ''' GENERATOR: Apply hash-trick to the original csv row
+</span><span class='line'>                   and for simplicity, we one-hot-encode everything
+</span><span class='line'>
+</span><span class='line'>        INPUT:
+</span><span class='line'>            path: path to training or testing file
+</span><span class='line'>            D: the max index that we can hash to
+</span><span class='line'>
+</span><span class='line'>        YIELDS:
+</span><span class='line'>            ID: id of the instance, mainly useless
+</span><span class='line'>            x: a list of hashed and one-hot-encoded 'indices'
+</span><span class='line'>               we only need the index since all values are either 0 or 1
+</span><span class='line'>            y: y = 1 if we have a click, else we have y = 0
+</span><span class='line'>    '''
+</span><span class='line'>
+</span><span class='line'>    for t, row in enumerate(DictReader(open(path))):
+</span><span class='line'>        # process id
+</span><span class='line'>        ID = row['id']
+</span><span class='line'>        del row['id']
+</span><span class='line'>
+</span><span class='line'>        # process clicks
+</span><span class='line'>        y = 0.
+</span><span class='line'>        if 'click' in row:
+</span><span class='line'>            if row['click'] == '1':
+</span><span class='line'>                y = 1.
+</span><span class='line'>            del row['click']
+</span><span class='line'>
+</span><span class='line'>        # turn hour really into hour, it was originally YYMMDDHH
+</span><span class='line'>        row['hour'] = row['hour'][6:]
+</span><span class='line'>
+</span><span class='line'>        # build x
+</span><span class='line'>        x = [0]  # 0 is the index of the bias term
+</span><span class='line'>        for key in sorted(row):  # sort is for preserving feature ordering
+</span><span class='line'>            value = row[key]
+</span><span class='line'>
+</span><span class='line'>            # one-hot encode everything with hash trick
+</span><span class='line'>            index = abs(hash(key + '_' + value)) % D
+</span><span class='line'>            x.append(index)
+</span><span class='line'>
+</span><span class='line'>        yield t, ID, x, y</span></code></pre></td></tr></table></div></figure>
 
 
-<hr />
-
-<h2>a</h2>
-
-<ul>
-<li>An unvisited link is underlined and blue</li>
-<li>A visited link is underlined and purple</li>
-<li><p>An active link is underlined and red</p></li>
-<li><p>href: Specifies the URL of the page the link goes to</p></li>
-<li>rel: Specifies the relationship between the current document and the linked document</li>
-<li>target: Specifies where to open the linked document(blank, self, parent, top)</li>
-</ul>
-
-
-<h2>audio</h2>
-
-<p>We can just use the <code>audio</code> tag in HTML5 to play a piece of music like this:</p>
+<h2>training</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;audio controls="controls" autobuffer="autobuffer" autoplay="autoplay"&gt;
-</span><span class='line'>    &lt;source src="data:audio/wav;base64,{ { audioBase64 } }" /&gt;
-</span><span class='line'>&lt;/audio&gt;</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>start = datetime.now()
+</span><span class='line'>
+</span><span class='line'># initialize ourselves a learner
+</span><span class='line'># learner = ftrl_proximal(alpha, beta, L1, L2, D, interaction=do_interactions)
+</span><span class='line'>learner = logistic_regression(alpha, D, interaction=do_interactions);
+</span><span class='line'># start training
+</span><span class='line'>for e in range(epoch):
+</span><span class='line'>    loss = 0.
+</span><span class='line'>    count = 0
+</span><span class='line'>
+</span><span class='line'>    for t, ID, x, y in data(train, D):  # data is a generator
+</span><span class='line'>        #  t: just a instance counter
+</span><span class='line'>        # ID: id provided in original data
+</span><span class='line'>        #  x: features
+</span><span class='line'>        #  y: label (click)
+</span><span class='line'>
+</span><span class='line'>        # step 1, get prediction from learner
+</span><span class='line'>        p = learner.predict(x)
+</span><span class='line'>
+</span><span class='line'>        if t % holdout == 0:
+</span><span class='line'>            # step 2-1, calculate holdout validation loss
+</span><span class='line'>            #           we do not train with the holdout data so that our
+</span><span class='line'>            #           validation loss is an accurate estimation of
+</span><span class='line'>            #           the out-of-sample error
+</span><span class='line'>            loss += logloss(p, y)
+</span><span class='line'>            count += 1
+</span><span class='line'>        else:
+</span><span class='line'>            # step 2-2, update learner with label (click) information
+</span><span class='line'>            learner.update(x, p, y)
+</span><span class='line'>
+</span><span class='line'>        if t % 2500000 == 0 and t &gt; 1:
+</span><span class='line'>            print(' %s\tencountered: %d\tcurrent logloss: %f' % (
+</span><span class='line'>                datetime.now(), t, loss/count))
+</span><span class='line'>
+</span><span class='line'>        if t == 100:
+</span><span class='line'>            break
+</span><span class='line'>
+</span><span class='line'>    print('Epoch %d finished, holdout logloss: %f, elapsed time: %s' % (
+</span><span class='line'>        e, loss/count, str(datetime.now() - start)))</span></code></pre></td></tr></table></div></figure>
 
 
 <p></p>
 
-<h2>br</h2>
-
-<ul>
-<li>HTML: <code>&lt;br&gt;</code></li>
-<li>XHTML: <code>&lt;br /&gt;</code></li>
-</ul>
-
-
-<h2>div</h2>
-
-<ul>
-<li>block level element: <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;ul&gt;</code>(unordered list), <code>&lt;table&gt;</code>, <code>&lt;div&gt;</code>(division)</li>
-<li>inline element: <code>&lt;b&gt;</code>(bold), <code>&lt;td&gt;</code>(table data), <code>&lt;a&gt;</code>(anchor), <code>&lt;img&gt;</code>, <code>&lt;span&gt;</code></li>
-</ul>
-
-
-<h2>dl</h2>
-
-<ul>
-<li>dl: description lists</li>
-<li>dd: describes</li>
-<li>dt: term</li>
-</ul>
-
+<h2>outfile</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
 <span class='line-number'>4</span>
 <span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;dl&gt;
-</span><span class='line'>    &lt;dt&gt;Coffee&lt;/dt&gt;
-</span><span class='line'>    &lt;dd&gt;- black hot drink&lt;/dd&gt;
-</span><span class='line'>    &lt;dt&gt;Milk&lt;/dt&gt;
-</span><span class='line'>    &lt;dd&gt;- white cold drink&lt;/dd&gt;
-</span><span class='line'>&lt;/dl&gt;</span></code></pre></td></tr></table></div></figure>
+</pre></td><td class='code'><pre><code class=''><span class='line'>with open(submission, 'w') as outfile:
+</span><span class='line'>    outfile.write('id,click\n')
+</span><span class='line'>    for t, ID, x, y in data(test, D):
+</span><span class='line'>        p = learner.predict(x)
+</span><span class='line'>        outfile.write('%s,%s\n' % (ID, str(p)))</span></code></pre></td></tr></table></div></figure>
 
 
-<h2>img</h2>
+<h2>ftrl_proximal</h2>
 
-<h3>crossOrigin</h3>
-
-<ul>
-<li>anonymous: A cross-origin request is performed. But no credential is sent</li>
-<li>use-credentials: A cross-origin request performed with credential is sent</li>
-</ul>
-
-
-<h3>alt</h3>
-
-<ul>
-<li>The text should describe the image if the image contains information</li>
-<li>The text should explain where the link goes if the image is inside an <code>&lt;a&gt;</code> element</li>
-<li>Use <code>alt=""</code> if the image is only for decoration</li>
-</ul>
-
-
-<h2>link</h2>
-
-<ul>
-<li>href: Specifies the location of the linked document</li>
-<li>media: Specifies on what device the linked document will be displayed</li>
-<li>rel: Required. Specifies the relationship between the current document and the linked document</li>
-<li>type: Specifies the media type of the linked document</li>
-</ul>
-
-
-<h2>meta</h2>
-
-<p>The following tags describe metadata: <code>&lt;title&gt;</code>, <code>&lt;style&gt;</code>, <code>&lt;meta&gt;</code>, <code>&lt;link&gt;</code>, <code>&lt;script&gt;</code>, and <code>&lt;base&gt;</code>.</p>
-
-<p>Meta elements are typically used to specify page description, keywords, author of the document, last modified, and other metadata.</p>
-
-<ul>
-<li>HTML5:</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;meta charset="UTF-8"&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>HTML 4.01:</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;meta http-equiv="content-type" content="text/html; charset=UTF-8"&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Refresh document every 30 seconds:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;meta http-equiv="refresh" content="30"&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>kbd</h2>
-
-<p>keyboard input.</p>
-
-<h2>strong</h2>
-
-<ul>
-<li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>: headings</li>
-<li><code>&lt;em&gt;</code>: emphasized text</li>
-<li><code>&lt;strong&gt;</code>: important text</li>
-<li><code>&lt;mark&gt;</code>: marked/highlighted text</li>
-</ul>
-
-
-<h2>style</h2>
-
-<h3>media</h3>
-
-<p>This attribute is used to specify that the style is for special devices (like iPhone), speech or print media.</p>
-
-<ul>
-<li>all: Default. Suitable for all devices</li>
-<li>aural: Speech synthesizers</li>
-<li>braille: Braille feedback devices</li>
-<li>handheld: Handheld devices (small screen, limited bandwidth)</li>
-<li>projection: Projectors</li>
-<li>print: Print preview mode/printed pages</li>
-<li>screen: Computer screens</li>
-<li>tty: Teletypes and similar media using a fixed-pitch character grid</li>
-<li>tv: Television type devices (low resolution, limited scroll ability)</li>
-</ul>
-
-
-<h3>hidden</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>object.style.overflow="visible|hidden|scroll|auto|initial|inherit" </span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>visible: Content is NOT clipped and may be shown outside the element box</li>
-<li>hidden: Content outside the element box is not shown</li>
-<li>scroll: Scroll bars are added, and content is clipped when necessary</li>
-<li>auto: Content is clipped and scroll bars are added when necessary</li>
-<li>initial: Sets this property to its default value</li>
-<li>inherit: Inherits this property from its parent element## post</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;method&gt; &lt;request-URL&gt; &lt;version&gt;
-</span><span class='line'>&lt;headers&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;entity-body&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>table</h2>
-
-<ul>
-<li><code>&lt;tr&gt;</code>: table rows</li>
-<li><code>&lt;th&gt;</code>: table headings</li>
-<li><code>&lt;td&gt;</code>: table data</li>
-</ul>
-
-
-<h2>srcsec</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;img src="image-src.png" srcset="image-1x.png 1x, image-2x.png 2x,
-</span><span class='line'>                                 image-3x.png 3x, image-4x.png 4x"&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<hr />
-
-<h2>asp</h2>
-
-<p>asp: Active Server Pages. ASP runs only on Windows.</p>
-
-<ul>
-<li>Request</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
-</span><span class='line'>Response.Write "Welcome " & Server.HTMLEncode(Request.QueryString("name")) & "!"
-</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>Response</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
-</span><span class='line'>If Len(Request.QueryString("name")) &gt; 0 Then
-</span><span class='line'>     Response.Cookies("name") = Request.QueryString("name") 
-</span><span class='line'>End If
-</span><span class='line'>
-</span><span class='line'>Response.Write "Welcome " & Server.HTMLEncode(Response.Cookies("name")) & "!"
-</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>Server</li>
-</ul>
-
+<p>Follow-the-Regularized-Leader.</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -570,60 +399,253 @@ MathJax.Hub.Config({
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
-</span><span class='line'>Dim oAdoCon, oAdoRec, oAdoStm, oCdoCon, oCdoMsg, oSciDic, oSciFsm, oMswAdr
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+<span class='line-number'>69</span>
+<span class='line-number'>70</span>
+<span class='line-number'>71</span>
+<span class='line-number'>72</span>
+<span class='line-number'>73</span>
+<span class='line-number'>74</span>
+<span class='line-number'>75</span>
+<span class='line-number'>76</span>
+<span class='line-number'>77</span>
+<span class='line-number'>78</span>
+<span class='line-number'>79</span>
+<span class='line-number'>80</span>
+<span class='line-number'>81</span>
+<span class='line-number'>82</span>
+<span class='line-number'>83</span>
+<span class='line-number'>84</span>
+<span class='line-number'>85</span>
+<span class='line-number'>86</span>
+<span class='line-number'>87</span>
+<span class='line-number'>88</span>
+<span class='line-number'>89</span>
+<span class='line-number'>90</span>
+<span class='line-number'>91</span>
+<span class='line-number'>92</span>
+<span class='line-number'>93</span>
+<span class='line-number'>94</span>
+<span class='line-number'>95</span>
+<span class='line-number'>96</span>
+<span class='line-number'>97</span>
+<span class='line-number'>98</span>
+<span class='line-number'>99</span>
+<span class='line-number'>100</span>
+<span class='line-number'>101</span>
+<span class='line-number'>102</span>
+<span class='line-number'>103</span>
+<span class='line-number'>104</span>
+<span class='line-number'>105</span>
+<span class='line-number'>106</span>
+<span class='line-number'>107</span>
+<span class='line-number'>108</span>
+<span class='line-number'>109</span>
+<span class='line-number'>110</span>
+<span class='line-number'>111</span>
+<span class='line-number'>112</span>
+<span class='line-number'>113</span>
+<span class='line-number'>114</span>
+<span class='line-number'>115</span>
+<span class='line-number'>116</span>
+<span class='line-number'>117</span>
+<span class='line-number'>118</span>
+<span class='line-number'>119</span>
+<span class='line-number'>120</span>
+<span class='line-number'>121</span>
+<span class='line-number'>122</span>
+<span class='line-number'>123</span>
+<span class='line-number'>124</span>
+<span class='line-number'>125</span>
+<span class='line-number'>126</span>
+<span class='line-number'>127</span>
+<span class='line-number'>128</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class ftrl_proximal(object):
+</span><span class='line'>    ''' Our main algorithm: Follow the regularized leader - proximal
 </span><span class='line'>
-</span><span class='line'>Set oAdoCon = Server.CreateObject("ADODB.Connection")
-</span><span class='line'>Set oAdoRec = Server.CreateObject("ADODB.Recordset")
-</span><span class='line'>Set oAdoStm = Server.CreateObject("ADODB.Stream")
-</span><span class='line'>Set oCdoCon = Server.CreateObject("CDO.Configuration")
-</span><span class='line'>Set oCdoMsg = Server.CreateObject("CDO.Message")
-</span><span class='line'>Set oSciDic = Server.CreateObject("Scripting.Dictionary")
-</span><span class='line'>Set oSciFsm = Server.CreateObject("Scripting.FileSystemObject")
-</span><span class='line'>Set oMswAdr = Server.CreateObject("MSWC.AdRotator")
-</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>Application</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
-</span><span class='line'>Application("Ali") = "My ASP Application"
-</span><span class='line'>Response.Write "Welcome to " & Server.HTMLEncode(Application("Ali")) & "!"
-</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
-
-
-<ul>
-<li>Session</li>
-</ul>
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
-</span><span class='line'>If Len(Request.QueryString("name")) &gt; 0 Then
-</span><span class='line'>     Session("name") = Request.QueryString("name") 
-</span><span class='line'>End If
+</span><span class='line'>        In short,
+</span><span class='line'>        this is an adaptive-learning-rate sparse logistic-regression with
+</span><span class='line'>        efficient L1-L2-regularization
 </span><span class='line'>
-</span><span class='line'>Response.Write "Welcome " & Server.HTMLEncode(Session("name")) & "!"
-</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>        Reference:
+</span><span class='line'>        http://www.eecs.tufts.edu/~dsculley/papers/ad-click-prediction.pdf
+</span><span class='line'>    '''
+</span><span class='line'>
+</span><span class='line'>    def __init__(self, alpha, beta, L1, L2, D, interaction):
+</span><span class='line'>        # parameters
+</span><span class='line'>        self.alpha = alpha
+</span><span class='line'>        self.beta = beta
+</span><span class='line'>        self.L1 = L1
+</span><span class='line'>        self.L2 = L2
+</span><span class='line'>
+</span><span class='line'>        # feature related parameters
+</span><span class='line'>        self.D = D
+</span><span class='line'>        self.interaction = interaction
+</span><span class='line'>
+</span><span class='line'>        # model
+</span><span class='line'>        # n: squared sum of past gradients
+</span><span class='line'>        # z: weights
+</span><span class='line'>        # w: lazy weights
+</span><span class='line'>        self.n = [0.] * D
+</span><span class='line'>        self.z = [0.] * D
+</span><span class='line'>        self.w = {}
+</span><span class='line'>
+</span><span class='line'>    def _indices(self, x):
+</span><span class='line'>        ''' A helper generator that yields the indices in x
+</span><span class='line'>
+</span><span class='line'>            The purpose of this generator is to make the following
+</span><span class='line'>            code a bit cleaner when doing feature interaction.
+</span><span class='line'>        '''
+</span><span class='line'>
+</span><span class='line'>        # first yield index of the bias term
+</span><span class='line'>        yield 0
+</span><span class='line'>
+</span><span class='line'>        # then yield the normal indices
+</span><span class='line'>        for index in x:
+</span><span class='line'>            yield index
+</span><span class='line'>
+</span><span class='line'>        # now yield interactions (if applicable)
+</span><span class='line'>        if self.interaction:
+</span><span class='line'>            D = self.D
+</span><span class='line'>            L = len(x)
+</span><span class='line'>
+</span><span class='line'>            x = sorted(x)
+</span><span class='line'>            for i in xrange(L):
+</span><span class='line'>                for j in xrange(i+1, L):
+</span><span class='line'>                    # one-hot encode interactions with hash trick
+</span><span class='line'>                    yield abs(hash(str(x[i]) + '_' + str(x[j]))) % D
+</span><span class='line'>
+</span><span class='line'>    def predict(self, x):
+</span><span class='line'>        ''' Get probability estimation on x
+</span><span class='line'>
+</span><span class='line'>            INPUT:
+</span><span class='line'>                x: features
+</span><span class='line'>
+</span><span class='line'>            OUTPUT:
+</span><span class='line'>                probability of p(y = 1 | x; w)
+</span><span class='line'>        '''
+</span><span class='line'>
+</span><span class='line'>        # parameters
+</span><span class='line'>        alpha = self.alpha
+</span><span class='line'>        beta = self.beta
+</span><span class='line'>        L1 = self.L1
+</span><span class='line'>        L2 = self.L2
+</span><span class='line'>
+</span><span class='line'>        # model
+</span><span class='line'>        n = self.n
+</span><span class='line'>        z = self.z
+</span><span class='line'>        w = {}
+</span><span class='line'>
+</span><span class='line'>        # wTx is the inner product of w and x
+</span><span class='line'>        wTx = 0.
+</span><span class='line'>        for i in self._indices(x):
+</span><span class='line'>            sign = -1. if z[i] &lt; 0 else 1.  # get sign of z[i]
+</span><span class='line'>
+</span><span class='line'>            # build w on the fly using z and n, hence the name - lazy weights
+</span><span class='line'>            # we are doing this at prediction instead of update time is because
+</span><span class='line'>            # this allows us for not storing the complete w
+</span><span class='line'>            if sign * z[i] &lt;= L1:
+</span><span class='line'>                # w[i] vanishes due to L1 regularization
+</span><span class='line'>                w[i] = 0.
+</span><span class='line'>            else:
+</span><span class='line'>                # apply prediction time L1, L2 regularization to z and get w
+</span><span class='line'>                w[i] = (sign * L1 - z[i]) / ((beta + sqrt(n[i])) / alpha + L2)
+</span><span class='line'>
+</span><span class='line'>            wTx += w[i]
+</span><span class='line'>
+</span><span class='line'>        # cache the current w for update stage
+</span><span class='line'>        self.w = w
+</span><span class='line'>
+</span><span class='line'>        # bounded sigmoid function, this is the probability estimation
+</span><span class='line'>        return 1. / (1. + exp(-max(min(wTx, 35.), -35.)))
+</span><span class='line'>
+</span><span class='line'>    def update(self, x, p, y):
+</span><span class='line'>        ''' Update model using x, p, y
+</span><span class='line'>
+</span><span class='line'>            INPUT:
+</span><span class='line'>                x: feature, a list of indices
+</span><span class='line'>                p: click probability prediction of our model
+</span><span class='line'>                y: answer
+</span><span class='line'>
+</span><span class='line'>            MODIFIES:
+</span><span class='line'>                self.n: increase by squared gradient
+</span><span class='line'>                self.z: weights
+</span><span class='line'>        '''
+</span><span class='line'>
+</span><span class='line'>        # parameter
+</span><span class='line'>        alpha = self.alpha
+</span><span class='line'>
+</span><span class='line'>        # model
+</span><span class='line'>        n = self.n
+</span><span class='line'>        z = self.z
+</span><span class='line'>        w = self.w
+</span><span class='line'>
+</span><span class='line'>        # gradient under logloss
+</span><span class='line'>        g = p - y
+</span><span class='line'>
+</span><span class='line'>        # update z and n
+</span><span class='line'>        for i in self._indices(x):
+</span><span class='line'>            sigma = (sqrt(n[i] + g * g) - sqrt(n[i])) / alpha
+</span><span class='line'>            z[i] += g - sigma * w[i]
+</span><span class='line'>            n[i] += g * g</span></code></pre></td></tr></table></div></figure>
 
 
-<ul>
-<li>Error</li>
-</ul>
-
+<h2>logistic_regression</h2>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -637,18 +659,80 @@ MathJax.Hub.Config({
 <span class='line-number'>10</span>
 <span class='line-number'>11</span>
 <span class='line-number'>12</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
-</span><span class='line'>On Error Resume Next
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>class logistic_regression(object):
+</span><span class='line'>    ''' Classical logistic regression
+</span><span class='line'>    
+</span><span class='line'>        This class (algorithm) is not used in this code, it is putted here
+</span><span class='line'>        for a quick reference in hope to make the following (more complex)
+</span><span class='line'>        algorithm more understandable.
+</span><span class='line'>    '''
 </span><span class='line'>
-</span><span class='line'>Response.Write 1 / 0 ' Division by zero
+</span><span class='line'>    def __init__(self, alpha, D, interaction=False):
+</span><span class='line'>        # parameters
+</span><span class='line'>        self.alpha = alpha
 </span><span class='line'>
-</span><span class='line'>If Err.Number &lt;&gt; 0 Then
-</span><span class='line'>     Response.Write "Error Code: " & Server.HTMLEncode(Err.Number) & "&lt;br /&gt;"
-</span><span class='line'>     Response.Write "Error Source: " & Server.HTMLEncode(Err.Source) & "&lt;br /&gt;"
-</span><span class='line'>     Response.Write "Error Description: " & Server.HTMLEncode(Err.Description) & "&lt;br /&gt;"
-</span><span class='line'>     Err.Clear 
-</span><span class='line'>End If 
-</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
+</span><span class='line'>        # model
+</span><span class='line'>        self.w = [0.] * D
+</span><span class='line'>
+</span><span class='line'>    def predict(self, x):
+</span><span class='line'>        # parameters
+</span><span class='line'>        alpha = self.alpha
+</span><span class='line'>
+</span><span class='line'>        # model
+</span><span class='line'>        w = self.w
+</span><span class='line'>
+</span><span class='line'>        # wTx is the inner product of w and x
+</span><span class='line'>        wTx = sum(w[i] for i in x)
+</span><span class='line'>
+</span><span class='line'>        # bounded sigmoid function, this is the probability of being clicked
+</span><span class='line'>        return 1. / (1. + exp(-max(min(wTx, 35.), -35.)))
+</span><span class='line'>
+</span><span class='line'>    def update(self, x, p, y):
+</span><span class='line'>        # parameter
+</span><span class='line'>        alpha = self.alpha
+</span><span class='line'>
+</span><span class='line'>        # model
+</span><span class='line'>        w = self.w
+</span><span class='line'>
+</span><span class='line'>        # gradient under logloss
+</span><span class='line'>        g = p - y
+</span><span class='line'>
+</span><span class='line'>        print('p:',p, 'y:', y, 'g:', g)
+</span><span class='line'>
+</span><span class='line'>        # update w
+</span><span class='line'>        for i in x:
+</span><span class='line'>            w[i] += g * alpha</span></code></pre></td></tr></table></div></figure>
 
 </div>
   
