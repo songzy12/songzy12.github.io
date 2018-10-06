@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Mesh Simplification | Zhengyang Song’s Blog</title>
+<title>Mesh Simplification | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Mesh Simplification" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="Triangle" />
 <link rel="canonical" href="http://songzy12.github.io/c++/2016/03/25/mesh-simplification.html" />
 <meta property="og:url" content="http://songzy12.github.io/c++/2016/03/25/mesh-simplification.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-03-25T11:51:15+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/c++/2016/03/25/mesh-simplification.html","description":"Triangle","headline":"Mesh Simplification","dateModified":"2016-03-25T11:51:15+08:00","datePublished":"2016-03-25T11:51:15+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/c++/2016/03/25/mesh-simplification.html"},"@context":"http://schema.org"}</script>
+{"headline":"Mesh Simplification","dateModified":"2016-03-25T11:51:15+08:00","datePublished":"2016-03-25T11:51:15+08:00","url":"http://songzy12.github.io/c++/2016/03/25/mesh-simplification.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/c++/2016/03/25/mesh-simplification.html"},"description":"Triangle","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,142 +45,142 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="triangle">Triangle</h2>
+    <h2>Triangle</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Triangle{
+<pre><code>class Triangle{
 public:
-	Vertex *vertex[3];
-	
-	Vec3f normal;
-	double M[4][4];
-	
-	Triangle(Vertex *v0, Vertex *v1, Vertex *v2);
-	~Triangle();
-	
-	void ComputeNormalMatrix();
+    Vertex *vertex[3];
+
+    Vec3f normal;
+    double M[4][4];
+
+    Triangle(Vertex *v0, Vertex *v1, Vertex *v2);
+    ~Triangle();
+
+    void ComputeNormalMatrix();
 };
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="normal">normal</h3>
+<h3>normal</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Vec3f v0=vertex[0]-&gt;position;
+<pre><code>Vec3f v0=vertex[0]-&gt;position;
 Vec3f v1=vertex[1]-&gt;position;
 Vec3f v2=vertex[2]-&gt;position;
 normal = Cross(v1-v0, v2-v0);
 normal.Normalize();
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="m">M</h3>
+<h3>M</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>double temp[4]={ normal.x, normal.y, normal.z,
-	-(normal.x * vertex[0]-&gt;position.x 
-	+ normal.y * vertex[0]-&gt;position.y 
-	+ normal.z * vertex[0]-&gt;position.z)};
+<pre><code>double temp[4]={ normal.x, normal.y, normal.z,
+    -(normal.x * vertex[0]-&gt;position.x 
+    + normal.y * vertex[0]-&gt;position.y 
+    + normal.z * vertex[0]-&gt;position.z)};
 for(int i=0;i&lt;4;i++){
-	for(int j=0;j&lt;4;j++){
-		M[i][j] = temp[i] * temp[j];
-	}
+    for(int j=0;j&lt;4;j++){
+        M[i][j] = temp[i] * temp[j];
+    }
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="vertex">Vertex</h2>
+<h2>Vertex</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Vertex{
+<pre><code>class Vertex{
 public:
-	int index;
-	Vec3f position;
-	bool deleted;
+    int index;
+    Vec3f position;
+    bool deleted;
 
-	std::vector&lt;Edge *&gt; pairs;
-	std::vector&lt;Triangle *&gt; faces;
-	std::vector&lt;Vertex *&gt; neighbors;
+    std::vector&lt;Edge *&gt; pairs;
+    std::vector&lt;Triangle *&gt; faces;
+    std::vector&lt;Vertex *&gt; neighbors;
 
-	double Q[4][4];
-	void ComputeMatrix();
+    double Q[4][4];
+    void ComputeMatrix();
 
-	Vertex(Vec3f v);
-	void CleanNeighbor(Vertex *u);
-	~Vertex();
+    Vertex(Vec3f v);
+    void CleanNeighbor(Vertex *u);
+    ~Vertex();
 };
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="q">Q</h3>
+<h3>Q</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for(int i=0; i&lt;4; i++)
-	for (int j=0; j&lt;4; j++)
-		Q[i][j]=0;
+<pre><code>for(int i=0; i&lt;4; i++)
+    for (int j=0; j&lt;4; j++)
+        Q[i][j]=0;
 for(int i=0; i&lt;4; i++)
-	for(int j=0; j&lt;4; j++)
-		for(std::vector&lt;Triangle *&gt;::iterator iter=faces.begin(); iter!=faces.end(); iter++)
-			Q[i][j] += (*iter)-&gt; M[i][j];
-</code></pre></div></div>
+    for(int j=0; j&lt;4; j++)
+        for(std::vector&lt;Triangle *&gt;::iterator iter=faces.begin(); iter!=faces.end(); iter++)
+            Q[i][j] += (*iter)-&gt; M[i][j];
+</code></pre>
 
-<h2 id="edge">Edge</h2>
+<h2>Edge</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class Edge{
+<pre><code>class Edge{
 public:
-	Vertex *vertex[2];
-	
-	double Q[4][4];
-	double cost;
-	Vec3f vbar;
-	bool deleted;
+    Vertex *vertex[2];
 
-	void ComputeMatrix();
+    double Q[4][4];
+    double cost;
+    Vec3f vbar;
+    bool deleted;
+
+    void ComputeMatrix();
     double ComputeCost(Vec3f v);
-	void ComputeVbar();
+    void ComputeVbar();
 
-	bool operator == (const Edge other) const;
-	Edge(Vertex *v0, Vertex *v1);
-	~Edge();
+    bool operator == (const Edge other) const;
+    Edge(Vertex *v0, Vertex *v1);
+    ~Edge();
 };
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="q-1">Q</h3>
+<h3>Q</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for(int i=0; i&lt;4; i++){
-	for(int j=0; j&lt;4; j++){
-		Q[i][j]=vertex[0]-&gt;Q[i][j]+vertex[1]-&gt;Q[i][j]; 
-	}
+<pre><code>for(int i=0; i&lt;4; i++){
+    for(int j=0; j&lt;4; j++){
+        Q[i][j]=vertex[0]-&gt;Q[i][j]+vertex[1]-&gt;Q[i][j]; 
+    }
 }
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="cost">cost</h3>
+<h3>cost</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>double t[4]={v.x, v.y, v.z, 1};
-		
+<pre><code>double t[4]={v.x, v.y, v.z, 1};
+
 double temp[4]={0};
 for(int i=0; i&lt;4; i++){
-	for(int j=0; j&lt;4; j++){
-		temp[i]+=t[j]*Q[j][i];
-	}
+    for(int j=0; j&lt;4; j++){
+        temp[i]+=t[j]*Q[j][i];
+    }
 }
 double result=0;
 for(int i=0; i&lt;4; i++){
-	result+=temp[i] * t[i];
+    result+=temp[i] * t[i];
 }
 return result;
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="vbar">vbar</h3>
+<h3>vbar</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>double det=Det(Q[0][0], Q[0][1], Q[0][2], 
-	Q[1][0], Q[1][1], Q[1][2],
-	Q[2][0], Q[2][1], Q[2][2]);
+<pre><code>double det=Det(Q[0][0], Q[0][1], Q[0][2], 
+    Q[1][0], Q[1][1], Q[1][2],
+    Q[2][0], Q[2][1], Q[2][2]);
 
 if(det&gt;1e-9 || det&lt;-1e-9){
-	double x= -1/det * Det(Q[0][1], Q[0][2], Q[0][3],
-		Q[1][1], Q[1][2], Q[1][3],
-		Q[2][1], Q[2][2], Q[2][3]);
-	double y= 1/det * Det(Q[0][0], Q[0][2], Q[0][3],
-		Q[1][0], Q[1][2], Q[1][3],
-		Q[2][0], Q[2][2], Q[2][3]);
-	double z= -1/det * Det(Q[0][0], Q[0][1], Q[0][3],
-		Q[1][0], Q[1][1], Q[1][3],
-		Q[2][0], Q[2][1], Q[2][3]);
-	vbar = Vec3f (x, y, z);
-	cost = ComputeCost(vbar);
-	return;
+    double x= -1/det * Det(Q[0][1], Q[0][2], Q[0][3],
+        Q[1][1], Q[1][2], Q[1][3],
+        Q[2][1], Q[2][2], Q[2][3]);
+    double y= 1/det * Det(Q[0][0], Q[0][2], Q[0][3],
+        Q[1][0], Q[1][2], Q[1][3],
+        Q[2][0], Q[2][2], Q[2][3]);
+    double z= -1/det * Det(Q[0][0], Q[0][1], Q[0][3],
+        Q[1][0], Q[1][1], Q[1][3],
+        Q[2][0], Q[2][1], Q[2][3]);
+    vbar = Vec3f (x, y, z);
+    cost = ComputeCost(vbar);
+    return;
 }
 
 
@@ -189,29 +189,29 @@ double error2=ComputeCost(vertex[1]-&gt;position);
 double error3=ComputeCost((vertex[0]-&gt;position+vertex[1]-&gt;position)/2);
 cost = error1 &lt; error2 ? (error1 &lt; error3 ? error1: error3):(error2 &lt; error3 ? error2 : error3);
 if(cost == error1) 
-	vbar = vertex[0]-&gt;position;
+    vbar = vertex[0]-&gt;position;
 else if(cost == error2)
-	vbar = vertex[1]-&gt;position;
+    vbar = vertex[1]-&gt;position;
 else
-	vbar= (vertex[0]-&gt;position+vertex[1]-&gt;position)/2;
+    vbar= (vertex[0]-&gt;position+vertex[1]-&gt;position)/2;
 return;
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="simplify">Simplify</h2>
+<h2>Simplify</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>make_heap(edges.begin(), edges.end(), cmp);
+<pre><code>make_heap(edges.begin(), edges.end(), cmp);
 pop_heap(edges.begin(), edges.end(), cmp);
 push_heap(edges.begin(), edges.end(),cmp);
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Vertex *u = e-&gt;vertex[0];
+<pre><code>Vertex *u = e-&gt;vertex[0];
 Vertex *v = e-&gt;vertex[1];
 
 v-&gt;Q[i][j]=e-&gt;Q[i][j];
 v-&gt;position = e-&gt;vbar;
 
 // refresh the vertexes, edges, faces of v
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/c++/2016/03/25/mesh-simplification.html" hidden></a>
 </article>

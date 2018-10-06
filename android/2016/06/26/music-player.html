@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Music Player | Zhengyang Song’s Blog</title>
+<title>Music Player | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Music Player" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="Tutorial and source code." />
 <link rel="canonical" href="http://songzy12.github.io/android/2016/06/26/music-player.html" />
 <meta property="og:url" content="http://songzy12.github.io/android/2016/06/26/music-player.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-06-26T20:00:17+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/android/2016/06/26/music-player.html","description":"Tutorial and source code.","headline":"Music Player","dateModified":"2016-06-26T20:00:17+08:00","datePublished":"2016-06-26T20:00:17+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/06/26/music-player.html"},"@context":"http://schema.org"}</script>
+{"headline":"Music Player","dateModified":"2016-06-26T20:00:17+08:00","datePublished":"2016-06-26T20:00:17+08:00","url":"http://songzy12.github.io/android/2016/06/26/music-player.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/06/26/music-player.html"},"description":"Tutorial and source code.","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -47,61 +47,61 @@
   <div class="post-content e-content" itemprop="articleBody">
     <p><a href="http://www.androidhive.info/2012/03/android-building-audio-player-tutorial/">Tutorial</a> and <a href="https://github.com/lizhuoli1126/Android-Media-Player">source code</a>.</p>
 
-<h2 id="附加功能">附加功能</h2>
+<h2>附加功能</h2>
 
-<h3 id="通知">通知</h3>
+<h3>通知</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public void notification(){
-	mBuilder = new NotificationCompat.Builder(this);
-	mBuilder.setAutoCancel(true)//点击后让通知将消失  
-			.setOngoing(false)//ture，设置他为一个正在进行的通知。他们通常是用来表示一个后台任务,用户积极参与(如播放音乐)或以某种方式正在等待,因此占用设备(如一个文件下载,同步操作,主动网络连接)
-			.setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示
-			.setPriority(Notification.PRIORITY_DEFAULT)//设置该通知优先级
-			.setDefaults(Notification.DEFAULT_SOUND)//向通知添加声音、闪灯和振动效果的最简单、最一致的方式是使用当前的用户默认设置，使用defaults属性，可以组合：
-			.setContentTitle("Music Player")
-			.setContentText("Click to return")
-			.setTicker("Click me")
-			.setSmallIcon(R.drawable.ic_launcher);
-	//点击的意图ACTION是跳转到Intent
-	Intent resultIntent = new Intent(this, MainActivity.class);
-	resultIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-	PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-	mBuilder.setContentIntent(pendingIntent);
-	mNotificationManager.notify(notifyId, mBuilder.build());
+<pre><code>public void notification(){
+    mBuilder = new NotificationCompat.Builder(this);
+    mBuilder.setAutoCancel(true)//点击后让通知将消失  
+            .setOngoing(false)//ture，设置他为一个正在进行的通知。他们通常是用来表示一个后台任务,用户积极参与(如播放音乐)或以某种方式正在等待,因此占用设备(如一个文件下载,同步操作,主动网络连接)
+            .setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示
+            .setPriority(Notification.PRIORITY_DEFAULT)//设置该通知优先级
+            .setDefaults(Notification.DEFAULT_SOUND)//向通知添加声音、闪灯和振动效果的最简单、最一致的方式是使用当前的用户默认设置，使用defaults属性，可以组合：
+            .setContentTitle("Music Player")
+            .setContentText("Click to return")
+            .setTicker("Click me")
+            .setSmallIcon(R.drawable.ic_launcher);
+    //点击的意图ACTION是跳转到Intent
+    Intent resultIntent = new Intent(this, MainActivity.class);
+    resultIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+    PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+    mBuilder.setContentIntent(pendingIntent);
+    mNotificationManager.notify(notifyId, mBuilder.build());
 }
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="播放列表">播放列表</h3>
+<h3>播放列表</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mBtnPlaylist.setOnClickListener(new View.OnClickListener() {
-	@Override
-	public void onClick(View arg0) {
-		Bundle b = new Bundle();
-		b.putLongArray("mSongIds", mSongIds);
-		Intent i = new Intent(getApplicationContext(), PlayListActivity.class);
-		i.putExtras(b);
-		startActivityForResult(i, 100);			
-	}
+<pre><code>mBtnPlaylist.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View arg0) {
+        Bundle b = new Bundle();
+        b.putLongArray("mSongIds", mSongIds);
+        Intent i = new Intent(getApplicationContext(), PlayListActivity.class);
+        i.putExtras(b);
+        startActivityForResult(i, 100);         
+    }
 });
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bundle b = getIntent().getExtras();
+<pre><code>Bundle b = getIntent().getExtras();
 long[] mySongIds = b.getLongArray("mSongIds");
 
 this.songsList = new ArrayList&lt;HashMap&lt;String, String&gt;&gt;();
 
 for (int i = 0; i &lt; mySongIds.length; i++) {
-	// creating new HashMap
-	HashMap&lt;String, String&gt; song = new HashMap&lt;String, String&gt;();
-	song.put("songTitle", mySongIds[i] + "");
-	// adding HashList to ArrayList
-	this.songsList.add(song);
+    // creating new HashMap
+    HashMap&lt;String, String&gt; song = new HashMap&lt;String, String&gt;();
+    song.put("songTitle", mySongIds[i] + "");
+    // adding HashList to ArrayList
+    this.songsList.add(song);
 }
 
 // Adding menuItems to ListView
 ListAdapter adapter = new SimpleAdapter(this, this.songsList,
-		R.layout.playlist_item, new String[] { "songTitle" }, new int[] {
-				R.id.songTitle });
+        R.layout.playlist_item, new String[] { "songTitle" }, new int[] {
+                R.id.songTitle });
 
 setListAdapter(adapter);
 
@@ -110,68 +110,68 @@ ListView lv = getListView();
 // listening to single listitem click
 lv.setOnItemClickListener(new OnItemClickListener() {
 
-	@Override
-	public void onItemClick(AdapterView&lt;?&gt; parent, View view,
-			int position, long id) {
-		// getting listitem index
-		int songIndex = position;
-		
-		// Starting new intent
-		Intent in = new Intent(getApplicationContext(),
-				MainActivity.class);
-		// Sending songIndex to PlayerActivity
-		in.putExtra("songIndex", songIndex);
-		setResult(100, in);
-		// Closing PlayListView
-		finish();
-	}
-});
-</code></pre></div></div>
+    @Override
+    public void onItemClick(AdapterView&lt;?&gt; parent, View view,
+            int position, long id) {
+        // getting listitem index
+        int songIndex = position;
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Starting new intent
+        Intent in = new Intent(getApplicationContext(),
+                MainActivity.class);
+        // Sending songIndex to PlayerActivity
+        in.putExtra("songIndex", songIndex);
+        setResult(100, in);
+        // Closing PlayListView
+        finish();
+    }
+});
+</code></pre>
+
+<pre><code>protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     super.onActivityResult(requestCode, resultCode, data);
     if(resultCode == 100){
-    	currentSongIndex = data.getExtras().getInt("songIndex");
-    	mSongId = mSongIds[currentSongIndex];
+        currentSongIndex = data.getExtras().getInt("songIndex");
+        mSongId = mSongIds[currentSongIndex];
         play(mSongId);
     }
 }
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="随机播放">随机播放</h3>
+<h3>随机播放</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private void next() {
-	if(isRepeat){
-		// repeat is on play same song again
-	} else if(isShuffle){
-		// shuffle is on - play a random song
-		Random rand = new Random();
-		currentSongIndex = rand.nextInt((mSongIds.length - 1) - 0 + 1) + 0;
-	} else{
-		// no repeat or shuffle ON - play next song
-		currentSongIndex = (currentSongIndex + 1) % mSongIds.length;
-	}
-	mSongId = mSongIds[currentSongIndex];
-	play(mSongId);
+<pre><code>private void next() {
+    if(isRepeat){
+        // repeat is on play same song again
+    } else if(isShuffle){
+        // shuffle is on - play a random song
+        Random rand = new Random();
+        currentSongIndex = rand.nextInt((mSongIds.length - 1) - 0 + 1) + 0;
+    } else{
+        // no repeat or shuffle ON - play next song
+        currentSongIndex = (currentSongIndex + 1) % mSongIds.length;
+    }
+    mSongId = mSongIds[currentSongIndex];
+    play(mSongId);
 }
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="专辑图">专辑图</h3>
+<h3>专辑图</h3>
 
 <p>3454712, 31655244, 8061609, 114626026, 123772450, 130244125, 38280826, 7348261</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>File sdcardPath = Environment.getExternalStorageDirectory();
+<pre><code>File sdcardPath = Environment.getExternalStorageDirectory();
 // sdcard_path.toString() == "/storage/emulated/0";
 String folder = "baidu/music";
 File dirPath = new File(sdcardPath + "/" + folder + "/");
-if (!dirPath.exists())	
-	dirPath.mkdirs();
+if (!dirPath.exists())  
+    dirPath.mkdirs();
 ImageManager.init(this, ImageManager.POSTFIX_JPG,
-	dirPath.toString(), 1 * 1024 * 1024);
-</code></pre></div></div>
+    dirPath.toString(), 1 * 1024 * 1024);
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private void loadImage(String title, String artist) {
-	LogUtil.i(TAG, "title: " + title + ", artist: " + artist);
+<pre><code>private void loadImage(String title, String artist) {
+    LogUtil.i(TAG, "title: " + title + ", artist: " + artist);
     OnlineManagerEngine
             .getInstance(getApplicationContext())
             .getSearchManager(getBaseContext())
@@ -180,7 +180,7 @@ ImageManager.init(this, ImageManager.POSTFIX_JPG,
                     new LrcPicSearchListener() {
                         @Override
                         public void onGetLrcPicList(LrcPicList list) {
-                        	if (list.getErrorCode() == list.OK) {
+                            if (list.getErrorCode() == list.OK) {
                                 LrcPic lrcPic = (LrcPic) list.getItems()
                                         .get(0);
                                 LogUtil.i(TAG, "LrcPic: " + lrcPic.toString());
@@ -190,13 +190,13 @@ ImageManager.init(this, ImageManager.POSTFIX_JPG,
                         }
                     });
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="基本功能">基本功能</h2>
+<h2>基本功能</h2>
 
-<h3 id="播放">播放</h3>
+<h3>播放</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private void start() {
+<pre><code>private void start() {
     if (isLossless) {
         mStreamPlayer.prepareLossless(mSongId);
     } else {
@@ -207,9 +207,9 @@ ImageManager.init(this, ImageManager.POSTFIX_JPG,
     mBtnPlay.setImageResource(R.drawable.pause);
     setTimer();
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;selector xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+<pre><code>&lt;selector xmlns:android="http://schemas.android.com/apk/res/android"&gt;
     &lt;item android:drawable="@drawable/img_btn_play_pressed"
         android:state_focused="true"
         android:state_pressed="true" /&gt;
@@ -217,16 +217,16 @@ ImageManager.init(this, ImageManager.POSTFIX_JPG,
         android:state_focused="false"
         android:state_pressed="true" /&gt;
     &lt;item android:drawable="@drawable/img_btn_play_pressed" 
-        	android:state_focused="true" /&gt;
+            android:state_focused="true" /&gt;
     &lt;item android:drawable="@drawable/img_btn_play"
         android:state_focused="false"
         android:state_pressed="false" /&gt;
 &lt;/selector&gt;
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="当前播放时长显示播放总时长">当前播放时长、显示播放总时长</h3>
+<h3>当前播放时长、显示播放总时长</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private void setTimer() {
+<pre><code>private void setTimer() {
     mTimer = new Timer(true);
     TimerTask task = new TimerTask() {
         public void run() {
@@ -255,17 +255,17 @@ private Handler mHandler = new Handler() {
 };
 
 private String strftime(long millisecond) {
-	long second = millisecond / 1000;
-	long minute = second / 60;
-	String time = String.format(Locale.getDefault(), "%02d:%02d", minute, second % 60);
-	LogUtil.i(TAG, "millisecond: " + millisecond + ", time: " + time);
-	return time;
+    long second = millisecond / 1000;
+    long minute = second / 60;
+    String time = String.format(Locale.getDefault(), "%02d:%02d", minute, second % 60);
+    LogUtil.i(TAG, "millisecond: " + millisecond + ", time: " + time);
+    return time;
 }
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="进度条">进度条</h3>
+<h3>进度条</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OnPreparedListener mOnPreparedListener = new OnPreparedListener() {
+<pre><code>OnPreparedListener mOnPreparedListener = new OnPreparedListener() {
 
     @Override
     public void onPrepared() {
@@ -273,18 +273,18 @@ private String strftime(long millisecond) {
         if (mSeekBar != null) {
             mSeekBar.setMax((int) mStreamPlayer.duration());
             mHandler.sendEmptyMessage(REFRESH_DURATION);
-			mHandler.sendEmptyMessage(REFRESH_POSITION);
+            mHandler.sendEmptyMessage(REFRESH_POSITION);
         }
         LogUtil.i(TAG, "onPrepared....");
         // if (status == PLAYING &amp;&amp; !mStreamPlayer.isPlaying())
         mStreamPlayer.start();
     }
 };
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="进度条拖动">进度条拖动</h3>
+<h3>进度条拖动</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+<pre><code>mSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
     @Override
     public void onProgressChanged(SeekBar arg0, int arg1, boolean arg2) {
         // TODO Auto-generated method stub
@@ -306,23 +306,23 @@ private String strftime(long millisecond) {
         mPosition.setText(strftime(mStreamPlayer.position()));
     }
 });
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="暂停">暂停</h3>
+<h3>暂停</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mBtnPlay.setOnClickListener(new OnClickListener() {
+<pre><code>mBtnPlay.setOnClickListener(new OnClickListener() {
     @Override
     public void onClick(View v) {
         switch (status) {
-        	case PLAYING: pause(); break;
-        	case PAUSED: resume(); break;
-        	default: start(); break;
+            case PLAYING: pause(); break;
+            case PAUSED: resume(); break;
+            default: start(); break;
          }
     }
 });
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private void resume() {
+<pre><code>private void resume() {
     mStreamPlayer.start();
     status = PLAYING;
     mBtnPlay.setImageResource(R.drawable.pause);
@@ -333,41 +333,41 @@ private void pause() {
     status = PAUSED;
     mBtnPlay.setImageResource(R.drawable.play);
 }
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="下一曲-上一曲">下一曲、 上一曲</h3>
+<h3>下一曲、 上一曲</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private void previous() {
+<pre><code class="">private void previous() {
     currentSongIndex = (mSongIds.length + currentSongIndex - 1) %  mSongIds.length;
     mSongId = mSongIds[currentSongIndex];
-	play(mSongId);
+    play(mSongId);
 }
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="歌曲名歌手名">歌曲名、歌手名</h3>
+<h3>歌曲名、歌手名</h3>
 
 <p>null: 254515, 890663, 31387633, 2043518, 2104023, 539896, 2127370
 not null: 1262598, 265898, 6172939, 2494343</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private void setMusicInfo(){
-	long musicId = mStreamPlayer.getMusicId();
-	String album = mStreamPlayer.getMusicAlbum();
-	String artist = mStreamPlayer.getMusicArtist();
-	String title = mStreamPlayer.getMusicTitle();
-	mTitle.setText(title);
-	mMusicId.setText(String.valueOf(musicId));
-	mArtist.setText(artist);
-	mAlbum.setText(album);
+<pre><code>private void setMusicInfo(){
+    long musicId = mStreamPlayer.getMusicId();
+    String album = mStreamPlayer.getMusicAlbum();
+    String artist = mStreamPlayer.getMusicArtist();
+    String title = mStreamPlayer.getMusicTitle();
+    mTitle.setText(title);
+    mMusicId.setText(String.valueOf(musicId));
+    mArtist.setText(artist);
+    mAlbum.setText(album);
 }
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="后台可播放">后台可播放</h3>
+<h3>后台可播放</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>android:persistent="true"
-</code></pre></div></div>
+<pre><code>android:persistent="true"
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public void onBackPressed(){
-	new AlertDialog.Builder(this).setTitle("Run in background?")
+<pre><code>public void onBackPressed(){
+    new AlertDialog.Builder(this).setTitle("Run in background?")
     .setIcon(android.R.drawable.ic_dialog_info)
     .setPositiveButton("No", new DialogInterface.OnClickListener() {
 
@@ -387,10 +387,10 @@ not null: 1262598, 265898, 6172939, 2494343</p>
 }
 
 private void bg() {
-	PackageManager pm = getPackageManager();
-	ResolveInfo homeInfo = pm.resolveActivity(new Intent(Intent.ACTION_MAIN)
-	.addCategory(Intent.CATEGORY_HOME), 0);
-	ActivityInfo ai = homeInfo.activityInfo;
+    PackageManager pm = getPackageManager();
+    ResolveInfo homeInfo = pm.resolveActivity(new Intent(Intent.ACTION_MAIN)
+    .addCategory(Intent.CATEGORY_HOME), 0);
+    ActivityInfo ai = homeInfo.activityInfo;
     Intent startIntent = new Intent(Intent.ACTION_MAIN);
     startIntent.addCategory(Intent.CATEGORY_LAUNCHER);
     startIntent.setComponent(new ComponentName(ai.packageName, ai.name));
@@ -401,11 +401,11 @@ private void bg() {
         LogUtil.e(TAG, "Make sure to create a MAIN intent-filter for the corresponding activity.");
     }
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="手势功能">手势功能</h2>
+<h2>手势功能</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@Override
+<pre><code>@Override
 public boolean onTouchEvent(MotionEvent event) {
     return mDetector.onTouchEvent(event);
 }
@@ -413,24 +413,24 @@ public boolean onTouchEvent(MotionEvent event) {
 mDetector = new GestureDetector(this, mGestureListener);
 
 GestureDetector.SimpleOnGestureListener mGestureListener = new GestureDetector.SimpleOnGestureListener() {
-	float MIN_MOVE = 100;
-    	
+    float MIN_MOVE = 100;
+
     @Override
     public boolean onScroll(MotionEvent e1, MotionEvent e2, float vX, float vY) {
-    	LogUtil.d(TAG, "onScroll...");
+        LogUtil.d(TAG, "onScroll...");
         return false;
     }
-    
+
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float vX, float vY) {
-    	LogUtil.d(TAG, "onFling...");
-    	float deltaX = e2.getX() - e1.getX(); 
+        LogUtil.d(TAG, "onFling...");
+        float deltaX = e2.getX() - e1.getX(); 
         if(deltaX &gt; MIN_MOVE){
             fastForward(deltaX);
         } else if(deltaX &lt; -MIN_MOVE){
             rewind(-deltaX);
         } 
-        
+
         float deltaY = e2.getY() - e1.getY(); 
         if(deltaY &gt; MIN_MOVE){
             volumeDown(deltaY);
@@ -440,31 +440,31 @@ GestureDetector.SimpleOnGestureListener mGestureListener = new GestureDetector.S
         return false;
     }
 };
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="左右滑动快进快退">左右滑动快进快退</h3>
+<h3>左右滑动快进快退</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private void fastForward(float delta){
-	LogUtil.d(TAG, "fastForward: " + delta);
-	// delta typically 100, 100ms * 100 = 10000ms = 10s 
-	int progress =  Math.min(mSongProgressBar.getMax(), mSongProgressBar.getProgress() + (int)(delta * 100));
+<pre><code>private void fastForward(float delta){
+    LogUtil.d(TAG, "fastForward: " + delta);
+    // delta typically 100, 100ms * 100 = 10000ms = 10s 
+    int progress =  Math.min(mSongProgressBar.getMax(), mSongProgressBar.getProgress() + (int)(delta * 100));
     mSongProgressBar.setProgress(progress);
     mSongCurrentDurationLabel.setText(strftime(mStreamPlayer.position()));
-	mStreamPlayer.seek(progress);
+    mStreamPlayer.seek(progress);
 }
 
 private void rewind(float delta){
-	LogUtil.d(TAG, "rewind: " + delta);
-	int progress =  Math.max(0, mSongProgressBar.getProgress() - (int)(delta * 100));
+    LogUtil.d(TAG, "rewind: " + delta);
+    int progress =  Math.max(0, mSongProgressBar.getProgress() - (int)(delta * 100));
     mSongProgressBar.setProgress(progress);
     mSongCurrentDurationLabel.setText(strftime(progress));
-	mStreamPlayer.seek(progress);
+    mStreamPlayer.seek(progress);
 }
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="上下滑动调节音量">上下滑动调节音量</h3>
+<h3>上下滑动调节音量</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private void volumeUp(float delta){
+<pre><code>private void volumeUp(float delta){
     int max = mAudioManager.getStreamMaxVolume( AudioManager.STREAM_MUSIC );
     int current = mAudioManager.getStreamVolume( AudioManager.STREAM_MUSIC );
     mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, Math.min(current + 1, max), AudioManager.FLAG_SHOW_UI);
@@ -476,13 +476,13 @@ private void volumeDown(float delta){
     mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, Math.max(0, current - 1), AudioManager.FLAG_SHOW_UI);
     LogUtil.d(TAG, "min : " + 0 + " current : " + current);
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="特殊事件处理">特殊事件处理</h2>
+<h2>特殊事件处理</h2>
 
-<h3 id="无网网络数据错误导致无法播放时的异常页面显示">无网、网络数据错误导致无法播放时的异常页面显示</h3>
+<h3>无网、网络数据错误导致无法播放时的异常页面显示</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OnBlockListener mOnBlockListener = new OnBlockListener() {
+<pre><code>OnBlockListener mOnBlockListener = new OnBlockListener() {
 
     @Override
     public void onBlocked() {
@@ -508,31 +508,31 @@ private boolean isNetConnected() {
     }  
     return false;  
 }  
-    
+
 private void checkNetConnected() {
-	if (isNetConnected())
-		return;
-	LogUtil.i(TAG, "Net Disconnected...");
-	Toast.makeText(getApplicationContext(), "Net Disconnected...",
-			Toast.LENGTH_LONG).show();
-		
+    if (isNetConnected())
+        return;
+    LogUtil.i(TAG, "Net Disconnected...");
+    Toast.makeText(getApplicationContext(), "Net Disconnected...",
+            Toast.LENGTH_LONG).show();
+
 }
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="播放状态下拔掉耳机自动暂停播放播放状态下插入耳机播放继续">播放状态下，拔掉耳机，自动暂停播放；播放状态下插入耳机，播放继续。</h3>
+<h3>播放状态下，拔掉耳机，自动暂停播放；播放状态下插入耳机，播放继续。</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /&gt;
-</code></pre></div></div>
+<pre><code>&lt;uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /&gt;
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public void onCreate(Bundle savedInstanceState) {  
+<pre><code>public void onCreate(Bundle savedInstanceState) {  
     super.onCreate(savedInstanceState);  
     setContentView(R.layout.main);  
-      
+
     IntentFilter filter = new IntentFilter();  
     filter.addAction(Intent.ACTION_HEADSET_PLUG);  
     registerReceiver(headsetReceiver, filter);  
 }  
-  
+
 private BroadcastReceiver headsetReceiver = new BroadcastReceiver() {  
     @Override  
     public void onReceive(Context context, Intent intent) {    
@@ -544,15 +544,15 @@ private BroadcastReceiver headsetReceiver = new BroadcastReceiver() {
          }    
     }  
 }; 
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="播放状态下来电话自动暂停播放一旦挂掉电话自动恢复播放">播放状态下来电话，自动暂停播放；一旦挂掉电话，自动恢复播放。</h3>
+<h3>播放状态下来电话，自动暂停播放；一旦挂掉电话，自动恢复播放。</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;uses-permission android:name="android.permission.READ_PHONE_STATE"&gt;&lt;/uses-permission&gt;  
+<pre><code>&lt;uses-permission android:name="android.permission.READ_PHONE_STATE"&gt;&lt;/uses-permission&gt;  
 &lt;uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"&gt;&lt;/uses-permission&gt; 
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;activity
+<pre><code>&lt;activity
     android:name=".MainActivity"
     android:label="@string/app_name" &gt;
     &lt;intent-filter&gt;
@@ -560,21 +560,21 @@ private BroadcastReceiver headsetReceiver = new BroadcastReceiver() {
         &lt;category android:name="android.intent.category.LAUNCHER" /&gt;
     &lt;/intent-filter&gt;
     &lt;intent-filter&gt;
-		&lt;!-- 获取来电广播 --&gt;
-		&lt;action android:name="android.intent.action.PHONE_STATE" /&gt;
-		&lt;!-- 获取去电广播 --&gt;
-		&lt;action android:name="android.intent.action.NEW_OUTGOING_CALL" /&gt;
-	&lt;/intent-filter&gt;
+        &lt;!-- 获取来电广播 --&gt;
+        &lt;action android:name="android.intent.action.PHONE_STATE" /&gt;
+        &lt;!-- 获取去电广播 --&gt;
+        &lt;action android:name="android.intent.action.NEW_OUTGOING_CALL" /&gt;
+    &lt;/intent-filter&gt;
 &lt;/activity&gt;
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>IntentFilter phoneFilter = new IntentFilter("android.intent.action.PHONE_STATE");  
+<pre><code>IntentFilter phoneFilter = new IntentFilter("android.intent.action.PHONE_STATE");  
 phoneFilter.addAction(Intent.ACTION_NEW_OUTGOING_CALL);
 registerReceiver(phoneReceiver, phoneFilter);
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>private BroadcastReceiver phoneReceiver = new BroadcastReceiver(){
-	@Override
+<pre><code>private BroadcastReceiver phoneReceiver = new BroadcastReceiver(){
+    @Override
     public void onReceive(Context context, Intent intent) {
         //拨打电话
         if (intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL)) {
@@ -610,11 +610,11 @@ registerReceiver(phoneReceiver, phoneFilter);
         }
     };
 };
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="uses-permission">uses-permission</h2>
+<h2>uses-permission</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /&gt;
+<pre><code>&lt;uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /&gt;
 &lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /&gt;
 &lt;uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /&gt;
 &lt;uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /&gt;
@@ -637,7 +637,7 @@ registerReceiver(phoneReceiver, phoneFilter);
 &lt;uses-permission android:name="android.permission.CALL_PHONE" /&gt;
 &lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /&gt;
 &lt;uses-permission android:name="android.hardware.sensor.accelerometer" /&gt;
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/android/2016/06/26/music-player.html" hidden></a>
 </article>

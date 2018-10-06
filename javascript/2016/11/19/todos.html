@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>todos | Zhengyang Song’s Blog</title>
+<title>todos | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="todos" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="backbonejs" />
 <link rel="canonical" href="http://songzy12.github.io/javascript/2016/11/19/todos.html" />
 <meta property="og:url" content="http://songzy12.github.io/javascript/2016/11/19/todos.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-11-19T20:19:49+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/javascript/2016/11/19/todos.html","description":"backbonejs","headline":"todos","dateModified":"2016-11-19T20:19:49+08:00","datePublished":"2016-11-19T20:19:49+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/javascript/2016/11/19/todos.html"},"@context":"http://schema.org"}</script>
+{"headline":"todos","dateModified":"2016-11-19T20:19:49+08:00","datePublished":"2016-11-19T20:19:49+08:00","url":"http://songzy12.github.io/javascript/2016/11/19/todos.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/javascript/2016/11/19/todos.html"},"description":"backbonejs","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,22 +45,23 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="backbonejs">backbonejs</h2>
+    <h2>backbonejs</h2>
 
 <ul>
-  <li>jQuery, undersocre</li>
-  <li>webpy, mako</li>
+<li>jQuery, undersocre</li>
+<li>webpy, mako</li>
 </ul>
+
 
 <p><a href="https://github.com/the5fire/backbonejs-learning-note/tree/master/chapters">Here</a>.</p>
 
-<h2 id="todos">todos</h2>
+<h2>todos</h2>
 
 <p><a href="https://github.com/jashkenas/backbone/">here</a></p>
 
-<h3 id="model">Model</h3>
+<h3>Model</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var Todo = Backbone.Model.extend({
+<pre><code>var Todo = Backbone.Model.extend({
 
     defaults: {
         title: "empty todo...",
@@ -72,11 +73,11 @@
         this.save({done: !this.get("done")});
     }
 });
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="collection">Collection</h3>
+<h3>Collection</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var TodoList = Backbone.Collection.extend({
+<pre><code>var TodoList = Backbone.Collection.extend({
     model: Todo,
     localStorage: new Backbone.LocalStorage("todos-backbone"),
 
@@ -95,11 +96,11 @@
 
     comparator: 'order'
 });
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="view">View</h2>
+<h2>View</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var Todos = new TodoList;
+<pre><code>var Todos = new TodoList;
 
 var TodoView = Backbone.View.extend({
 
@@ -161,17 +162,17 @@ var TodoView = Backbone.View.extend({
         this.model.destroy();
     }
 });
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="webpy">web.py</h2>
+<h2>web.py</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install web.py
-</code></pre></div></div>
+<pre><code>pip install web.py
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi server.py
-</code></pre></div></div>
+<pre><code>vi server.py
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import web
+<pre><code>import web
 
 urls = (
     '/', 'index'
@@ -184,17 +185,18 @@ class index:
 
 if __name__ == "__main__":
     app.run()
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python server.py
-</code></pre></div></div>
+<pre><code>python server.py
+</code></pre>
 
-<h2 id="requirejs">require.js</h2>
+<h2>require.js</h2>
 
 <ul>
-  <li>AMD: Asynchronous Module Definition, require.js</li>
-  <li>CMD: Common Module Definition, sea.js</li>
+<li>AMD: Asynchronous Module Definition, require.js</li>
+<li>CMD: Common Module Definition, sea.js</li>
 </ul>
+
 
   </div><a class="u-url" href="/javascript/2016/11/19/todos.html" hidden></a>
 </article>

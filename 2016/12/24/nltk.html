@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>nltk | Zhengyang Song’s Blog</title>
+<title>nltk | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="nltk" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="nltk" />
 <link rel="canonical" href="http://songzy12.github.io/2016/12/24/nltk.html" />
 <meta property="og:url" content="http://songzy12.github.io/2016/12/24/nltk.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-12-24T13:57:27+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/2016/12/24/nltk.html","description":"nltk","headline":"nltk","dateModified":"2016-12-24T13:57:27+08:00","datePublished":"2016-12-24T13:57:27+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/12/24/nltk.html"},"@context":"http://schema.org"}</script>
+{"headline":"nltk","dateModified":"2016-12-24T13:57:27+08:00","datePublished":"2016-12-24T13:57:27+08:00","url":"http://songzy12.github.io/2016/12/24/nltk.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/12/24/nltk.html"},"description":"nltk","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,35 +45,37 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="nltk">nltk</h2>
+    <h2>nltk</h2>
 
 <ul>
-  <li>brown</li>
+<li>brown</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from nltk.corpus import brown
+
+<pre><code>from nltk.corpus import brown
 print brown.raw()[:10000]
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>u"\n\n\tThe/at Fulton/np-tl County/nn-tl Grand/jj-tl Jury/nn-tl said/vbd Friday/nr an/at investigation/nn of/in Atlanta's/np$ recent/jj primary/nn election/nn produced/vbd ``/`` no/at evidence/nn ''/'' that/cs any/dti irregularities/nns took/vbd place/nn ./.\n\n\n\tThe/at jury/nn further/rbr said/vbd in/in term-end/nn presentments/nns that/cs the/at City/nn-tl Executive/jj-tl Committee/nn-tl ,/, which/wdt had/hvd over-all/jj charge/nn of/in the/at election/nn ,/, ``/`` deserves/vbz the/at praise/nn and/cc thanks/nns of/in the/at City/nn-tl of/in-tl Atlanta/np-tl ''/'' for/in the/at manner/nn in/in which/wdt the/at election/nn was/bedz conducted/vbn ./.\n\n\n\t"
-</code></pre></div></div>
+<pre><code>u"\n\n\tThe/at Fulton/np-tl County/nn-tl Grand/jj-tl Jury/nn-tl said/vbd Friday/nr an/at investigation/nn of/in Atlanta's/np$ recent/jj primary/nn election/nn produced/vbd ``/`` no/at evidence/nn ''/'' that/cs any/dti irregularities/nns took/vbd place/nn ./.\n\n\n\tThe/at jury/nn further/rbr said/vbd in/in term-end/nn presentments/nns that/cs the/at City/nn-tl Executive/jj-tl Committee/nn-tl ,/, which/wdt had/hvd over-all/jj charge/nn of/in the/at election/nn ,/, ``/`` deserves/vbz the/at praise/nn and/cc thanks/nns of/in the/at City/nn-tl of/in-tl Atlanta/np-tl ''/'' for/in the/at manner/nn in/in which/wdt the/at election/nn was/bedz conducted/vbn ./.\n\n\n\t"
+</code></pre>
 
 <ul>
-  <li>texttiling</li>
+<li>texttiling</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from nltk.tokenize.texttiling import *
+
+<pre><code>from nltk.tokenize.texttiling import *
 from nltk.corpus import brown
 
 file_in = 'caiwufenxi.wordseg'
 stopwords = 'stopwords.txt' 
 tt = TextTilingTokenizer(demo_mode=True, stopwords=open(stopwords).read())
 s, ss, d, b = tt.tokenize(open(file_in).read())
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="jieba">jieba</h2>
+<h2>jieba</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># encoding=utf-8
+<pre><code># encoding=utf-8
 import jieba
 
 seg_list = jieba.cut("我来到北京清华大学", cut_all=True)
@@ -87,7 +89,7 @@ print(", ".join(seg_list))
 
 seg_list = jieba.cut_for_search("小明硕士毕业于中国科学院计算所，后在日本京都大学深造")  # 搜索引擎模式
 print(", ".join(seg_list))
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/2016/12/24/nltk.html" hidden></a>
 </article>

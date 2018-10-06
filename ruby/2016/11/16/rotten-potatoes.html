@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Rotten Potatoes | Zhengyang Song’s Blog</title>
+<title>Rotten Potatoes | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Rotten Potatoes" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="here" />
 <link rel="canonical" href="http://songzy12.github.io/ruby/2016/11/16/rotten-potatoes.html" />
 <meta property="og:url" content="http://songzy12.github.io/ruby/2016/11/16/rotten-potatoes.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-11-16T15:10:11+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/ruby/2016/11/16/rotten-potatoes.html","description":"here","headline":"Rotten Potatoes","dateModified":"2016-11-16T15:10:11+08:00","datePublished":"2016-11-16T15:10:11+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/ruby/2016/11/16/rotten-potatoes.html"},"@context":"http://schema.org"}</script>
+{"headline":"Rotten Potatoes","dateModified":"2016-11-16T15:10:11+08:00","datePublished":"2016-11-16T15:10:11+08:00","url":"http://songzy12.github.io/ruby/2016/11/16/rotten-potatoes.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/ruby/2016/11/16/rotten-potatoes.html"},"description":"here","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -47,26 +47,26 @@
   <div class="post-content e-content" itemprop="articleBody">
     <p><a href="https://github.com/saasbook/hw-indices-performance">here</a></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install --without production
+<pre><code>bundle install --without production
 rake db:create
 rake db:migrate
 rake db:seed
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="benchmark">benchmark</h2>
+<h2>benchmark</h2>
 
-<p><code class="highlighter-rouge">vi config/routes.rb</code></p>
+<p><code>vi config/routes.rb</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>match '/benchmark/:type' =&gt; 'movies#benchmark', :as =&gt; :benchmark
-</code></pre></div></div>
+<pre><code>match '/benchmark/:type' =&gt; 'movies#benchmark', :as =&gt; :benchmark
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://localhost:3000/benchmark/movies
+<pre><code>http://localhost:3000/benchmark/movies
 http://localhost:3000/benchmark/moviegoers
-</code></pre></div></div>
+</code></pre>
 
-<p><code class="highlighter-rouge">vi app/controllers/movies_controller.rb</code></p>
+<p><code>vi app/controllers/movies_controller.rb</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  def benchmark
+<pre><code>  def benchmark
     benchType=params[:type]
     @results=[]
     times_to_run=Movie.count/2
@@ -92,56 +92,55 @@ http://localhost:3000/benchmark/moviegoers
       @results&lt;&lt;{:action =&gt; "moviegoer.reviews", :times_run =&gt; times_to_run, :time=&gt;total_time.round(5)}
     end 
   end
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="db">db</h2>
+<h2>db</h2>
 
-<p><code class="highlighter-rouge">vi db/seeds.rb:</code></p>
+<p><code>vi db/seeds.rb:</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>movie_count=250
+<pre><code>movie_count=250
 review_count=20 
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd db
+<pre><code>$ cd db
 $ sqlite3 development.sqlite3
 sqlite&gt; explain query plan SELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = 1;
 0|0|0|SCAN TABLE reviews 
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="performance">performance</h2>
+<h2>performance</h2>
 
 <p>Your task is to add a migration, or migrations that will improve the performance by eliminate the use of table scans for the following two queries:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>moviegoer.reviews
+<pre><code>moviegoer.reviews
 movie.reviews
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails console
+<pre><code>rails console
 &gt; movies = Movie.all(:limit=&gt;1)
 &gt; movie = movies[0]
 &gt; movie.reviews
   Review Load (3.7ms)  SELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = 1
-</code></pre></div></div>
+</code></pre>
 
-<p>Add index of <code class="highlighter-rouge">movie_id</code>, <code class="highlighter-rouge">moviegoer_id</code> to reviews.</p>
+<p>Add index of <code>movie_id</code>, <code>moviegoer_id</code> to reviews.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails generate migration AddIndexToReviews movie_id:integer:index moviegoer_id:integer:index
-</code></pre></div></div>
+<pre><code>rails generate migration AddIndexToReviews movie_id:integer:index moviegoer_id:integer:index
+</code></pre>
 
-<p>Delete <code class="highlighter-rouge">add_column</code> line and run the migration. <code class="highlighter-rouge">vi db/migrate/20161116114311_add_index_to_reviews.rb</code></p>
+<p>Delete <code>add_column</code> line and run the migration. <code>vi db/migrate/20161116114311_add_index_to_reviews.rb</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class AddIndexToReviews &lt; ActiveRecord::Migration
+<pre><code>class AddIndexToReviews &lt; ActiveRecord::Migration
   def change
     add_index :reviews, :movie_id
     add_index :reviews, :moviegoer_id
   end 
 end
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite&gt; explain query plan SELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = 1;
+<pre><code>sqlite&gt; explain query plan SELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = 1;
 0|0|0|SEARCH TABLE reviews USING INDEX index_reviews_on_movie_id (movie_id=?)
-</code></pre></div></div>
-
+</code></pre>
 
   </div><a class="u-url" href="/ruby/2016/11/16/rotten-potatoes.html" hidden></a>
 </article>

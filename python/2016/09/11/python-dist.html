@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Python Dist Packages | Zhengyang Song’s Blog</title>
+<title>Python Dist Packages | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Python Dist Packages" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="dist-packages" />
 <link rel="canonical" href="http://songzy12.github.io/python/2016/09/11/python-dist.html" />
 <meta property="og:url" content="http://songzy12.github.io/python/2016/09/11/python-dist.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-09-11T14:44:05+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/python/2016/09/11/python-dist.html","description":"dist-packages","headline":"Python Dist Packages","dateModified":"2016-09-11T14:44:05+08:00","datePublished":"2016-09-11T14:44:05+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/09/11/python-dist.html"},"@context":"http://schema.org"}</script>
+{"headline":"Python Dist Packages","dateModified":"2016-09-11T14:44:05+08:00","datePublished":"2016-09-11T14:44:05+08:00","url":"http://songzy12.github.io/python/2016/09/11/python-dist.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/09/11/python-dist.html"},"description":"dist-packages","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,74 +45,74 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="dist-packages">dist-packages</h2>
+    <h2>dist-packages</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; import site
+<pre><code>&gt;&gt;&gt; import site
 &gt;&gt;&gt; site.getsitepackages()
 ['/usr/local/lib/python2.7/dist-packages', '/usr/lib/python2.7/dist-packages']
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; import gensim
+<pre><code>&gt;&gt;&gt; import gensim
 &gt;&gt;&gt; gensim 
 &lt;module 'gensim' from '/usr/local/lib/python2.7/dist-packages/gensim/__init__.pyc'&gt;
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="pip">pip</h2>
+<h2>pip</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install --use pyhs2
-</code></pre></div></div>
+<pre><code>pip install --use pyhs2
+</code></pre>
 
-<h2 id="pkg_resources">pkg_resources</h2>
+<h2>pkg_resources</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; from pkg_resources import parse_version
+<pre><code>&gt;&gt;&gt; from pkg_resources import parse_version
 &gt;&gt;&gt; parse_version('1.9.a.dev') == parse_version('1.9a0dev')
 True
 &gt;&gt;&gt; parse_version('2.1-rc2') &lt; parse_version('2.1')
 True
 &gt;&gt;&gt; parse_version('0.6a9dev-r41475') &lt; parse_version('0.6a9')
 True
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>release = pkg_resources.get_distribution('sandman').version
+<pre><code>release = pkg_resources.get_distribution('sandman').version
 version = '.'.join(release.split('.')[:2])
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="virtualenv">virtualenv</h2>
+<h2>virtualenv</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd my_project_folder
+<pre><code>cd my_project_folder
 virtualenv venv
 source venv/bin/activate
 pip install requests
 deactivate
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="xlrd">xlrd</h2>
+<h2>xlrd</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import xlrd
+<pre><code>import xlrd
 
 table = xlrd.open_workbook(file_name).sheets()[0]
 for row in range(1, table.nrows - 1):
     print table.row_values(row)
-</code></pre></div></div>
+</code></pre>
 
 <hr />
 
-<h2 id="bs4">bs4</h2>
+<h2>bs4</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[script.extract() for script in link_soup(["script", "ins"])]
+<pre><code>[script.extract() for script in link_soup(["script", "ins"])]
 
 extract(self) method of bs4.element.Tag instance
     Destructively rips this element out of the tree. 
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="pymining">pymining</h2>
+<h2>pymining</h2>
 
 <p><a href="https://github.com/bartdag/pymining">Here</a>.</p>
 
 <p>BIDE Algorithm.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>support = 1000
-</code></pre></div></div>
+<pre><code>support = 1000
+</code></pre>
 
   </div><a class="u-url" href="/python/2016/09/11/python-dist.html" hidden></a>
 </article>

@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Binary Indexed Tree | Zhengyang Song’s Blog</title>
+<title>Binary Indexed Tree | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Binary Indexed Tree" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="int lowbit(int x) { return x &amp; (-x); }" />
 <link rel="canonical" href="http://songzy12.github.io/2017/10/21/binary-indexed-tree.html" />
 <meta property="og:url" content="http://songzy12.github.io/2017/10/21/binary-indexed-tree.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-10-21T10:14:50+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/2017/10/21/binary-indexed-tree.html","description":"int lowbit(int x) { return x &amp; (-x); }","headline":"Binary Indexed Tree","dateModified":"2017-10-21T10:14:50+08:00","datePublished":"2017-10-21T10:14:50+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/10/21/binary-indexed-tree.html"},"@context":"http://schema.org"}</script>
+{"headline":"Binary Indexed Tree","dateModified":"2017-10-21T10:14:50+08:00","datePublished":"2017-10-21T10:14:50+08:00","url":"http://songzy12.github.io/2017/10/21/binary-indexed-tree.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/10/21/binary-indexed-tree.html"},"description":"int lowbit(int x) { return x &amp; (-x); }","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,14 +45,14 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int lowbit(int x) {
+    <pre><code>int lowbit(int x) {
     return x &amp; (-x);
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="one-dimension">One Dimension</h2>
+<h2>One Dimension</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int sum(int x) {
+<pre><code>int sum(int x) {
     int ret = 0;
     while(x &gt; 0) {
         ret += BIT[x]);
@@ -60,28 +60,28 @@
     }
     return ret;
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void add(x, val) {
+<pre><code>void add(x, val) {
     while(x &lt;= N) {
         BIT[x] += val;
         x += lowbit(x);
     }
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="two-dimension">Two Dimension</h2>
+<h2>Two Dimension</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void add(int x, int y, int val) {
+<pre><code>void add(int x, int y, int val) {
     for(int i = x; i &lt;= N; i += lowbit(i)) {
         for(int j = y; j &lt;= N; j += lowbit(j)) {
             BIT2[i][j] += val;
         }
     }
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int sum(int x, int y) {
+<pre><code>int sum(int x, int y) {
     int ret = 0;
     for(int i = x; i &gt; 0; i -= lowbit(i)) {
         for(int j = y; j &gt; 0; j -= lowbit(j)) {
@@ -90,7 +90,7 @@
     }
     return ret;
 }
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/2017/10/21/binary-indexed-tree.html" hidden></a>
 </article>

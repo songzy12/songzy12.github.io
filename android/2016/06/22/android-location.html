@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Android Location | Zhengyang Song’s Blog</title>
+<title>Android Location | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Android Location" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="Location" />
 <link rel="canonical" href="http://songzy12.github.io/android/2016/06/22/android-location.html" />
 <meta property="og:url" content="http://songzy12.github.io/android/2016/06/22/android-location.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-06-22T20:07:03+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/android/2016/06/22/android-location.html","description":"Location","headline":"Android Location","dateModified":"2016-06-22T20:07:03+08:00","datePublished":"2016-06-22T20:07:03+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/06/22/android-location.html"},"@context":"http://schema.org"}</script>
+{"headline":"Android Location","dateModified":"2016-06-22T20:07:03+08:00","datePublished":"2016-06-22T20:07:03+08:00","url":"http://songzy12.github.io/android/2016/06/22/android-location.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/06/22/android-location.html"},"description":"Location","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,9 +45,9 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="location">Location</h2>
+    <h2>Location</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import android.location.Criteria;
+<pre><code>import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -66,11 +66,11 @@ provider = locationManager.getBestProvider(criteria, true);
 locationListener = new LocationListener() {  
     @Override  
     public void onLocationChanged(Location location) {  
-    	updateLocation(location);
+        updateLocation(location);
     }  
     @Override  
     public void onStatusChanged(String provider, int status, Bundle extras) {  
-    	updateLocation(null);
+        updateLocation(null);
     }  
     @Override  
     public void onProviderEnabled(String provider) {  
@@ -83,21 +83,20 @@ locationListener = new LocationListener() {
 locationManager.requestLocationUpdates(provider, 1000, 0,locationListener);
 
 private void updateLocation(Location location){
-	if (location != null) {  
+    if (location != null) {  
         location.getLatitude();  
         location.getLongitude();  
     }
 }  
-		        
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import android.location.GpsSatellite;
+<pre><code>import android.location.GpsSatellite;
 import android.location.GpsStatus;
 
 if(locationManager.isProviderEnabled(android.location.LocationManager.GPS_PROVIDER))
-	textView.append("GPS opened!\n");
+    textView.append("GPS opened!\n");
 else
-	textView.append("Please open GPS!\n");
+    textView.append("Please open GPS!\n");
 
 statusListener = new GpsStatus.Listener() {  
     public void onGpsStatusChanged(int event) { // GPS状态变化时的回调，如卫星数  
@@ -108,17 +107,17 @@ statusListener = new GpsStatus.Listener() {
 locationManager.addGpsStatusListener(statusListener);
 
 private void updateGpsStatus(int event, GpsStatus status) {
-	maxSignalNoiseRate.setValue(0f);
+    maxSignalNoiseRate.setValue(0f);
     if (event == GpsStatus.GPS_EVENT_SATELLITE_STATUS) {
         Iterator&lt;GpsSatellite&gt; it = status.getSatellites().iterator();
         while (it.hasNext()) {
-        	float tmp = it.next().getSnr();
-        	if (tmp &gt; maxSignalNoiseRate.getValue())
-        		maxSignalNoiseRate.setValue(tmp);
+            float tmp = it.next().getSnr();
+            if (tmp &gt; maxSignalNoiseRate.getValue())
+                maxSignalNoiseRate.setValue(tmp);
         }
     }
 }
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/android/2016/06/22/android-location.html" hidden></a>
 </article>

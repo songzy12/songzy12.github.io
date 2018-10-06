@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>wdio | Zhengyang Song’s Blog</title>
+<title>wdio | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="wdio" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="package.json" />
 <link rel="canonical" href="http://songzy12.github.io/2017/02/14/wdio.html" />
 <meta property="og:url" content="http://songzy12.github.io/2017/02/14/wdio.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-02-14T10:32:34+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/2017/02/14/wdio.html","description":"package.json","headline":"wdio","dateModified":"2017-02-14T10:32:34+08:00","datePublished":"2017-02-14T10:32:34+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/02/14/wdio.html"},"@context":"http://schema.org"}</script>
+{"headline":"wdio","dateModified":"2017-02-14T10:32:34+08:00","datePublished":"2017-02-14T10:32:34+08:00","url":"http://songzy12.github.io/2017/02/14/wdio.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/02/14/wdio.html"},"description":"package.json","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,9 +45,9 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="packagejson">package.json</h2>
+    <h2>package.json</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  "scripts": {
+<pre><code>  "scripts": {
     "start": "node app.js",
     "test": "mocha tests/unit/*.js",
     "e2e": "wdio wdio.conf.js",
@@ -61,11 +61,11 @@
     "wdio-selenium-standalone-service": "0.0.7",
     "webdriverio": "^4.6.1"
   }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="wdioconfjs">wdio.conf.js</h2>
+<h2>wdio.conf.js</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>exports.config = {
+<pre><code>exports.config = {
 
     //
     // ==================
@@ -263,11 +263,11 @@
     // onComplete: function(exitCode) {
     // }
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="testjs">test.js</h2>
+<h2>test.js</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>process.env.NODE_ENV = 'test';
+<pre><code>process.env.NODE_ENV = 'test';
 
 let chai = require('chai');
 let chaiHttp = require('chai-http');
@@ -322,7 +322,7 @@ describe('Login and Users page', () =&gt; {
     rows.value.length.should.equal(4);
   });
 });
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/2017/02/14/wdio.html" hidden></a>
 </article>

@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>JavaScript | Zhengyang Song’s Blog</title>
+<title>JavaScript | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="JavaScript" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="Javascript Level 1" />
 <link rel="canonical" href="http://songzy12.github.io/2017/04/02/javascript.html" />
 <meta property="og:url" content="http://songzy12.github.io/2017/04/02/javascript.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-04-02T23:04:43+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/2017/04/02/javascript.html","description":"Javascript Level 1","headline":"JavaScript","dateModified":"2017-04-02T23:04:43+08:00","datePublished":"2017-04-02T23:04:43+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/04/02/javascript.html"},"@context":"http://schema.org"}</script>
+{"headline":"JavaScript","dateModified":"2017-04-02T23:04:43+08:00","datePublished":"2017-04-02T23:04:43+08:00","url":"http://songzy12.github.io/2017/04/02/javascript.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/04/02/javascript.html"},"description":"Javascript Level 1","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,42 +45,50 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="javascript-level-1">Javascript Level 1</h2>
+    <h2>Javascript Level 1</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type='text/javascript'&gt; 
+<p>```</p>
+
+<script type='text/javascript'> 
 $(function(){ 
-	$('.level-form').submit(function(e){ 
-		e.preventDefault(); 
-		if(document.getElementById('pass').value == correct) { 
-			document.location = '?pass=' + correct; 
-		} else { 
-			alert('Incorrect password') 
-		} 
-	})
+    $('.level-form').submit(function(e){ 
+        e.preventDefault(); 
+        if(document.getElementById('pass').value == correct) { 
+            document.location = '?pass=' + correct; 
+        } else { 
+            alert('Incorrect password') 
+        } 
+    })
 })
-&lt;/script&gt;
-</code></pre></div></div>
+</script>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code> &lt;script type='text/javascript'&gt; var correct = 'jrules' &lt;/script&gt;
-</code></pre></div></div>
 
-<h2 id="javascript-level-2">Javascript Level 2</h2>
+<pre><code></code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type='text/javascript'&gt; 
+<p> <script type='text/javascript'> var correct = &lsquo;jrules&rsquo; </script>
+```</p>
+
+<h2>Javascript Level 2</h2>
+
+<p>```</p>
+
+<script type='text/javascript'> 
 $(function(){ 
-	$('.level-form').submit(function(e){ 
-		e.preventDefault(); 
-		if ($('.level-form #pass')[0].value.length == length) { 
-			document.location = "2?x=" + length; 
-		} else { 
-			alert('Incorrect Password'); 
-		} 
-	}); 
+    $('.level-form').submit(function(e){ 
+        e.preventDefault(); 
+        if ($('.level-form #pass')[0].value.length == length) { 
+            document.location = "2?x=" + length; 
+        } else { 
+            alert('Incorrect Password'); 
+        } 
+    }); 
 }); 
-&lt;/script&gt;
-</code></pre></div></div>
+</script>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type='text/javascript'&gt;
+
+<pre><code></code></pre>
+
+<script type='text/javascript'>
     var length = 5;
     var x = 3;
     var y = 2;
@@ -93,57 +101,73 @@ $(function(){
     y++;
     y++;
     length = Math.floor(y);
-&lt;/script&gt;
-</code></pre></div></div>
+</script>
 
-<h2 id="javascript-level-3">Javascript Level 3</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type='text/javascript'&gt; 
+<pre><code>
+## Javascript Level 3
+</code></pre>
+
+<script type='text/javascript'> 
 var thecode = 'code123'; 
 $(function(){ 
-	$('.level-form').submit(function(e){ 
-		e.preventDefault(); 
-		if ($('.level-form #pass')[0].value == thecode) { 
-			document.location = "?pass=" + thecode; 
-		} else { 
-			alert('Incorrect Password'); 
-		} 
-	}); 
+    $('.level-form').submit(function(e){ 
+        e.preventDefault(); 
+        if ($('.level-form #pass')[0].value == thecode) { 
+            document.location = "?pass=" + thecode; 
+        } else { 
+            alert('Incorrect Password'); 
+        } 
+    }); 
 }); 
-&lt;/script&gt;
-</code></pre></div></div>
+</script>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>getinthere
-</code></pre></div></div>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type='text/javascript' src='https://hackthis-10af.kxcdn.com/files/js/min/main.js?1446747682'&gt;&lt;/script&gt;
-</code></pre></div></div>
+<pre><code></code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var thecode='getinthere';
-</code></pre></div></div>
+<p>getinthere
+```</p>
 
-<h2 id="javascript-level-4">Javascript Level 4</h2>
+<p>```</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>view-source:https://www.hackthis.co.uk/levels/javascript/4
-</code></pre></div></div>
+<script type='text/javascript' src='https://hackthis-10af.kxcdn.com/files/js/min/main.js?1446747682'></script>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div class='level-form'&gt;
-    &lt;script&gt; document.location = '?input'; &lt;/script&gt;
-    &lt;div class='center'&gt;The password is: smellthecheese&lt;/div&gt;
 
-&lt;/div&gt;
-</code></pre></div></div>
+<pre><code></code></pre>
 
-<h2 id="javascript-level-5">Javascript Level 5</h2>
+<p>var thecode=&lsquo;getinthere&rsquo;;
+```</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>view-source:https://www.hackthis.co.uk/levels/javascript/5
-</code></pre></div></div>
+<h2>Javascript Level 4</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;script type='text/javascript' src='https://hackthis-10af.kxcdn.com/files/js/min/extra_48d468a93b.js?1429997775'&gt;&lt;/script&gt;
-</code></pre></div></div>
+<pre><code>view-source:https://www.hackthis.co.uk/levels/javascript/4
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a=window.location.host+"";b=a.length;c=4+((5*10)*2);d=String.fromCharCode(c,-(41-Math.floor(1806/13)),Math.sqrt(b-2)*29,(b*8)-29);p=prompt("Password:","");if(p==d){window.location="?pass="+p;}else{window.location="/levels/";}
-</code></pre></div></div>
+<p>```</p>
+
+<div class='level-form'>
+    <script> document.location = '?input'; </script>
+    <div class='center'>The password is: smellthecheese</div>
+
+</div>
+
+
+<pre><code>
+## Javascript Level 5
+</code></pre>
+
+<p>view-source:<a href="https://www.hackthis.co.uk/levels/javascript/5">https://www.hackthis.co.uk/levels/javascript/5</a>
+```</p>
+
+<p>```</p>
+
+<script type='text/javascript' src='https://hackthis-10af.kxcdn.com/files/js/min/extra_48d468a93b.js?1429997775'></script>
+
+
+<pre><code></code></pre>
+
+<p>a=window.location.host+&ldquo;&rdquo;;b=a.length;c=4+((5<em>10)</em>2);d=String.fromCharCode(c,-(41-Math.floor(1806/13)),Math.sqrt(b-2)<em>29,(b</em>8)-29);p=prompt(&ldquo;Password:&rdquo;,&ldquo;&rdquo;);if(p==d){window.location=&ldquo;?pass=&rdquo;+p;}else{window.location=&ldquo;/levels/&rdquo;;}
+```</p>
 
   </div><a class="u-url" href="/2017/04/02/javascript.html" hidden></a>
 </article>

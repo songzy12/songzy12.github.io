@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>matplotlib | Zhengyang Song’s Blog</title>
+<title>matplotlib | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="matplotlib" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="_tkinter.TclError: no display name and no $DISPLAY environment variable" />
 <link rel="canonical" href="http://songzy12.github.io/python/2016/11/05/matplotlib.html" />
 <meta property="og:url" content="http://songzy12.github.io/python/2016/11/05/matplotlib.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-11-05T16:46:28+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/python/2016/11/05/matplotlib.html","description":"_tkinter.TclError: no display name and no $DISPLAY environment variable","headline":"matplotlib","dateModified":"2016-11-05T16:46:28+08:00","datePublished":"2016-11-05T16:46:28+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/11/05/matplotlib.html"},"@context":"http://schema.org"}</script>
+{"headline":"matplotlib","dateModified":"2016-11-05T16:46:28+08:00","datePublished":"2016-11-05T16:46:28+08:00","url":"http://songzy12.github.io/python/2016/11/05/matplotlib.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/11/05/matplotlib.html"},"description":"_tkinter.TclError: no display name and no $DISPLAY environment variable","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,16 +45,16 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>_tkinter.TclError: no display name and no $DISPLAY environment variable
-</code></pre></div></div>
+    <pre><code>_tkinter.TclError: no display name and no $DISPLAY environment variable
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import matplotlib
+<pre><code>import matplotlib
 matplotlib.use('Agg')
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="pyplot">pyplot</h2>
+<h2>pyplot</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from matplotlib import pyplot as plt
+<pre><code>from matplotlib import pyplot as plt
 plt.scatter(x, y, c) # color
 plt.plot(x, y)
 plt.xlabel('x')
@@ -63,11 +63,11 @@ plt.savefig(image_name)
 plt.clf() # clear the figure
 plt.bar(x, y, align='center')
 plt.show()
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="pylab">pylab</h2>
+<h2>pylab</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from matplotlib import pylab
+<pre><code>from matplotlib import pylab
 
 pylab.xlabel("Sentence Gap index")
 pylab.ylabel("Gap Scores")
@@ -78,11 +78,11 @@ pylab.stem(range(len(b)), b)
 pylab.legend()
 fname = 'image.png'
 pylab.savefig(fname)
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="subplot-pie">subplot, pie</h2>
+<h2>subplot, pie</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fig = plt.figure()
+<pre><code>fig = plt.figure()
 ax = fig.add_subplot(111)
 ax.plot(centers[2], color='#00BFFF', label='1')
 ax.plot(centers[4], color='#BA55D3', label='2')
@@ -117,11 +117,11 @@ for patch, txt in zip(patches, autotexts):
     print patch.theta2 - patch.theta1
     if (patch.theta2 - patch.theta1) &lt; 30.:
         txt.set_position((x, y))
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="grid">grid</h2>
+<h2>grid</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import matplotlib.pyplot as plt
+<pre><code>import matplotlib.pyplot as plt
 import matplotlib.ticker as plticker
 
 data = [50 * random.random() for i in range(20)]
@@ -146,7 +146,7 @@ plt.xlabel('Users')
 plt.ylabel('Average jump span')
 #plt.savefig('user_jump_span.png')
 plt.show()
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/python/2016/11/05/matplotlib.html" hidden></a>
 </article>

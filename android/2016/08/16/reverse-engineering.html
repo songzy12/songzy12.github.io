@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Reverse Engineering | Zhengyang Song’s Blog</title>
+<title>Reverse Engineering | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Reverse Engineering" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="apk" />
 <link rel="canonical" href="http://songzy12.github.io/android/2016/08/16/reverse-engineering.html" />
 <meta property="og:url" content="http://songzy12.github.io/android/2016/08/16/reverse-engineering.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-08-16T13:51:20+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/android/2016/08/16/reverse-engineering.html","description":"apk","headline":"Reverse Engineering","dateModified":"2016-08-16T13:51:20+08:00","datePublished":"2016-08-16T13:51:20+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/08/16/reverse-engineering.html"},"@context":"http://schema.org"}</script>
+{"headline":"Reverse Engineering","dateModified":"2016-08-16T13:51:20+08:00","datePublished":"2016-08-16T13:51:20+08:00","url":"http://songzy12.github.io/android/2016/08/16/reverse-engineering.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/08/16/reverse-engineering.html"},"description":"apk","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,111 +45,117 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="apk">apk</h2>
+    <h2>apk</h2>
 
 <ul>
-  <li>AndroidManifest.xml</li>
-  <li>classes.dex</li>
-  <li>res/</li>
-  <li>lib/</li>
-  <li>META-INF</li>
+<li>AndroidManifest.xml</li>
+<li>classes.dex</li>
+<li>res/</li>
+<li>lib/</li>
+<li>META-INF</li>
 </ul>
+
 
 <p>arsc: Android package Resource file.</p>
 
-<h2 id="hacking-approach">hacking approach</h2>
+<h2>hacking approach</h2>
 
 <ul>
-  <li>unzip apk &amp; disassemble classes.dex</li>
-  <li>perform static analysis on the app</li>
-  <li>inject byte-code into the app</li>
-  <li>reassemble classes.dex &amp; zip/sign apk</li>
+<li>unzip apk &amp; disassemble classes.dex</li>
+<li>perform static analysis on the app</li>
+<li>inject byte-code into the app</li>
+<li>reassemble classes.dex &amp; zip/sign apk</li>
 </ul>
+
 
 <p>dex: dalvik executable</p>
 
-<h2 id="apktool">apktool</h2>
+<h2>apktool</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apktool d RecentContest_beta.apk
+<pre><code>apktool d RecentContest_beta.apk
 apktool b RecentContest_beta
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="recentcontest">RecentContest</h2>
+<h2>RecentContest</h2>
 
 <p><a href="http://contests.acmicpc.info/contests.json">contests</a>.</p>
 
-<p>To remove <code class="highlighter-rouge">Private</code> access contests from the json result, just insert the following lines after <code class="highlighter-rouge">:cond_1</code> of file <code class="highlighter-rouge">JsonStringAnalysis.smali</code></p>
+<p>To remove <code>Private</code> access contests from the json result, just insert the following lines after <code>:cond_1</code> of file <code>JsonStringAnalysis.smali</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const-string v8, "Private"
+<pre><code>const-string v8, "Private"
 
 invoke-virtual {v0, v8}, Ljava/lang/String;-&gt;equals(Ljava/lang/Object;)Z
 
 move-result v8
 
 if-nez v8, :try_end_0
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="testsign">testsign</h2>
+<h2>testsign</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java -jar testsign.jar RecentContest_beta.apk RecentContest_beta-signed.apk
-</code></pre></div></div>
+<pre><code>java -jar testsign.jar RecentContest_beta.apk RecentContest_beta-signed.apk
+</code></pre>
 
-<h2 id="smali">smali</h2>
+<h2>smali</h2>
 
-<h3 id="types">Types</h3>
-
-<ul>
-  <li>V: void</li>
-  <li>Z: boolean</li>
-  <li>B: byte</li>
-  <li>S: short</li>
-  <li>C: char</li>
-  <li>F: float</li>
-  <li>I: int</li>
-  <li>J: long</li>
-  <li>D: double</li>
-  <li>[: array</li>
-</ul>
-
-<h3 id="classes">Classes</h3>
+<h3>Types</h3>
 
 <ul>
-  <li>full name space slash separated</li>
-  <li>prefixed with L</li>
-  <li>suffixed with ;</li>
+<li>V: void</li>
+<li>Z: boolean</li>
+<li>B: byte</li>
+<li>S: short</li>
+<li>C: char</li>
+<li>F: float</li>
+<li>I: int</li>
+<li>J: long</li>
+<li>D: double</li>
+<li>[: array</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Lcom/example/myapp/MyClass;
-</code></pre></div></div>
 
-<h3 id="methods">Methods</h3>
+<h3>Classes</h3>
+
+<ul>
+<li>full name space slash separated</li>
+<li>prefixed with L</li>
+<li>suffixed with ;</li>
+</ul>
+
+
+<pre><code>Lcom/example/myapp/MyClass;
+</code></pre>
+
+<h3>Methods</h3>
 
 <p>.method keyword method-name parameters/return</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>.method private delayedAnimationFrame(J)Z
-</code></pre></div></div>
+<pre><code>.method private delayedAnimationFrame(J)Z
+</code></pre>
 
-<h3 id="registers">Registers</h3>
-
-<ul>
-  <li>.locals</li>
-  <li>.parameters</li>
-</ul>
-
-<h3 id="opcodes">Opcodes</h3>
+<h3>Registers</h3>
 
 <ul>
-  <li>invoke-super vx, vy, …</li>
-  <li>new-instance vx</li>
-  <li>invoke-direct vx, vy, …</li>
-  <li>const-string vx</li>
-  <li>invoke-virtual vx, vy, …</li>
-  <li>return-void</li>
+<li>.locals</li>
+<li>.parameters</li>
 </ul>
 
-<h2 id="dex2jar">dex2jar</h2>
 
-<h2 id="jd-gui">jd-gui</h2>
+<h3>Opcodes</h3>
+
+<ul>
+<li>invoke-super vx, vy, &hellip;</li>
+<li>new-instance vx</li>
+<li>invoke-direct vx, vy, &hellip;</li>
+<li>const-string vx</li>
+<li>invoke-virtual vx, vy, &hellip;</li>
+<li>return-void</li>
+</ul>
+
+
+<h2>dex2jar</h2>
+
+<h2>jd-gui</h2>
 
   </div><a class="u-url" href="/android/2016/08/16/reverse-engineering.html" hidden></a>
 </article>

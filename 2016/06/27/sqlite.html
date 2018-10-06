@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>SQLite | Zhengyang Song’s Blog</title>
+<title>SQLite | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="SQLite" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="sqlite3 user create table tbl(name char(10), age smallint, score float); .table insert into tbl values(&#39;yanggang&#39;, 24, 98); insert into tbl values(&#39;sunboy&#39;, 20, 78.5); select * from tbl; .mode column .databases .backup main user.sql .output user_tbl.sql .dump tbl" />
 <link rel="canonical" href="http://songzy12.github.io/2016/06/27/sqlite.html" />
 <meta property="og:url" content="http://songzy12.github.io/2016/06/27/sqlite.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-06-27T13:50:37+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/2016/06/27/sqlite.html","description":"sqlite3 user create table tbl(name char(10), age smallint, score float); .table insert into tbl values(&#39;yanggang&#39;, 24, 98); insert into tbl values(&#39;sunboy&#39;, 20, 78.5); select * from tbl; .mode column .databases .backup main user.sql .output user_tbl.sql .dump tbl","headline":"SQLite","dateModified":"2016-06-27T13:50:37+08:00","datePublished":"2016-06-27T13:50:37+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/06/27/sqlite.html"},"@context":"http://schema.org"}</script>
+{"headline":"SQLite","dateModified":"2016-06-27T13:50:37+08:00","datePublished":"2016-06-27T13:50:37+08:00","url":"http://songzy12.github.io/2016/06/27/sqlite.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/06/27/sqlite.html"},"description":"sqlite3 user create table tbl(name char(10), age smallint, score float); .table insert into tbl values(&#39;yanggang&#39;, 24, 98); insert into tbl values(&#39;sunboy&#39;, 20, 78.5); select * from tbl; .mode column .databases .backup main user.sql .output user_tbl.sql .dump tbl","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,7 +45,7 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sqlite3 user
+    <pre><code>sqlite3 user
 create table tbl(name char(10), age smallint, score float);
 .table
 insert into tbl values('yanggang', 24, 98);
@@ -56,20 +56,20 @@ select * from tbl;
 .backup main user.sql
 .output user_tbl.sql
 .dump tbl
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="explain">EXPLAIN</h2>
+<h2>EXPLAIN</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sqlite3 development.sqlite3
+<pre><code>$ sqlite3 development.sqlite3
 sqlite&gt; explain query plan SELECT "reviews".* FROM "reviews" WHERE "reviews"."movie_id" = 1;
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0|0|0|SCAN TABLE reviews
-</code></pre></div></div>
+<pre><code>0|0|0|SCAN TABLE reviews
+</code></pre>
 
-<h2 id="autoincrement">AUTOINCREMENT</h2>
+<h2>AUTOINCREMENT</h2>
 
-<p><code class="highlighter-rouge">AUTO_INCREMENT</code> is MySQL-specific. SQLite apparently has a similar thing, <code class="highlighter-rouge">AUTOINCREMENT</code>.</p>
+<p><code>AUTO_INCREMENT</code> is MySQL-specific. SQLite apparently has a similar thing, <code>AUTOINCREMENT</code>.</p>
 
   </div><a class="u-url" href="/2016/06/27/sqlite.html" hidden></a>
 </article>

@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Speech to Text | Zhengyang Song’s Blog</title>
+<title>Speech to Text | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Speech to Text" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="API" />
 <link rel="canonical" href="http://songzy12.github.io/javascript/python/2016/03/16/speech-to-text.html" />
 <meta property="og:url" content="http://songzy12.github.io/javascript/python/2016/03/16/speech-to-text.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-03-16T21:37:58+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/javascript/python/2016/03/16/speech-to-text.html","description":"API","headline":"Speech to Text","dateModified":"2016-03-16T21:37:58+08:00","datePublished":"2016-03-16T21:37:58+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/javascript/python/2016/03/16/speech-to-text.html"},"@context":"http://schema.org"}</script>
+{"headline":"Speech to Text","dateModified":"2016-03-16T21:37:58+08:00","datePublished":"2016-03-16T21:37:58+08:00","url":"http://songzy12.github.io/javascript/python/2016/03/16/speech-to-text.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/javascript/python/2016/03/16/speech-to-text.html"},"description":"API","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,45 +45,44 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="api">API</h2>
+    <h2>API</h2>
 
 <p>API: application programming interface.</p>
 
 <ul>
-  <li>api key: <code class="highlighter-rouge">272693d198659c3ab00bbdeee1df353f</code></li>
-  <li>text-to-speech: <a href="http://apistore.baidu.com/apiworks/servicedetail/867.html">here</a>.</li>
-  <li>speech-to-text: <a href="http://apistore.baidu.com/astore/toolshttpproxy?apiId=usy9yg&amp;isAworks=1">here</a>.</li>
-  <li>
-    <p>One hundred times per second.</p>
-  </li>
-  <li><code class="highlighter-rouge">audioBase64 </code> is truncated in the debug tool for speech-to-text api.</li>
-  <li>parameter error: the <code class="highlighter-rouge">audioBase64</code> parameter is wrong.</li>
-  <li>The t-t-s api returns mp3 data, while the s-t-t api receives wav data.</li>
-  <li>The <code class="highlighter-rouge">lan</code> parameter is of no use.</li>
+<li>api key: <code>272693d198659c3ab00bbdeee1df353f</code></li>
+<li>text-to-speech: <a href="http://apistore.baidu.com/apiworks/servicedetail/867.html">here</a>.</li>
+<li>speech-to-text: <a href="http://apistore.baidu.com/astore/toolshttpproxy?apiId=usy9yg&amp;isAworks=1">here</a>.</li>
+<li><p>One hundred times per second.</p></li>
+<li><p><code>audioBase64</code> is truncated in the debug tool for speech-to-text api.</p></li>
+<li>parameter error: the <code>audioBase64</code> parameter is wrong.</li>
+<li>The t-t-s api returns mp3 data, while the s-t-t api receives wav data.</li>
+<li>The <code>lan</code> parameter is of no use.</li>
 </ul>
 
-<h2 id="browser">browser</h2>
 
-<h3 id="navigatorgetusermedia">navigator.getUserMedia</h3>
+<h2>browser</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>navigator.getUserMedia({audio:true}, success, function(e) {
+<h3>navigator.getUserMedia</h3>
+
+<pre><code>navigator.getUserMedia({audio:true}, success, function(e) {
 alert('Error capturing audio.');
 });
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="audiocontext">AudioContext</h3>
+<h3>AudioContext</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function success(e){
+<pre><code>function success(e){
     // creates the audio context
     audioContext = window.AudioContext || window.webkitAudioContext;
     context = new audioContext();
 
-	// we query the context sample rate (varies depending on platforms)
+    // we query the context sample rate (varies depending on platforms)
     inputSampleRate = context.sampleRate;
     outputSampleRate = 8000;
 
     console.log('succcess');
-    
+
     // creates a gain node
     volume = context.createGain();
 
@@ -103,10 +102,10 @@ alert('Error capturing audio.');
     recorder.onaudioprocess = function(e){
         if (!recording) return;
         var left = e.inputBuffer.getChannelData (0);
-        
+
         // we clone the samples
         leftchannel.push (new Float32Array (left));
-        
+
         recordingLength += left.length;
         console.log('recording');
     }
@@ -115,45 +114,45 @@ alert('Error capturing audio.');
     volume.connect (recorder);
     recorder.connect (context.destination); 
 }
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="compress">compress</h3>
+<h3>compress</h3>
 
-<p>The <code class="highlighter-rouge">context.sampleRate</code> returns <code class="highlighter-rouge">48000</code>.</p>
+<p>The <code>context.sampleRate</code> returns <code>48000</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function compress(buffer, size) {
+<pre><code>function compress(buffer, size) {
     //合并
     var data = new Float32Array(size);
     var offset = 0;
-    
+
     for (var i = 0; i &lt; buffer.length; i++) {
         data.set(buffer[i], offset);
         offset += buffer[i].length;
     }
     //压缩
     var compression = parseInt(inputSampleRate / outputSampleRate);
-    
+
     var length = Math.floor(data.length / compression);
     // Float32Array: 32 bit (4 byte) floating point Array
     var result = new Float32Array(length);
 
     var index = 0, j = 0;
-    
+
     while (index &lt; length) {
         result[index] = data[j];
         j += compression;
         index++;
     }
-    
+
     return result;
 }
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="wav">wav</h3>
+<h3>wav</h3>
 
 <p>BLOB: binary large object</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// we stop recording
+<pre><code>// we stop recording
 recording = false;            
 outputElement.innerHTML = 'Building wav file...';
 
@@ -205,29 +204,29 @@ for (var i = 0; i &lt; bytes.length; i++){
 
 // our final binary blob
 var blob = new Blob ( [ view ], { type : 'audio/wav' } );
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="download">download</h3>
+<h3>download</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var url = (window.URL || window.webkitURL).createObjectURL(blob);
+<pre><code>var url = (window.URL || window.webkitURL).createObjectURL(blob);
 var link = window.document.getElementById("link");
 link.href = url;
 link.download = 'output.wav';
 var click = document.createEvent("Event");
 click.initEvent("click", true, true);
 link.dispatchEvent(click);
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="base-64">base 64</h3>
+<h3>base 64</h3>
 
 <p>A base 64 encoder: <a href="http://www.opinionatedgeek.com/dotnet/tools/base64encode/">here</a>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var audioData = btoa([].reduce.call(new Uint8Array(buffer),function(p,c){return p+String.fromCharCode(c)},''));
-</code></pre></div></div>
+<pre><code>var audioData = btoa([].reduce.call(new Uint8Array(buffer),function(p,c){return p+String.fromCharCode(c)},''));
+</code></pre>
 
-<h3 id="xmlhttprequest">XMLHttpRequest</h3>
+<h3>XMLHttpRequest</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var fd = new FormData();
+<pre><code>var fd = new FormData();
 fd.append("audioData", audioData);
 var url = "/stt";
 var xhr = new XMLHttpRequest();
@@ -239,13 +238,13 @@ xhr.onreadystatechange=function() {
 
 xhr.open("POST", url);
 xhr.send(fd);
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="server">server</h2>
+<h2>server</h2>
 
 <p>html: templates/index.html</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import sys, json
+<pre><code>import sys, json
 from flask import Flask
 from flask import render_template, url_for
 from flask import request
@@ -263,13 +262,13 @@ apikey = "272693d198659c3ab00bbdeee1df353f"
 def index():
     retData = open('tts.txt').read()
     return render_template('tts.html', audioBase64=retData)
-    
+
 @app.route('/stt', methods=['GET', 'POST'])
 def stt():
     # return render_template('stt.html')
     if request.method != 'POST':
         return render_template('stt.html')
-    
+
     url = 'http://apis.baidu.com/apistore/vop/baiduvopjson'
     data = {}
     data['audioBase64'] = request.form['audioData']
@@ -281,7 +280,7 @@ def stt():
     data['lan'] = "zh"
 
     decoded_data = urlencode(data)
-    
+
     req = Request(url, data = decoded_data)
 
     req.add_header("Content-Type", "application/x-www-form-urlencoded")
@@ -322,7 +321,7 @@ def tts():
 if __name__ == '__main__':
     # app.run()
     app.run(debug=True)
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/javascript/python/2016/03/16/speech-to-text.html" hidden></a>
 </article>

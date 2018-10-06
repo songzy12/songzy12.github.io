@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>python built-in | Zhengyang Song’s Blog</title>
+<title>python built-in | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="python built-in" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="Python Style" />
 <link rel="canonical" href="http://songzy12.github.io/python/2016/12/24/python-built-in.html" />
 <meta property="og:url" content="http://songzy12.github.io/python/2016/12/24/python-built-in.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-12-24T14:04:31+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/python/2016/12/24/python-built-in.html","description":"Python Style","headline":"python built-in","dateModified":"2016-12-24T14:04:31+08:00","datePublished":"2016-12-24T14:04:31+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/12/24/python-built-in.html"},"@context":"http://schema.org"}</script>
+{"headline":"python built-in","dateModified":"2016-12-24T14:04:31+08:00","datePublished":"2016-12-24T14:04:31+08:00","url":"http://songzy12.github.io/python/2016/12/24/python-built-in.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/12/24/python-built-in.html"},"description":"Python Style","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,55 +45,57 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="python-style">Python Style</h2>
+    <h2>Python Style</h2>
 
 <ul>
-  <li>命名： ClassName, ExceptionName, GLOBAL_VAR_NAME, module_name, package_name, method_name, function_name, instance_var_name, function_parameter_name, local_var_name. 用单下划线(_)开头表示模块变量或函数是protected的(使用import * from时不会包含). 用双下划线(__)开头的实例变量或方法表示类内私有.</li>
-  <li>不要在行尾加分号, 也不要用分号将两条命令放在同一行.</li>
-  <li>不要使用反斜杠连接行.</li>
-  <li>顶级定义之间空两行, 方法定义之间空一行</li>
-  <li>当’=’用于指示关键字参数或默认参数值时, 不要在其两侧使用空格.
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def complex(real, imag=0.0): return magic(r=real, i=imag)
-</code></pre></div>    </div>
-  </li>
-  <li>不要用空格来垂直对齐多行间的标记, 因为这会成为维护的负担(适用于:, #, =等)</li>
-  <li>SheBang(HashBang): 大部分.py文件不必以#!作为文件的开始. 根据 PEP-394 , 程序的main文件应该以 <code class="highlighter-rouge"><span class="c1">#!/usr/bin/python2</span></code> 或者 <code class="highlighter-rouge"><span class="c1">#!/usr/bin/python3</span></code> 开始.</li>
-  <li>注释：
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def fetch_bigtable_rows(big_table, keys, other_silly_variable=None):
-  """Fetches rows from a Bigtable.
+<li>命名： ClassName, ExceptionName, GLOBAL_VAR_NAME, module_name, package_name, method_name, function_name, instance_var_name, function_parameter_name, local_var_name. 用单下划线(_)开头表示模块变量或函数是protected的(使用import * from时不会包含). 用双下划线(__)开头的实例变量或方法表示类内私有.</li>
+<li>不要在行尾加分号, 也不要用分号将两条命令放在同一行.</li>
+<li>不要使用反斜杠连接行.</li>
+<li>顶级定义之间空两行, 方法定义之间空一行</li>
+<li>当’=’用于指示关键字参数或默认参数值时, 不要在其两侧使用空格.
+<code>
+def complex(real, imag=0.0): return magic(r=real, i=imag)
+</code></li>
+<li>不要用空格来垂直对齐多行间的标记, 因为这会成为维护的负担(适用于:, #, =等)</li>
+<li>SheBang(HashBang): 大部分.py文件不必以#!作为文件的开始. 根据 PEP-394 , 程序的main文件应该以 <code>#!/usr/bin/python2</code> 或者 <code>#!/usr/bin/python3</code> 开始.</li>
+<li><p>注释：
+```
+def fetch_bigtable_rows(big_table, keys, other_silly_variable=None):
+  &ldquo;&rdquo;&ldquo;Fetches rows from a Bigtable.</p>
 
-  Retrieves rows pertaining to the given keys from the Table instance
+<p>  Retrieves rows pertaining to the given keys from the Table instance
   represented by big_table.  Silly things may happen if
-  other_silly_variable is not None.
+  other_silly_variable is not None.</p>
 
-  Args:
+<p>  Args:
       big_table: An open Bigtable Table instance.
       keys: A sequence of strings representing the key of each table row
           to fetch.
       other_silly_variable: Another optional variable, that has a much
-          longer name than the other args, and which does nothing.
+          longer name than the other args, and which does nothing.</p>
 
-  Returns:
+<p>  Returns:
       A dict mapping keys to the corresponding table row data
       fetched. Each row is represented as a tuple of strings. For
-      example:
+      example:</p>
 
-      {'Serak': ('Rigel VII', 'Preparer'),
-       'Zim': ('Irk', 'Invader'),
-       'Lrrr': ('Omicron Persei 8', 'Emperor')}
+<pre><code>  {'Serak': ('Rigel VII', 'Preparer'),
+   'Zim': ('Irk', 'Invader'),
+   'Lrrr': ('Omicron Persei 8', 'Emperor')}
 
-      If a key from the keys argument is missing from the dictionary,
-      then that row was not found in the table.
+  If a key from the keys argument is missing from the dictionary,
+  then that row was not found in the table.
+</code></pre>
 
-  Raises:
+<p>  Raises:
       IOError: An error occurred accessing the bigtable.Table object.
-  """
+  &ldquo;&rdquo;&ldquo;
   pass
-</code></pre></div>    </div>
-  </li>
+```</p></li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class SampleClass(object):
+
+<pre><code>class SampleClass(object):
     """Summary of class here.
 
     Longer class information....
@@ -111,140 +113,142 @@
 
     def public_method(self):
         """Performs operation blah."""
-</code></pre></div></div>
+</code></pre>
+
 <ul>
-  <li>如果一个类不继承自其它类, 就显式的从object继承. 嵌套类也一样.</li>
-  <li>在同一个文件中, 保持使用字符串引号的一致性. 使用单引号’或者双引号”之一用以引用字符串, 并在同一文件中沿用.</li>
-  <li>每个导入应该独占一行. 导入应该按照从最通用到最不通用的顺序分组: 标准库导入，第三方库导入， 应用程序指定导入。每种分组中, 应该根据每个模块的完整包路径按字典序排序, 忽略大小写。</li>
+<li>如果一个类不继承自其它类, 就显式的从object继承. 嵌套类也一样.</li>
+<li>在同一个文件中, 保持使用字符串引号的一致性. 使用单引号’或者双引号”之一用以引用字符串, 并在同一文件中沿用.</li>
+<li>每个导入应该独占一行. 导入应该按照从最通用到最不通用的顺序分组: 标准库导入，第三方库导入， 应用程序指定导入。每种分组中, 应该根据每个模块的完整包路径按字典序排序, 忽略大小写。</li>
 </ul>
 
-<h2 id="all">all</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>all(iterable) -&gt; bool
-</code></pre></div></div>
+<h2>all</h2>
 
-<h2 id="any">any</h2>
+<pre><code>all(iterable) -&gt; bool
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; any(x == 2 for x in [1,2])
+<h2>any</h2>
+
+<pre><code>&gt;&gt;&gt; any(x == 2 for x in [1,2])
 True
 &gt;&gt;&gt; any(x == 3 for x in [1,2])
 False
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="bin">bin</h2>
+<h2>bin</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; print bin(8)
+<pre><code>&gt;&gt;&gt; print bin(8)
 0b1000
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="dict">dict</h2>
+<h2>dict</h2>
 
-<p>When dealing with <code class="highlighter-rouge">dict</code>, remember to use <code class="highlighter-rouge">dict.copy()</code>, since it is mutable.</p>
+<p>When dealing with <code>dict</code>, remember to use <code>dict.copy()</code>, since it is mutable.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for key, value in dict_.items():
+<pre><code>for key, value in dict_.items():
     print key, value
 
 dict1.update(dict2)
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># map from word to id
+<pre><code># map from word to id
 
 word2id = {}
 for word, _ in count:
     word2id[word] = len(word2id)
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># map from id to word
+<pre><code># map from id to word
 id2word = dict(zip(word2id.values(), word2id.keys()))
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="input">input</h2>
+<h2>input</h2>
 
-<p><code class="highlighter-rouge">raw_input</code> expects a string, while <code class="highlighter-rouge">input</code> expects an expression.</p>
+<p><code>raw_input</code> expects a string, while <code>input</code> expects an expression.</p>
 
-<h2 id="list">list</h2>
+<h2>list</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>t = emp[k]
+<pre><code>t = emp[k]
 emp.pop(k)
 # emp.remove(t)
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="locals">locals</h2>
+<h2>locals</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def __init__(self, x, y, z, etc):
-	self.__dict__.update(locals())
-</code></pre></div></div>
+<pre><code>def __init__(self, x, y, z, etc):
+    self.__dict__.update(locals())
+</code></pre>
 
-<p>All these arguments become members (including the <code class="highlighter-rouge">self</code> argument).</p>
+<p>All these arguments become members (including the <code>self</code> argument).</p>
 
-<p>So you may remove it with: <code class="highlighter-rouge">self.__dict__.pop('self')</code></p>
+<p>So you may remove it with: <code>self.__dict__.pop('self')</code></p>
 
-<h2 id="set">set</h2>
+<h2>set</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s | t
+<pre><code>s | t
 s &amp; t
 s - t
 s ^ t
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="sorted">sorted</h2>
+<h2>sorted</h2>
 
-<p><code class="highlighter-rouge">list_of_adoption_centers.sort(key=adopter.get_score)</code> returns <code class="highlighter-rouge">None</code>.</p>
+<p><code>list_of_adoption_centers.sort(key=adopter.get_score)</code> returns <code>None</code>.</p>
 
-<p><code class="highlighter-rouge">list(reversed(list_of_adoption_centers))</code> is equal to <code class="highlighter-rouge">list_of_adoption_centers[::-1]</code>.</p>
+<p><code>list(reversed(list_of_adoption_centers))</code> is equal to <code>list_of_adoption_centers[::-1]</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>envelopes.sort(cmp=lambda x, y:x[0] - y[0] if x[0] != y[0] else y[1] - x[1])
+<pre><code>envelopes.sort(cmp=lambda x, y:x[0] - y[0] if x[0] != y[0] else y[1] - x[1])
 envelopes.sort(key=lambda x: (x[0], -x[1]))
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="super">super</h2>
+<h2>super</h2>
 
-<p>The code can be simplified as <code class="highlighter-rouge">Shape.__init__(self, x, y)</code>.</p>
+<p>The code can be simplified as <code>Shape.__init__(self, x, y)</code>.</p>
 
-<p><code class="highlighter-rouge">super()</code> lets you avoid referring to the base class explicitly, which can be nice. But the main advantage comes with multiple inheritance.</p>
+<p><code>super()</code> lets you avoid referring to the base class explicitly, which can be nice. But the main advantage comes with multiple inheritance.</p>
 
-<p>Syntax changed in Python 3.0: you can just say <code class="highlighter-rouge">super().__init__()</code> instead of <code class="highlighter-rouge">super(self.__class__, self).__init__()</code> which is quite a bit nicer.</p>
+<p>Syntax changed in Python 3.0: you can just say <code>super().__init__()</code> instead of <code>super(self.__class__, self).__init__()</code> which is quite a bit nicer.</p>
 
-<p><code class="highlighter-rouge">super()</code> can be used only in the new-style classes, which means the root class needs to inherit from the <code class="highlighter-rouge">object</code> class.</p>
+<p><code>super()</code> can be used only in the new-style classes, which means the root class needs to inherit from the <code>object</code> class.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; instance = Shape()
+<pre><code>&gt;&gt;&gt; instance = Shape()
 &gt;&gt;&gt; issubclass(instance.__class__, object)
 False
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="unicode">unicode</h2>
+<h2>unicode</h2>
 
-<p>In Python 3 the default encoding has been switched from <code class="highlighter-rouge">ascii</code> to <code class="highlighter-rouge">utf-8</code>.</p>
+<p>In Python 3 the default encoding has been switched from <code>ascii</code> to <code>utf-8</code>.</p>
 
 <p>To get utf8-encoded file (for smaller size) in Python 2.x:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import io, json
+<pre><code>import io, json
 with io.open('data.txt', 'w', encoding='utf-8') as f:
   f.write(unicode(json.dumps(data, ensure_ascii=False, sort_keys=True, indent=4)))
-</code></pre></div></div>
+</code></pre>
 
 <p>The code is simpler in Python 3.x:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import json
+<pre><code>import json
 with open('data.txt', 'w') as f:
   json.dump(data, f, ensure_ascii=False)
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>SyntaxError: Non-ASCII character '\xe6' in file test.py on line 8, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
-</code></pre></div></div>
+<pre><code>SyntaxError: Non-ASCII character '\xe6' in file test.py on line 8, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># -*- coding: utf-8 -*-  
-</code></pre></div></div>
+<pre><code># -*- coding: utf-8 -*-  
+</code></pre>
 
-<h2 id="zip">zip</h2>
+<h2>zip</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>zip(...)
+<pre><code>zip(...)
     zip(seq1 [, seq2 [...]]) -&gt; [(seq1[0], seq2[0] ...), (...)]
-    
+
     Return a list of tuples, where each tuple contains the i-th element
     from each of the argument sequences.  The returned list is truncated
     in length to the length of the shortest argument sequence.
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/python/2016/12/24/python-built-in.html" hidden></a>
 </article>

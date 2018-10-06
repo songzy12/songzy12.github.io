@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Assembly | Zhengyang Song’s Blog</title>
+<title>Assembly | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Assembly" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="here." />
 <link rel="canonical" href="http://songzy12.github.io/2016/08/13/assembly.html" />
 <meta property="og:url" content="http://songzy12.github.io/2016/08/13/assembly.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-08-13T13:38:01+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/2016/08/13/assembly.html","description":"here.","headline":"Assembly","dateModified":"2016-08-13T13:38:01+08:00","datePublished":"2016-08-13T13:38:01+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/08/13/assembly.html"},"@context":"http://schema.org"}</script>
+{"headline":"Assembly","dateModified":"2016-08-13T13:38:01+08:00","datePublished":"2016-08-13T13:38:01+08:00","url":"http://songzy12.github.io/2016/08/13/assembly.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/08/13/assembly.html"},"description":"here.","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -47,32 +47,32 @@
   <div class="post-content e-content" itemprop="articleBody">
     <p><a href="https://www.recurse.com/blog/7-understanding-c-by-learning-assembly">here</a>.</p>
 
-<h2 id="gdb">gdb</h2>
+<h2>gdb</h2>
 
 <p>simple.c</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int main()
+<pre><code>int main()
 {
     int a = 5;
     int b = a + 6;
     return 0;
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc -g -O0 simple.c -o simple
+<pre><code>gcc -g -O0 simple.c -o simple
 gdb simple
-</code></pre></div></div>
+</code></pre>
 
-<p>Inside GDB, we’ll <code class="highlighter-rouge">break</code> on <code class="highlighter-rouge">main</code> and <code class="highlighter-rouge">run</code> until we get to the return statement. We put the number 2 after <code class="highlighter-rouge">next</code> to specify that we want to run <code class="highlighter-rouge">next</code> twice:</p>
+<p>Inside GDB, we’ll <code>break</code> on <code>main</code> and <code>run</code> until we get to the return statement. We put the number 2 after <code>next</code> to specify that we want to run <code>next</code> twice:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(gdb) break main
+<pre><code>(gdb) break main
 (gdb) run
 (gdb) next 2
-</code></pre></div></div>
+</code></pre>
 
-<p>Now let’s use the <code class="highlighter-rouge">disassemble</code> command to show the assembly instructions for the current function. You can also pass a function name to <code class="highlighter-rouge">disassemble</code> to specify a different function to examine.</p>
+<p>Now let’s use the <code>disassemble</code> command to show the assembly instructions for the current function. You can also pass a function name to <code>disassemble</code> to specify a different function to examine.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(gdb) disassemble
+<pre><code>(gdb) disassemble
 Dump of assembler code for function main:
 0x0000000100000f50 &lt;main+0&gt;:    push   %rbp
 0x0000000100000f51 &lt;main+1&gt;:    mov    %rsp,%rbp
@@ -85,9 +85,9 @@ Dump of assembler code for function main:
 0x0000000100000f73 &lt;main+35&gt;:   pop    %rbp
 0x0000000100000f74 &lt;main+36&gt;:   retq   
 End of assembler dump.
-</code></pre></div></div>
+</code></pre>
 
-<p>In our example above, <code class="highlighter-rouge">%eax</code> and <code class="highlighter-rouge">%ecx</code> are <code class="highlighter-rouge">general purpose registers</code>, while <code class="highlighter-rouge">%rbp</code> and <code class="highlighter-rouge">%rsp</code> are <code class="highlighter-rouge">special purpose registers</code>. <code class="highlighter-rouge">%rbp</code> is the <code class="highlighter-rouge">base pointer</code>, which points to the base of the current stack frame, and <code class="highlighter-rouge">%rsp</code> is the <code class="highlighter-rouge">stack pointer</code>, which points to the top of the current stack frame. <code class="highlighter-rouge">%rbp</code> always has a higher value than <code class="highlighter-rouge">%rsp</code> because the stack starts at a high memory address and grows downwards.</p>
+<p>In our example above, <code>%eax</code> and <code>%ecx</code> are <code>general purpose registers</code>, while <code>%rbp</code> and <code>%rsp</code> are <code>special purpose registers</code>. <code>%rbp</code> is the <code>base pointer</code>, which points to the base of the current stack frame, and <code>%rsp</code> is the <code>stack pointer</code>, which points to the top of the current stack frame. <code>%rbp</code> always has a higher value than <code>%rsp</code> because the stack starts at a high memory address and grows downwards.</p>
 
 <p>If the <em>pushing</em> consumes all of the space allocated for the <em>call stack</em>, an error called a <em>stack overflow</em> occurs, generally causing the program to crash.</p>
 
@@ -95,113 +95,115 @@ End of assembler dump.
 
 <p><img src="https://en.wikipedia.org/wiki/Call_stack#/media/File:Call_stack_layout.svg" alt="call stack layout" />.</p>
 
-<p>Instructions in AT&amp;T syntax are of the format <code class="highlighter-rouge">mnemonic source, destination</code>.</p>
+<p>Instructions in AT&amp;T syntax are of the format <code>mnemonic source, destination</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0x0000000100000f50 &lt;main+0&gt;:    push   %rbp
+<pre><code>0x0000000100000f50 &lt;main+0&gt;:    push   %rbp
 0x0000000100000f51 &lt;main+1&gt;:    mov    %rsp,%rbp
-</code></pre></div></div>
+</code></pre>
 
 <p>function prologue or preamble.</p>
 
-<p>First we push the old base pointer onto the stack to save it for later. Then we copy the value of the stack pointer to the base pointer. After this, <code class="highlighter-rouge">%rbp</code> points to the base of main’s stack frame.</p>
+<p>First we push the old base pointer onto the stack to save it for later. Then we copy the value of the stack pointer to the base pointer. After this, <code>%rbp</code> points to the base of main’s stack frame.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0x0000000100000f54 &lt;main+4&gt;:    mov    $0x0,%eax
-</code></pre></div></div>
+<pre><code>0x0000000100000f54 &lt;main+4&gt;:    mov    $0x0,%eax
+</code></pre>
 
-<p>The x86 calling convention dictates that a function’s return value is stored in <code class="highlighter-rouge">%eax</code>, so the above instruction sets us up to return 0 at the end of our function.</p>
+<p>The x86 calling convention dictates that a function’s return value is stored in <code>%eax</code>, so the above instruction sets us up to return 0 at the end of our function.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0x0000000100000f59 &lt;main+9&gt;:    movl   $0x0,-0x4(%rbp)
-</code></pre></div></div>
+<pre><code>0x0000000100000f59 &lt;main+9&gt;:    movl   $0x0,-0x4(%rbp)
+</code></pre>
 
-<p>The parentheses let us know that this is a memory address. Here, <code class="highlighter-rouge">%rbp</code> is called the <em>base register</em>, and <code class="highlighter-rouge">-0x4</code> is the <em>displacement</em>.</p>
+<p>The parentheses let us know that this is a memory address. Here, <code>%rbp</code> is called the <em>base register</em>, and <code>-0x4</code> is the <em>displacement</em>.</p>
 
-<p>Because the stack grows downwards, subtracting 4 from the base of the current stack frame moves us into the current frame itself, where local variables are stored. This means that this instruction stores 0 at <code class="highlighter-rouge">%rbp - 4</code></p>
+<p>Because the stack grows downwards, subtracting 4 from the base of the current stack frame moves us into the current frame itself, where local variables are stored. This means that this instruction stores 0 at <code>%rbp - 4</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0x0000000100000f60 &lt;main+16&gt;:   movl   $0x5,-0x8(%rbp)
-</code></pre></div></div>
+<pre><code>0x0000000100000f60 &lt;main+16&gt;:   movl   $0x5,-0x8(%rbp)
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(gdb) x &amp;a
+<pre><code>(gdb) x &amp;a
 0x7fff5fbff768: 0x00000005
 (gdb) x $rbp - 8
 0x7fff5fbff768: 0x00000005
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0x0000000100000f73 &lt;main+35&gt;:   pop    %rbp
+<pre><code>0x0000000100000f73 &lt;main+35&gt;:   pop    %rbp
 0x0000000100000f74 &lt;main+36&gt;:   retq
-</code></pre></div></div>
+</code></pre>
 
-<p>function epilogue: We <code class="highlighter-rouge">pop</code> the old base pointer off the stack and store it back in <code class="highlighter-rouge">%rbp</code> and then <code class="highlighter-rouge">retq</code> jumps back to our return address, which is also stored in the stack frame.</p>
+<p>function epilogue: We <code>pop</code> the old base pointer off the stack and store it back in <code>%rbp</code> and then <code>retq</code> jumps back to our return address, which is also stored in the stack frame.</p>
 
 <ul>
-  <li><code class="highlighter-rouge">pushing</code> a value (not necessarily stored in a register) means writing it to the stack.</li>
-  <li><code class="highlighter-rouge">popping</code> means restoring whatever is on top of the stack into a register.</li>
+<li><code>pushing</code> a value (not necessarily stored in a register) means writing it to the stack.</li>
+<li><code>popping</code> means restoring whatever is on top of the stack into a register.</li>
 </ul>
 
-<p>The <em>instruction pointer</em> is a register that stores the memory address of the next instruction. On x86_64, that register is <code class="highlighter-rouge">%rip</code>. We can access the instruction pointer using the <code class="highlighter-rouge">$rip</code> variable, or alternatively we can use the architecture independent <code class="highlighter-rouge">$pc</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(gdb) x/i $pc
+<p>The <em>instruction pointer</em> is a register that stores the memory address of the next instruction. On x86_64, that register is <code>%rip</code>. We can access the instruction pointer using the <code>$rip</code> variable, or alternatively we can use the architecture independent <code>$pc</code>.</p>
+
+<pre><code>(gdb) x/i $pc
 0x100000e94 &lt;natural_generator+4&gt;:  movl   $0x1,-0x4(%rbp)
-</code></pre></div></div>
+</code></pre>
 
-<p><code class="highlighter-rouge">display</code> is like <code class="highlighter-rouge">x</code>, except it evaluates its expression every time our program stops:</p>
+<p><code>display</code> is like <code>x</code>, except it evaluates its expression every time our program stops:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(gdb) display/i $pc
+<pre><code>(gdb) display/i $pc
 1: x/i $pc  0x100000e94 &lt;natural_generator+4&gt;:  movl   $0x1,-0x4(%rbp)
-</code></pre></div></div>
+</code></pre>
 
-<p>Instead of <code class="highlighter-rouge">next</code>, which moves to the next source line, we’ll use <code class="highlighter-rouge">nexti</code>, which moves to the next assembly instruction.</p>
+<p>Instead of <code>next</code>, which moves to the next source line, we’ll use <code>nexti</code>, which moves to the next assembly instruction.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(gdb) nexti
+<pre><code>(gdb) nexti
 7           b += 1;
 1: x/i $pc  mov   0x177(%rip),%eax # 0x100001018 &lt;natural_generator.b&gt;
 (gdb) x $rbp - 0x4
 0x7fff5fbff78c: 0x00000001
 (gdb) x &amp;a
 0x7fff5fbff78c: 0x00000001
-</code></pre></div></div>
+</code></pre>
 
-<p>Instead, we have an instruction that loads <code class="highlighter-rouge">0x100001018</code>, located somewhere after the instruction pointer, into <code class="highlighter-rouge">%eax</code>. GDB gives us a helpful comment with the result of the memory operand calculation and a hint telling us that <code class="highlighter-rouge">natural_generator.b</code> is stored at this address.</p>
+<p>Instead, we have an instruction that loads <code>0x100001018</code>, located somewhere after the instruction pointer, into <code>%eax</code>. GDB gives us a helpful comment with the result of the memory operand calculation and a hint telling us that <code>natural_generator.b</code> is stored at this address.</p>
 
-<p>Even though the disassembly shows <code class="highlighter-rouge">%eax</code> as the destination, we print <code class="highlighter-rouge">$rax</code>, because GDB only sets up variables for full width registers.</p>
+<p>Even though the disassembly shows <code>%eax</code> as the destination, we print <code>$rax</code>, because GDB only sets up variables for full width registers.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(gdb) nexti
+<pre><code>(gdb) nexti
 (gdb) p $rax
 $3 = 4294967295
 (gdb) p/x $rax
 $5 = 0xffffffff
-</code></pre></div></div>
+</code></pre>
 
-<p>While variables have types that specify if they are signed or unsigned, registers don’t, so GDB is printing the value of <code class="highlighter-rouge">%rax</code> unsigned. Let’s try again, by casting <code class="highlighter-rouge">%rax</code> to a signed int:</p>
+<p>While variables have types that specify if they are signed or unsigned, registers don’t, so GDB is printing the value of <code>%rax</code> unsigned. Let’s try again, by casting <code>%rax</code> to a signed int:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(gdb) p (int)$rax
+<pre><code>(gdb) p (int)$rax
 $11 = -1
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(gdb) x/d 0x100001018
+<pre><code>(gdb) x/d 0x100001018
 0x100001018 &lt;natural_generator.b&gt;:  -1
 (gdb) x/d &amp;b
 0x100001018 &lt;natural_generator.b&gt;:  -1
-</code></pre></div></div>
+</code></pre>
 
-<p>This is because the value for <code class="highlighter-rouge">b</code> is hardcoded in a different section of the sample executable, and it’s loaded into memory along with all the machine code by the operating system’s loader when the process is launched.</p>
+<p>This is because the value for <code>b</code> is hardcoded in a different section of the sample executable, and it’s loaded into memory along with all the machine code by the operating system’s loader when the process is launched.</p>
 
-<h2 id="static">static</h2>
+<h2>static</h2>
 
 <p><a href="http://stackoverflow.com/questions/572547/what-does-static-mean-in-a-c-program">Here</a>.</p>
 
 <ul>
-  <li>A static variable inside a function keeps its value between invocations.</li>
-  <li>A static global variable or a function is “seen” only in the file it’s declared in</li>
+<li>A static variable inside a function keeps its value between invocations.</li>
+<li>A static global variable or a function is &ldquo;seen&rdquo; only in the file it&rsquo;s declared in</li>
 </ul>
+
 
 <p>In the C programming language, static is used with global variables and functions to set their scope to the containing file. In local variables, static is used to store the variable in the statically allocated memory instead of the automatically allocated memory.</p>
 
 <p>In C++, however, static is also used to define class attributes (shared between all objects of the same class) and methods</p>
 
-<h2 id="make">make</h2>
+<h2>make</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CFLAGS="-g -O0" make static
-</code></pre></div></div>
+<pre><code>CFLAGS="-g -O0" make static
+</code></pre>
 
   </div><a class="u-url" href="/2016/08/13/assembly.html" hidden></a>
 </article>

@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Autograder | Zhengyang Song’s Blog</title>
+<title>Autograder | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Autograder" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="Total nSV = 2912 Cross Validation Accuracy = 36.4568499003133% Total nSV = 2143 Cross Validation Accuracy = 27.745424292845257%" />
 <link rel="canonical" href="http://songzy12.github.io/java/2016/08/31/autograder.html" />
 <meta property="og:url" content="http://songzy12.github.io/java/2016/08/31/autograder.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-08-31T20:49:10+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/java/2016/08/31/autograder.html","description":"Total nSV = 2912 Cross Validation Accuracy = 36.4568499003133% Total nSV = 2143 Cross Validation Accuracy = 27.745424292845257%","headline":"Autograder","dateModified":"2016-08-31T20:49:10+08:00","datePublished":"2016-08-31T20:49:10+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/java/2016/08/31/autograder.html"},"@context":"http://schema.org"}</script>
+{"headline":"Autograder","dateModified":"2016-08-31T20:49:10+08:00","datePublished":"2016-08-31T20:49:10+08:00","url":"http://songzy12.github.io/java/2016/08/31/autograder.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/java/2016/08/31/autograder.html"},"description":"Total nSV = 2912 Cross Validation Accuracy = 36.4568499003133% Total nSV = 2143 Cross Validation Accuracy = 27.745424292845257%","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,82 +45,85 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Total nSV = 2912
+    <pre><code>Total nSV = 2912
 Cross Validation Accuracy = 36.4568499003133%
-</code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Total nSV = 2143
+</code></pre>
+
+<pre><code>Total nSV = 2143
 Cross Validation Accuracy = 27.745424292845257%
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select run_info from pt_user_challenge_compile ucc, pt_user_challenge uc, pt_challenge c where c.challenge_id = uc.challenge_id and uc.user_challenge_id = ucc.user_challenge_id and c.direction  = 4 and ucc.status_code = 1 limit 1;
-</code></pre></div></div>
+<pre><code>select run_info from pt_user_challenge_compile ucc, pt_user_challenge uc, pt_challenge c where c.challenge_id = uc.challenge_id and uc.user_challenge_id = ucc.user_challenge_id and c.direction  = 4 and ucc.status_code = 1 limit 1;
+</code></pre>
 
-<h2 id="features">features</h2>
+<h2>features</h2>
+
 <ul>
-  <li>costTime, countDown, level</li>
-  <li>focusBlurCount, avgSwitchTime, blurCount, avgBlurTime,</li>
-  <li>editCount, avgEditDuation, intervalCount, avgIntervalDuration, avgTextLength,</li>
-  <li>compileCount, compileFailCount, avgCodeLength, avgContinousCompileDuration, avgContinousFailCount, avgContinousCompileFailDuration, avgCompileDuration (4)</li>
-  <li>
-    <p>direction, compileErrorNum, averageCompileErrorNum</p>
-  </li>
-  <li>addCostTimeFeature(features, userChallengeId);</li>
-  <li>addFocusBlurFeature(features, userChallengeId);</li>
-  <li>addTextFlowFeature(features, userChallengeId);</li>
-  <li>addCompileFeature(features, userChallengeId);</li>
-  <li>addCompileErrorNumFeature(features, userChallengeId);</li>
+<li>costTime, countDown, level</li>
+<li>focusBlurCount, avgSwitchTime, blurCount, avgBlurTime,</li>
+<li>editCount, avgEditDuation, intervalCount, avgIntervalDuration, avgTextLength,</li>
+<li>compileCount, compileFailCount, avgCodeLength, avgContinousCompileDuration, avgContinousFailCount, avgContinousCompileFailDuration, avgCompileDuration (4)</li>
+<li><p>direction, compileErrorNum, averageCompileErrorNum</p></li>
+<li><p>addCostTimeFeature(features, userChallengeId);</p></li>
+<li>addFocusBlurFeature(features, userChallengeId);</li>
+<li>addTextFlowFeature(features, userChallengeId);</li>
+<li>addCompileFeature(features, userChallengeId);</li>
+<li>addCompileErrorNumFeature(features, userChallengeId);</li>
 </ul>
 
-<h2 id="svm_scale">svm_scale</h2>
+
+<h2>svm_scale</h2>
 
 <p>The main advantage of scaling is to avoid attributes in greater numeric ranges dominating those in smaller numeric ranges. Another advantage is to avoid numerical diculties during the calculation. Because kernel values usually depend on the inner products of feature vectors, e.g. the linear kernel and the polynomial ker- nel, large attribute values might cause numerical problems. We recommend linearly scaling each attribute to the range [-1,+1] or [0,1].</p>
 
 <ul>
-  <li>the min and max of each feature is stored by <code class="highlighter-rouge">-s</code> option.</li>
-  <li>modify the method <code class="highlighter-rouge">output</code>, <code class="highlighter-rouge">output_target</code> to store scaled feature into file.</li>
+<li>the min and max of each feature is stored by <code>-s</code> option.</li>
+<li>modify the method <code>output</code>, <code>output_target</code> to store scaled feature into file.</li>
 </ul>
 
-<h2 id="libsvm">libsvm</h2>
+
+<h2>libsvm</h2>
 
 <p><a href="https://www.csie.ntu.edu.tw/~cjlin/libsvm/">libsvm</a>, <a href="https://github.com/cjlin1/libsvm">github</a>.</p>
 
 <ul>
-  <li>Trainer: svm_train.main(crossValidationTrainArgs);</li>
-  <li>Predictor: svm_predict.main(testArgs);</li>
+<li>Trainer: svm_train.main(crossValidationTrainArgs);</li>
+<li>Predictor: svm_predict.main(testArgs);</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-s svm_type : set type of SVM (default 0)
-	0 -- C-SVC		(multi-class classification)
-	1 -- nu-SVC		(multi-class classification)
-	2 -- one-class SVM	
-	3 -- epsilon-SVR	(regression)
-	4 -- nu-SVR		(regression)
+
+<pre><code>-s svm_type : set type of SVM (default 0)
+    0 -- C-SVC      (multi-class classification)
+    1 -- nu-SVC     (multi-class classification)
+    2 -- one-class SVM  
+    3 -- epsilon-SVR    (regression)
+    4 -- nu-SVR     (regression)
 -t kernel_type : set type of kernel function (default 2)
-	0 -- linear: u'*v
-	1 -- polynomial: (gamma*u'*v + coef0)^degree
-	2 -- radial basis function: exp(-gamma*|u-v|^2)
-	3 -- sigmoid: tanh(gamma*u'*v + coef0)
-	4 -- precomputed kernel (kernel values in training_set_file)
+    0 -- linear: u'*v
+    1 -- polynomial: (gamma*u'*v + coef0)^degree
+    2 -- radial basis function: exp(-gamma*|u-v|^2)
+    3 -- sigmoid: tanh(gamma*u'*v + coef0)
+    4 -- precomputed kernel (kernel values in training_set_file)
 -v n: n-fold cross validation mode
-</code></pre></div></div>
+</code></pre>
 
 <ul>
-  <li>c-svc中c的范围是1到正无穷</li>
-  <li>nu-svc中nu的范围是0到1</li>
+<li>c-svc中c的范围是1到正无穷</li>
+<li>nu-svc中nu的范围是0到1</li>
 </ul>
+
 
 <p>nu是错分样本所占比例的上界，支持向量所占比列的下界。</p>
 
 <ul>
-  <li>Least squares SVR: use squared residuals in the cost function</li>
-  <li>
-    <p>ep-SVR or nu-SVR: use hinge loss in the cost function</p>
-  </li>
-  <li>nu-SVR: proportion of number of support vectors.</li>
-  <li>ep-SVR: error you will allow your model to have.</li>
+<li>Least squares SVR: use squared residuals in the cost function</li>
+<li><p>ep-SVR or nu-SVR: use hinge loss in the cost function</p></li>
+<li><p>nu-SVR: proportion of number of support vectors.</p></li>
+<li>ep-SVR: error you will allow your model to have.</li>
 </ul>
 
-<h2 id="compile-time-errors">compile time errors</h2>
+
+<h2>compile time errors</h2>
 
 <p>[Predicting Performance in an Introductory Programming Course by Logging and Analyzing Student Programming Behavior.]</p>
 
@@ -131,48 +134,50 @@ Cross Validation Accuracy = 27.745424292845257%
 <p>Classification of Java Compile Time Errors:</p>
 
 <ul>
-  <li>syntax(; expected): violate te fundamental syntax rules of Java</li>
-  <li>computation(illegal operations): program logic definition, flow control</li>
-  <li>identifiers(unknown method): unknown, re-declaring variables/method</li>
-  <li>scope(method is private): access violation: public, private, packages</li>
-  <li>exceptions(try without a catch): error handling, try-catch keywords</li>
-  <li>inheritance(super-type not called): method/variable overriding, super</li>
-  <li>abstract(cannot have body): misuse of abstract keyword</li>
-  <li>static(cannot be referenced): related to use of class and object types</li>
+<li>syntax(; expected): violate te fundamental syntax rules of Java</li>
+<li>computation(illegal operations): program logic definition, flow control</li>
+<li>identifiers(unknown method): unknown, re-declaring variables/method</li>
+<li>scope(method is private): access violation: public, private, packages</li>
+<li>exceptions(try without a catch): error handling, try-catch keywords</li>
+<li>inheritance(super-type not called): method/variable overriding, super</li>
+<li>abstract(cannot have body): misuse of abstract keyword</li>
+<li>static(cannot be referenced): related to use of class and object types</li>
 </ul>
 
-<h2 id="mysql">mysql</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u guest -p # guest
+<h2>mysql</h2>
+
+<pre><code>mysql -u guest -p # guest
 use oxcoder;
 show tables;
 describe pt_user;
 show columns from user;
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="dependency-finder">dependency finder</h2>
+<h2>dependency finder</h2>
 
 <p><a href="https://sourceforge.net/projects/depfind/?source=typ_redirect">Here</a>.</p>
 
-<p><code class="highlighter-rouge">~/.profile</code></p>
+<p><code>~/.profile</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export JAVA_HOME=/usr
+<pre><code>export JAVA_HOME=/usr
 export DEPENDENCYFINDER_HOME=$HOME/DependencyFinder-1.2.1-beta4
 export DEPENDENCYFINDER_OPTS=-Xmx128m
 export PATH=$DEPENDENCYFINDER_HOME/bin:$PATH
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="algorithm-design">algorithm design</h2>
+<h2>algorithm design</h2>
 
 <ul>
-  <li>unrelated: 1</li>
-  <li>keywords: 2
-— compilable</li>
-  <li>control structures: 3</li>
-  <li>data dependencies: 4
-— pass test case</li>
-  <li>correct: 5</li>
+<li>unrelated: 1</li>
+<li>keywords: 2
+&mdash; compilable</li>
+<li>control structures: 3</li>
+<li>data dependencies: 4
+&mdash; pass test case</li>
+<li>correct: 5</li>
 </ul>
+
 
   </div><a class="u-url" href="/java/2016/08/31/autograder.html" hidden></a>
 </article>

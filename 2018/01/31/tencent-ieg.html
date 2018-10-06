@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Tencent IEG | Zhengyang Song’s Blog</title>
+<title>Tencent IEG | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Tencent IEG" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="这个也是 LeetCode 原题：Integer Break" />
 <link rel="canonical" href="http://songzy12.github.io/2018/01/31/tencent-ieg.html" />
 <meta property="og:url" content="http://songzy12.github.io/2018/01/31/tencent-ieg.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-01-31T20:13:35+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/2018/01/31/tencent-ieg.html","description":"这个也是 LeetCode 原题：Integer Break","headline":"Tencent IEG","dateModified":"2018-01-31T20:13:35+08:00","datePublished":"2018-01-31T20:13:35+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2018/01/31/tencent-ieg.html"},"@context":"http://schema.org"}</script>
+{"headline":"Tencent IEG","dateModified":"2018-01-31T20:13:35+08:00","datePublished":"2018-01-31T20:13:35+08:00","url":"http://songzy12.github.io/2018/01/31/tencent-ieg.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2018/01/31/tencent-ieg.html"},"description":"这个也是 LeetCode 原题：Integer Break","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -52,43 +52,43 @@
 <p>给定 $m\in N$,
 $\max x_1\cdot x_2\dots x_{n-1}\cdot x_n$</p>
 
-<p>s.t. $x_1+x_2+…+x_n = m$ and $x_i \in N $.</p>
+<p>s.t. $x_1+x_2+&hellip;+x_n = m$ and $x_i \in N $.</p>
 
 <p>（面试官给的题目里 $m = 25$）</p>
 
 <p>下面我们介绍两种解法，一种是使用动态规划的编程解，另一种是直接手算出答案的数学解。</p>
 
-<h3 id="动态规划">动态规划</h3>
+<h3>动态规划</h3>
 
-<p>我们使用 <code class="highlighter-rouge">dp(m)</code> 表示将整数 <code class="highlighter-rouge">m</code> 进行如上拆分后所能得到的最大乘积。那么我们要的结果就是 <code class="highlighter-rouge">dp(25)</code>.</p>
+<p>我们使用 <code>dp(m)</code> 表示将整数 <code>m</code> 进行如上拆分后所能得到的最大乘积。那么我们要的结果就是 <code>dp(25)</code>.</p>
 
-<p>如何计算 <code class="highlighter-rouge">dp(m)</code> 呢？对于一般的情况，我们直接根据所拆分出来的第一个整数进行动态规划：</p>
+<p>如何计算 <code>dp(m)</code> 呢？对于一般的情况，我们直接根据所拆分出来的第一个整数进行动态规划：</p>
 
-<p><code class="highlighter-rouge">dp(m)= max{i * dp(m-i)}</code> 其中，<code class="highlighter-rouge">i \in {1,...,m}</code></p>
+<p><code>dp(m)= max{i * dp(m-i)}</code> 其中，<code>i \in {1,...,m}</code></p>
 
-<p>这里为了便于计算我们将边界条件设为 <code class="highlighter-rouge">dp(0) = 1</code></p>
+<p>这里为了便于计算我们将边界条件设为 <code>dp(0) = 1</code></p>
 
-<p>上面这个算法的复杂度是 <code class="highlighter-rouge">O(m^2)</code> ：首先我们需要计算 <code class="highlighter-rouge">dp(1),...,dp(m)</code> 这 <code class="highlighter-rouge">m</code> 个值，然后在计算每个值<code class="highlighter-rouge">dp(m_0)</code>的时候我们需要进行一个 <code class="highlighter-rouge">O(m_0)</code> 层的循环。</p>
+<p>上面这个算法的复杂度是 <code>O(m^2)</code> ：首先我们需要计算 <code>dp(1),...,dp(m)</code> 这 <code>m</code> 个值，然后在计算每个值<code>dp(m_0)</code>的时候我们需要进行一个 <code>O(m_0)</code> 层的循环。</p>
 
-<h3 id="数学解法">数学解法</h3>
+<h3>数学解法</h3>
 
-<p>首先我们假设分成的份数 <code class="highlighter-rouge">n</code> 是固定的，那么根据 <a href="https://zh.wikipedia.org/wiki/%E7%AE%97%E6%9C%AF-%E5%87%A0%E4%BD%95%E5%B9%B3%E5%9D%87%E5%80%BC%E4%B8%8D%E7%AD%89%E5%BC%8F">均值不等式</a>我们有</p>
+<p>首先我们假设分成的份数 <code>n</code> 是固定的，那么根据 <a href="https://zh.wikipedia.org/wiki/%E7%AE%97%E6%9C%AF-%E5%87%A0%E4%BD%95%E5%B9%B3%E5%9D%87%E5%80%BC%E4%B8%8D%E7%AD%89%E5%BC%8F">均值不等式</a>我们有</p>
 
-<p>$\prod_{i=1}^n x_i \le (\frac{\sum_{i=1}^n x_i}{n}) ^ n = (\frac{m}{n}) \^ n$</p>
+<p>$\prod_{i=1}^n x_i \le (\frac{\sum_{i=1}^n x_i}{n}) ^ n = (\frac{m}{n}) ^ n$</p>
 
 <p>（几何平均值小于等于算术平均值）</p>
 
 <p>上式取等的条件为各 $x_i$ 均相等。</p>
 
-<p>也就是说，对于给定的 <code class="highlighter-rouge">n</code> ，我们要使得各份尽量均匀的情况下乘积最大。</p>
+<p>也就是说，对于给定的 <code>n</code> ，我们要使得各份尽量均匀的情况下乘积最大。</p>
 
-<p>下面我们考虑最优的 <code class="highlighter-rouge">n</code> 的取值。我们令 $g(n) = (\frac{m}{n})\^n$, 于是只需要求 $g(n)$ 的最大值。</p>
+<p>下面我们考虑最优的 <code>n</code> 的取值。我们令 $g(n) = (\frac{m}{n})^n$, 于是只需要求 $g(n)$ 的最大值。</p>
 
-<p>求导，$g’(n)=((\frac{m}{n})\^n)’=(e^{n\ln(m/n)})’=e^{n\ln(m/n)}\cdot (n\ln(\frac{m}{n}))’$</p>
+<p>求导，$g'(n)=((\frac{m}{n})^n)&lsquo;=(e^{n\ln(m/n)})&rsquo;=e^{n\ln(m/n)}\cdot (n\ln(\frac{m}{n}))&lsquo;$</p>
 
-<p>因为 $(n\ln(\frac{m}{n}))’=ln(\frac{m}{n}) + n\cdot(ln(\frac{m}{n})’)=ln(\frac{m}{n}) + n \cdot \frac{n}{m} \cdot (-\frac{m}{n\^2}) = ln(\frac{m}{n}) - 1$</p>
+<p>因为 $(n\ln(\frac{m}{n}))&lsquo;=ln(\frac{m}{n}) + n\cdot(ln(\frac{m}{n})&rsquo;)=ln(\frac{m}{n}) + n \cdot \frac{n}{m} \cdot (-\frac{m}{n^2}) = ln(\frac{m}{n}) - 1$</p>
 
-<p>从而 $g’(n) &gt; 0\Leftrightarrow  ln(\frac{m}{n})-1 &gt; 0 \Leftrightarrow ln(\frac{m}{n}) &gt; 1\Leftrightarrow \frac{m}{n} &gt; e \Leftrightarrow n &lt; \frac{m}{e}$</p>
+<p>从而 $g'(n) > 0\Leftrightarrow  ln(\frac{m}{n})-1 > 0 \Leftrightarrow ln(\frac{m}{n}) > 1\Leftrightarrow \frac{m}{n} > e \Leftrightarrow n &lt; \frac{m}{e}$</p>
 
 <p>也就是说，$g(n)$ 在 $(1, \frac{m}{e})$ 递增，在 $(\frac{m}{e}, +\infty)$ 递减。</p>
 
@@ -96,23 +96,23 @@ $\max x_1\cdot x_2\dots x_{n-1}\cdot x_n$</p>
 
 <p>由于要求分成整数，所以我们应该分成尽量多的 3 和最多两个 2（因为我们可以把3个2变成2个3）</p>
 
-<p>具体来讲，如果 m % 3 == 0，那就是 m / 3 个 3; m % 3 == 2 就是  m / 3 个 3 和 1 个 2；m % 3 == 1, 我们把多出来的 1 和它前面的那个 3 放一起拆成两个 2（2 * 2 &gt; 1 * 3）, 就是 (m / 3 - 1) 个 3 和 2 个 2.</p>
+<p>具体来讲，如果 m % 3 == 0，那就是 m / 3 个 3; m % 3 == 2 就是  m / 3 个 3 和 1 个 2；m % 3 == 1, 我们把多出来的 1 和它前面的那个 3 放一起拆成两个 2（2 * 2 > 1 * 3）, 就是 (m / 3 - 1) 个 3 和 2 个 2.</p>
 
-<p>具体到 25，就是 25 = 3 * 7 + 2 * 2，最大的积为 $3\^7\times 2\^2$.</p>
+<p>具体到 25，就是 25 = 3 * 7 + 2 * 2，最大的积为 $3^7\times 2^2$.</p>
 
 <p>$\cdot$</p>
 
-<h3 id="其他问题">其他问题</h3>
+<h3>其他问题</h3>
 
 <p>面试中遇到的其他问题包括：</p>
 
 <ol>
-  <li>说说 word2vec 的不同方法：CBOW v.s. skip-gram</li>
-  <li>说说 梯度弥散 v.s. 梯度爆炸</li>
-  <li>说说 线性回归 v.s 逻辑回归</li>
-  <li>说说 逻辑回归 中为什么使用 Sigmoid 函数</li>
-  <li>说说 SGD v.s. BGD</li>
-  <li>说说除了 SGD 之外其他的 Optimizer:  Adagrad, Adam</li>
+<li>说说 word2vec 的不同方法：CBOW v.s. skip-gram</li>
+<li>说说 梯度弥散 v.s. 梯度爆炸</li>
+<li>说说 线性回归 v.s 逻辑回归</li>
+<li>说说 逻辑回归 中为什么使用 Sigmoid 函数</li>
+<li>说说 SGD v.s. BGD</li>
+<li>说说除了 SGD 之外其他的 Optimizer:  Adagrad, Adam</li>
 </ol>
 
 

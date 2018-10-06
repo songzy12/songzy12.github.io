@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>typo | Zhengyang Song’s Blog</title>
+<title>typo | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="typo" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="here" />
 <link rel="canonical" href="http://songzy12.github.io/ruby/2016/11/16/typo.html" />
 <meta property="og:url" content="http://songzy12.github.io/ruby/2016/11/16/typo.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-11-16T21:52:52+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/ruby/2016/11/16/typo.html","description":"here","headline":"typo","dateModified":"2016-11-16T21:52:52+08:00","datePublished":"2016-11-16T21:52:52+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/ruby/2016/11/16/typo.html"},"@context":"http://schema.org"}</script>
+{"headline":"typo","dateModified":"2016-11-16T21:52:52+08:00","datePublished":"2016-11-16T21:52:52+08:00","url":"http://songzy12.github.io/ruby/2016/11/16/typo.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/ruby/2016/11/16/typo.html"},"description":"here","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -47,56 +47,57 @@
   <div class="post-content e-content" itemprop="articleBody">
     <p><a href="https://github.com/saasbook/hw-refactoring-legacy-code-bug-fix">here</a></p>
 
-<h2 id="typo">typo</h2>
+<h2>typo</h2>
 
 <ul>
-  <li>Login: admin</li>
-  <li>Password: xWzV13u</li>
+<li>Login: admin</li>
+<li>Password: xWzV13u</li>
 </ul>
 
-<h2 id="bundle">bundle</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install
+<h2>bundle</h2>
+
+<pre><code>$ bundle install
 Your Ruby version is 2.3.1, but your Gemfile specified 1.9.3
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rvm install 1.9.3
-</code></pre></div></div>
+<pre><code>rvm install 1.9.3
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle install --without production
+<pre><code>$ bundle install --without production
 $ bundle exec rake db:migrate
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ bundle exec rake spec
+<pre><code>$ bundle exec rake spec
 $ bundle exec rake cucumber
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="rake">rake</h2>
+<h2>rake</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle exec rake db:migrate
-</code></pre></div></div>
+<pre><code>bundle exec rake db:migrate
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rake aborted!
+<pre><code>rake aborted!
 /home/andy/.rvm/gems/ruby-1.9.3-p551/gems/flickraw-0.9.9/lib/flickraw/api.rb:39: syntax error, unexpected tLABEL, expecting ')'
     def initialize(api_key: FlickRaw.api_key,
                            ^
 /home/andy/.rvm/gems/ruby-1.9.3-p551/gems/flickraw-0.9.9/lib/flickraw/api.rb:40: syntax error, unexpected tLABEL, expecting '='
                    shared_secret: FlickRaw.shared_secret)
                                  ^
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def initialize(api_key=FlickRaw.api_key, 
+<pre><code>def initialize(api_key=FlickRaw.api_key, 
                shared_secret=FlickRaw.shared_secret)
-</code></pre></div></div>
+</code></pre>
 
-<p>or <code class="highlighter-rouge">vi Gemfile</code></p>
+<p>or <code>vi Gemfile</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem 'flickraw', '0.9.6'
-</code></pre></div></div>
+<pre><code>gem 'flickraw', '0.9.6'
+</code></pre>
 
-<h2 id="db">db</h2>
+<h2>db</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Migrating to SuperclassArticles (20)
+<pre><code>Migrating to SuperclassArticles (20)
 ==  SuperclassArticles: migrating =============================================
 -- Merging Articles into Contents table
 -- create_table(:contents)
@@ -111,38 +112,38 @@ $ bundle exec rake cucumber
 -- remove_index(:articles, :permalink)
 rake aborted!
 An error has occurred, this and all later migrations canceled:
-</code></pre></div></div>
+</code></pre>
 
-<p><code class="highlighter-rouge">vi db/migrate/020_superclass_articles.rb</code></p>
+<p><code>vi db/migrate/020_superclass_articles.rb</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#remove_index :articles, :permalink
-</code></pre></div></div>
+<pre><code>#remove_index :articles, :permalink
+</code></pre>
 
-<h2 id="bug-fix">bug-fix</h2>
+<h2>bug-fix</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi config/routes.rb
-</code></pre></div></div>
+<pre><code>vi config/routes.rb
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  match 'admin', :to  =&gt; 'admin/dashboard#index', :format =&gt; false, :as =&gt; :admin_dashboard
-  
+<pre><code>  match 'admin', :to  =&gt; 'admin/dashboard#index', :format =&gt; false, :as =&gt; :admin_dashboard
+
   # Admin/XController
   %w{advanced cache categories comments content profiles feedback general pages
      resources sidebar textfilters themes trackbacks users settings tags redirects seo post_types }.each do |i|
     match "/admin/#{i}", :to =&gt; "admin/#{i}#index", :format =&gt; false
     match "/admin/#{i}(/:action(/:id))", :to =&gt; "admin/#{i}", :action =&gt; nil, :id =&gt; nil, :format =&gt; false
   end
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi app/views/admin/dashboard/_welcome.html.erb
-</code></pre></div></div>
+<pre><code>vi app/views/admin/dashboard/_welcome.html.erb
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;li&gt; &lt;%= sprintf("%s %d", link_to(_("Categories:"), :controller =&gt; 'admin/categories'), @categories) %&gt;&lt;/li&gt;
-</code></pre></div></div>
+<pre><code>&lt;li&gt; &lt;%= sprintf("%s %d", link_to(_("Categories:"), :controller =&gt; 'admin/categories'), @categories) %&gt;&lt;/li&gt;
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi app/controllers/admin/categories_controller.rb
-</code></pre></div></div>
+<pre><code>vi app/controllers/admin/categories_controller.rb
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  def index; redirect_to :action =&gt; 'new' ; end
+<pre><code>  def index; redirect_to :action =&gt; 'new' ; end
   def new 
     respond_to do |format|
       format.html { new_or_edit }
@@ -151,7 +152,7 @@ An error has occurred, this and all later migrations canceled:
       }
     end 
   end
-  
+
   def new_or_edit
     @categories = Category.find(:all)
     @category = Category.find(params[:id])
@@ -170,16 +171,16 @@ An error has occurred, this and all later migrations canceled:
     end 
     render 'new'
   end
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls app/views/admin/categories
+<pre><code>$ ls app/views/admin/categories
 new.html.erb  new.js.erb
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi app/controllers/admin/post_types_controller.rb
-</code></pre></div></div>
+<pre><code>vi app/controllers/admin/post_types_controller.rb
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  def new_or_edit
+<pre><code>  def new_or_edit
     @post_types = PostType.find(:all)
     @post_type = case params[:id]
                 when nil 
@@ -194,18 +195,18 @@ new.html.erb  new.js.erb
     end 
     render 'new'
   end 
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi app/controllers/admin/categories_controller.rb
-</code></pre></div></div>
+<pre><code>vi app/controllers/admin/categories_controller.rb
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@category = case params[:id]
+<pre><code>@category = case params[:id]
             when nil 
               Category.new
             else
               Category.find(params[:id])
             end
-</code></pre></div></div>
+</code></pre>
 
 <p>Done!</p>
 

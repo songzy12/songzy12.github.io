@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>MySQL | Zhengyang Song’s Blog</title>
+<title>MySQL | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="MySQL" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="connect" />
 <link rel="canonical" href="http://songzy12.github.io/2017/01/15/mysql.html" />
 <meta property="og:url" content="http://songzy12.github.io/2017/01/15/mysql.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-01-15T13:50:37+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/2017/01/15/mysql.html","description":"connect","headline":"MySQL","dateModified":"2017-01-15T13:50:37+08:00","datePublished":"2017-01-15T13:50:37+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/01/15/mysql.html"},"@context":"http://schema.org"}</script>
+{"headline":"MySQL","dateModified":"2017-01-15T13:50:37+08:00","datePublished":"2017-01-15T13:50:37+08:00","url":"http://songzy12.github.io/2017/01/15/mysql.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/01/15/mysql.html"},"description":"connect","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,25 +45,25 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="connect">connect</h2>
+    <h2>connect</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql --host=10.9.10.234 --port=3307 --user=readonly -A
+<pre><code>mysql --host=10.9.10.234 --port=3307 --user=readonly -A
 show databases;
 use edxapp;
 show tables;
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="install">install</h2>
+<h2>install</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install mysql-server
+<pre><code>sudo apt install mysql-server
 sudo service mysql status
 sudo service mysql start
 mysql -u root -p
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="function">function</h2>
+<h2>function</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DROP FUNCTION IF EXISTS getNthHighestSalary;
+<pre><code>DROP FUNCTION IF EXISTS getNthHighestSalary;
 delimiter $$
 CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
 BEGIN
@@ -75,91 +75,58 @@ SET M=N-1;
   );
 END$$
 delimiter ;
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="union">union</h2>
+<h2>union</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select Salary from Employee union select null order by Salary desc limit 1, 1
-</code></pre></div></div>
+<pre><code>select Salary from Employee union select null order by Salary desc limit 1, 1
+</code></pre>
 
-<h2 id="as">as</h2>
+<h2>as</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select Salary as SecondHighestSalary from Employee 
+<pre><code>select Salary as SecondHighestSalary from Employee 
 union select null 
 order by SecondHighestSalary desc limit 1, 1
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="char--varchar">char &amp; varchar</h2>
+<h2>char &amp; varchar</h2>
 
 <p><a href="https://dev.mysql.com/doc/refman/5.7/en/char.html">Here</a>.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Value</td>
-      <td>CHAR(4)</td>
-      <td>Storage Required</td>
-      <td>VARCHAR(4)</td>
-      <td>Storage Required</td>
-    </tr>
-    <tr>
-      <td>’’</td>
-      <td>’    ‘</td>
-      <td>4 bytes</td>
-      <td>’’</td>
-      <td>1 byte</td>
-    </tr>
-    <tr>
-      <td>‘ab’</td>
-      <td>‘ab  ‘</td>
-      <td>4 bytes</td>
-      <td>‘ab’</td>
-      <td>3 bytes</td>
-    </tr>
-    <tr>
-      <td>‘abcd’</td>
-      <td>‘abcd’</td>
-      <td>4 bytes</td>
-      <td>‘abcd’</td>
-      <td>5 bytes</td>
-    </tr>
-    <tr>
-      <td>‘abcdefgh’</td>
-      <td>‘abcd’</td>
-      <td>4 bytes</td>
-      <td>‘abcd’</td>
-      <td>5 bytes</td>
-    </tr>
-  </tbody>
-</table>
+<p>|&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;-|&mdash;&mdash;&mdash;&mdash;&mdash;&mdash;-|&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;&mdash;&mdash;&mdash;-|
+|Value      |CHAR(4)|Storage Required   |VARCHAR(4) |Storage Required|
+|&lsquo;&rsquo;         |&lsquo;    &rsquo; |4 bytes            |&lsquo;&rsquo;         |1 byte         |
+|&lsquo;ab&rsquo;       |&lsquo;ab  &rsquo; |4 bytes            |&lsquo;ab&rsquo;       |3 bytes        |
+|&lsquo;abcd&rsquo;     |&lsquo;abcd&rsquo; |4 bytes            |&lsquo;abcd&rsquo;     |5 bytes        |
+|&lsquo;abcdefgh&rsquo; |&lsquo;abcd&rsquo; |4 bytes            |&lsquo;abcd&rsquo;     |5 bytes        |</p>
 
-<h2 id="create-database">create database</h2>
+<h2>create database</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE DATABASE oxcoder;
-</code></pre></div></div>
+<pre><code>CREATE DATABASE oxcoder;
+</code></pre>
 
-<h2 id="create-table">create table</h2>
+<h2>create table</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create table Employee (Id int primary key, Salary int)
-</code></pre></div></div>
+<pre><code>create table Employee (Id int primary key, Salary int)
+</code></pre>
 
-<h2 id="insert">insert</h2>
+<h2>insert</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>insert into Employee values(1, 100)
+<pre><code>insert into Employee values(1, 100)
 insert into Employee values(2, 200)
 insert into Employee values(3, 300)
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="load-data">load data</h2>
+<h2>load data</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LOAD DATA LOCAL INFILE 'Employee.txt' INTO TABLE Employee FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
-</code></pre></div></div>
+<pre><code>LOAD DATA LOCAL INFILE 'Employee.txt' INTO TABLE Employee FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
+</code></pre>
 
-<p>Note the blank line at the end of file. Be careful to use <code class="highlighter-rouge">\t</code> when you have replaced all the <code class="highlighter-rouge">\t</code> to <code class="highlighter-rouge">space</code></p>
+<p>Note the blank line at the end of file. Be careful to use <code>\t</code> when you have replaced all the <code>\t</code> to <code>space</code></p>
 
-<h2 id="left-join">left join</h2>
+<h2>left join</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select FirstName, LastName, City, State 
+<pre><code>select FirstName, LastName, City, State 
 from Person p 
 LEFT JOIN Address a 
 on p.PersonId = a.PersonId;
@@ -172,11 +139,11 @@ USING(PersonId);
 SELECT FirstName, LastName, City, State 
 FROM Person 
 NATURAL LEFT JOIN Address;
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="user">user</h2>
+<h2>user</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>show databases;
+<pre><code>show databases;
 use mysql;
 select database();
 
@@ -191,46 +158,46 @@ mysql&gt; grant ALL PRIVILEGES
     -&gt; on oxcoder.*
     -&gt; to 'guest'@'localhost'
     -&gt; identified by 'guest';
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="source">source</h2>
+<h2>source</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u guest -p oxcoder;
+<pre><code>mysql -u guest -p oxcoder;
 source 618292_all.sql;
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u root -p leetcode &lt; 618292_all.sql
-</code></pre></div></div>
+<pre><code>mysql -u root -p leetcode &lt; 618292_all.sql
+</code></pre>
 
-<h2 id="show">show</h2>
+<h2>show</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>show full columns from pt_user_challenge;
+<pre><code>show full columns from pt_user_challenge;
 show warnings;
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="count">count</h2>
+<h2>count</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select count(*) from auth_user;
-</code></pre></div></div>
+<pre><code>select count(*) from auth_user;
+</code></pre>
 
-<h2 id="limit">limit</h2>
+<h2>limit</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[LIMIT {[offset,] row_count | row_count OFFSET offset}]
-</code></pre></div></div>
+<pre><code>[LIMIT {[offset,] row_count | row_count OFFSET offset}]
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select Salary from Employee order by Salary desc limit 1, 1
-</code></pre></div></div>
+<pre><code>select Salary from Employee order by Salary desc limit 1, 1
+</code></pre>
 
 <p>Seems like MySQL can only take numeric constants in the LIMIT syntax.</p>
 
-<h2 id="delete">delete</h2>
+<h2>delete</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE FROM table_name [WHERE Clause]
-</code></pre></div></div>
+<pre><code>DELETE FROM table_name [WHERE Clause]
+</code></pre>
 
-<h2 id="mysqldb">MySQLdb</h2>
+<h2>MySQLdb</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import MySQLdb
+<pre><code>import MySQLdb
 
 if __name__ == '__main__':
     db = MySQLdb.connect("localhost", "guest", "guest", "oxcoder")
@@ -240,7 +207,7 @@ if __name__ == '__main__':
     data = cursor.fetchone()
     print data
     db.close()
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/2017/01/15/mysql.html" hidden></a>
 </article>

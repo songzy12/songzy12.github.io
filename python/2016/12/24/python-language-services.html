@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>python language services | Zhengyang Song’s Blog</title>
+<title>python language services | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="python language services" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="ast" />
 <link rel="canonical" href="http://songzy12.github.io/python/2016/12/24/python-language-services.html" />
 <meta property="og:url" content="http://songzy12.github.io/python/2016/12/24/python-language-services.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-12-24T14:06:13+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/python/2016/12/24/python-language-services.html","description":"ast","headline":"python language services","dateModified":"2016-12-24T14:06:13+08:00","datePublished":"2016-12-24T14:06:13+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/12/24/python-language-services.html"},"@context":"http://schema.org"}</script>
+{"headline":"python language services","dateModified":"2016-12-24T14:06:13+08:00","datePublished":"2016-12-24T14:06:13+08:00","url":"http://songzy12.github.io/python/2016/12/24/python-language-services.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/12/24/python-language-services.html"},"description":"ast","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,11 +45,11 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="ast">ast</h2>
+    <h2>ast</h2>
 
 <p>Abstract Syntax Trees</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import ast
+<pre><code>import ast
 
 expr_ast = ast.parse(expr)
 ast.dump(expr_ast)
@@ -58,15 +58,15 @@ transformer = CrazyTransformer()
 transformer.visit(expr_ast)
 
 unparse.Unparser(modified, sys.stdout)
-</code></pre></div></div>
+</code></pre>
 
-<p><code class="highlighter-rouge">ast.literal_eval()</code> only considers a small subset of Python’s syntax to be valid:</p>
+<p><code>ast.literal_eval()</code> only considers a small subset of Python&rsquo;s syntax to be valid:</p>
 
 <p>The string or node provided may only consist of the following Python literal structures: strings, numbers, tuples, lists, dicts, booleans, and None.</p>
 
-<p>Passing <code class="highlighter-rouge">__import__('os').system('rm -rf /a-path-you-really-care-about')</code> into <code class="highlighter-rouge">ast.literal_eval()</code> will raise an error, but <code class="highlighter-rouge">eval()</code> will happily wipe your drive.</p>
+<p>Passing <code>__import__('os').system('rm -rf /a-path-you-really-care-about')</code> into <code>ast.literal_eval()</code> will raise an error, but <code>eval()</code> will happily wipe your drive.</p>
 
-<p>Use <code class="highlighter-rouge">ast.literal_eval</code> whenever you need <code class="highlighter-rouge">eval</code>.</p>
+<p>Use <code>ast.literal_eval</code> whenever you need <code>eval</code>.</p>
 
   </div><a class="u-url" href="/python/2016/12/24/python-language-services.html" hidden></a>
 </article>

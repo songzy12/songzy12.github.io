@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Android NDK | Zhengyang Song’s Blog</title>
+<title>Android NDK | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Android NDK" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="Android.mk" />
 <link rel="canonical" href="http://songzy12.github.io/android/2016/08/22/android-ndk.html" />
 <meta property="og:url" content="http://songzy12.github.io/android/2016/08/22/android-ndk.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-08-22T20:07:03+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/android/2016/08/22/android-ndk.html","description":"Android.mk","headline":"Android NDK","dateModified":"2016-08-22T20:07:03+08:00","datePublished":"2016-08-22T20:07:03+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/08/22/android-ndk.html"},"@context":"http://schema.org"}</script>
+{"headline":"Android NDK","dateModified":"2016-08-22T20:07:03+08:00","datePublished":"2016-08-22T20:07:03+08:00","url":"http://songzy12.github.io/android/2016/08/22/android-ndk.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/08/22/android-ndk.html"},"description":"Android.mk","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,11 +45,11 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="androidmk">Android.mk</h2>
+    <h2>Android.mk</h2>
 
 <p><a href="http://android.mk/">Here</a>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LOCAL_PATH := $(call my-dir)
+<pre><code>LOCAL_PATH := $(call my-dir)
 
 include $(CLEAR_VARS)
 
@@ -57,91 +57,98 @@ LOCAL_MODULE    := hello-jni
 LOCAL_SRC_FILES := hello-jni.c
 
 include $(BUILD_SHARED_LIBRARY)
-</code></pre></div></div>
+</code></pre>
 
-<p>The <code class="highlighter-rouge">BUILD_SHARED_LIBRARY</code> is a variable provided by the build system that points to a GNU Makefile script that is in charge of collecting all the information you defined in <code class="highlighter-rouge">LOCAL_XXX</code> variables since the latest <code class="highlighter-rouge">include $(CLEAR_VARS)</code> and determine what to build, and how to do it exactly. There is also <code class="highlighter-rouge">BUILD_STATIC_LIBRARY</code> to generate a static library.</p>
+<p>The <code>BUILD_SHARED_LIBRARY</code> is a variable provided by the build system that points to a GNU Makefile script that is in charge of collecting all the information you defined in <code>LOCAL_XXX</code> variables since the latest <code>include $(CLEAR_VARS)</code> and determine what to build, and how to do it exactly. There is also <code>BUILD_STATIC_LIBRARY</code> to generate a static library.</p>
 
-<h2 id="androidmanifest">AndroidManifest</h2>
+<h2>AndroidManifest</h2>
 
-<h3 id="installlocation">installLocation</h3>
-
-<ul>
-  <li><code class="highlighter-rouge">internalOnly</code></li>
-  <li><code class="highlighter-rouge">auto</code></li>
-  <li><code class="highlighter-rouge">preferExternal</code></li>
-</ul>
-
-<h3 id="labeldescription">label/description</h3>
+<h3>installLocation</h3>
 
 <ul>
-  <li>The actual app label is set as the one in <code class="highlighter-rouge">&lt;application android:label&gt;</code>. If not set, then package name.</li>
-  <li>The activity title is set as the one in <code class="highlighter-rouge">&lt;activity android：label&gt;</code>. If not set, then app label.</li>
-  <li>The shortcut label is set as the one in main activity <code class="highlighter-rouge">&lt;activity android：label&gt;</code>. If not set, then app label.</li>
+<li><code>internalOnly</code></li>
+<li><code>auto</code></li>
+<li><code>preferExternal</code></li>
 </ul>
+
+
+<h3>label/description</h3>
+
+<ul>
+<li>The actual app label is set as the one in <code>&lt;application android:label&gt;</code>. If not set, then package name.</li>
+<li>The activity title is set as the one in <code>&lt;activity android：label&gt;</code>. If not set, then app label.</li>
+<li>The shortcut label is set as the one in main activity <code>&lt;activity android：label&gt;</code>. If not set, then app label.</li>
+</ul>
+
 
 <p>But what if I want the shortcut label to be the same as app label, but different from the main activity title?</p>
 
-<p>It seems that the <code class="highlighter-rouge">&lt;intent-filter android:label&gt;</code> is of no use in Android 4.4.</p>
+<p>It seems that the <code>&lt;intent-filter android:label&gt;</code> is of no use in Android 4.4.</p>
 
-<h3 id="name">name</h3>
-
-<ul>
-  <li>If the name starts with a dot, always prefix it with the package.</li>
-  <li>If the name has a dot anywhere else, do not prefix it.</li>
-  <li>If the name has no dot at all, also prefix it with the package.</li>
-</ul>
-
-<h3 id="lauchmode">lauchMode</h3>
+<h3>name</h3>
 
 <ul>
-  <li>standard</li>
-  <li>singleTop</li>
-  <li>singleTask</li>
-  <li>singleInstance</li>
+<li>If the name starts with a dot, always prefix it with the package.</li>
+<li>If the name has a dot anywhere else, do not prefix it.</li>
+<li>If the name has no dot at all, also prefix it with the package.</li>
 </ul>
 
-<h3 id="screenorientation">screenOrientation</h3>
+
+<h3>lauchMode</h3>
 
 <ul>
-  <li>landscape</li>
-  <li>portrait</li>
+<li>standard</li>
+<li>singleTop</li>
+<li>singleTask</li>
+<li>singleInstance</li>
 </ul>
 
-<h3 id="intent-filter">intent-filter</h3>
 
-<p>Declares the intent action accepted, in the <code class="highlighter-rouge">name</code> attribute.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>android.intent.action.MAIN
-</code></pre></div></div>
-
-<p>Declares the intent category accepted, in the <code class="highlighter-rouge">name</code> attribute.</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>android.intent.category.LAUNCHER
-</code></pre></div></div>
-
-<h3 id="uses-permission">uses-permission</h3>
+<h3>screenOrientation</h3>
 
 <ul>
-  <li><code class="highlighter-rouge">&lt;uses-permission&gt;</code>: Requests a permission that the application must be granted in order for it to operate correctly.</li>
-  <li><code class="highlighter-rouge">&lt;permission&gt;</code>: Declares a security permission that can be used to limit access to specific components or features of this or other applications.</li>
+<li>landscape</li>
+<li>portrait</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;uses-permission android:name="android.permission.INTERNET"/&gt;
-</code></pre></div></div>
 
-<h3 id="uses-sdk">uses-sdk</h3>
+<h3>intent-filter</h3>
 
-<p><code class="highlighter-rouge">Android 4.4W</code> extends support for <code class="highlighter-rouge">Wearables</code>.</p>
+<p>Declares the intent action accepted, in the <code>name</code> attribute.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Unable to resolve target 'android-19'
-</code></pre></div></div>
+<pre><code>android.intent.action.MAIN
+</code></pre>
+
+<p>Declares the intent category accepted, in the <code>name</code> attribute.</p>
+
+<pre><code>android.intent.category.LAUNCHER
+</code></pre>
+
+<h3>uses-permission</h3>
 
 <ul>
-  <li><code class="highlighter-rouge">project.properties</code>: <code class="highlighter-rouge">target=android-20</code>.</li>
-  <li><code class="highlighter-rouge">AndroidManifest.xml</code>: <code class="highlighter-rouge">android:targetSdkVersion="20"</code></li>
+<li><code>&lt;uses-permission&gt;</code>: Requests a permission that the application must be granted in order for it to operate correctly.</li>
+<li><code>&lt;permission&gt;</code>: Declares a security permission that can be used to limit access to specific components or features of this or other applications.</li>
 </ul>
 
-<p>Then <code class="highlighter-rouge">clean</code> and <code class="highlighter-rouge">run</code>.</p>
+
+<pre><code>&lt;uses-permission android:name="android.permission.INTERNET"/&gt;
+</code></pre>
+
+<h3>uses-sdk</h3>
+
+<p><code>Android 4.4W</code> extends support for <code>Wearables</code>.</p>
+
+<pre><code>Unable to resolve target 'android-19'
+</code></pre>
+
+<ul>
+<li><code>project.properties</code>: <code>target=android-20</code>.</li>
+<li><code>AndroidManifest.xml</code>: <code>android:targetSdkVersion="20"</code></li>
+</ul>
+
+
+<p>Then <code>clean</code> and <code>run</code>.</p>
 
   </div><a class="u-url" href="/android/2016/08/22/android-ndk.html" hidden></a>
 </article>

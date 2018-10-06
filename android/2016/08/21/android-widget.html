@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Android Widget | Zhengyang Song’s Blog</title>
+<title>Android Widget | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Android Widget" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="EditText" />
 <link rel="canonical" href="http://songzy12.github.io/android/2016/08/21/android-widget.html" />
 <meta property="og:url" content="http://songzy12.github.io/android/2016/08/21/android-widget.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-08-21T20:07:03+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/android/2016/08/21/android-widget.html","description":"EditText","headline":"Android Widget","dateModified":"2016-08-21T20:07:03+08:00","datePublished":"2016-08-21T20:07:03+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/08/21/android-widget.html"},"@context":"http://schema.org"}</script>
+{"headline":"Android Widget","dateModified":"2016-08-21T20:07:03+08:00","datePublished":"2016-08-21T20:07:03+08:00","url":"http://songzy12.github.io/android/2016/08/21/android-widget.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/08/21/android-widget.html"},"description":"EditText","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,9 +45,9 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="edittext">EditText</h2>
+    <h2>EditText</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>editText.addTextChangedListener(new TextWatcher() {
+<pre><code>editText.addTextChangedListener(new TextWatcher() {
 @Override
 public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
     // Only handle addition of characters
@@ -56,25 +56,26 @@ public void onTextChanged(CharSequence charSequence, int start, int before, int 
         String s = charSequence.subSequence(before, count).toString();
     }
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="imageview">ImageView</h2>
+<h2>ImageView</h2>
 
 <p>scaleType:</p>
 
 <ul>
-  <li>center</li>
-  <li>fitCenter</li>
+<li>center</li>
+<li>fitCenter</li>
 </ul>
 
-<h3 id="setlayoutparams">setLayoutParams</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>img.setLayoutParams(new LinearLayout.LayoutParams(newWidth,newHeight))
-</code></pre></div></div>
+<h3>setLayoutParams</h3>
 
-<h3 id="setimagebitmap">setImageBitmap</h3>
+<pre><code>img.setLayoutParams(new LinearLayout.LayoutParams(newWidth,newHeight))
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.picture);
+<h3>setImageBitmap</h3>
+
+<pre><code>Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.picture);
 img.setImageBitmap(bitmap);
 
 public void setImageBitmap(Bitmap bm) {
@@ -82,90 +83,91 @@ public void setImageBitmap(Bitmap bm) {
 // to reduce the intermediate drawable object
     setImageDrawable(newBitmapDrawable(mContext.getResources(), bm));
 }
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="getparent">getParent</h3>
+<h3>getParent</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ImageView img = mImages[i][j];
+<pre><code>ImageView img = mImages[i][j];
 LinearLayout pa = (LinearLayout) img.getParent();
 pa.removeView(img);
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="linearlayout">LinearLayout</h2>
+<h2>LinearLayout</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LinearLayout linralayout = new LinearLayout(context);
+<pre><code>LinearLayout linralayout = new LinearLayout(context);
 linralayout.setOrientation(LinearLayout.VERTICAL);
 linralayout.setPadding(0, 0, 0, 0); // setPadding(left, top, right, bottom);
 this.addView(linralayout);
-</code></pre></div></div>
+</code></pre>
 
 <ul>
-  <li>content: The content of the box, where text and images appear</li>
-  <li>padding: Clears an area around the content. The padding is transparent</li>
-  <li>border: A border that goes around the padding and content</li>
-  <li>margin: Clears an area outside the border. The margin is transparent</li>
+<li>content: The content of the box, where text and images appear</li>
+<li>padding: Clears an area around the content. The padding is transparent</li>
+<li>border: A border that goes around the padding and content</li>
+<li>margin: Clears an area outside the border. The margin is transparent</li>
 </ul>
 
-<h2 id="radiogroup">RadioGroup</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>RadioGroup style=(RadioGroup) findViewById(R.id.style);
+<h2>RadioGroup</h2>
+
+<pre><code>RadioGroup style=(RadioGroup) findViewById(R.id.style);
 RadioButton lingxin=(RadioButton) findViewById(R.id.lingxin);
 style.setOnCheckedChangeListener( new OnCheckedChangeListener(){
-	public void onCheckedChanged(RadioGroup group, int checkedId) {
-		if(lingxin.getId() == checkedId){
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        if(lingxin.getId() == checkedId){
         //
-		}
+        }
     }
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="scrollview">ScrollView</h2>
+<h2>ScrollView</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;android.support.v4.widget.SwipeRefreshLayout
+<pre><code>&lt;android.support.v4.widget.SwipeRefreshLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/swipeContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"&gt;
-    
+
     &lt;WebView android:id="@+id/webView"
         android:layout_width="wrap_content"
-	    android:layout_height="wrap_content" /&gt;
+        android:layout_height="wrap_content" /&gt;
 &lt;/android.support.v4.widget.SwipeRefreshLayout&gt;
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int offset = textView.getMeasuredHeight()
+<pre><code>int offset = textView.getMeasuredHeight()
         - scrollView.getMeasuredHeight();
 if (offset &lt; 0) {
     offset = 0;
 }
 scrollView.scrollTo(0, offset);
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="swiperefreshlayout">SwipeRefreshLayout</h2>
+<h2>SwipeRefreshLayout</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefreshListener {
-	private SwipeRefreshLayout swipeContainer;
-	@Override
+<pre><code>public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefreshListener {
+    private SwipeRefreshLayout swipeContainer;
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main);
-        
+        setContentView(R.layout.activity_main);
+
         swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
         swipeContainer.setOnRefreshListener(this);  
-	}   
+    }   
 
-	@Override
-	public void onRefresh() {
-		Log.i(TAG, "refreshing");
-		swipeContainer.setRefreshing(false);
-	}     
+    @Override
+    public void onRefresh() {
+        Log.i(TAG, "refreshing");
+        swipeContainer.setRefreshing(false);
+    }     
 }   
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="viewholder">ViewHolder</h2>
+<h2>ViewHolder</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>static class ViewHolder {
+<pre><code>static class ViewHolder {
     public TextView info;
 }
 @Override
@@ -182,7 +184,7 @@ public View getView(int position, View convertView, ViewGroup parent) {
     }
     return convertView;
 }
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/android/2016/08/21/android-widget.html" hidden></a>
 </article>

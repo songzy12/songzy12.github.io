@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>String Services | Zhengyang Song’s Blog</title>
+<title>String Services | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="String Services" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="re" />
 <link rel="canonical" href="http://songzy12.github.io/python/2016/12/24/string-services.html" />
 <meta property="og:url" content="http://songzy12.github.io/python/2016/12/24/string-services.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-12-24T14:29:03+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/python/2016/12/24/string-services.html","description":"re","headline":"String Services","dateModified":"2016-12-24T14:29:03+08:00","datePublished":"2016-12-24T14:29:03+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/12/24/string-services.html"},"@context":"http://schema.org"}</script>
+{"headline":"String Services","dateModified":"2016-12-24T14:29:03+08:00","datePublished":"2016-12-24T14:29:03+08:00","url":"http://songzy12.github.io/python/2016/12/24/string-services.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/12/24/string-services.html"},"description":"re","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,40 +45,40 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="re">re</h2>
+    <h2>re</h2>
 
-<h3 id="p">?P</h3>
+<h3>?P</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; import re
+<pre><code>&gt;&gt;&gt; import re
 &gt;&gt;&gt; match = re.search('(?P&lt;name&gt;.*) (?P&lt;phone&gt;.*)', 'John 123456')
 &gt;&gt;&gt; match.group('name')
 'John'
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="split">split</h3>
+<h3>split</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>re.split(u'，|。', u'a，b。c')
-</code></pre></div></div>
+<pre><code>re.split(u'，|。', u'a，b。c')
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import re
+<pre><code>import re
 DATA = "Hey, you - what are you doing here!?"
 print re.findall(r"[\w']+", DATA)
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="sub">sub</h3>
+<h3>sub</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>re.sub(pattern, repl, string, count=0, flags=0)
+<pre><code>re.sub(pattern, repl, string, count=0, flags=0)
 
-	Return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by the replacement repl. If the pattern isn’t found, string is returned unchanged. repl can be a string or a function;
-	If repl is a function, it is called for every non-overlapping occurrence of pattern. The function takes a single match object argument, and returns the replacement string.
-</code></pre></div></div>
+    Return the string obtained by replacing the leftmost non-overlapping occurrences of pattern in string by the replacement repl. If the pattern isn’t found, string is returned unchanged. repl can be a string or a function;
+    If repl is a function, it is called for every non-overlapping occurrence of pattern. The function takes a single match object argument, and returns the replacement string.
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; def dashrepl(matchobj):
+<pre><code>&gt;&gt;&gt; def dashrepl(matchobj):
 ...     if matchobj.group(0) == '-': return ' '
 ...     else: return '-'
 &gt;&gt;&gt; re.sub('-{1,2}', dashrepl, 'pro----gram-files')
 'pro--gram files'
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/python/2016/12/24/string-services.html" hidden></a>
 </article>

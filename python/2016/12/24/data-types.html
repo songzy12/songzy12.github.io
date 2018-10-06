@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>data types | Zhengyang Song’s Blog</title>
+<title>data types | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="data types" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="bisect" />
 <link rel="canonical" href="http://songzy12.github.io/python/2016/12/24/data-types.html" />
 <meta property="og:url" content="http://songzy12.github.io/python/2016/12/24/data-types.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-12-24T14:11:32+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/python/2016/12/24/data-types.html","description":"bisect","headline":"data types","dateModified":"2016-12-24T14:11:32+08:00","datePublished":"2016-12-24T14:11:32+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/12/24/data-types.html"},"@context":"http://schema.org"}</script>
+{"headline":"data types","dateModified":"2016-12-24T14:11:32+08:00","datePublished":"2016-12-24T14:11:32+08:00","url":"http://songzy12.github.io/python/2016/12/24/data-types.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/12/24/data-types.html"},"description":"bisect","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,80 +45,80 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="bisect">bisect</h2>
+    <h2>bisect</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bisect.bisect_left(a, x, lo=0, hi=len(a))
-	Locate the insertion point for x in a to maintain sorted order.
+<pre><code>bisect.bisect_left(a, x, lo=0, hi=len(a))
+    Locate the insertion point for x in a to maintain sorted order.
 
 
 bisect.insort_left(a, x, lo=0, hi=len(a))
     Insert x in a in sorted order. This is equivalent to a.insert(bisect.bisect_left(a, x, lo, hi), x) assuming that a is already sorted. Keep in mind that the O(log n) search is dominated by the slow O(n) insertion step.
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="collections">collections</h2>
+<h2>collections</h2>
 
-<h3 id="deque">deque</h3>
+<h3>deque</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from collections import dequeue
+<pre><code>from collections import dequeue
 q = dequeue(['a','b','c'])
 q.append('x')
 q.appendleft('y')
 q.pop()
 q.popleft()
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>buffer = deque(maxlen=span)
+<pre><code>buffer = deque(maxlen=span)
 for _ in xrange(span):
     buffer.append(data[data_index])
     data_index = (data_index + 1) % len(data)
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="defaultdict">defaultdict</h3>
+<h3>defaultdict</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from collections import defaultdict
+<pre><code>from collections import defaultdict
 dd = defaultdict(lambda: 'N/A')
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="namedtuple">namedtuple</h3>
+<h3>namedtuple</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from collections import namedtuple
+<pre><code>from collections import namedtuple
 Point = namedtuple('Point', ['x','y'])
 p = Point(1,2)
 p.x
 p.y
 isinstance(p, tuple)
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="counter">Counter</h3>
+<h3>Counter</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>c = Counter('programming')
-</code></pre></div></div>
+<pre><code>c = Counter('programming')
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>most_common(self, n=None) unbound collections.Counter method
+<pre><code>most_common(self, n=None) unbound collections.Counter method
     List the n most common elements and their counts from the most
     common to the least.  If n is None, then list all element counts.
-    
+
     &gt;&gt;&gt; Counter('abcdeabcdabcaba').most_common(3)
     [('a', 5), ('b', 4), ('c', 3)]
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="ordereddict">OrderedDict</h3>
+<h3>OrderedDict</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vocab = Counter(reduce(lambda x, y: x + y,[question + answer for question, answer in train]))
+<pre><code>vocab = Counter(reduce(lambda x, y: x + y,[question + answer for question, answer in train]))
 
 from collections import OrderedDict
 with io.open('data/vocab.json', 'w', encoding='utf8') as f:
     f.write(json.dumps(OrderedDict(sorted(vocab.items(), key=lambda (k,v):v)), ensure_ascii=False, sort_keys=False, indent=4))
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="datetime">datetime</h2>
+<h2>datetime</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from datetime import datetime
+<pre><code>from datetime import datetime
 
 time = '2016-02-26 04:41'
 time = datetime.strptime(time, '%Y-%m-%d %H:%M')
 print time
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/python/2016/12/24/data-types.html" hidden></a>
 </article>

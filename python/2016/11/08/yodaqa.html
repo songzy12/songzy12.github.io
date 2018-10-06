@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>yodaqa | Zhengyang Song’s Blog</title>
+<title>yodaqa | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="yodaqa" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="Sentence-selection and yodaqa." />
 <link rel="canonical" href="http://songzy12.github.io/python/2016/11/08/yodaqa.html" />
 <meta property="og:url" content="http://songzy12.github.io/python/2016/11/08/yodaqa.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-11-08T18:16:28+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/python/2016/11/08/yodaqa.html","description":"Sentence-selection and yodaqa.","headline":"yodaqa","dateModified":"2016-11-08T18:16:28+08:00","datePublished":"2016-11-08T18:16:28+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/11/08/yodaqa.html"},"@context":"http://schema.org"}</script>
+{"headline":"yodaqa","dateModified":"2016-11-08T18:16:28+08:00","datePublished":"2016-11-08T18:16:28+08:00","url":"http://songzy12.github.io/python/2016/11/08/yodaqa.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/11/08/yodaqa.html"},"description":"Sentence-selection and yodaqa.","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -47,56 +47,56 @@
   <div class="post-content e-content" itemprop="articleBody">
     <p><a href="https://github.com/brmson/Sentence-selection">Sentence-selection</a> and <a href="https://github.com/brmson/yodaqa">yodaqa</a>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ cd yodaqa
+<pre><code>$ cd yodaqa
 $ data/ml/embsel/gen.sh curated ../Sentence-selection/
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Could not GET 'http://ailao.eu/maven/eu/ailao/gloveDict/1.0-stanford/gloveDict-1.0-stanford.pom'
+<pre><code>Could not GET 'http://ailao.eu/maven/eu/ailao/gloveDict/1.0-stanford/gloveDict-1.0-stanford.pom'
 Could not GET 'http://ailao.eu/maven/com/github/jcrfsuite/jcrfsuite/0.5/jcrfsuite-0.5.pom'
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="constpy">const.py</h2>
+<h2>const.py</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LISTPATH="data/trainlist.p"
+<pre><code>LISTPATH="data/trainlist.p"
 PANS1='data/ans1.txt'
 PANS0='data/ans0.txt'
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="trainpy">train.py</h2>
+<h2>train.py</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(M, b, w, results) = train(LISTPATH, PANS1, PANS0)
-</code></pre></div></div>
+<pre><code>(M, b, w, results) = train(LISTPATH, PANS1, PANS0)
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(M,b,results)=trainMb(trainlist,ans1,ans0)
+<pre><code>(M,b,results)=trainMb(trainlist,ans1,ans0)
 w=trainClues(trainlist,ans1,ans0)
 
 for q in trainlist:
-	prop_num+=len(q.y)
-</code></pre></div></div>
+    prop_num+=len(q.y)
+</code></pre>
 
-<h3 id="trainmb">trainMb</h3>
+<h3>trainMb</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mrrs,crossmrr,M,b=cross_validate_all(M,b,trainlist)
+<pre><code>mrrs,crossmrr,M,b=cross_validate_all(M,b,trainlist)
 trainmrr=mrr(M,b,trainlist)
 l,alpha=trainConsts()
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="trainclues">trainClues</h3>
+<h3>trainClues</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>(x,y)=getInputsClues(trainlist,ans1,ans0)
-</code></pre></div></div>
+<pre><code>(x,y)=getInputsClues(trainlist,ans1,ans0)
+</code></pre>
 
-<h2 id="basicgradpy">basicgrad.py</h2>
+<h2>basicgrad.py</h2>
 
-<h3 id="testgrad">testGrad</h3>
+<h3>testGrad</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for q in li:
-	labels=q.y
-</code></pre></div></div>
+<pre><code>for q in li:
+    labels=q.y
+</code></pre>
 
-<h3 id="q">q</h3>
+<h3>q</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class q(object):
+<pre><code>class q(object):
     """Holds question with all its answers and T/F values as well as counted probabilities"""
     q=[]
     a=[]
@@ -128,43 +128,43 @@ l,alpha=trainConsts()
         self.clues=np.hstack((clues1,clues0))
     def setCounts(self):
         """ compute counts of common words in question and each answer """
-		pass
-</code></pre></div></div>
+        pass
+</code></pre>
 
-<h3 id="mrr">mrr</h3>
+<h3>mrr</h3>
 
 <p>Mean Reciprocal Rank: The mean reciprocal rank is a statistic measure for evaluating any process that produces a list of possible responses to a sample of queries, ordered by probability of correctness. The reciprocal rank of a query response is the multiplicative inverse of the rank of the first correct answer. The mean reciprocal rank is the average of the reciprocal ranks of results for a sample of queries Q.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for q in li:
-	q.sett(M,b)
-	mrr+=1/firstTrue(q.y,q.t)
-</code></pre></div></div>
+<pre><code>for q in li:
+    q.sett(M,b)
+    mrr+=1/firstTrue(q.y,q.t)
+</code></pre>
 
-<h3 id="getinputsclues">getInputsClues</h3>
+<h3>getInputsClues</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>x[poz+i]=[q.t[i],q.clues[0,i]]
-</code></pre></div></div>
+<pre><code>x[poz+i]=[q.t[i],q.clues[0,i]]
+</code></pre>
 
-<h3 id="ttlist">ttlist</h3>
+<h3>ttlist</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for i in range(0,len(ans1)):
+<pre><code>for i in range(0,len(ans1)):
     li.append(q(qa[i],a1a[ones:ones+ans1[i]],a0a[zeros:zeros+ans0[i]],questions[i],
                 answers1[ones:ones+ans1[i]],answers0[zeros:zeros+ans0[i]],clues1[:,ones:ones+ans1[i]],clues0[:,zeros:zeros+ans0[i]]))
     ones+=ans1[i]
     zeros+=ans0[i]
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="vecfromtextpy">vecfromtext.py</h2>
+<h2>vecfromtext.py</h2>
 
-<h3 id="loadlist">loadList</h3>
+<h3>loadList</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ans1=np.loadtxt(PANS1).astype(int)
+<pre><code>ans1=np.loadtxt(PANS1).astype(int)
 li = pickle.load( open( LISTPATH, "rb" ) )
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="textarrays">textArrays</h3>
+<h3>textArrays</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def textArrays(qpath,apath1,apath0):
+<pre><code>def textArrays(qpath,apath1,apath0):
     """ Returns qa text vectors from files with jacana formating.
     Text == array of tokens.
     It is a tuple of:
@@ -174,16 +174,16 @@ li = pickle.load( open( LISTPATH, "rb" ) )
       * for each question, #of correct answers (used for computing the index in list of all correct answers)
       * for each question, #of incorrect answers
     """
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="savepy">save.py</h2>
+<h2>save.py</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>saveQlist(QPATH,APATH1,APATH0,GLOVEPATH,GLOVEPATH2,LISTPATH,PANS1,PANS0,new_dict=True,c1=CPATH1,c0=CPATH0)
-</code></pre></div></div>
+<pre><code>saveQlist(QPATH,APATH1,APATH0,GLOVEPATH,GLOVEPATH2,LISTPATH,PANS1,PANS0,new_dict=True,c1=CPATH1,c0=CPATH0)
+</code></pre>
 
-<h3 id="saveqlist">saveQlist</h3>
+<h3>saveQlist</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"""From jacana formated documents of questions, true answers, false answers
+<pre><code>"""From jacana formated documents of questions, true answers, false answers
 saves list of Qs to PLIST path"""
 (q,a1,a0,ans1,ans0)=textArrays(QPATH,APATH1,APATH0)
 (qa,a1a,a0a)=prepForGrad(q,a1,a0,ans1,ans0,GLOVEPATH2)
@@ -192,7 +192,7 @@ li=ttlist(qa,a1a,a0a,ans1,ans0,sentences,c1,c0)
 pickle.dump( li, open( PLIST , "wb" ) )
 np.savetxt(PANS1,ans1)
 np.savetxt(PANS0,ans0)
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/python/2016/11/08/yodaqa.html" hidden></a>
 </article>

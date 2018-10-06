@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Expectation of Random Variables | Zhengyang Song’s Blog</title>
+<title>Expectation of Random Variables | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Expectation of Random Variables" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="事情的起因是舍友问了这样一道题目：" />
 <link rel="canonical" href="http://songzy12.github.io/2017/03/22/expectation-of-random-variables.html" />
 <meta property="og:url" content="http://songzy12.github.io/2017/03/22/expectation-of-random-variables.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-03-22T13:11:13+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/2017/03/22/expectation-of-random-variables.html","description":"事情的起因是舍友问了这样一道题目：","headline":"Expectation of Random Variables","dateModified":"2017-03-22T13:11:13+08:00","datePublished":"2017-03-22T13:11:13+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/03/22/expectation-of-random-variables.html"},"@context":"http://schema.org"}</script>
+{"headline":"Expectation of Random Variables","dateModified":"2017-03-22T13:11:13+08:00","datePublished":"2017-03-22T13:11:13+08:00","url":"http://songzy12.github.io/2017/03/22/expectation-of-random-variables.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/03/22/expectation-of-random-variables.html"},"description":"事情的起因是舍友问了这样一道题目：","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -47,115 +47,115 @@
   <div class="post-content e-content" itemprop="articleBody">
     <p>事情的起因是舍友问了这样一道题目：</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>一枚硬币, 扔出 H 的概率为 p, T 的概率为 q, 计算首次扔出 T\underbrace{H\dots H}_{k} 所需投掷次数的数学期望。 
-</code></pre></div></div>
+<pre><code>一枚硬币, 扔出 H 的概率为 p, T 的概率为 q, 计算首次扔出 T\underbrace{H\dots H}_{k} 所需投掷次数的数学期望。 
+</code></pre>
 
-<p>我们先来考虑 <code class="highlighter-rouge">\underbrace{H\dots H}_{k}</code> 这样简单后的情形，然后试图将其推广到任意模式的一般情况。</p>
+<p>我们先来考虑 <code>\underbrace{H\dots H}_{k}</code> 这样简单后的情形，然后试图将其推广到任意模式的一般情况。</p>
 
-<p>记 随机变量 <code class="highlighter-rouge">X_k</code> 为 首次投掷出 <code class="highlighter-rouge">\underbrace{H\dots H}_{k}</code> 所需的次数。</p>
+<p>记 随机变量 <code>X_k</code> 为 首次投掷出 <code>\underbrace{H\dots H}_{k}</code> 所需的次数。</p>
 
-<h3 id="法一">法一</h3>
+<h3>法一</h3>
 
-<p>设我们要求的数学期望为 <code class="highlighter-rouge">e</code>, 则有</p>
+<p>设我们要求的数学期望为 <code>e</code>, 则有</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>e = q (1+e) + p q (2+e) + p p q (3+e) + p^{k-1} q (k+e) + p^k k 
-</code></pre></div></div>
+<pre><code>e = q (1+e) + p q (2+e) + p p q (3+e) + p^{k-1} q (k+e) + p^k k 
+</code></pre>
 
-<p>这是对前 <code class="highlighter-rouge">k</code> 位可能出现的模式进行分类讨论得到的。</p>
+<p>这是对前 <code>k</code> 位可能出现的模式进行分类讨论得到的。</p>
 
-<p>记 <code class="highlighter-rouge">S=1+2p+3p^2+\dots+kp^{k-1}</code>, 可得 <code class="highlighter-rouge">S=1/q((1-p^k)/q-kp^k)</code>.</p>
+<p>记 <code>S=1+2p+3p^2+\dots+kp^{k-1}</code>, 可得 <code>S=1/q((1-p^k)/q-kp^k)</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>e 
+<pre><code>e 
 = q(1+2p+3p^2+\dots+kp^{k-1})+kp^k+q(1+p+\dots+p^{k-1})e
 = q 1/q ((1-p^k)/q-kp^k) + kp^k + q 1/q(1-p^k) e
 = (1-p^k)/q + (1-p^k) e
-</code></pre></div></div>
+</code></pre>
 
 <p>从而</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>e = 1/q (1/p ^k - 1)
-</code></pre></div></div>
+<pre><code>e = 1/q (1/p ^k - 1)
+</code></pre>
 
 <p>这与我们上面的结果是吻合的。</p>
 
 <p>推广：首次投掷出 HTHHT</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>e = q(1+e) + pp(2+e) + pqq(3+e) + pqpq(4+e) + pqppp(5+e) + pqppq 5
-</code></pre></div></div>
+<pre><code>e = q(1+e) + pp(2+e) + pqq(3+e) + pqpq(4+e) + pqppp(5+e) + pqppq 5
+</code></pre>
 
-<h3 id="法二">法二</h3>
+<h3>法二</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X_k = (X_{k-1} + 1)\cdot p + (X_{k-1} + 1 + X_k)\cdot q
+<pre><code>X_k = (X_{k-1} + 1)\cdot p + (X_{k-1} + 1 + X_k)\cdot q
 X_0 = 0 
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X_k = 1/p X_{k-1} + 1/p
-</code></pre></div></div>
+<pre><code>X_k = 1/p X_{k-1} + 1/p
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X_k = 1/q (1/p ^k - 1)
-</code></pre></div></div>
+<pre><code>X_k = 1/q (1/p ^k - 1)
+</code></pre>
 
 <p>而递推式的由来在于</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  Pr(X_k = n) 
+<pre><code>  Pr(X_k = n) 
 = Pr(X_{k-1} = n-1) p + \sum_m [ Pr(X_{k-1}=m) q Pr(X_{k}=n-m-1) ]
 = p Pr(X_{k-1}+1 = n) + q \sum_m [ Pr(X_{k-1}=m) Pr(X_{k}+1=n-m) ] 
-</code></pre></div></div>
+</code></pre>
 
 <p>也就是</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X_k = p (X_{k-1}+1) + q (X_{k-1}+X_{k}+1)
-</code></pre></div></div>
+<pre><code>X_k = p (X_{k-1}+1) + q (X_{k-1}+X_{k}+1)
+</code></pre>
 
-<p>这是由于对于随机变量 <code class="highlighter-rouge">X, Y, Z</code>, 若 <code class="highlighter-rouge">Z=X+Y</code>，则</p>
+<p>这是由于对于随机变量 <code>X, Y, Z</code>, 若 <code>Z=X+Y</code>，则</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pr(Z=n) = \sum_m [Pr(X=m) Pr(Y=n-m)]
-</code></pre></div></div>
+<pre><code>Pr(Z=n) = \sum_m [Pr(X=m) Pr(Y=n-m)]
+</code></pre>
 
-<p>递推法可以使得我们顺便求出所有的 <code class="highlighter-rouge">X_k</code></p>
+<p>递推法可以使得我们顺便求出所有的 <code>X_k</code></p>
 
 <p>推广：首次投掷出 HTHHT</p>
 
-<h3 id="法三">法三</h3>
+<h3>法三</h3>
 
-<p>If <code class="highlighter-rouge">f(x)</code> is the generating function of the probability <code class="highlighter-rouge">p_n</code> of the ending after <code class="highlighter-rouge">n</code> tosses</p>
+<p>If <code>f(x)</code> is the generating function of the probability <code>p_n</code> of the ending after <code>n</code> tosses</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>f(x) = \sum_n p_n x^n
-</code></pre></div></div>
+<pre><code>f(x) = \sum_n p_n x^n
+</code></pre>
 
 <p>Consider the following toss strings, probabilities, and terms</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>T								q			qx
-HT								pq			pqx^2
-HHT								p^2q		p^2qx^3
-\underbrace{H\dots H}_{k-1}T	p^{k-1}q	p^{k-1}qx^k
-\underbrace{H\dots H}_k			p^{k}		p^kx^k
-</code></pre></div></div>
+<pre><code>T                               q           qx
+HT                              pq          pqx^2
+HHT                             p^2q        p^2qx^3
+\underbrace{H\dots H}_{k-1}T    p^{k-1}q    p^{k-1}qx^k
+\underbrace{H\dots H}_k         p^{k}       p^kx^k
+</code></pre>
 
-<p>We get the generating function of the probability of ending after <code class="highlighter-rouge">n</code> tosses to be</p>
+<p>We get the generating function of the probability of ending after <code>n</code> tosses to be</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>f(x) 
+<pre><code>f(x) 
 = \sum_m (\sum_{t=1}^k p^{t-1}qx^t)^m p^kx^k
 = p^kx^k / (1-\sum_{t=1}^k p^{t-1}qx^t)
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>f'(1) = \sum p_n n = 
-</code></pre></div></div>
+<pre><code>f'(1) = \sum p_n n = 
+</code></pre>
 
 <p>推广：首次投掷出 HTHHT</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>T		qx
-HH		p^2x^2
-HTT		pq^2x^3
-HTHT	p^2q^2x^4
-HTHHH	p^4qx^5
-HTHHT	p^3q^2x^5
-</code></pre></div></div>
+<pre><code>T       qx
+HH      p^2x^2
+HTT     pq^2x^3
+HTHT    p^2q^2x^4
+HTHHH   p^4qx^5
+HTHHT   p^3q^2x^5
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>f(x) 
+<pre><code>f(x) 
 =\sum (qx+p^2x^2+pq^2x^3+p^2q^2x^4+p^4qx^5)^m p^3q^2x^5
 =
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/2017/03/22/expectation-of-random-variables.html" hidden></a>
 </article>

@@ -3,19 +3,19 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>jfum | Zhengyang Song’s Blog</title>
+<title>jfum | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="jfum" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="``` const fs = require(‘fs’); const JFUM = require(‘jfum’);" />
-<meta property="og:description" content="``` const fs = require(‘fs’); const JFUM = require(‘jfum’);" />
+<meta name="description" content="``` const fs = require(&lsquo;fs&rsquo;); const JFUM = require(&lsquo;jfum&rsquo;);" />
+<meta property="og:description" content="``` const fs = require(&lsquo;fs&rsquo;); const JFUM = require(&lsquo;jfum&rsquo;);" />
 <link rel="canonical" href="http://songzy12.github.io/2017/01/23/jfum.html" />
 <meta property="og:url" content="http://songzy12.github.io/2017/01/23/jfum.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-01-23T00:36:25+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/2017/01/23/jfum.html","description":"``` const fs = require(‘fs’); const JFUM = require(‘jfum’);","headline":"jfum","dateModified":"2017-01-23T00:36:25+08:00","datePublished":"2017-01-23T00:36:25+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/01/23/jfum.html"},"@context":"http://schema.org"}</script>
+{"headline":"jfum","dateModified":"2017-01-23T00:36:25+08:00","datePublished":"2017-01-23T00:36:25+08:00","url":"http://songzy12.github.io/2017/01/23/jfum.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/01/23/jfum.html"},"description":"``` const fs = require(&lsquo;fs&rsquo;); const JFUM = require(&lsquo;jfum&rsquo;);","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,7 +45,7 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const fs = require('fs');
+    <pre><code>const fs = require('fs');
 const JFUM = require('jfum');
 
 const jfum = new JFUM({
@@ -58,9 +58,9 @@ app.post('/api/upload/stores', jfum.postHandler.bind(jfum), function(req, res) {
     const file = req.jfum.files[0];
     const input = fs.createReadStream(file.path);
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<pre><code>/**
  * Runs the graphql query for import
  * @param schema The graphql schema
  * @param query The graphql query
@@ -78,9 +78,9 @@ function runGraphQl(schema, query, variables, callback) {
     })
     .catch(callback);
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/**
+<pre><code>/**
  * show import error messages
  * @param errors the errors array
  * @someSuccessed some record import successed
@@ -144,9 +144,9 @@ function attachFileUploader(token, refreshFn, modelName) {
     }
   });
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Bootstraps the app
+<pre><code>// Bootstraps the app
 $(() =&gt; {
   if(!token.isSuperAdmin) $('#stores-link').addClass('hide');
   refreshEntities();
@@ -162,7 +162,7 @@ $(() =&gt; {
     }, ms);
   });
 });
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/2017/01/23/jfum.html" hidden></a>
 </article>

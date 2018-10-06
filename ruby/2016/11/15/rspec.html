@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>rspec | Zhengyang Song’s Blog</title>
+<title>rspec | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="rspec" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="rspec" />
 <link rel="canonical" href="http://songzy12.github.io/ruby/2016/11/15/rspec.html" />
 <meta property="og:url" content="http://songzy12.github.io/ruby/2016/11/15/rspec.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-11-15T19:35:09+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/ruby/2016/11/15/rspec.html","description":"rspec","headline":"rspec","dateModified":"2016-11-15T19:35:09+08:00","datePublished":"2016-11-15T19:35:09+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/ruby/2016/11/15/rspec.html"},"@context":"http://schema.org"}</script>
+{"headline":"rspec","dateModified":"2016-11-15T19:35:09+08:00","datePublished":"2016-11-15T19:35:09+08:00","url":"http://songzy12.github.io/ruby/2016/11/15/rspec.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/ruby/2016/11/15/rspec.html"},"description":"rspec","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,43 +45,43 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="rspec">rspec</h2>
+    <h2>rspec</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rspec 
+<pre><code>rspec 
 rspec spec/oracle_of_bacon_spec.rb:10
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="autotest">autotest</h2>
+<h2>autotest</h2>
 
-<p>Start <code class="highlighter-rouge">autotest</code>. It will look for tests in <code class="highlighter-rouge">spec/</code>.</p>
+<p>Start <code>autotest</code>. It will look for tests in <code>spec/</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Autotest style autotest/rspec_rspec2 doesn't seem to exist. Aborting.
-</code></pre></div></div>
+<pre><code>Autotest style autotest/rspec_rspec2 doesn't seem to exist. Aborting.
+</code></pre>
 
-<p>This happens if you’re using rspec-3.x + rspec-autotest-1.x and you still have rspec-core-2.x installed.</p>
+<p>This happens if you&rsquo;re using rspec-3.x + rspec-autotest-1.x and you still have rspec-core-2.x installed.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>autotest --style rspec
-</code></pre></div></div>
+<pre><code>autotest --style rspec
+</code></pre>
 
-<p>Delete <code class="highlighter-rouge">,:pending =&gt; true</code> from the <code class="highlighter-rouge">describe 'instance'</code> block, which should immediately cause that set of tests to fail red.</p>
+<p>Delete <code>,:pending =&gt; true</code> from the <code>describe 'instance'</code> block, which should immediately cause that set of tests to fail red.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bash: autotest: command not found
-</code></pre></div></div>
+<pre><code>bash: autotest: command not found
+</code></pre>
 
 <p>Gemfile:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>group :test do
+<pre><code>group :test do
     gem "autotest"
 end
-</code></pre></div></div>
+</code></pre>
 
 <p>LOC: lines of code</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Not running features.  To run features in autotest, set AUTOFEATURE=true.
-</code></pre></div></div>
+<pre><code>Not running features.  To run features in autotest, set AUTOFEATURE=true.
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export AUTOFEATURE=true
-</code></pre></div></div>
+<pre><code>export AUTOFEATURE=true
+</code></pre>
 
   </div><a class="u-url" href="/ruby/2016/11/15/rspec.html" hidden></a>
 </article>

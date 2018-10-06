@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>jQuery | Zhengyang Song’s Blog</title>
+<title>jQuery | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="jQuery" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="sortTable" />
 <link rel="canonical" href="http://songzy12.github.io/javascript/2016/11/18/jquery.html" />
 <meta property="og:url" content="http://songzy12.github.io/javascript/2016/11/18/jquery.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-11-18T14:03:52+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/javascript/2016/11/18/jquery.html","description":"sortTable","headline":"jQuery","dateModified":"2016-11-18T14:03:52+08:00","datePublished":"2016-11-18T14:03:52+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/javascript/2016/11/18/jquery.html"},"@context":"http://schema.org"}</script>
+{"headline":"jQuery","dateModified":"2016-11-18T14:03:52+08:00","datePublished":"2016-11-18T14:03:52+08:00","url":"http://songzy12.github.io/javascript/2016/11/18/jquery.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/javascript/2016/11/18/jquery.html"},"description":"sortTable","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,9 +45,9 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="sorttable">sortTable</h2>
+    <h2>sortTable</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//  sortTable(f,n)
+<pre><code>//  sortTable(f,n)
 //  f : 1 ascending order, -1 descending order
 //  n : n-th child(&lt;td&gt;) of &lt;tr&gt;
 
@@ -82,26 +82,26 @@ function sortTable(f,n){
     $('#entities-table').children('tbody').append(row);
   });
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  $('th').hover(function() {
+<pre><code>  $('th').hover(function() {
     $(this).css('color', 'red');
   }, function() {
     $(this).css('color', '');
   });
- 
+
   $('th').click(function(){
     var n = $(this).prevAll().length;
     flag[n] *= -1;
     sortTable(flag[n], n);
   });
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="getjson">getJSON</h2>
+<h2>getJSON</h2>
 
-<p><code class="highlighter-rouge">$.getJSON(url, data, func)</code> sends a GET request to url and will send the contents of the data object as query parameters. Once the data arrived, it will call the given function with the return value as argument.</p>
+<p><code>$.getJSON(url, data, func)</code> sends a GET request to url and will send the contents of the data object as query parameters. Once the data arrived, it will call the given function with the return value as argument.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$(document).ready(function() {
+<pre><code>$(document).ready(function() {
     function video_time_update() {
         var videoplayer = $('video').get(0);
         // ...
@@ -109,38 +109,38 @@ function sortTable(f,n){
 
     video_time_update();
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="iframe">iframe</h2>
+<h2>iframe</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>aa = $$("a")
+<pre><code>aa = $$("a")
 for (var i = 0; i &lt; aa.length; ++i) {
-	aa[i].onclick = function() {return false;}
-	aa[i].click();
+    aa[i].onclick = function() {return false;}
+    aa[i].click();
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="selectorchangefunction">$(selector).change(function)</h2>
+<h2>$(selector).change(function)</h2>
 
 <p>该事件仅适用于文本域（text field），以及 textarea 和 select 元素。</p>
 
 <hr />
 
-<h2 id="jshint">jshint</h2>
+<h2>jshint</h2>
 
-<p><code class="highlighter-rouge">jslint</code> used to be the preferred tool for static JavaScript checking. Later it was forked into <code class="highlighter-rouge">jshint</code>.</p>
+<p><code>jslint</code> used to be the preferred tool for static JavaScript checking. Later it was forked into <code>jshint</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jshint foo.js
-</code></pre></div></div>
+<pre><code>jshint foo.js
+</code></pre>
 
-<p>The preferred way to configure jshint is to create a json configure file called <code class="highlighter-rouge">.jshintrc</code>.</p>
+<p>The preferred way to configure jshint is to create a json configure file called <code>.jshintrc</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>jshint -c .jshintrc foo.js
-</code></pre></div></div>
+<pre><code>jshint -c .jshintrc foo.js
+</code></pre>
 
 <p>You can see current list of all available options <a href="https://github.com/jshint/jshint/blob/master/examples/.jshintrc">here</a> and their explanations.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<pre><code>{
     "esnext": true, // Allow ES.next (ES6) syntax (ex: `const`) 
     "indent": 2,
     "maxlen": 80, // Max number of characters per line
@@ -159,7 +159,7 @@ for (var i = 0; i &lt; aa.length; ++i) {
     "white": true, // Check against strict whitespace and indentation rules
     "maxdepth": 4 // Max depth of nested blocks (within functions)
 }
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/javascript/2016/11/18/jquery.html" hidden></a>
 </article>

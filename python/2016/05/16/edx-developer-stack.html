@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>edX Developer Stack | Zhengyang Song’s Blog</title>
+<title>edX Developer Stack | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="edX Developer Stack" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="See Running Devstack here." />
 <link rel="canonical" href="http://songzy12.github.io/python/2016/05/16/edx-developer-stack.html" />
 <meta property="og:url" content="http://songzy12.github.io/python/2016/05/16/edx-developer-stack.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-05-16T14:26:50+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/python/2016/05/16/edx-developer-stack.html","description":"See Running Devstack here.","headline":"edX Developer Stack","dateModified":"2016-05-16T14:26:50+08:00","datePublished":"2016-05-16T14:26:50+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/05/16/edx-developer-stack.html"},"@context":"http://schema.org"}</script>
+{"headline":"edX Developer Stack","dateModified":"2016-05-16T14:26:50+08:00","datePublished":"2016-05-16T14:26:50+08:00","url":"http://songzy12.github.io/python/2016/05/16/edx-developer-stack.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/05/16/edx-developer-stack.html"},"description":"See Running Devstack here.","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -47,136 +47,138 @@
   <div class="post-content e-content" itemprop="articleBody">
     <p>See Running Devstack <a href="https://openedx.atlassian.net/wiki/display/OpenOPS/Running+Devstack">here</a>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>paver devstack --fast lms &gt; lms.log 2&gt;&amp;1 &amp;
+<pre><code>paver devstack --fast lms &gt; lms.log 2&gt;&amp;1 &amp;
 paver devstack --fast studio &gt; studio.log 2&gt;&amp;1 &amp;
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="openedx_release">OPENEDX_RELEASE</h2>
+<h2>OPENEDX_RELEASE</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>default: Downloading: http://files.edx.org/vagrant-images/devstack-periodic-2016-05-05.box
+<pre><code>default: Downloading: http://files.edx.org/vagrant-images/devstack-periodic-2016-05-05.box
 The requested URL returned error: 403 Forbidden
 
 export OPENEDX_RELEASE="named-release/dogwood.1"
-</code></pre></div></div>
+</code></pre>
 
 <ul>
-  <li>staff@example.com / edx</li>
-  <li>verified@example.com / edx</li>
-  <li>audit@example.com / edx</li>
-  <li>honor@example.com / edx</li>
+<li><a href="&#x6d;&#97;&#105;&#108;&#116;&#x6f;&#x3a;&#x73;&#116;&#x61;&#x66;&#102;&#64;&#101;&#120;&#97;&#x6d;&#112;&#x6c;&#x65;&#x2e;&#99;&#x6f;&#x6d;">&#115;&#x74;&#97;&#102;&#102;&#x40;&#101;&#x78;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#x63;&#x6f;&#x6d;</a> / edx</li>
+<li><a href="&#x6d;&#x61;&#x69;&#x6c;&#116;&#111;&#58;&#x76;&#101;&#x72;&#105;&#x66;&#x69;&#101;&#100;&#64;&#101;&#120;&#x61;&#x6d;&#112;&#108;&#x65;&#x2e;&#99;&#111;&#x6d;">&#118;&#x65;&#x72;&#105;&#x66;&#105;&#x65;&#x64;&#x40;&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#101;&#x2e;&#x63;&#x6f;&#109;</a> / edx</li>
+<li><a href="&#x6d;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x61;&#x75;&#x64;&#x69;&#x74;&#64;&#101;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#46;&#99;&#111;&#x6d;">&#97;&#117;&#x64;&#105;&#116;&#64;&#101;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#46;&#x63;&#111;&#x6d;</a> / edx</li>
+<li><a href="&#109;&#97;&#105;&#x6c;&#x74;&#x6f;&#58;&#104;&#x6f;&#x6e;&#111;&#114;&#64;&#101;&#120;&#97;&#x6d;&#x70;&#108;&#101;&#46;&#99;&#x6f;&#x6d;">&#x68;&#111;&#x6e;&#111;&#x72;&#x40;&#x65;&#x78;&#97;&#109;&#x70;&#108;&#x65;&#46;&#99;&#111;&#x6d;</a> / edx</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vagrant up
+
+<pre><code>vagrant up
 vagrant ssh
 sudo su edxapp
-</code></pre></div></div>
+</code></pre>
 
 <ul>
-  <li>This will source the edxapp environment (<code class="highlighter-rouge">/edx/app/edxapp/edxapp_env</code>) so that the venv python and rbenv ruby are in your search path.</li>
-  <li>It will also set the current working directory to the edx-platform repository (<code class="highlighter-rouge">/edx/app/edxapp/edx-platform</code>).</li>
+<li>This will source the edxapp environment (<code>/edx/app/edxapp/edxapp_env</code>) so that the venv python and rbenv ruby are in your search path.</li>
+<li>It will also set the current working directory to the edx-platform repository (<code>/edx/app/edxapp/edx-platform</code>).</li>
 </ul>
 
-<h2 id="lms-workflow">LMS Workflow</h2>
+
+<h2>LMS Workflow</h2>
 
 <p>LMS: Learning Management System.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>paver devstack lms &gt; lms.log 2&gt;&amp;1 &amp;
+<pre><code>paver devstack lms &gt; lms.log 2&gt;&amp;1 &amp;
 paver devstack --fast lms &gt; lms.log 2&gt;&amp;1 &amp;
 
 Starting development server at http://0.0.0.0:8000/
-</code></pre></div></div>
+</code></pre>
 
 <p>WSGI: Web Server Gateway Interface</p>
 
-<h2 id="studio-workflow">Studio Workflow</h2>
+<h2>Studio Workflow</h2>
 
 <p>CMS: course management system</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>paver devstack studio &gt; studio.log 2&gt;&amp;1 &amp;
+<pre><code>paver devstack studio &gt; studio.log 2&gt;&amp;1 &amp;
 paver devstack --fast studio &gt; studio.log 2&gt;&amp;1 &amp;
 
 Starting development server at http://0.0.0.0:8001/
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="forum-workflow">Forum Workflow</h2>
+<h2>Forum Workflow</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo su forum
+<pre><code>sudo su forum
 bundle install
 ruby app.rb -p 18080
-</code></pre></div></div>
+</code></pre>
 
 <hr />
 
-<h2 id="vagrant">Vagrant</h2>
+<h2>Vagrant</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkdir devstack
+<pre><code>mkdir devstack
 cd devstack
 curl -L https://raw.githubusercontent.com/edx/configuration/master/vagrant/release/devstack/Vagrantfile &gt; Vagrantfile
 vagrant plugin install vagrant-vbguest
 vagrant up
 vagrant ssh
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="update">update</h3>
+<h3>update</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>curl -o vagrant_1.7.2_x86_64.deb https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
+<pre><code>curl -o vagrant_1.7.2_x86_64.deb https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
 sudo dpkg -i vagrant_1.7.2_x86_64.deb
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="remove-box">remove box</h3>
+<h3>remove box</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vagrant box list
+<pre><code>vagrant box list
 vagrant status
 vagrant halt
 vagrant destroy
 vagrant box remove --force --all dogwood-devstack-2016-03-09
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="port-in-use">port in use</h3>
+<h3>port in use</h3>
 
 <p>The forwarded port to 9200 is already in use
 on the host machine.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>netstat -peanut
+<pre><code>netstat -peanut
 id
 vi Vagrantfile
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="nfs">NFS</h3>
+<h3>NFS</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>==&gt; default: Mounting NFS shared folders...
-</code></pre></div></div>
+<pre><code>==&gt; default: Mounting NFS shared folders...
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install nfs-kernel-server
+<pre><code>sudo apt-get install nfs-kernel-server
 sudo apt-get install nfs-common
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="ssh">SSH</h3>
+<h3>SSH</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The SSH command responded with a non-zero exit status.
-</code></pre></div></div>
+<pre><code>The SSH command responded with a non-zero exit status.
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>==&gt; default: FATAL: all hosts have already failed -- aborting
+<pre><code>==&gt; default: FATAL: all hosts have already failed -- aborting
 
 ==&gt; default: INFO:ansible.callback_plugins.datadog_tasks_timing:
 ==&gt; default: Playbook vagrant-devstack finished: Fri Mar 25 13:12:31 2016, 276 total tasks.  0:18:28 elapsed.
 ==&gt; default:            to retry, use: --limit @/root/vagrant-devstack.retry
 ==&gt; default:
 ==&gt; default: localhost                  : ok=260  changed=65   unreachable=0    failed=1
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rm -rf devstack/
-</code></pre></div></div>
+<pre><code>rm -rf devstack/
+</code></pre>
 
-<h2 id="virtualbox">VirtualBox</h2>
+<h2>VirtualBox</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vboxmanage --version
-</code></pre></div></div>
+<pre><code>vboxmanage --version
+</code></pre>
 
 <p>Port Forwarding</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Failed to load unit 'pgm' (VERR_MAP_FAILED).
-</code></pre></div></div>
+<pre><code>Failed to load unit 'pgm' (VERR_MAP_FAILED).
+</code></pre>
 
 <p>Discard saved state.</p>
 
@@ -184,48 +186,49 @@ sudo apt-get install nfs-common
 
 <!--more-->
 
-<h2 id="403">403</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://10.9.10.15:8000/courses/course-v1:TsinghuaX+30240184X+2016_T1/courseware/f1903b9555df41bca0ebd3922949ff48/5a6b1d348c8e4c01978090cb9b189af2/
-</code></pre></div></div>
+<h2>403</h2>
+
+<pre><code>http://10.9.10.15:8000/courses/course-v1:TsinghuaX+30240184X+2016_T1/courseware/f1903b9555df41bca0ebd3922949ff48/5a6b1d348c8e4c01978090cb9b189af2/
+</code></pre>
 
 <p>Delete this Unit and reconstruct it.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep -r "jquery.cookie.js" .
+<pre><code>grep -r "jquery.cookie.js" .
 
 ./edx-platform/lms/envs/common.py:    'js/vendor/jquery.cookie.js',
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>find -name "jqeury.cookie.js"
-</code></pre></div></div>
+<pre><code>find -name "jqeury.cookie.js"
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./edx-platform/common/static/js/vendor/jquery.cookie.js
-</code></pre></div></div>
+<pre><code>./edx-platform/common/static/js/vendor/jquery.cookie.js
+</code></pre>
 
-<h2 id="jquery">jQuery</h2>
+<h2>jQuery</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
-</code></pre></div></div>
+<pre><code>http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>grep -r ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js .
-</code></pre></div></div>
+<pre><code>grep -r ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js .
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./venvs/edxapp/local/lib/python2.7/site-packages/debug_toolbar/settings.py:    'JQUERY_URL': '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js',
+<pre><code>./venvs/edxapp/local/lib/python2.7/site-packages/debug_toolbar/settings.py:    'JQUERY_URL': '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js',
 ./venvs/edxapp/lib/python2.7/site-packages/debug_toolbar/settings.py:    'JQUERY_URL': '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//code.jquery.com/jquery-2.2.2.min.js
-</code></pre></div></div>
+<pre><code>//code.jquery.com/jquery-2.2.2.min.js
+</code></pre>
 
-<h2 id="static">static</h2>
+<h2>static</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>http://static.tsinghuax.org/video/30240184X/01A-1.mp4
-</code></pre></div></div>
+<pre><code>http://static.tsinghuax.org/video/30240184X/01A-1.mp4
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"POST /event HTTP/1.1" 403 9944"
-</code></pre></div></div>
+<pre><code>"POST /event HTTP/1.1" 403 9944"
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pscp -P 2222 ./4.2.mp4 vagrant@127.0.0.1:.
+<pre><code>pscp -P 2222 ./4.2.mp4 vagrant@127.0.0.1:.
 pwd
 /home/vagarnt
 sudo su edxapp
@@ -234,43 +237,46 @@ pwd
 cd /edx/app/edxapp/edx-platform/cms/static/
 mkdir video
 sudo cp /home/vagarnt/4.2.mp4 video/.  
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="python">python</h3>
+<h3>python</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd ~/edx-platform/cms/static/video
+<pre><code>cd ~/edx-platform/cms/static/video
 python -m SimpleHTTPServer 7777
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="settings">settings</h3>
+<h3>settings</h3>
 
-<p><code class="highlighter-rouge">settings.py</code></p>
+<p><code>settings.py</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://youtu.be/t1OeLJ1ryRw
-https://www.youtube.com/embed/t1OeLJ1ryRw
+<p>```
+<a href="https://youtu.be/t1OeLJ1ryRw">https://youtu.be/t1OeLJ1ryRw</a>
+<a href="https://www.youtube.com/embed/t1OeLJ1ryRw">https://www.youtube.com/embed/t1OeLJ1ryRw</a></p>
 
-&lt;iframe&gt; &lt;/iframe&gt;
-</code></pre></div></div>
+<iframe> </iframe>
 
-<h3 id="nginx">nginx</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi /etc/nginx/nginx.conf
-</code></pre></div></div>
+<pre><code>
+### nginx
+</code></pre>
 
-<h2 id="xmodule">xmodule</h2>
+<p>vi /etc/nginx/nginx.conf
+```</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>                Finished processing xmodule assets.
+<h2>xmodule</h2>
+
+<pre><code>                Finished processing xmodule assets.
 touch lms/urls.py cms/urls.py
         CHANGED: /edx/app/edxapp/edx-platform/common/lib/xmodule/xmodule/js/src/vertical/edit.js
 xmodule_assets common/static/xmodule
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>paver devstack --fast studio
-</code></pre></div></div>
+<pre><code>paver devstack --fast studio
+</code></pre>
 
-<h2 id="oserror">OSError</h2>
+<h2>OSError</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>File "pavelib/assets.py", line 338, in watch_assets
+<pre><code>File "pavelib/assets.py", line 338, in watch_assets
     CoffeeScriptWatcher().register(observer)
   File "pavelib/assets.py", line 107, in register
     observer.schedule(self, dirname)
@@ -283,20 +289,20 @@ xmodule_assets common/static/xmodule
   File "/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/watchdog/observers/inotify_c.py", line 429, in _raise_error
     raise OSError(os.strerror(_errnum))
 OSError: Too many open files
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lsof -u edxapp
-</code></pre></div></div>
+<pre><code>lsof -u edxapp
+</code></pre>
 
 <p>lsof: list open files</p>
 
-<p>Then kill the ones that with <code class="highlighter-rouge">anon-inode</code>.</p>
+<p>Then kill the ones that with <code>anon-inode</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int fd = open( "/tmp/file", O_CREAT | O_RDWR, 0666 );
+<pre><code>int fd = open( "/tmp/file", O_CREAT | O_RDWR, 0666 );
 unlink( "/tmp/file" );
 // Note that the descriptor fd now points to an inode that has no filesystem entry; you
 // can still write to it, fstat() it, etc. but you can't find it in the filesystem.
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/python/2016/05/16/edx-developer-stack.html" hidden></a>
 </article>

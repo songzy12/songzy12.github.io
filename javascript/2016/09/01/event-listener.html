@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Event Listener | Zhengyang Song’s Blog</title>
+<title>Event Listener | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Event Listener" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="sudo -i rm /edx/var/mongo/mongodb/mongod.lock sudo -u mongodb mongod --dbpath /edx/var/mongo/mongodb --repair --repairpath /edx/var/mongo/mongodb start mongod exit sudo su edxapp" />
 <link rel="canonical" href="http://songzy12.github.io/javascript/2016/09/01/event-listener.html" />
 <meta property="og:url" content="http://songzy12.github.io/javascript/2016/09/01/event-listener.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-09-01T09:44:43+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/javascript/2016/09/01/event-listener.html","description":"sudo -i rm /edx/var/mongo/mongodb/mongod.lock sudo -u mongodb mongod --dbpath /edx/var/mongo/mongodb --repair --repairpath /edx/var/mongo/mongodb start mongod exit sudo su edxapp","headline":"Event Listener","dateModified":"2016-09-01T09:44:43+08:00","datePublished":"2016-09-01T09:44:43+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/javascript/2016/09/01/event-listener.html"},"@context":"http://schema.org"}</script>
+{"headline":"Event Listener","dateModified":"2016-09-01T09:44:43+08:00","datePublished":"2016-09-01T09:44:43+08:00","url":"http://songzy12.github.io/javascript/2016/09/01/event-listener.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/javascript/2016/09/01/event-listener.html"},"description":"sudo -i rm /edx/var/mongo/mongodb/mongod.lock sudo -u mongodb mongod --dbpath /edx/var/mongo/mongodb --repair --repairpath /edx/var/mongo/mongodb start mongod exit sudo su edxapp","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,38 +45,38 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo -i
+    <pre><code>sudo -i
 rm /edx/var/mongo/mongodb/mongod.lock
 sudo -u mongodb mongod --dbpath /edx/var/mongo/mongodb --repair --repairpath /edx/var/mongo/mongodb
 start mongod
 exit
 sudo su edxapp
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>paver devstack lms &gt; lms.log 2&gt;&amp;1 &amp;
+<pre><code>paver devstack lms &gt; lms.log 2&gt;&amp;1 &amp;
 paver devstack --fast studio &gt; studio.log 2&gt;&amp;1 &amp;
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lms/urls.py
+<pre><code>lms/urls.py
 lms/djangoapps/courseware/mu.py
 
 lms/templates/courseware/courseware.html 
 lms/static/js/mu.js
 
 lms/static/videos
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="mongo">mongo</h2>
+<h2>mongo</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; db.problem.findOne()
+<pre><code>&gt; db.problem.findOne()
 {
         "_id" : ObjectId("574d30828524fe0e3644b402"),
         "text" : "某公司20XX年总负债100万元，其中有息负债30万元，全部为银行贷款，资产负债率40%，其银行贷款利率为8%，该行业平均收益水平为12%，A公司的企业所得税率为25%，请计算A公司的加权平均资本成本?|||multiplechoiceresponse|||{\"A\": {\"detail\": \"10.4%\"}, \"C\": {\"detail\": \"11%\", \"correct\": \"true\"}, \"B\": {\"detail\": \"10.33%\"}, \"D\": {\"detail\": \"9.6%\"}}",
         "id" : "0074debadb964eee8a0a18ee7ae44a25_2_1"
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; db.knowledge_point.findOne()
+<pre><code>&gt; db.knowledge_point.findOne()
 {
         "_id" : ObjectId("574d691d8524fe0e3644b495"),
         "begin" : 17,
@@ -86,9 +86,9 @@ lms/static/videos
         ],
         "id" : "cb796df9b2584f609a58a3fa8f858031_0"
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; db.video_knowledge_point.findOne()
+<pre><code>&gt; db.video_knowledge_point.findOne()
 {
         "_id" : ObjectId("574ed22a8524fe0e3644b641"),
         "hot_point" : [
@@ -104,21 +104,21 @@ lms/static/videos
                 "86efb9a1b3b949839d9f540f1359f261_3"
         ]
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="problem_knowledgepoint">problem_knowledgepoint</h2>
+<h2>problem_knowledgepoint</h2>
 
-<p><code class="highlighter-rouge">vi ~/edx-platform/lms/static/js/mu.js</code></p>
+<p><code>vi ~/edx-platform/lms/static/js/mu.js</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$.get("/mu/problem/knowledgepoint/"+current_problem_id+"/", function(data){
+<pre><code>$.get("/mu/problem/knowledgepoint/"+current_problem_id+"/", function(data){
     console.log('knowledge point received')
     console.log(data);
 })
-</code></pre></div></div>
+</code></pre>
 
-<p><code class="highlighter-rouge">vi ~/edx-platform/lms/djangoapps/courseware/mu.py</code></p>
+<p><code>vi ~/edx-platform/lms/djangoapps/courseware/mu.py</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def get_problem_knowledgepoint(request, problem_id):
+<pre><code>def get_problem_knowledgepoint(request, problem_id):
     print problem_id
     problem_id = 'fdb7429f7aa844e38f04b7f49fbb9f8d_9_1'
 
@@ -130,37 +130,36 @@ lms/static/videos
     for item in cur:
         data[problem_id] = data.get(problem_id, []) + item['problem']
     return HttpResponse(json.dumps(data), content_type = 'application/json')
+</code></pre>
 
-</code></pre></div></div>
+<p><code>vi ~/edx-platform/lms/urls.py</code></p>
 
-<p><code class="highlighter-rouge">vi ~/edx-platform/lms/urls.py </code></p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>urlpatterns += (
-	url(r'^mu/problem/knowledgepoint/([\w\d]+)/$', 'courseware.mu.get_problem_knowledgepoint', name = 'get_problem_knowledgepoint'),
+<pre><code>urlpatterns += (
+    url(r'^mu/problem/knowledgepoint/([\w\d]+)/$', 'courseware.mu.get_problem_knowledgepoint', name = 'get_problem_knowledgepoint'),
 )
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="onunload">onunload</h2>
+<h2>onunload</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/edx-platform$ grep -r page_close .
+<pre><code>~/edx-platform$ grep -r page_close .
 ./common/static/js/src/logger.js
 vi ./common/static/js/src/logger.js
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>window.onunload = function() {
+<pre><code>window.onunload = function() {
 
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="timeupdate">timeupdate</h2>
+<h2>timeupdate</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>~/edx-platform$ grep -r seek_video .
+<pre><code>~/edx-platform$ grep -r seek_video .
 ./lms/static/xmodule_js/src/video/09_events_plugin.js
 vi ./lms/static/xmodule_js/src/video/09_events_plugin.js
 vi ./lms/static/xmodule_js/src/video/03_video_player.js
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var lastUnixTimeStamp;
+<pre><code>var lastUnixTimeStamp;
 var lastCurrentVideoTime;
 videoplayer.addEventListener('timeupdate',function(){
 
@@ -170,18 +169,18 @@ videoplayer.addEventListener('timeupdate',function(){
          lastCurrentVideoTime = videoplayer.currentTime;
          return;
     }
-    
+
     var videoTimeOffset = videoplayer.currentTime - lastCurrentVideoTime; 
     var realTimeOffset = new Date().getTime() - lastUnixTimeStamp;  
     lastUnixTimeStamp = new Date().getTime();
     lastCurrentVideoTime = videoplayer.currentTime;
-	// logic
+    // logic
 })
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="scrollx">scrollx</h2>
+<h2>scrollx</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function scrollx(){
+<pre><code>function scrollx(){
     $('iframe#mu').css({
         'border':'none',
         'position':'fixed',
@@ -190,28 +189,28 @@ videoplayer.addEventListener('timeupdate',function(){
         'bottom':'0'
     });
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="type">type</h2>
+<h2>type</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var data_id = $('div.vert').attr('data-id');
+<pre><code>var data_id = $('div.vert').attr('data-id');
 var type = data_id.split('+')[3].split('@')[1];
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="sequence-nav">sequence-nav</h2>
+<h2>sequence-nav</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$('div.sequence-nav').click(function(){
+<pre><code>$('div.sequence-nav').click(function(){
     console.log('sequence-list clicked.')
 })
 
 $('div.sequence-nav').mouseover($.debounce(500, function(){
         console.log('sequence-nav mouse over.');
 }))
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="divproblem">div.problem</h2>
+<h2>div.problem</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$('div.vert-mod').delegate('div.problem', 'click', function(event){
+<pre><code>$('div.vert-mod').delegate('div.problem', 'click', function(event){
     console.log('problem clicked');
     var temp = $(event.target).parent();
     while (!temp.attr('id') || !temp.attr('id').startsWith('problem_')) {
@@ -222,32 +221,32 @@ $('div.sequence-nav').mouseover($.debounce(500, function(){
     console.log(current_problem_id);
     // current_problem_id = event.target;
 })
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="divcourse-index">div.course-index</h2>
+<h2>div.course-index</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$('div.course-index').mouseover($.debounce(1000, function(){
+<pre><code>$('div.course-index').mouseover($.debounce(1000, function(){
     current_correct_rate = 1.0 * $('button.show').length / $('div.problem').length;
     console.log('course-index mouse over');
     console.log('current_corrent_rate: '+current_correct_rate);
 }))
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="sendmessage">sendMessage</h2>
+<h2>sendMessage</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function sendMessage(message){
+<pre><code>function sendMessage(message){
     var iframeWin = $('iframe#mu')[0].contentWindow;
     domain = 'http://112.74.68.45/player/output/huiAS3html.html'
     iframeWin.postMessage(message, domain)
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="seq_content">seq_content</h2>
+<h2>seq_content</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$('div#seq_content').bind('DOMNodeInserted', $.debounce(250, function(){
+<pre><code>$('div#seq_content').bind('DOMNodeInserted', $.debounce(250, function(){
     console.log('seq_content content changed')
 }))
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/javascript/2016/09/01/event-listener.html" hidden></a>
 </article>

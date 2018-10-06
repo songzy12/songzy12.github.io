@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>numpy | Zhengyang Song’s Blog</title>
+<title>numpy | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="numpy" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="argsort" />
 <link rel="canonical" href="http://songzy12.github.io/python/2016/11/05/numpy.html" />
 <meta property="og:url" content="http://songzy12.github.io/python/2016/11/05/numpy.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-11-05T16:45:55+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/python/2016/11/05/numpy.html","description":"argsort","headline":"numpy","dateModified":"2016-11-05T16:45:55+08:00","datePublished":"2016-11-05T16:45:55+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/11/05/numpy.html"},"@context":"http://schema.org"}</script>
+{"headline":"numpy","dateModified":"2016-11-05T16:45:55+08:00","datePublished":"2016-11-05T16:45:55+08:00","url":"http://songzy12.github.io/python/2016/11/05/numpy.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/11/05/numpy.html"},"description":"argsort","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,31 +45,31 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="argsort">argsort</h2>
+    <h2>argsort</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nearest = (-sim[i, :]).argsort()[1: top_k + 1]
-</code></pre></div></div>
+<pre><code>nearest = (-sim[i, :]).argsort()[1: top_k + 1]
+</code></pre>
 
 <p>Returns the indices that would sort an array.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; x = np.array([3, 1, 2])
+<pre><code>&gt;&gt;&gt; x = np.array([3, 1, 2])
 &gt;&gt;&gt; np.argsort(x)
 array([1, 2, 0])
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="genfromtxt">genfromtxt</h2>
+<h2>genfromtxt</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dataset = genfromtxt(open('data/train.csv','r'), delimiter=',', dtype='f8')[1:]
-</code></pre></div></div>
+<pre><code>dataset = genfromtxt(open('data/train.csv','r'), delimiter=',', dtype='f8')[1:]
+</code></pre>
 
-<h2 id="savetxt">savetxt</h2>
+<h2>savetxt</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>savetxt('data/submission2.csv', rf.predict(test), delimiter=',', fmt='%f')
-</code></pre></div></div>
+<pre><code>savetxt('data/submission2.csv', rf.predict(test), delimiter=',', fmt='%f')
+</code></pre>
 
-<h2 id="shape">shape</h2>
+<h2>shape</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; y = np.zeros((2, 3, 4))
+<pre><code>&gt;&gt;&gt; y = np.zeros((2, 3, 4))
 &gt;&gt;&gt; y.shape
 (2, 3, 4)
 &gt;&gt;&gt; y.shape = (3, 8)
@@ -77,34 +77,34 @@ array([1, 2, 0])
 array([[ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.]])
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="ones">ones</h2>
+<h2>ones</h2>
 
-<p>The difference between <code class="highlighter-rouge">(R,)</code> and <code class="highlighter-rouge">(1,R)</code> is literally the number of indicies that you need to use. <code class="highlighter-rouge">ones((1,R))</code> is a 2-D array that happens to have only one row. <code class="highlighter-rouge">ones(R)</code> is a vector.</p>
+<p>The difference between <code>(R,)</code> and <code>(1,R)</code> is literally the number of indicies that you need to use. <code>ones((1,R))</code> is a 2-D array that happens to have only one row. <code>ones(R)</code> is a vector.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>numpy.dot(M[:,0].reshape(R, 1), numpy.ones((1, R)))
+<pre><code>numpy.dot(M[:,0].reshape(R, 1), numpy.ones((1, R)))
 np.dot(M[:,0], np.ones(R))
 M[:,0].sum()
 M.sum(axis=0)
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="random">random</h2>
+<h2>random</h2>
 
-<h3 id="randint">randint</h3>
+<h3>randint</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>numpy.random.randint(low, high=None, size=None, dtype='l')
+<pre><code>numpy.random.randint(low, high=None, size=None, dtype='l')
 
     Return random integers from low (inclusive) to high (exclusive). If high is None (the default), then results are from [0, low).
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="choice">choice</h3>
+<h3>choice</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Generate a uniform random sample from np.arange(5) of size 3 without replacement:
+<pre><code>Generate a uniform random sample from np.arange(5) of size 3 without replacement:
 &gt;&gt;&gt; np.random.choice(5, 3, replace=False)
 array([3,1,0])
 &gt;&gt;&gt; #This is equivalent to np.random.permutation(np.arange(5))[:3]
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/python/2016/11/05/numpy.html" hidden></a>
 </article>

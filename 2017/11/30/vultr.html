@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Vultr | Zhengyang Song’s Blog</title>
+<title>Vultr | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Vultr" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="1E#m2WXS9LdvTCNA tail -f /var/log/syslog" />
 <link rel="canonical" href="http://songzy12.github.io/2017/11/30/vultr.html" />
 <meta property="og:url" content="http://songzy12.github.io/2017/11/30/vultr.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-11-30T19:45:03+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/2017/11/30/vultr.html","description":"1E#m2WXS9LdvTCNA tail -f /var/log/syslog","headline":"Vultr","dateModified":"2017-11-30T19:45:03+08:00","datePublished":"2017-11-30T19:45:03+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/11/30/vultr.html"},"@context":"http://schema.org"}</script>
+{"headline":"Vultr","dateModified":"2017-11-30T19:45:03+08:00","datePublished":"2017-11-30T19:45:03+08:00","url":"http://songzy12.github.io/2017/11/30/vultr.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/11/30/vultr.html"},"description":"1E#m2WXS9LdvTCNA tail -f /var/log/syslog","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,41 +45,41 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1E#m2WXS9LdvTCNA
+    <pre><code>1E#m2WXS9LdvTCNA
 tail -f /var/log/syslog
-</code></pre></div></div>
+</code></pre>
 
 <p>Chrome 标签不同步也可能是因为 GFW 无法连接 Google 服务所致。</p>
 
-<h2 id="socls">socls</h2>
+<h2>socls</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import urllib2
+<pre><code>import urllib2
 import socks
 from sockshandler import SocksiPyHandler
 
 opener = urllib2.build_opener(SocksiPyHandler(socks.SOCKS5, "127.0.0.1", 1080))
 x = opener.open("http://www.youtube.com/")
 print x.read()
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="ss-client">ss client</h2>
+<h2>ss client</h2>
 
 <p><a href="http://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/">http://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/</a></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+<pre><code>sudo apt-get update
 sudo apt-get install python-pip
 sudo apt-get install python-setuptools m2crypto
 pip install shadowsocks
 sudo apt install shadowsocks
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sslocal -s 11.22.33.44 -p 50003 -k "123456" -l 1080 -t 600 -m aes-256-cfb
-</code></pre></div></div>
+<pre><code>sslocal -s 11.22.33.44 -p 50003 -k "123456" -l 1080 -t 600 -m aes-256-cfb
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi config.json
-</code></pre></div></div>
+<pre><code>vi config.json
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<pre><code>{
     "server":"11.22.33.44",
     "server_port":50003,
     "local_port":1080,
@@ -87,27 +87,27 @@ sudo apt install shadowsocks
     "timeout":600,
     "method":"aes-256-cfb"
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sslocal -c shadowsocks.json
-</code></pre></div></div>
+<pre><code>sslocal -c shadowsocks.json
+</code></pre>
 
 <p>SwitchyOmega: <a href="https://github.com/FelisCatus/SwitchyOmega/releases/">https://github.com/FelisCatus/SwitchyOmega/releases/</a></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nohup sslocal -c shadowsocks.json &amp;
-</code></pre></div></div>
+<pre><code>nohup sslocal -c shadowsocks.json &amp;
+</code></pre>
 
-<h2 id="ss-server">ss server</h2>
+<h2>ss server</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
+<pre><code>wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
 chmod +x shadowsocks.sh
 ./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi /etc/shadowsocks.json
-</code></pre></div></div>
+<pre><code>vi /etc/shadowsocks.json
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{
+<pre><code>{
     "server":"45.32.251.88",
     "server_port":8388,
     "local_address": "127.0.0.1",
@@ -117,102 +117,102 @@ chmod +x shadowsocks.sh
     "method":"aes-256-cfb",
     "fast_open": false
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>https://github.com/shadowsocks/shadowsocks-windows/releases
-</code></pre></div></div>
+<pre><code>https://github.com/shadowsocks/shadowsocks-windows/releases
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ssserver -c /etc/shadowsocks.json -d start
+<pre><code>ssserver -c /etc/shadowsocks.json -d start
 ssserver -c /etc/shadowsocks.json -d stop
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo less /var/log/shadowsocks.log
-</code></pre></div></div>
+<pre><code>sudo less /var/log/shadowsocks.log
+</code></pre>
 
-<h2 id="l2tp">L2TP</h2>
+<h2>L2TP</h2>
 
 <p><a href="https://github.com/hwdsl2/setup-ipsec-vpn">here</a>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>wget https://git.io/vpnsetup -O vpnsetup.sh &amp;&amp; sudo sh vpnsetup.sh
-</code></pre></div></div>
+<pre><code>wget https://git.io/vpnsetup -O vpnsetup.sh &amp;&amp; sudo sh vpnsetup.sh
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NET_IFO=${VPN_IFACE:-'ens3'}
+<pre><code>NET_IFO=${VPN_IFACE:-'ens3'}
 NET_IFS=$(VPN_IFACE:-'ens3')
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Server IP: 45.32.251.88
+<pre><code>Server IP: 45.32.251.88
 IPsec PSK: shadowsocks
 Username: vpnuser
 Password: shadowsocks
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>无法建立计算机与 VPN 服务器之间的网络连接，因为远程服务器未响应。
-</code></pre></div></div>
+<pre><code>无法建立计算机与 VPN 服务器之间的网络连接，因为远程服务器未响应。
+</code></pre>
 
 <p><a href="https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md">here</a>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f
-</code></pre></div></div>
+<pre><code>REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f
+</code></pre>
 
-<h2 id="pptp">PPTP</h2>
+<h2>PPTP</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server name or address: 45.32.251.88
+<pre><code>server name or address: 45.32.251.88
 user name: vpnuser
 password: shadowsocks
-</code></pre></div></div>
+</code></pre>
 
 <p><a href="https://www.vultr.com/docs/setup-a-pptp-vpn-server-on-ubuntu">PPTP VPN</a></p>
 
-<h3 id="installing-pptpd">Installing PPTPD</h3>
+<h3>Installing PPTPD</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>apt-get install pptpd
-</code></pre></div></div>
+<pre><code>apt-get install pptpd
+</code></pre>
 
-<h3 id="adding-users">Adding users</h3>
+<h3>Adding users</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi /etc/ppp/chap-secrets 
-# vpn	pptpd	shadowsocks	*
-</code></pre></div></div>
+<pre><code class="">vi /etc/ppp/chap-secrets 
+# vpn   pptpd   shadowsocks *
+</code></pre>
 
-<h3 id="edit-the-pptpd-settings">Edit the PPTPD settings</h3>
+<h3>Edit the PPTPD settings</h3>
 
-<p>Change <code class="highlighter-rouge">localip</code> to your server IP.</p>
+<p>Change <code>localip</code> to your server IP.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifconfig -a
+<pre><code>ifconfig -a
 vi /etc/pptpd.conf 
 
 # localip 45.32.251.88
 # remoteip 192.168.0.234-238, 192.168.0.245
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="update-sysctlconf">Update sysctl.conf</h3>
+<h3>Update sysctl.conf</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi /etc/sysctl.conf 
+<pre><code>vi /etc/sysctl.conf 
 # net.ipv4.ip_forward = 1
 sysctl -p
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi /etc/ppp/pptpd-options 
-# ms-dns 8.8.8.8	
+<pre><code>vi /etc/ppp/pptpd-options 
+# ms-dns 8.8.8.8    
 # ms-dns 8.8.4.4
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="restarting-pptpd">Restarting PPTPD</h3>
+<h3>Restarting PPTPD</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>service pptpd restart
+<pre><code>service pptpd restart
 netstat -alpn | grep :1723
 
 systemctl start pptpd.service
 systemctl enable pptpd.service
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="iptables">iptables</h3>
+<h3>iptables</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ifconfig -a
+<pre><code>ifconfig -a
 vi /etc/rc.local
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Accept all packets via ppp* interfaces (for example, ppp0)
+<pre><code># Accept all packets via ppp* interfaces (for example, ppp0)
 iptables -A INPUT -i ppp+ -j ACCEPT
 iptables -A OUTPUT -o ppp+ -j ACCEPT
 
@@ -230,14 +230,14 @@ iptables -A FORWARD -j ACCEPT
 # Enable NAT for eth0 on ppp* interfaces
 iptables -A POSTROUTING -t nat -o eth0 -j MASQUERADE
 iptables -A POSTROUTING -t nat -o ppp+ -j MASQUERADE
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tail -f /var/log/syslog
-</code></pre></div></div>
+<pre><code>tail -f /var/log/syslog
+</code></pre>
 
-<h3 id="hosts">hosts</h3>
+<h3>hosts</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ping www.tumblr.com
+<pre><code>ping www.tumblr.com
 
 Pinging www.tumblr.com [66.6.42.30] with 32 bytes of data:
 Reply from 117.103.177.121: Destination net unreachable.
@@ -251,35 +251,35 @@ Address:  8.8.8.8
 Non-authoritative answer:
 Name:    www.tumblr.com.dev.tsinghuax.org
 Address:  101.6.244.5
-</code></pre></div></div>
+</code></pre>
 
-<p>Just clear the <code class="highlighter-rouge">/etc/hosts</code> file.</p>
+<p>Just clear the <code>/etc/hosts</code> file.</p>
 
-<h3 id="mppe-required-but-peer-negotiation-failed">MPPE required but peer negotiation failed</h3>
+<h3>MPPE required but peer negotiation failed</h3>
 
 <p>I had to enable Point-to-Point encryption(MPPE) in the Advanced Settings dialog.</p>
 
-<h3 id="tcpdump">tcpdump</h3>
+<h3>tcpdump</h3>
 
 <p>ARP: Address Resolution Protocol.</p>
 
 <p>MAC address: Media Access Control address.</p>
 
-<p><code class="highlighter-rouge">lsb_release</code>: linux standard base.</p>
+<p><code>lsb_release</code>: linux standard base.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>tcpdump -ennqti eth0 \( arp or icmp \)
-</code></pre></div></div>
+<pre><code>tcpdump -ennqti eth0 \( arp or icmp \)
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>56:00:00:39:b7:93 &gt; fe:00:00:39:b7:93, IPv4, length 102: 45.32.251.88 &gt; 221.229.172.35: ICMP 45.32.251.88 tcp port 22 unreachable, length 68
-</code></pre></div></div>
+<pre><code>56:00:00:39:b7:93 &gt; fe:00:00:39:b7:93, IPv4, length 102: 45.32.251.88 &gt; 221.229.172.35: ICMP 45.32.251.88 tcp port 22 unreachable, length 68
+</code></pre>
 
 <p>ICMP: Internet Control Message Protocol.</p>
 
-<p>Just correct the script for <code class="highlighter-rouge">l2tpd</code>.</p>
+<p>Just correct the script for <code>l2tpd</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NET_IFO=${VPN_IFACE:-'ens3'}
+<pre><code>NET_IFO=${VPN_IFACE:-'ens3'}
 NET_IFS=$(VPN_IFACE:-'ens3')
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/2017/11/30/vultr.html" hidden></a>
 </article>

@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>mocha | Zhengyang Song’s Blog</title>
+<title>mocha | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="mocha" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="packages.json" />
 <link rel="canonical" href="http://songzy12.github.io/javascript/2017/02/13/mocha.html" />
 <meta property="og:url" content="http://songzy12.github.io/javascript/2017/02/13/mocha.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-02-13T21:19:57+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/javascript/2017/02/13/mocha.html","description":"packages.json","headline":"mocha","dateModified":"2017-02-13T21:19:57+08:00","datePublished":"2017-02-13T21:19:57+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/javascript/2017/02/13/mocha.html"},"@context":"http://schema.org"}</script>
+{"headline":"mocha","dateModified":"2017-02-13T21:19:57+08:00","datePublished":"2017-02-13T21:19:57+08:00","url":"http://songzy12.github.io/javascript/2017/02/13/mocha.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/javascript/2017/02/13/mocha.html"},"description":"packages.json","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,9 +45,9 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="packagesjson">packages.json</h2>
+    <h2>packages.json</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  "scripts": {
+<pre><code>  "scripts": {
     "start": "node app.js",
     "test": "node ./node_modules/mocha/bin/mocha --recursive --timeout 500000 test/ --bail",
     "postinstall": "./node_modules/bower/bin/bower install"
@@ -56,11 +56,11 @@
     "mocha": "^3.1.2",
     "supertest": "^2.0.1"
   }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="testjs">test.js</h2>
+<h2>test.js</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>const request = require('supertest')
+<pre><code>const request = require('supertest')
 const assert = require('assert')
 const api = request(require('../app'));
 
@@ -157,11 +157,11 @@ describe('user-api', function () {
       }).expect(200, done);
   });
 });
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="review">review</h2>
+<h2>review</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Should avoid duplicating code:
+<pre><code>"Should avoid duplicating code:
     const parser = parse({delimiter: ','}, function(err, data){
         console.log(data);
         length = data.length;
@@ -169,31 +169,31 @@ describe('user-api', function () {
         streamify(data).pipe(transformer)//.pipe(res);
     });
 -- This block appears 2 times in app.js."
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Should remove commented out code:
+<pre><code>"Should remove commented out code:
         streamify(data).pipe(transformer)//.pipe(res);
   //hRow.append('&lt;th&gt;#&lt;/th&gt;');
     //tRow.append('&lt;th&gt;'+ (i+1) +'&lt;/th&gt;');"
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Should be consistent about putting a space after `if` or not:
+<pre><code>"Should be consistent about putting a space after `if` or not:
       if(!result.errors) {
       if (count == length) {"
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Should use `===` instead of `==`:
+<pre><code>"Should use `===` instead of `==`:
       if (count == length) {"
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Should use single quotes consistently:
+<pre><code>"Should use single quotes consistently:
         s = """";
         s += x + "" records successfully added."";
 ...
         res.writeHead(200, { 'Content-Type': 'text/html' });"
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Should build the HTML error message to display in the frontend, not in the backend:
+<pre><code>"Should build the HTML error message to display in the frontend, not in the backend:
         if (y) {
             s += "" But the following "" + y + "" records failed: "";
             result_errors.forEach(function(e){
@@ -201,22 +201,22 @@ describe('user-api', function () {
             })
         }
         res.writeHead(200, { 'Content-Type': 'text/html' });"
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"Should terminate statements with semicolon:
+<pre><code>"Should terminate statements with semicolon:
 var result_data = []
 var result_errors = []
 var length = 0 
 var count = 0
     result_data = []
     result_errors = []"
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"These modules should be under devDependencies, not dependencies:
+<pre><code>"These modules should be under devDependencies, not dependencies:
     ""graphql-tester"": ""*"",
     ""nightwatch"": ""*"",
     ""selenium-download"": ""*"","
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/javascript/2017/02/13/mocha.html" hidden></a>
 </article>

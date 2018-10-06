@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>vim | Zhengyang Song’s Blog</title>
+<title>vim | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="vim" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="syntax" />
 <link rel="canonical" href="http://songzy12.github.io/2018/01/06/vim.html" />
 <meta property="og:url" content="http://songzy12.github.io/2018/01/06/vim.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2018-01-06T20:50:00+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/2018/01/06/vim.html","description":"syntax","headline":"vim","dateModified":"2018-01-06T20:50:00+08:00","datePublished":"2018-01-06T20:50:00+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2018/01/06/vim.html"},"@context":"http://schema.org"}</script>
+{"headline":"vim","dateModified":"2018-01-06T20:50:00+08:00","datePublished":"2018-01-06T20:50:00+08:00","url":"http://songzy12.github.io/2018/01/06/vim.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2018/01/06/vim.html"},"description":"syntax","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,151 +45,155 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="syntax">syntax</h2>
+    <h2>syntax</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /usr/share/vim/vim74/syntax 
+<pre><code>cd /usr/share/vim/vim74/syntax 
 vi python.vim
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>syn keyword pythonTodo      FIXME NOTE NOTES TODO XXX contained
-</code></pre></div></div>
+<pre><code>syn keyword pythonTodo      FIXME NOTE NOTES TODO XXX contained
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ ls ~/.vim/
+<pre><code>$ ls ~/.vim/
 ftdetect  ftplugin  indent  syntax
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="color">color</h2>
+<h2>color</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls /usr/share/vim/vim74/colors/
+<pre><code>ls /usr/share/vim/vim74/colors/
 vi ~/.vimrc
 color default
-</code></pre></div></div>
+</code></pre>
 
 <h2>|</h2>
 
-<p><code class="highlighter-rouge">80|</code> should get you to position 80 in that line.</p>
+<p><code>80|</code> should get you to position 80 in that line.</p>
 
-<h2 id="d">d</h2>
+<h2>d</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>dG 删除直到工作缓存区结尾的内容
+<pre><code>dG 删除直到工作缓存区结尾的内容
 d1G 删除直到工作缓存区开始的内容
-</code></pre></div></div>
+</code></pre>
 
 <p>删除第9行到第200行的内容(先用200G转到第200行) ，使用</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:9,.d
-</code></pre></div></div>
+<pre><code>:9,.d
+</code></pre>
 
-<h2 id="e">e</h2>
+<h2>e</h2>
 
 <p>重新加载</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:e
-</code></pre></div></div>
+<pre><code>:e
+</code></pre>
 
-<h2 id="j">J</h2>
+<h2>J</h2>
 
 <p>合并行</p>
 
 <p>In command mode:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[range]j[lines]
-</code></pre></div></div>
+<pre><code>[range]j[lines]
+</code></pre>
 
 <p>here you want to do the whole buffer:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%j
-</code></pre></div></div>
+<pre><code>%j
+</code></pre>
 
 <p>If you just wanted to do 10 lines from the current cursor position:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>j10
-</code></pre></div></div>
+<pre><code>j10
+</code></pre>
 
 <p>If you dont want to replace the new lines with spaces use ! after j.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%j!
+<pre><code>%j!
 j!10
-</code></pre></div></div>
+</code></pre>
 
 <p>And for the uberfancy:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>5j20
-</code></pre></div></div>
+<pre><code>5j20
+</code></pre>
 
 <p>Would go to line 5, and join the next 20 lines.</p>
 
-<h2 id="ret">ret</h2>
+<h2>ret</h2>
 
-<p><code class="highlighter-rouge">set tabstop=4</code>: set the tabs to display as four spaces. 
-<code class="highlighter-rouge">set expandtab</code>: insert spaces for tabs.
-<code class="highlighter-rouge">ret</code>: replace tab</p>
+<p><code>set tabstop=4</code>: set the tabs to display as four spaces.
+<code>set expandtab</code>: insert spaces for tabs.
+<code>ret</code>: replace tab</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set expandtab
+<pre><code>set expandtab
 :%ret! 4
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="s">s</h2>
+<h2>s</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:%s/源字符串/目的字符串/g
-</code></pre></div></div>
+<pre><code>:%s/源字符串/目的字符串/g
+</code></pre>
 
-<p>Add a string(<code class="highlighter-rouge">*</code>) to the end of each line in Vim:</p>
+<p>Add a string(<code>*</code>) to the end of each line in Vim:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:%s/$/\*/g
-</code></pre></div></div>
+<pre><code>:%s/$/\*/g
+</code></pre>
 
-<h2 id="set">set</h2>
+<h2>set</h2>
 
 <ul>
-  <li>nu</li>
+<li>nu</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set nu
+
+<pre><code>set nu
 set nonu
-</code></pre></div></div>
+</code></pre>
 
 <ul>
-  <li>paste</li>
+<li>paste</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set paste
-</code></pre></div></div>
+
+<pre><code>set paste
+</code></pre>
 
 <ul>
-  <li>invlist</li>
+<li>invlist</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set invlist
+
+<pre><code>set invlist
 set nolist
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="shell">shell</h2>
+<h2>shell</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ctrl+z 
+<pre><code>ctrl+z 
 fg
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:!vim --version
-</code></pre></div></div>
+<pre><code>:!vim --version
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>:shell
-</code></pre></div></div>
+<pre><code>:shell
+</code></pre>
 
-<h2 id="undo-redo">undo, redo</h2>
+<h2>undo, redo</h2>
 
 <ul>
-  <li><code class="highlighter-rouge">u</code></li>
-  <li><code class="highlighter-rouge">ctrl+r</code></li>
+<li><code>u</code></li>
+<li><code>ctrl+r</code></li>
 </ul>
 
-<h2 id="vsp">vsp</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vim -On file1 file2 # 分屏启动Vim
+<h2>vsp</h2>
+
+<pre><code>vim -On file1 file2 # 分屏启动Vim
 :vsp filename # 分屏
 Ctrl+w r # 滚动分屏
 Ctrl+w = # 分屏宽度
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/2018/01/06/vim.html" hidden></a>
 </article>

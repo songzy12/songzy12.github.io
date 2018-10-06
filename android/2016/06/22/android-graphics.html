@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Android Graphics | Zhengyang Song’s Blog</title>
+<title>Android Graphics | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Android Graphics" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="Bitmap" />
 <link rel="canonical" href="http://songzy12.github.io/android/2016/06/22/android-graphics.html" />
 <meta property="og:url" content="http://songzy12.github.io/android/2016/06/22/android-graphics.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-06-22T20:07:03+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/android/2016/06/22/android-graphics.html","description":"Bitmap","headline":"Android Graphics","dateModified":"2016-06-22T20:07:03+08:00","datePublished":"2016-06-22T20:07:03+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/06/22/android-graphics.html"},"@context":"http://schema.org"}</script>
+{"headline":"Android Graphics","dateModified":"2016-06-22T20:07:03+08:00","datePublished":"2016-06-22T20:07:03+08:00","url":"http://songzy12.github.io/android/2016/06/22/android-graphics.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/06/22/android-graphics.html"},"description":"Bitmap","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,58 +45,59 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="bitmap">Bitmap</h2>
+    <h2>Bitmap</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bitmap bitmap=BitmapFactory.decodeResource(getResources(), R.drawable.green);
+<pre><code>Bitmap bitmap=BitmapFactory.decodeResource(getResources(), R.drawable.green);
 bitmap=Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
 // Bitmap source, int x, int y, int width, int height, Matrix m, boolean filter
 // Rect: (x,y) (width, height); filter: bilinear interpolation
-</code></pre></div></div>
+</code></pre>
 
 <ul>
-  <li>upsize: bilinear or bicubic interpolation</li>
-  <li>downsize: area averaging</li>
+<li>upsize: bilinear or bicubic interpolation</li>
+<li>downsize: area averaging</li>
 </ul>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String fullPath = sdcard_path + "/" + myFloder + "/" + timeStamp + suffixName;
+
+<pre><code>String fullPath = sdcard_path + "/" + myFloder + "/" + timeStamp + suffixName;
 try {
-	bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(fullPath));
+    bitmap.compress(Bitmap.CompressFormat.PNG, 100, new FileOutputStream(fullPath));
 } catch (FileNotFoundException e) {
-	e.printStackTrace();
+    e.printStackTrace();
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="canvas">Canvas</h2>
+<h2>Canvas</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>drawCircle(float cx, float cy, float radius,Paint paint)
+<pre><code>drawCircle(float cx, float cy, float radius,Paint paint)
 drawArc(RectF oval, float startAngle, float sweepAngle, boolean useCenter, Paint paint)
 drawBitmap(Bitmap bitmap, Rect src, Rect dst, Paint paint)
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Canvas canvas;
+<pre><code>Canvas canvas;
 if (rotation != 0)
-	canvas.rotate(-rotation, x, y);
+    canvas.rotate(-rotation, x, y);
 canvas.drawText(PaintPadActivity.text, x, y, Brush.getPen());
 if (rotation != 0)
-	canvas.rotate(rotation, x, y);
-</code></pre></div></div>
+    canvas.rotate(rotation, x, y);
+</code></pre>
 
-<h2 id="matrix">Matrix</h2>
+<h2>Matrix</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Matrix matrix=new Matrix();
+<pre><code>Matrix matrix=new Matrix();
 matrix.setRotate(degree, px, py); // rotate degree centered at (px, py)
 matrix.postScale(sx, sy); // scale center at (0, 0) 
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="shader">Shader</h2>
+<h2>Shader</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Shader s = new SweepGradient(0, 0, mColors, null);
+<pre><code>Shader s = new SweepGradient(0, 0, mColors, null);
 // mPaint.setShader(new SweepGradient(screenX, screenY, Color.RED, Color.YELLOW)); 
 mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 mPaint.setShader(s);
 Canvas canvas;
 canvas.drawOval(new RectF(-r, -r, r, r), mPaint);
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/android/2016/06/22/android-graphics.html" hidden></a>
 </article>

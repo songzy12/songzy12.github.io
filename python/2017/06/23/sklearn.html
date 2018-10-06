@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>sklearn | Zhengyang Song’s Blog</title>
+<title>sklearn | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="sklearn" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="feature_extraction" />
 <link rel="canonical" href="http://songzy12.github.io/python/2017/06/23/sklearn.html" />
 <meta property="og:url" content="http://songzy12.github.io/python/2017/06/23/sklearn.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-06-23T17:17:44+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/python/2017/06/23/sklearn.html","description":"feature_extraction","headline":"sklearn","dateModified":"2017-06-23T17:17:44+08:00","datePublished":"2017-06-23T17:17:44+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2017/06/23/sklearn.html"},"@context":"http://schema.org"}</script>
+{"headline":"sklearn","dateModified":"2017-06-23T17:17:44+08:00","datePublished":"2017-06-23T17:17:44+08:00","url":"http://songzy12.github.io/python/2017/06/23/sklearn.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2017/06/23/sklearn.html"},"description":"feature_extraction","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,9 +45,9 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="feature_extraction">feature_extraction</h2>
+    <h2>feature_extraction</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.feature_extraction.text import CountVectorizer
+<pre><code>from sklearn.feature_extraction.text import CountVectorizer
 vectorizer = CountVectorizer()
 corpus = [
         'This is the first document.',
@@ -59,9 +59,9 @@ X = vectorizer.fit_transform(corpus)
 X.toarray()
 vectorizer.get_feature_names()
 vectorizer.vocabulary_
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.feature_extraction.text import TfidfTransformer
+<pre><code>from sklearn.feature_extraction.text import TfidfTransformer
 transformer = TfidfTransformer()
 counts = [[3, 0, 1],
            [2, 0, 0],
@@ -71,42 +71,42 @@ counts = [[3, 0, 1],
            [3, 0, 2]]
 tfidf = transformer.fit_transform(counts)
 tfidf.toarray()
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="linear_model">linear_model</h2>
+<h2>linear_model</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;&gt;&gt; import numpy as np
+<pre><code>&gt;&gt;&gt; import numpy as np
 &gt;&gt;&gt; from sklearn import linear_model
 &gt;&gt;&gt; X = np.array([[-1, -1], [-2, -1], [1, 1], [2, 1]])
 &gt;&gt;&gt; Y = np.array([1, 1, 2, 2])
 &gt;&gt;&gt; clf = linear_model.SGDClassifier()
 &gt;&gt;&gt; clf.fit(X, Y)
 print(clf.predict([[-0.8, -1]]))
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="cluster">cluster</h2>
+<h2>cluster</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.cluster import KMeans
+<pre><code>from sklearn.cluster import KMeans
 kmeans = KMeans(n_clusters=n_digits, n_init=10)
 kmeans.fit(reduced_data)
 centroids = kmeans.cluster_centers_
 labels = kmeans.labels_
 inertia_ = kmeans.inertia_
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="decomposition">decomposition</h2>
+<h2>decomposition</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import numpy as np
+<pre><code>import numpy as np
 from sklearn.decomposition import PCA
 X = np.array([[-1, -1], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])
 pca = PCA(n_components=2)
 pca.fit(X)
 print(pca.explained_variance_ratio_) 
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="ensemble">ensemble</h2>
+<h2>ensemble</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from sklearn.ensemble import RandomForestClassifier
+<pre><code>from sklearn.ensemble import RandomForestClassifier
 
 dataset = genfromtxt(open('data/train.csv','r'), delimiter=',', dtype='f8')[1:]
 target = [x[0] for x in dataset]
@@ -117,7 +117,7 @@ rf = RandomForestClassifier(n_estimators=100)
 rf.fit(train, target)
 
 predicted_digits = rf.predict(test)
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/python/2017/06/23/sklearn.html" hidden></a>
 </article>

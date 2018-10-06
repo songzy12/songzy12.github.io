@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Oracle Of Bacon | Zhengyang Song’s Blog</title>
+<title>Oracle Of Bacon | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Oracle Of Bacon" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="here" />
 <link rel="canonical" href="http://songzy12.github.io/ruby/2016/04/02/oracle-of-bacon.html" />
 <meta property="og:url" content="http://songzy12.github.io/ruby/2016/04/02/oracle-of-bacon.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-04-02T21:52:52+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/ruby/2016/04/02/oracle-of-bacon.html","description":"here","headline":"Oracle Of Bacon","dateModified":"2016-04-02T21:52:52+08:00","datePublished":"2016-04-02T21:52:52+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/ruby/2016/04/02/oracle-of-bacon.html"},"@context":"http://schema.org"}</script>
+{"headline":"Oracle Of Bacon","dateModified":"2016-04-02T21:52:52+08:00","datePublished":"2016-04-02T21:52:52+08:00","url":"http://songzy12.github.io/ruby/2016/04/02/oracle-of-bacon.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/ruby/2016/04/02/oracle-of-bacon.html"},"description":"here","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -47,52 +47,52 @@
   <div class="post-content e-content" itemprop="articleBody">
     <p><a href="https://github.com/saasbook/hw-oracle-of-bacon">here</a></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>bundle install
+<pre><code>bundle install
 rspec spec
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="xslt">xslt</h2>
+<h2>xslt</h2>
 
 <p>Extensible Stylesheet Language Transformations.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get update
+<pre><code>sudo apt-get update
 sudo apt-get install libxslt-dev libxml2-dev
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="nokogiri">nokogiri</h2>
+<h2>nokogiri</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require 'nokogiri' # XML parser
+<pre><code>require 'nokogiri' # XML parser
 @doc = Nokogiri::XML(File.read './spellcheck.xml')
 match = @doc.xpath('//match')
 match.methods()
 match.first().text
 data = match.map {|x| x.text}
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="cgi">cgi</h2>
+<h2>cgi</h2>
 
 <p>common gateway interface.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require 'cgi' # for escaping URIs
+<pre><code>require 'cgi' # for escaping URIs
 @uri = 'http://oracleofbacon.org/cgi-bin/xml?p='+CGI.escape(@api_key)
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="uri">uri</h2>
+<h2>uri</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>it { should match(URI::regexp) }
-</code></pre></div></div>
+<pre><code>it { should match(URI::regexp) }
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>require 'open-uri' # allows open('http://...') to return body
+<pre><code>require 'open-uri' # allows open('http://...') to return body
 xml = URI.parse(uri).read
-</code></pre></div></div>
+</code></pre>
 
 <hr />
 
-<p>Define the constructor for OracleOfBacon, which lies in <code class="highlighter-rouge">lib/</code>.</p>
+<p>Define the constructor for OracleOfBacon, which lies in <code>lib/</code>.</p>
 
-<h2 id="initialize">initialize</h2>
+<h2>initialize</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class OracleOfBacon
+<pre><code>class OracleOfBacon
 
     attr_accessor :from, :to
     attr_reader :api_key, :response, :uri
@@ -103,36 +103,36 @@ xml = URI.parse(uri).read
         @to = 'Kevin Bacon'
     end
 end
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="validate">validate</h2>
+<h2>validate</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class OracleOfBacon
+<pre><code>class OracleOfBacon
 
     class InvalidError &lt; RuntimeError ; end
     class InvalidKeyError &lt; RuntimeError ; end
- 
+
     include ActiveModel::Validations
     validates_presence_of :from
     validates_presence_of :to
     validates_presence_of :api_key
     validate :from_does_not_equal_to
-    
+
     def from_does_not_equal_to
         errors.add(:base, 'From cannot be the same as To') if @from == @to
     end
 end
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="raise">raise</h2>
+<h2>raise</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>begin  
+<pre><code>begin  
   raise 'A test exception.'  
 rescue Exception =&gt; e  
   puts e.message  
   puts e.backtrace.inspect  
 end  
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/ruby/2016/04/02/oracle-of-bacon.html" hidden></a>
 </article>

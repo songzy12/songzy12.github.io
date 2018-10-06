@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>CPP | Zhengyang Song’s Blog</title>
+<title>CPP | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="CPP" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="delete" />
 <link rel="canonical" href="http://songzy12.github.io/c++/2016/09/17/cpp.html" />
 <meta property="og:url" content="http://songzy12.github.io/c++/2016/09/17/cpp.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-09-17T17:12:26+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/c++/2016/09/17/cpp.html","description":"delete","headline":"CPP","dateModified":"2016-09-17T17:12:26+08:00","datePublished":"2016-09-17T17:12:26+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/c++/2016/09/17/cpp.html"},"@context":"http://schema.org"}</script>
+{"headline":"CPP","dateModified":"2016-09-17T17:12:26+08:00","datePublished":"2016-09-17T17:12:26+08:00","url":"http://songzy12.github.io/c++/2016/09/17/cpp.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/c++/2016/09/17/cpp.html"},"description":"delete","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,31 +45,31 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="delete">delete</h2>
+    <h2>delete</h2>
 
 <p>If pointer refers to an array, place empty brackets before pointer.</p>
 
-<h2 id="pragma">pragma</h2>
+<h2>pragma</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#pragma comment(lib,"user32.lib")
-</code></pre></div></div>
+<pre><code>#pragma comment(lib,"user32.lib")
+</code></pre>
 
-<p><code class="highlighter-rouge">#pragma comment</code> is a compiler directive which indicates Visual C++ to leave a comment in the generated object file. The comment can then be read by the linker when it processes object files.</p>
+<p><code>#pragma comment</code> is a compiler directive which indicates Visual C++ to leave a comment in the generated object file. The comment can then be read by the linker when it processes object files.</p>
 
-<p><code class="highlighter-rouge">pragma comment(lib, libname)</code> tells the linker to add the <code class="highlighter-rouge">libname</code> library to the list of library dependencies, as if you had added it in the project properties at <code class="highlighter-rouge">Linker-&gt;Input-&gt;Additional dependencies</code></p>
+<p><code>pragma comment(lib, libname)</code> tells the linker to add the <code>libname</code> library to the list of library dependencies, as if you had added it in the project properties at <code>Linker-&gt;Input-&gt;Additional dependencies</code></p>
 
 <hr />
 
-<h2 id="algorithm">algorithm</h2>
+<h2>algorithm</h2>
 
-<h3 id="__gcd">__gcd</h3>
+<h3>__gcd</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cout &lt;&lt; std::__gcd(100,24);
-</code></pre></div></div>
+<pre><code>cout &lt;&lt; std::__gcd(100,24);
+</code></pre>
 
-<h3 id="binary_search">binary_search</h3>
+<h3>binary_search</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>template &lt;class ForwardIterator, class T&gt;
+<pre><code>template &lt;class ForwardIterator, class T&gt;
   bool binary_search (ForwardIterator first, ForwardIterator last,
                       const T&amp; val);
 template &lt;class ForwardIterator, class T, class Compare&gt;
@@ -77,20 +77,20 @@ template &lt;class ForwardIterator, class T, class Compare&gt;
                       const T&amp; val, Compare comp);
 
 Returns true if any element in the range [first,last) is equivalent to val, and false otherwise.
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="count">count</h3>
+<h3>count</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int myints[] = {10,20,30,30,20,10,10,20};   // 8 elements
+<pre><code>int myints[] = {10,20,30,30,20,10,10,20};   // 8 elements
 int mycount = std::count (myints, myints+8, 10);
 std::cout &lt;&lt; "10 appears " &lt;&lt; mycount &lt;&lt; " times.\n";
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="equal_range">equal_range</h3>
+<h3>equal_range</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;iostream&gt;
+<pre><code>#include &lt;iostream&gt;
 #include &lt;unordered_map&gt;
- 
+
 int main()
 {  
     std::unordered_multimap&lt;int,char&gt; map = { {1,'a'},{1,'b'},{1,'d'},{2,'b'}};
@@ -99,45 +99,45 @@ int main()
         std::cout &lt;&lt; it-&gt;first &lt;&lt; ' ' &lt;&lt; it-&gt;second &lt;&lt; '\n';
     }
 }
-</code></pre></div></div>
+</code></pre>
 
-<p><code class="highlighter-rouge">equal_range</code>是C++ <code class="highlighter-rouge">STL</code>中的一种二分查找的算法，试图在已排序的<code class="highlighter-rouge">[first,last)</code>中寻找<code class="highlighter-rouge">value</code>，它返回一对迭代器i和j，其中i是在不破坏次序的前提下，value可插入的第一个位置（亦即<code class="highlighter-rouge">lower_bound</code>），j则是在不破坏次序的前提下，value可插入的最后一个位置（亦即<code class="highlighter-rouge">upper_bound</code>），因此，<code class="highlighter-rouge">[i,j)</code>内的每个元素都等同于<code class="highlighter-rouge">value</code>，而且<code class="highlighter-rouge">[i,j)</code>是<code class="highlighter-rouge">[first,last)</code>之中符合此一性质的最大子区间。</p>
+<p><code>equal_range</code>是C++ <code>STL</code>中的一种二分查找的算法，试图在已排序的<code>[first,last)</code>中寻找<code>value</code>，它返回一对迭代器i和j，其中i是在不破坏次序的前提下，value可插入的第一个位置（亦即<code>lower_bound</code>），j则是在不破坏次序的前提下，value可插入的最后一个位置（亦即<code>upper_bound</code>），因此，<code>[i,j)</code>内的每个元素都等同于<code>value</code>，而且<code>[i,j)</code>是<code>[first,last)</code>之中符合此一性质的最大子区间。</p>
 
-<p>如果以稍许不同的角度来思考<code class="highlighter-rouge">equal_range</code>,我们可把它想成是<code class="highlighter-rouge">[first,last)</code>内”与<code class="highlighter-rouge">value</code>等同”之所有元素形成的区间A，由于<code class="highlighter-rouge">[fist,last)</code>有序（<code class="highlighter-rouge">sorted</code>），所以我们知道”与<code class="highlighter-rouge">value</code>等同”之所有元素一定都相邻，于是，算法<code class="highlighter-rouge">lower_bound</code>返回区间A的第一个迭代器，算法<code class="highlighter-rouge">upper_bound</code>返回区间A的最后一个元素的下一个位置，算法<code class="highlighter-rouge">equal_range</code>则是以<code class="highlighter-rouge">pair</code>的形式将两者都返回</p>
+<p>如果以稍许不同的角度来思考<code>equal_range</code>,我们可把它想成是<code>[first,last)</code>内"与<code>value</code>等同"之所有元素形成的区间A，由于<code>[fist,last)</code>有序（<code>sorted</code>），所以我们知道"与<code>value</code>等同"之所有元素一定都相邻，于是，算法<code>lower_bound</code>返回区间A的第一个迭代器，算法<code>upper_bound</code>返回区间A的最后一个元素的下一个位置，算法<code>equal_range</code>则是以<code>pair</code>的形式将两者都返回</p>
 
-<h3 id="fill-fill_n">fill, fill_n</h3>
+<h3>fill, fill_n</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// Fill all of v1 with 9.
+<pre><code>// Fill all of v1 with 9.
 std::fill(v1.begin (), v1.end (), 9);
 // Fill first 3 of v2 with 7.
 std::fill_n(v2.begin (), 3, 7);
 // Use insert iterator to fill v3 with 5 11's.
 std::fill_n(std::back_inserter (v3), 5, 11);
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="find_if-bind1st">find_if, bind1st</h3>
+<h3>find_if, bind1st</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>auto change = find_if(rfirst, pivot, bind1st(less&lt;int&gt;(), *pivot));
-</code></pre></div></div>
+<pre><code>auto change = find_if(rfirst, pivot, bind1st(less&lt;int&gt;(), *pivot));
+</code></pre>
 
-<p>find_if: Returns an iterator to the first element in the range <code class="highlighter-rouge">[first,last)</code> for which <code class="highlighter-rouge">pred</code> returns <code class="highlighter-rouge">true</code>. If no such element is found, the function returns <code class="highlighter-rouge">last</code>.</p>
+<p>find_if: Returns an iterator to the first element in the range <code>[first,last)</code> for which <code>pred</code> returns <code>true</code>. If no such element is found, the function returns <code>last</code>.</p>
 
-<p><code class="highlighter-rouge">bind1st</code>和<code class="highlighter-rouge">bind2nd</code>函数用于将一个二元算子（binary functor，bf）转换成一元算子（unary functor，uf）。为了达到这个目的，它们需要两个参数：要转换的bf和一个值（v）。</p>
+<p><code>bind1st</code>和<code>bind2nd</code>函数用于将一个二元算子（binary functor，bf）转换成一元算子（unary functor，uf）。为了达到这个目的，它们需要两个参数：要转换的bf和一个值（v）。</p>
 
-<h3 id="for_each">for_each</h3>
+<h3>for_each</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for_each(digits.rbegin(), digits.rend(), [&amp;c](int &amp;d) {
+<pre><code>for_each(digits.rbegin(), digits.rend(), [&amp;c](int &amp;d) {
     d += c;
     c = d / 10;
     d %= 10;
 });
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="make_heap-pop_heap-push_heap-sort_heap">make_heap, pop_heap, push_heap, sort_heap</h3>
+<h3>make_heap, pop_heap, push_heap, sort_heap</h3>
 
 <p>The operations about heap can be found <a href="http://www.cplusplus.com/reference/algorithm/push_heap/">here</a>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include &lt;iostream&gt;     // std::cout
+<pre><code>#include &lt;iostream&gt;     // std::cout
 #include &lt;algorithm&gt;    // std::make_heap, std::pop_heap, std::push_heap, std::sort_heap
 #include &lt;vector&gt;       // std::vector
 
@@ -151,20 +151,20 @@ int main () {
   std::sort_heap (v.begin(),v.end());
   return 0;
 }
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="max_element">max_element</h3>
+<h3>max_element</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int myints[] = {3,7,2,5,6,4,9};
+<pre><code>int myints[] = {3,7,2,5,6,4,9};
 
 // using default comparison:
 std::cout &lt;&lt; "The smallest element is " &lt;&lt; *std::min_element(myints,myints+7) &lt;&lt; '\n';
 std::cout &lt;&lt; "The largest element is "  &lt;&lt; *std::max_element(myints,myints+7) &lt;&lt; '\n';
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="remove-distance">remove, distance</h3>
+<h3>remove, distance</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include&lt;algorithm&gt;
+<pre><code>#include&lt;algorithm&gt;
 using namespace std;
 class Solution {
   public:
@@ -172,81 +172,82 @@ class Solution {
         return distance(A, remove(A, A + n, elem));
     }
 };
-</code></pre></div></div>
+</code></pre>
 
-<p><code class="highlighter-rouge">remove</code>: Transforms the range <code class="highlighter-rouge">[first,last)</code> into a range with all the elements that compare equal to <code class="highlighter-rouge">val</code> removed, and returns an iterator to the new end of that range.</p>
+<p><code>remove</code>: Transforms the range <code>[first,last)</code> into a range with all the elements that compare equal to <code>val</code> removed, and returns an iterator to the new end of that range.</p>
 
-<h3 id="reverse">reverse</h3>
+<h3>reverse</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reverse(rfirst, pivot);
-</code></pre></div></div>
+<pre><code>reverse(rfirst, pivot);
+</code></pre>
 
-<p>Reverses the order of the elements in the range <code class="highlighter-rouge">[first,last)</code>.</p>
+<p>Reverses the order of the elements in the range <code>[first,last)</code>.</p>
 
-<h3 id="sort">sort</h3>
+<h3>sort</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>template &lt;class RandomAccessIterator&gt;
+<pre><code>template &lt;class RandomAccessIterator&gt;
   void sort (RandomAccessIterator first, RandomAccessIterator last);
 template &lt;class RandomAccessIterator, class Compare&gt;
   void sort (RandomAccessIterator first, RandomAccessIterator last, Compare comp);
 
 Sorts the elements in the range [first,last) into ascending order.
 The elements are compared using operator&lt; for the first version, and comp for the second.
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="transform">transform</h3>
+<h3>transform</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>unary operation(1)	
+<pre><code>unary operation(1)  
 
 template &lt;class InputIterator, class OutputIterator, class UnaryOperation&gt;
   OutputIterator transform (InputIterator first1, InputIterator last1,
                             OutputIterator result, UnaryOperation op);
 
-binary operation(2)	
+binary operation(2) 
 
 template &lt;class InputIterator1, class InputIterator2,
           class OutputIterator, class BinaryOperation&gt;
   OutputIterator transform (InputIterator1 first1, InputIterator1 last1,
                             InputIterator2 first2, OutputIterator result,
                             BinaryOperation binary_op);
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>::a refers to the name in the global namespace
-</code></pre></div></div>
+<pre><code>::a refers to the name in the global namespace
+</code></pre>
 
-<h3 id="unique-erase">unique, erase</h3>
+<h3>unique, erase</h3>
 
 <p>Here is how to eliminate the duplicated elements from a vector.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sort(result.begin(), result.end());
+<pre><code>sort(result.begin(), result.end());
 result.erase(unique(result.begin(), result.end()), result.end());
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="functional">functional</h2>
+<h2>functional</h2>
 
-<h3 id="bit_xor">bit_xor</h3>
+<h3>bit_xor</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int flags[] = {1,2,3,4,5,6,7,8,9,10};
+<pre><code>int flags[] = {1,2,3,4,5,6,7,8,9,10};
 int acc = std::accumulate (flags, std::end(flags), 0, std::bit_xor&lt;int&gt;());
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="numeric">numeric</h2>
+<h2>numeric</h2>
 
-<h3 id="accumulate">accumulate</h3>
+<h3>accumulate</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>T accumulate (InputIterator first, InputIterator last, T init,
+<pre><code>T accumulate (InputIterator first, InputIterator last, T init,
               BinaryOperation binary_op);
-</code></pre></div></div>
+</code></pre>
 
-<p>The default operation is to <code class="highlighter-rouge">add</code> the elements up, but a different operation can be specified as <code class="highlighter-rouge">binary_op</code>.</p>
+<p>The default operation is to <code>add</code> the elements up, but a different operation can be specified as <code>binary_op</code>.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>return accumulate(A, A + n, 0, bit_xor&lt;int&gt;());
-</code></pre></div></div>
+<pre><code>return accumulate(A, A + n, 0, bit_xor&lt;int&gt;());
+</code></pre>
 
 <hr />
 
-<h2 id="iomanip">iomanip</h2>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>#include&lt;iostream&gt;
+<h2>iomanip</h2>
+
+<pre><code>#include&lt;iostream&gt;
 #include&lt;iomanip&gt;
 using namespace std;
 int main()
@@ -257,150 +258,153 @@ int main()
     cout&lt;&lt;setprecision(4)&lt;&lt;12345.0&lt;&lt;endl;//"1.235e+004"
     return 0;
 }
-</code></pre></div></div>
+</code></pre>
 
 <hr />
 
-<h2 id="map">map</h2>
+<h2>map</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>map&lt;string, int&gt; board;
+<pre><code>map&lt;string, int&gt; board;
 if (board.find(name) == board.end())
     board[name] = 0;
 
 for (auto &amp;ent: board) {
-	string name = ent.first;
-	int score = ent.second;
+    string name = ent.first;
+    int score = ent.second;
     if (score &gt; max_score) 
         max_score = score;
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="string">string</h2>
+<h2>string</h2>
 
-<h3 id="getline">getline</h3>
+<h3>getline</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>string line;
+<pre><code>string line;
 getline(cin, line);
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="find">find</h3>
+<h3>find</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>if (sequence.find(newseq) == string::npos) {
+<pre><code>if (sequence.find(newseq) == string::npos) {
 
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="vector">vector</h2>
+<h2>vector</h2>
 
-<h3 id="reserve">reserve</h3>
+<h3>reserve</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vector&lt;int&gt; result;
+<pre><code>vector&lt;int&gt; result;
 const size_t size = 1&lt;&lt;n;
 result.reserve(size);
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="reverse_iterator">reverse_iterator</h3>
+<h3>reverse_iterator</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for (vector&lt;unsigned short&gt;::reverse_iterator iter = result.rbegin(); iter != result.rend(); iter++) {
+<pre><code>for (vector&lt;unsigned short&gt;::reverse_iterator iter = result.rbegin(); iter != result.rend(); iter++) {
     record_result(*iter);
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="queue">queue</h2>
+<h2>queue</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>queue&lt;int&gt; p;
+<pre><code>queue&lt;int&gt; p;
 p.push(1);
 int q = p.front();
 p.pop();
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="utility">utility</h2>
+<h2>utility</h2>
 
-<h3 id="make_pair">make_pair</h3>
+<h3>make_pair</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: the value of 'j' is not usable in a constant expression
+<pre><code>error: the value of 'j' is not usable in a constant expression
 return A(std::make_pair&lt;j, u&gt;);
-</code></pre></div></div>
+</code></pre>
 
-<p>It should be <code class="highlighter-rouge">return A(std::make_pair(j, u));</code></p>
+<p>It should be <code>return A(std::make_pair(j, u));</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pair&lt;string, int&gt; name_score = make_pair(name, score);
-</code></pre></div></div>
+<pre><code>pair&lt;string, int&gt; name_score = make_pair(name, score);
+</code></pre>
 
 <hr />
 
-<h2 id="lambda">lambda</h2>
+<h2>lambda</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[=] () mutable throw() -&gt; int {
+<pre><code>[=] () mutable throw() -&gt; int {
     int n = x + y;
     x = y;
     y = n;
     return n;
 }
-</code></pre></div></div>
+</code></pre>
 
 <ul>
-  <li>Capture 子句</li>
-  <li>参数列表</li>
-  <li>可变规范</li>
-  <li>异常规范</li>
-  <li>尾随返回类型</li>
-  <li>lambda 体</li>
+<li>Capture 子句</li>
+<li>参数列表</li>
+<li>可变规范</li>
+<li>异常规范</li>
+<li>尾随返回类型</li>
+<li>lambda 体</li>
 </ul>
+
 
 <p>Capture: 指定哪些在函数声明处的作用域中可见的符号将在函数体内可见。 符号表可按如下规则传入：</p>
 
 <ul>
-  <li><code class="highlighter-rouge">[a,&amp;b]</code> 按值捕获a，并按引用捕获b</li>
-  <li><code class="highlighter-rouge">[this]</code> 按值捕获了this指针</li>
-  <li><code class="highlighter-rouge">[&amp;]</code> 按引用捕获在lambda表达式所在函数的函数体中提及的全部自动储存持续性变量</li>
-  <li><code class="highlighter-rouge">[=]</code> 按值捕获在lambda表达式所在函数的函数体中提及的全部自动储存持续性变量</li>
-  <li><code class="highlighter-rouge">[]</code> 什么也没有捕获</li>
+<li><code>[a,&amp;b]</code> 按值捕获a，并按引用捕获b</li>
+<li><code>[this]</code> 按值捕获了this指针</li>
+<li><code>[&amp;]</code> 按引用捕获在lambda表达式所在函数的函数体中提及的全部自动储存持续性变量</li>
+<li><code>[=]</code> 按值捕获在lambda表达式所在函数的函数体中提及的全部自动储存持续性变量</li>
+<li><code>[]</code> 什么也没有捕获</li>
 </ul>
 
-<hr />
-
-<h2 id="c11">c++11</h2>
-
-<p>To enable <code class="highlighter-rouge">auto</code> with <code class="highlighter-rouge">MinGW 4.8.1</code>(Minimalist GNU for Windows):</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>g++ -g -std=gnu++11 -W -Wall -o $(CURRENT_DIRECTORY)\$(NAME_PART).exe $(FULL_CURRENT_PATH)
-</code></pre></div></div>
 
 <hr />
 
-<h2 id="notepad">Notepad++</h2>
+<h2>c++11</h2>
 
-<h3 id="nppexec">NppExec</h3>
+<p>To enable <code>auto</code> with <code>MinGW 4.8.1</code>(Minimalist GNU for Windows):</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>terminate called after throwing an instance of 'std::ios_base::failure'
+<pre><code>g++ -g -std=gnu++11 -W -Wall -o $(CURRENT_DIRECTORY)\$(NAME_PART).exe $(FULL_CURRENT_PATH)
+</code></pre>
+
+<hr />
+
+<h2>Notepad++</h2>
+
+<h3>NppExec</h3>
+
+<pre><code>terminate called after throwing an instance of 'std::ios_base::failure'
   what():  basic_filebuf::underflow error reading the file
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cmd /k chdir /d "$(CURRENT_DIRECTORY)" &amp; g++ "$(FILE_NAME)" -o "$(NAME_PART)".exe &amp; EXIT  
+<pre><code>cmd /k chdir /d "$(CURRENT_DIRECTORY)" &amp; g++ "$(FILE_NAME)" -o "$(NAME_PART)".exe &amp; EXIT  
 cmd /k chdir /d "$(CURRENT_DIRECTORY)" &amp; "$(NAME_PART).exe" &amp; EXIT 
-</code></pre></div></div>
+</code></pre>
 
-<h3 id="theme">theme</h3>
+<h3>theme</h3>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mv userDefineLang.xml %APPDATA%\Notepad++
-</code></pre></div></div>
+<pre><code>mv userDefineLang.xml %APPDATA%\Notepad++
+</code></pre>
 
 <hr />
 
-<h2 id="eclipse-cdt">Eclipse CDT</h2>
+<h2>Eclipse CDT</h2>
 
 <p>Be careful when you delete stuff. Think before you click.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git reset --hard
-</code></pre></div></div>
+<pre><code>git reset --hard
+</code></pre>
 
 <ul>
-  <li>CDT support for c++11: <a href="http://wiki.eclipse.org/CDT/User/FAQ#CDT_does_not_recognize_C.2B.2B11_features">here</a>.</li>
-  <li>flag: Project Properties-&gt;C/C++ Build-&gt;Settings-&gt;Tool Settings-&gt;GCC C++ Compiler-&gt;Miscellaneous-&gt;Other Flags. Put <code class="highlighter-rouge">-std=c++1y</code> at the end.</li>
-  <li>scanner: Project Properties-&gt;C/C++ Build -&gt;discovery-&gt;”compiler invocation arguments”. Add the option <code class="highlighter-rouge">-std=c++1y</code>.</li>
-  <li>index: Project Properties-&gt;C/C++ General-&gt;Index-&gt;Index source and header files opened in the editor.</li>
+<li>CDT support for c++11: <a href="http://wiki.eclipse.org/CDT/User/FAQ#CDT_does_not_recognize_C.2B.2B11_features">here</a>.</li>
+<li>flag: Project Properties->C/C++ Build->Settings->Tool Settings->GCC C++ Compiler->Miscellaneous->Other Flags. Put <code>-std=c++1y</code> at the end.</li>
+<li>scanner: Project Properties->C/C++ Build ->discovery->&ldquo;compiler invocation arguments&rdquo;. Add the option <code>-std=c++1y</code>.</li>
+<li>index: Project Properties->C/C++ General->Index->Index source and header files opened in the editor.</li>
 </ul>
+
 
   </div><a class="u-url" href="/c++/2016/09/17/cpp.html" hidden></a>
 </article>

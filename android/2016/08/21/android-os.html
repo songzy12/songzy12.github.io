@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Android OS | Zhengyang Song’s Blog</title>
+<title>Android OS | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Android OS" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="External Storage" />
 <link rel="canonical" href="http://songzy12.github.io/android/2016/08/21/android-os.html" />
 <meta property="og:url" content="http://songzy12.github.io/android/2016/08/21/android-os.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-08-21T20:07:03+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/android/2016/08/21/android-os.html","description":"External Storage","headline":"Android OS","dateModified":"2016-08-21T20:07:03+08:00","datePublished":"2016-08-21T20:07:03+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/08/21/android-os.html"},"@context":"http://schema.org"}</script>
+{"headline":"Android OS","dateModified":"2016-08-21T20:07:03+08:00","datePublished":"2016-08-21T20:07:03+08:00","url":"http://songzy12.github.io/android/2016/08/21/android-os.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/08/21/android-os.html"},"description":"External Storage","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,70 +45,70 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="external-storage">External Storage</h2>
+    <h2>External Storage</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String state = Environment.getExternalStorageState();
+<pre><code>String state = Environment.getExternalStorageState();
 
 if (Environment.MEDIA_MOUNTED.equals(state)) {
-	// save to sd card
+    // save to sd card
 } else if (Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
     // read only
 } else {
     // not avaliable
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>File sdcard_path = Environment.getExternalStorageDirectory();
+<pre><code>File sdcard_path = Environment.getExternalStorageDirectory();
 // sdcard_path.toString() == "/storage/emulated/0";
 String myFloder = getResources().getString(folder_name);
 File paintpad = new File(sdcard_path + "/" + myFloder + "/");
 try {
-	if (!paintpad.exists())	{
-		// Note that this method does not throw IOException on failure.
-		paintpad.mkdirs();
-	}
+    if (!paintpad.exists()) {
+        // Note that this method does not throw IOException on failure.
+        paintpad.mkdirs();
+    }
 } catch (Exception e) {
-	e.printStackTrace();
+    e.printStackTrace();
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"&gt;&lt;/uses-permission&gt; 
-</code></pre></div></div>
+<pre><code>&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"&gt;&lt;/uses-permission&gt; 
+</code></pre>
 
-<h2 id="handler">Handler</h2>
+<h2>Handler</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class MyHandler extends Handler {
+<pre><code>class MyHandler extends Handler {
     public void handleMessage(Message msg) {
-    	Bundle bundle = msg.getData();
-    	Date date = new Date();
-    	textView.append((new SimpleDateFormat("hh:mm:ss")).format(date) +
-    			        "    "+ bundle.getString("msg") + "\n");
+        Bundle bundle = msg.getData();
+        Date date = new Date();
+        textView.append((new SimpleDateFormat("hh:mm:ss")).format(date) +
+                        "    "+ bundle.getString("msg") + "\n");
     }
 }   
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Handler.sendEmptyMessageDelayed(int what, long delayMillis)
-</code></pre></div></div>
+<pre><code>Handler.sendEmptyMessageDelayed(int what, long delayMillis)
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Handler handler = new Handler();
+<pre><code>Handler handler = new Handler();
 handler.post(new Runnable() {
-	public void run() {	    
-		Log.i(TAG, getFilesDir().getAbsolutePath() + "/" + filename);
-		// Log.i(TAG, Environment.getExternalStorageDirectory()+"");
-		webView.loadUrl("file:///" + getFilesDir().getAbsolutePath() + "/" + filename);
-		swipeContainer.setRefreshing(false);
-	}
+    public void run() {     
+        Log.i(TAG, getFilesDir().getAbsolutePath() + "/" + filename);
+        // Log.i(TAG, Environment.getExternalStorageDirectory()+"");
+        webView.loadUrl("file:///" + getFilesDir().getAbsolutePath() + "/" + filename);
+        swipeContainer.setRefreshing(false);
+    }
 });
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="message">Message</h2>
+<h2>Message</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Message msg = new Message();
+<pre><code>Message msg = new Message();
 Bundle bundle = new Bundle();
 bundle.putString("msg", "Connection failed!\n");
 msg.setData(bundle);
 myHandler.sendMessage(msg);
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/android/2016/08/21/android-os.html" hidden></a>
 </article>

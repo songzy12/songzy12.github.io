@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Android Webkit | Zhengyang Song’s Blog</title>
+<title>Android Webkit | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Android Webkit" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="WebView" />
 <link rel="canonical" href="http://songzy12.github.io/android/2016/08/21/android-webkit.html" />
 <meta property="og:url" content="http://songzy12.github.io/android/2016/08/21/android-webkit.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-08-21T20:07:03+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/android/2016/08/21/android-webkit.html","description":"WebView","headline":"Android Webkit","dateModified":"2016-08-21T20:07:03+08:00","datePublished":"2016-08-21T20:07:03+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/08/21/android-webkit.html"},"@context":"http://schema.org"}</script>
+{"headline":"Android Webkit","dateModified":"2016-08-21T20:07:03+08:00","datePublished":"2016-08-21T20:07:03+08:00","url":"http://songzy12.github.io/android/2016/08/21/android-webkit.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/android/2016/08/21/android-webkit.html"},"description":"WebView","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,17 +45,17 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="webview">WebView</h2>
+    <h2>WebView</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>WebView mWebView = (WebView) findViewById(R.id.mainWebView);
+<pre><code>WebView mWebView = (WebView) findViewById(R.id.mainWebView);
 WebSettings settings = mWebView.getSettings();
 settings.setJavaScriptEnabled(true);
 settings.setDomStorageEnabled(true);
 settings.setDatabaseEnabled(true);
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mWebView.loadUrl("file:///" + getFilesDir().getAbsolutePath() + "/" + filename);
-</code></pre></div></div>
+<pre><code>mWebView.loadUrl("file:///" + getFilesDir().getAbsolutePath() + "/" + filename);
+</code></pre>
 
   </div><a class="u-url" href="/android/2016/08/21/android-webkit.html" hidden></a>
 </article>

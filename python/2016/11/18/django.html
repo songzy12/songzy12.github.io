@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Django | Zhengyang Song’s Blog</title>
+<title>Django | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Django" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="Here." />
 <link rel="canonical" href="http://songzy12.github.io/python/2016/11/18/django.html" />
 <meta property="og:url" content="http://songzy12.github.io/python/2016/11/18/django.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-11-18T14:19:20+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/python/2016/11/18/django.html","description":"Here.","headline":"Django","dateModified":"2016-11-18T14:19:20+08:00","datePublished":"2016-11-18T14:19:20+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/11/18/django.html"},"@context":"http://schema.org"}</script>
+{"headline":"Django","dateModified":"2016-11-18T14:19:20+08:00","datePublished":"2016-11-18T14:19:20+08:00","url":"http://songzy12.github.io/python/2016/11/18/django.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/11/18/django.html"},"description":"Here.","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -47,56 +47,56 @@
   <div class="post-content e-content" itemprop="articleBody">
     <p><a href="http://jeffknupp.com/blog/2013/12/18/starting-a-django-16-project-the-right-way/">Here</a>.</p>
 
-<h2 id="virtualenv">virtualenv</h2>
+<h2>virtualenv</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo pip install vietualenvwrapper
+<pre><code>sudo pip install vietualenvwrapper
 source /usr/local/bin/virtualenvwrapper.sh
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mkvirtualenv django_project
+<pre><code>mkvirtualenv django_project
 deactivate
 workon django_project
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="django">django</h2>
+<h2>django</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install django
+<pre><code>pip install django
 which django-admin.py
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>django-admin.py startproject django_project
-</code></pre></div></div>
+<pre><code>django-admin.py startproject django_project
+</code></pre>
 
-<h2 id="south">south</h2>
+<h2>south</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install south
-</code></pre></div></div>
+<pre><code>pip install south
+</code></pre>
 
 <p>Tutorial <a href="https://south.readthedocs.io/en/latest/tutorial/">here</a>.</p>
 
-<p>All migrations to our own apps will be done using South, including the “initial” migration.</p>
+<p>All migrations to our own apps will be done using South, including the &ldquo;initial&rdquo; migration.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip freeze &gt; requirements.txt
-</code></pre></div></div>
+<pre><code>pip freeze &gt; requirements.txt
+</code></pre>
 
-<p><code class="highlighter-rouge">vi settings.py</code></p>
+<p><code>vi settings.py</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
-</code></pre></div></div>
+<pre><code>INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+</code></pre>
 
-<h2 id="fabric">fabric</h2>
+<h2>fabric</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pip install fabric
-</code></pre></div></div>
+<pre><code>pip install fabric
+</code></pre>
 
-<p><code class="highlighter-rouge">vi fabfile.py</code></p>
+<p><code>vi fabfile.py</code></p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from fabric.api import local, lcd
+<pre><code>from fabric.api import local, lcd
 
 def prepare_deployment(branch_name):
     local('python manage.py test django_project')
     local('git add -p &amp;&amp; git commit') # or local('hg add &amp;&amp; hg commit')
-    
+
 def deploy():
     with lcd('/path/to/my/prod/area/'):
 
@@ -111,18 +111,18 @@ def deploy():
         local('python manage.py migrate myapp')
         local('python manage.py test myapp')
         local('/my/command/to/restart/webserver')
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ fab prepare_deployment
+<pre><code>$ fab prepare_deployment
 $ fab deploy
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="unittest">unittest</h2>
+<h2>unittest</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi test_&lt;appname&gt;.py
-</code></pre></div></div>
+<pre><code>vi test_&lt;appname&gt;.py
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import datetime
+<pre><code>import datetime
 
 from django.test import TestCase
 from myapp.models import Post
@@ -144,10 +144,10 @@ class BlogPostTestCase(TestCase):
         second_post = Post.objects.get(id=2)
         self.assertEqual(first_post.category, 'Django')
         self.assertEqual(second_post.category, 'Python')
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./manage.py test &lt;appname&gt;
-</code></pre></div></div>
+<pre><code>./manage.py test &lt;appname&gt;
+</code></pre>
 
   </div><a class="u-url" href="/python/2016/11/18/django.html" hidden></a>
 </article>

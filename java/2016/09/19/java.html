@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Java | Zhengyang Song’s Blog</title>
+<title>Java | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Java" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="HashMap, HashTable, HashSet" />
 <link rel="canonical" href="http://songzy12.github.io/java/2016/09/19/java.html" />
 <meta property="og:url" content="http://songzy12.github.io/java/2016/09/19/java.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-09-19T20:07:03+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/java/2016/09/19/java.html","description":"HashMap, HashTable, HashSet","headline":"Java","dateModified":"2016-09-19T20:07:03+08:00","datePublished":"2016-09-19T20:07:03+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/java/2016/09/19/java.html"},"@context":"http://schema.org"}</script>
+{"headline":"Java","dateModified":"2016-09-19T20:07:03+08:00","datePublished":"2016-09-19T20:07:03+08:00","url":"http://songzy12.github.io/java/2016/09/19/java.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/java/2016/09/19/java.html"},"description":"HashMap, HashTable, HashSet","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,84 +45,89 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="hashmap-hashtable-hashset">HashMap, HashTable, HashSet</h2>
+    <h2>HashMap, HashTable, HashSet</h2>
 
 <ul>
-  <li>Hashtable
-    <ul>
-      <li>It does not allow null for both key and value</li>
-      <li>It does not maintain insertion order</li>
-      <li>It is synchronized</li>
-      <li>It is thread safe</li>
-      <li>It use Enumerator to iterate through elements</li>
-    </ul>
-  </li>
-  <li>HashMap
-    <ul>
-      <li>It allows null for both key and value</li>
-      <li>It does not maintain insertion order</li>
-      <li>It is not synchronized</li>
-      <li>It is not thread safe, but you can use <code class="highlighter-rouge">Collections.synchronizedMap(new HashMap&lt;K, V&gt;())</code></li>
-    </ul>
-  </li>
-  <li>HashSet
-    <ul>
-      <li>It provides <code class="highlighter-rouge">add</code> method rather than <code class="highlighter-rouge">put</code> method</li>
-      <li>You also use its <code class="highlighter-rouge">contains</code> method to check whether the object is already available in HashSet.</li>
-    </ul>
-  </li>
+<li>Hashtable
+
+<ul>
+<li>It does not allow null for both key and value</li>
+<li>It does not maintain insertion order</li>
+<li>It is synchronized</li>
+<li>It is thread safe</li>
+<li>It use Enumerator to iterate through elements</li>
+</ul>
+</li>
+<li>HashMap
+
+<ul>
+<li>It allows null for both key and value</li>
+<li>It does not maintain insertion order</li>
+<li>It is not synchronized</li>
+<li>It is not thread safe, but you can use <code>Collections.synchronizedMap(new HashMap&lt;K, V&gt;())</code></li>
+</ul>
+</li>
+<li>HashSet
+
+<ul>
+<li>It provides <code>add</code> method rather than <code>put</code> method</li>
+<li>You also use its <code>contains</code> method to check whether the object is already available in HashSet.</li>
+</ul>
+</li>
 </ul>
 
-<h2 id="classpath">classpath</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>javac log_process/*.java -classpath log_process/*.jar
+<h2>classpath</h2>
+
+<pre><code>javac log_process/*.java -classpath log_process/*.jar
 java -cp log_process/*.jar:. log_process.Main web5 web5-process
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="static">static</h2>
+<h2>static</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>error: non-static method get_user() cannot be referenced from a static context
-</code></pre></div></div>
+<pre><code>error: non-static method get_user() cannot be referenced from a static context
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Grader grader = new Grader();
+<pre><code>Grader grader = new Grader();
 grader.get_user();
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="calendar">Calendar</h2>
+<h2>Calendar</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Calendar c = Calendar.getInstance();
+<pre><code>Calendar c = Calendar.getInstance();
 int year = c.get(Calendar.YEAR);  
 int month = c.get(Calendar.MONTH);  
 int day = c.get(Calendar.DAY_OF_MONTH);
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="date">Date</h2>
+<h2>Date</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Date dNow = new Date( );
+<pre><code>Date dNow = new Date( );
 SimpleDateFormat ft = new SimpleDateFormat ("E yyyy.MM.dd 'at' hh:mm:ss a zzz");
 System.out.println("Current Date: " + ft.format(dNow));
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="file">File</h2>
+<h2>File</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>File f = new File("temp/myapp/bin/../../file.txt");
+<pre><code>File f = new File("temp/myapp/bin/../../file.txt");
 System.out.println(f.getPath()); 
 System.out.println(f.getAbsolutePath()); 
 try {
-	System.out.println(f.getCanonicalPath()); 
+    System.out.println(f.getCanonicalPath()); 
 } catch(Exception e) {
 }
-</code></pre></div></div>
+</code></pre>
 
 <ul>
-  <li><code class="highlighter-rouge">C:\temp\file.txt</code> This is a path, an absolute path, and a canonical path.</li>
-  <li><code class="highlighter-rouge">.\file.txt</code> This is a path. It’s neither an absolute path nor a canonical path.</li>
-  <li><code class="highlighter-rouge">C:\temp\myapp\bin\..\\..\file.txt</code> This is a path and an absolute path. It’s not a canonical path.</li>
+<li><code>C:\temp\file.txt</code> This is a path, an absolute path, and a canonical path.</li>
+<li><code>.\file.txt</code> This is a path. It&rsquo;s neither an absolute path nor a canonical path.</li>
+<li><code>C:\temp\myapp\bin\..\\..\file.txt</code> This is a path and an absolute path. It&rsquo;s not a canonical path.</li>
 </ul>
 
-<h2 id="looger">Looger</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Logger logger = Logger.getLogger("test");
+<h2>Looger</h2>
+
+<pre><code>Logger logger = Logger.getLogger("test");
 FileHandler fh;
 try {
     fh = new FileHandler("test.log");
@@ -134,11 +139,11 @@ try {
 } catch (Exception e) {
     e.printStackTrace();
 }
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="matcher">Matcher</h2>
+<h2>Matcher</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Pattern p = Pattern.compile("(\\d+)([a-z])"); //正则表达式
+<pre><code>Pattern p = Pattern.compile("(\\d+)([a-z])"); //正则表达式
 String s = "123aa22as34345bb234cc00cdasdfas222" ;
 Matcher m = p.matcher(s);
 while (m.find()){
@@ -148,18 +153,18 @@ while (m.find()){
     System.out.println( " m.group(2): " + m.group(2));
 }
 System.out.println( "groupCount(): " + m.groupCount()); 
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="random">Random</h2>
+<h2>Random</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int rand = new Random().nextInt(as.size());
-</code></pre></div></div>
+<pre><code>int rand = new Random().nextInt(as.size());
+</code></pre>
 
-<h2 id="socket">Socket</h2>
+<h2>Socket</h2>
 
 <p>Socket Client Example:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import java.net.*;
+<pre><code>import java.net.*;
 import java.io.*;
 
 public class GreetingClient {
@@ -168,10 +173,10 @@ public class GreetingClient {
       int port = Integer.parseInt(args[1]);
       try {
          System.out.println("Connecting to " + serverName +
-		 " on port " + port);
+         " on port " + port);
          Socket client = new Socket(serverName, port);
          System.out.println("Just connected to " 
-		 + client.getRemoteSocketAddress());
+         + client.getRemoteSocketAddress());
          OutputStream outToServer = client.getOutputStream();
          DataOutputStream out = new DataOutputStream(outToServer);
          out.writeUTF("Hello from "
@@ -186,14 +191,14 @@ public class GreetingClient {
       }
    }
 }
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import java.net.*;
+<pre><code>import java.net.*;
 import java.io.*;
 
 public class GreetingServer extends Thread {
    private ServerSocket serverSocket;
-   
+
    public GreetingServer(int port) throws IOException {
       serverSocket = new ServerSocket(port);
       serverSocket.setSoTimeout(10000);
@@ -234,11 +239,11 @@ public class GreetingServer extends Thread {
       }
    }
 }
-</code></pre></div></div>
+</code></pre>
 
 <p>Compile client and server and then start server as follows:</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java GreetingServer 6066
+<pre><code>java GreetingServer 6066
 Waiting for client on port 6066...
 
 java GreetingClient localhost 6066
@@ -246,11 +251,11 @@ Connecting to localhost on port 6066
 Just connected to localhost/127.0.0.1:6066
 Server says Thank you for connecting to /127.0.0.1:6066
 Goodbye!
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="streamtokenizer">StreamTokenizer</h2>
+<h2>StreamTokenizer</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>InputStream in;
+<pre><code>InputStream in;
 StreamTokenizer st = new StreamTokenizer(in);
 // This method resets this tokenizer's syntax table so that all characters are "ordinary."
 st.resetSyntax(); 
@@ -259,27 +264,25 @@ st.wordChars(0, Character.MAX_VALUE);
 // This method specifies that all characters c in the range low &lt;= c &lt;= high are white space characters.
 st.whitespaceChars(0, ' ');
 while (st.nextToken() != st.TT_EOF) // end of file, TT_EOL: end of line
-	add(at.sval); // string value, nval: number value
-</code></pre></div></div>
+    add(at.sval); // string value, nval: number value
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>void whitespaceChars(int low, int hi)
+<pre><code>void whitespaceChars(int low, int hi)
+</code></pre>
 
+<h2>String</h2>
 
-</code></pre></div></div>
-
-<h2 id="string">String</h2>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>String test = " a    t\n";
+<pre><code>String test = " a    t\n";
 System.out.println(test.replaceAll("\\s", ""));
-</code></pre></div></div>
+</code></pre>
 
 <hr />
 
-<h2 id="thread">Thread</h2>
+<h2>Thread</h2>
 
 <p>Runnable.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class HelloRunnable implements Runnable {
+<pre><code>public class HelloRunnable implements Runnable {
     public void run() {
         System.out.println("Hello from a thread!");
     }
@@ -288,11 +291,11 @@ System.out.println(test.replaceAll("\\s", ""));
         (new Thread(new HelloRunnable())).start();
     }
 }
-</code></pre></div></div>
+</code></pre>
 
 <p>Thread.</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class HelloThread extends Thread {
+<pre><code>public class HelloThread extends Thread {
     public void run() {
         System.out.println("Hello from a thread!");
     }
@@ -300,15 +303,15 @@ System.out.println(test.replaceAll("\\s", ""));
         (new HelloThread()).start();
     }
 }
-</code></pre></div></div>
+</code></pre>
 
-<p>The first idiom(<code class="highlighter-rouge">Runnable</code>) is more general.</p>
+<p>The first idiom(<code>Runnable</code>) is more general.</p>
 
-<p>The interrupt mechanism is implemented using an internal flag known as the interrupt status. Invoking <code class="highlighter-rouge">Thread.interrupt</code> sets this flag. When a thread checks for an interrupt by invoking the static method <code class="highlighter-rouge">Thread.interrupted</code>, interrupt status is cleared. The non-static <code class="highlighter-rouge">isInterrupted</code> method, which is used by one thread to query the interrupt status of another, does not change the interrupt status flag.</p>
+<p>The interrupt mechanism is implemented using an internal flag known as the interrupt status. Invoking <code>Thread.interrupt</code> sets this flag. When a thread checks for an interrupt by invoking the static method <code>Thread.interrupted</code>, interrupt status is cleared. The non-static <code>isInterrupted</code> method, which is used by one thread to query the interrupt status of another, does not change the interrupt status flag.</p>
 
-<h2 id="timer">Timer</h2>
+<h2>Timer</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import java.util.Timer;
+<pre><code>import java.util.Timer;
 import java.util.TimerTask;
 
 Timer timer = new Timer(true);   
@@ -316,56 +319,54 @@ Timer timer = new Timer(true);
 // 程序结束timer也自动结束），注意，javax.swing   
 // 包中也有一个Timer类，如果import中用到swing包，   
 // 要注意名字的冲突。   
-  
+
 TimerTask task = new TimerTask() {   
     public void run() {   
     ... //每次需要执行的代码放到这里面。   
     }   
 };   
-  
+
 //以下是几种调度task的方法：   
-  
+
 timer.schedule(task, time);   
 // time为Date类型：在指定时间执行一次。   
-  
+
 timer.schedule(task, firstTime, period);   
 // firstTime为Date类型,period为long   
 // 从firstTime时刻开始，每隔period毫秒执行一次。   
-  
+
 timer.schedule(task, delay)   
 // delay 为long类型：从现在起过delay毫秒执行一次   
-  
+
 timer.schedule(task, delay, period)   
 // delay为long,period为long：从现在起过delay毫秒以后，每隔period   
 // 毫秒执行一次
-</code></pre></div></div>
+</code></pre>
 
 <hr />
 
-<h2 id="classnotfountexception">ClassNotFountException</h2>
+<h2>ClassNotFountException</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java.lang.ClassNotFoundException: com.mysql.jdbc.Driver
-</code></pre></div></div>
+<pre><code>java.lang.ClassNotFoundException: com.mysql.jdbc.Driver
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
-</code></pre></div></div>
+<pre><code>export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
+</code></pre>
 
-<h2 id="sqlexception">SQLException</h2>
+<h2>SQLException</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>java.sql.SQLException: No suitable driver found for jdbc:mysql://127.0.0.1:3306/oxcoder
-</code></pre></div></div>
+<pre><code>java.sql.SQLException: No suitable driver found for jdbc:mysql://127.0.0.1:3306/oxcoder
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt-get install libmysql-java
+<pre><code>sudo apt-get install libmysql-java
 export CLASSPATH=$CLASSPATH:/usr/share/java/mysql-connector-java.jar
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="logcat">LogCat</h2>
+<h2>LogCat</h2>
 
-<p>Filter Settings:</p>
-<ul>
-  <li>by Application Name: com.example.musicplayer</li>
-  <li>by Log Level: verbose</li>
-</ul>
+<p>Filter Settings:
+* by Application Name: com.example.musicplayer
+* by Log Level: verbose</p>
 
   </div><a class="u-url" href="/java/2016/09/19/java.html" hidden></a>
 </article>

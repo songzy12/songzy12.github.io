@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Interprocess Communication and Networking | Zhengyang Song’s Blog</title>
+<title>Interprocess Communication and Networking | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
 <meta property="og:title" content="Interprocess Communication and Networking" />
 <meta property="og:locale" content="en_US" />
@@ -11,11 +11,11 @@
 <meta property="og:description" content="subprocess" />
 <link rel="canonical" href="http://songzy12.github.io/python/2016/12/24/interprocess-communication-and-networking.html" />
 <meta property="og:url" content="http://songzy12.github.io/python/2016/12/24/interprocess-communication-and-networking.html" />
-<meta property="og:site_name" content="Zhengyang Song’s Blog" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2016-12-24T14:24:44+08:00" />
 <script type="application/ld+json">
-{"url":"http://songzy12.github.io/python/2016/12/24/interprocess-communication-and-networking.html","description":"subprocess","headline":"Interprocess Communication and Networking","dateModified":"2016-12-24T14:24:44+08:00","datePublished":"2016-12-24T14:24:44+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/12/24/interprocess-communication-and-networking.html"},"@context":"http://schema.org"}</script>
+{"headline":"Interprocess Communication and Networking","dateModified":"2016-12-24T14:24:44+08:00","datePublished":"2016-12-24T14:24:44+08:00","url":"http://songzy12.github.io/python/2016/12/24/interprocess-communication-and-networking.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/python/2016/12/24/interprocess-communication-and-networking.html"},"description":"subprocess","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -45,21 +45,22 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2 id="subprocess">subprocess</h2>
+    <h2>subprocess</h2>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import subprocess as sub
+<pre><code>import subprocess as sub
 p = sub.Popen(['your command', 'arg1', 'arg2', ...],stdout=sub.PIPE,stderr=sub.PIPE)
 output, errors = p.communicate()
 print output
-</code></pre></div></div>
+</code></pre>
 
-<h2 id="socket">socket</h2>
+<h2>socket</h2>
 
 <ul>
-  <li>AF_INET: address family IPv4</li>
-  <li>SOCK_STREAM: 数据流, TCP</li>
-  <li>SOCK_DGRAM: 数据报, UDP</li>
+<li>AF_INET: address family IPv4</li>
+<li>SOCK_STREAM: 数据流, TCP</li>
+<li>SOCK_DGRAM: 数据报, UDP</li>
 </ul>
+
 
 <p>80端口是Web服务的标准端口。SMTP服务是25端口，FTP服务是21端口。端口号小于1024的是Internet标准服务的端口，端口号大于1024的，可以任意使用。</p>
 
@@ -67,7 +68,7 @@ print output
 
 <p>服务器可能有多块网卡，可以绑定到某一块网卡的IP地址上，也可以用0.0.0.0绑定到所有的网络地址，还可以用127.0.0.1绑定到本机地址。小于1024的端口号必须要有管理员权限才能绑定。</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+<pre><code>s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # 监听端口:
 s.bind(('127.0.0.1', 9999))
 s.listen(5)
@@ -78,7 +79,7 @@ while True:
     # 创建新线程来处理TCP连接:
     t = threading.Thread(target=tcplink, args=(sock, addr))
     t.start()
-    
+
 def tcplink(sock, addr):
     print 'Accept new connection from %s:%s...' % addr
     sock.send('Welcome!')
@@ -90,9 +91,9 @@ def tcplink(sock, addr):
         sock.send('Hello, %s!' % data)
     sock.close()
     print 'Connection from %s:%s closed.' % addr   
-</code></pre></div></div>
+</code></pre>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+<pre><code>s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 # 建立连接:
 s.connect(('127.0.0.1', 9999))
 # 接收欢迎消息:
@@ -103,7 +104,7 @@ for data in ['Michael', 'Tracy', 'Sarah']:
     print s.recv(1024)
 s.send('exit')
 s.close()
-</code></pre></div></div>
+</code></pre>
 
   </div><a class="u-url" href="/python/2016/12/24/interprocess-communication-and-networking.html" hidden></a>
 </article>
