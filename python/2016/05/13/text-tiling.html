@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Text Tiling | Your awesome title</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Text Tiling" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="vi difficulty/text_seg/texttiling/texttiling.py vi difficulty/text_seg/nltk/texttiling.py wordseg = &#39;/home/songzy12/ProblemMatch/difficulty/data/textseg/caiwufenxi.wordseg&#39; stopwords = &#39;/home/songzy12/ProblemMatch/difficulty/res/stopwords.txt&#39;" />
+<meta property="og:description" content="vi difficulty/text_seg/texttiling/texttiling.py vi difficulty/text_seg/nltk/texttiling.py wordseg = &#39;/home/songzy12/ProblemMatch/difficulty/data/textseg/caiwufenxi.wordseg&#39; stopwords = &#39;/home/songzy12/ProblemMatch/difficulty/res/stopwords.txt&#39;" />
+<link rel="canonical" href="http://localhost:4000/python/2016/05/13/text-tiling.html" />
+<meta property="og:url" content="http://localhost:4000/python/2016/05/13/text-tiling.html" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-05-13T21:54:28+08:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/python/2016/05/13/text-tiling.html","description":"vi difficulty/text_seg/texttiling/texttiling.py vi difficulty/text_seg/nltk/texttiling.py wordseg = &#39;/home/songzy12/ProblemMatch/difficulty/data/textseg/caiwufenxi.wordseg&#39; stopwords = &#39;/home/songzy12/ProblemMatch/difficulty/res/stopwords.txt&#39;","headline":"Text Tiling","dateModified":"2016-05-13T21:54:28+08:00","datePublished":"2016-05-13T21:54:28+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/python/2016/05/13/text-tiling.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Text Tiling</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2016-05-13T21:54:28+08:00" itemprop="datePublished">May 13, 2016
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vi difficulty/text_seg/texttiling/texttiling.py
+vi difficulty/text_seg/nltk/texttiling.py
+wordseg = '/home/songzy12/ProblemMatch/difficulty/data/textseg/caiwufenxi.wordseg'
+stopwords = '/home/songzy12/ProblemMatch/difficulty/res/stopwords.txt' 
+</code></pre></div></div>
+
+<hr />
+
+<p>nltk: Natural Language Toolkit.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Traceback (most recent call last):
+  File "texttiling.py", line 38, in &lt;module&gt;
+    demo(file_in)
+  File "texttiling.py", line 18, in demo
+    s, ss, d, b = tt.tokenize(text)
+  File "/usr/local/lib/python2.7/dist-packages/nltk/tokenize/texttiling.py", line 104, in tokenize
+    token_table = self._create_token_table(tokseqs, nopunct_par_breaks)
+  File "/usr/local/lib/python2.7/dist-packages/nltk/tokenize/texttiling.py", line 231, in _create_token_table
+    "No paragraph breaks were found(text too short perhaps?)"
+ValueError: No paragraph breaks were found(text too short perhaps?)
+</code></pre></div></div>
+
+<h3 id="_mark_paragraph_breaks">_mark_paragraph_breaks</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>pattern = re.compile("[ \t\r\f\v]*\n[ \t\r\f\v]*\n[ \t\r\f\v]*")
+matches = pattern.finditer(text)
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">\n\n\t</code> is notation of paragraph break.</p>
+
+<h3 id="_create_token_table">_create_token_table</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lowercase_text = text.lower()
+# Remove punctuation
+nopunct_text = ''.join(c for c in lowercase_text if re.match("[a-z\-\' \n\t]", c))
+print len(lowercase_text), len(nopunct_text)
+
+2266250 523827
+</code></pre></div></div>
+
+<p>The Chinese characters has all been filtered out.</p>
+
+<hr />
+
+<h2 id="run_difficultysh">run_difficulty.sh</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DIR_CODE_DIFFICULTY=$( cd "$( dirname "${BASH_SOURCE[0]}" )" &amp;&amp; pwd )
+cd ${DIR_CODE_DIFFICULTY}/text_seg/
+python texttiling/texttiling.py course_list
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>res directory:/home/songzy12/ProblemMatch/difficulty/res
+num_stopwords:749
+processing:/home/songzy12/ProblemMatch/difficulty/res/course.list
+input: /home/songzy12/ProblemMatch/difficulty/data/textseg/caiwufenxi.wordseg
+output: /home/songzy12/ProblemMatch/difficulty/data/textseg/caiwufenxi.textseg
+len(lst_word_num_origin) 49
+mean_word_num_origin:1701
+mean_word_num_filter:700
+n:14120 nSeg:48
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cd /home/songzy12/ProblemMatch/difficulty/data/textseg/
+python cat.py 
+</code></pre></div></div>
+
+<h2 id="global_conf">global_conf</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DEF_ROOT_DATA_PATH = '/home/songzy12/ProblemMatch/difficulty/data'
+DEF_DIR_DATA_TEXTSEG = '{0}/textseg'.format(DEF_ROOT_DATA_PATH)
+</code></pre></div></div>
+
+<h2 id="caiwufenxiwordseg">caiwufenxi.wordseg</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>TsinghuaX/80512073_2015X/2015_T1	cb796df9b2584f609a58a3fa8f858031	00:00:17,156 --&gt; 00:00:18,224	刚才我们说到	刚才 我们 说到
+</code></pre></div></div>
+
+<h2 id="utilspy">utils.py</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lst_out = [course_id, video_id, json.dumps(lst_seg_rst)]
+fd_ot.write('\t'.join(lst_out)+'\n')
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>course_id, video_id, lst_seg_rst = line.strip().split('\t')
+lst_seg_rst = json.loads(lst_seg_rst)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>fo = open(fname, 'w')
+fo.write(wordseg.encode('utf8') + '\n')
+</code></pre></div></div>
+
+<h2 id="texttilingpy">texttiling.py</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>obj = TextTiling(w=10,k=5,
+         smooth_width=3,smooth_round=1,cutoff=1,
+         file_stopwords='%s/stopwords.txt'%DEF_DIR_RES
+)
+file_course_list = '{0}/course.list'.format(DEF_DIR_RES)
+file_in = '{0}/{1}.wordseg'.format(DEF_DIR_DATA_TEXTSEG, course_name)
+file_ot = '{0}/{1}.textseg'.format(DEF_DIR_DATA_TEXTSEG, course_name)
+obj.proc_file(file_in=file_in, file_ot=file_ot, b_filter=True, b_draw_img=False)
+</code></pre></div></div>
+
+<h2 id="proc_file">proc_file</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lst_seg_rst = self.segment_by_video(lst_paragraph, b_draw_img)
+dump2file(fot, course_id, video_id, lst_seg_rst)
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>seconds = self.get_video_elapse(lst_paragraph)
+lst_video_md5.append(lst_paragraph[0][1])
+lst_word_num_origin.append(self.get_video_wordnum(lst_paragraph))
+if b_filter:
+    self.filter_stopwords(lst_paragraph)
+lst_word_num_filter.append(self.get_video_wordnum(lst_paragraph))
+</code></pre></div></div>
+
+<h2 id="segment_by_video">segment_by_video</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lst_token_seq = self.get_token_seq(lst_paragraph)
+lst_gap_score = self.block_comparison(lst_token_seq)
+lst_smooth = self.smooth_scores(lst_gap_score)
+lst_depth = self.depth_scores(lst_smooth)
+lst_boundary = self.identify_boundary(lst_depth)
+lst_post_boundary = self.post_boundary(lst_token_seq, lst_boundary)
+sub_text, lst_wordseg = self.get_sub_text(lst_token_seq, lst_paragraph, idx_pre, idx_cur)
+</code></pre></div></div>
+
+<h3 id="get_token_seq">get_token_seq</h3>
+
+<p>将单词分组.</p>
+
+<h3 id="block_comparison">block_comparison</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lst_b1 = get_block_lst(tokseqs, curr_gap-window_size+1, curr_gap+1)
+dic_b1 = get_block_dic(lst_b1)
+lst_block = merge_lst(lst_b1, lst_b2)
+
+for t in lst_block:
+    score_dividend += blk_frq(t, dic_b1)*blk_frq(t, dic_b2)
+    score_divisor_b1 += blk_frq(t, dic_b1)**2
+score = score_dividend/math.sqrt(score_divisor_b1*score_divisor_b2)
+</code></pre></div></div>
+
+<h3 id="smooth_scores">smooth_scores</h3>
+
+<p>Wraps the smooth function from the SciPy Cookbook.
+Pasted from the SciPy cookbook: http://scipy-cookbook.readthedocs.org/items/SignalSmooth.html.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>s=numpy.r_[2*x[0]-x[window_len:1:-1],x,2*x[-1]-x[-1:-window_len:-1]]
+# Translates slice objects to concatenation along the first axis
+w=numpy.ones(window_len,'d')
+y=numpy.convolve(w/w.sum(),s,mode='same')
+return y[window_len-1:-window_len+1]
+</code></pre></div></div>
+
+<h3 id="depth_socres">depth_socres</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for gapscore in scores[clip:-clip]
+</code></pre></div></div>
+
+<p>计算 depth.</p>
+
+<h3 id="identify_boundary">identify_boundary</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>cutoff = avg-numpy.stdev/2.0
+if cutoff &lt; 0.2:
+    cutoff = 0.2
+
+# undo if there is a boundary close already
+if dt[1] != dt2[1] and abs(dt2[1]-dt[1]) &lt; 10  and boundaries[dt2[1]] == 1:
+    boundaries[dt[1]] = 0
+</code></pre></div></div>
+
+<h3 id="post_boundary">post_boundary</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>lst_ret.append(lst_token_seq[idx].index)
+</code></pre></div></div>
+
+<h3 id="get_sub_text">get_sub_text</h3>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>str_text += caption_text + '。'
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="text-tiling">Text Tiling</h2>
+
+<h3 id="tokenization">Tokenization</h3>
+
+<p>Sentence Boundaries are not relevant.</p>
+
+<p>Tiles: Equal sized areas of text: sequences of words that contain the same number of words.</p>
+
+<p>Phases:</p>
+<ul>
+  <li>Convert text into lower-cases</li>
+  <li>Remove punctuation (including end of sentence boundaries)</li>
+  <li>Remove numbers and non-alphabetic symbols</li>
+  <li>Keep the paragraph breaks</li>
+  <li>Mark stop-words (no-deletion)</li>
+  <li>Remaining tokens are stemmed</li>
+  <li>Divide the text into token sequences of n tokens: Tiles. Usually n = 20.</li>
+</ul>
+
+<p>Example: “He Drives a car or a taxi.” =&gt; “stopword driv stopword stopword car stopword stopword taxi”</p>
+
+<h3 id="similarity-determination">Similarity determination</h3>
+
+<p>Measure how similar two blocks around a potential segment break (gap) are.</p>
+
+<p>One block: k token sequences.</p>
+
+<p>Possible measures:</p>
+<ul>
+  <li>Vector Space Model: create two artificial documents from the sequence of tokens at the left and the right of the gap; compute correlation coefficients for the documents (Using their term vectors)</li>
+  <li>Vocabulary Introduction: Similarity is measured as the negative of the number of new terms introduced on either side of the gap</li>
+  <li>Block Comparison: compute correlation coefficients between left and right blocks based on within-block term frequency (without inverse document frequency) (We will use this method)</li>
+</ul>
+
+<p>Block Comparison:
+sim(i) = \frac{\sum_{t\in T}C(t, b_l)\cdot C(t, b_r)} {\sqrt{\sum_{t\in T}C(t,b_l)^2\sum_{t\in T}C(t,b_r)^2}}</p>
+
+<p>Depth Scoring:
+Need to observe how similarity scores change (i.e. compare the difference in similarity scores not their absolute value)</p>
+
+<p>Depth(i) = sum(i-1)-sim(i)+sim(i+1)-sim(i)</p>
+
+<p>Smoothing: depth(i) = (depth(i-1)+depth(i)+depth(i+1)) / 3</p>
+
+<h3 id="segment-break-point-identification">Segment break-point identification</h3>
+
+<p>Two methods to choose gaps with big depth scores as breakpoints:</p>
+<ul>
+  <li>Compute the mean and standard deviation of depth scores and select gaps with depth scores biger than μ – cσ (depending on the data, usually we pick c=0.5 or c=1.0)</li>
+  <li>Estimate the number of breakpoints from data: D and pick the D gaps with biggest depths (We’ll use this method)</li>
+</ul>
+
+<p>Token sequences are of predefined length → proposed break points could end up in the middle of a paragraph. In this case, mark the closest paragraph break as a breakpoint ( mark L or R if paragraph break is to the left or right of the gap). Note: If a paragraph break is
+marked both with R and L, you are more confidant that it’s a breakpoint.</p>
+
+<p>Discard the breakpoints at occur in consecutive paragraph breaks. But do ensure that at the end there are D breakpoints.</p>
+
+<h3 id="evaluation">Evaluation</h3>
+
+<p>kappa coefficient: <code class="highlighter-rouge">k &gt; .8</code> signals good replicability, <code class="highlighter-rouge">.67 &lt; k &lt; .8</code> allows tentative conclusions to be drawn.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>k = \frac{P(A)-P(E)}{1-P(E)}
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/python/2016/05/13/text-tiling.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

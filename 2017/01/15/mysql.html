@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>MySQL | Your awesome title</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="MySQL" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="connect" />
+<meta property="og:description" content="connect" />
+<link rel="canonical" href="http://localhost:4000/2017/01/15/mysql.html" />
+<meta property="og:url" content="http://localhost:4000/2017/01/15/mysql.html" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-01-15T13:50:37+08:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/2017/01/15/mysql.html","description":"connect","headline":"MySQL","dateModified":"2017-01-15T13:50:37+08:00","datePublished":"2017-01-15T13:50:37+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017/01/15/mysql.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">MySQL</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-01-15T13:50:37+08:00" itemprop="datePublished">Jan 15, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="connect">connect</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql --host=10.9.10.234 --port=3307 --user=readonly -A
+show databases;
+use edxapp;
+show tables;
+</code></pre></div></div>
+
+<h2 id="install">install</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sudo apt install mysql-server
+sudo service mysql status
+sudo service mysql start
+mysql -u root -p
+</code></pre></div></div>
+
+<h2 id="function">function</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DROP FUNCTION IF EXISTS getNthHighestSalary;
+delimiter $$
+CREATE FUNCTION getNthHighestSalary(N INT) RETURNS INT
+BEGIN
+DECLARE M INT;
+SET M=N-1;
+  RETURN (
+     # Write your MySQL query statement below.
+     SELECT DISTINCT Salary FROM Employee ORDER BY Salary DESC LIMIT M, 1
+  );
+END$$
+delimiter ;
+</code></pre></div></div>
+
+<h2 id="union">union</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select Salary from Employee union select null order by Salary desc limit 1, 1
+</code></pre></div></div>
+
+<h2 id="as">as</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select Salary as SecondHighestSalary from Employee 
+union select null 
+order by SecondHighestSalary desc limit 1, 1
+</code></pre></div></div>
+
+<h2 id="char--varchar">char &amp; varchar</h2>
+
+<p><a href="https://dev.mysql.com/doc/refman/5.7/en/char.html">Here</a>.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Value</td>
+      <td>CHAR(4)</td>
+      <td>Storage Required</td>
+      <td>VARCHAR(4)</td>
+      <td>Storage Required</td>
+    </tr>
+    <tr>
+      <td>’’</td>
+      <td>’    ‘</td>
+      <td>4 bytes</td>
+      <td>’’</td>
+      <td>1 byte</td>
+    </tr>
+    <tr>
+      <td>‘ab’</td>
+      <td>‘ab  ‘</td>
+      <td>4 bytes</td>
+      <td>‘ab’</td>
+      <td>3 bytes</td>
+    </tr>
+    <tr>
+      <td>‘abcd’</td>
+      <td>‘abcd’</td>
+      <td>4 bytes</td>
+      <td>‘abcd’</td>
+      <td>5 bytes</td>
+    </tr>
+    <tr>
+      <td>‘abcdefgh’</td>
+      <td>‘abcd’</td>
+      <td>4 bytes</td>
+      <td>‘abcd’</td>
+      <td>5 bytes</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="create-database">create database</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>CREATE DATABASE oxcoder;
+</code></pre></div></div>
+
+<h2 id="create-table">create table</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create table Employee (Id int primary key, Salary int)
+</code></pre></div></div>
+
+<h2 id="insert">insert</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>insert into Employee values(1, 100)
+insert into Employee values(2, 200)
+insert into Employee values(3, 300)
+</code></pre></div></div>
+
+<h2 id="load-data">load data</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>LOAD DATA LOCAL INFILE 'Employee.txt' INTO TABLE Employee FIELDS TERMINATED BY ',' LINES TERMINATED BY '\n';
+</code></pre></div></div>
+
+<p>Note the blank line at the end of file. Be careful to use <code class="highlighter-rouge">\t</code> when you have replaced all the <code class="highlighter-rouge">\t</code> to <code class="highlighter-rouge">space</code></p>
+
+<h2 id="left-join">left join</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select FirstName, LastName, City, State 
+from Person p 
+LEFT JOIN Address a 
+on p.PersonId = a.PersonId;
+
+SELECT FirstName, LastName, City, State 
+FROM Person 
+LEFT JOIN Address 
+USING(PersonId);
+
+SELECT FirstName, LastName, City, State 
+FROM Person 
+NATURAL LEFT JOIN Address;
+</code></pre></div></div>
+
+<h2 id="user">user</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>show databases;
+use mysql;
+select database();
+
+show tables;
+describe user;
+show full columns from user;
+show index from user;
+
+select host,user,authentication_string from user;
+
+mysql&gt; grant ALL PRIVILEGES
+    -&gt; on oxcoder.*
+    -&gt; to 'guest'@'localhost'
+    -&gt; identified by 'guest';
+</code></pre></div></div>
+
+<h2 id="source">source</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u guest -p oxcoder;
+source 618292_all.sql;
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mysql -u root -p leetcode &lt; 618292_all.sql
+</code></pre></div></div>
+
+<h2 id="show">show</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>show full columns from pt_user_challenge;
+show warnings;
+</code></pre></div></div>
+
+<h2 id="count">count</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select count(*) from auth_user;
+</code></pre></div></div>
+
+<h2 id="limit">limit</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[LIMIT {[offset,] row_count | row_count OFFSET offset}]
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>select Salary from Employee order by Salary desc limit 1, 1
+</code></pre></div></div>
+
+<p>Seems like MySQL can only take numeric constants in the LIMIT syntax.</p>
+
+<h2 id="delete">delete</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DELETE FROM table_name [WHERE Clause]
+</code></pre></div></div>
+
+<h2 id="mysqldb">MySQLdb</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>import MySQLdb
+
+if __name__ == '__main__':
+    db = MySQLdb.connect("localhost", "guest", "guest", "oxcoder")
+    cursor = db.cursor()
+    sql = "select version()"
+    cursor.execute(sql)
+    data = cursor.fetchone()
+    print data
+    db.close()
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/2017/01/15/mysql.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

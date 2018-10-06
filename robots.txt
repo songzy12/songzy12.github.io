@@ -1,4 +1,0 @@
-User-agent: *
-Disallow: 
-
-Sitemap: http://songzy12.github.io/sitemap.xml 

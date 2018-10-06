@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Android Content | Your awesome title</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Android Content" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Context" />
+<meta property="og:description" content="Context" />
+<link rel="canonical" href="http://localhost:4000/android/2016/08/21/android-content.html" />
+<meta property="og:url" content="http://localhost:4000/android/2016/08/21/android-content.html" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-08-21T20:07:03+08:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/android/2016/08/21/android-content.html","description":"Context","headline":"Android Content","dateModified":"2016-08-21T20:07:03+08:00","datePublished":"2016-08-21T20:07:03+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/android/2016/08/21/android-content.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Android Content</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2016-08-21T20:07:03+08:00" itemprop="datePublished">Aug 21, 2016
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="context">Context</h2>
+
+<p>Where?</p>
+<ul>
+  <li>when creating views, adapters and Toast messages.</li>
+  <li>when accessing System Services(<code class="highlighter-rouge">LayoutInflater</code>, <code class="highlighter-rouge">InputMethodManager</code>).</li>
+  <li>when accessing components(Content Resolver).</li>
+</ul>
+
+<p>Two types of Context:</p>
+<ul>
+  <li>Application context: <code class="highlighter-rouge">getApplicationContext()</code>, <code class="highlighter-rouge">getApplication()</code>
+    <ul>
+      <li>to display a Toast message.</li>
+      <li>to access settings and resources shared across.  multiple activity instances</li>
+      <li>if you need a context with global scope.</li>
+    </ul>
+  </li>
+  <li>Activity context: <code class="highlighter-rouge">this</code>, <code class="highlighter-rouge">getBaseContext()</code>, <code class="highlighter-rouge">getActivity()</code></li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>FileOutputStream fout = openFileOutput(filename, MODE_PRIVATE);
+byte[]  bytes = message.getBytes();
+fout.write(bytes);
+fout.close();
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Log.i(TAG, getFilesDir().getAbsolutePath() + "/");
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">/data/data/</code> 为系统内部存储文件路径，<code class="highlighter-rouge">/data/data/&lt;package name&gt;/</code>，所有内部存储中保存的文件在用户卸载应用的时候会被删除。</p>
+
+<ul>
+  <li><code class="highlighter-rouge">Context.getFilesDir()</code>: 返回 <code class="highlighter-rouge">/data/data/&lt;package name&gt;/files</code> 的 <code class="highlighter-rouge">File</code> 对象。</li>
+  <li><code class="highlighter-rouge">Context.openFileInput()</code>, <code class="highlighter-rouge">Context.openFileOutput()</code>，只能读取和写入 <code class="highlighter-rouge">files</code> 下的文件，返回的是 <code class="highlighter-rouge">FileInputStream</code> 和<code class="highlighter-rouge">FileOutputStream</code> 对象。</li>
+  <li><code class="highlighter-rouge">Context.fileList()</code>，返回 <code class="highlighter-rouge">files</code> 下所有的文件名，返回的是 <code class="highlighter-rouge">String[]</code> 对象。</li>
+  <li><code class="highlighter-rouge">Context.deleteFile(String)</code>，删除 <code class="highlighter-rouge">files</code> 下指定名称的文件。</li>
+  <li><code class="highlighter-rouge">Context.getCacheDir()</code>，该方法返回 <code class="highlighter-rouge">/data/data/&lt;package name&gt;/cache</code> 的 <code class="highlighter-rouge">File</code> 对象。</li>
+  <li><code class="highlighter-rouge">getDir(String name, int mode)</code>，返回 <code class="highlighter-rouge">/data/data/&lt;package name&gt;/</code> 下的指定名称的文件夹 <code class="highlighter-rouge">File</code> 对象，如果该文件夹不存在则用指定名称创建一个新的文件夹。</li>
+</ul>
+
+<h2 id="intents">Intents</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Intent intent =  new Intent(); 
+intent.setClass(PaintPadActivity.this, TextActivity.class);
+startActivityForResult(intent, PaintPadActivity.WHAT_TO_WRITE);
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Bundle bundle = new Bundle();
+bundle.putString("font", "lingxin.ttf");
+Intent data = getIntent();
+data.putExtras(bundle);
+TextActivity.this.setResult(WHAT_TO_WRITE, data);
+TextActivity.this.finish();
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+	super.onActivityResult(requestCode, resultCode, data);
+	switch (requestCode) {
+		case WHAT_TO_WRITE:
+            //
+            break;
+	}
+}
+</code></pre></div></div>
+
+<h2 id="packagemanager">PackageManager</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PackageManager pm = context.getPackageManager();
+PackageInfo pi = pm.getPackageInfo(context.getPackageName(), 0);
+version = pi.versionName;
+</code></pre></div></div>
+
+<h2 id="sharedpreference">SharedPreference</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Context.getSharedPreferences(String name, int mode)
+PreferenceManager.getDefaultSharedPreferences(Context);
+</code></pre></div></div>
+<ul>
+  <li>name: <code class="highlighter-rouge">/data/data/&lt;package name&gt;/shared_prefs</code></li>
+  <li>mode: Context.MODE_PRIVATE, Context.MODE_WORLD_READABLE, Context.MODE_WORLD_WRITEABLE</li>
+</ul>
+
+<p><code class="highlighter-rouge">preferences.xml</code>.</p>
+
+  </div><a class="u-url" href="/android/2016/08/21/android-content.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

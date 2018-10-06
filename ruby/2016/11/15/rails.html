@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Rails | Your awesome title</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Rails" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="gem install rails" />
+<meta property="og:description" content="gem install rails" />
+<link rel="canonical" href="http://localhost:4000/ruby/2016/11/15/rails.html" />
+<meta property="og:url" content="http://localhost:4000/ruby/2016/11/15/rails.html" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-11-15T21:52:52+08:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/ruby/2016/11/15/rails.html","description":"gem install rails","headline":"Rails","dateModified":"2016-11-15T21:52:52+08:00","datePublished":"2016-11-15T21:52:52+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/2016/11/15/rails.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Rails</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2016-11-15T21:52:52+08:00" itemprop="datePublished">Nov 15, 2016
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install rails
+</code></pre></div></div>
+
+<p>Here is a list of <a href="http://guides.rubyonrails.org/command_line.html">rails command</a>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails
+
+Usage: rails COMMAND [ARGS]
+
+The most common rails commands are:
+ generate    Generate new code (short-cut alias: "g")
+ console     Start the Rails console (short-cut alias: "c")
+ server      Start the Rails server (short-cut alias: "s")
+ test        Run tests (short-cut alias: "t")
+ dbconsole   Start a console for the database specified in config/database.yml
+             (short-cut alias: "db")
+ new         Create a new Rails application. "rails new my_app" creates a
+             new application called MyApp in "./my_app"
+
+All commands can be run with -h (or --help) for more information.
+</code></pre></div></div>
+
+<h2 id="new">new</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails new commandsapp
+rails new . --git --database=postgresql
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>create  
+      create  README.md
+      create  Rakefile
+      create  config.ru
+      create  .gitignore
+      create  Gemfile
+      create  app
+      create  app/assets/config/manifest.js
+      create  app/assets/javascripts/application.js
+      create  app/assets/javascripts/cable.js
+      create  app/assets/stylesheets/application.css
+      create  app/channels/application_cable/channel.rb
+      create  app/channels/application_cable/connection.rb
+      create  app/controllers/application_controller.rb
+      create  app/helpers/application_helper.rb
+      create  app/jobs/application_job.rb
+      create  app/mailers/application_mailer.rb
+      create  app/models/application_record.rb
+      create  app/views/layouts/application.html.erb
+      create  app/views/layouts/mailer.html.erb
+      create  app/views/layouts/mailer.text.erb
+      create  app/assets/images/.keep
+      create  app/assets/javascripts/channels
+      create  app/assets/javascripts/channels/.keep
+      create  app/controllers/concerns/.keep
+      create  app/models/concerns/.keep
+      create  bin
+      create  bin/bundle
+      create  bin/rails
+      create  bin/rake
+      create  bin/setup
+      create  bin/update
+      create  config
+      create  config/routes.rb
+      create  config/application.rb
+      create  config/environment.rb
+      create  config/secrets.yml
+      create  config/cable.yml
+      create  config/puma.rb
+      create  config/spring.rb
+      create  config/environments
+      create  config/environments/development.rb
+      create  config/environments/production.rb
+      create  config/environments/test.rb
+      create  config/initializers
+      create  config/initializers/application_controller_renderer.rb
+      create  config/initializers/assets.rb
+      create  config/initializers/backtrace_silencers.rb
+      create  config/initializers/cookies_serializer.rb
+      create  config/initializers/cors.rb
+      create  config/initializers/filter_parameter_logging.rb
+      create  config/initializers/inflections.rb
+      create  config/initializers/mime_types.rb
+      create  config/initializers/new_framework_defaults.rb
+      create  config/initializers/session_store.rb
+      create  config/initializers/wrap_parameters.rb
+      create  config/locales
+      create  config/locales/en.yml
+      create  config/boot.rb
+      create  config/database.yml
+      create  db
+      create  db/seeds.rb
+      create  lib
+      create  lib/tasks
+      create  lib/tasks/.keep
+      create  lib/assets
+      create  lib/assets/.keep
+      create  log
+      create  log/.keep
+      create  public
+      create  public/404.html
+      create  public/422.html
+      create  public/500.html
+      create  public/apple-touch-icon-precomposed.png
+      create  public/apple-touch-icon.png
+      create  public/favicon.ico
+      create  public/robots.txt
+      create  test/fixtures
+      create  test/fixtures/.keep
+      create  test/fixtures/files
+      create  test/fixtures/files/.keep
+      create  test/controllers
+      create  test/controllers/.keep
+      create  test/mailers
+      create  test/mailers/.keep
+      create  test/models
+      create  test/models/.keep
+      create  test/helpers
+      create  test/helpers/.keep
+      create  test/integration
+      create  test/integration/.keep
+      create  test/test_helper.rb
+      create  tmp
+      create  tmp/.keep
+      create  tmp/cache
+      create  tmp/cache/assets
+      create  vendor/assets/javascripts
+      create  vendor/assets/javascripts/.keep
+      create  vendor/assets/stylesheets
+      create  vendor/assets/stylesheets/.keep
+      remove  config/initializers/cors.rb
+         run  bundle install
+</code></pre></div></div>
+
+<h2 id="server">server</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails server
+</code></pre></div></div>
+
+<h2 id="generate">generate</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails generate controller NAME [action action] [options]
+</code></pre></div></div>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails generate controller Greetings hello
+Running via Spring preloader in process 30359
+      create  app/controllers/greetings_controller.rb
+       route  get 'greetings/hello'
+      invoke  erb
+      create    app/views/greetings
+      create    app/views/greetings/hello.html.erb
+      invoke  test_unit
+      create    test/controllers/greetings_controller_test.rb
+      invoke  helper
+      create    app/helpers/greetings_helper.rb
+      invoke    test_unit
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/greetings.coffee
+      invoke    scss
+      create      app/assets/stylesheets/greetings.scss
+</code></pre></div></div>
+
+<p>It made sure a bunch of directories were in our application, and created a controller file, a view file, a functional test file, a helper for the view, a JavaScript file and a stylesheet file.</p>
+
+<p><code class="highlighter-rouge">vi app/controllers/greetings_controller.rb</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class GreetingsController &lt; ApplicationController
+  def hello
+    @message = "Hello, how are you today?"
+  end
+end
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">vi app/views/greetings/hello.html.erb</code></p>
+
+<p>erb: embedded ruby</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;h1&gt;A Greeting for You!&lt;/h1&gt;
+&lt;p&gt;&lt;%= @message %&gt;&lt;/p&gt;
+</code></pre></div></div>
+
+<p>With a normal, plain-old Rails application, your URLs will generally follow the pattern of <code class="highlighter-rouge">http://(host)/(controller)/(action)</code>, and a URL like <code class="highlighter-rouge">http://(host)/(controller)</code> will hit the <code class="highlighter-rouge">index</code> action of that controller.</p>
+
+<p><a href="localhost:3000/greetings/hello">localhost:3000/greetings/hello</a></p>
+
+<p>A <code class="highlighter-rouge">scaffold</code> in Rails is a full set of model, database migration for that model, controller to manipulate it, views to view and manipulate the data, and a test suite for each of the above.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails generate scaffold HighScore game:string score:integer
+Running via Spring preloader in process 30891
+      invoke  active_record
+      create    db/migrate/20161115121205_create_high_scores.rb
+      create    app/models/high_score.rb
+      invoke    test_unit
+      create      test/models/high_score_test.rb
+      create      test/fixtures/high_scores.yml
+      invoke  resource_route
+       route    resources :high_scores
+      invoke  scaffold_controller
+      create    app/controllers/high_scores_controller.rb
+      invoke    erb
+      create      app/views/high_scores
+      create      app/views/high_scores/index.html.erb
+      create      app/views/high_scores/edit.html.erb
+      create      app/views/high_scores/show.html.erb
+      create      app/views/high_scores/new.html.erb
+      create      app/views/high_scores/_form.html.erb
+      invoke    test_unit
+      create      test/controllers/high_scores_controller_test.rb
+      invoke    helper
+      create      app/helpers/high_scores_helper.rb
+      invoke      test_unit
+      invoke    jbuilder
+      create      app/views/high_scores/index.json.jbuilder
+      create      app/views/high_scores/show.json.jbuilder
+      create      app/views/high_scores/_high_score.json.jbuilder
+      invoke  assets
+      invoke    coffee
+      create      app/assets/javascripts/high_scores.coffee
+      invoke    scss
+      create      app/assets/stylesheets/high_scores.scss
+      invoke  scss
+      create    app/assets/stylesheets/scaffolds.scss
+</code></pre></div></div>
+
+<p>The generator checks that there exist the directories for models, controllers, helpers, layouts, functional and unit tests, stylesheets, creates the views, controller, model and database migration for HighScore (creating the high_scores table and fields), takes care of the route for the resource, and new tests for everything.</p>
+
+<p>The migration requires that we migrate, that is, run some Ruby code (living in that <code class="highlighter-rouge">20130717151933_create_high_scores.rb</code>) to modify the schema of our database. Which database? The SQLite3 database that Rails will create for you when we run the <code class="highlighter-rouge">bin/rails db:migrate</code> command.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails db:migrate
+</code></pre></div></div>
+
+<p><a href="localhost:3000/high_scores">localhost:3000/high_scores</a></p>
+
+<h2 id="destroy">destroy</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ rails generate model Oops
+$ rails destroy model Oops
+</code></pre></div></div>
+
+<h2 id="about">about</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails about
+</code></pre></div></div>
+
+<h2 id="db">db</h2>
+
+<p><a href="http://guides.rubyonrails.org/active_record_migrations.html">migrations</a></p>
+
+<p>You can think of each migration as being a new ‘version’ of the database. A schema starts off with nothing in it, and each migration modifies it to add or remove tables, columns, or entries. Active Record knows how to update your schema along this timeline, bringing it from whatever point it is in the history to the latest version. Active Record will also update your <code class="highlighter-rouge">db/schema.rb</code> file to match the up-to-date structure of your database.</p>
+
+<h2 id="notes">notes</h2>
+
+<p><code class="highlighter-rouge">rails notes</code> will search through your code for comments beginning with <code class="highlighter-rouge">FIXME</code>, <code class="highlighter-rouge">OPTIMIZE</code> or <code class="highlighter-rouge">TODO</code>. The search is done in files with extension <code class="highlighter-rouge">.builder</code>, <code class="highlighter-rouge">.rb</code>, <code class="highlighter-rouge">.rake</code>, <code class="highlighter-rouge">.yml</code>, <code class="highlighter-rouge">.yaml</code>, <code class="highlighter-rouge">.ruby</code>, <code class="highlighter-rouge">.css</code>, <code class="highlighter-rouge">.js</code> and <code class="highlighter-rouge">.erb</code> for both default and custom annotations.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails notes:fixme
+</code></pre></div></div>
+
+<p>By default, rails notes will look in the <code class="highlighter-rouge">app</code>, <code class="highlighter-rouge">config</code>, <code class="highlighter-rouge">db</code>, <code class="highlighter-rouge">lib</code> and <code class="highlighter-rouge">test</code> directories.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export SOURCE_ANNOTATION_DIRECTORIES='spec,vendor'
+rails notes
+</code></pre></div></div>
+
+<h2 id="routes">routes</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>rails routes
+</code></pre></div></div>
+
+<p>##</p>
+
+<p>Custom rake tasks have a <code class="highlighter-rouge">.rake</code> extension and are placed in <code class="highlighter-rouge">Rails.root/lib/tasks</code>. You can create these custom rake tasks with the <code class="highlighter-rouge">bin/rails generate task</code> command.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>namespace :db do
+  desc "This task does nothing"
+  task :nothing do
+    # Seriously, nothing
+  end
+end
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/ruby/2016/11/15/rails.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

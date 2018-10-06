@@ -1,605 +1,654 @@
-
 <!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
+<html lang="en"><head>
   <meta charset="utf-8">
-  <title>Zhengyang Song's Notepad</title>
-  <meta name="author" content="Zhengyang Song">
-
-  
-  <meta name="description" content="todo 1
-2
-3
-\usepackage[colorinlistoftodos]{todonotes} \todo[inline, color=green!40]{This is an inline comment.} enumitem 1
-2
-3
-4
-5
-6
-7
-\usepackage{ &hellip;">
-  
-  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://songzy12.github.io/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-<!-- mathjax config similar to math.stackexchange -->
-<script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-  jax: ["input/TeX", "output/HTML-CSS"],
-  tex2jax: {
-    inlineMath: [ ['$', '$'] ],
-    displayMath: [ ['$$', '$$']],
-    processEscapes: true,
-    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-  },
-  messageStyle: "none",
-  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
-});
-</script>
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
-  
-
-  <!-- Begin Jekyll SEO tag v2.5.3 -->
-<title>Zhengyang Song&rsquo;s Notepad - A Technique Blog of a Naive Programmer.</title>
-<meta property="og:title" content="Zhengyang Song&rsquo;s Notepad" />
-<meta name="description" content="A Technique Blog of a Naive Programmer." />
-<meta property='og:description' content="A Technique Blog of a Naive Programmer." />
-<link rel="canonical" href="http://songzy12.github.io/" />
-<meta property='og:url' content='http://songzy12.github.io/' />
-<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>Your awesome title | Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="Your awesome title" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<meta property="og:description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description." />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
+<meta property="og:site_name" content="Your awesome title" />
 <script type="application/ld+json">
-    {
-      "@context" : "http://schema.org",
-      "@type" : "WebSite",
-      "name" : "Zhengyang Song&rsquo;s Notepad",
-      "url" : "http://songzy12.github.io"
-    }
-  </script>
+{"url":"http://localhost:4000/","name":"Your awesome title","description":"Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.","headline":"Your awesome title","@type":"WebSite","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-</head>
- 
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
-  
-    <h2>All those little bugs I have ever met.</h2>
-  
-</hgroup>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
 
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="sitesearch" value="songzy12.github.io">
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2018/06/30/latex/">LaTeX</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2018-06-30T12:00:04+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>12:00 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>todo</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\usepackage[colorinlistoftodos]{todonotes}
-</span><span class='line'>
-</span><span class='line'>\todo[inline, color=green!40]{This is an inline comment.}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>enumitem</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\usepackage{enumitem}
-</span><span class='line'>
-</span><span class='line'>\maketitle
-</span><span class='line'>\begin{enumerate}[label=(\alph*)]
-</span><span class='line'>\item an apple
-</span><span class='line'>\item a banana
-</span><span class='line'>\end{enumerate}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>verb</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\verb|.bib|</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>href</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\href{https://www.overleaf.com/blog/184}{Mendeley}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>equiv</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>a\equiv b \bmod p</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>matrix</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>x^{(1)}=\begin{bmatrix}\frac{3}{2}\\[0.3em]\frac{9}{4}\end{bmatrix}, </span></code></pre></td></tr></table></div></figure>
-
-
-<p>Just use overleaf <a href="https://www.overleaf.com/5269090dsqmsd#/16588846/">here</a>.</p>
-
-<h2>jumpnav-main</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\documentclass[chi_draft]{sigchi}
-</span><span class='line'>\begin{document}
-</span><span class='line'>%\usepackage{natbib}
-</span><span class='line'>
-</span><span class='line'>\title{}
-</span><span class='line'>\author{}
-</span><span class='line'>
-</span><span class='line'>\maketitle
-</span><span class='line'>
-</span><span class='line'>\input{abstract}
-</span><span class='line'>
-</span><span class='line'>
-</span><span class='line'>\input{intro}
-</span><span class='line'>\input{related}
-</span><span class='line'>\input{data}
-</span><span class='line'>\input{problem}
-</span><span class='line'>\input{observations}
-</span><span class='line'>\input{approach}
-</span><span class='line'>\input{exp}
-</span><span class='line'>\input{conclusion}
-</span><span class='line'>
-</span><span class='line'>\bibliographystyle{SIGCHI-Reference-Format}
-</span><span class='line'>\bibliography{references}
-</span><span class='line'>
-</span><span class='line'>\end{document}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>convex optimization</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\begin{alignat*}{2}
-</span><span class='line'>\min\quad & -2x_1-x_2+x_3 \\
-</span><span class='line'>\mbox{s.t.}\quad
-</span><span class='line'>&x_1+x_2+2x_3 \le 6  \\
-</span><span class='line'>&x_1+4x_2-x_3 \le 4  \\
-</span><span class='line'>&x_1, x_2, x_3 \ge 0
-</span><span class='line'>\end{alignat*}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>MISC</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\noindent
-</span><span class='line'>\textbf{}
-</span><span class='line'>\LaTeX{}
-</span><span class='line'>\TeX\
-</span><span class='line'>\TeX{}
-</span><span class='line'>\textbackslash
-</span><span class='line'>\textit{} 
-</span><span class='line'>\empha{}
-</span><span class='line'>{\bf }
-</span><span class='line'>\smallskip
-</span><span class='line'>\bigskip</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>tikz</h2>
-
-<p><a href="http://cremeronline.com/LaTeX/minimaltikz.pdf">here</a></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\begin{center}
-</span><span class='line'>\begin{tikzpicture}[domain=0:0.5,xscale=13,yscale=3.8]
-</span><span class='line'>\draw[&lt;-&gt;] (0,2) node[left]{EUR}-- (0,0) -- (.7,0) node[below] {$q$};
-</span><span class='line'>\draw[red] plot (\x, {0.25+\x/2+\x*\x/2}) node[right] {$v_1(x)$};
-</span><span class='line'>\draw[green] plot (\x, {0.025+\x+\x*\x}) node[right] {$v_2(x)$};
-</span><span class='line'>\draw[thin, dashed] plot (\x, {0.275+1.5*\x+1.5*\x*\x}) ;
-</span><span class='line'>\draw[thick,domain=0:0.33666] plot (\x, {0.05+2*\x+2*\x*\x}) ;
-</span><span class='line'>\draw[thick,domain=0.33666:0.5]
-</span><span class='line'>plot (\x, {0.5+\x+\x*\x}) node[right] {$2\min[v_1,v_2]$};
-</span><span class='line'>\end{tikzpicture}
-</span><span class='line'>\end{center}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>tabular*</h2>
-
-<p><a href="https://en.wikibooks.org/wiki/LaTeX/Tables#The_tabular.2A_environment">table</a>.</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\begin{tabular*}{0.75\textwidth}{@{\extracolsep{\fill} } | c | c | c | r | }
-</span><span class='line'>  \hline
-</span><span class='line'>  label 1 & label 2 & label 3 & label 4 \\
-</span><span class='line'>  \hline 
-</span><span class='line'>  item 1  & item 2  & item 3  & item 4  \\
-</span><span class='line'>  \hline
-</span><span class='line'>\end{tabular*}</span></code></pre></td></tr></table></div></figure>
-
-
-<h3>multirow</h3>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>{
-</span><span class='line'>\begin{table}
-</span><span class='line'>\caption{Statistics of the Dataset}
-</span><span class='line'>\label{tab:dataset}
-</span><span class='line'>\centering
-</span><span class='line'>    \begin{tabular}{c|c|c|c}
-</span><span class='line'>    \hline \hline
-</span><span class='line'>    \multirow{3}{*}{Science}   & \multirow{2}{*}{Video} & Count & \\ \cline{3-4}
-</span><span class='line'>                               &                      & Avg. length & \\ \cline{2-4}
-</span><span class='line'>                               & User & Count &  \\ \cline{2-4}
-</span><span class='line'>                               & \multirow{3}{*}{Back-jumps} & Count &       \\ \cline{3-4}
-</span><span class='line'>                               &                           & Max back-jumps/video &       \\ \cline{3-4}
-</span><span class='line'>                             &                             & Min back-jumps/video &       \\ \cline{2-4}
-</span><span class='line'>    \hline \hline
-</span><span class='line'>    \end{tabular}
-</span><span class='line'>\end{table}
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>caption</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\usepackage{caption} 
-</span><span class='line'>\captionsetup[table]{skip=10pt}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>pdflatex</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\documentclass{article}
-</span><span class='line'> 
-</span><span class='line'>\begin{document}
-</span><span class='line'>First document. This is a simple example, with no 
-</span><span class='line'>extra parameters or packages included. \cite{knuthwebsite}.
-</span><span class='line'>\end{document}</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install texlive
-</span><span class='line'>pdftex /path/to/myfile.tex</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>bibtex</h2>
-
-<p><code>article.tex</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\documentclass{article}
-</span><span class='line'>\usepackage{natbib}
-</span><span class='line'> 
-</span><span class='line'>\begin{document}
-</span><span class='line'>First document. This is a simple example, with no 
-</span><span class='line'>extra parameters or packages included. \cite{knuthwebsite}.
-</span><span class='line'>
-</span><span class='line'>\bibliographystyle{alpha}
-</span><span class='line'>\bibliography{article}
-</span><span class='line'>\end{document}</span></code></pre></td></tr></table></div></figure>
-
-
-<p><code>article.bib</code></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>@misc{knuthwebsite,
-</span><span class='line'>    author    = "Donald Knuth",
-</span><span class='line'>    title     = "Knuth: Computers and Typesetting",
-</span><span class='line'>    url       = "http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html"
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Suppose you have <code>article.tex</code> and <code>article.bib</code>. You need to run:</p>
-
-<ul>
-<li>latex article.tex (this will generate a document with question marks in place of unknown references)</li>
-<li>bibtex article (this will parse all the .bib files that were included in the article and generate metainformation regarding references)</li>
-<li>latex article.tex (this will generate document with all the references in the correct places)</li>
-<li>latex article.tex (just in case if adding references broke page numbering somewhere)</li>
-</ul>
-
-
-<p>Just add the following line to your <code>~/.bashrc</code> file (modify the main keyword accordingly to the name of your <code>.tex</code> and <code>.bib</code> files)</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>alias texbib='pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex && gnome-open main.pdf'</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>xelatex</h2>
-
-<p>需要用 <code>xecjk</code> 或 <code>zhspacing</code> 设置中文字体。 <code>XeTex</code> 缺省设了英文字体 <code>Latin Modern</code>，所以你能看到英文字。</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>\documentclass{article}
-</span><span class='line'>\usepackage{xeCJK}
-</span><span class='line'>
-</span><span class='line'>\setCJKmainfont{simsun.ttf}
-</span><span class='line'>\setCJKsansfont{simhei.ttf}
-</span><span class='line'>\setCJKmonofont{simfang.ttf}
-</span><span class='line'> 
-</span><span class='line'>\begin{document}
-</span><span class='line'>
-</span><span class='line'>\title{作业}
-</span><span class='line'>\author{宋正阳}
-</span><span class='line'>\date{\today}
-</span><span class='line'>
-</span><span class='line'>\maketitle
-</span><span class='line'>
-</span><span class='line'>\end{document}</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>font</h2>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>Fontconfig warning: "/etc/fonts/conf.d/65-droid-sans-fonts.conf", line 96: Having multiple values in &lt;test&gt; isn't supported and may not work as expected</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt install --reinstall fontconfig
-</span><span class='line'>
-</span><span class='line'>&lt;test name="lang"&gt;
-</span><span class='line'>  &lt;string&gt;zh-cn&lt;/string&gt;
-</span><span class='line'>  &lt;string&gt;zh-sg&lt;/string&gt;
-</span><span class='line'>  &lt;string&gt;zh-hk&lt;/string&gt;
-</span><span class='line'>  &lt;string&gt;zh-tw&lt;/string&gt;
-</span><span class='line'>  &lt;string&gt;zh&lt;/string&gt;
-</span><span class='line'>&lt;/test&gt;
-</span><span class='line'>
-</span><span class='line'>&lt;test name="lang"&gt;
-</span><span class='line'>  &lt;string&gt;zh-cn&lt;/string&gt;
-</span><span class='line'>&lt;/test&gt;</span></code></pre></td></tr></table></div></figure>
-
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <div class="home">
+<h2 class="post-list-heading">Posts</h2>
+    <ul class="post-list"><li><span class="post-meta">Jun 30, 2018</span>
+        <h3>
+          <a class="post-link" href="/2018/06/30/latex.html">
+            LaTeX
+          </a>
+        </h3></li><li><span class="post-meta">May 4, 2018</span>
+        <h3>
+          <a class="post-link" href="/2018/05/04/captcha.html">
+            Captcha
+          </a>
+        </h3></li><li><span class="post-meta">Apr 17, 2018</span>
+        <h3>
+          <a class="post-link" href="/2018/04/17/tencent-sng.html">
+            Tencent SNG
+          </a>
+        </h3></li><li><span class="post-meta">Apr 16, 2018</span>
+        <h3>
+          <a class="post-link" href="/python/2018/04/16/generic-operating-system-services.html">
+            Generic Operating System Services
+          </a>
+        </h3></li><li><span class="post-meta">Mar 20, 2018</span>
+        <h3>
+          <a class="post-link" href="/2018/03/20/tencent-mig.html">
+            Tencent MIG
+          </a>
+        </h3></li><li><span class="post-meta">Feb 28, 2018</span>
+        <h3>
+          <a class="post-link" href="/2018/02/28/google.html">
+            Google
+          </a>
+        </h3></li><li><span class="post-meta">Feb 22, 2018</span>
+        <h3>
+          <a class="post-link" href="/2018/02/22/wap.html">
+            WAP
+          </a>
+        </h3></li><li><span class="post-meta">Jan 31, 2018</span>
+        <h3>
+          <a class="post-link" href="/2018/01/31/tencent-ieg.html">
+            Tencent IEG
+          </a>
+        </h3></li><li><span class="post-meta">Jan 6, 2018</span>
+        <h3>
+          <a class="post-link" href="/2018/01/06/vim.html">
+            vim
+          </a>
+        </h3></li><li><span class="post-meta">Nov 30, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/11/30/vultr.html">
+            Vultr
+          </a>
+        </h3></li><li><span class="post-meta">Oct 21, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/10/21/binary-indexed-tree.html">
+            Binary Indexed Tree
+          </a>
+        </h3></li><li><span class="post-meta">Sep 26, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/09/26/jupyter-notebook.html">
+            Jupyter Notebook
+          </a>
+        </h3></li><li><span class="post-meta">Aug 20, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/08/20/suffix-array.html">
+            Suffix Array
+          </a>
+        </h3></li><li><span class="post-meta">Jun 23, 2017</span>
+        <h3>
+          <a class="post-link" href="/python/2017/06/23/sklearn.html">
+            sklearn
+          </a>
+        </h3></li><li><span class="post-meta">Jun 23, 2017</span>
+        <h3>
+          <a class="post-link" href="/bash/2017/06/23/linux.html">
+            Linux
+          </a>
+        </h3></li><li><span class="post-meta">Apr 4, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/04/04/crypt.html">
+            Crypt
+          </a>
+        </h3></li><li><span class="post-meta">Apr 3, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/04/03/coding.html">
+            coding
+          </a>
+        </h3></li><li><span class="post-meta">Apr 3, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/04/03/sqli.html">
+            SQLi
+          </a>
+        </h3></li><li><span class="post-meta">Apr 2, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/04/02/javascript.html">
+            JavaScript
+          </a>
+        </h3></li><li><span class="post-meta">Mar 25, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/03/25/intermediate.html">
+            Intermediate
+          </a>
+        </h3></li><li><span class="post-meta">Mar 23, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/03/23/basic-plus.html">
+            Basic+
+          </a>
+        </h3></li><li><span class="post-meta">Mar 22, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/03/22/expectation-of-random-variables.html">
+            Expectation of Random Variables
+          </a>
+        </h3></li><li><span class="post-meta">Mar 18, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/03/18/main.html">
+            Main
+          </a>
+        </h3></li><li><span class="post-meta">Mar 4, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/03/04/poison-and-prisoner.html">
+            Poison and Prisoner
+          </a>
+        </h3></li><li><span class="post-meta">Feb 14, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/02/14/wdio.html">
+            wdio
+          </a>
+        </h3></li><li><span class="post-meta">Feb 13, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/02/13/mongoose.html">
+            mongoose
+          </a>
+        </h3></li><li><span class="post-meta">Feb 13, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/02/13/graphql.html">
+            graphql
+          </a>
+        </h3></li><li><span class="post-meta">Feb 13, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/02/13/bower.html">
+            bower
+          </a>
+        </h3></li><li><span class="post-meta">Feb 13, 2017</span>
+        <h3>
+          <a class="post-link" href="/javascript/2017/02/13/mocha.html">
+            mocha
+          </a>
+        </h3></li><li><span class="post-meta">Feb 10, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/02/10/bash.html">
+            bash
+          </a>
+        </h3></li><li><span class="post-meta">Feb 9, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/02/09/informix.html">
+            informix
+          </a>
+        </h3></li><li><span class="post-meta">Jan 23, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/01/23/nightwatch.html">
+            nightwatch
+          </a>
+        </h3></li><li><span class="post-meta">Jan 23, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/01/23/jfum.html">
+            jfum
+          </a>
+        </h3></li><li><span class="post-meta">Jan 23, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/01/23/stream-transform.html">
+            stream-transform
+          </a>
+        </h3></li><li><span class="post-meta">Jan 23, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/01/23/express.html">
+            express
+          </a>
+        </h3></li><li><span class="post-meta">Jan 15, 2017</span>
+        <h3>
+          <a class="post-link" href="/2017/01/15/mysql.html">
+            MySQL
+          </a>
+        </h3></li><li><span class="post-meta">Dec 27, 2016</span>
+        <h3>
+          <a class="post-link" href="/javascript/2016/12/27/nodejs.html">
+            Nodejs
+          </a>
+        </h3></li><li><span class="post-meta">Dec 24, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/12/24/string-services.html">
+            String Services
+          </a>
+        </h3></li><li><span class="post-meta">Dec 24, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/12/24/data-compression-and-archiving.html">
+            Data Compression and Archiving
+          </a>
+        </h3></li><li><span class="post-meta">Dec 24, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/12/24/python-runtime-services.html">
+            Python Runtime Services
+          </a>
+        </h3></li><li><span class="post-meta">Dec 24, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/12/24/interprocess-communication-and-networking.html">
+            Interprocess Communication and Networking
+          </a>
+        </h3></li><li><span class="post-meta">Dec 24, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/12/24/internet-data-handling.html">
+            Internet Data Handling
+          </a>
+        </h3></li><li><span class="post-meta">Dec 24, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/12/24/numeric-and-mathematical-modules.html">
+            Numeric and Mathematical Modules
+          </a>
+        </h3></li><li><span class="post-meta">Dec 24, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/12/24/unix-specific-services.html">
+            Unix Specific Services
+          </a>
+        </h3></li><li><span class="post-meta">Dec 24, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/12/24/file-formats.html">
+            file formats
+          </a>
+        </h3></li><li><span class="post-meta">Dec 24, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/12/24/data-types.html">
+            data types
+          </a>
+        </h3></li><li><span class="post-meta">Dec 24, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/12/24/custom-python-interpreters.html">
+            Custom Python Interpreters
+          </a>
+        </h3></li><li><span class="post-meta">Dec 24, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/12/24/python-language-services.html">
+            python language services
+          </a>
+        </h3></li><li><span class="post-meta">Dec 24, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/12/24/python-built-in.html">
+            python built-in
+          </a>
+        </h3></li><li><span class="post-meta">Dec 24, 2016</span>
+        <h3>
+          <a class="post-link" href="/2016/12/24/nltk.html">
+            nltk
+          </a>
+        </h3></li><li><span class="post-meta">Dec 21, 2016</span>
+        <h3>
+          <a class="post-link" href="/2016/12/21/docker.html">
+            docker
+          </a>
+        </h3></li><li><span class="post-meta">Dec 19, 2016</span>
+        <h3>
+          <a class="post-link" href="/2016/12/19/auth0.html">
+            Auth0
+          </a>
+        </h3></li><li><span class="post-meta">Dec 19, 2016</span>
+        <h3>
+          <a class="post-link" href="/2016/12/19/angular.html">
+            Angular
+          </a>
+        </h3></li><li><span class="post-meta">Dec 14, 2016</span>
+        <h3>
+          <a class="post-link" href="/2016/12/14/git.html">
+            Git
+          </a>
+        </h3></li><li><span class="post-meta">Dec 11, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/12/11/android-studio.html">
+            Android Studio
+          </a>
+        </h3></li><li><span class="post-meta">Nov 21, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/11/21/word2vec.html">
+            Word2vec
+          </a>
+        </h3></li><li><span class="post-meta">Nov 19, 2016</span>
+        <h3>
+          <a class="post-link" href="/javascript/2016/11/19/todos.html">
+            todos
+          </a>
+        </h3></li><li><span class="post-meta">Nov 18, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/11/18/django.html">
+            Django
+          </a>
+        </h3></li><li><span class="post-meta">Nov 18, 2016</span>
+        <h3>
+          <a class="post-link" href="/javascript/2016/11/18/jquery.html">
+            jQuery
+          </a>
+        </h3></li><li><span class="post-meta">Nov 16, 2016</span>
+        <h3>
+          <a class="post-link" href="/ruby/2016/11/16/typo.html">
+            typo
+          </a>
+        </h3></li><li><span class="post-meta">Nov 16, 2016</span>
+        <h3>
+          <a class="post-link" href="/css/2016/11/16/bootstrap.html">
+            Bootstrap
+          </a>
+        </h3></li><li><span class="post-meta">Nov 16, 2016</span>
+        <h3>
+          <a class="post-link" href="/ruby/2016/11/16/rotten-potatoes.html">
+            Rotten Potatoes
+          </a>
+        </h3></li><li><span class="post-meta">Nov 15, 2016</span>
+        <h3>
+          <a class="post-link" href="/ruby/2016/11/15/rails.html">
+            Rails
+          </a>
+        </h3></li><li><span class="post-meta">Nov 15, 2016</span>
+        <h3>
+          <a class="post-link" href="/ruby/2016/11/15/rspec.html">
+            rspec
+          </a>
+        </h3></li><li><span class="post-meta">Nov 13, 2016</span>
+        <h3>
+          <a class="post-link" href="/ruby/2016/11/13/heroku.html">
+            heroku
+          </a>
+        </h3></li><li><span class="post-meta">Nov 9, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/11/09/gensim.html">
+            gensim
+          </a>
+        </h3></li><li><span class="post-meta">Nov 8, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/11/08/yodaqa.html">
+            yodaqa
+          </a>
+        </h3></li><li><span class="post-meta">Nov 6, 2016</span>
+        <h3>
+          <a class="post-link" href="/ruby/2016/11/06/ruby.html">
+            Ruby
+          </a>
+        </h3></li><li><span class="post-meta">Nov 5, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/11/05/tensorflow.html">
+            TensorFlow
+          </a>
+        </h3></li><li><span class="post-meta">Nov 5, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/11/05/theano.html">
+            theano
+          </a>
+        </h3></li><li><span class="post-meta">Nov 5, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/11/05/matplotlib.html">
+            matplotlib
+          </a>
+        </h3></li><li><span class="post-meta">Nov 5, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/11/05/numpy.html">
+            numpy
+          </a>
+        </h3></li><li><span class="post-meta">Oct 29, 2016</span>
+        <h3>
+          <a class="post-link" href="/2016/10/29/tmux.html">
+            tmux
+          </a>
+        </h3></li><li><span class="post-meta">Oct 23, 2016</span>
+        <h3>
+          <a class="post-link" href="/ruby/2016/10/23/octopress.html">
+            Octopress
+          </a>
+        </h3></li><li><span class="post-meta">Sep 19, 2016</span>
+        <h3>
+          <a class="post-link" href="/java/2016/09/19/java.html">
+            Java
+          </a>
+        </h3></li><li><span class="post-meta">Sep 17, 2016</span>
+        <h3>
+          <a class="post-link" href="/c++/2016/09/17/cpp.html">
+            CPP
+          </a>
+        </h3></li><li><span class="post-meta">Sep 17, 2016</span>
+        <h3>
+          <a class="post-link" href="/c/2016/09/17/c.html">
+            C
+          </a>
+        </h3></li><li><span class="post-meta">Sep 11, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/09/11/python-dist.html">
+            Python Dist Packages
+          </a>
+        </h3></li><li><span class="post-meta">Sep 1, 2016</span>
+        <h3>
+          <a class="post-link" href="/javascript/2016/09/01/event-listener.html">
+            Event Listener
+          </a>
+        </h3></li><li><span class="post-meta">Aug 31, 2016</span>
+        <h3>
+          <a class="post-link" href="/java/2016/08/31/autograder.html">
+            Autograder
+          </a>
+        </h3></li><li><span class="post-meta">Aug 27, 2016</span>
+        <h3>
+          <a class="post-link" href="/2016/08/27/vnc.html">
+            VNC
+          </a>
+        </h3></li><li><span class="post-meta">Aug 27, 2016</span>
+        <h3>
+          <a class="post-link" href="/2016/08/27/ansible.html">
+            Ansible
+          </a>
+        </h3></li><li><span class="post-meta">Aug 22, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/08/22/android-ndk.html">
+            Android NDK
+          </a>
+        </h3></li><li><span class="post-meta">Aug 21, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/08/21/android-widget.html">
+            Android Widget
+          </a>
+        </h3></li><li><span class="post-meta">Aug 21, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/08/21/android-webkit.html">
+            Android Webkit
+          </a>
+        </h3></li><li><span class="post-meta">Aug 21, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/08/21/android-util.html">
+            Android Util
+          </a>
+        </h3></li><li><span class="post-meta">Aug 21, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/08/21/android-os.html">
+            Android OS
+          </a>
+        </h3></li><li><span class="post-meta">Aug 21, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/08/21/android-content.html">
+            Android Content
+          </a>
+        </h3></li><li><span class="post-meta">Aug 21, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/08/21/android-app.html">
+            Android App
+          </a>
+        </h3></li><li><span class="post-meta">Aug 16, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/08/16/reverse-engineering.html">
+            Reverse Engineering
+          </a>
+        </h3></li><li><span class="post-meta">Aug 13, 2016</span>
+        <h3>
+          <a class="post-link" href="/c/2016/08/13/gcc.html">
+            GCC
+          </a>
+        </h3></li><li><span class="post-meta">Aug 13, 2016</span>
+        <h3>
+          <a class="post-link" href="/2016/08/13/assembly.html">
+            Assembly
+          </a>
+        </h3></li><li><span class="post-meta">Aug 12, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/08/12/python-project.html">
+            Python Project
+          </a>
+        </h3></li><li><span class="post-meta">Jul 27, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/07/27/flask.html">
+            Flask
+          </a>
+        </h3></li><li><span class="post-meta">Jul 19, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/07/19/xml-parser.html">
+            XML Parser
+          </a>
+        </h3></li><li><span class="post-meta">Jun 27, 2016</span>
+        <h3>
+          <a class="post-link" href="/2016/06/27/sqlite.html">
+            SQLite
+          </a>
+        </h3></li><li><span class="post-meta">Jun 27, 2016</span>
+        <h3>
+          <a class="post-link" href="/2016/06/27/mongodb.html">
+            MongoDB
+          </a>
+        </h3></li><li><span class="post-meta">Jun 26, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/06/26/music-player.html">
+            Music Player
+          </a>
+        </h3></li><li><span class="post-meta">Jun 22, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/06/22/android-view.html">
+            Android View
+          </a>
+        </h3></li><li><span class="post-meta">Jun 22, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/06/22/android-location.html">
+            Android Location
+          </a>
+        </h3></li><li><span class="post-meta">Jun 22, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/06/22/android-hardware.html">
+            Android Hardware
+          </a>
+        </h3></li><li><span class="post-meta">Jun 22, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/06/22/android-graphics.html">
+            Android Graphics
+          </a>
+        </h3></li><li><span class="post-meta">Jun 14, 2016</span>
+        <h3>
+          <a class="post-link" href="/javascript/2016/06/14/javascript.html">
+            JavaScript
+          </a>
+        </h3></li><li><span class="post-meta">Jun 8, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/06/08/edx-platform.html">
+            edX platform
+          </a>
+        </h3></li><li><span class="post-meta">May 16, 2016</span>
+        <h3>
+          <a class="post-link" href="/2016/05/16/open-edx-architecture.html">
+            Open edX Architecture
+          </a>
+        </h3></li><li><span class="post-meta">May 16, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/05/16/edx-developer-stack.html">
+            edX Developer Stack
+          </a>
+        </h3></li><li><span class="post-meta">May 13, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/05/13/text-tiling.html">
+            Text Tiling
+          </a>
+        </h3></li><li><span class="post-meta">May 13, 2016</span>
+        <h3>
+          <a class="post-link" href="/2016/05/13/elasticsearch.html">
+            Elasticsearch
+          </a>
+        </h3></li><li><span class="post-meta">Apr 2, 2016</span>
+        <h3>
+          <a class="post-link" href="/ruby/2016/04/02/oracle-of-bacon.html">
+            Oracle Of Bacon
+          </a>
+        </h3></li><li><span class="post-meta">Mar 30, 2016</span>
+        <h3>
+          <a class="post-link" href="/html/2016/03/30/html.html">
+            HTML
+          </a>
+        </h3></li><li><span class="post-meta">Mar 27, 2016</span>
+        <h3>
+          <a class="post-link" href="/c++/2016/03/27/ray-tracing.html">
+            Ray Tracing
+          </a>
+        </h3></li><li><span class="post-meta">Mar 25, 2016</span>
+        <h3>
+          <a class="post-link" href="/c++/2016/03/25/mesh-simplification.html">
+            Mesh Simplification
+          </a>
+        </h3></li><li><span class="post-meta">Mar 25, 2016</span>
+        <h3>
+          <a class="post-link" href="/c++/2016/03/25/qt.html">
+            Qt
+          </a>
+        </h3></li><li><span class="post-meta">Mar 21, 2016</span>
+        <h3>
+          <a class="post-link" href="/python/2016/03/21/click-through-rate.html">
+            Click Through Rate
+          </a>
+        </h3></li><li><span class="post-meta">Mar 18, 2016</span>
+        <h3>
+          <a class="post-link" href="/javascript/2016/03/18/rainy-day.html">
+            Rainy Day
+          </a>
+        </h3></li><li><span class="post-meta">Mar 16, 2016</span>
+        <h3>
+          <a class="post-link" href="/javascript/python/2016/03/16/speech-to-text.html">
+            Speech to Text
+          </a>
+        </h3></li><li><span class="post-meta">Mar 1, 2016</span>
+        <h3>
+          <a class="post-link" href="/android/2016/03/01/bluetooth-profile.html">
+            Bluetooth Profile
+          </a>
+        </h3></li></ul>
+
+    <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p></div>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
 </div>
-  
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-      <a class="prev" href="/posts/2">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2018/06/30/latex/">LaTeX</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/05/04/captcha/">Captcha</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
     </div>
+
   </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2018 - Zhengyang Song -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
 
 </footer>
-  
-
-
-
-
-
-
-
-
-
-
-
 </body>
+
 </html>

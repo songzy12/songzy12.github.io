@@ -1,0 +1,934 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-10-06T16:58:19+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Your awesome title</title><subtitle>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</subtitle><entry><title type="html">LaTeX</title><link href="http://localhost:4000/2018/06/30/latex.html" rel="alternate" type="text/html" title="LaTeX" /><published>2018-06-30T12:00:04+08:00</published><updated>2018-06-30T12:00:04+08:00</updated><id>http://localhost:4000/2018/06/30/latex</id><content type="html" xml:base="http://localhost:4000/2018/06/30/latex.html">&lt;h2 id=&quot;todo&quot;&gt;todo&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\usepackage[colorinlistoftodos]{todonotes}
+
+\todo[inline, color=green!40]{This is an inline comment.}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;enumitem&quot;&gt;enumitem&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\usepackage{enumitem}
+
+\maketitle
+\begin{enumerate}[label=(\alph*)]
+\item an apple
+\item a banana
+\end{enumerate}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;verb&quot;&gt;verb&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\verb|.bib|
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;href&quot;&gt;href&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\href{https://www.overleaf.com/blog/184}{Mendeley}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;equiv&quot;&gt;equiv&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;a\equiv b \bmod p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;matrix&quot;&gt;matrix&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;x^{(1)}=\begin{bmatrix}\frac{3}{2}\\[0.3em]\frac{9}{4}\end{bmatrix}, 
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Just use overleaf &lt;a href=&quot;https://www.overleaf.com/5269090dsqmsd#/16588846/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&quot;jumpnav-main&quot;&gt;jumpnav-main&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\documentclass&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;[chi_draft]&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;sigchi&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\begin{document}&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;%\usepackage{natbib}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;\title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;\maketitle&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;\input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;abstract&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+
+&lt;span class=&quot;k&quot;&gt;\input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;intro&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;related&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;data&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;problem&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;observations&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;approach&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;exp&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;conclusion&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;\bibliographystyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;SIGCHI-Reference-Format&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\bibliography&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;references&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;\end{document}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;convex-optimization&quot;&gt;convex optimization&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\begin{alignat*}{2}
+\min\quad &amp;amp; -2x_1-x_2+x_3 \\
+\mbox{s.t.}\quad
+&amp;amp;x_1+x_2+2x_3 \le 6  \\
+&amp;amp;x_1+4x_2-x_3 \le 4  \\
+&amp;amp;x_1, x_2, x_3 \ge 0
+\end{alignat*}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;misc&quot;&gt;MISC&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\noindent
+\textbf{}
+\LaTeX{}
+\TeX\
+\TeX{}
+\textbackslash
+\textit{} 
+\empha{}
+{\bf }
+\smallskip
+\bigskip
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tikz&quot;&gt;tikz&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://cremeronline.com/LaTeX/minimaltikz.pdf&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\begin{center}
+\begin{tikzpicture}[domain=0:0.5,xscale=13,yscale=3.8]
+\draw[&amp;lt;-&amp;gt;] (0,2) node[left]{EUR}-- (0,0) -- (.7,0) node[below] {$q$};
+\draw[red] plot (\x, {0.25+\x/2+\x*\x/2}) node[right] {$v_1(x)$};
+\draw[green] plot (\x, {0.025+\x+\x*\x}) node[right] {$v_2(x)$};
+\draw[thin, dashed] plot (\x, {0.275+1.5*\x+1.5*\x*\x}) ;
+\draw[thick,domain=0:0.33666] plot (\x, {0.05+2*\x+2*\x*\x}) ;
+\draw[thick,domain=0.33666:0.5]
+plot (\x, {0.5+\x+\x*\x}) node[right] {$2\min[v_1,v_2]$};
+\end{tikzpicture}
+\end{center}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;tabular&quot;&gt;tabular*&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://en.wikibooks.org/wiki/LaTeX/Tables#The_tabular.2A_environment&quot;&gt;table&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\begin{tabular*}{0.75\textwidth}{@{\extracolsep{\fill} } | c | c | c | r | }
+  \hline
+  label 1 &amp;amp; label 2 &amp;amp; label 3 &amp;amp; label 4 \\
+  \hline 
+  item 1  &amp;amp; item 2  &amp;amp; item 3  &amp;amp; item 4  \\
+  \hline
+\end{tabular*}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;multirow&quot;&gt;multirow&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+\begin{table}
+\caption{Statistics of the Dataset}
+\label{tab:dataset}
+\centering
+    \begin{tabular}{c|c|c|c}
+    \hline \hline
+    \multirow{3}{*}{Science}   &amp;amp; \multirow{2}{*}{Video} &amp;amp; Count &amp;amp; \\ \cline{3-4}
+                               &amp;amp;						&amp;amp; Avg. length &amp;amp; \\ \cline{2-4}
+                               &amp;amp; User &amp;amp; Count &amp;amp;  \\ \cline{2-4}
+                               &amp;amp; \multirow{3}{*}{Back-jumps} &amp;amp; Count &amp;amp;       \\ \cline{3-4}
+                               &amp;amp;				             &amp;amp; Max back-jumps/video &amp;amp;       \\ \cline{3-4}
+    						   &amp;amp;							 &amp;amp; Min back-jumps/video &amp;amp;       \\ \cline{2-4}
+    \hline \hline
+    \end{tabular}
+\end{table}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;caption&quot;&gt;caption&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;pdflatex&quot;&gt;pdflatex&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\documentclass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;article&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+&lt;span class=&quot;nt&quot;&gt;\begin{document}&lt;/span&gt;
+First document. This is a simple example, with no 
+extra parameters or packages included. &lt;span class=&quot;k&quot;&gt;\cite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;knuthwebsite&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;.
+&lt;span class=&quot;nt&quot;&gt;\end{document}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install texlive
+pdftex /path/to/myfile.tex
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;bibtex&quot;&gt;bibtex&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;article.tex&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\documentclass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;article&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;natbib&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+&lt;span class=&quot;nt&quot;&gt;\begin{document}&lt;/span&gt;
+First document. This is a simple example, with no 
+extra parameters or packages included. &lt;span class=&quot;k&quot;&gt;\cite&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;knuthwebsite&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;.
+
+&lt;span class=&quot;k&quot;&gt;\bibliographystyle&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;alpha&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\bibliography&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;article&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;\end{document}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;article.bib&lt;/code&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;@misc{knuthwebsite,
+    author    = &quot;Donald Knuth&quot;,
+    title     = &quot;Knuth: Computers and Typesetting&quot;,
+    url       = &quot;http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Suppose you have &lt;code class=&quot;highlighter-rouge&quot;&gt;article.tex&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;article.bib&lt;/code&gt;. You need to run:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;latex article.tex (this will generate a document with question marks in place of unknown references)&lt;/li&gt;
+  &lt;li&gt;bibtex article (this will parse all the .bib files that were included in the article and generate metainformation regarding references)&lt;/li&gt;
+  &lt;li&gt;latex article.tex (this will generate document with all the references in the correct places)&lt;/li&gt;
+  &lt;li&gt;latex article.tex (just in case if adding references broke page numbering somewhere)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Just add the following line to your &lt;code class=&quot;highlighter-rouge&quot;&gt;~/.bashrc&lt;/code&gt; file (modify the main keyword accordingly to the name of your &lt;code class=&quot;highlighter-rouge&quot;&gt;.tex&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;.bib&lt;/code&gt; files)&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;alias texbib='pdflatex main.tex &amp;amp;&amp;amp; bibtex main &amp;amp;&amp;amp; pdflatex main.tex &amp;amp;&amp;amp; pdflatex main.tex &amp;amp;&amp;amp; gnome-open main.pdf'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;xelatex&quot;&gt;xelatex&lt;/h2&gt;
+
+&lt;p&gt;需要用 &lt;code class=&quot;highlighter-rouge&quot;&gt;xecjk&lt;/code&gt; 或 &lt;code class=&quot;highlighter-rouge&quot;&gt;zhspacing&lt;/code&gt; 设置中文字体。 &lt;code class=&quot;highlighter-rouge&quot;&gt;XeTex&lt;/code&gt; 缺省设了英文字体 &lt;code class=&quot;highlighter-rouge&quot;&gt;Latin Modern&lt;/code&gt;，所以你能看到英文字。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;\documentclass&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;article&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\usepackage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;xeCJK&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;\setCJKmainfont&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;simsun.ttf&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\setCJKsansfont&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;simhei.ttf&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\setCJKmonofont&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;simfang.ttf&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+ 
+&lt;span class=&quot;nt&quot;&gt;\begin{document}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;\title&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;作业&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\author&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;宋正阳&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;\date&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;\today&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;\maketitle&lt;/span&gt;
+
+&lt;span class=&quot;nt&quot;&gt;\end{document}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;font&quot;&gt;font&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Fontconfig warning: &quot;/etc/fonts/conf.d/65-droid-sans-fonts.conf&quot;, line 96: Having multiple values in &amp;lt;test&amp;gt; isn't supported and may not work as expected
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt install --reinstall fontconfig
+
+&amp;lt;test name=&quot;lang&quot;&amp;gt;
+  &amp;lt;string&amp;gt;zh-cn&amp;lt;/string&amp;gt;
+  &amp;lt;string&amp;gt;zh-sg&amp;lt;/string&amp;gt;
+  &amp;lt;string&amp;gt;zh-hk&amp;lt;/string&amp;gt;
+  &amp;lt;string&amp;gt;zh-tw&amp;lt;/string&amp;gt;
+  &amp;lt;string&amp;gt;zh&amp;lt;/string&amp;gt;
+&amp;lt;/test&amp;gt;
+
+&amp;lt;test name=&quot;lang&quot;&amp;gt;
+  &amp;lt;string&amp;gt;zh-cn&amp;lt;/string&amp;gt;
+&amp;lt;/test&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">todo</summary></entry><entry><title type="html">Captcha</title><link href="http://localhost:4000/2018/05/04/captcha.html" rel="alternate" type="text/html" title="Captcha" /><published>2018-05-04T19:53:33+08:00</published><updated>2018-05-04T19:53:33+08:00</updated><id>http://localhost:4000/2018/05/04/captcha</id><content type="html" xml:base="http://localhost:4000/2018/05/04/captcha.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Tencent SNG</title><link href="http://localhost:4000/2018/04/17/tencent-sng.html" rel="alternate" type="text/html" title="Tencent SNG" /><published>2018-04-17T19:56:43+08:00</published><updated>2018-04-17T19:56:43+08:00</updated><id>http://localhost:4000/2018/04/17/tencent-sng</id><content type="html" xml:base="http://localhost:4000/2018/04/17/tencent-sng.html">&lt;ul&gt;
+  &lt;li&gt;项目中的有趣点或难点&lt;/li&gt;
+  &lt;li&gt;xgboost 和 lr 的优缺点&lt;/li&gt;
+  &lt;li&gt;C++ 虚函数的实现&lt;/li&gt;
+  &lt;li&gt;线程和进程的区别&lt;/li&gt;
+  &lt;li&gt;在模型中哪些 feature 最有用&lt;/li&gt;
+  &lt;li&gt;算法题：将 1 到 m*n 按照螺旋方式填满 m * n 的矩阵。&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">项目中的有趣点或难点 xgboost 和 lr 的优缺点 C++ 虚函数的实现 线程和进程的区别 在模型中哪些 feature 最有用 算法题：将 1 到 m*n 按照螺旋方式填满 m * n 的矩阵。</summary></entry><entry><title type="html">Generic Operating System Services</title><link href="http://localhost:4000/python/2018/04/16/generic-operating-system-services.html" rel="alternate" type="text/html" title="Generic Operating System Services" /><published>2018-04-16T14:19:01+08:00</published><updated>2018-04-16T14:19:01+08:00</updated><id>http://localhost:4000/python/2018/04/16/generic-operating-system-services</id><content type="html" xml:base="http://localhost:4000/python/2018/04/16/generic-operating-system-services.html">&lt;h2 id=&quot;io&quot;&gt;io&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import io
+io.open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;The &lt;code class=&quot;highlighter-rouge&quot;&gt;open()&lt;/code&gt; function an alias to &lt;code class=&quot;highlighter-rouge&quot;&gt;io.open()&lt;/code&gt;. It wraps the OS-level file descriptor in a file object.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;os.open()&lt;/code&gt; is just a wrapper for the lower-level POSIX syscall. It returns the file descriptor (a number) that represents the opened file.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;logging&quot;&gt;logging&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import logging  
+
+logging.basicConfig()
+logger = logging.getLogger('test')  
+# NOTSET &amp;lt; DEBUG &amp;lt; INFO &amp;lt; WARNING &amp;lt; ERROR &amp;lt; CRITICAL
+logger.setLevel(logging.DEBUG)  
+  
+fh = logging.FileHandler('test.log')  
+fh.setLevel(logging.DEBUG)  
+    
+ch = logging.StreamHandler()  
+ch.setLevel(logging.DEBUG)  
+    
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')  
+fh.setFormatter(formatter)  
+ch.setFormatter(formatter)  
+    
+logger.addHandler(fh)  
+logger.addHandler(ch)  
+
+# logger.debug, logger.info, logger.warning, logger.error, logger.critical
+logger.info('foorbar')  
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;optparse&quot;&gt;optparse&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;parser = optparse.OptionParser(sys.argv[0]+' '+
+'-r &amp;lt;file_with URLs&amp;gt;')
+parser.add_option('-r', dest='URLs', type='string', 
+        help='specify target file with URLs')
+(options, args) = parser.parse_args()
+URLs=options.URLs
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;os&quot;&gt;os&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import os
+script_dir = os.path.dirname(__file__) # &amp;lt;-- absolute dir the script is in
+rel_path = &quot;2091/data.txt&quot;
+abs_file_path = os.path.join(script_dir, rel_path)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;makedirs&quot;&gt;makedirs&lt;/h3&gt;
+
+&lt;p&gt;Works like mkdir, except that any intermediate path segment (not just the rightmost) will be created if it does not exist.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;if not os.path.exists(directory):
+    os.makedirs(directory)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;path&quot;&gt;path&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; filename, file_extension = os.path.splitext('/path/to/somefile.ext')
+&amp;gt;&amp;gt;&amp;gt; filename
+'/path/to/somefile'
+&amp;gt;&amp;gt;&amp;gt; file_extension
+'.ext'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;os.path.join(dir_name, file_name);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import sys
+import os
+parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, parent)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;os.path.dirname(path)
+    Return the directory name of pathname path. This is the first element of the pair returned by passing path to the function split().
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;os.access(path, mode);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;os.F_OK: test the existence of path&lt;/li&gt;
+  &lt;li&gt;os.R_OK: readability&lt;/li&gt;
+  &lt;li&gt;os.W_OK: writability&lt;/li&gt;
+  &lt;li&gt;os.X_OK: executability&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;popen&quot;&gt;popen&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;output = os.popen('cat /proc/cpuinfo')
+print output.read()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;system&quot;&gt;system&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;retvalue = os.system(&quot;ps -p 2993 -o time --no-headers&quot;)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;pickle&quot;&gt;pickle&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import pickle
+
+with open(&quot;active_user.pkl&quot;, &quot;wb&quot;) as f:
+    pickle.dump(active_user, f)
+
+with open(&quot;active_user&quot;) as f:
+    active_user = pickle.load(f)
+
+with open(&quot;text1&quot;) as f1, open(&quot;text2&quot;) as f2:
+	pass
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">io</summary></entry><entry><title type="html">Tencent MIG</title><link href="http://localhost:4000/2018/03/20/tencent-mig.html" rel="alternate" type="text/html" title="Tencent MIG" /><published>2018-03-20T10:51:00+08:00</published><updated>2018-03-20T10:51:00+08:00</updated><id>http://localhost:4000/2018/03/20/tencent-mig</id><content type="html" xml:base="http://localhost:4000/2018/03/20/tencent-mig.html">&lt;h2 id=&quot;round-1&quot;&gt;Round 1&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;LECP&lt;/li&gt;
+  &lt;li&gt;SVM kernel&lt;/li&gt;
+  &lt;li&gt;Sigmoid&lt;/li&gt;
+  &lt;li&gt;Adam&lt;/li&gt;
+  &lt;li&gt;XGBoost&lt;/li&gt;
+  &lt;li&gt;Log Loss&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;round-2&quot;&gt;Round 2&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;GBDT&lt;/li&gt;
+  &lt;li&gt;NLP&lt;/li&gt;
+  &lt;li&gt;word2vec&lt;/li&gt;
+  &lt;li&gt;skip-gram &amp;amp; c-bow&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Round 1</summary></entry><entry><title type="html">Google</title><link href="http://localhost:4000/2018/02/28/google.html" rel="alternate" type="text/html" title="Google" /><published>2018-02-28T12:52:17+08:00</published><updated>2018-02-28T12:52:17+08:00</updated><id>http://localhost:4000/2018/02/28/google</id><content type="html" xml:base="http://localhost:4000/2018/02/28/google.html">&lt;h2 id=&quot;phone-interview&quot;&gt;Phone Interview&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://discuss.leetcode.com/topic/115712/compare-keyboard-events-sequences&quot;&gt;Compare keyboard events sequences&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# abc123\b123\b  -&amp;gt; abc1212
+# abc1212        -&amp;gt; abc1212
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;time-on-space-on&quot;&gt;Time O(n), Space O(n)&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def convert(s):
+    res = []
+    index = 0
+    for i in range(len(s)):
+        # abc12123
+        if s[i] != '\b':
+            if len(res) == index:
+                res.append(s[i])
+            else:
+                res[index] = s[i]
+            index += 1
+        else:
+            if index == 0:
+                continue
+            else:
+                index -= 1
+        return ''.join(res[:index])
+
+def compare(s1, s2):
+    return convert(s1) == convert(s2)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;time-on-space-o1&quot;&gt;Time O(n), Space O(1)&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;def get_char(s, p):
+    cnt = 0
+    while p &amp;gt;= 0 and (cnt &amp;gt; 0 or s[p] == '\b'):
+        if s[p] == '\b':
+            cnt += 1
+        else:
+            cnt -= 1
+        p -= 1
+    return p
+
+def compare_(s1, s2):
+        p1 = len(s1) - 1
+        p2 = len(s2) - 1
+        
+        while p1 &amp;gt;= 0 and p2 &amp;gt;= 0:
+            p1 = get_char(s1, p1)
+            p2 = get_char(s2, p2)
+
+            if p1 &amp;gt;= 0 and p2 &amp;gt;= 0:
+                if s1[p1] != s2[p2]:
+                    return False
+                else:
+                    p1 -= 1
+                    p2 -= 1
+
+        p1 = get_char(s1, p1)
+        p2 = get_char(s2, p2)
+        return p1 &amp;lt; 0 and p2 &amp;lt; 0
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;能抽象就抽象。多写几个函数。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;test-case&quot;&gt;Test Case&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;assert(compare_('', '2\b') == True)
+assert(compare_('', '12\b') == False)
+assert(compare_('1', '12\b') == True)
+assert(compare_('', '\b2\b') == True)
+assert(compare_('', '12\b2\b') == False)
+assert(compare_('1', '123\b2\b\b') == True)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">Phone Interview</summary></entry><entry><title type="html">WAP</title><link href="http://localhost:4000/2018/02/22/wap.html" rel="alternate" type="text/html" title="WAP" /><published>2018-02-22T16:25:31+08:00</published><updated>2018-02-22T16:25:31+08:00</updated><id>http://localhost:4000/2018/02/22/wap</id><content type="html" xml:base="http://localhost:4000/2018/02/22/wap.html">&lt;h2 id=&quot;round-0&quot;&gt;Round 0&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/zigzag-conversion/description/&quot;&gt;ZigZag Conversion&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;round-1&quot;&gt;Round 1&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/word-pattern/description/&quot;&gt;Word Pattern&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;round-2&quot;&gt;Round 2&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://tonycao.gitbooks.io/leetcode-locked/content/LeetCode%20Locked/c1.5.html&quot;&gt;Strobogrammatic Number I, II, III&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;round-3&quot;&gt;Round 3&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;勾股定理&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;grep&lt;/code&gt;, &lt;code class=&quot;highlighter-rouge&quot;&gt;find&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;round-4&quot;&gt;Round 4&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Small Chat&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Round 0</summary></entry><entry><title type="html">Tencent IEG</title><link href="http://localhost:4000/2018/01/31/tencent-ieg.html" rel="alternate" type="text/html" title="Tencent IEG" /><published>2018-01-31T20:13:35+08:00</published><updated>2018-01-31T20:13:35+08:00</updated><id>http://localhost:4000/2018/01/31/tencent-ieg</id><content type="html" xml:base="http://localhost:4000/2018/01/31/tencent-ieg.html">&lt;p&gt;这个也是 LeetCode 原题：&lt;a href=&quot;https://leetcode.com/problems/integer-break/description/&quot;&gt;Integer Break&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;在这里分享一道腾讯互娱的面试题目：&lt;/p&gt;
+
+&lt;p&gt;给定 $m\in N$,
+$\max x_1\cdot x_2\dots x_{n-1}\cdot x_n$&lt;/p&gt;
+
+&lt;p&gt;s.t. $x_1+x_2+…+x_n = m$ and $x_i \in N $.&lt;/p&gt;
+
+&lt;p&gt;（面试官给的题目里 $m = 25$）&lt;/p&gt;
+
+&lt;p&gt;下面我们介绍两种解法，一种是使用动态规划的编程解，另一种是直接手算出答案的数学解。&lt;/p&gt;
+
+&lt;h3 id=&quot;动态规划&quot;&gt;动态规划&lt;/h3&gt;
+
+&lt;p&gt;我们使用 &lt;code class=&quot;highlighter-rouge&quot;&gt;dp(m)&lt;/code&gt; 表示将整数 &lt;code class=&quot;highlighter-rouge&quot;&gt;m&lt;/code&gt; 进行如上拆分后所能得到的最大乘积。那么我们要的结果就是 &lt;code class=&quot;highlighter-rouge&quot;&gt;dp(25)&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;如何计算 &lt;code class=&quot;highlighter-rouge&quot;&gt;dp(m)&lt;/code&gt; 呢？对于一般的情况，我们直接根据所拆分出来的第一个整数进行动态规划：&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;dp(m)= max{i * dp(m-i)}&lt;/code&gt; 其中，&lt;code class=&quot;highlighter-rouge&quot;&gt;i \in {1,...,m}&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;这里为了便于计算我们将边界条件设为 &lt;code class=&quot;highlighter-rouge&quot;&gt;dp(0) = 1&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;上面这个算法的复杂度是 &lt;code class=&quot;highlighter-rouge&quot;&gt;O(m^2)&lt;/code&gt; ：首先我们需要计算 &lt;code class=&quot;highlighter-rouge&quot;&gt;dp(1),...,dp(m)&lt;/code&gt; 这 &lt;code class=&quot;highlighter-rouge&quot;&gt;m&lt;/code&gt; 个值，然后在计算每个值&lt;code class=&quot;highlighter-rouge&quot;&gt;dp(m_0)&lt;/code&gt;的时候我们需要进行一个 &lt;code class=&quot;highlighter-rouge&quot;&gt;O(m_0)&lt;/code&gt; 层的循环。&lt;/p&gt;
+
+&lt;h3 id=&quot;数学解法&quot;&gt;数学解法&lt;/h3&gt;
+
+&lt;p&gt;首先我们假设分成的份数 &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt; 是固定的，那么根据 &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E7%AE%97%E6%9C%AF-%E5%87%A0%E4%BD%95%E5%B9%B3%E5%9D%87%E5%80%BC%E4%B8%8D%E7%AD%89%E5%BC%8F&quot;&gt;均值不等式&lt;/a&gt;我们有&lt;/p&gt;
+
+&lt;p&gt;$\prod_{i=1}^n x_i \le (\frac{\sum_{i=1}^n x_i}{n}) ^ n = (\frac{m}{n}) \^ n$&lt;/p&gt;
+
+&lt;p&gt;（几何平均值小于等于算术平均值）&lt;/p&gt;
+
+&lt;p&gt;上式取等的条件为各 $x_i$ 均相等。&lt;/p&gt;
+
+&lt;p&gt;也就是说，对于给定的 &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt; ，我们要使得各份尽量均匀的情况下乘积最大。&lt;/p&gt;
+
+&lt;p&gt;下面我们考虑最优的 &lt;code class=&quot;highlighter-rouge&quot;&gt;n&lt;/code&gt; 的取值。我们令 $g(n) = (\frac{m}{n})\^n$, 于是只需要求 $g(n)$ 的最大值。&lt;/p&gt;
+
+&lt;p&gt;求导，$g’(n)=((\frac{m}{n})\^n)’=(e^{n\ln(m/n)})’=e^{n\ln(m/n)}\cdot (n\ln(\frac{m}{n}))’$&lt;/p&gt;
+
+&lt;p&gt;因为 $(n\ln(\frac{m}{n}))’=ln(\frac{m}{n}) + n\cdot(ln(\frac{m}{n})’)=ln(\frac{m}{n}) + n \cdot \frac{n}{m} \cdot (-\frac{m}{n\^2}) = ln(\frac{m}{n}) - 1$&lt;/p&gt;
+
+&lt;p&gt;从而 $g’(n) &amp;gt; 0\Leftrightarrow  ln(\frac{m}{n})-1 &amp;gt; 0 \Leftrightarrow ln(\frac{m}{n}) &amp;gt; 1\Leftrightarrow \frac{m}{n} &amp;gt; e \Leftrightarrow n &amp;lt; \frac{m}{e}$&lt;/p&gt;
+
+&lt;p&gt;也就是说，$g(n)$ 在 $(1, \frac{m}{e})$ 递增，在 $(\frac{m}{e}, +\infty)$ 递减。&lt;/p&gt;
+
+&lt;p&gt;所以 $g(n)$ 在 $n=\frac{m}{e}$ 时取最大值，也就是说对于给定的数 $m$, 我们希望分成 $\frac{m}{e}$ 份，也就是说我们希望每份分成的数值是 $e$. 这里的 $e=2.71828$.&lt;/p&gt;
+
+&lt;p&gt;由于要求分成整数，所以我们应该分成尽量多的 3 和最多两个 2（因为我们可以把3个2变成2个3）&lt;/p&gt;
+
+&lt;p&gt;具体来讲，如果 m % 3 == 0，那就是 m / 3 个 3; m % 3 == 2 就是  m / 3 个 3 和 1 个 2；m % 3 == 1, 我们把多出来的 1 和它前面的那个 3 放一起拆成两个 2（2 * 2 &amp;gt; 1 * 3）, 就是 (m / 3 - 1) 个 3 和 2 个 2.&lt;/p&gt;
+
+&lt;p&gt;具体到 25，就是 25 = 3 * 7 + 2 * 2，最大的积为 $3\^7\times 2\^2$.&lt;/p&gt;
+
+&lt;p&gt;$\cdot$&lt;/p&gt;
+
+&lt;h3 id=&quot;其他问题&quot;&gt;其他问题&lt;/h3&gt;
+
+&lt;p&gt;面试中遇到的其他问题包括：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;说说 word2vec 的不同方法：CBOW v.s. skip-gram&lt;/li&gt;
+  &lt;li&gt;说说 梯度弥散 v.s. 梯度爆炸&lt;/li&gt;
+  &lt;li&gt;说说 线性回归 v.s 逻辑回归&lt;/li&gt;
+  &lt;li&gt;说说 逻辑回归 中为什么使用 Sigmoid 函数&lt;/li&gt;
+  &lt;li&gt;说说 SGD v.s. BGD&lt;/li&gt;
+  &lt;li&gt;说说除了 SGD 之外其他的 Optimizer:  Adagrad, Adam&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">这个也是 LeetCode 原题：Integer Break</summary></entry><entry><title type="html">vim</title><link href="http://localhost:4000/2018/01/06/vim.html" rel="alternate" type="text/html" title="vim" /><published>2018-01-06T20:50:00+08:00</published><updated>2018-01-06T20:50:00+08:00</updated><id>http://localhost:4000/2018/01/06/vim</id><content type="html" xml:base="http://localhost:4000/2018/01/06/vim.html">&lt;h2 id=&quot;syntax&quot;&gt;syntax&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd /usr/share/vim/vim74/syntax 
+vi python.vim
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;syn keyword pythonTodo      FIXME NOTE NOTES TODO XXX contained
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ ls ~/.vim/
+ftdetect  ftplugin  indent  syntax
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;color&quot;&gt;color&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ls /usr/share/vim/vim74/colors/
+vi ~/.vimrc
+color default
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2&gt;|&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;80|&lt;/code&gt; should get you to position 80 in that line.&lt;/p&gt;
+
+&lt;h2 id=&quot;d&quot;&gt;d&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;dG 删除直到工作缓存区结尾的内容
+d1G 删除直到工作缓存区开始的内容
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;删除第9行到第200行的内容(先用200G转到第200行) ，使用&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:9,.d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;e&quot;&gt;e&lt;/h2&gt;
+
+&lt;p&gt;重新加载&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:e
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;j&quot;&gt;J&lt;/h2&gt;
+
+&lt;p&gt;合并行&lt;/p&gt;
+
+&lt;p&gt;In command mode:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[range]j[lines]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;here you want to do the whole buffer:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;%j
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you just wanted to do 10 lines from the current cursor position:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;j10
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you dont want to replace the new lines with spaces use ! after j.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;%j!
+j!10
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;And for the uberfancy:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;5j20
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Would go to line 5, and join the next 20 lines.&lt;/p&gt;
+
+&lt;h2 id=&quot;ret&quot;&gt;ret&lt;/h2&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;set tabstop=4&lt;/code&gt;: set the tabs to display as four spaces. 
+&lt;code class=&quot;highlighter-rouge&quot;&gt;set expandtab&lt;/code&gt;: insert spaces for tabs.
+&lt;code class=&quot;highlighter-rouge&quot;&gt;ret&lt;/code&gt;: replace tab&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set expandtab
+:%ret! 4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;s&quot;&gt;s&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:%s/源字符串/目的字符串/g
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Add a string(&lt;code class=&quot;highlighter-rouge&quot;&gt;*&lt;/code&gt;) to the end of each line in Vim:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:%s/$/\*/g
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;set&quot;&gt;set&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;nu&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set nu
+set nonu
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;paste&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set paste
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;invlist&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;set invlist
+set nolist
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;shell&quot;&gt;shell&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ctrl+z 
+fg
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:!vim --version
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;:shell
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;undo-redo&quot;&gt;undo, redo&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;u&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ctrl+r&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;vsp&quot;&gt;vsp&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim -On file1 file2 # 分屏启动Vim
+:vsp filename # 分屏
+Ctrl+w r # 滚动分屏
+Ctrl+w = # 分屏宽度
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">syntax</summary></entry><entry><title type="html">Vultr</title><link href="http://localhost:4000/2017/11/30/vultr.html" rel="alternate" type="text/html" title="Vultr" /><published>2017-11-30T19:45:03+08:00</published><updated>2017-11-30T19:45:03+08:00</updated><id>http://localhost:4000/2017/11/30/vultr</id><content type="html" xml:base="http://localhost:4000/2017/11/30/vultr.html">&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;1E#m2WXS9LdvTCNA
+tail -f /var/log/syslog
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Chrome 标签不同步也可能是因为 GFW 无法连接 Google 服务所致。&lt;/p&gt;
+
+&lt;h2 id=&quot;socls&quot;&gt;socls&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;import urllib2
+import socks
+from sockshandler import SocksiPyHandler
+
+opener = urllib2.build_opener(SocksiPyHandler(socks.SOCKS5, &quot;127.0.0.1&quot;, 1080))
+x = opener.open(&quot;http://www.youtube.com/&quot;)
+print x.read()
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ss-client&quot;&gt;ss client&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/&quot;&gt;http://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install python-pip
+sudo apt-get install python-setuptools m2crypto
+pip install shadowsocks
+sudo apt install shadowsocks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sslocal -s 11.22.33.44 -p 50003 -k &quot;123456&quot; -l 1080 -t 600 -m aes-256-cfb
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi config.json
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;server&quot;:&quot;11.22.33.44&quot;,
+    &quot;server_port&quot;:50003,
+    &quot;local_port&quot;:1080,
+    &quot;password&quot;:&quot;123456&quot;,
+    &quot;timeout&quot;:600,
+    &quot;method&quot;:&quot;aes-256-cfb&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sslocal -c shadowsocks.json
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;SwitchyOmega: &lt;a href=&quot;https://github.com/FelisCatus/SwitchyOmega/releases/&quot;&gt;https://github.com/FelisCatus/SwitchyOmega/releases/&lt;/a&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nohup sslocal -c shadowsocks.json &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;ss-server&quot;&gt;ss server&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
+chmod +x shadowsocks.sh
+./shadowsocks.sh 2&amp;gt;&amp;amp;1 | tee shadowsocks.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/shadowsocks.json
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;{
+    &quot;server&quot;:&quot;45.32.251.88&quot;,
+    &quot;server_port&quot;:8388,
+    &quot;local_address&quot;: &quot;127.0.0.1&quot;,
+    &quot;local_port&quot;:1080,
+    &quot;password&quot;:&quot;shadowsocks&quot;,
+    &quot;timeout&quot;:300,
+    &quot;method&quot;:&quot;aes-256-cfb&quot;,
+    &quot;fast_open&quot;: false
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;https://github.com/shadowsocks/shadowsocks-windows/releases
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ssserver -c /etc/shadowsocks.json -d start
+ssserver -c /etc/shadowsocks.json -d stop
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo less /var/log/shadowsocks.log
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;l2tp&quot;&gt;L2TP&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wget https://git.io/vpnsetup -O vpnsetup.sh &amp;amp;&amp;amp; sudo sh vpnsetup.sh
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;NET_IFO=${VPN_IFACE:-'ens3'}
+NET_IFS=$(VPN_IFACE:-'ens3')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Server IP: 45.32.251.88
+IPsec PSK: shadowsocks
+Username: vpnuser
+Password: shadowsocks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;无法建立计算机与 VPN 服务器之间的网络连接，因为远程服务器未响应。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;pptp&quot;&gt;PPTP&lt;/h2&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server name or address: 45.32.251.88
+user name: vpnuser
+password: shadowsocks
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.vultr.com/docs/setup-a-pptp-vpn-server-on-ubuntu&quot;&gt;PPTP VPN&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;installing-pptpd&quot;&gt;Installing PPTPD&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;apt-get install pptpd
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;adding-users&quot;&gt;Adding users&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/ppp/chap-secrets 
+# vpn	pptpd	shadowsocks	*
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;edit-the-pptpd-settings&quot;&gt;Edit the PPTPD settings&lt;/h3&gt;
+
+&lt;p&gt;Change &lt;code class=&quot;highlighter-rouge&quot;&gt;localip&lt;/code&gt; to your server IP.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ifconfig -a
+vi /etc/pptpd.conf 
+
+# localip 45.32.251.88
+# remoteip 192.168.0.234-238, 192.168.0.245
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;update-sysctlconf&quot;&gt;Update sysctl.conf&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/sysctl.conf 
+# net.ipv4.ip_forward = 1
+sysctl -p
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vi /etc/ppp/pptpd-options 
+# ms-dns 8.8.8.8	
+# ms-dns 8.8.4.4
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;restarting-pptpd&quot;&gt;Restarting PPTPD&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;service pptpd restart
+netstat -alpn | grep :1723
+
+systemctl start pptpd.service
+systemctl enable pptpd.service
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;iptables&quot;&gt;iptables&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ifconfig -a
+vi /etc/rc.local
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# Accept all packets via ppp* interfaces (for example, ppp0)
+iptables -A INPUT -i ppp+ -j ACCEPT
+iptables -A OUTPUT -o ppp+ -j ACCEPT
+
+# Accept incoming connections to port 1723 (PPTP)
+iptables -A INPUT -p tcp --dport 1723 -j ACCEPT
+
+# Accept GRE packets
+iptables -A INPUT -p 47 -j ACCEPT
+iptables -A OUTPUT -p 47 -j ACCEPT
+
+# Enable IP forwarding
+iptables -F FORWARD
+iptables -A FORWARD -j ACCEPT
+
+# Enable NAT for eth0 on ppp* interfaces
+iptables -A POSTROUTING -t nat -o eth0 -j MASQUERADE
+iptables -A POSTROUTING -t nat -o ppp+ -j MASQUERADE
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tail -f /var/log/syslog
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;hosts&quot;&gt;hosts&lt;/h3&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ping www.tumblr.com
+
+Pinging www.tumblr.com [66.6.42.30] with 32 bytes of data:
+Reply from 117.103.177.121: Destination net unreachable.
+
+nslookup
+
+&amp;gt; www.tumblr.com
+Server:  google-public-dns-a.google.com
+Address:  8.8.8.8
+
+Non-authoritative answer:
+Name:    www.tumblr.com.dev.tsinghuax.org
+Address:  101.6.244.5
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Just clear the &lt;code class=&quot;highlighter-rouge&quot;&gt;/etc/hosts&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;h3 id=&quot;mppe-required-but-peer-negotiation-failed&quot;&gt;MPPE required but peer negotiation failed&lt;/h3&gt;
+
+&lt;p&gt;I had to enable Point-to-Point encryption(MPPE) in the Advanced Settings dialog.&lt;/p&gt;
+
+&lt;h3 id=&quot;tcpdump&quot;&gt;tcpdump&lt;/h3&gt;
+
+&lt;p&gt;ARP: Address Resolution Protocol.&lt;/p&gt;
+
+&lt;p&gt;MAC address: Media Access Control address.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;lsb_release&lt;/code&gt;: linux standard base.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tcpdump -ennqti eth0 \( arp or icmp \)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;56:00:00:39:b7:93 &amp;gt; fe:00:00:39:b7:93, IPv4, length 102: 45.32.251.88 &amp;gt; 221.229.172.35: ICMP 45.32.251.88 tcp port 22 unreachable, length 68
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;ICMP: Internet Control Message Protocol.&lt;/p&gt;
+
+&lt;p&gt;Just correct the script for &lt;code class=&quot;highlighter-rouge&quot;&gt;l2tpd&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;NET_IFO=${VPN_IFACE:-'ens3'}
+NET_IFS=$(VPN_IFACE:-'ens3')
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name></name></author><summary type="html">1E#m2WXS9LdvTCNA tail -f /var/log/syslog</summary></entry></feed>

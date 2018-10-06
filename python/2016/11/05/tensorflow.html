@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>TensorFlow | Your awesome title</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="TensorFlow" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="tf.compat.as_str" />
+<meta property="og:description" content="tf.compat.as_str" />
+<link rel="canonical" href="http://localhost:4000/python/2016/11/05/tensorflow.html" />
+<meta property="og:url" content="http://localhost:4000/python/2016/11/05/tensorflow.html" />
+<meta property="og:site_name" content="Your awesome title" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-11-05T20:42:05+08:00" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/python/2016/11/05/tensorflow.html","description":"tf.compat.as_str","headline":"TensorFlow","dateModified":"2016-11-05T20:42:05+08:00","datePublished":"2016-11-05T20:42:05+08:00","@type":"BlogPosting","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/python/2016/11/05/tensorflow.html"},"@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Your awesome title" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Your awesome title</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">TensorFlow</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2016-11-05T20:42:05+08:00" itemprop="datePublished">Nov 5, 2016
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2 id="tfcompatas_str">tf.compat.as_str</h2>
+
+<p><code class="highlighter-rouge">as_str</code> converts an object to a <code class="highlighter-rouge">str</code>.</p>
+
+<h2 id="tfgraph">tf.Graph</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>graph = tf.Graph()
+
+with graph.as_default():
+    nce_biases = tf.Variable(tf.zeros([vocab_size]))
+    init = tf.initialize_all_variables()
+</code></pre></div></div>
+
+<h2 id="tftruncated_normal">tf.truncated_normal</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The generated values follow a normal distribution with specified mean and standard deviation, except that values whose magnitude is more than 2 standard deviations from the mean are dropped and re-picked.
+</code></pre></div></div>
+
+<h2 id="tfreduce_mean">tf.reduce_mean</h2>
+
+<p>When you are computing <code class="highlighter-rouge">tfMean = tf.reduce_mean(c)</code>, tensorflow doesn’t compute it then. It only computes that in a Session. But numpy computes that instantly, when you write <code class="highlighter-rouge">np.mean()</code></p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>reduce_mean(input_tensor, reduction_indices=None, keep_dims=False, name=None)
+input_tensor: The tensor to reduce. Should have numeric type.
+reduction_indices: The dimensions to reduce. If `None` (the defaut),
+    reduces all dimensions.
+
+# 'x' is [[1., 1. ]]
+#         [2., 2.]]
+tf.reduce_mean(x) ==&gt; 1.5
+tf.reduce_mean(x, 0) ==&gt; [1.5, 1.5] 
+tf.reduce_mean(x, 1) ==&gt; [1.,  2.]
+</code></pre></div></div>
+
+<h2 id="tfinitialize_all_variables">tf.initialize_all_variables</h2>
+
+<p>The difference is that with <code class="highlighter-rouge">tf.Variable</code> you have to provide an initial value when you declare it. With <code class="highlighter-rouge">tf.placeholder</code> you don’t have to provide an initial value and you can specify it at run time with the <code class="highlighter-rouge">feed_dict</code> argument inside <code class="highlighter-rouge">Session.run</code></p>
+
+<p>In short, you use <code class="highlighter-rouge">tf.Variable</code> for trainable variables such as weights (W) and biases (B) for your model.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>weights = tf.Variable(
+    tf.truncated_normal([IMAGE_PIXELS, hidden1_units],
+                    stddev=1.0 / math.sqrt(float(IMAGE_PIXELS))), name='weights')
+
+biases = tf.Variable(tf.zeros([hidden1_units]), name='biases')
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">tf. placeholder</code> is used to feed actual training examples.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>images_placeholder = tf.placeholder(tf.float32, shape=(batch_size, IMAGE_PIXELS))
+labels_placeholder = tf.placeholder(tf.int32, shape=(batch_size))
+</code></pre></div></div>
+
+<p>This is how you feed the training examples during the training:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>for step in xrange(FLAGS.max_steps):
+    feed_dict = {
+       images_placeholder: images_feed,
+       labels_placeholder: labels_feed,
+     }
+    _, loss_value = sess.run([train_op, loss], feed_dict=feed_dict)
+</code></pre></div></div>
+
+<p>Your <code class="highlighter-rouge">tf.variables</code> will be trained (modified) as the result of this training.</p>
+
+<h2 id="tfnnembedding_lookup">tf.nn.embedding_lookup</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Look up embeddings for inputs
+embed = tf.nn.embedding_lookup(embeddings, train_inputs)
+</code></pre></div></div>
+
+<h2 id="tfnnnce_loss">tf.nn.nce_loss</h2>
+
+<p>Computes and returns the noise-contrastive estimation training loss.</p>
+
+<p>Note: By default this uses a log-uniform (Zipfian) distribution for sampling,
+so your labels must be sorted in order of decreasing frequency to achieve
+good results.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>loss = tf.reduce_mean(
+    tf.nn.nce_loss(nce_weights, nce_biases, embed, train_labels,
+                   num_sampled, vocab_size))
+</code></pre></div></div>
+
+<h2 id="tftrain">tf.train</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code># Construct the SGD optimizer using a learning rate of 1.0.
+optimizer = tf.train.GradientDescentOptimizer(1.0).minimize(loss)
+</code></pre></div></div>
+
+<h2 id="tfsession">tf.Session</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>with tf.Session(graph=graph) as sess:
+    init.run()
+    print('Initialized')
+</code></pre></div></div>
+
+<h2 id="eval">eval</h2>
+
+<p><code class="highlighter-rouge">t.eval()</code> is a shortcut for calling <code class="highlighter-rouge">tf.get_default_session().run(t)</code></p>
+
+<p>You can use <code class="highlighter-rouge">sess.run()</code> to fetch the values of many tensors in the same step</p>
+
+<p>Note that each call to <code class="highlighter-rouge">eval</code> and <code class="highlighter-rouge">run</code> will execute the whole graph from scratch.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>normed_embeddings.eval()
+</code></pre></div></div>
+
+  </div><a class="u-url" href="/python/2016/11/05/tensorflow.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Your awesome title</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Your awesome title</li><li><a class="u-email" href="mailto:your-email@example.com">your-email@example.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/jekyll"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">jekyll</span></a></li><li><a href="https://www.twitter.com/jekyllrb"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">jekyllrb</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
