@@ -23,7 +23,12 @@ twitter_username:
 github_username:  songzy12
 
 # Build settings
-markdown: kramdown
+markdown: rdiscount
+rdiscount:
+  extensions:
+    - autolink
+    - footnotes
+    - smart
 theme: minima
 plugins:
   - jekyll-feed
