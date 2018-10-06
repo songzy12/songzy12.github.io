@@ -1,0 +1,392 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Zhengyang Song's Notepad</title>
+  <meta name="author" content="Zhengyang Song">
+
+  
+  <meta name="description" content="io 1
+2
+import io
+io.open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True) The open() function an alias to io. &hellip;">
+  
+  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://songzy12.github.io/posts/4/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+  <!-- Begin Jekyll SEO tag v2.5.3 -->
+<title>Zhengyang Song&rsquo;s Notepad - A Technique Blog of a Naive Programmer.</title>
+<meta property="og:title" content="Zhengyang Song&rsquo;s Notepad" />
+<meta name="description" content="A Technique Blog of a Naive Programmer." />
+<meta property='og:description' content="A Technique Blog of a Naive Programmer." />
+<link rel="canonical" href="http://songzy12.github.io/posts/4/" />
+<meta property='og:url' content='http://songzy12.github.io/posts/4/' />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Zhengyang Song&rsquo;s Notepad",
+      "url" : "http://songzy12.github.io"
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+</head>
+ 
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
+  
+    <h2>All those little bugs I have ever met.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="songzy12.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2018-04-16T14:19:01+08:00'><span class='date'><span class='date-month'>Apr</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2018</span></span> <span class='time'>2:19 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>io</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import io
+</span><span class='line'>io.open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True)</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>The <code>open()</code> function an alias to <code>io.open()</code>. It wraps the OS-level file descriptor in a file object.</li>
+<li><code>os.open()</code> is just a wrapper for the lower-level POSIX syscall. It returns the file descriptor (a number) that represents the opened file.</li>
+</ul>
+
+
+<h2>logging</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import logging  
+</span><span class='line'>
+</span><span class='line'>logging.basicConfig()
+</span><span class='line'>logger = logging.getLogger('test')  
+</span><span class='line'># NOTSET &lt; DEBUG &lt; INFO &lt; WARNING &lt; ERROR &lt; CRITICAL
+</span><span class='line'>logger.setLevel(logging.DEBUG)  
+</span><span class='line'>  
+</span><span class='line'>fh = logging.FileHandler('test.log')  
+</span><span class='line'>fh.setLevel(logging.DEBUG)  
+</span><span class='line'>    
+</span><span class='line'>ch = logging.StreamHandler()  
+</span><span class='line'>ch.setLevel(logging.DEBUG)  
+</span><span class='line'>    
+</span><span class='line'>formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')  
+</span><span class='line'>fh.setFormatter(formatter)  
+</span><span class='line'>ch.setFormatter(formatter)  
+</span><span class='line'>    
+</span><span class='line'>logger.addHandler(fh)  
+</span><span class='line'>logger.addHandler(ch)  
+</span><span class='line'>
+</span><span class='line'># logger.debug, logger.info, logger.warning, logger.error, logger.critical
+</span><span class='line'>logger.info('foorbar')  </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>optparse</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>parser = optparse.OptionParser(sys.argv[0]+' '+
+</span><span class='line'>'-r &lt;file_with URLs&gt;')
+</span><span class='line'>parser.add_option('-r', dest='URLs', type='string', 
+</span><span class='line'>        help='specify target file with URLs')
+</span><span class='line'>(options, args) = parser.parse_args()
+</span><span class='line'>URLs=options.URLs</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>os</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import os
+</span><span class='line'>script_dir = os.path.dirname(__file__) # &lt;-- absolute dir the script is in
+</span><span class='line'>rel_path = "2091/data.txt"
+</span><span class='line'>abs_file_path = os.path.join(script_dir, rel_path)</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>makedirs</h3>
+
+<p>Works like mkdir, except that any intermediate path segment (not just the rightmost) will be created if it does not exist.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if not os.path.exists(directory):
+</span><span class='line'>    os.makedirs(directory)</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>path</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; filename, file_extension = os.path.splitext('/path/to/somefile.ext')
+</span><span class='line'>&gt;&gt;&gt; filename
+</span><span class='line'>'/path/to/somefile'
+</span><span class='line'>&gt;&gt;&gt; file_extension
+</span><span class='line'>'.ext'</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>os.path.join(dir_name, file_name);</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import sys
+</span><span class='line'>import os
+</span><span class='line'>parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+</span><span class='line'>sys.path.insert(0, parent)</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>os.path.dirname(path)
+</span><span class='line'>    Return the directory name of pathname path. This is the first element of the pair returned by passing path to the function split().</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>os.access(path, mode);</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>os.F_OK: test the existence of path</li>
+<li>os.R_OK: readability</li>
+<li>os.W_OK: writability</li>
+<li>os.X_OK: executability</li>
+</ul>
+
+
+<h3>popen</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>output = os.popen('cat /proc/cpuinfo')
+</span><span class='line'>print output.read()</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>system</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>retvalue = os.system("ps -p 2993 -o time --no-headers")</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>pickle</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import pickle
+</span><span class='line'>
+</span><span class='line'>with open("active_user.pkl", "wb") as f:
+</span><span class='line'>    pickle.dump(active_user, f)
+</span><span class='line'>
+</span><span class='line'>with open("active_user") as f:
+</span><span class='line'>    active_user = pickle.load(f)
+</span><span class='line'>
+</span><span class='line'>with open("text1") as f1, open("text2") as f2:
+</span><span class='line'>  pass</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/5">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/3">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/06/30/latex/">LaTeX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/04/captcha/">Captcha</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Zhengyang Song -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,591 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Zhengyang Song's Notepad</title>
+  <meta name="author" content="Zhengyang Song">
+
+  
+  <meta name="description" content="1
+2
+1E#m2WXS9LdvTCNA
+tail -f /var/log/syslog Chrome 标签不同步也可能是因为 GFW 无法连接 Google 服务所致。 socls 1
+2
+3
+4
+5
+6
+7
+import urllib2
+import socks
+from &hellip;">
+  
+  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://songzy12.github.io/posts/10/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+  <!-- Begin Jekyll SEO tag v2.5.3 -->
+<title>Zhengyang Song&rsquo;s Notepad - A Technique Blog of a Naive Programmer.</title>
+<meta property="og:title" content="Zhengyang Song&rsquo;s Notepad" />
+<meta name="description" content="A Technique Blog of a Naive Programmer." />
+<meta property='og:description' content="A Technique Blog of a Naive Programmer." />
+<link rel="canonical" href="http://songzy12.github.io/posts/10/" />
+<meta property='og:url' content='http://songzy12.github.io/posts/10/' />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Zhengyang Song&rsquo;s Notepad",
+      "url" : "http://songzy12.github.io"
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+</head>
+ 
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
+  
+    <h2>All those little bugs I have ever met.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="songzy12.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2017/11/30/vultr/">Vultr</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2017-11-30T19:45:03+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2017</span></span> <span class='time'>7:45 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>1E#m2WXS9LdvTCNA
+</span><span class='line'>tail -f /var/log/syslog</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Chrome 标签不同步也可能是因为 GFW 无法连接 Google 服务所致。</p>
+
+<h2>socls</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import urllib2
+</span><span class='line'>import socks
+</span><span class='line'>from sockshandler import SocksiPyHandler
+</span><span class='line'>
+</span><span class='line'>opener = urllib2.build_opener(SocksiPyHandler(socks.SOCKS5, "127.0.0.1", 1080))
+</span><span class='line'>x = opener.open("http://www.youtube.com/")
+</span><span class='line'>print x.read()</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ss client</h2>
+
+<p><a href="http://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/">http://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get update
+</span><span class='line'>sudo apt-get install python-pip
+</span><span class='line'>sudo apt-get install python-setuptools m2crypto
+</span><span class='line'>pip install shadowsocks
+</span><span class='line'>sudo apt install shadowsocks</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sslocal -s 11.22.33.44 -p 50003 -k "123456" -l 1080 -t 600 -m aes-256-cfb</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi config.json</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>    "server":"11.22.33.44",
+</span><span class='line'>    "server_port":50003,
+</span><span class='line'>    "local_port":1080,
+</span><span class='line'>    "password":"123456",
+</span><span class='line'>    "timeout":600,
+</span><span class='line'>    "method":"aes-256-cfb"
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sslocal -c shadowsocks.json</span></code></pre></td></tr></table></div></figure>
+
+
+<p>SwitchyOmega: <a href="https://github.com/FelisCatus/SwitchyOmega/releases/">https://github.com/FelisCatus/SwitchyOmega/releases/</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>nohup sslocal -c shadowsocks.json &</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ss server</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
+</span><span class='line'>chmod +x shadowsocks.sh
+</span><span class='line'>./shadowsocks.sh 2&gt;&1 | tee shadowsocks.log</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /etc/shadowsocks.json</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>    "server":"45.32.251.88",
+</span><span class='line'>    "server_port":8388,
+</span><span class='line'>    "local_address": "127.0.0.1",
+</span><span class='line'>    "local_port":1080,
+</span><span class='line'>    "password":"shadowsocks",
+</span><span class='line'>    "timeout":300,
+</span><span class='line'>    "method":"aes-256-cfb",
+</span><span class='line'>    "fast_open": false
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://github.com/shadowsocks/shadowsocks-windows/releases</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssserver -c /etc/shadowsocks.json -d start
+</span><span class='line'>ssserver -c /etc/shadowsocks.json -d stop</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo less /var/log/shadowsocks.log</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>L2TP</h2>
+
+<p><a href="https://github.com/hwdsl2/setup-ipsec-vpn">here</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>wget https://git.io/vpnsetup -O vpnsetup.sh && sudo sh vpnsetup.sh</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NET_IFO=${VPN_IFACE:-'ens3'}
+</span><span class='line'>NET_IFS=$(VPN_IFACE:-'ens3')</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Server IP: 45.32.251.88
+</span><span class='line'>IPsec PSK: shadowsocks
+</span><span class='line'>Username: vpnuser
+</span><span class='line'>Password: shadowsocks</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>无法建立计算机与 VPN 服务器之间的网络连接，因为远程服务器未响应。</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md">here</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>PPTP</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>server name or address: 45.32.251.88
+</span><span class='line'>user name: vpnuser
+</span><span class='line'>password: shadowsocks</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="https://www.vultr.com/docs/setup-a-pptp-vpn-server-on-ubuntu">PPTP VPN</a></p>
+
+<h3>Installing PPTPD</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apt-get install pptpd</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Adding users</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /etc/ppp/chap-secrets 
+</span><span class='line'># vpn pptpd   shadowsocks *</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Edit the PPTPD settings</h3>
+
+<p>Change <code>localip</code> to your server IP.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ifconfig -a
+</span><span class='line'>vi /etc/pptpd.conf 
+</span><span class='line'>
+</span><span class='line'># localip 45.32.251.88
+</span><span class='line'># remoteip 192.168.0.234-238, 192.168.0.245</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Update sysctl.conf</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /etc/sysctl.conf 
+</span><span class='line'># net.ipv4.ip_forward = 1
+</span><span class='line'>sysctl -p</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /etc/ppp/pptpd-options 
+</span><span class='line'># ms-dns 8.8.8.8  
+</span><span class='line'># ms-dns 8.8.4.4</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Restarting PPTPD</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>service pptpd restart
+</span><span class='line'>netstat -alpn | grep :1723
+</span><span class='line'>
+</span><span class='line'>systemctl start pptpd.service
+</span><span class='line'>systemctl enable pptpd.service</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>iptables</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ifconfig -a
+</span><span class='line'>vi /etc/rc.local</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Accept all packets via ppp* interfaces (for example, ppp0)
+</span><span class='line'>iptables -A INPUT -i ppp+ -j ACCEPT
+</span><span class='line'>iptables -A OUTPUT -o ppp+ -j ACCEPT
+</span><span class='line'>
+</span><span class='line'># Accept incoming connections to port 1723 (PPTP)
+</span><span class='line'>iptables -A INPUT -p tcp --dport 1723 -j ACCEPT
+</span><span class='line'>
+</span><span class='line'># Accept GRE packets
+</span><span class='line'>iptables -A INPUT -p 47 -j ACCEPT
+</span><span class='line'>iptables -A OUTPUT -p 47 -j ACCEPT
+</span><span class='line'>
+</span><span class='line'># Enable IP forwarding
+</span><span class='line'>iptables -F FORWARD
+</span><span class='line'>iptables -A FORWARD -j ACCEPT
+</span><span class='line'>
+</span><span class='line'># Enable NAT for eth0 on ppp* interfaces
+</span><span class='line'>iptables -A POSTROUTING -t nat -o eth0 -j MASQUERADE
+</span><span class='line'>iptables -A POSTROUTING -t nat -o ppp+ -j MASQUERADE</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tail -f /var/log/syslog</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>hosts</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ping www.tumblr.com
+</span><span class='line'>
+</span><span class='line'>Pinging www.tumblr.com [66.6.42.30] with 32 bytes of data:
+</span><span class='line'>Reply from 117.103.177.121: Destination net unreachable.
+</span><span class='line'>
+</span><span class='line'>nslookup
+</span><span class='line'>
+</span><span class='line'>&gt; www.tumblr.com
+</span><span class='line'>Server:  google-public-dns-a.google.com
+</span><span class='line'>Address:  8.8.8.8
+</span><span class='line'>
+</span><span class='line'>Non-authoritative answer:
+</span><span class='line'>Name:    www.tumblr.com.dev.tsinghuax.org
+</span><span class='line'>Address:  101.6.244.5</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Just clear the <code>/etc/hosts</code> file.</p>
+
+<h3>MPPE required but peer negotiation failed</h3>
+
+<p>I had to enable Point-to-Point encryption(MPPE) in the Advanced Settings dialog.</p>
+
+<h3>tcpdump</h3>
+
+<p>ARP: Address Resolution Protocol.</p>
+
+<p>MAC address: Media Access Control address.</p>
+
+<p><code>lsb_release</code>: linux standard base.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tcpdump -ennqti eth0 \( arp or icmp \)</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>56:00:00:39:b7:93 &gt; fe:00:00:39:b7:93, IPv4, length 102: 45.32.251.88 &gt; 221.229.172.35: ICMP 45.32.251.88 tcp port 22 unreachable, length 68</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ICMP: Internet Control Message Protocol.</p>
+
+<p>Just correct the script for <code>l2tpd</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NET_IFO=${VPN_IFACE:-'ens3'}
+</span><span class='line'>NET_IFS=$(VPN_IFACE:-'ens3')</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/11">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/9">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/06/30/latex/">LaTeX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/04/captcha/">Captcha</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Zhengyang Song -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

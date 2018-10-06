@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Zhengyang Song's Notepad</title>
+  <meta name="author" content="Zhengyang Song">
+
+  
+  <meta name="description" content="流程 将 problem_parser/es/data 文件 cp 至 answer_selection/data.
+生成 Qtrain.txt 1
+http://10.9.10.174:9201/forum/verbose/_search?pretty=1&q=question_body: &hellip;">
+  
+  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://songzy12.github.io/posts/60/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+  <!-- Begin Jekyll SEO tag v2.5.3 -->
+<title>Zhengyang Song&rsquo;s Notepad - A Technique Blog of a Naive Programmer.</title>
+<meta property="og:title" content="Zhengyang Song&rsquo;s Notepad" />
+<meta name="description" content="A Technique Blog of a Naive Programmer." />
+<meta property='og:description' content="A Technique Blog of a Naive Programmer." />
+<link rel="canonical" href="http://songzy12.github.io/posts/60/" />
+<meta property='og:url' content='http://songzy12.github.io/posts/60/' />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Zhengyang Song&rsquo;s Notepad",
+      "url" : "http://songzy12.github.io"
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+</head>
+ 
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
+  
+    <h2>All those little bugs I have ever met.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="songzy12.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/11/21/word2vec/">Word2vec</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-11-21T13:50:37+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>1:50 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>流程</h2>
+
+<ul>
+<li>将 problem_parser/es/data 文件 cp 至 answer_selection/data.</li>
+<li>生成 Qtrain.txt</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://10.9.10.174:9201/forum/verbose/_search?pretty=1&q=question_body:数据结构</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Attentive Interactive Neural Networks</h2>
+
+<p>Modify <code>trainClues</code> in <code>train.py</code>.</p>
+
+<p>Add <code>setAttentions</code> in <code>class q</code> of <code>basicgrad.py</code></p>
+
+<p>Modify <code>getInputs</code> in <code>basicgrad.py</code>.</p>
+
+<p>Add some fields to the existing <code>es</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; db.contents.find({"anonymous":true}).count()
+</span><span class='line'>&gt; 769
+</span><span class='line'>&gt; db.contents.find().count()
+</span><span class='line'>597709</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<ul>
+<li>question_title, question_body, answer</li>
+<li>max_core - x[_score] &lt; threshold</li>
+</ul>
+
+
+<h2>Answer Sentence Selection</h2>
+
+<p><a href="https://github.com/brmson/Sentence-selection">here</a></p>
+
+<p>Add file <code>training_data_generator.py</code>.</p>
+
+<p>Modify <code>std_run.sh</code>.</p>
+
+<p>Modify <code>textArrays</code> from <code>vecfromtext.py</code>.</p>
+
+<p>Modify <code>prepForGrad</code> from <code>bow.py</code>.</p>
+
+<p>Modify <code>getGloveDict</code> from <code>vecfromtext.py</code>.</p>
+
+<p>Replace <code>glove.6B.50d.txt</code> for <code>wiki.zh.text.jieba.model</code>.</p>
+
+<p>Modify <code>GLOVELEN</code>, <code>GLOVEPATH2</code> from <code>const.py</code>.</p>
+
+<p>Modify <code>boxSentence</code> from <code>bow.py</code>.</p>
+
+<p>Modify <code>q.setCounts</code> from <code>basicgrad.py</code>.</p>
+
+<p>Debug: <code>saveMb</code> from <code>vecfromtext.py</code>. Since <code>M</code> is too big so it is in the next page.</p>
+
+<p>Add file <code>test.py</code>, based on <code>sett</code> and <code>firstTrue</code> from <code>basicgrad.py</code>.</p>
+
+<p>Add method <code>loadMb</code> from <code>vecfromtext.py</code>.</p>
+
+<p>Add method <code>saveTest</code> from <code>save.py</code>.</p>
+
+<p>Add file <code>test.py</code> for test.</p>
+
+<h2>Word2vec</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /usr/local/lib/python2.7/dist-packages/gensim/models/word2vec.py</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="http://www.52nlp.cn/%E4%B8%AD%E8%8B%B1%E6%96%87%E7%BB%B4%E5%9F%BA%E7%99%BE%E7%A7%91%E8%AF%AD%E6%96%99%E4%B8%8A%E7%9A%84word2vec%E5%AE%9E%E9%AA%8C">here</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>wget https://dumps.wikimedia.org/zhwiki/latest/zhwiki-latest-pages-articles.xml.bz2
+</span><span class='line'>python process_wiki.py zhwiki-latest-pages-articles.xml.bz2 wiki.zh.text
+</span><span class='line'>opencc -i wiki.zh.text -o wiki.zh.text.jian -c zht2zhs.ini</span></code></pre></td></tr></table></div></figure>
+
+
+<p>mecab: <a href="http://www.52nlp.cn/%E7%94%A8mecab%E6%89%93%E9%80%A0%E4%B8%80%E5%A5%97%E5%AE%9E%E7%94%A8%E7%9A%84%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E7%B3%BB%E7%BB%9F">here</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mecab -d  ./msr_mecab_test/final/ -O wakati wiki.zh.text.jian -o wiki.zh.text.jian.seg -b 10000000
+</span><span class='line'>iconv -c -t UTF-8 &lt; wiki.zh.text.jian.seg &gt; wiki.zh.text.jian.seg.utf-8
+</span><span class='line'>python train_word2vec_model.py wiki.zh.text.jian.seg.utf-8 wiki.zh.text.model wiki.zh.text.vector</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Word Movers Distance</h2>
+
+<p><a href="http://nbviewer.jupyter.org/github/vene/vene.github.io/blob/pelican/content/blog/word-movers-distance-in-python.ipynb">Here</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>wget https://s3.amazonaws.com/mordecai-geo/GoogleNews-vectors-negative300.bin.gz</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import gensim
+</span><span class='line'>model = gensim.models.Word2Vec.load("wiki.zh.text.model")
+</span><span class='line'>s1 = list(jieba.cut(jz1))
+</span><span class='line'>s2 = list(jieba.cut(jz2))
+</span><span class='line'>res = -model.wmdistance(s1, s2)</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="https://radimrehurek.com/gensim/models/word2vec.html">here</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/61">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/59">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/06/30/latex/">LaTeX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/04/captcha/">Captcha</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Zhengyang Song -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

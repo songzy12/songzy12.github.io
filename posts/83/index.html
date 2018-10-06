@@ -1,0 +1,556 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Zhengyang Song's Notepad</title>
+  <meta name="author" content="Zhengyang Song">
+
+  
+  <meta name="description" content="1
+2
+3
+4
+5
+6
+sudo -i
+rm /edx/var/mongo/mongodb/mongod.lock
+sudo -u mongodb mongod --dbpath /edx/var/mongo/mongodb --repair --repairpath /edx/var/mongo &hellip;">
+  
+  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://songzy12.github.io/posts/83/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+  <!-- Begin Jekyll SEO tag v2.5.3 -->
+<title>Zhengyang Song&rsquo;s Notepad - A Technique Blog of a Naive Programmer.</title>
+<meta property="og:title" content="Zhengyang Song&rsquo;s Notepad" />
+<meta name="description" content="A Technique Blog of a Naive Programmer." />
+<meta property='og:description' content="A Technique Blog of a Naive Programmer." />
+<link rel="canonical" href="http://songzy12.github.io/posts/83/" />
+<meta property='og:url' content='http://songzy12.github.io/posts/83/' />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Zhengyang Song&rsquo;s Notepad",
+      "url" : "http://songzy12.github.io"
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+</head>
+ 
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
+  
+    <h2>All those little bugs I have ever met.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="songzy12.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/09/01/event-listener/">Event Listener</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-09-01T09:44:43+08:00'><span class='date'><span class='date-month'>Sep</span> <span class='date-day'>1</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>9:44 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo -i
+</span><span class='line'>rm /edx/var/mongo/mongodb/mongod.lock
+</span><span class='line'>sudo -u mongodb mongod --dbpath /edx/var/mongo/mongodb --repair --repairpath /edx/var/mongo/mongodb
+</span><span class='line'>start mongod
+</span><span class='line'>exit
+</span><span class='line'>sudo su edxapp</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>paver devstack lms &gt; lms.log 2&gt;&1 &
+</span><span class='line'>paver devstack --fast studio &gt; studio.log 2&gt;&1 &</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>lms/urls.py
+</span><span class='line'>lms/djangoapps/courseware/mu.py
+</span><span class='line'>
+</span><span class='line'>lms/templates/courseware/courseware.html 
+</span><span class='line'>lms/static/js/mu.js
+</span><span class='line'>
+</span><span class='line'>lms/static/videos</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>mongo</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; db.problem.findOne()
+</span><span class='line'>{
+</span><span class='line'>        "_id" : ObjectId("574d30828524fe0e3644b402"),
+</span><span class='line'>        "text" : "某公司20XX年总负债100万元，其中有息负债30万元，全部为银行贷款，资产负债率40%，其银行贷款利率为8%，该行业平均收益水平为12%，A公司的企业所得税率为25%，请计算A公司的加权平均资本成本?|||multiplechoiceresponse|||{\"A\": {\"detail\": \"10.4%\"}, \"C\": {\"detail\": \"11%\", \"correct\": \"true\"}, \"B\": {\"detail\": \"10.33%\"}, \"D\": {\"detail\": \"9.6%\"}}",
+</span><span class='line'>        "id" : "0074debadb964eee8a0a18ee7ae44a25_2_1"
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; db.knowledge_point.findOne()
+</span><span class='line'>{
+</span><span class='line'>        "_id" : ObjectId("574d691d8524fe0e3644b495"),
+</span><span class='line'>        "begin" : 17,
+</span><span class='line'>        "end" : 545,
+</span><span class='line'>        "problem" : [
+</span><span class='line'>                "fdb7429f7aa844e38f04b7f49fbb9f8d_9_1"
+</span><span class='line'>        ],
+</span><span class='line'>        "id" : "cb796df9b2584f609a58a3fa8f858031_0"
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt; db.video_knowledge_point.findOne()
+</span><span class='line'>{
+</span><span class='line'>        "_id" : ObjectId("574ed22a8524fe0e3644b641"),
+</span><span class='line'>        "hot_point" : [
+</span><span class='line'>                "23,129",
+</span><span class='line'>                "192,198",
+</span><span class='line'>                "239,277"
+</span><span class='line'>        ],
+</span><span class='line'>        "id" : "86efb9a1b3b949839d9f540f1359f261",
+</span><span class='line'>        "knowledge_point" : [
+</span><span class='line'>                "86efb9a1b3b949839d9f540f1359f261_0",
+</span><span class='line'>                "86efb9a1b3b949839d9f540f1359f261_1",
+</span><span class='line'>                "86efb9a1b3b949839d9f540f1359f261_2",
+</span><span class='line'>                "86efb9a1b3b949839d9f540f1359f261_3"
+</span><span class='line'>        ]
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>problem_knowledgepoint</h2>
+
+<p><code>vi ~/edx-platform/lms/static/js/mu.js</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$.get("/mu/problem/knowledgepoint/"+current_problem_id+"/", function(data){
+</span><span class='line'>    console.log('knowledge point received')
+</span><span class='line'>    console.log(data);
+</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>vi ~/edx-platform/lms/djangoapps/courseware/mu.py</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def get_problem_knowledgepoint(request, problem_id):
+</span><span class='line'>    print problem_id
+</span><span class='line'>    problem_id = 'fdb7429f7aa844e38f04b7f49fbb9f8d_9_1'
+</span><span class='line'>
+</span><span class='line'>    client = MongoClient('10.9.10.15', 27017)
+</span><span class='line'>    db = client.mu
+</span><span class='line'>    collection = db.knowledge_point
+</span><span class='line'>    data = {}
+</span><span class='line'>    cur = collection.find({'problem':problem_id})
+</span><span class='line'>    for item in cur:
+</span><span class='line'>        data[problem_id] = data.get(problem_id, []) + item['problem']
+</span><span class='line'>    return HttpResponse(json.dumps(data), content_type = 'application/json')
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>vi ~/edx-platform/lms/urls.py</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>urlpatterns += (
+</span><span class='line'>  url(r'^mu/problem/knowledgepoint/([\w\d]+)/$', 'courseware.mu.get_problem_knowledgepoint', name = 'get_problem_knowledgepoint'),
+</span><span class='line'>)</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>onunload</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>~/edx-platform$ grep -r page_close .
+</span><span class='line'>./common/static/js/src/logger.js
+</span><span class='line'>vi ./common/static/js/src/logger.js</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>window.onunload = function() {
+</span><span class='line'>
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>timeupdate</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>~/edx-platform$ grep -r seek_video .
+</span><span class='line'>./lms/static/xmodule_js/src/video/09_events_plugin.js
+</span><span class='line'>vi ./lms/static/xmodule_js/src/video/09_events_plugin.js
+</span><span class='line'>vi ./lms/static/xmodule_js/src/video/03_video_player.js</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var lastUnixTimeStamp;
+</span><span class='line'>var lastCurrentVideoTime;
+</span><span class='line'>videoplayer.addEventListener('timeupdate',function(){
+</span><span class='line'>
+</span><span class='line'>    if( !lastUnixTimeStamp && !lastCurrentVideoTime ){  
+</span><span class='line'>         //not defined at first timeupdate event
+</span><span class='line'>         lastUnixTimeStamp = new Date().getTime();
+</span><span class='line'>         lastCurrentVideoTime = videoplayer.currentTime;
+</span><span class='line'>         return;
+</span><span class='line'>    }
+</span><span class='line'>    
+</span><span class='line'>    var videoTimeOffset = videoplayer.currentTime - lastCurrentVideoTime; 
+</span><span class='line'>    var realTimeOffset = new Date().getTime() - lastUnixTimeStamp;  
+</span><span class='line'>    lastUnixTimeStamp = new Date().getTime();
+</span><span class='line'>    lastCurrentVideoTime = videoplayer.currentTime;
+</span><span class='line'>  // logic
+</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>scrollx</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function scrollx(){
+</span><span class='line'>    $('iframe#mu').css({
+</span><span class='line'>        'border':'none',
+</span><span class='line'>        'position':'fixed',
+</span><span class='line'>        'height':'280px',
+</span><span class='line'>        'right':'0',
+</span><span class='line'>        'bottom':'0'
+</span><span class='line'>    });
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>type</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var data_id = $('div.vert').attr('data-id');
+</span><span class='line'>var type = data_id.split('+')[3].split('@')[1];</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>sequence-nav</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$('div.sequence-nav').click(function(){
+</span><span class='line'>    console.log('sequence-list clicked.')
+</span><span class='line'>})
+</span><span class='line'>
+</span><span class='line'>$('div.sequence-nav').mouseover($.debounce(500, function(){
+</span><span class='line'>        console.log('sequence-nav mouse over.');
+</span><span class='line'>}))</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>div.problem</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$('div.vert-mod').delegate('div.problem', 'click', function(event){
+</span><span class='line'>    console.log('problem clicked');
+</span><span class='line'>    var temp = $(event.target).parent();
+</span><span class='line'>    while (!temp.attr('id') || !temp.attr('id').startsWith('problem_')) {
+</span><span class='line'>        console.log(temp);
+</span><span class='line'>        temp = temp.parent();
+</span><span class='line'>    }
+</span><span class='line'>    current_problem_id = temp.attr('id').split('_')[1];
+</span><span class='line'>    console.log(current_problem_id);
+</span><span class='line'>    // current_problem_id = event.target;
+</span><span class='line'>})</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>div.course-index</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$('div.course-index').mouseover($.debounce(1000, function(){
+</span><span class='line'>    current_correct_rate = 1.0 * $('button.show').length / $('div.problem').length;
+</span><span class='line'>    console.log('course-index mouse over');
+</span><span class='line'>    console.log('current_corrent_rate: '+current_correct_rate);
+</span><span class='line'>}))</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>sendMessage</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function sendMessage(message){
+</span><span class='line'>    var iframeWin = $('iframe#mu')[0].contentWindow;
+</span><span class='line'>    domain = 'http://112.74.68.45/player/output/huiAS3html.html'
+</span><span class='line'>    iframeWin.postMessage(message, domain)
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>seq_content</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$('div#seq_content').bind('DOMNodeInserted', $.debounce(250, function(){
+</span><span class='line'>    console.log('seq_content content changed')
+</span><span class='line'>}))</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/84">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/82">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/06/30/latex/">LaTeX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/04/captcha/">Captcha</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Zhengyang Song -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

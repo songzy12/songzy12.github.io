@@ -1,0 +1,940 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ray Tracing - Zhengyang Song's Notepad</title>
+  <meta name="author" content="Zhengyang Song">
+
+  
+  <meta name="description" content="openCV Mat Matrix. 1
+Mat RT_image = Mat::zeros( w.vp.vres, w.vp.hres, CV_8UC3 ); CV8UC3: 8 bit unsigned, channel 3. circle 1
+2
+// void circle(Mat& &hellip;">
+  
+  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://songzy12.github.io/blog/2016/03/27/ray-tracing/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+  <!-- Begin Jekyll SEO tag v2.5.3 -->
+<title>Ray Tracing - Zhengyang Song&rsquo;s Notepad</title>
+<meta property="og:title" content="Ray Tracing" />
+<meta name="description" content="openCVMatMatrix.Mat RT_image = Mat::zeros( w.vp.vres, w.vp.hres, CV_8UC3 );CV8UC3: 8 bit unsigned, channel 3.circle// void circle(Mat&amp; img, Point center, int radius, const Scalar&amp; color, int thickness=1, int lineType=8, int shift=0)circle(RT_image, Point(30, 30), 1, Scalar(255,255,0));imshowchar RT_window[] = "Ray Trace";  imshow( RT_window, RT_image );  imwriteimwrite("../ray_trace.bmp", RT_image);waitKeywaitKey(0) will display the window infinitely until any keypress (it is suitable for image display).waitKey(25) will display a frame for 25 ms, after which display will be automatically closed. (If you put it in a loop to read videos, it will display the video frame-by-frame)WorldWorld w;w.build();w.camera_ptr-&gt;render_scene(w, RT_image);ViewPlane                   vp;RGBColor                    background_color;Tracer*                     tracer_ptr;Light*                      ambient_ptr;Camera*                     camera_ptr;     vector&lt;GeometricObject*&gt;    objects;        vector&lt;Light*&gt;              lights;void build();ViewPlaneint hres;   // horizontal image resolution int vres;   // vertical image resolutiondouble   s;  // pixel sizeint num_samples;    // number of samples per pixeldouble   gamma;   // gamma correction factordouble   inv_gamma;    // the inverse of the gamma correction factorbool show_out_of_gamut;  // display red if RGBColor out of gamutint max_depth;                  Sampler * sampler_ptr;CameraPoint3D  eye;   // eye pointPoint3D  lookat;    // lookat pointdouble   ra;   // roll angleVector3D  u, v, w;   // orthonormal basis vectorsVector3D  up;  // up vectordouble   exposure_time;Camera&amp; // assignment operatoroperator= (const Camera&amp; camera);Pinholedouble d; // view plane distancedouble  zoom;  // zoom factorvoid Pinhole::render_scene(const World&amp; w, cv::Mat &amp;img) {    RGBColor    L;    ViewPlane   vp(w.vp);    Ray         ray;    int         depth = 0;  // recursion depth    // sampler    Point2D     pp;     // sample point on a pixel    int n = (int)sqrt((double)vp.num_samples);    vp.s /= zoom;    ray.o = eye;    for (int r = 0; r &lt; vp.vres; r++)           // up        for (int c = 0; c &lt; vp.hres; c++) {     // across                               L = black;             for (int p = 0; p &lt; n; p++)         // up pixel                for (int q = 0; q &lt; n; q++) {   // across pixel                    pp.x = vp.s * (c - 0.5 * vp.hres + (q + 0.5) / n);                     pp.y = vp.s * (r - 0.5 * vp.vres + (p + 0.5) / n);                    ray.d = get_direction(pp);                    L += w.tracer_ptr-&gt;trace_ray(ray, depth);                    //L += w.tracer_ptr-&gt;trace_ray(ray);                }            L /= vp.num_samples;            L *= exposure_time;            w.display_pixel(r, c, L, img);        } }Tracervirtual RGBColor trace_ray(const Ray&amp; ray) const;virtual RGBColor trace_ray(const Ray ray, const int depth) const;World* world_ptr;Whittedif (depth &gt; world_ptr-&gt;vp.max_depth)        return(black);else {    ShadeRec sr(world_ptr-&gt;hit_objects(ray));    if (sr.hit_an_object) {        sr.depth = depth;        sr.ray = ray;           return (sr.material_ptr-&gt;shade(sr));    }      else         return (world_ptr-&gt;background_color);}   AreaLighting    return (sr.material_ptr-&gt;area_light_shade(sr));ShadeRecbool    hit_an_object;  // Did the ray hit an object?Material*   material_ptr;   // Pointer to the nearest object's materialPoint3D hit_point;  // World coordinates of intersectionPoint3D local_hit_point;    // World coordinates of hit point on generic object (used for texture transformations)Normal  normal; // Normal at hit pointRay    ray; // Required for specular highlights and area lightsint    depth;   // recursion depthWorld&amp;  w;  // World referenceVector3D    dir;    // for area lightsdouble  t;  // ray parameter, distance from hit pointMaterialPhongLambertian*     ambient_brdf;Lambertian*     diffuse_brdf;GlossySpecular* specular_brdf;RGBColorPhong::shade(ShadeRec&amp; sr) {    Vector3D    wo          = -sr.ray.d;    RGBColor    L           = ambient_brdf-&gt;rho(sr, wo) * sr.w.ambient_ptr-&gt;L(sr);    int         num_lights  = sr.w.lights.size();    for (int j = 0; j &lt; num_lights; j++) {        Vector3D wi = sr.w.lights[j]-&gt;get_direction(sr);            double ndotwi = sr.normal * wi;        if (ndotwi &gt; 0.0) {            bool in_shadow = false;            if(sr.w.lights[j]-&gt;casts_shadows){                Ray shadowRay(sr.hit_point, wi);                in_shadow = sr.w.lights[j]-&gt;in_shadow(shadowRay, sr);            }            if(!in_shadow)                L += (diffuse_brdf-&gt;f(sr, wo, wi) + specular_brdf-&gt;f(sr, wo, wi)) * sr.w.lights[j]-&gt;L(sr) * ndotwi;        }    }    return (L);}TransparentPerfectSpecular*    reflective_brdf;PerfectTransmitter* specular_btdf;  BRDFvoid set_sampler(Sampler* sPtr);virtual RGBColorf(const ShadeRec&amp; sr, const Vector3D&amp; wo, const Vector3D&amp; wi) const;virtual RGBColorsample_f(const ShadeRec&amp; sr, const Vector3D&amp; wo, Vector3D&amp; wi) const;virtual RGBColorsample_f(const ShadeRec&amp; sr, const Vector3D&amp; wo, Vector3D&amp; wi, double&amp; pdf) const;virtual RGBColorrho(const ShadeRec&amp; sr, const Vector3D&amp; wo) const;Sampler* sampler_ptr;Lambertiandouble      kd;// diffuse coefficientRGBColor    cd;// diffuse colorRGBColorLambertian::f(const ShadeRec&amp; sr, const Vector3D&amp; wo, const Vector3D&amp; wi) const {    return (kd * cd * invPI);}RGBColorLambertian::sample_f(const ShadeRec&amp; sr, const Vector3D&amp; wo, Vector3D&amp; wi, double&amp; pdf) const {    Vector3D w = sr.normal;    Vector3D v = Vector3D(0.0034, 1, 0.0071) ^ w;    v.normalize();    Vector3D u = v ^ w;    Point3D sp = sampler_ptr-&gt;sample_hemisphere();      wi = sp.x * u + sp.y * v + sp.z * w;    wi.normalize();         pdf = sr.normal * wi * invPI;    return (kd * cd * invPI); }// ---------------------------------------------------------------------- rhoRGBColorLambertian::rho(const ShadeRec&amp; sr, const Vector3D&amp; wo) const {    return (kd * cd);}BTDFPerfectTransmitterdouble  kt;         // transmission coefficientdouble  ior;        // index of refractionRGBColorPerfectTransmitter::sample_f(const ShadeRec&amp; sr, const Vector3D&amp; wo, Vector3D&amp; wt) const {    Normal n(sr.normal);    double cos_thetai = n * wo;    double eta = ior;       if (cos_thetai &lt; 0.0) {         // transmitted ray is outside             cos_thetai = -cos_thetai;        n = -n;                     // reverse direction of normal        eta = 1.0 / eta;            // invert ior     }    double temp = 1.0 - (1.0 - cos_thetai * cos_thetai) / (eta * eta);    double cos_theta2 = sqrt(temp);    wt = -wo / eta - (cos_theta2 - cos_thetai / eta) * n;       return (kt / (eta * eta) * white / fabs(sr.normal * wt));}Samplerint num_samples;    // the number of sample points in a setint num_sets;   // the number of sample setsvector&lt;Point2D&gt; samples;    // sample points on a unit squarevector&lt;int&gt; shuffled_indices;   // shuffled samples array indicesvector&lt;Point2D&gt; disk_samples;   // sample points on a unit diskvector&lt;Point3D&gt; hemisphere_samples; // sample points on a unit hemispherevector&lt;Point3D&gt; sphere_samples; // sample points on a unit sphereunsigned long   count;  // the current number of sample points usedint jump;   // random index jumpPoint3DSampler::sample_hemisphere(void) {    srand((unsigned)time(0));    if (count % num_samples == 0)                               // start of a new pixel        jump = (rand() % num_sets) * num_samples;    return (hemisphere_samples[jump + shuffled_indices[jump + count++ % num_samples]]);     }GeometricObjectmutable Material*   material_ptr; PlanePoint3D   a; // point through which plane passes Normal   n;    // normal to the planestatic const double kEpsilon;    // for shadows and secondary raysbool                                                             Plane::hit(const Ray&amp; ray, double&amp; tmin, ShadeRec&amp; sr) const {      double t = (a - ray.o) * n / (ray.d * n);     if (t &gt; kEpsilon) {        tmin = t;        sr.normal = n;        sr.local_hit_point = ray.o + t * ray.d;        return (true);      }    return(false);}bool Plane::shadow_hit(const Ray&amp; ray, double&amp; tmin) const {        double t = (a - ray.o) * n / (ray.d * n);     if (t &gt; kEpsilon) {        tmin = t;        return (true);      }    return(false);}Lightvirtual Vector3D get_direction(ShadeRec&amp; sr) = 0;virtual RGBColor L(ShadeRec&amp; sr) const ;void set_shadows(const bool b);virtual double G(ShadeRec &amp;sr) const ;virtual double pdf(ShadeRec&amp; sr) const ;virtual bool in_shadow(const Ray &amp;ray, const ShadeRec &amp;sr) const = 0;PointLightdouble      ls;RGBColor    color;Vector3D    location;RGBColorPointLight::L(ShadeRec&amp; sr) const{      return (ls * color);}bool PointLight::in_shadow(const Ray&amp; ray, const ShadeRec&amp; sr) const{    double t;    int num_objects = sr.w.objects.size();    double d = (location - ray.o).length();    for(int j=0; j &lt; num_objects; j++)        if(sr.w.objects[j]-&gt;shadow_hit(ray, t) &amp;&amp; t&lt;d)            return true;    return false;}TextureChecker3Ddouble size;RGBColor color1;RGBColor color2;RGBColor Checker3D::get_color(const ShadeRec&amp; sr) const{    double eps = -0.000187453738;   // small random number    double x = sr.local_hit_point.x + eps;    double y = sr.local_hit_point.y + eps;    double z = sr.local_hit_point.z + eps;          if (((int)floor(x / size) + (int)floor(y / size) + (int)floor(z / size)) % 2 == 0)          return (color1);    else            return (color2);}" />
+<meta property='og:description' content="openCVMatMatrix.Mat RT_image = Mat::zeros( w.vp.vres, w.vp.hres, CV_8UC3 );CV8UC3: 8 bit unsigned, channel 3.circle// void circle(Mat&amp; img, Point center, int radius, const Scalar&amp; color, int thickness=1, int lineType=8, int shift=0)circle(RT_image, Point(30, 30), 1, Scalar(255,255,0));imshowchar RT_window[] = "Ray Trace";  imshow( RT_window, RT_image );  imwriteimwrite("../ray_trace.bmp", RT_image);waitKeywaitKey(0) will display the window infinitely until any keypress (it is suitable for image display).waitKey(25) will display a frame for 25 ms, after which display will be automatically closed. (If you put it in a loop to read videos, it will display the video frame-by-frame)WorldWorld w;w.build();w.camera_ptr-&gt;render_scene(w, RT_image);ViewPlane                   vp;RGBColor                    background_color;Tracer*                     tracer_ptr;Light*                      ambient_ptr;Camera*                     camera_ptr;     vector&lt;GeometricObject*&gt;    objects;        vector&lt;Light*&gt;              lights;void build();ViewPlaneint hres;   // horizontal image resolution int vres;   // vertical image resolutiondouble   s;  // pixel sizeint num_samples;    // number of samples per pixeldouble   gamma;   // gamma correction factordouble   inv_gamma;    // the inverse of the gamma correction factorbool show_out_of_gamut;  // display red if RGBColor out of gamutint max_depth;                  Sampler * sampler_ptr;CameraPoint3D  eye;   // eye pointPoint3D  lookat;    // lookat pointdouble   ra;   // roll angleVector3D  u, v, w;   // orthonormal basis vectorsVector3D  up;  // up vectordouble   exposure_time;Camera&amp; // assignment operatoroperator= (const Camera&amp; camera);Pinholedouble d; // view plane distancedouble  zoom;  // zoom factorvoid Pinhole::render_scene(const World&amp; w, cv::Mat &amp;img) {    RGBColor    L;    ViewPlane   vp(w.vp);    Ray         ray;    int         depth = 0;  // recursion depth    // sampler    Point2D     pp;     // sample point on a pixel    int n = (int)sqrt((double)vp.num_samples);    vp.s /= zoom;    ray.o = eye;    for (int r = 0; r &lt; vp.vres; r++)           // up        for (int c = 0; c &lt; vp.hres; c++) {     // across                               L = black;             for (int p = 0; p &lt; n; p++)         // up pixel                for (int q = 0; q &lt; n; q++) {   // across pixel                    pp.x = vp.s * (c - 0.5 * vp.hres + (q + 0.5) / n);                     pp.y = vp.s * (r - 0.5 * vp.vres + (p + 0.5) / n);                    ray.d = get_direction(pp);                    L += w.tracer_ptr-&gt;trace_ray(ray, depth);                    //L += w.tracer_ptr-&gt;trace_ray(ray);                }            L /= vp.num_samples;            L *= exposure_time;            w.display_pixel(r, c, L, img);        } }Tracervirtual RGBColor trace_ray(const Ray&amp; ray) const;virtual RGBColor trace_ray(const Ray ray, const int depth) const;World* world_ptr;Whittedif (depth &gt; world_ptr-&gt;vp.max_depth)        return(black);else {    ShadeRec sr(world_ptr-&gt;hit_objects(ray));    if (sr.hit_an_object) {        sr.depth = depth;        sr.ray = ray;           return (sr.material_ptr-&gt;shade(sr));    }      else         return (world_ptr-&gt;background_color);}   AreaLighting    return (sr.material_ptr-&gt;area_light_shade(sr));ShadeRecbool    hit_an_object;  // Did the ray hit an object?Material*   material_ptr;   // Pointer to the nearest object's materialPoint3D hit_point;  // World coordinates of intersectionPoint3D local_hit_point;    // World coordinates of hit point on generic object (used for texture transformations)Normal  normal; // Normal at hit pointRay    ray; // Required for specular highlights and area lightsint    depth;   // recursion depthWorld&amp;  w;  // World referenceVector3D    dir;    // for area lightsdouble  t;  // ray parameter, distance from hit pointMaterialPhongLambertian*     ambient_brdf;Lambertian*     diffuse_brdf;GlossySpecular* specular_brdf;RGBColorPhong::shade(ShadeRec&amp; sr) {    Vector3D    wo          = -sr.ray.d;    RGBColor    L           = ambient_brdf-&gt;rho(sr, wo) * sr.w.ambient_ptr-&gt;L(sr);    int         num_lights  = sr.w.lights.size();    for (int j = 0; j &lt; num_lights; j++) {        Vector3D wi = sr.w.lights[j]-&gt;get_direction(sr);            double ndotwi = sr.normal * wi;        if (ndotwi &gt; 0.0) {            bool in_shadow = false;            if(sr.w.lights[j]-&gt;casts_shadows){                Ray shadowRay(sr.hit_point, wi);                in_shadow = sr.w.lights[j]-&gt;in_shadow(shadowRay, sr);            }            if(!in_shadow)                L += (diffuse_brdf-&gt;f(sr, wo, wi) + specular_brdf-&gt;f(sr, wo, wi)) * sr.w.lights[j]-&gt;L(sr) * ndotwi;        }    }    return (L);}TransparentPerfectSpecular*    reflective_brdf;PerfectTransmitter* specular_btdf;  BRDFvoid set_sampler(Sampler* sPtr);virtual RGBColorf(const ShadeRec&amp; sr, const Vector3D&amp; wo, const Vector3D&amp; wi) const;virtual RGBColorsample_f(const ShadeRec&amp; sr, const Vector3D&amp; wo, Vector3D&amp; wi) const;virtual RGBColorsample_f(const ShadeRec&amp; sr, const Vector3D&amp; wo, Vector3D&amp; wi, double&amp; pdf) const;virtual RGBColorrho(const ShadeRec&amp; sr, const Vector3D&amp; wo) const;Sampler* sampler_ptr;Lambertiandouble      kd;// diffuse coefficientRGBColor    cd;// diffuse colorRGBColorLambertian::f(const ShadeRec&amp; sr, const Vector3D&amp; wo, const Vector3D&amp; wi) const {    return (kd * cd * invPI);}RGBColorLambertian::sample_f(const ShadeRec&amp; sr, const Vector3D&amp; wo, Vector3D&amp; wi, double&amp; pdf) const {    Vector3D w = sr.normal;    Vector3D v = Vector3D(0.0034, 1, 0.0071) ^ w;    v.normalize();    Vector3D u = v ^ w;    Point3D sp = sampler_ptr-&gt;sample_hemisphere();      wi = sp.x * u + sp.y * v + sp.z * w;    wi.normalize();         pdf = sr.normal * wi * invPI;    return (kd * cd * invPI); }// ---------------------------------------------------------------------- rhoRGBColorLambertian::rho(const ShadeRec&amp; sr, const Vector3D&amp; wo) const {    return (kd * cd);}BTDFPerfectTransmitterdouble  kt;         // transmission coefficientdouble  ior;        // index of refractionRGBColorPerfectTransmitter::sample_f(const ShadeRec&amp; sr, const Vector3D&amp; wo, Vector3D&amp; wt) const {    Normal n(sr.normal);    double cos_thetai = n * wo;    double eta = ior;       if (cos_thetai &lt; 0.0) {         // transmitted ray is outside             cos_thetai = -cos_thetai;        n = -n;                     // reverse direction of normal        eta = 1.0 / eta;            // invert ior     }    double temp = 1.0 - (1.0 - cos_thetai * cos_thetai) / (eta * eta);    double cos_theta2 = sqrt(temp);    wt = -wo / eta - (cos_theta2 - cos_thetai / eta) * n;       return (kt / (eta * eta) * white / fabs(sr.normal * wt));}Samplerint num_samples;    // the number of sample points in a setint num_sets;   // the number of sample setsvector&lt;Point2D&gt; samples;    // sample points on a unit squarevector&lt;int&gt; shuffled_indices;   // shuffled samples array indicesvector&lt;Point2D&gt; disk_samples;   // sample points on a unit diskvector&lt;Point3D&gt; hemisphere_samples; // sample points on a unit hemispherevector&lt;Point3D&gt; sphere_samples; // sample points on a unit sphereunsigned long   count;  // the current number of sample points usedint jump;   // random index jumpPoint3DSampler::sample_hemisphere(void) {    srand((unsigned)time(0));    if (count % num_samples == 0)                               // start of a new pixel        jump = (rand() % num_sets) * num_samples;    return (hemisphere_samples[jump + shuffled_indices[jump + count++ % num_samples]]);     }GeometricObjectmutable Material*   material_ptr; PlanePoint3D   a; // point through which plane passes Normal   n;    // normal to the planestatic const double kEpsilon;    // for shadows and secondary raysbool                                                             Plane::hit(const Ray&amp; ray, double&amp; tmin, ShadeRec&amp; sr) const {      double t = (a - ray.o) * n / (ray.d * n);     if (t &gt; kEpsilon) {        tmin = t;        sr.normal = n;        sr.local_hit_point = ray.o + t * ray.d;        return (true);      }    return(false);}bool Plane::shadow_hit(const Ray&amp; ray, double&amp; tmin) const {        double t = (a - ray.o) * n / (ray.d * n);     if (t &gt; kEpsilon) {        tmin = t;        return (true);      }    return(false);}Lightvirtual Vector3D get_direction(ShadeRec&amp; sr) = 0;virtual RGBColor L(ShadeRec&amp; sr) const ;void set_shadows(const bool b);virtual double G(ShadeRec &amp;sr) const ;virtual double pdf(ShadeRec&amp; sr) const ;virtual bool in_shadow(const Ray &amp;ray, const ShadeRec &amp;sr) const = 0;PointLightdouble      ls;RGBColor    color;Vector3D    location;RGBColorPointLight::L(ShadeRec&amp; sr) const{      return (ls * color);}bool PointLight::in_shadow(const Ray&amp; ray, const ShadeRec&amp; sr) const{    double t;    int num_objects = sr.w.objects.size();    double d = (location - ray.o).length();    for(int j=0; j &lt; num_objects; j++)        if(sr.w.objects[j]-&gt;shadow_hit(ray, t) &amp;&amp; t&lt;d)            return true;    return false;}TextureChecker3Ddouble size;RGBColor color1;RGBColor color2;RGBColor Checker3D::get_color(const ShadeRec&amp; sr) const{    double eps = -0.000187453738;   // small random number    double x = sr.local_hit_point.x + eps;    double y = sr.local_hit_point.y + eps;    double z = sr.local_hit_point.z + eps;          if (((int)floor(x / size) + (int)floor(y / size) + (int)floor(z / size)) % 2 == 0)          return (color1);    else            return (color2);}" />
+<link rel="canonical" href="http://songzy12.github.io/blog/2016/03/27/ray-tracing/" />
+<meta property='og:url' content='http://songzy12.github.io/blog/2016/03/27/ray-tracing/' />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Zhengyang Song&rsquo;s Notepad",
+      "url" : "http://songzy12.github.io"
+    }
+  </script>
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-03-27T16:50:46+08:00" />
+<link rel="next" href="http://songzy12.github.io/blog/2016/03/30/html/" title="HTML" />
+<link rel="prev" href="http://songzy12.github.io/blog/2016/03/25/mesh-simplification/" title="Mesh Simplification" />
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ray Tracing",
+      "image": null,
+      "datePublished": "2016-03-27T16:50:46+08:00",
+      "description": "openCVMatMatrix.Mat RT_image = Mat::zeros( w.vp.vres, w.vp.hres, CV_8UC3 );CV8UC3: 8 bit unsigned, channel 3.circle// void circle(Mat&amp; img, Point center, int radius, const Scalar&amp; color, int thickness=1, int lineType=8, int shift=0)circle(RT_image, Point(30, 30), 1, Scalar(255,255,0));imshowchar RT_window[] = \"Ray Trace\";  imshow( RT_window, RT_image );  imwriteimwrite(\"../ray_trace.bmp\", RT_image);waitKeywaitKey(0) will display the window infinitely until any keypress (it is suitable for image display).waitKey(25) will display a frame for 25 ms, after which display will be automatically closed. (If you put it in a loop to read videos, it will display the video frame-by-frame)WorldWorld w;w.build();w.camera_ptr-&gt;render_scene(w, RT_image);ViewPlane                   vp;RGBColor                    background_color;Tracer*                     tracer_ptr;Light*                      ambient_ptr;Camera*                     camera_ptr;     vector&lt;GeometricObject*&gt;    objects;        vector&lt;Light*&gt;              lights;void build();ViewPlaneint hres;   // horizontal image resolution int vres;   // vertical image resolutiondouble   s;  // pixel sizeint num_samples;    // number of samples per pixeldouble   gamma;   // gamma correction factordouble   inv_gamma;    // the inverse of the gamma correction factorbool show_out_of_gamut;  // display red if RGBColor out of gamutint max_depth;                  Sampler * sampler_ptr;CameraPoint3D  eye;   // eye pointPoint3D  lookat;    // lookat pointdouble   ra;   // roll angleVector3D  u, v, w;   // orthonormal basis vectorsVector3D  up;  // up vectordouble   exposure_time;Camera&amp; // assignment operatoroperator= (const Camera&amp; camera);Pinholedouble d; // view plane distancedouble  zoom;  // zoom factorvoid Pinhole::render_scene(const World&amp; w, cv::Mat &amp;img) {    RGBColor    L;    ViewPlane   vp(w.vp);    Ray         ray;    int         depth = 0;  // recursion depth    // sampler    Point2D     pp;     // sample point on a pixel    int n = (int)sqrt((double)vp.num_samples);    vp.s /= zoom;    ray.o = eye;    for (int r = 0; r &lt; vp.vres; r++)           // up        for (int c = 0; c &lt; vp.hres; c++) {     // across                               L = black;             for (int p = 0; p &lt; n; p++)         // up pixel                for (int q = 0; q &lt; n; q++) {   // across pixel                    pp.x = vp.s * (c - 0.5 * vp.hres + (q + 0.5) / n);                     pp.y = vp.s * (r - 0.5 * vp.vres + (p + 0.5) / n);                    ray.d = get_direction(pp);                    L += w.tracer_ptr-&gt;trace_ray(ray, depth);                    //L += w.tracer_ptr-&gt;trace_ray(ray);                }            L /= vp.num_samples;            L *= exposure_time;            w.display_pixel(r, c, L, img);        } }Tracervirtual RGBColor trace_ray(const Ray&amp; ray) const;virtual RGBColor trace_ray(const Ray ray, const int depth) const;World* world_ptr;Whittedif (depth &gt; world_ptr-&gt;vp.max_depth)        return(black);else {    ShadeRec sr(world_ptr-&gt;hit_objects(ray));    if (sr.hit_an_object) {        sr.depth = depth;        sr.ray = ray;           return (sr.material_ptr-&gt;shade(sr));    }      else         return (world_ptr-&gt;background_color);}   AreaLighting    return (sr.material_ptr-&gt;area_light_shade(sr));ShadeRecbool    hit_an_object;  // Did the ray hit an object?Material*   material_ptr;   // Pointer to the nearest object's materialPoint3D hit_point;  // World coordinates of intersectionPoint3D local_hit_point;    // World coordinates of hit point on generic object (used for texture transformations)Normal  normal; // Normal at hit pointRay    ray; // Required for specular highlights and area lightsint    depth;   // recursion depthWorld&amp;  w;  // World referenceVector3D    dir;    // for area lightsdouble  t;  // ray parameter, distance from hit pointMaterialPhongLambertian*     ambient_brdf;Lambertian*     diffuse_brdf;GlossySpecular* specular_brdf;RGBColorPhong::shade(ShadeRec&amp; sr) {    Vector3D    wo          = -sr.ray.d;    RGBColor    L           = ambient_brdf-&gt;rho(sr, wo) * sr.w.ambient_ptr-&gt;L(sr);    int         num_lights  = sr.w.lights.size();    for (int j = 0; j &lt; num_lights; j++) {        Vector3D wi = sr.w.lights[j]-&gt;get_direction(sr);            double ndotwi = sr.normal * wi;        if (ndotwi &gt; 0.0) {            bool in_shadow = false;            if(sr.w.lights[j]-&gt;casts_shadows){                Ray shadowRay(sr.hit_point, wi);                in_shadow = sr.w.lights[j]-&gt;in_shadow(shadowRay, sr);            }            if(!in_shadow)                L += (diffuse_brdf-&gt;f(sr, wo, wi) + specular_brdf-&gt;f(sr, wo, wi)) * sr.w.lights[j]-&gt;L(sr) * ndotwi;        }    }    return (L);}TransparentPerfectSpecular*    reflective_brdf;PerfectTransmitter* specular_btdf;  BRDFvoid set_sampler(Sampler* sPtr);virtual RGBColorf(const ShadeRec&amp; sr, const Vector3D&amp; wo, const Vector3D&amp; wi) const;virtual RGBColorsample_f(const ShadeRec&amp; sr, const Vector3D&amp; wo, Vector3D&amp; wi) const;virtual RGBColorsample_f(const ShadeRec&amp; sr, const Vector3D&amp; wo, Vector3D&amp; wi, double&amp; pdf) const;virtual RGBColorrho(const ShadeRec&amp; sr, const Vector3D&amp; wo) const;Sampler* sampler_ptr;Lambertiandouble      kd;// diffuse coefficientRGBColor    cd;// diffuse colorRGBColorLambertian::f(const ShadeRec&amp; sr, const Vector3D&amp; wo, const Vector3D&amp; wi) const {    return (kd * cd * invPI);}RGBColorLambertian::sample_f(const ShadeRec&amp; sr, const Vector3D&amp; wo, Vector3D&amp; wi, double&amp; pdf) const {    Vector3D w = sr.normal;    Vector3D v = Vector3D(0.0034, 1, 0.0071) ^ w;    v.normalize();    Vector3D u = v ^ w;    Point3D sp = sampler_ptr-&gt;sample_hemisphere();      wi = sp.x * u + sp.y * v + sp.z * w;    wi.normalize();         pdf = sr.normal * wi * invPI;    return (kd * cd * invPI); }// ---------------------------------------------------------------------- rhoRGBColorLambertian::rho(const ShadeRec&amp; sr, const Vector3D&amp; wo) const {    return (kd * cd);}BTDFPerfectTransmitterdouble  kt;         // transmission coefficientdouble  ior;        // index of refractionRGBColorPerfectTransmitter::sample_f(const ShadeRec&amp; sr, const Vector3D&amp; wo, Vector3D&amp; wt) const {    Normal n(sr.normal);    double cos_thetai = n * wo;    double eta = ior;       if (cos_thetai &lt; 0.0) {         // transmitted ray is outside             cos_thetai = -cos_thetai;        n = -n;                     // reverse direction of normal        eta = 1.0 / eta;            // invert ior     }    double temp = 1.0 - (1.0 - cos_thetai * cos_thetai) / (eta * eta);    double cos_theta2 = sqrt(temp);    wt = -wo / eta - (cos_theta2 - cos_thetai / eta) * n;       return (kt / (eta * eta) * white / fabs(sr.normal * wt));}Samplerint num_samples;    // the number of sample points in a setint num_sets;   // the number of sample setsvector&lt;Point2D&gt; samples;    // sample points on a unit squarevector&lt;int&gt; shuffled_indices;   // shuffled samples array indicesvector&lt;Point2D&gt; disk_samples;   // sample points on a unit diskvector&lt;Point3D&gt; hemisphere_samples; // sample points on a unit hemispherevector&lt;Point3D&gt; sphere_samples; // sample points on a unit sphereunsigned long   count;  // the current number of sample points usedint jump;   // random index jumpPoint3DSampler::sample_hemisphere(void) {    srand((unsigned)time(0));    if (count % num_samples == 0)                               // start of a new pixel        jump = (rand() % num_sets) * num_samples;    return (hemisphere_samples[jump + shuffled_indices[jump + count++ % num_samples]]);     }GeometricObjectmutable Material*   material_ptr; PlanePoint3D   a; // point through which plane passes Normal   n;    // normal to the planestatic const double kEpsilon;    // for shadows and secondary raysbool                                                             Plane::hit(const Ray&amp; ray, double&amp; tmin, ShadeRec&amp; sr) const {      double t = (a - ray.o) * n / (ray.d * n);     if (t &gt; kEpsilon) {        tmin = t;        sr.normal = n;        sr.local_hit_point = ray.o + t * ray.d;        return (true);      }    return(false);}bool Plane::shadow_hit(const Ray&amp; ray, double&amp; tmin) const {        double t = (a - ray.o) * n / (ray.d * n);     if (t &gt; kEpsilon) {        tmin = t;        return (true);      }    return(false);}Lightvirtual Vector3D get_direction(ShadeRec&amp; sr) = 0;virtual RGBColor L(ShadeRec&amp; sr) const ;void set_shadows(const bool b);virtual double G(ShadeRec &amp;sr) const ;virtual double pdf(ShadeRec&amp; sr) const ;virtual bool in_shadow(const Ray &amp;ray, const ShadeRec &amp;sr) const = 0;PointLightdouble      ls;RGBColor    color;Vector3D    location;RGBColorPointLight::L(ShadeRec&amp; sr) const{      return (ls * color);}bool PointLight::in_shadow(const Ray&amp; ray, const ShadeRec&amp; sr) const{    double t;    int num_objects = sr.w.objects.size();    double d = (location - ray.o).length();    for(int j=0; j &lt; num_objects; j++)        if(sr.w.objects[j]-&gt;shadow_hit(ray, t) &amp;&amp; t&lt;d)            return true;    return false;}TextureChecker3Ddouble size;RGBColor color1;RGBColor color2;RGBColor Checker3D::get_color(const ShadeRec&amp; sr) const{    double eps = -0.000187453738;   // small random number    double x = sr.local_hit_point.x + eps;    double y = sr.local_hit_point.y + eps;    double z = sr.local_hit_point.z + eps;          if (((int)floor(x / size) + (int)floor(y / size) + (int)floor(z / size)) % 2 == 0)          return (color1);    else            return (color2);}"
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+</head>
+ 
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
+  
+    <h2>All those little bugs I have ever met.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="songzy12.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ray Tracing</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-03-27T16:50:46+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>4:50 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>openCV</h2>
+
+<h3>Mat</h3>
+
+<p>Matrix.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Mat RT_image = Mat::zeros( w.vp.vres, w.vp.hres, CV_8UC3 );</span></code></pre></td></tr></table></div></figure>
+
+
+<p>CV8UC3: 8 bit unsigned, channel 3.</p>
+
+<h3>circle</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// void circle(Mat& img, Point center, int radius, const Scalar& color, int thickness=1, int lineType=8, int shift=0)
+</span><span class='line'>circle(RT_image, Point(30, 30), 1, Scalar(255,255,0));</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>imshow</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>char RT_window[] = "Ray Trace";  
+</span><span class='line'>imshow( RT_window, RT_image );  </span></code></pre></td></tr></table></div></figure>
+
+
+<h3>imwrite</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>imwrite("../ray_trace.bmp", RT_image);</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>waitKey</h3>
+
+<ul>
+<li>waitKey(0) will display the window infinitely until any keypress (it is suitable for image display).</li>
+<li>waitKey(25) will display a frame for 25 ms, after which display will be automatically closed. (If you put it in a loop to read videos, it will display the video frame-by-frame)</li>
+</ul>
+
+
+<hr />
+
+<h2>World</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>World w;
+</span><span class='line'>w.build();
+</span><span class='line'>w.camera_ptr-&gt;render_scene(w, RT_image);</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ViewPlane                    vp;
+</span><span class='line'>RGBColor                  background_color;
+</span><span class='line'>Tracer*                       tracer_ptr;
+</span><span class='line'>Light*                    ambient_ptr;
+</span><span class='line'>Camera*                       camera_ptr;     
+</span><span class='line'>vector&lt;GeometricObject*&gt;    objects;        
+</span><span class='line'>vector&lt;Light*&gt;              lights;
+</span><span class='line'>
+</span><span class='line'>void build();</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>ViewPlane</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>int hres;   // horizontal image resolution 
+</span><span class='line'>int vres;   // vertical image resolution
+</span><span class='line'>double   s;  // pixel size
+</span><span class='line'>int num_samples;    // number of samples per pixel
+</span><span class='line'>
+</span><span class='line'>double   gamma;   // gamma correction factor
+</span><span class='line'>double   inv_gamma;    // the inverse of the gamma correction factor
+</span><span class='line'>bool show_out_of_gamut;  // display red if RGBColor out of gamut
+</span><span class='line'>int max_depth;                    
+</span><span class='line'>Sampler * sampler_ptr;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Camera</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Point3D  eye;   // eye point
+</span><span class='line'>Point3D  lookat;    // lookat point
+</span><span class='line'>double   ra;   // roll angle
+</span><span class='line'>Vector3D  u, v, w;   // orthonormal basis vectors
+</span><span class='line'>Vector3D  up;  // up vector
+</span><span class='line'>double   exposure_time;
+</span><span class='line'>
+</span><span class='line'>Camera& // assignment operator
+</span><span class='line'>operator= (const Camera& camera);</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Pinhole</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>double d; // view plane distance
+</span><span class='line'>double  zoom;  // zoom factor</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>void Pinhole::render_scene(const World& w, cv::Mat &img) {
+</span><span class='line'>  RGBColor    L;
+</span><span class='line'>  ViewPlane   vp(w.vp);
+</span><span class='line'>  Ray         ray;
+</span><span class='line'>  int         depth = 0;  // recursion depth
+</span><span class='line'>  // sampler
+</span><span class='line'>  Point2D     pp;     // sample point on a pixel
+</span><span class='line'>  int n = (int)sqrt((double)vp.num_samples);
+</span><span class='line'>
+</span><span class='line'>  vp.s /= zoom;
+</span><span class='line'>  ray.o = eye;
+</span><span class='line'>      
+</span><span class='line'>  for (int r = 0; r &lt; vp.vres; r++)            // up
+</span><span class='line'>      for (int c = 0; c &lt; vp.hres; c++) {      // across                   
+</span><span class='line'>          L = black; 
+</span><span class='line'>          
+</span><span class='line'>          for (int p = 0; p &lt; n; p++)          // up pixel
+</span><span class='line'>              for (int q = 0; q &lt; n; q++) {    // across pixel
+</span><span class='line'>                  pp.x = vp.s * (c - 0.5 * vp.hres + (q + 0.5) / n); 
+</span><span class='line'>                  pp.y = vp.s * (r - 0.5 * vp.vres + (p + 0.5) / n);
+</span><span class='line'>                  ray.d = get_direction(pp);
+</span><span class='line'>                  L += w.tracer_ptr-&gt;trace_ray(ray, depth);
+</span><span class='line'>                  //L += w.tracer_ptr-&gt;trace_ray(ray);
+</span><span class='line'>              }
+</span><span class='line'>          L /= vp.num_samples;
+</span><span class='line'>          L *= exposure_time;
+</span><span class='line'>          w.display_pixel(r, c, L, img);
+</span><span class='line'>      } 
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Tracer</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>virtual RGBColor trace_ray(const Ray& ray) const;
+</span><span class='line'>virtual RGBColor trace_ray(const Ray ray, const int depth) const;
+</span><span class='line'>
+</span><span class='line'>World* world_ptr;</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Whitted</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if (depth &gt; world_ptr-&gt;vp.max_depth)
+</span><span class='line'>      return(black);
+</span><span class='line'>else {
+</span><span class='line'>  ShadeRec sr(world_ptr-&gt;hit_objects(ray));
+</span><span class='line'>  
+</span><span class='line'>  if (sr.hit_an_object) {
+</span><span class='line'>      sr.depth = depth;
+</span><span class='line'>      sr.ray = ray;   
+</span><span class='line'>      return (sr.material_ptr-&gt;shade(sr));
+</span><span class='line'>  }  
+</span><span class='line'>    else 
+</span><span class='line'>      return (world_ptr-&gt;background_color);
+</span><span class='line'>} </span></code></pre></td></tr></table></div></figure>
+
+
+<h3>AreaLighting</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>return (sr.material_ptr-&gt;area_light_shade(sr));</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ShadeRec</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bool    hit_an_object;  // Did the ray hit an object?
+</span><span class='line'>Material*   material_ptr;   // Pointer to the nearest object's material
+</span><span class='line'>Point3D hit_point;  // World coordinates of intersection
+</span><span class='line'>Point3D local_hit_point;    // World coordinates of hit point on generic object (used for texture transformations)
+</span><span class='line'>Normal  normal; // Normal at hit point
+</span><span class='line'>Ray    ray; // Required for specular highlights and area lights
+</span><span class='line'>int    depth;   // recursion depth
+</span><span class='line'>World&  w;  // World reference
+</span><span class='line'>Vector3D    dir;    // for area lights
+</span><span class='line'>double  t;  // ray parameter, distance from hit point</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Material</h2>
+
+<h3>Phong</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Lambertian*      ambient_brdf;
+</span><span class='line'>Lambertian*       diffuse_brdf;
+</span><span class='line'>GlossySpecular* specular_brdf;</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>RGBColor
+</span><span class='line'>Phong::shade(ShadeRec& sr) {
+</span><span class='line'>  Vector3D    wo          = -sr.ray.d;
+</span><span class='line'>  RGBColor    L           = ambient_brdf-&gt;rho(sr, wo) * sr.w.ambient_ptr-&gt;L(sr);
+</span><span class='line'>  int         num_lights  = sr.w.lights.size();
+</span><span class='line'>  
+</span><span class='line'>  for (int j = 0; j &lt; num_lights; j++) {
+</span><span class='line'>      Vector3D wi = sr.w.lights[j]-&gt;get_direction(sr);    
+</span><span class='line'>      double ndotwi = sr.normal * wi;
+</span><span class='line'>  
+</span><span class='line'>      if (ndotwi &gt; 0.0) {
+</span><span class='line'>          bool in_shadow = false;
+</span><span class='line'>          if(sr.w.lights[j]-&gt;casts_shadows){
+</span><span class='line'>              Ray shadowRay(sr.hit_point, wi);
+</span><span class='line'>              in_shadow = sr.w.lights[j]-&gt;in_shadow(shadowRay, sr);
+</span><span class='line'>          }
+</span><span class='line'>
+</span><span class='line'>          if(!in_shadow)
+</span><span class='line'>              L += (diffuse_brdf-&gt;f(sr, wo, wi) + specular_brdf-&gt;f(sr, wo, wi)) * sr.w.lights[j]-&gt;L(sr) * ndotwi;
+</span><span class='line'>      }
+</span><span class='line'>  }
+</span><span class='line'>  
+</span><span class='line'>  return (L);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Transparent</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PerfectSpecular*     reflective_brdf;
+</span><span class='line'>PerfectTransmitter* specular_btdf;    </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>BRDF</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>void set_sampler(Sampler* sPtr);
+</span><span class='line'>
+</span><span class='line'>virtual RGBColor
+</span><span class='line'>f(const ShadeRec& sr, const Vector3D& wo, const Vector3D& wi) const;
+</span><span class='line'>
+</span><span class='line'>virtual RGBColor
+</span><span class='line'>sample_f(const ShadeRec& sr, const Vector3D& wo, Vector3D& wi) const;
+</span><span class='line'>
+</span><span class='line'>virtual RGBColor
+</span><span class='line'>sample_f(const ShadeRec& sr, const Vector3D& wo, Vector3D& wi, double& pdf) const;
+</span><span class='line'>
+</span><span class='line'>virtual RGBColor
+</span><span class='line'>rho(const ShadeRec& sr, const Vector3D& wo) const;
+</span><span class='line'>
+</span><span class='line'>Sampler* sampler_ptr;</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Lambertian</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>double       kd;// diffuse coefficient
+</span><span class='line'>RGBColor  cd;// diffuse color
+</span><span class='line'>
+</span><span class='line'>RGBColor
+</span><span class='line'>Lambertian::f(const ShadeRec& sr, const Vector3D& wo, const Vector3D& wi) const {
+</span><span class='line'>  return (kd * cd * invPI);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>RGBColor
+</span><span class='line'>Lambertian::sample_f(const ShadeRec& sr, const Vector3D& wo, Vector3D& wi, double& pdf) const {
+</span><span class='line'>  
+</span><span class='line'>  Vector3D w = sr.normal;
+</span><span class='line'>  Vector3D v = Vector3D(0.0034, 1, 0.0071) ^ w;
+</span><span class='line'>  v.normalize();
+</span><span class='line'>  Vector3D u = v ^ w;
+</span><span class='line'>  
+</span><span class='line'>  Point3D sp = sampler_ptr-&gt;sample_hemisphere();  
+</span><span class='line'>  wi = sp.x * u + sp.y * v + sp.z * w;
+</span><span class='line'>  wi.normalize();     
+</span><span class='line'>  
+</span><span class='line'>  pdf = sr.normal * wi * invPI;
+</span><span class='line'>  
+</span><span class='line'>  return (kd * cd * invPI); 
+</span><span class='line'>}
+</span><span class='line'>// ---------------------------------------------------------------------- rho
+</span><span class='line'>
+</span><span class='line'>RGBColor
+</span><span class='line'>Lambertian::rho(const ShadeRec& sr, const Vector3D& wo) const {
+</span><span class='line'>  return (kd * cd);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>BTDF</h2>
+
+<h3>PerfectTransmitter</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>double   kt;         // transmission coefficient
+</span><span class='line'>double    ior;        // index of refraction
+</span><span class='line'>
+</span><span class='line'>RGBColor
+</span><span class='line'>PerfectTransmitter::sample_f(const ShadeRec& sr, const Vector3D& wo, Vector3D& wt) const {
+</span><span class='line'>  
+</span><span class='line'>  Normal n(sr.normal);
+</span><span class='line'>  double cos_thetai = n * wo;
+</span><span class='line'>  double eta = ior;   
+</span><span class='line'>      
+</span><span class='line'>  if (cos_thetai &lt; 0.0) {          // transmitted ray is outside     
+</span><span class='line'>      cos_thetai = -cos_thetai;
+</span><span class='line'>      n = -n;                     // reverse direction of normal
+</span><span class='line'>      eta = 1.0 / eta;            // invert ior 
+</span><span class='line'>  }
+</span><span class='line'>
+</span><span class='line'>  double temp = 1.0 - (1.0 - cos_thetai * cos_thetai) / (eta * eta);
+</span><span class='line'>  double cos_theta2 = sqrt(temp);
+</span><span class='line'>  wt = -wo / eta - (cos_theta2 - cos_thetai / eta) * n;   
+</span><span class='line'>  
+</span><span class='line'>  return (kt / (eta * eta) * white / fabs(sr.normal * wt));
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Sampler</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>int num_samples;    // the number of sample points in a set
+</span><span class='line'>int num_sets;   // the number of sample sets
+</span><span class='line'>vector&lt;Point2D&gt; samples;    // sample points on a unit square
+</span><span class='line'>vector&lt;int&gt; shuffled_indices;   // shuffled samples array indices
+</span><span class='line'>vector&lt;Point2D&gt; disk_samples;   // sample points on a unit disk
+</span><span class='line'>vector&lt;Point3D&gt; hemisphere_samples; // sample points on a unit hemisphere
+</span><span class='line'>vector&lt;Point3D&gt; sphere_samples; // sample points on a unit sphere
+</span><span class='line'>unsigned long   count;  // the current number of sample points used
+</span><span class='line'>int jump;   // random index jump
+</span><span class='line'>
+</span><span class='line'>Point3D
+</span><span class='line'>Sampler::sample_hemisphere(void) {
+</span><span class='line'>  srand((unsigned)time(0));
+</span><span class='line'>  if (count % num_samples == 0)                               // start of a new pixel
+</span><span class='line'>      jump = (rand() % num_sets) * num_samples;
+</span><span class='line'>      
+</span><span class='line'>  return (hemisphere_samples[jump + shuffled_indices[jump + count++ % num_samples]]);     
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>GeometricObject</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mutable Material*   material_ptr; </span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Plane</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Point3D   a; // point through which plane passes 
+</span><span class='line'>Normal   n;    // normal to the plane
+</span><span class='line'>      
+</span><span class='line'>static const double kEpsilon;    // for shadows and secondary rays
+</span><span class='line'>
+</span><span class='line'>bool                                                           
+</span><span class='line'>Plane::hit(const Ray& ray, double& tmin, ShadeRec& sr) const {    
+</span><span class='line'>  double t = (a - ray.o) * n / (ray.d * n); 
+</span><span class='line'>                                                      
+</span><span class='line'>  if (t &gt; kEpsilon) {
+</span><span class='line'>      tmin = t;
+</span><span class='line'>      sr.normal = n;
+</span><span class='line'>      sr.local_hit_point = ray.o + t * ray.d;
+</span><span class='line'>      
+</span><span class='line'>      return (true);  
+</span><span class='line'>  }
+</span><span class='line'>
+</span><span class='line'>  return(false);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>bool Plane::shadow_hit(const Ray& ray, double& tmin) const {  
+</span><span class='line'>  double t = (a - ray.o) * n / (ray.d * n); 
+</span><span class='line'>                                                      
+</span><span class='line'>  if (t &gt; kEpsilon) {
+</span><span class='line'>      tmin = t;
+</span><span class='line'>      return (true);  
+</span><span class='line'>  }
+</span><span class='line'>  return(false);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Light</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>virtual Vector3D get_direction(ShadeRec& sr) = 0;
+</span><span class='line'>
+</span><span class='line'>virtual RGBColor L(ShadeRec& sr) const ;
+</span><span class='line'>
+</span><span class='line'>void set_shadows(const bool b);
+</span><span class='line'>
+</span><span class='line'>virtual double G(ShadeRec &sr) const ;
+</span><span class='line'>
+</span><span class='line'>virtual double pdf(ShadeRec& sr) const ;
+</span><span class='line'>
+</span><span class='line'>virtual bool in_shadow(const Ray &ray, const ShadeRec &sr) const = 0;</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>PointLight</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>double       ls;
+</span><span class='line'>RGBColor  color;
+</span><span class='line'>Vector3D  location;
+</span><span class='line'>
+</span><span class='line'>RGBColor
+</span><span class='line'>PointLight::L(ShadeRec& sr) const{    
+</span><span class='line'>  return (ls * color);
+</span><span class='line'>}
+</span><span class='line'>
+</span><span class='line'>bool PointLight::in_shadow(const Ray& ray, const ShadeRec& sr) const{
+</span><span class='line'>  double t;
+</span><span class='line'>  int num_objects = sr.w.objects.size();
+</span><span class='line'>  double d = (location - ray.o).length();
+</span><span class='line'>
+</span><span class='line'>  for(int j=0; j &lt; num_objects; j++)
+</span><span class='line'>      if(sr.w.objects[j]-&gt;shadow_hit(ray, t) && t&lt;d)
+</span><span class='line'>          return true;
+</span><span class='line'>  return false;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Texture</h2>
+
+<h3>Checker3D</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>double size;
+</span><span class='line'>RGBColor color1;
+</span><span class='line'>RGBColor color2;
+</span><span class='line'>
+</span><span class='line'>RGBColor Checker3D::get_color(const ShadeRec& sr) const{
+</span><span class='line'>  double eps = -0.000187453738;   // small random number
+</span><span class='line'>  double x = sr.local_hit_point.x + eps;
+</span><span class='line'>  double y = sr.local_hit_point.y + eps;
+</span><span class='line'>  double z = sr.local_hit_point.z + eps;      
+</span><span class='line'>  
+</span><span class='line'>  if (((int)floor(x / size) + (int)floor(y / size) + (int)floor(z / size)) % 2 == 0)  
+</span><span class='line'>      return (color1);
+</span><span class='line'>  else    
+</span><span class='line'>      return (color2);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Zhengyang Song</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-03-27T16:50:46+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>4:50 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/c-plus-plus/'>c++</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/03/25/mesh-simplification/" title="Previous Post: Mesh Simplification">&laquo; Mesh Simplification</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/03/30/html/" title="Next Post: HTML">HTML &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/06/30/latex/">LaTeX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/04/captcha/">Captcha</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Zhengyang Song -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

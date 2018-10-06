@@ -1,0 +1,350 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Zhengyang Song's Notepad</title>
+  <meta name="author" content="Zhengyang Song">
+
+  
+  <meta name="description" content="tf.compat.as_str as_str converts an object to a str. tf.Graph 1
+2
+3
+4
+5
+graph = tf.Graph() with graph.as_default(): nce_biases = tf.Variable(tf.zeros &hellip;">
+  
+  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://songzy12.github.io/posts/73/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+  <!-- Begin Jekyll SEO tag v2.5.3 -->
+<title>Zhengyang Song&rsquo;s Notepad - A Technique Blog of a Naive Programmer.</title>
+<meta property="og:title" content="Zhengyang Song&rsquo;s Notepad" />
+<meta name="description" content="A Technique Blog of a Naive Programmer." />
+<meta property='og:description' content="A Technique Blog of a Naive Programmer." />
+<link rel="canonical" href="http://songzy12.github.io/posts/73/" />
+<meta property='og:url' content='http://songzy12.github.io/posts/73/' />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Zhengyang Song&rsquo;s Notepad",
+      "url" : "http://songzy12.github.io"
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+</head>
+ 
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
+  
+    <h2>All those little bugs I have ever met.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="songzy12.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/11/05/tensorflow/">TensorFlow</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-11-05T20:42:05+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>8:42 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>tf.compat.as_str</h2>
+
+<p><code>as_str</code> converts an object to a <code>str</code>.</p>
+
+<h2>tf.Graph</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>graph = tf.Graph()
+</span><span class='line'>
+</span><span class='line'>with graph.as_default():
+</span><span class='line'>    nce_biases = tf.Variable(tf.zeros([vocab_size]))
+</span><span class='line'>    init = tf.initialize_all_variables()</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>tf.truncated_normal</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>The generated values follow a normal distribution with specified mean and standard deviation, except that values whose magnitude is more than 2 standard deviations from the mean are dropped and re-picked.</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>tf.reduce_mean</h2>
+
+<p>When you are computing <code>tfMean = tf.reduce_mean(c)</code>, tensorflow doesn&rsquo;t compute it then. It only computes that in a Session. But numpy computes that instantly, when you write <code>np.mean()</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>reduce_mean(input_tensor, reduction_indices=None, keep_dims=False, name=None)
+</span><span class='line'>input_tensor: The tensor to reduce. Should have numeric type.
+</span><span class='line'>reduction_indices: The dimensions to reduce. If `None` (the defaut),
+</span><span class='line'>    reduces all dimensions.
+</span><span class='line'>
+</span><span class='line'># 'x' is [[1., 1. ]]
+</span><span class='line'>#         [2., 2.]]
+</span><span class='line'>tf.reduce_mean(x) ==&gt; 1.5
+</span><span class='line'>tf.reduce_mean(x, 0) ==&gt; [1.5, 1.5] 
+</span><span class='line'>tf.reduce_mean(x, 1) ==&gt; [1.,  2.]</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>tf.initialize_all_variables</h2>
+
+<p>The difference is that with <code>tf.Variable</code> you have to provide an initial value when you declare it. With <code>tf.placeholder</code> you don&rsquo;t have to provide an initial value and you can specify it at run time with the <code>feed_dict</code> argument inside <code>Session.run</code></p>
+
+<p>In short, you use <code>tf.Variable</code> for trainable variables such as weights (W) and biases (B) for your model.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>weights = tf.Variable(
+</span><span class='line'>    tf.truncated_normal([IMAGE_PIXELS, hidden1_units],
+</span><span class='line'>                    stddev=1.0 / math.sqrt(float(IMAGE_PIXELS))), name='weights')
+</span><span class='line'>
+</span><span class='line'>biases = tf.Variable(tf.zeros([hidden1_units]), name='biases')</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>tf. placeholder</code> is used to feed actual training examples.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>images_placeholder = tf.placeholder(tf.float32, shape=(batch_size, IMAGE_PIXELS))
+</span><span class='line'>labels_placeholder = tf.placeholder(tf.int32, shape=(batch_size))</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This is how you feed the training examples during the training:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>for step in xrange(FLAGS.max_steps):
+</span><span class='line'>    feed_dict = {
+</span><span class='line'>       images_placeholder: images_feed,
+</span><span class='line'>       labels_placeholder: labels_feed,
+</span><span class='line'>     }
+</span><span class='line'>    _, loss_value = sess.run([train_op, loss], feed_dict=feed_dict)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Your <code>tf.variables</code> will be trained (modified) as the result of this training.</p>
+
+<h2>tf.nn.embedding_lookup</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Look up embeddings for inputs
+</span><span class='line'>embed = tf.nn.embedding_lookup(embeddings, train_inputs)</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>tf.nn.nce_loss</h2>
+
+<p>Computes and returns the noise-contrastive estimation training loss.</p>
+
+<p>Note: By default this uses a log-uniform (Zipfian) distribution for sampling,
+so your labels must be sorted in order of decreasing frequency to achieve
+good results.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>loss = tf.reduce_mean(
+</span><span class='line'>    tf.nn.nce_loss(nce_weights, nce_biases, embed, train_labels,
+</span><span class='line'>                   num_sampled, vocab_size))</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>tf.train</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Construct the SGD optimizer using a learning rate of 1.0.
+</span><span class='line'>optimizer = tf.train.GradientDescentOptimizer(1.0).minimize(loss)</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>tf.Session</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>with tf.Session(graph=graph) as sess:
+</span><span class='line'>    init.run()
+</span><span class='line'>    print('Initialized')</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>eval</h2>
+
+<p><code>t.eval()</code> is a shortcut for calling <code>tf.get_default_session().run(t)</code></p>
+
+<p>You can use <code>sess.run()</code> to fetch the values of many tensors in the same step</p>
+
+<p>Note that each call to <code>eval</code> and <code>run</code> will execute the whole graph from scratch.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>normed_embeddings.eval()</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/74">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/72">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/06/30/latex/">LaTeX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/04/captcha/">Captcha</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Zhengyang Song -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

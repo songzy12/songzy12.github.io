@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Css | Zhengyang Song's Notepad]]></title>
+  <link href="http://songzy12.github.io/blog/categories/css/atom.xml" rel="self"/>
+  <link href="http://songzy12.github.io/"/>
+  <updated>2018-10-06T13:59:48+08:00</updated>
+  <id>http://songzy12.github.io/</id>
+  <author>
+    <name><![CDATA[Zhengyang Song]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Bootstrap]]></title>
+    <link href="http://songzy12.github.io/blog/2016/11/16/bootstrap/"/>
+    <updated>2016-11-16T20:44:24+08:00</updated>
+    <id>http://songzy12.github.io/blog/2016/11/16/bootstrap</id>
+    <content type="html"><![CDATA[<h2>start</h2>
+
+<p><a href="http://www.w3schools.com/bootstrap/default.asp">w3schools</a>.</p>
+
+<p>```</p>
+
+<!-- Latest compiled and minified CSS -->
+
+
+<p><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></p>
+
+<!-- jQuery library -->
+
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+
+
+
+<!-- Latest compiled JavaScript -->
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+<pre><code></code></pre>
+
+<p>&lt;!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body></p>
+
+<div class="container">
+  <h1>My First Bootstrap Page</h1>
+  <p>This is some text.</p>
+</div>
+
+
+<p></body>
+</html>
+```</p>
+
+<hr />
+
+<h2>fonts</h2>
+
+<ul>
+<li>eot: Embedded Open Type</li>
+<li>svg: Scalable Vector Graphics</li>
+<li>woff: Web Open Font Format</li>
+<li>ttf: TrueType</li>
+<li>otf: OpenType</li>
+</ul>
+
+
+<h2>scss</h2>
+
+<ul>
+<li>haml: HTML Abstract Markup Language.</li>
+<li>sass: Syntactically Awesome Stylesheets.</li>
+<li>scss: Sass 3, Sassy CSS.</li>
+</ul>
+
+
+<pre><code>gem install sass
+sass main.scss main.css
+</code></pre>
+
+<h2>css</h2>
+
+<p>css: Cascading Style Sheets</p>
+
+<p>In CSS, selectors <a href="http://www.w3schools.com/cssref/css_selectors.asp">here</a> are patterns used to select the element(s) you want to style.</p>
+
+<ul>
+<li>.class: .intro(Selects all elements with class=&ldquo;intro&rdquo;)</li>
+<li>#id: #firstname(Selects the element with id=&ldquo;firstname&rdquo;)</li>
+<li>element,element: div, p(Selects all <code>&lt;div&gt;</code> elements and all <code>&lt;p&gt;</code> elements)</li>
+<li>element element: div p(Selects all <code>&lt;p&gt;</code> elements inside <code>&lt;div&gt;</code> elements)</li>
+<li>::after: p::after(Insert something after the content of each <code>&lt;p&gt;</code> element)</li>
+</ul>
+
+
+<p>WebKit <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/WebKit_Extensions">here</a> supports a number of extensions to CSS that are prefixed with <code>-webkit</code>.</p>
+
+<p>The <code>@media</code> rule is used to define different style rules for different media types/devices.</p>
+
+<pre><code> &lt;style&gt;
+body {
+    background-color: lightblue;
+}
+
+@media screen and (min-width: 480px) {
+    body {
+        background-color: lightgreen;
+    }
+}
+ &lt;/style&gt;
+</code></pre>
+
+<hr />
+
+<h2>background-image</h2>
+
+<p><code>style/main.css</code></p>
+
+<pre><code>.tile.tile-2 .tile-inner {background-image: url(../images/tile-2.png)}
+@media screen and (max-width: 520px) {.tile.tile-2 .tile-inner {background-size: 58px 58px}}
+</code></pre>
+
+<p><code>js/html_actuator.js</code></p>
+
+<pre><code>//inner.textContent = tile.value;
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

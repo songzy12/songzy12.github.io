@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Android | Zhengyang Song's Notepad]]></title>
+  <link href="http://songzy12.github.io/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://songzy12.github.io/"/>
+  <updated>2018-10-06T13:59:48+08:00</updated>
+  <id>http://songzy12.github.io/</id>
+  <author>
+    <name><![CDATA[Zhengyang Song]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Android Studio]]></title>
+    <link href="http://songzy12.github.io/blog/2016/12/11/android-studio/"/>
+    <updated>2016-12-11T21:32:57+08:00</updated>
+    <id>http://songzy12.github.io/blog/2016/12/11/android-studio</id>
+    <content type="html"><![CDATA[<pre><code>Error:failed to find Build Tools revision 19.0.1
+&lt;a href="install.build.tools"&gt;Install Build Tools 19.0.1 and sync project&lt;/a&gt;
+</code></pre>
+
+<p><code>Tools-&gt;Android-&gt;SDK Manager-&gt;SDK Tools</code></p>
+
+<hr />
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android NDK]]></title>
+    <link href="http://songzy12.github.io/blog/2016/08/22/android-ndk/"/>
+    <updated>2016-08-22T20:07:03+08:00</updated>
+    <id>http://songzy12.github.io/blog/2016/08/22/android-ndk</id>
+    <content type="html"><![CDATA[<h2>Android.mk</h2>
+
+<p><a href="http://android.mk/">Here</a>.</p>
+
+<pre><code>LOCAL_PATH := $(call my-dir)
+
+include $(CLEAR_VARS)
+
+LOCAL_MODULE    := hello-jni
+LOCAL_SRC_FILES := hello-jni.c
+
+include $(BUILD_SHARED_LIBRARY)
+</code></pre>
+
+<p>The <code>BUILD_SHARED_LIBRARY</code> is a variable provided by the build system that points to a GNU Makefile script that is in charge of collecting all the information you defined in <code>LOCAL_XXX</code> variables since the latest <code>include $(CLEAR_VARS)</code> and determine what to build, and how to do it exactly. There is also <code>BUILD_STATIC_LIBRARY</code> to generate a static library.</p>
+
+<h2>AndroidManifest</h2>
+
+<h3>installLocation</h3>
+
+<ul>
+<li><code>internalOnly</code></li>
+<li><code>auto</code></li>
+<li><code>preferExternal</code></li>
+</ul>
+
+
+<h3>label/description</h3>
+
+<ul>
+<li>The actual app label is set as the one in <code>&lt;application android:label&gt;</code>. If not set, then package name.</li>
+<li>The activity title is set as the one in <code>&lt;activity android：label&gt;</code>. If not set, then app label.</li>
+<li>The shortcut label is set as the one in main activity <code>&lt;activity android：label&gt;</code>. If not set, then app label.</li>
+</ul>
+
+
+<p>But what if I want the shortcut label to be the same as app label, but different from the main activity title?</p>
+
+<p>It seems that the <code>&lt;intent-filter android:label&gt;</code> is of no use in Android 4.4.</p>
+
+<h3>name</h3>
+
+<ul>
+<li>If the name starts with a dot, always prefix it with the package.</li>
+<li>If the name has a dot anywhere else, do not prefix it.</li>
+<li>If the name has no dot at all, also prefix it with the package.</li>
+</ul>
+
+
+<h3>lauchMode</h3>
+
+<ul>
+<li>standard</li>
+<li>singleTop</li>
+<li>singleTask</li>
+<li>singleInstance</li>
+</ul>
+
+
+<h3>screenOrientation</h3>
+
+<ul>
+<li>landscape</li>
+<li>portrait</li>
+</ul>
+
+
+<h3>intent-filter</h3>
+
+<p>Declares the intent action accepted, in the <code>name</code> attribute.</p>
+
+<pre><code>android.intent.action.MAIN
+</code></pre>
+
+<p>Declares the intent category accepted, in the <code>name</code> attribute.</p>
+
+<pre><code>android.intent.category.LAUNCHER
+</code></pre>
+
+<h3>uses-permission</h3>
+
+<ul>
+<li><code>&lt;uses-permission&gt;</code>: Requests a permission that the application must be granted in order for it to operate correctly.</li>
+<li><code>&lt;permission&gt;</code>: Declares a security permission that can be used to limit access to specific components or features of this or other applications.</li>
+</ul>
+
+
+<pre><code>&lt;uses-permission android:name="android.permission.INTERNET"/&gt;
+</code></pre>
+
+<h3>uses-sdk</h3>
+
+<p><code>Android 4.4W</code> extends support for <code>Wearables</code>.</p>
+
+<pre><code>Unable to resolve target 'android-19'
+</code></pre>
+
+<ul>
+<li><code>project.properties</code>: <code>target=android-20</code>.</li>
+<li><code>AndroidManifest.xml</code>: <code>android:targetSdkVersion="20"</code></li>
+</ul>
+
+
+<p>Then <code>clean</code> and <code>run</code>.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android Widget]]></title>
+    <link href="http://songzy12.github.io/blog/2016/08/21/android-widget/"/>
+    <updated>2016-08-21T20:07:03+08:00</updated>
+    <id>http://songzy12.github.io/blog/2016/08/21/android-widget</id>
+    <content type="html"><![CDATA[<h2>EditText</h2>
+
+<pre><code>editText.addTextChangedListener(new TextWatcher() {
+@Override
+public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+    // Only handle addition of characters
+    if(count &gt; before) {
+        // Write the last entered character to the pipe
+        String s = charSequence.subSequence(before, count).toString();
+    }
+}
+</code></pre>
+
+<h2>ImageView</h2>
+
+<p>scaleType:</p>
+
+<ul>
+<li>center</li>
+<li>fitCenter</li>
+</ul>
+
+
+<h3>setLayoutParams</h3>
+
+<pre><code>img.setLayoutParams(new LinearLayout.LayoutParams(newWidth,newHeight))
+</code></pre>
+
+<h3>setImageBitmap</h3>
+
+<pre><code>Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.picture);
+img.setImageBitmap(bitmap);
+
+public void setImageBitmap(Bitmap bm) {
+// if this is used frequently, mayhandle bitmaps explicitly
+// to reduce the intermediate drawable object
+    setImageDrawable(newBitmapDrawable(mContext.getResources(), bm));
+}
+</code></pre>
+
+<h3>getParent</h3>
+
+<pre><code>ImageView img = mImages[i][j];
+LinearLayout pa = (LinearLayout) img.getParent();
+pa.removeView(img);
+</code></pre>
+
+<h2>LinearLayout</h2>
+
+<pre><code>LinearLayout linralayout = new LinearLayout(context);
+linralayout.setOrientation(LinearLayout.VERTICAL);
+linralayout.setPadding(0, 0, 0, 0); // setPadding(left, top, right, bottom);
+this.addView(linralayout);
+</code></pre>
+
+<ul>
+<li>content: The content of the box, where text and images appear</li>
+<li>padding: Clears an area around the content. The padding is transparent</li>
+<li>border: A border that goes around the padding and content</li>
+<li>margin: Clears an area outside the border. The margin is transparent</li>
+</ul>
+
+
+<h2>RadioGroup</h2>
+
+<pre><code>RadioGroup style=(RadioGroup) findViewById(R.id.style);
+RadioButton lingxin=(RadioButton) findViewById(R.id.lingxin);
+style.setOnCheckedChangeListener( new OnCheckedChangeListener(){
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        if(lingxin.getId() == checkedId){
+        //
+        }
+    }
+}
+</code></pre>
+
+<h2>ScrollView</h2>
+
+<pre><code>&lt;android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/swipeContainer"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"&gt;
+
+    &lt;WebView android:id="@+id/webView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" /&gt;
+&lt;/android.support.v4.widget.SwipeRefreshLayout&gt;
+</code></pre>
+
+<pre><code>int offset = textView.getMeasuredHeight()
+        - scrollView.getMeasuredHeight();
+if (offset &lt; 0) {
+    offset = 0;
+}
+scrollView.scrollTo(0, offset);
+</code></pre>
+
+<h2>SwipeRefreshLayout</h2>
+
+<pre><code>public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefreshListener {
+    private SwipeRefreshLayout swipeContainer;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+        swipeContainer.setOnRefreshListener(this);  
+    }   
+
+    @Override
+    public void onRefresh() {
+        Log.i(TAG, "refreshing");
+        swipeContainer.setRefreshing(false);
+    }     
+}   
+</code></pre>
+
+<h2>ViewHolder</h2>
+
+<pre><code>static class ViewHolder {
+    public TextView info;
+}
+@Override
+public View getView(int position, View convertView, ViewGroup parent) {
+    ViewHolder holder;
+    if(convertView == null) {
+        holder = new ViewHolder();
+        convertView = mInflater.inflate(R.layout.list_item, null);
+        holder.info = (TextView)item.findViewById(R.id.info);
+        convertView.setTag(holder);
+    } else {
+        holder = (ViewHolder)convertView.getTag();
+        holder.info.setText("World");
+    }
+    return convertView;
+}
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android Webkit]]></title>
+    <link href="http://songzy12.github.io/blog/2016/08/21/android-webkit/"/>
+    <updated>2016-08-21T20:07:03+08:00</updated>
+    <id>http://songzy12.github.io/blog/2016/08/21/android-webkit</id>
+    <content type="html"><![CDATA[<h2>WebView</h2>
+
+<pre><code>WebView mWebView = (WebView) findViewById(R.id.mainWebView);
+WebSettings settings = mWebView.getSettings();
+settings.setJavaScriptEnabled(true);
+settings.setDomStorageEnabled(true);
+settings.setDatabaseEnabled(true);
+</code></pre>
+
+<pre><code>mWebView.loadUrl("file:///" + getFilesDir().getAbsolutePath() + "/" + filename);
+</code></pre>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android Util]]></title>
+    <link href="http://songzy12.github.io/blog/2016/08/21/android-util/"/>
+    <updated>2016-08-21T20:07:03+08:00</updated>
+    <id>http://songzy12.github.io/blog/2016/08/21/android-util</id>
+    <content type="html"><![CDATA[<h2>DisplayMetrics</h2>
+
+<pre><code>DisplayMetrics dm = new DisplayMetrics();
+getWindowManager().getDefaultDisplay().getMetrics(dm);
+System.out.println(dm.widthPixels);
+</code></pre>
+
+<ul>
+<li>px: pixel</li>
+<li>dip: device independent pixels</li>
+<li>sp: scaled pixels</li>
+<li>dpi: dot per inch</li>
+<li>pt: point, 1 pt = 1/72 inch</li>
+<li>sp: scaled pixels</li>
+</ul>
+
+
+<pre><code>px = dip * density / 160
+</code></pre>
+
+<pre><code>public class DensityUtil {  
+    public static int dip2px(Context context, float dpValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (dpValue * scale + 0.5f);
+    }  
+    public static int px2dip(Context context, float pxValue) {
+        final float scale = context.getResources().getDisplayMetrics().density;
+        return (int) (pxValue / scale + 0.5f);
+    }
+}
+</code></pre>
+
+<h2>Log</h2>
+
+<pre><code>static final String TAG = getClass().getName();
+Log.i(TAG, "info");
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

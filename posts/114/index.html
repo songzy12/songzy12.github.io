@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Zhengyang Song's Notepad</title>
+  <meta name="author" content="Zhengyang Song">
+
+  
+  <meta name="description" content="Status Code 1xx Informational
+2xx Success
+3xx Redirection
+4xx Client Error
+5xx Server Error
+301 Moved Permanently
+302 Found
+304 Not Modified
+403 &hellip;">
+  
+  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://songzy12.github.io/posts/114/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+  <!-- Begin Jekyll SEO tag v2.5.3 -->
+<title>Zhengyang Song&rsquo;s Notepad - A Technique Blog of a Naive Programmer.</title>
+<meta property="og:title" content="Zhengyang Song&rsquo;s Notepad" />
+<meta name="description" content="A Technique Blog of a Naive Programmer." />
+<meta property='og:description' content="A Technique Blog of a Naive Programmer." />
+<link rel="canonical" href="http://songzy12.github.io/posts/114/" />
+<meta property='og:url' content='http://songzy12.github.io/posts/114/' />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Zhengyang Song&rsquo;s Notepad",
+      "url" : "http://songzy12.github.io"
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+</head>
+ 
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
+  
+    <h2>All those little bugs I have ever met.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="songzy12.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/03/30/html/">HTML</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-03-30T16:44:24+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>4:44 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Status Code</h2>
+
+<ul>
+<li>1xx Informational</li>
+<li>2xx Success</li>
+<li>3xx Redirection</li>
+<li>4xx Client Error</li>
+<li><p>5xx Server Error</p></li>
+<li><p>301 Moved Permanently</p></li>
+<li>302 Found</li>
+<li>304 Not Modified</li>
+<li>403 Forbidden</li>
+</ul>
+
+
+<h2>DOCTYPE</h2>
+
+<p>DTD <a href="http://www.w3school.com.cn/tags/html_ref_dtd.asp">reference</a>: Document Type Definition</p>
+
+<ul>
+<li>HTML5:</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!DOCTYPE html&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>HTML 4.01:</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;
+</span><span class='line'>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" 
+</span><span class='line'>"http://www.w3.org/TR/html4/loose.dtd"&gt;
+</span><span class='line'>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN" 
+</span><span class='line'>"http://www.w3.org/TR/html4/frameset.dtd"&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Contnt-Type</h2>
+
+<ul>
+<li>application/x-www-form-urlencoded</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>POST http://www.example.com HTTP/1.1
+</span><span class='line'>Content-Type: application/x-www-form-urlencoded;charset=utf-8
+</span><span class='line'>
+</span><span class='line'>title=test&sub%5B%5D=1&sub%5B%5D=2&sub%5B%5D=3</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>multipart/form-data</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>POST http://www.example.com HTTP/1.1
+</span><span class='line'>Content-Type:multipart/form-data; boundary=----WebKitFormBoundaryrGKCBY7qhFd3TrwA
+</span><span class='line'>
+</span><span class='line'>------WebKitFormBoundaryrGKCBY7qhFd3TrwA
+</span><span class='line'>Content-Disposition: form-data; name="text"
+</span><span class='line'>
+</span><span class='line'>title
+</span><span class='line'>------WebKitFormBoundaryrGKCBY7qhFd3TrwA
+</span><span class='line'>Content-Disposition: form-data; name="file"; filename="chrome.png"
+</span><span class='line'>Content-Type: image/png
+</span><span class='line'>
+</span><span class='line'>PNG ... content of chrome.png ...
+</span><span class='line'>------WebKitFormBoundaryrGKCBY7qhFd3TrwA--</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>application/json</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>POST http://www.example.com HTTP/1.1 
+</span><span class='line'>Content-Type: application/json;charset=utf-8
+</span><span class='line'>
+</span><span class='line'>{"title":"test","sub":[1,2,3]}</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>text/xml</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>POST http://www.example.com HTTP/1.1 
+</span><span class='line'>Content-Type: text/xml
+</span><span class='line'>
+</span><span class='line'>&lt;?xml version="1.0"?&gt;
+</span><span class='line'>&lt;methodCall&gt;
+</span><span class='line'>    &lt;methodName&gt;examples.getStateName&lt;/methodName&gt;
+</span><span class='line'>    &lt;params&gt;
+</span><span class='line'>        &lt;param&gt;
+</span><span class='line'>            &lt;value&gt;&lt;i4&gt;41&lt;/i4&gt;&lt;/value&gt;
+</span><span class='line'>        &lt;/param&gt;
+</span><span class='line'>    &lt;/params&gt;
+</span><span class='line'>&lt;/methodCall&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>XML CDATA</h2>
+
+<p>SVG: Scalable Vector Graphics</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"\x3C/script&gt;"
+</span><span class='line'>"&lt;"+"/script&gt;"
+</span><span class='line'>"&lt;\/script&gt;"</span></code></pre></td></tr></table></div></figure>
+
+
+<p>entity reference:
+* &amp;lt: &lt;
+* &amp;gt: >
+* &amp;amp(ampersand = and): &amp;
+* &amp;apos(apostrophe): &lsquo;
+* &amp;quot: "</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;message&gt;if salary &lt; 1000 then&lt;/message&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>CDATA: Unparsed Character Data.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;![CDATA[
+</span><span class='line'>function matchwo(a,b) {
+</span><span class='line'>    if (a &lt; b && a &lt; 0) then {
+</span><span class='line'>        return 1;
+</span><span class='line'>    }
+</span><span class='line'>}
+</span><span class='line'>]]&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>a</h2>
+
+<ul>
+<li>An unvisited link is underlined and blue</li>
+<li>A visited link is underlined and purple</li>
+<li><p>An active link is underlined and red</p></li>
+<li><p>href: Specifies the URL of the page the link goes to</p></li>
+<li>rel: Specifies the relationship between the current document and the linked document</li>
+<li>target: Specifies where to open the linked document(blank, self, parent, top)</li>
+</ul>
+
+
+<h2>audio</h2>
+
+<p>We can just use the <code>audio</code> tag in HTML5 to play a piece of music like this:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;audio controls="controls" autobuffer="autobuffer" autoplay="autoplay"&gt;
+</span><span class='line'>    &lt;source src="data:audio/wav;base64,{ { audioBase64 } }" /&gt;
+</span><span class='line'>&lt;/audio&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h2>br</h2>
+
+<ul>
+<li>HTML: <code>&lt;br&gt;</code></li>
+<li>XHTML: <code>&lt;br /&gt;</code></li>
+</ul>
+
+
+<h2>div</h2>
+
+<ul>
+<li>block level element: <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;ul&gt;</code>(unordered list), <code>&lt;table&gt;</code>, <code>&lt;div&gt;</code>(division)</li>
+<li>inline element: <code>&lt;b&gt;</code>(bold), <code>&lt;td&gt;</code>(table data), <code>&lt;a&gt;</code>(anchor), <code>&lt;img&gt;</code>, <code>&lt;span&gt;</code></li>
+</ul>
+
+
+<h2>dl</h2>
+
+<ul>
+<li>dl: description lists</li>
+<li>dd: describes</li>
+<li>dt: term</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;dl&gt;
+</span><span class='line'>    &lt;dt&gt;Coffee&lt;/dt&gt;
+</span><span class='line'>    &lt;dd&gt;- black hot drink&lt;/dd&gt;
+</span><span class='line'>    &lt;dt&gt;Milk&lt;/dt&gt;
+</span><span class='line'>    &lt;dd&gt;- white cold drink&lt;/dd&gt;
+</span><span class='line'>&lt;/dl&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>img</h2>
+
+<h3>crossOrigin</h3>
+
+<ul>
+<li>anonymous: A cross-origin request is performed. But no credential is sent</li>
+<li>use-credentials: A cross-origin request performed with credential is sent</li>
+</ul>
+
+
+<h3>alt</h3>
+
+<ul>
+<li>The text should describe the image if the image contains information</li>
+<li>The text should explain where the link goes if the image is inside an <code>&lt;a&gt;</code> element</li>
+<li>Use <code>alt=""</code> if the image is only for decoration</li>
+</ul>
+
+
+<h2>link</h2>
+
+<ul>
+<li>href: Specifies the location of the linked document</li>
+<li>media: Specifies on what device the linked document will be displayed</li>
+<li>rel: Required. Specifies the relationship between the current document and the linked document</li>
+<li>type: Specifies the media type of the linked document</li>
+</ul>
+
+
+<h2>meta</h2>
+
+<p>The following tags describe metadata: <code>&lt;title&gt;</code>, <code>&lt;style&gt;</code>, <code>&lt;meta&gt;</code>, <code>&lt;link&gt;</code>, <code>&lt;script&gt;</code>, and <code>&lt;base&gt;</code>.</p>
+
+<p>Meta elements are typically used to specify page description, keywords, author of the document, last modified, and other metadata.</p>
+
+<ul>
+<li>HTML5:</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;meta charset="UTF-8"&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>HTML 4.01:</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;meta http-equiv="content-type" content="text/html; charset=UTF-8"&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refresh document every 30 seconds:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;meta http-equiv="refresh" content="30"&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>kbd</h2>
+
+<p>keyboard input.</p>
+
+<h2>strong</h2>
+
+<ul>
+<li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>: headings</li>
+<li><code>&lt;em&gt;</code>: emphasized text</li>
+<li><code>&lt;strong&gt;</code>: important text</li>
+<li><code>&lt;mark&gt;</code>: marked/highlighted text</li>
+</ul>
+
+
+<h2>style</h2>
+
+<h3>media</h3>
+
+<p>This attribute is used to specify that the style is for special devices (like iPhone), speech or print media.</p>
+
+<ul>
+<li>all: Default. Suitable for all devices</li>
+<li>aural: Speech synthesizers</li>
+<li>braille: Braille feedback devices</li>
+<li>handheld: Handheld devices (small screen, limited bandwidth)</li>
+<li>projection: Projectors</li>
+<li>print: Print preview mode/printed pages</li>
+<li>screen: Computer screens</li>
+<li>tty: Teletypes and similar media using a fixed-pitch character grid</li>
+<li>tv: Television type devices (low resolution, limited scroll ability)</li>
+</ul>
+
+
+<h3>hidden</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>object.style.overflow="visible|hidden|scroll|auto|initial|inherit" </span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>visible: Content is NOT clipped and may be shown outside the element box</li>
+<li>hidden: Content outside the element box is not shown</li>
+<li>scroll: Scroll bars are added, and content is clipped when necessary</li>
+<li>auto: Content is clipped and scroll bars are added when necessary</li>
+<li>initial: Sets this property to its default value</li>
+<li>inherit: Inherits this property from its parent element## post</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;method&gt; &lt;request-URL&gt; &lt;version&gt;
+</span><span class='line'>&lt;headers&gt;
+</span><span class='line'>
+</span><span class='line'>&lt;entity-body&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>table</h2>
+
+<ul>
+<li><code>&lt;tr&gt;</code>: table rows</li>
+<li><code>&lt;th&gt;</code>: table headings</li>
+<li><code>&lt;td&gt;</code>: table data</li>
+</ul>
+
+
+<h2>srcsec</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;img src="image-src.png" srcset="image-1x.png 1x, image-2x.png 2x,
+</span><span class='line'>                                 image-3x.png 3x, image-4x.png 4x"&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>asp</h2>
+
+<p>asp: Active Server Pages. ASP runs only on Windows.</p>
+
+<ul>
+<li>Request</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
+</span><span class='line'>Response.Write "Welcome " & Server.HTMLEncode(Request.QueryString("name")) & "!"
+</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Response</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
+</span><span class='line'>If Len(Request.QueryString("name")) &gt; 0 Then
+</span><span class='line'>     Response.Cookies("name") = Request.QueryString("name") 
+</span><span class='line'>End If
+</span><span class='line'>
+</span><span class='line'>Response.Write "Welcome " & Server.HTMLEncode(Response.Cookies("name")) & "!"
+</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Server</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
+</span><span class='line'>Dim oAdoCon, oAdoRec, oAdoStm, oCdoCon, oCdoMsg, oSciDic, oSciFsm, oMswAdr
+</span><span class='line'>
+</span><span class='line'>Set oAdoCon = Server.CreateObject("ADODB.Connection")
+</span><span class='line'>Set oAdoRec = Server.CreateObject("ADODB.Recordset")
+</span><span class='line'>Set oAdoStm = Server.CreateObject("ADODB.Stream")
+</span><span class='line'>Set oCdoCon = Server.CreateObject("CDO.Configuration")
+</span><span class='line'>Set oCdoMsg = Server.CreateObject("CDO.Message")
+</span><span class='line'>Set oSciDic = Server.CreateObject("Scripting.Dictionary")
+</span><span class='line'>Set oSciFsm = Server.CreateObject("Scripting.FileSystemObject")
+</span><span class='line'>Set oMswAdr = Server.CreateObject("MSWC.AdRotator")
+</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Application</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
+</span><span class='line'>Application("Ali") = "My ASP Application"
+</span><span class='line'>Response.Write "Welcome to " & Server.HTMLEncode(Application("Ali")) & "!"
+</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Session</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
+</span><span class='line'>If Len(Request.QueryString("name")) &gt; 0 Then
+</span><span class='line'>     Session("name") = Request.QueryString("name") 
+</span><span class='line'>End If
+</span><span class='line'>
+</span><span class='line'>Response.Write "Welcome " & Server.HTMLEncode(Session("name")) & "!"
+</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>Error</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;%
+</span><span class='line'>On Error Resume Next
+</span><span class='line'>
+</span><span class='line'>Response.Write 1 / 0 ' Division by zero
+</span><span class='line'>
+</span><span class='line'>If Err.Number &lt;&gt; 0 Then
+</span><span class='line'>     Response.Write "Error Code: " & Server.HTMLEncode(Err.Number) & "&lt;br /&gt;"
+</span><span class='line'>     Response.Write "Error Source: " & Server.HTMLEncode(Err.Source) & "&lt;br /&gt;"
+</span><span class='line'>     Response.Write "Error Description: " & Server.HTMLEncode(Err.Description) & "&lt;br /&gt;"
+</span><span class='line'>     Err.Clear 
+</span><span class='line'>End If 
+</span><span class='line'>%&gt;</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/115">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/113">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/06/30/latex/">LaTeX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/04/captcha/">Captcha</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Zhengyang Song -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,590 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>JavaScript - Zhengyang Song's Notepad</title>
+  <meta name="author" content="Zhengyang Song">
+
+  
+  <meta name="description" content="1
+2
+3
+4
+5
+6
+(function() { /* code */ })()
+(function () { /* code */ } ()); !function () { /* code */ } ();
+~function () { /* code */ } ();
+-function &hellip;">
+  
+  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://songzy12.github.io/blog/2016/06/14/javascript/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+  <!-- Begin Jekyll SEO tag v2.5.3 -->
+<title>JavaScript - Zhengyang Song&rsquo;s Notepad</title>
+<meta property="og:title" content="JavaScript" />
+<meta name="description" content="(function() { /* code */ })()(function () { /* code */ } ()); !function () { /* code */ } ();~function () { /* code */ } ();-function () { /* code */ } ();+function () { /* code */ } ();==="abc" == new String("abc")    // true"abc" === new String("abc")   // false!! // Boolean() bindThe bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.call() takes the function arguments separatelyapply() takes the function arguments in an arrayBoth methods takes an owner object as the first argument.callbackif (callbacks) {    callbacks.forEach(function (callback) {        callback(data);    });}prototypeThe JavaScript prototype property also allows you to add new methods to an existing prototype.Tile.prototype.savePosition = function () {  this.previousPosition = { x: this.x, y: this.y };};forEachThe forEach() method calls a provided function once for each element in an array, in order.array.forEach(function(currentValue,index,arr), thisValue)reversevar fruits = ["Banana", "Orange", "Apple", "Mango"];fruits.reverse(); setTimeoutfunction openWin() {    var myWindow = window.open("", "myWindow", "width=200, height=100");    myWindow.document.write("&lt;p&gt;This is 'myWindow'&lt;/p&gt;");    setTimeout(function(){ myWindow.close() }, 3000);}var myVar;function myFunction() {    myVar = setTimeout(function(){ alert("Hello") }, 3000);}function myStopFunction() {    clearTimeout(myVar);}spliceThe splice() method adds/removes items to/from an array, and returns the removed item(s).arrayObject.splice(index,howmany,item1,.....,itemX)addEventListenerelement.addEventListener(event, function, useCapture);bubbling(false): the inner most element&rsquo;s event is handled first and then the outercapturing(true): the outer most element&rsquo;s event is handled first and then the innerclassListThe classList property is read-only, however, you can modify it by using the add() and remove() methods.This property is useful to add, remove and toggle CSS classes on an element.Object.definePropertyThe Object.defineProperty() method defines a new property directly on an object, or modifies an existing property on an object, and returns the object.Object.defineProperty(obj, prop, descriptor)preventDefaultThe preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.setAttributeIf the specified attribute already exists, only the value is set/changed.// Get the &lt;a&gt; element with id="myAnchor"var x = document.getElementById("myAnchor"); // If the &lt;a&gt; element has a target attribute, set the value to "_self"if (x.hasAttribute("target")) {          x.setAttribute("target", "_self");}textContentThe textContent property sets or returns the textual content of the specified node, and all its descendants.If you set the textContent property, any child nodes are removed and replaced by a single Text node containing the specified string.function myFunction(){    var c=document.getElementsByTagName("BUTTON")[0];    var x=document.getElementById("demo");      x.innerHTML=c.textContent;}documentThe document object is the root node of the HTML document and the &ldquo;owner&rdquo; of all other nodes.documentElementThe Document.documentElement read-only property returns the Element that is the root element of the document (for example, the &lt;html&gt; element for HTML documents).var rootElement = document.documentElement;var firstTier = rootElement.childNodes;// firstTier is the NodeList of the direct children of the root elementfor (var i = 0; i &lt; firstTier.length; i++) {   // do something with each direct kid of the root element   // as firstTier[i]}createElementfunction myFunction() {    var btn = document.createElement("BUTTON");    var t = document.createTextNode("CLICK ME");    btn.appendChild(t);    document.body.appendChild(btn);}querySelectorVisit CSS Selector Reference.Get the first &lt;p&gt; element in the document with class=&ldquo;example&rdquo;:document.querySelector("p.example");windowcancelAnimationFrameCancels an animation frame request previously scheduled through a call to window.requestAnimationFrame().localStorageUnlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server.Local storage is per origin (per domain and protocol). All pages, from one origin, can store and access the same data.window.localStorage - stores data with no expiration datewindow.sessionStorage - stores data for one session (data is lost when the browser tab is closed)LocalStorageManager.prototype.localStorageSupported = function () {  var testKey = "test";  var storage = window.localStorage;  try {    storage.setItem(testKey, "1");    storage.removeItem(testKey);    return true;  } catch (error) {    return false;  }};navigator.msPointerEnabledBOM: Browser Object Model.The window object is supported by all browsers. It represents the browser&rsquo;s window.The MSPointer class handles Microsoft touch interactions with the game and the resulting Pointer objects.It will work only in Internet Explorer 10+ and Windows Store or Windows Phone 8 apps using JavaScript.requestAnimationFramerequestID = window.requestAnimationFrame(callback); // Firefox 23 / IE10 / Chrome / Safari 7 (incl. iOS)requestID = window.mozRequestAnimationFrame(callback); // Firefox &lt; 23requestID = window.webkitRequestAnimationFrame(callback); // Older versions Chrome/WebkitThe callback has one single argument, a DOMHighResTimeStamp, which indicates the current time (the time returned from Performance.now() ) for when requestAnimationFrame starts to fire callbacks.JSONJSON: JavaScript Object Notation.LocalStorageManager.prototype.getGameState = function () {  var stateJSON = this.storage.getItem(this.gameStateKey);  return stateJSON ? JSON.parse(stateJSON) : null;};LocalStorageManager.prototype.setGameState = function (gameState) {  this.storage.setItem(this.gameStateKey, JSON.stringify(gameState));};" />
+<meta property='og:description' content="(function() { /* code */ })()(function () { /* code */ } ()); !function () { /* code */ } ();~function () { /* code */ } ();-function () { /* code */ } ();+function () { /* code */ } ();==="abc" == new String("abc")    // true"abc" === new String("abc")   // false!! // Boolean() bindThe bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.call() takes the function arguments separatelyapply() takes the function arguments in an arrayBoth methods takes an owner object as the first argument.callbackif (callbacks) {    callbacks.forEach(function (callback) {        callback(data);    });}prototypeThe JavaScript prototype property also allows you to add new methods to an existing prototype.Tile.prototype.savePosition = function () {  this.previousPosition = { x: this.x, y: this.y };};forEachThe forEach() method calls a provided function once for each element in an array, in order.array.forEach(function(currentValue,index,arr), thisValue)reversevar fruits = ["Banana", "Orange", "Apple", "Mango"];fruits.reverse(); setTimeoutfunction openWin() {    var myWindow = window.open("", "myWindow", "width=200, height=100");    myWindow.document.write("&lt;p&gt;This is 'myWindow'&lt;/p&gt;");    setTimeout(function(){ myWindow.close() }, 3000);}var myVar;function myFunction() {    myVar = setTimeout(function(){ alert("Hello") }, 3000);}function myStopFunction() {    clearTimeout(myVar);}spliceThe splice() method adds/removes items to/from an array, and returns the removed item(s).arrayObject.splice(index,howmany,item1,.....,itemX)addEventListenerelement.addEventListener(event, function, useCapture);bubbling(false): the inner most element&rsquo;s event is handled first and then the outercapturing(true): the outer most element&rsquo;s event is handled first and then the innerclassListThe classList property is read-only, however, you can modify it by using the add() and remove() methods.This property is useful to add, remove and toggle CSS classes on an element.Object.definePropertyThe Object.defineProperty() method defines a new property directly on an object, or modifies an existing property on an object, and returns the object.Object.defineProperty(obj, prop, descriptor)preventDefaultThe preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.setAttributeIf the specified attribute already exists, only the value is set/changed.// Get the &lt;a&gt; element with id="myAnchor"var x = document.getElementById("myAnchor"); // If the &lt;a&gt; element has a target attribute, set the value to "_self"if (x.hasAttribute("target")) {          x.setAttribute("target", "_self");}textContentThe textContent property sets or returns the textual content of the specified node, and all its descendants.If you set the textContent property, any child nodes are removed and replaced by a single Text node containing the specified string.function myFunction(){    var c=document.getElementsByTagName("BUTTON")[0];    var x=document.getElementById("demo");      x.innerHTML=c.textContent;}documentThe document object is the root node of the HTML document and the &ldquo;owner&rdquo; of all other nodes.documentElementThe Document.documentElement read-only property returns the Element that is the root element of the document (for example, the &lt;html&gt; element for HTML documents).var rootElement = document.documentElement;var firstTier = rootElement.childNodes;// firstTier is the NodeList of the direct children of the root elementfor (var i = 0; i &lt; firstTier.length; i++) {   // do something with each direct kid of the root element   // as firstTier[i]}createElementfunction myFunction() {    var btn = document.createElement("BUTTON");    var t = document.createTextNode("CLICK ME");    btn.appendChild(t);    document.body.appendChild(btn);}querySelectorVisit CSS Selector Reference.Get the first &lt;p&gt; element in the document with class=&ldquo;example&rdquo;:document.querySelector("p.example");windowcancelAnimationFrameCancels an animation frame request previously scheduled through a call to window.requestAnimationFrame().localStorageUnlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server.Local storage is per origin (per domain and protocol). All pages, from one origin, can store and access the same data.window.localStorage - stores data with no expiration datewindow.sessionStorage - stores data for one session (data is lost when the browser tab is closed)LocalStorageManager.prototype.localStorageSupported = function () {  var testKey = "test";  var storage = window.localStorage;  try {    storage.setItem(testKey, "1");    storage.removeItem(testKey);    return true;  } catch (error) {    return false;  }};navigator.msPointerEnabledBOM: Browser Object Model.The window object is supported by all browsers. It represents the browser&rsquo;s window.The MSPointer class handles Microsoft touch interactions with the game and the resulting Pointer objects.It will work only in Internet Explorer 10+ and Windows Store or Windows Phone 8 apps using JavaScript.requestAnimationFramerequestID = window.requestAnimationFrame(callback); // Firefox 23 / IE10 / Chrome / Safari 7 (incl. iOS)requestID = window.mozRequestAnimationFrame(callback); // Firefox &lt; 23requestID = window.webkitRequestAnimationFrame(callback); // Older versions Chrome/WebkitThe callback has one single argument, a DOMHighResTimeStamp, which indicates the current time (the time returned from Performance.now() ) for when requestAnimationFrame starts to fire callbacks.JSONJSON: JavaScript Object Notation.LocalStorageManager.prototype.getGameState = function () {  var stateJSON = this.storage.getItem(this.gameStateKey);  return stateJSON ? JSON.parse(stateJSON) : null;};LocalStorageManager.prototype.setGameState = function (gameState) {  this.storage.setItem(this.gameStateKey, JSON.stringify(gameState));};" />
+<link rel="canonical" href="http://songzy12.github.io/blog/2016/06/14/javascript/" />
+<meta property='og:url' content='http://songzy12.github.io/blog/2016/06/14/javascript/' />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Zhengyang Song&rsquo;s Notepad",
+      "url" : "http://songzy12.github.io"
+    }
+  </script>
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-06-14T20:19:49+08:00" />
+<link rel="next" href="http://songzy12.github.io/blog/2016/06/22/android-graphics/" title="Android Graphics" />
+<link rel="prev" href="http://songzy12.github.io/blog/2016/06/08/edx-platform/" title="edX platform" />
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "headline": "JavaScript",
+      "image": null,
+      "datePublished": "2016-06-14T20:19:49+08:00",
+      "description": "(function() { /* code */ })()(function () { /* code */ } ()); !function () { /* code */ } ();~function () { /* code */ } ();-function () { /* code */ } ();+function () { /* code */ } ();===\"abc\" == new String(\"abc\")    // true\"abc\" === new String(\"abc\")   // false!! // Boolean() bindThe bind() method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.call() takes the function arguments separatelyapply() takes the function arguments in an arrayBoth methods takes an owner object as the first argument.callbackif (callbacks) {    callbacks.forEach(function (callback) {        callback(data);    });}prototypeThe JavaScript prototype property also allows you to add new methods to an existing prototype.Tile.prototype.savePosition = function () {  this.previousPosition = { x: this.x, y: this.y };};forEachThe forEach() method calls a provided function once for each element in an array, in order.array.forEach(function(currentValue,index,arr), thisValue)reversevar fruits = [\"Banana\", \"Orange\", \"Apple\", \"Mango\"];fruits.reverse(); setTimeoutfunction openWin() {    var myWindow = window.open(\"\", \"myWindow\", \"width=200, height=100\");    myWindow.document.write(\"&lt;p&gt;This is 'myWindow'&lt;/p&gt;\");    setTimeout(function(){ myWindow.close() }, 3000);}var myVar;function myFunction() {    myVar = setTimeout(function(){ alert(\"Hello\") }, 3000);}function myStopFunction() {    clearTimeout(myVar);}spliceThe splice() method adds/removes items to/from an array, and returns the removed item(s).arrayObject.splice(index,howmany,item1,.....,itemX)addEventListenerelement.addEventListener(event, function, useCapture);bubbling(false): the inner most element&rsquo;s event is handled first and then the outercapturing(true): the outer most element&rsquo;s event is handled first and then the innerclassListThe classList property is read-only, however, you can modify it by using the add() and remove() methods.This property is useful to add, remove and toggle CSS classes on an element.Object.definePropertyThe Object.defineProperty() method defines a new property directly on an object, or modifies an existing property on an object, and returns the object.Object.defineProperty(obj, prop, descriptor)preventDefaultThe preventDefault() method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.setAttributeIf the specified attribute already exists, only the value is set/changed.// Get the &lt;a&gt; element with id=\"myAnchor\"var x = document.getElementById(\"myAnchor\"); // If the &lt;a&gt; element has a target attribute, set the value to \"_self\"if (x.hasAttribute(\"target\")) {          x.setAttribute(\"target\", \"_self\");}textContentThe textContent property sets or returns the textual content of the specified node, and all its descendants.If you set the textContent property, any child nodes are removed and replaced by a single Text node containing the specified string.function myFunction(){    var c=document.getElementsByTagName(\"BUTTON\")[0];    var x=document.getElementById(\"demo\");      x.innerHTML=c.textContent;}documentThe document object is the root node of the HTML document and the &ldquo;owner&rdquo; of all other nodes.documentElementThe Document.documentElement read-only property returns the Element that is the root element of the document (for example, the &lt;html&gt; element for HTML documents).var rootElement = document.documentElement;var firstTier = rootElement.childNodes;// firstTier is the NodeList of the direct children of the root elementfor (var i = 0; i &lt; firstTier.length; i++) {   // do something with each direct kid of the root element   // as firstTier[i]}createElementfunction myFunction() {    var btn = document.createElement(\"BUTTON\");    var t = document.createTextNode(\"CLICK ME\");    btn.appendChild(t);    document.body.appendChild(btn);}querySelectorVisit CSS Selector Reference.Get the first &lt;p&gt; element in the document with class=&ldquo;example&rdquo;:document.querySelector(\"p.example\");windowcancelAnimationFrameCancels an animation frame request previously scheduled through a call to window.requestAnimationFrame().localStorageUnlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server.Local storage is per origin (per domain and protocol). All pages, from one origin, can store and access the same data.window.localStorage - stores data with no expiration datewindow.sessionStorage - stores data for one session (data is lost when the browser tab is closed)LocalStorageManager.prototype.localStorageSupported = function () {  var testKey = \"test\";  var storage = window.localStorage;  try {    storage.setItem(testKey, \"1\");    storage.removeItem(testKey);    return true;  } catch (error) {    return false;  }};navigator.msPointerEnabledBOM: Browser Object Model.The window object is supported by all browsers. It represents the browser&rsquo;s window.The MSPointer class handles Microsoft touch interactions with the game and the resulting Pointer objects.It will work only in Internet Explorer 10+ and Windows Store or Windows Phone 8 apps using JavaScript.requestAnimationFramerequestID = window.requestAnimationFrame(callback); // Firefox 23 / IE10 / Chrome / Safari 7 (incl. iOS)requestID = window.mozRequestAnimationFrame(callback); // Firefox &lt; 23requestID = window.webkitRequestAnimationFrame(callback); // Older versions Chrome/WebkitThe callback has one single argument, a DOMHighResTimeStamp, which indicates the current time (the time returned from Performance.now() ) for when requestAnimationFrame starts to fire callbacks.JSONJSON: JavaScript Object Notation.LocalStorageManager.prototype.getGameState = function () {  var stateJSON = this.storage.getItem(this.gameStateKey);  return stateJSON ? JSON.parse(stateJSON) : null;};LocalStorageManager.prototype.setGameState = function (gameState) {  this.storage.setItem(this.gameStateKey, JSON.stringify(gameState));};"
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+</head>
+ 
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
+  
+    <h2>All those little bugs I have ever met.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="songzy12.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">JavaScript</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-06-14T20:19:49+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>8:19 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>(function() { /* code */ })()
+</span><span class='line'>(function () { /* code */ } ()); 
+</span><span class='line'>!function () { /* code */ } ();
+</span><span class='line'>~function () { /* code */ } ();
+</span><span class='line'>-function () { /* code */ } ();
+</span><span class='line'>+function () { /* code */ } ();</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>===</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"abc" == new String("abc")    // true
+</span><span class='line'>"abc" === new String("abc")   // false</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>!! // Boolean() </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>bind</h2>
+
+<p>The <code>bind()</code> method creates a new function that, when called, has its this keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.</p>
+
+<ul>
+<li><code>call()</code> takes the function arguments separately</li>
+<li><code>apply()</code> takes the function arguments in an array</li>
+</ul>
+
+
+<p>Both methods takes an owner object as the first argument.</p>
+
+<h2>callback</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>if (callbacks) {
+</span><span class='line'>    callbacks.forEach(function (callback) {
+</span><span class='line'>        callback(data);
+</span><span class='line'>    });
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>prototype</h2>
+
+<p>The JavaScript prototype property also allows you to add new methods to an existing prototype.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Tile.prototype.savePosition = function () {
+</span><span class='line'>  this.previousPosition = { x: this.x, y: this.y };
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>forEach</h2>
+
+<p>The <code>forEach()</code> method calls a provided function once for each element in an array, in order.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>array.forEach(function(currentValue,index,arr), thisValue)</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>reverse</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var fruits = ["Banana", "Orange", "Apple", "Mango"];
+</span><span class='line'>fruits.reverse(); </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>setTimeout</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function openWin() {
+</span><span class='line'>    var myWindow = window.open("", "myWindow", "width=200, height=100");
+</span><span class='line'>    myWindow.document.write("&lt;p&gt;This is 'myWindow'&lt;/p&gt;");
+</span><span class='line'>    setTimeout(function(){ myWindow.close() }, 3000);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var myVar;
+</span><span class='line'>function myFunction() {
+</span><span class='line'>    myVar = setTimeout(function(){ alert("Hello") }, 3000);
+</span><span class='line'>}
+</span><span class='line'>function myStopFunction() {
+</span><span class='line'>    clearTimeout(myVar);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>splice</h2>
+
+<p>The <code>splice()</code> method adds/removes items to/from an array, and returns the removed item(s).</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>arrayObject.splice(index,howmany,item1,.....,itemX)</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>addEventListener</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>element.addEventListener(event, function, useCapture);</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>bubbling(false): the inner most element&rsquo;s event is handled first and then the outer</li>
+<li>capturing(true): the outer most element&rsquo;s event is handled first and then the inner</li>
+</ul>
+
+
+<h2>classList</h2>
+
+<p>The <code>classList</code> property is read-only, however, you can modify it by using the <code>add()</code> and <code>remove()</code> methods.</p>
+
+<p>This property is useful to add, remove and toggle CSS classes on an element.</p>
+
+<h2>Object.defineProperty</h2>
+
+<p>The <code>Object.defineProperty()</code> method defines a new property directly on an object, or modifies an existing property on an object, and returns the object.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Object.defineProperty(obj, prop, descriptor)</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>preventDefault</h2>
+
+<p>The <code>preventDefault()</code> method cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur.</p>
+
+<h2>setAttribute</h2>
+
+<p>If the specified attribute already exists, only the value is set/changed.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// Get the &lt;a&gt; element with id="myAnchor"
+</span><span class='line'>var x = document.getElementById("myAnchor"); 
+</span><span class='line'>
+</span><span class='line'>// If the &lt;a&gt; element has a target attribute, set the value to "_self"
+</span><span class='line'>if (x.hasAttribute("target")) {      
+</span><span class='line'>    x.setAttribute("target", "_self");
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<p></p>
+
+<h2>textContent</h2>
+
+<p>The textContent property sets or returns the textual content of the specified node, and all its descendants.</p>
+
+<p>If you set the textContent property, any child nodes are removed and replaced by a single Text node containing the specified string.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function myFunction()
+</span><span class='line'>{
+</span><span class='line'>    var c=document.getElementsByTagName("BUTTON")[0];
+</span><span class='line'>    var x=document.getElementById("demo");  
+</span><span class='line'>    x.innerHTML=c.textContent;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>document</h2>
+
+<p>The document object is the root node of the HTML document and the &ldquo;owner&rdquo; of all other nodes.</p>
+
+<h3>documentElement</h3>
+
+<p>The <code>Document.documentElement</code> read-only property returns the Element that is the root element of the document (for example, the <code>&lt;html&gt;</code> element for HTML documents).</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>var rootElement = document.documentElement;
+</span><span class='line'>var firstTier = rootElement.childNodes;
+</span><span class='line'>
+</span><span class='line'>// firstTier is the NodeList of the direct children of the root element
+</span><span class='line'>for (var i = 0; i &lt; firstTier.length; i++) {
+</span><span class='line'>   // do something with each direct kid of the root element
+</span><span class='line'>   // as firstTier[i]
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>createElement</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>function myFunction() {
+</span><span class='line'>    var btn = document.createElement("BUTTON");
+</span><span class='line'>    var t = document.createTextNode("CLICK ME");
+</span><span class='line'>    btn.appendChild(t);
+</span><span class='line'>    document.body.appendChild(btn);
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>querySelector</h3>
+
+<p>Visit CSS Selector <a href="http://www.w3schools.com/cssref/css_selectors.asp">Reference</a>.</p>
+
+<p>Get the first <code>&lt;p&gt;</code> element in the document with class=&ldquo;example&rdquo;:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>document.querySelector("p.example");</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>window</h2>
+
+<h3>cancelAnimationFrame</h3>
+
+<p>Cancels an animation frame request previously scheduled through a call to <code>window.requestAnimationFrame()</code>.</p>
+
+<h3>localStorage</h3>
+
+<p>Unlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server.</p>
+
+<p>Local storage is per origin (per domain and protocol). All pages, from one origin, can store and access the same data.</p>
+
+<ul>
+<li>window.localStorage - stores data with no expiration date</li>
+<li>window.sessionStorage - stores data for one session (data is lost when the browser tab is closed)</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>LocalStorageManager.prototype.localStorageSupported = function () {
+</span><span class='line'>  var testKey = "test";
+</span><span class='line'>  var storage = window.localStorage;
+</span><span class='line'>
+</span><span class='line'>  try {
+</span><span class='line'>    storage.setItem(testKey, "1");
+</span><span class='line'>    storage.removeItem(testKey);
+</span><span class='line'>    return true;
+</span><span class='line'>  } catch (error) {
+</span><span class='line'>    return false;
+</span><span class='line'>  }
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>navigator.msPointerEnabled</h3>
+
+<p>BOM: Browser Object Model.</p>
+
+<p>The window object is supported by all browsers. It represents the browser&rsquo;s window.</p>
+
+<p>The <code>MSPointer</code> class handles Microsoft touch interactions with the game and the resulting Pointer objects.</p>
+
+<p>It will work only in Internet Explorer 10+ and Windows Store or Windows Phone 8 apps using JavaScript.</p>
+
+<h3>requestAnimationFrame</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>requestID = window.requestAnimationFrame(callback); // Firefox 23 / IE10 / Chrome / Safari 7 (incl. iOS)
+</span><span class='line'>requestID = window.mozRequestAnimationFrame(callback); // Firefox &lt; 23
+</span><span class='line'>requestID = window.webkitRequestAnimationFrame(callback); // Older versions Chrome/Webkit</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The callback has one single argument, a <code>DOMHighResTimeStamp</code>, which indicates the current time (the time returned from <code>Performance.now()</code> ) for when <code>requestAnimationFrame</code> starts to fire callbacks.</p>
+
+<hr />
+
+<h2>JSON</h2>
+
+<p>JSON: JavaScript Object Notation.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>LocalStorageManager.prototype.getGameState = function () {
+</span><span class='line'>  var stateJSON = this.storage.getItem(this.gameStateKey);
+</span><span class='line'>  return stateJSON ? JSON.parse(stateJSON) : null;
+</span><span class='line'>};
+</span><span class='line'>
+</span><span class='line'>LocalStorageManager.prototype.setGameState = function (gameState) {
+</span><span class='line'>  this.storage.setItem(this.gameStateKey, JSON.stringify(gameState));
+</span><span class='line'>};</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Zhengyang Song</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-06-14T20:19:49+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>14</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>8:19 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/javascript/'>javascript</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/06/08/edx-platform/" title="Previous Post: edX platform">&laquo; edX platform</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/06/22/android-graphics/" title="Next Post: Android Graphics">Android Graphics &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/06/30/latex/">LaTeX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/04/captcha/">Captcha</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Zhengyang Song -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Html | Zhengyang Song's Notepad]]></title>
+  <link href="http://songzy12.github.io/blog/categories/html/atom.xml" rel="self"/>
+  <link href="http://songzy12.github.io/"/>
+  <updated>2018-10-06T13:59:48+08:00</updated>
+  <id>http://songzy12.github.io/</id>
+  <author>
+    <name><![CDATA[Zhengyang Song]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[HTML]]></title>
+    <link href="http://songzy12.github.io/blog/2016/03/30/html/"/>
+    <updated>2016-03-30T16:44:24+08:00</updated>
+    <id>http://songzy12.github.io/blog/2016/03/30/html</id>
+    <content type="html"><![CDATA[<h2>Status Code</h2>
+
+<ul>
+<li>1xx Informational</li>
+<li>2xx Success</li>
+<li>3xx Redirection</li>
+<li>4xx Client Error</li>
+<li><p>5xx Server Error</p></li>
+<li><p>301 Moved Permanently</p></li>
+<li>302 Found</li>
+<li>304 Not Modified</li>
+<li>403 Forbidden</li>
+</ul>
+
+
+<h2>DOCTYPE</h2>
+
+<p>DTD <a href="http://www.w3school.com.cn/tags/html_ref_dtd.asp">reference</a>: Document Type Definition</p>
+
+<ul>
+<li><p>HTML5:
+<code>
+&lt;!DOCTYPE html&gt;
+</code></p></li>
+<li><p>HTML 4.01:
+<code>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd"&gt;
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd"&gt;
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Frameset//EN"
+"http://www.w3.org/TR/html4/frameset.dtd"&gt;
+</code></p></li>
+</ul>
+
+
+<h2>Contnt-Type</h2>
+
+<ul>
+<li>application/x-www-form-urlencoded</li>
+</ul>
+
+
+<pre><code>POST http://www.example.com HTTP/1.1
+Content-Type: application/x-www-form-urlencoded;charset=utf-8
+
+title=test&amp;sub%5B%5D=1&amp;sub%5B%5D=2&amp;sub%5B%5D=3
+</code></pre>
+
+<ul>
+<li>multipart/form-data</li>
+</ul>
+
+
+<pre><code>POST http://www.example.com HTTP/1.1
+Content-Type:multipart/form-data; boundary=----WebKitFormBoundaryrGKCBY7qhFd3TrwA
+
+------WebKitFormBoundaryrGKCBY7qhFd3TrwA
+Content-Disposition: form-data; name="text"
+
+title
+------WebKitFormBoundaryrGKCBY7qhFd3TrwA
+Content-Disposition: form-data; name="file"; filename="chrome.png"
+Content-Type: image/png
+
+PNG ... content of chrome.png ...
+------WebKitFormBoundaryrGKCBY7qhFd3TrwA--
+</code></pre>
+
+<ul>
+<li>application/json</li>
+</ul>
+
+
+<pre><code>POST http://www.example.com HTTP/1.1 
+Content-Type: application/json;charset=utf-8
+
+{"title":"test","sub":[1,2,3]}
+</code></pre>
+
+<ul>
+<li>text/xml</li>
+</ul>
+
+
+<pre><code>POST http://www.example.com HTTP/1.1 
+Content-Type: text/xml
+
+&lt;?xml version="1.0"?&gt;
+&lt;methodCall&gt;
+    &lt;methodName&gt;examples.getStateName&lt;/methodName&gt;
+    &lt;params&gt;
+        &lt;param&gt;
+            &lt;value&gt;&lt;i4&gt;41&lt;/i4&gt;&lt;/value&gt;
+        &lt;/param&gt;
+    &lt;/params&gt;
+&lt;/methodCall&gt;
+</code></pre>
+
+<h2>XML CDATA</h2>
+
+<p>SVG: Scalable Vector Graphics</p>
+
+<pre><code>"\x3C/script&gt;"
+"&lt;"+"/script&gt;"
+"&lt;\/script&gt;"
+</code></pre>
+
+<p>entity reference:
+* &amp;lt: &lt;
+* &amp;gt: >
+* &amp;amp(ampersand = and): &amp;
+* &amp;apos(apostrophe): &lsquo;
+* &amp;quot: "</p>
+
+<pre><code>&lt;message&gt;if salary &amp;lt; 1000 then&lt;/message&gt;
+</code></pre>
+
+<p>CDATA: Unparsed Character Data.</p>
+
+<pre><code>&lt;![CDATA[
+function matchwo(a,b) {
+    if (a &lt; b &amp;&amp; a &lt; 0) then {
+        return 1;
+    }
+}
+]]&gt;
+</code></pre>
+
+<hr />
+
+<h2>a</h2>
+
+<ul>
+<li>An unvisited link is underlined and blue</li>
+<li>A visited link is underlined and purple</li>
+<li><p>An active link is underlined and red</p></li>
+<li><p>href: Specifies the URL of the page the link goes to</p></li>
+<li>rel: Specifies the relationship between the current document and the linked document</li>
+<li>target: Specifies where to open the linked document(blank, self, parent, top)</li>
+</ul>
+
+
+<h2>audio</h2>
+
+<p>We can just use the <code>audio</code> tag in HTML5 to play a piece of music like this:</p>
+
+<pre><code>&lt;audio controls="controls" autobuffer="autobuffer" autoplay="autoplay"&gt;
+    &lt;source src="data:audio/wav;base64,{ { audioBase64 } }" /&gt;
+&lt;/audio&gt;
+</code></pre>
+
+<h2>br</h2>
+
+<ul>
+<li>HTML: <code>&lt;br&gt;</code></li>
+<li>XHTML: <code>&lt;br /&gt;</code></li>
+</ul>
+
+
+<h2>div</h2>
+
+<ul>
+<li>block level element: <code>&lt;h1&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;ul&gt;</code>(unordered list), <code>&lt;table&gt;</code>, <code>&lt;div&gt;</code>(division)</li>
+<li>inline element: <code>&lt;b&gt;</code>(bold), <code>&lt;td&gt;</code>(table data), <code>&lt;a&gt;</code>(anchor), <code>&lt;img&gt;</code>, <code>&lt;span&gt;</code></li>
+</ul>
+
+
+<h2>dl</h2>
+
+<ul>
+<li>dl: description lists</li>
+<li>dd: describes</li>
+<li>dt: term</li>
+</ul>
+
+
+<p>```</p>
+
+<dl>
+    <dt>Coffee</dt>
+    <dd>- black hot drink</dd>
+    <dt>Milk</dt>
+    <dd>- white cold drink</dd>
+</dl>
+
+
+<pre><code>
+## img
+
+### crossOrigin
+
+* anonymous: A cross-origin request is performed. But no credential is sent 
+* use-credentials: A cross-origin request performed with credential is sent
+
+### alt
+
+* The text should describe the image if the image contains information
+* The text should explain where the link goes if the image is inside an `&lt;a&gt;` element
+* Use `alt=""` if the image is only for decoration
+
+## link
+
+* href: Specifies the location of the linked document
+* media: Specifies on what device the linked document will be displayed
+* rel: Required. Specifies the relationship between the current document and the linked document
+* type: Specifies the media type of the linked document
+
+## meta
+
+The following tags describe metadata: `&lt;title&gt;`, `&lt;style&gt;`, `&lt;meta&gt;`, `&lt;link&gt;`, `&lt;script&gt;`, and `&lt;base&gt;`.
+
+Meta elements are typically used to specify page description, keywords, author of the document, last modified, and other metadata.
+
+* HTML5: 
+</code></pre>
+
+<p><meta charset="UTF-8">
+```</p>
+
+<ul>
+<li>HTML 4.01:
+<code>
+&lt;meta http-equiv="content-type" content="text/html; charset=UTF-8"&gt;
+</code></li>
+</ul>
+
+
+<p>Refresh document every 30 seconds:
+<code>
+&lt;meta http-equiv="refresh" content="30"&gt;
+</code></p>
+
+<h2>kbd</h2>
+
+<p>keyboard input.</p>
+
+<h2>strong</h2>
+
+<ul>
+<li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code>: headings</li>
+<li><code>&lt;em&gt;</code>: emphasized text</li>
+<li><code>&lt;strong&gt;</code>: important text</li>
+<li><code>&lt;mark&gt;</code>: marked/highlighted text</li>
+</ul>
+
+
+<h2>style</h2>
+
+<h3>media</h3>
+
+<p>This attribute is used to specify that the style is for special devices (like iPhone), speech or print media.</p>
+
+<ul>
+<li>all: Default. Suitable for all devices</li>
+<li>aural: Speech synthesizers</li>
+<li>braille: Braille feedback devices</li>
+<li>handheld: Handheld devices (small screen, limited bandwidth)</li>
+<li>projection: Projectors</li>
+<li>print: Print preview mode/printed pages</li>
+<li>screen: Computer screens</li>
+<li>tty: Teletypes and similar media using a fixed-pitch character grid</li>
+<li>tv: Television type devices (low resolution, limited scroll ability)</li>
+</ul>
+
+
+<h3>hidden</h3>
+
+<pre><code>object.style.overflow="visible|hidden|scroll|auto|initial|inherit" 
+</code></pre>
+
+<ul>
+<li>visible: Content is NOT clipped and may be shown outside the element box</li>
+<li>hidden: Content outside the element box is not shown</li>
+<li>scroll: Scroll bars are added, and content is clipped when necessary</li>
+<li>auto: Content is clipped and scroll bars are added when necessary</li>
+<li>initial: Sets this property to its default value</li>
+<li>inherit: Inherits this property from its parent element## post</li>
+</ul>
+
+
+<pre><code>&lt;method&gt; &lt;request-URL&gt; &lt;version&gt;
+&lt;headers&gt;
+
+&lt;entity-body&gt;
+</code></pre>
+
+<h2>table</h2>
+
+<ul>
+<li><code>&lt;tr&gt;</code>: table rows</li>
+<li><code>&lt;th&gt;</code>: table headings</li>
+<li><code>&lt;td&gt;</code>: table data</li>
+</ul>
+
+
+<h2>srcsec</h2>
+
+<pre><code>&lt;img src="image-src.png" srcset="image-1x.png 1x, image-2x.png 2x,
+                                 image-3x.png 3x, image-4x.png 4x"&gt;
+</code></pre>
+
+<hr />
+
+<h2>asp</h2>
+
+<p>asp: Active Server Pages. ASP runs only on Windows.</p>
+
+<ul>
+<li>Request</li>
+</ul>
+
+
+<pre><code>&lt;%
+Response.Write "Welcome " &amp; Server.HTMLEncode(Request.QueryString("name")) &amp; "!"
+%&gt;
+</code></pre>
+
+<ul>
+<li>Response</li>
+</ul>
+
+
+<pre><code>&lt;%
+If Len(Request.QueryString("name")) &gt; 0 Then
+     Response.Cookies("name") = Request.QueryString("name") 
+End If
+
+Response.Write "Welcome " &amp; Server.HTMLEncode(Response.Cookies("name")) &amp; "!"
+%&gt;
+</code></pre>
+
+<ul>
+<li>Server</li>
+</ul>
+
+
+<pre><code>&lt;%
+Dim oAdoCon, oAdoRec, oAdoStm, oCdoCon, oCdoMsg, oSciDic, oSciFsm, oMswAdr
+
+Set oAdoCon = Server.CreateObject("ADODB.Connection")
+Set oAdoRec = Server.CreateObject("ADODB.Recordset")
+Set oAdoStm = Server.CreateObject("ADODB.Stream")
+Set oCdoCon = Server.CreateObject("CDO.Configuration")
+Set oCdoMsg = Server.CreateObject("CDO.Message")
+Set oSciDic = Server.CreateObject("Scripting.Dictionary")
+Set oSciFsm = Server.CreateObject("Scripting.FileSystemObject")
+Set oMswAdr = Server.CreateObject("MSWC.AdRotator")
+%&gt;
+</code></pre>
+
+<ul>
+<li>Application</li>
+</ul>
+
+
+<pre><code>&lt;%
+Application("Ali") = "My ASP Application"
+Response.Write "Welcome to " &amp; Server.HTMLEncode(Application("Ali")) &amp; "!"
+%&gt;
+</code></pre>
+
+<ul>
+<li>Session</li>
+</ul>
+
+
+<pre><code>&lt;%
+If Len(Request.QueryString("name")) &gt; 0 Then
+     Session("name") = Request.QueryString("name") 
+End If
+
+Response.Write "Welcome " &amp; Server.HTMLEncode(Session("name")) &amp; "!"
+%&gt;
+</code></pre>
+
+<ul>
+<li>Error</li>
+</ul>
+
+
+<pre><code>&lt;%
+On Error Resume Next
+
+Response.Write 1 / 0 ' Division by zero
+
+If Err.Number &lt;&gt; 0 Then
+     Response.Write "Error Code: " &amp; Server.HTMLEncode(Err.Number) &amp; "&lt;br /&gt;"
+     Response.Write "Error Source: " &amp; Server.HTMLEncode(Err.Source) &amp; "&lt;br /&gt;"
+     Response.Write "Error Description: " &amp; Server.HTMLEncode(Err.Description) &amp; "&lt;br /&gt;"
+     Err.Clear 
+End If 
+%&gt;
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>

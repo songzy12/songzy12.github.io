@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>VNC - Zhengyang Song's Notepad</title>
+  <meta name="author" content="Zhengyang Song">
+
+  
+  <meta name="description" content="TightVNC Install TightVNC
+Install Java
+Java security: exception site list 1
+Error: access denied ("java.net.socketPermission","127.0.0.1:5901"," &hellip;">
+  
+  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://songzy12.github.io/blog/2016/08/27/vnc/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+  <!-- Begin Jekyll SEO tag v2.5.3 -->
+<title>VNC - Zhengyang Song&rsquo;s Notepad</title>
+<meta property="og:title" content="VNC" />
+<meta name="description" content="TightVNCInstall TightVNCInstall JavaJava security: exception site listError: access denied ("java.net.socketPermission","127.0.0.1:5901","connect,resolve") TightVNC ViewerAfter starting VNC service, we can use VNC viewer. The IP address of server can be got from the notification area of task bar. Not sure about what happens when entering 127.0.0.1.TightVNC Java ViewerHere is how to set the security levels through the Java Control Panel. Remember to include also the port number in the exception site list, like: 127.0.0.1:5800.vnc4servervnc4servervnc4server -kill :1./utils/launch.sh --vnc localhost:5901noVNCCygwinD:\Anaconda\python.exe: can't open file '/cygdrive/e/noVNC/utils/websockify/run': [Errno 2] No such file or directoryFailed to start WebSockets proxyJust hard code line 137 of utils/launch.sh:#${WEBSOCKIFY} --web ${WEB} ${CERT:+--cert ${CERT}} ${PORT} ${VNC_DEST} &amp;./utils/websockify/run --web . 6080 localhost:5901 &amp;SIGCHLDTraceback (most recent call last):  File "./utils/websockify/run", line 4, in &lt;module&gt;    websockify.websocketproxy.websockify_init()  File "E:\noVNC\utils\websockify\websockify\websocketproxy.py", line 525, in websockify_init    server.start_server()  File "E:\noVNC\utils\websockify\websockify\websocket.py", line 986, in start_server    signal.SIGCHLD: signal.getsignal(signal.SIGCHLD),AttributeError: 'module' object has no attribute 'SIGCHLD'Modify line 986 of utils/websockify/websockify/websocket.py.# Allow override of signalsoriginal_signals = {    signal.SIGINT: signal.getsignal(signal.SIGINT),    signal.SIGTERM: signal.getsignal(signal.SIGTERM),    #signal.SIGCHLD: signal.getsignal(signal.SIGCHLD),}if getattr(signal, 'SIGCHLD', None) is not None:    original_signals[signal.SIGCHLD] = signal.getsignal(signal.SIGCHLD),signal.signal(signal.SIGINT, self.do_SIGINT)signal.signal(signal.SIGTERM, self.do_SIGTERM)if getattr(signal, 'SIGCHLD', None) is not None:    if not multiprocessing:        # os.fork() (python 2.4) child reaper        signal.signal(signal.SIGCHLD, self.fallback_SIGCHLD)    else:        # make sure that _cleanup is called when children die        # by calling active_children on SIGCHLD        signal.signal(signal.SIGCHLD, self.multiprocessing_SIGCHLD)runWARNING: no 'resource' module, daemonizing is disabledWebSocket server settings:  - Listen on :6080  - Flash security policy server  - Web server. Web root: E:\noVNC  - No SSL/TLS support (no cert file)  - proxying from :6080 to localhost:5901handler exception: Can't pickle &lt;type 'thread.lock'&gt;: it's not found as thread.lockTraceback (most recent call last):  File "&lt;string&gt;", line 1, in &lt;module&gt;  File "D:\Anaconda\lib\multiprocessing\forking.py", line 380, in main    prepare(preparation_data)  File "D:\Anaconda\lib\multiprocessing\forking.py", line 489, in prepare    file, path_name, etc = imp.find_module(main_name, dirs)ImportError: No module named runThe way to compile websockify as Windows executable is here. Then ./utils/websockify/dist will contain run.exe.run 6080 localhost:5901handler exception: Can't pickle &lt;type 'thread.lock'&gt;: it's not found as thread.lockWARNING: no 'resource' module, daemonizing is disabledUsage:    run.exe [options] [source_addr:]source_port [target_addr:target_port]    run.exe [options] [source_addr:]source_port -- WRAP_COMMAND_LINErun.exe: error: no such option: --multiprocessing-forkCisco VPN ClientWindows5 steps to make cisco VPN client work in Win8 and 10 here.Ubuntusudo apt-get install network-manager-vpnc network-manager-vpnc-gnomeCPN Connection Failedsudo tail -f /var/log/syslogsudo vpncvpnc: peer selected (single) DES as "encryption" method.This algorithm is considered too weak todayIf your vpn concentrator admin still insists on using DESuse the "--enable-1des" option.sudo vpnc --enable-1desping 10.2.2.44Here is how to enable ping responce in windows 7.EasyStackServer disconnected (code: 1000, reason: Client closed abruptly)Failed to connect to server (code: 1006)Delete the Bloxy plug-in." />
+<meta property='og:description' content="TightVNCInstall TightVNCInstall JavaJava security: exception site listError: access denied ("java.net.socketPermission","127.0.0.1:5901","connect,resolve") TightVNC ViewerAfter starting VNC service, we can use VNC viewer. The IP address of server can be got from the notification area of task bar. Not sure about what happens when entering 127.0.0.1.TightVNC Java ViewerHere is how to set the security levels through the Java Control Panel. Remember to include also the port number in the exception site list, like: 127.0.0.1:5800.vnc4servervnc4servervnc4server -kill :1./utils/launch.sh --vnc localhost:5901noVNCCygwinD:\Anaconda\python.exe: can't open file '/cygdrive/e/noVNC/utils/websockify/run': [Errno 2] No such file or directoryFailed to start WebSockets proxyJust hard code line 137 of utils/launch.sh:#${WEBSOCKIFY} --web ${WEB} ${CERT:+--cert ${CERT}} ${PORT} ${VNC_DEST} &amp;./utils/websockify/run --web . 6080 localhost:5901 &amp;SIGCHLDTraceback (most recent call last):  File "./utils/websockify/run", line 4, in &lt;module&gt;    websockify.websocketproxy.websockify_init()  File "E:\noVNC\utils\websockify\websockify\websocketproxy.py", line 525, in websockify_init    server.start_server()  File "E:\noVNC\utils\websockify\websockify\websocket.py", line 986, in start_server    signal.SIGCHLD: signal.getsignal(signal.SIGCHLD),AttributeError: 'module' object has no attribute 'SIGCHLD'Modify line 986 of utils/websockify/websockify/websocket.py.# Allow override of signalsoriginal_signals = {    signal.SIGINT: signal.getsignal(signal.SIGINT),    signal.SIGTERM: signal.getsignal(signal.SIGTERM),    #signal.SIGCHLD: signal.getsignal(signal.SIGCHLD),}if getattr(signal, 'SIGCHLD', None) is not None:    original_signals[signal.SIGCHLD] = signal.getsignal(signal.SIGCHLD),signal.signal(signal.SIGINT, self.do_SIGINT)signal.signal(signal.SIGTERM, self.do_SIGTERM)if getattr(signal, 'SIGCHLD', None) is not None:    if not multiprocessing:        # os.fork() (python 2.4) child reaper        signal.signal(signal.SIGCHLD, self.fallback_SIGCHLD)    else:        # make sure that _cleanup is called when children die        # by calling active_children on SIGCHLD        signal.signal(signal.SIGCHLD, self.multiprocessing_SIGCHLD)runWARNING: no 'resource' module, daemonizing is disabledWebSocket server settings:  - Listen on :6080  - Flash security policy server  - Web server. Web root: E:\noVNC  - No SSL/TLS support (no cert file)  - proxying from :6080 to localhost:5901handler exception: Can't pickle &lt;type 'thread.lock'&gt;: it's not found as thread.lockTraceback (most recent call last):  File "&lt;string&gt;", line 1, in &lt;module&gt;  File "D:\Anaconda\lib\multiprocessing\forking.py", line 380, in main    prepare(preparation_data)  File "D:\Anaconda\lib\multiprocessing\forking.py", line 489, in prepare    file, path_name, etc = imp.find_module(main_name, dirs)ImportError: No module named runThe way to compile websockify as Windows executable is here. Then ./utils/websockify/dist will contain run.exe.run 6080 localhost:5901handler exception: Can't pickle &lt;type 'thread.lock'&gt;: it's not found as thread.lockWARNING: no 'resource' module, daemonizing is disabledUsage:    run.exe [options] [source_addr:]source_port [target_addr:target_port]    run.exe [options] [source_addr:]source_port -- WRAP_COMMAND_LINErun.exe: error: no such option: --multiprocessing-forkCisco VPN ClientWindows5 steps to make cisco VPN client work in Win8 and 10 here.Ubuntusudo apt-get install network-manager-vpnc network-manager-vpnc-gnomeCPN Connection Failedsudo tail -f /var/log/syslogsudo vpncvpnc: peer selected (single) DES as "encryption" method.This algorithm is considered too weak todayIf your vpn concentrator admin still insists on using DESuse the "--enable-1des" option.sudo vpnc --enable-1desping 10.2.2.44Here is how to enable ping responce in windows 7.EasyStackServer disconnected (code: 1000, reason: Client closed abruptly)Failed to connect to server (code: 1006)Delete the Bloxy plug-in." />
+<link rel="canonical" href="http://songzy12.github.io/blog/2016/08/27/vnc/" />
+<meta property='og:url' content='http://songzy12.github.io/blog/2016/08/27/vnc/' />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Zhengyang Song&rsquo;s Notepad",
+      "url" : "http://songzy12.github.io"
+    }
+  </script>
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-08-27T19:13:58+08:00" />
+<link rel="next" href="http://songzy12.github.io/blog/2016/08/31/autograder/" title="Autograder" />
+<link rel="prev" href="http://songzy12.github.io/blog/2016/08/27/ansible/" title="Ansible" />
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "headline": "VNC",
+      "image": null,
+      "datePublished": "2016-08-27T19:13:58+08:00",
+      "description": "TightVNCInstall TightVNCInstall JavaJava security: exception site listError: access denied (\"java.net.socketPermission\",\"127.0.0.1:5901\",\"connect,resolve\") TightVNC ViewerAfter starting VNC service, we can use VNC viewer. The IP address of server can be got from the notification area of task bar. Not sure about what happens when entering 127.0.0.1.TightVNC Java ViewerHere is how to set the security levels through the Java Control Panel. Remember to include also the port number in the exception site list, like: 127.0.0.1:5800.vnc4servervnc4servervnc4server -kill :1./utils/launch.sh --vnc localhost:5901noVNCCygwinD:\\Anaconda\\python.exe: can't open file '/cygdrive/e/noVNC/utils/websockify/run': [Errno 2] No such file or directoryFailed to start WebSockets proxyJust hard code line 137 of utils/launch.sh:#${WEBSOCKIFY} --web ${WEB} ${CERT:+--cert ${CERT}} ${PORT} ${VNC_DEST} &amp;./utils/websockify/run --web . 6080 localhost:5901 &amp;SIGCHLDTraceback (most recent call last):  File \"./utils/websockify/run\", line 4, in &lt;module&gt;    websockify.websocketproxy.websockify_init()  File \"E:\\noVNC\\utils\\websockify\\websockify\\websocketproxy.py\", line 525, in websockify_init    server.start_server()  File \"E:\\noVNC\\utils\\websockify\\websockify\\websocket.py\", line 986, in start_server    signal.SIGCHLD: signal.getsignal(signal.SIGCHLD),AttributeError: 'module' object has no attribute 'SIGCHLD'Modify line 986 of utils/websockify/websockify/websocket.py.# Allow override of signalsoriginal_signals = {    signal.SIGINT: signal.getsignal(signal.SIGINT),    signal.SIGTERM: signal.getsignal(signal.SIGTERM),    #signal.SIGCHLD: signal.getsignal(signal.SIGCHLD),}if getattr(signal, 'SIGCHLD', None) is not None:    original_signals[signal.SIGCHLD] = signal.getsignal(signal.SIGCHLD),signal.signal(signal.SIGINT, self.do_SIGINT)signal.signal(signal.SIGTERM, self.do_SIGTERM)if getattr(signal, 'SIGCHLD', None) is not None:    if not multiprocessing:        # os.fork() (python 2.4) child reaper        signal.signal(signal.SIGCHLD, self.fallback_SIGCHLD)    else:        # make sure that _cleanup is called when children die        # by calling active_children on SIGCHLD        signal.signal(signal.SIGCHLD, self.multiprocessing_SIGCHLD)runWARNING: no 'resource' module, daemonizing is disabledWebSocket server settings:  - Listen on :6080  - Flash security policy server  - Web server. Web root: E:\\noVNC  - No SSL/TLS support (no cert file)  - proxying from :6080 to localhost:5901handler exception: Can't pickle &lt;type 'thread.lock'&gt;: it's not found as thread.lockTraceback (most recent call last):  File \"&lt;string&gt;\", line 1, in &lt;module&gt;  File \"D:\\Anaconda\\lib\\multiprocessing\\forking.py\", line 380, in main    prepare(preparation_data)  File \"D:\\Anaconda\\lib\\multiprocessing\\forking.py\", line 489, in prepare    file, path_name, etc = imp.find_module(main_name, dirs)ImportError: No module named runThe way to compile websockify as Windows executable is here. Then ./utils/websockify/dist will contain run.exe.run 6080 localhost:5901handler exception: Can't pickle &lt;type 'thread.lock'&gt;: it's not found as thread.lockWARNING: no 'resource' module, daemonizing is disabledUsage:    run.exe [options] [source_addr:]source_port [target_addr:target_port]    run.exe [options] [source_addr:]source_port -- WRAP_COMMAND_LINErun.exe: error: no such option: --multiprocessing-forkCisco VPN ClientWindows5 steps to make cisco VPN client work in Win8 and 10 here.Ubuntusudo apt-get install network-manager-vpnc network-manager-vpnc-gnomeCPN Connection Failedsudo tail -f /var/log/syslogsudo vpncvpnc: peer selected (single) DES as \"encryption\" method.This algorithm is considered too weak todayIf your vpn concentrator admin still insists on using DESuse the \"--enable-1des\" option.sudo vpnc --enable-1desping 10.2.2.44Here is how to enable ping responce in windows 7.EasyStackServer disconnected (code: 1000, reason: Client closed abruptly)Failed to connect to server (code: 1006)Delete the Bloxy plug-in."
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+</head>
+ 
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
+  
+    <h2>All those little bugs I have ever met.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="songzy12.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">VNC</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-27T19:13:58+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:13 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>TightVNC</h2>
+
+<ul>
+<li>Install TightVNC</li>
+<li>Install Java</li>
+<li>Java security: exception site list</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Error: access denied ("java.net.socketPermission","127.0.0.1:5901","connect,resolve") </span></code></pre></td></tr></table></div></figure>
+
+
+<h3>TightVNC Viewer</h3>
+
+<p>After starting VNC service, we can use VNC viewer. The IP address of server can be got from the notification area of task bar. Not sure about what happens when entering 127.0.0.1.</p>
+
+<h3>TightVNC Java Viewer</h3>
+
+<p><a href="https://www.youtube.com/watch?v=kf64OgNokqI">Here</a> is how to set the security levels through the Java Control Panel. Remember to include also the port number in the exception site list, like: <code>127.0.0.1:5800</code>.</p>
+
+<h2>vnc4server</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vnc4server
+</span><span class='line'>vnc4server -kill :1
+</span><span class='line'>./utils/launch.sh --vnc localhost:5901</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>noVNC</h2>
+
+<h3>Cygwin</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>D:\Anaconda\python.exe: can't open file '/cygdrive/e/noVNC/utils/websockify/run': [Errno 2] No such file or directory
+</span><span class='line'>Failed to start WebSockets proxy</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Just hard code line 137 of <code>utils/launch.sh</code>:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#${WEBSOCKIFY} --web ${WEB} ${CERT:+--cert ${CERT}} ${PORT} ${VNC_DEST} &
+</span><span class='line'>./utils/websockify/run --web . 6080 localhost:5901 &</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>SIGCHLD</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Traceback (most recent call last):
+</span><span class='line'>  File "./utils/websockify/run", line 4, in &lt;module&gt;
+</span><span class='line'>    websockify.websocketproxy.websockify_init()
+</span><span class='line'>  File "E:\noVNC\utils\websockify\websockify\websocketproxy.py", line 525, in websockify_init
+</span><span class='line'>    server.start_server()
+</span><span class='line'>  File "E:\noVNC\utils\websockify\websockify\websocket.py", line 986, in start_server
+</span><span class='line'>    signal.SIGCHLD: signal.getsignal(signal.SIGCHLD),
+</span><span class='line'>AttributeError: 'module' object has no attribute 'SIGCHLD'</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Modify line 986 of <code>utils/websockify/websockify/websocket.py</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Allow override of signals
+</span><span class='line'>original_signals = {
+</span><span class='line'>    signal.SIGINT: signal.getsignal(signal.SIGINT),
+</span><span class='line'>    signal.SIGTERM: signal.getsignal(signal.SIGTERM),
+</span><span class='line'>    #signal.SIGCHLD: signal.getsignal(signal.SIGCHLD),
+</span><span class='line'>}
+</span><span class='line'>if getattr(signal, 'SIGCHLD', None) is not None:
+</span><span class='line'>    original_signals[signal.SIGCHLD] = signal.getsignal(signal.SIGCHLD),
+</span><span class='line'>
+</span><span class='line'>signal.signal(signal.SIGINT, self.do_SIGINT)
+</span><span class='line'>signal.signal(signal.SIGTERM, self.do_SIGTERM)
+</span><span class='line'>
+</span><span class='line'>if getattr(signal, 'SIGCHLD', None) is not None:
+</span><span class='line'>    if not multiprocessing:
+</span><span class='line'>        # os.fork() (python 2.4) child reaper
+</span><span class='line'>        signal.signal(signal.SIGCHLD, self.fallback_SIGCHLD)
+</span><span class='line'>    else:
+</span><span class='line'>        # make sure that _cleanup is called when children die
+</span><span class='line'>        # by calling active_children on SIGCHLD
+</span><span class='line'>        signal.signal(signal.SIGCHLD, self.multiprocessing_SIGCHLD)</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>run</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>WARNING: no 'resource' module, daemonizing is disabled
+</span><span class='line'>WebSocket server settings:
+</span><span class='line'>  - Listen on :6080
+</span><span class='line'>  - Flash security policy server
+</span><span class='line'>  - Web server. Web root: E:\noVNC
+</span><span class='line'>  - No SSL/TLS support (no cert file)
+</span><span class='line'>  - proxying from :6080 to localhost:5901
+</span><span class='line'>handler exception: Can't pickle &lt;type 'thread.lock'&gt;: it's not found as thread.lock
+</span><span class='line'>Traceback (most recent call last):
+</span><span class='line'>  File "&lt;string&gt;", line 1, in &lt;module&gt;
+</span><span class='line'>  File "D:\Anaconda\lib\multiprocessing\forking.py", line 380, in main
+</span><span class='line'>    prepare(preparation_data)
+</span><span class='line'>  File "D:\Anaconda\lib\multiprocessing\forking.py", line 489, in prepare
+</span><span class='line'>    file, path_name, etc = imp.find_module(main_name, dirs)
+</span><span class='line'>ImportError: No module named run</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The way to compile <code>websockify</code> as Windows executable is <a href="https://github.com/kanaka/websockify/wiki/Compiling-Websockify-as-Windows-Executable">here</a>. Then <code>./utils/websockify/dist</code> will contain <code>run.exe</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>run 6080 localhost:5901
+</span><span class='line'>
+</span><span class='line'>handler exception: Can't pickle &lt;type 'thread.lock'&gt;: it's not found as thread.lock
+</span><span class='line'>WARNING: no 'resource' module, daemonizing is disabled
+</span><span class='line'>Usage:
+</span><span class='line'>    run.exe [options] [source_addr:]source_port [target_addr:target_port]
+</span><span class='line'>    run.exe [options] [source_addr:]source_port -- WRAP_COMMAND_LINE
+</span><span class='line'>
+</span><span class='line'>run.exe: error: no such option: --multiprocessing-fork</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Cisco VPN Client</h2>
+
+<h3>Windows</h3>
+
+<p>5 steps to make cisco VPN client work in Win8 and 10 <a href="http://www.gleescape.com/posts/2917">here</a>.</p>
+
+<h3>Ubuntu</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install network-manager-vpnc network-manager-vpnc-gnome</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>CPN Connection Failed</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo tail -f /var/log/syslog</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vpnc
+</span><span class='line'>
+</span><span class='line'>vpnc: peer selected (single) DES as "encryption" method.
+</span><span class='line'>This algorithm is considered too weak today
+</span><span class='line'>If your vpn concentrator admin still insists on using DES
+</span><span class='line'>use the "--enable-1des" option.</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vpnc --enable-1des
+</span><span class='line'>ping 10.2.2.44</span></code></pre></td></tr></table></div></figure>
+
+
+<p><a href="https://answers.microsoft.com/en-us/windows/forum/windows_7-networking/how-to-enable-ping-response-in-windows-7/5aff5f8d-f138-4c9a-8646-5b3a99f1cae6?auth=1">Here</a> is how to enable ping responce in windows 7.</p>
+
+<h2>EasyStack</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Server disconnected (code: 1000, reason: Client closed abruptly)
+</span><span class='line'>Failed to connect to server (code: 1006)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Delete the Bloxy plug-in.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Zhengyang Song</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-08-27T19:13:58+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:13 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/08/27/ansible/" title="Previous Post: Ansible">&laquo; Ansible</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/08/31/autograder/" title="Next Post: Autograder">Autograder &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/06/30/latex/">LaTeX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/04/captcha/">Captcha</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Zhengyang Song -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

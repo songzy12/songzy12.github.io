@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Python Language Services - Zhengyang Song's Notepad</title>
+  <meta name="author" content="Zhengyang Song">
+
+  
+  <meta name="description" content="ast Abstract Syntax Trees 1
+2
+3
+4
+5
+6
+7
+8
+9
+import ast expr_ast = ast.parse(expr)
+ast.dump(expr_ast) transformer = CrazyTransformer()
+transformer. &hellip;">
+  
+  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://songzy12.github.io/blog/2016/12/24/python-language-services/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+  <!-- Begin Jekyll SEO tag v2.5.3 -->
+<title>python language services - Zhengyang Song&rsquo;s Notepad</title>
+<meta property="og:title" content="python language services" />
+<meta name="description" content="astAbstract Syntax Treesimport astexpr_ast = ast.parse(expr)ast.dump(expr_ast)transformer = CrazyTransformer()transformer.visit(expr_ast)unparse.Unparser(modified, sys.stdout)ast.literal_eval() only considers a small subset of Python&rsquo;s syntax to be valid:The string or node provided may only consist of the following Python literal structures: strings, numbers, tuples, lists, dicts, booleans, and None.Passing __import__('os').system('rm -rf /a-path-you-really-care-about') into ast.literal_eval() will raise an error, but eval() will happily wipe your drive.Use ast.literal_eval whenever you need eval." />
+<meta property='og:description' content="astAbstract Syntax Treesimport astexpr_ast = ast.parse(expr)ast.dump(expr_ast)transformer = CrazyTransformer()transformer.visit(expr_ast)unparse.Unparser(modified, sys.stdout)ast.literal_eval() only considers a small subset of Python&rsquo;s syntax to be valid:The string or node provided may only consist of the following Python literal structures: strings, numbers, tuples, lists, dicts, booleans, and None.Passing __import__('os').system('rm -rf /a-path-you-really-care-about') into ast.literal_eval() will raise an error, but eval() will happily wipe your drive.Use ast.literal_eval whenever you need eval." />
+<link rel="canonical" href="http://songzy12.github.io/blog/2016/12/24/python-language-services/" />
+<meta property='og:url' content='http://songzy12.github.io/blog/2016/12/24/python-language-services/' />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Zhengyang Song&rsquo;s Notepad",
+      "url" : "http://songzy12.github.io"
+    }
+  </script>
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-12-24T14:06:13+08:00" />
+<link rel="next" href="http://songzy12.github.io/blog/2016/12/24/custom-python-interpreters/" title="Custom Python Interpreters" />
+<link rel="prev" href="http://songzy12.github.io/blog/2016/12/24/python-built-in/" title="python built-in" />
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "headline": "python language services",
+      "image": null,
+      "datePublished": "2016-12-24T14:06:13+08:00",
+      "description": "astAbstract Syntax Treesimport astexpr_ast = ast.parse(expr)ast.dump(expr_ast)transformer = CrazyTransformer()transformer.visit(expr_ast)unparse.Unparser(modified, sys.stdout)ast.literal_eval() only considers a small subset of Python&rsquo;s syntax to be valid:The string or node provided may only consist of the following Python literal structures: strings, numbers, tuples, lists, dicts, booleans, and None.Passing __import__('os').system('rm -rf /a-path-you-really-care-about') into ast.literal_eval() will raise an error, but eval() will happily wipe your drive.Use ast.literal_eval whenever you need eval."
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+</head>
+ 
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
+  
+    <h2>All those little bugs I have ever met.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="songzy12.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Python Language Services</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-12-24T14:06:13+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:06 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>ast</h2>
+
+<p>Abstract Syntax Trees</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>import ast
+</span><span class='line'>
+</span><span class='line'>expr_ast = ast.parse(expr)
+</span><span class='line'>ast.dump(expr_ast)
+</span><span class='line'>
+</span><span class='line'>transformer = CrazyTransformer()
+</span><span class='line'>transformer.visit(expr_ast)
+</span><span class='line'>
+</span><span class='line'>unparse.Unparser(modified, sys.stdout)</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>ast.literal_eval()</code> only considers a small subset of Python&rsquo;s syntax to be valid:</p>
+
+<p>The string or node provided may only consist of the following Python literal structures: strings, numbers, tuples, lists, dicts, booleans, and None.</p>
+
+<p>Passing <code>__import__('os').system('rm -rf /a-path-you-really-care-about')</code> into <code>ast.literal_eval()</code> will raise an error, but <code>eval()</code> will happily wipe your drive.</p>
+
+<p>Use <code>ast.literal_eval</code> whenever you need <code>eval</code>.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Zhengyang Song</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-12-24T14:06:13+08:00'><span class='date'><span class='date-month'>Dec</span> <span class='date-day'>24</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:06 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/python/'>python</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/12/24/python-built-in/" title="Previous Post: python built-in">&laquo; python built-in</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/12/24/custom-python-interpreters/" title="Next Post: Custom Python Interpreters">Custom Python Interpreters &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/06/30/latex/">LaTeX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/04/captcha/">Captcha</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Zhengyang Song -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,624 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>edX Developer Stack - Zhengyang Song's Notepad</title>
+  <meta name="author" content="Zhengyang Song">
+
+  
+  <meta name="description" content="See Running Devstack here. 1
+2
+paver devstack --fast lms &gt; lms.log 2&gt;&1 &
+paver devstack --fast studio &gt; studio.log 2&gt;&1 & &hellip;">
+  
+  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://songzy12.github.io/blog/2016/05/16/edx-developer-stack/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+  <!-- Begin Jekyll SEO tag v2.5.3 -->
+<title>edX Developer Stack - Zhengyang Song&rsquo;s Notepad</title>
+<meta property="og:title" content="edX Developer Stack" />
+<meta name="description" content="See Running Devstack here.paver devstack --fast lms &gt; lms.log 2&gt;&amp;1 &amp;paver devstack --fast studio &gt; studio.log 2&gt;&amp;1 &amp;OPENEDX_RELEASEdefault: Downloading: http://files.edx.org/vagrant-images/devstack-periodic-2016-05-05.boxThe requested URL returned error: 403 Forbiddenexport OPENEDX_RELEASE="named-release/dogwood.1"&#115;&#116;&#x61;&#102;&#102;&#64;&#x65;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d; / edx&#x76;&#101;&#114;&#105;&#x66;&#x69;&#x65;&#100;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109; / edx&#x61;&#x75;&#100;&#105;&#x74;&#x40;&#x65;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#109; / edx&#104;&#111;&#x6e;&#111;&#x72;&#x40;&#101;&#120;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#x63;&#111;&#x6d; / edxvagrant upvagrant sshsudo su edxappThis will source the edxapp environment (/edx/app/edxapp/edxapp_env) so that the venv python and rbenv ruby are in your search path.It will also set the current working directory to the edx-platform repository (/edx/app/edxapp/edx-platform).LMS WorkflowLMS: Learning Management System.paver devstack lms &gt; lms.log 2&gt;&amp;1 &amp;paver devstack --fast lms &gt; lms.log 2&gt;&amp;1 &amp;Starting development server at http://0.0.0.0:8000/WSGI: Web Server Gateway InterfaceStudio WorkflowCMS: course management systempaver devstack studio &gt; studio.log 2&gt;&amp;1 &amp;paver devstack --fast studio &gt; studio.log 2&gt;&amp;1 &amp;Starting development server at http://0.0.0.0:8001/Forum Workflowsudo su forumbundle installruby app.rb -p 18080Vagrantmkdir devstackcd devstackcurl -L https://raw.githubusercontent.com/edx/configuration/master/vagrant/release/devstack/Vagrantfile &gt; Vagrantfilevagrant plugin install vagrant-vbguestvagrant upvagrant sshupdatecurl -o vagrant_1.7.2_x86_64.deb https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.debsudo dpkg -i vagrant_1.7.2_x86_64.debremove boxvagrant box listvagrant statusvagrant haltvagrant destroyvagrant box remove --force --all dogwood-devstack-2016-03-09port in useThe forwarded port to 9200 is already in useon the host machine.netstat -peanutidvi VagrantfileNFS==&gt; default: Mounting NFS shared folders...sudo apt-get install nfs-kernel-serversudo apt-get install nfs-commonSSHThe SSH command responded with a non-zero exit status.==&gt; default: FATAL: all hosts have already failed -- aborting==&gt; default: INFO:ansible.callback_plugins.datadog_tasks_timing:==&gt; default: Playbook vagrant-devstack finished: Fri Mar 25 13:12:31 2016, 276 total tasks.  0:18:28 elapsed.==&gt; default:            to retry, use: --limit @/root/vagrant-devstack.retry==&gt; default:==&gt; default: localhost                  : ok=260  changed=65   unreachable=0    failed=1rm -rf devstack/VirtualBoxvboxmanage --versionPort ForwardingFailed to load unit 'pgm' (VERR_MAP_FAILED).Discard saved state." />
+<meta property='og:description' content="See Running Devstack here.paver devstack --fast lms &gt; lms.log 2&gt;&amp;1 &amp;paver devstack --fast studio &gt; studio.log 2&gt;&amp;1 &amp;OPENEDX_RELEASEdefault: Downloading: http://files.edx.org/vagrant-images/devstack-periodic-2016-05-05.boxThe requested URL returned error: 403 Forbiddenexport OPENEDX_RELEASE="named-release/dogwood.1"&#115;&#116;&#x61;&#102;&#102;&#64;&#x65;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d; / edx&#x76;&#101;&#114;&#105;&#x66;&#x69;&#x65;&#100;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109; / edx&#x61;&#x75;&#100;&#105;&#x74;&#x40;&#x65;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#109; / edx&#104;&#111;&#x6e;&#111;&#x72;&#x40;&#101;&#120;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#x63;&#111;&#x6d; / edxvagrant upvagrant sshsudo su edxappThis will source the edxapp environment (/edx/app/edxapp/edxapp_env) so that the venv python and rbenv ruby are in your search path.It will also set the current working directory to the edx-platform repository (/edx/app/edxapp/edx-platform).LMS WorkflowLMS: Learning Management System.paver devstack lms &gt; lms.log 2&gt;&amp;1 &amp;paver devstack --fast lms &gt; lms.log 2&gt;&amp;1 &amp;Starting development server at http://0.0.0.0:8000/WSGI: Web Server Gateway InterfaceStudio WorkflowCMS: course management systempaver devstack studio &gt; studio.log 2&gt;&amp;1 &amp;paver devstack --fast studio &gt; studio.log 2&gt;&amp;1 &amp;Starting development server at http://0.0.0.0:8001/Forum Workflowsudo su forumbundle installruby app.rb -p 18080Vagrantmkdir devstackcd devstackcurl -L https://raw.githubusercontent.com/edx/configuration/master/vagrant/release/devstack/Vagrantfile &gt; Vagrantfilevagrant plugin install vagrant-vbguestvagrant upvagrant sshupdatecurl -o vagrant_1.7.2_x86_64.deb https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.debsudo dpkg -i vagrant_1.7.2_x86_64.debremove boxvagrant box listvagrant statusvagrant haltvagrant destroyvagrant box remove --force --all dogwood-devstack-2016-03-09port in useThe forwarded port to 9200 is already in useon the host machine.netstat -peanutidvi VagrantfileNFS==&gt; default: Mounting NFS shared folders...sudo apt-get install nfs-kernel-serversudo apt-get install nfs-commonSSHThe SSH command responded with a non-zero exit status.==&gt; default: FATAL: all hosts have already failed -- aborting==&gt; default: INFO:ansible.callback_plugins.datadog_tasks_timing:==&gt; default: Playbook vagrant-devstack finished: Fri Mar 25 13:12:31 2016, 276 total tasks.  0:18:28 elapsed.==&gt; default:            to retry, use: --limit @/root/vagrant-devstack.retry==&gt; default:==&gt; default: localhost                  : ok=260  changed=65   unreachable=0    failed=1rm -rf devstack/VirtualBoxvboxmanage --versionPort ForwardingFailed to load unit 'pgm' (VERR_MAP_FAILED).Discard saved state." />
+<link rel="canonical" href="http://songzy12.github.io/blog/2016/05/16/edx-developer-stack/" />
+<meta property='og:url' content='http://songzy12.github.io/blog/2016/05/16/edx-developer-stack/' />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Zhengyang Song&rsquo;s Notepad",
+      "url" : "http://songzy12.github.io"
+    }
+  </script>
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-05-16T14:26:50+08:00" />
+<link rel="next" href="http://songzy12.github.io/blog/2016/05/16/open-edx-architecture/" title="Open edX Architecture" />
+<link rel="prev" href="http://songzy12.github.io/blog/2016/05/13/text-tiling/" title="Text Tiling" />
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "headline": "edX Developer Stack",
+      "image": null,
+      "datePublished": "2016-05-16T14:26:50+08:00",
+      "description": "See Running Devstack here.paver devstack --fast lms &gt; lms.log 2&gt;&amp;1 &amp;paver devstack --fast studio &gt; studio.log 2&gt;&amp;1 &amp;OPENEDX_RELEASEdefault: Downloading: http://files.edx.org/vagrant-images/devstack-periodic-2016-05-05.boxThe requested URL returned error: 403 Forbiddenexport OPENEDX_RELEASE=\"named-release/dogwood.1\"&#115;&#116;&#x61;&#102;&#102;&#64;&#x65;&#x78;&#x61;&#x6d;&#x70;&#108;&#x65;&#x2e;&#x63;&#x6f;&#x6d; / edx&#x76;&#101;&#114;&#105;&#x66;&#x69;&#x65;&#100;&#x40;&#x65;&#x78;&#97;&#x6d;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#109; / edx&#x61;&#x75;&#100;&#105;&#x74;&#x40;&#x65;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#109; / edx&#104;&#111;&#x6e;&#111;&#x72;&#x40;&#101;&#120;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#x63;&#111;&#x6d; / edxvagrant upvagrant sshsudo su edxappThis will source the edxapp environment (/edx/app/edxapp/edxapp_env) so that the venv python and rbenv ruby are in your search path.It will also set the current working directory to the edx-platform repository (/edx/app/edxapp/edx-platform).LMS WorkflowLMS: Learning Management System.paver devstack lms &gt; lms.log 2&gt;&amp;1 &amp;paver devstack --fast lms &gt; lms.log 2&gt;&amp;1 &amp;Starting development server at http://0.0.0.0:8000/WSGI: Web Server Gateway InterfaceStudio WorkflowCMS: course management systempaver devstack studio &gt; studio.log 2&gt;&amp;1 &amp;paver devstack --fast studio &gt; studio.log 2&gt;&amp;1 &amp;Starting development server at http://0.0.0.0:8001/Forum Workflowsudo su forumbundle installruby app.rb -p 18080Vagrantmkdir devstackcd devstackcurl -L https://raw.githubusercontent.com/edx/configuration/master/vagrant/release/devstack/Vagrantfile &gt; Vagrantfilevagrant plugin install vagrant-vbguestvagrant upvagrant sshupdatecurl -o vagrant_1.7.2_x86_64.deb https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.debsudo dpkg -i vagrant_1.7.2_x86_64.debremove boxvagrant box listvagrant statusvagrant haltvagrant destroyvagrant box remove --force --all dogwood-devstack-2016-03-09port in useThe forwarded port to 9200 is already in useon the host machine.netstat -peanutidvi VagrantfileNFS==&gt; default: Mounting NFS shared folders...sudo apt-get install nfs-kernel-serversudo apt-get install nfs-commonSSHThe SSH command responded with a non-zero exit status.==&gt; default: FATAL: all hosts have already failed -- aborting==&gt; default: INFO:ansible.callback_plugins.datadog_tasks_timing:==&gt; default: Playbook vagrant-devstack finished: Fri Mar 25 13:12:31 2016, 276 total tasks.  0:18:28 elapsed.==&gt; default:            to retry, use: --limit @/root/vagrant-devstack.retry==&gt; default:==&gt; default: localhost                  : ok=260  changed=65   unreachable=0    failed=1rm -rf devstack/VirtualBoxvboxmanage --versionPort ForwardingFailed to load unit 'pgm' (VERR_MAP_FAILED).Discard saved state."
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+</head>
+ 
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
+  
+    <h2>All those little bugs I have ever met.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="songzy12.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">edX Developer Stack</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-05-16T14:26:50+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:26 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>See Running Devstack <a href="https://openedx.atlassian.net/wiki/display/OpenOPS/Running+Devstack">here</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>paver devstack --fast lms &gt; lms.log 2&gt;&1 &
+</span><span class='line'>paver devstack --fast studio &gt; studio.log 2&gt;&1 &</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>OPENEDX_RELEASE</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>default: Downloading: http://files.edx.org/vagrant-images/devstack-periodic-2016-05-05.box
+</span><span class='line'>The requested URL returned error: 403 Forbidden
+</span><span class='line'>
+</span><span class='line'>export OPENEDX_RELEASE="named-release/dogwood.1"</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li><a href="&#x6d;&#x61;&#x69;&#108;&#116;&#111;&#x3a;&#115;&#116;&#97;&#x66;&#x66;&#64;&#x65;&#120;&#97;&#109;&#x70;&#108;&#x65;&#x2e;&#99;&#111;&#x6d;">&#x73;&#x74;&#x61;&#102;&#x66;&#64;&#x65;&#120;&#x61;&#x6d;&#x70;&#x6c;&#101;&#x2e;&#99;&#x6f;&#x6d;</a> / edx</li>
+<li><a href="&#109;&#97;&#105;&#x6c;&#x74;&#111;&#58;&#x76;&#101;&#114;&#x69;&#x66;&#x69;&#101;&#100;&#64;&#x65;&#x78;&#x61;&#109;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#x6d;">&#118;&#x65;&#x72;&#x69;&#102;&#105;&#x65;&#x64;&#x40;&#x65;&#x78;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#x6f;&#x6d;</a> / edx</li>
+<li><a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#58;&#x61;&#x75;&#100;&#x69;&#x74;&#x40;&#101;&#120;&#97;&#109;&#x70;&#108;&#101;&#x2e;&#99;&#111;&#x6d;">&#x61;&#117;&#x64;&#105;&#x74;&#64;&#101;&#120;&#97;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#111;&#x6d;</a> / edx</li>
+<li><a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#111;&#x3a;&#104;&#x6f;&#110;&#111;&#114;&#x40;&#101;&#x78;&#x61;&#109;&#x70;&#x6c;&#101;&#x2e;&#x63;&#111;&#x6d;">&#x68;&#111;&#x6e;&#111;&#x72;&#64;&#x65;&#x78;&#x61;&#x6d;&#112;&#x6c;&#101;&#46;&#99;&#x6f;&#x6d;</a> / edx</li>
+</ul>
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant up
+</span><span class='line'>vagrant ssh
+</span><span class='line'>sudo su edxapp</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>This will source the edxapp environment (<code>/edx/app/edxapp/edxapp_env</code>) so that the venv python and rbenv ruby are in your search path.</li>
+<li>It will also set the current working directory to the edx-platform repository (<code>/edx/app/edxapp/edx-platform</code>).</li>
+</ul>
+
+
+<h2>LMS Workflow</h2>
+
+<p>LMS: Learning Management System.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>paver devstack lms &gt; lms.log 2&gt;&1 &
+</span><span class='line'>paver devstack --fast lms &gt; lms.log 2&gt;&1 &
+</span><span class='line'>
+</span><span class='line'>Starting development server at http://0.0.0.0:8000/</span></code></pre></td></tr></table></div></figure>
+
+
+<p>WSGI: Web Server Gateway Interface</p>
+
+<h2>Studio Workflow</h2>
+
+<p>CMS: course management system</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>paver devstack studio &gt; studio.log 2&gt;&1 &
+</span><span class='line'>paver devstack --fast studio &gt; studio.log 2&gt;&1 &
+</span><span class='line'>
+</span><span class='line'>Starting development server at http://0.0.0.0:8001/</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Forum Workflow</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo su forum
+</span><span class='line'>bundle install
+</span><span class='line'>ruby app.rb -p 18080</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>Vagrant</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir devstack
+</span><span class='line'>cd devstack
+</span><span class='line'>curl -L https://raw.githubusercontent.com/edx/configuration/master/vagrant/release/devstack/Vagrantfile &gt; Vagrantfile
+</span><span class='line'>vagrant plugin install vagrant-vbguest
+</span><span class='line'>vagrant up
+</span><span class='line'>vagrant ssh</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>update</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl -o vagrant_1.7.2_x86_64.deb https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
+</span><span class='line'>sudo dpkg -i vagrant_1.7.2_x86_64.deb</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>remove box</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant box list
+</span><span class='line'>vagrant status
+</span><span class='line'>vagrant halt
+</span><span class='line'>vagrant destroy
+</span><span class='line'>vagrant box remove --force --all dogwood-devstack-2016-03-09</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>port in use</h3>
+
+<p>The forwarded port to 9200 is already in use
+on the host machine.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>netstat -peanut
+</span><span class='line'>id
+</span><span class='line'>vi Vagrantfile</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>NFS</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>==&gt; default: Mounting NFS shared folders...</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install nfs-kernel-server
+</span><span class='line'>sudo apt-get install nfs-common</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>SSH</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>The SSH command responded with a non-zero exit status.</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>==&gt; default: FATAL: all hosts have already failed -- aborting
+</span><span class='line'>
+</span><span class='line'>==&gt; default: INFO:ansible.callback_plugins.datadog_tasks_timing:
+</span><span class='line'>==&gt; default: Playbook vagrant-devstack finished: Fri Mar 25 13:12:31 2016, 276 total tasks.  0:18:28 elapsed.
+</span><span class='line'>==&gt; default:            to retry, use: --limit @/root/vagrant-devstack.retry
+</span><span class='line'>==&gt; default:
+</span><span class='line'>==&gt; default: localhost                  : ok=260  changed=65   unreachable=0    failed=1</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>rm -rf devstack/</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>VirtualBox</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vboxmanage --version</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Port Forwarding</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Failed to load unit 'pgm' (VERR_MAP_FAILED).</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Discard saved state.</p>
+
+<hr />
+
+<!--more-->
+
+
+<h2>403</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://10.9.10.15:8000/courses/course-v1:TsinghuaX+30240184X+2016_T1/courseware/f1903b9555df41bca0ebd3922949ff48/5a6b1d348c8e4c01978090cb9b189af2/</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Delete this Unit and reconstruct it.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>grep -r "jquery.cookie.js" .
+</span><span class='line'>
+</span><span class='line'>./edx-platform/lms/envs/common.py:    'js/vendor/jquery.cookie.js',</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>find -name "jqeury.cookie.js"</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>./edx-platform/common/static/js/vendor/jquery.cookie.js</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>jQuery</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>grep -r ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js .</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>./venvs/edxapp/local/lib/python2.7/site-packages/debug_toolbar/settings.py:    'JQUERY_URL': '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js',
+</span><span class='line'>./venvs/edxapp/lib/python2.7/site-packages/debug_toolbar/settings.py:    'JQUERY_URL': '//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js'</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//code.jquery.com/jquery-2.2.2.min.js</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>static</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>http://static.tsinghuax.org/video/30240184X/01A-1.mp4</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>"POST /event HTTP/1.1" 403 9944"</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>pscp -P 2222 ./4.2.mp4 vagrant@127.0.0.1:.
+</span><span class='line'>pwd
+</span><span class='line'>/home/vagarnt
+</span><span class='line'>sudo su edxapp
+</span><span class='line'>pwd
+</span><span class='line'>/edx/app/edxapp/edx-platform
+</span><span class='line'>cd /edx/app/edxapp/edx-platform/cms/static/
+</span><span class='line'>mkdir video
+</span><span class='line'>sudo cp /home/vagarnt/4.2.mp4 video/.  </span></code></pre></td></tr></table></div></figure>
+
+
+<h3>python</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cd ~/edx-platform/cms/static/video
+</span><span class='line'>python -m SimpleHTTPServer 7777</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>settings</h3>
+
+<p><code>settings.py</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>https://youtu.be/t1OeLJ1ryRw
+</span><span class='line'>https://www.youtube.com/embed/t1OeLJ1ryRw
+</span><span class='line'>
+</span><span class='line'>&lt;iframe&gt; &lt;/iframe&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>nginx</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>vi /etc/nginx/nginx.conf</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>xmodule</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>            Finished processing xmodule assets.
+</span><span class='line'>touch lms/urls.py cms/urls.py
+</span><span class='line'>    CHANGED: /edx/app/edxapp/edx-platform/common/lib/xmodule/xmodule/js/src/vertical/edit.js
+</span><span class='line'>xmodule_assets common/static/xmodule</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>paver devstack --fast studio</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>OSError</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>File "pavelib/assets.py", line 338, in watch_assets
+</span><span class='line'>    CoffeeScriptWatcher().register(observer)
+</span><span class='line'>  File "pavelib/assets.py", line 107, in register
+</span><span class='line'>    observer.schedule(self, dirname)
+</span><span class='line'>  File "/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/watchdog/observers/api.py", line 329, in schedule
+</span><span class='line'>    timeout=self.timeout)
+</span><span class='line'>  File "/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/watchdog/observers/inotify.py", line 128, in __init__
+</span><span class='line'>    self._inotify = Inotify(watch.path, watch.is_recursive)
+</span><span class='line'>  File "/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/watchdog/observers/inotify_c.py", line 189, in __init__
+</span><span class='line'>    Inotify._raise_error()
+</span><span class='line'>  File "/edx/app/edxapp/venvs/edxapp/local/lib/python2.7/site-packages/watchdog/observers/inotify_c.py", line 429, in _raise_error
+</span><span class='line'>    raise OSError(os.strerror(_errnum))
+</span><span class='line'>OSError: Too many open files</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>lsof -u edxapp</span></code></pre></td></tr></table></div></figure>
+
+
+<p>lsof: list open files</p>
+
+<p>Then kill the ones that with <code>anon-inode</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>int fd = open( "/tmp/file", O_CREAT | O_RDWR, 0666 );
+</span><span class='line'>unlink( "/tmp/file" );
+</span><span class='line'>// Note that the descriptor fd now points to an inode that has no filesystem entry; you
+</span><span class='line'>// can still write to it, fstat() it, etc. but you can't find it in the filesystem.</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Zhengyang Song</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-05-16T14:26:50+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>16</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:26 pm</span></time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/python/'>python</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/05/13/text-tiling/" title="Previous Post: Text Tiling">&laquo; Text Tiling</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/05/16/open-edx-architecture/" title="Next Post: Open edX Architecture">Open edX Architecture &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/06/30/latex/">LaTeX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/04/captcha/">Captcha</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Zhengyang Song -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

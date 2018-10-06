@@ -1,0 +1,431 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Zhengyang Song's Notepad</title>
+  <meta name="author" content="Zhengyang Song">
+
+  
+  <meta name="description" content="sortTable 1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+// sortTable(f,n)
+// f : 1 ascending order &hellip;">
+  
+  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://songzy12.github.io/posts/63/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+  <!-- Begin Jekyll SEO tag v2.5.3 -->
+<title>Zhengyang Song&rsquo;s Notepad - A Technique Blog of a Naive Programmer.</title>
+<meta property="og:title" content="Zhengyang Song&rsquo;s Notepad" />
+<meta name="description" content="A Technique Blog of a Naive Programmer." />
+<meta property='og:description' content="A Technique Blog of a Naive Programmer." />
+<link rel="canonical" href="http://songzy12.github.io/posts/63/" />
+<meta property='og:url' content='http://songzy12.github.io/posts/63/' />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Zhengyang Song&rsquo;s Notepad",
+      "url" : "http://songzy12.github.io"
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+</head>
+ 
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
+  
+    <h2>All those little bugs I have ever met.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="songzy12.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/11/18/jquery/">jQuery</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-11-18T14:03:52+08:00'><span class='date'><span class='date-month'>Nov</span> <span class='date-day'>18</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>2:03 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>sortTable</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>//  sortTable(f,n)
+</span><span class='line'>//  f : 1 ascending order, -1 descending order
+</span><span class='line'>//  n : n-th child(&lt;td&gt;) of &lt;tr&gt;
+</span><span class='line'>
+</span><span class='line'>function sortTable(f,n){
+</span><span class='line'>  var rows = $('#entities-table tbody  tr').get();
+</span><span class='line'>  rows.sort(function(a, b) {
+</span><span class='line'>    var A = getVal(a);
+</span><span class='line'>    var B = getVal(b);
+</span><span class='line'>
+</span><span class='line'>    if(A &lt; B) {
+</span><span class='line'>        return -1*f;
+</span><span class='line'>    }
+</span><span class='line'>    if(A &gt; B) {
+</span><span class='line'>      return 1*f;
+</span><span class='line'>    }
+</span><span class='line'>    return 0;
+</span><span class='line'>  });
+</span><span class='line'>
+</span><span class='line'>  function getVal(elm){
+</span><span class='line'>    var v = $(elm).children('td').eq(n).text().toUpperCase();
+</span><span class='line'>    if(!v && $(elm).children('td').eq(n).find('input').length) {
+</span><span class='line'>      v = $(elm).children('td').eq(n).children('input').is(':checked');
+</span><span class='line'>    }
+</span><span class='line'>    if($.isNumeric(v)){
+</span><span class='line'>      v = parseInt(v,10);
+</span><span class='line'>    }
+</span><span class='line'>    //console.log(v);
+</span><span class='line'>    return v;
+</span><span class='line'>  }
+</span><span class='line'>
+</span><span class='line'>  $.each(rows, function(index, row) {
+</span><span class='line'>    $('#entities-table').children('tbody').append(row);
+</span><span class='line'>  });
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>  $('th').hover(function() {
+</span><span class='line'>    $(this).css('color', 'red');
+</span><span class='line'>  }, function() {
+</span><span class='line'>    $(this).css('color', '');
+</span><span class='line'>  });
+</span><span class='line'> 
+</span><span class='line'>  $('th').click(function(){
+</span><span class='line'>    var n = $(this).prevAll().length;
+</span><span class='line'>    flag[n] *= -1;
+</span><span class='line'>    sortTable(flag[n], n);
+</span><span class='line'>  });</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>getJSON</h2>
+
+<p><code>$.getJSON(url, data, func)</code> sends a GET request to url and will send the contents of the data object as query parameters. Once the data arrived, it will call the given function with the return value as argument.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>$(document).ready(function() {
+</span><span class='line'>    function video_time_update() {
+</span><span class='line'>        var videoplayer = $('video').get(0);
+</span><span class='line'>        // ...
+</span><span class='line'>    }
+</span><span class='line'>
+</span><span class='line'>    video_time_update();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>iframe</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>aa = $$("a")
+</span><span class='line'>for (var i = 0; i &lt; aa.length; ++i) {
+</span><span class='line'>  aa[i].onclick = function() {return false;}
+</span><span class='line'>  aa[i].click();
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>$(selector).change(function)</h2>
+
+<p>该事件仅适用于文本域（text field），以及 textarea 和 select 元素。</p>
+
+<hr />
+
+<h2>jshint</h2>
+
+<p><code>jslint</code> used to be the preferred tool for static JavaScript checking. Later it was forked into <code>jshint</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jshint foo.js</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The preferred way to configure jshint is to create a json configure file called <code>.jshintrc</code>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>jshint -c .jshintrc foo.js</span></code></pre></td></tr></table></div></figure>
+
+
+<p>You can see current list of all available options <a href="https://github.com/jshint/jshint/blob/master/examples/.jshintrc">here</a> and their explanations.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>{
+</span><span class='line'>    "esnext": true, // Allow ES.next (ES6) syntax (ex: `const`) 
+</span><span class='line'>    "indent": 2,
+</span><span class='line'>    "maxlen": 80, // Max number of characters per line
+</span><span class='line'>    "freeze": true, // prohibits overwriting prototypes of native objects such as Array, Date etc.
+</span><span class='line'>    "camelcase": true, // Identifiers must be in camelCase
+</span><span class='line'>    "unused": true, // all variables, last function parameter
+</span><span class='line'>    "eqnull": true, // Tolerate use of `== null`
+</span><span class='line'>    "proto": true, // Tolerate using the `__proto__` property
+</span><span class='line'>    "supernew": true, // Tolerate `new function () { ... };` and `new Object;`
+</span><span class='line'>    "noyield": true, // Tolerate generator functions with no yield statement in them.
+</span><span class='line'>    "evil": true, // Tolerate use of `eval` and `new Function()
+</span><span class='line'>    "node": true, // Node.js
+</span><span class='line'>    "boss": true, // Tolerate assignments where comparisons would be expected
+</span><span class='line'>    "expr": true, // Tolerate `ExpressionStatement` as Programs
+</span><span class='line'>    "loopfunc": true, // Tolerate functions being defined in loops
+</span><span class='line'>    "white": true, // Check against strict whitespace and indentation rules
+</span><span class='line'>    "maxdepth": 4 // Max depth of nested blocks (within functions)
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/64">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/62">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/06/30/latex/">LaTeX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/04/captcha/">Captcha</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Zhengyang Song -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

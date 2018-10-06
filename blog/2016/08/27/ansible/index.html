@@ -1,0 +1,512 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Ansible - Zhengyang Song's Notepad</title>
+  <meta name="author" content="Zhengyang Song">
+
+  
+  <meta name="description" content="OpenStack cloud.iiis.systems
+http://wiki.iiis.systems/w/index.php/OpenStack_User_Guide VPN: gw.iiis.co
+test
+123456
+songzhengyang
+IlppYUrxCKF1
+10.2.2. &hellip;">
+  
+  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://songzy12.github.io/blog/2016/08/27/ansible/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+  <!-- Begin Jekyll SEO tag v2.5.3 -->
+<title>Ansible - Zhengyang Song&rsquo;s Notepad</title>
+<meta property="og:title" content="Ansible" />
+<meta name="description" content="OpenStackcloud.iiis.systemshttp://wiki.iiis.systems/w/index.php/OpenStack_User_GuideVPN:gw.iiis.cotest123456songzhengyangIlppYUrxCKF110.2.2.44Windowssudo pip install http://github.com/diyan/pywinrm/archive/master.zip#egg=pywinrmDHCP: dynamic host configuration protocolNAT: network address transferprivate IP:class A: 10.0.0.0 ~ 10.255.255.255class B: 172.16.0.0 ~ 172.31.255.255class C: 192.168.0.0 ~ 192.168.255.255PowerShellRun this PowerShell script here.因为在此系统中禁止执行脚本。get-help about_signingset-ExecutionPolicy RemoteSigned对注册表项的访问被拒绝。PowerShell version 3 or higher is required.Copy this PowerShell script here.此更新不适用于您的计算机。错误：DNS名不存在按顺序选择操作（1/2/&frac34;/q）.手动对时。get-host$host.versionexpand –F:* .\Windows6.1-KB2533623-x64.msu .dism.exe /online /Add-Package /PackagePath:.\Windows6.1-KB2533623-x64.cabUbuntuWindows support for Ansible refers to this doc here.installsudo apt-get install software-properties-commonsudo apt-add-repository ppa:ansible/ansiblesudo apt-get updatesudo apt-get install ansibleinventorysudo vi /etc/ansible/hosts[ubuntu]127.0.0.110.9.10.15  ansible_ssh_user=songzyssh keyserver:ls ~/.sshssh-keygencat ~/.ssh/id_rsa.pubssh-add ~/.ssh/id_rsaIdentity added: /home/andy/.ssh/id_rsa (/home/andy/.ssh/id_rsa)client:cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keyssongzy12@taoli.tsinghuax.org | UNREACHABLE! =&gt; {    "changed": false,     "msg": "SSH Error: data could not be sent to the remote host. Make sure this host can be reached over ssh",     "unreachable": true}export ANSIBLE_SCP_IF_SSH=yssh: connect to host 127.0.0.1 port 22: Connection refusedsudo apt-get install openssh-serversudo service ssh start10.9.10.15 | UNREACHABLE! =&gt; {    "changed": false,     "msg": "Failed to connect to the host via ssh.",     "unreachable": true}ansible all -m pingad-hoc commandsansible all -m pingansible all -a "ls"playbooksvi playbook.yml- hosts: all  tasks:  - name: test connection    ping:- hosts: ubuntu  tasks:  - name: test script    script: test_touch.sh  - name: test shell    shell: ls    register: ps  - debug: msg=vi test_touch.shtouch test_touch.txtansible-playbook playbook.yml -vvipip route get 8.8.8.8 | awk '{print $NF; exit}'hostname -I101.6.244.5" />
+<meta property='og:description' content="OpenStackcloud.iiis.systemshttp://wiki.iiis.systems/w/index.php/OpenStack_User_GuideVPN:gw.iiis.cotest123456songzhengyangIlppYUrxCKF110.2.2.44Windowssudo pip install http://github.com/diyan/pywinrm/archive/master.zip#egg=pywinrmDHCP: dynamic host configuration protocolNAT: network address transferprivate IP:class A: 10.0.0.0 ~ 10.255.255.255class B: 172.16.0.0 ~ 172.31.255.255class C: 192.168.0.0 ~ 192.168.255.255PowerShellRun this PowerShell script here.因为在此系统中禁止执行脚本。get-help about_signingset-ExecutionPolicy RemoteSigned对注册表项的访问被拒绝。PowerShell version 3 or higher is required.Copy this PowerShell script here.此更新不适用于您的计算机。错误：DNS名不存在按顺序选择操作（1/2/&frac34;/q）.手动对时。get-host$host.versionexpand –F:* .\Windows6.1-KB2533623-x64.msu .dism.exe /online /Add-Package /PackagePath:.\Windows6.1-KB2533623-x64.cabUbuntuWindows support for Ansible refers to this doc here.installsudo apt-get install software-properties-commonsudo apt-add-repository ppa:ansible/ansiblesudo apt-get updatesudo apt-get install ansibleinventorysudo vi /etc/ansible/hosts[ubuntu]127.0.0.110.9.10.15  ansible_ssh_user=songzyssh keyserver:ls ~/.sshssh-keygencat ~/.ssh/id_rsa.pubssh-add ~/.ssh/id_rsaIdentity added: /home/andy/.ssh/id_rsa (/home/andy/.ssh/id_rsa)client:cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keyssongzy12@taoli.tsinghuax.org | UNREACHABLE! =&gt; {    "changed": false,     "msg": "SSH Error: data could not be sent to the remote host. Make sure this host can be reached over ssh",     "unreachable": true}export ANSIBLE_SCP_IF_SSH=yssh: connect to host 127.0.0.1 port 22: Connection refusedsudo apt-get install openssh-serversudo service ssh start10.9.10.15 | UNREACHABLE! =&gt; {    "changed": false,     "msg": "Failed to connect to the host via ssh.",     "unreachable": true}ansible all -m pingad-hoc commandsansible all -m pingansible all -a "ls"playbooksvi playbook.yml- hosts: all  tasks:  - name: test connection    ping:- hosts: ubuntu  tasks:  - name: test script    script: test_touch.sh  - name: test shell    shell: ls    register: ps  - debug: msg=vi test_touch.shtouch test_touch.txtansible-playbook playbook.yml -vvipip route get 8.8.8.8 | awk '{print $NF; exit}'hostname -I101.6.244.5" />
+<link rel="canonical" href="http://songzy12.github.io/blog/2016/08/27/ansible/" />
+<meta property='og:url' content='http://songzy12.github.io/blog/2016/08/27/ansible/' />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Zhengyang Song&rsquo;s Notepad",
+      "url" : "http://songzy12.github.io"
+    }
+  </script>
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-08-27T19:13:58+08:00" />
+<link rel="next" href="http://songzy12.github.io/blog/2016/08/27/vnc/" title="VNC" />
+<link rel="prev" href="http://songzy12.github.io/blog/2016/08/22/android-ndk/" title="Android NDK" />
+<script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ansible",
+      "image": null,
+      "datePublished": "2016-08-27T19:13:58+08:00",
+      "description": "OpenStackcloud.iiis.systemshttp://wiki.iiis.systems/w/index.php/OpenStack_User_GuideVPN:gw.iiis.cotest123456songzhengyangIlppYUrxCKF110.2.2.44Windowssudo pip install http://github.com/diyan/pywinrm/archive/master.zip#egg=pywinrmDHCP: dynamic host configuration protocolNAT: network address transferprivate IP:class A: 10.0.0.0 ~ 10.255.255.255class B: 172.16.0.0 ~ 172.31.255.255class C: 192.168.0.0 ~ 192.168.255.255PowerShellRun this PowerShell script here.因为在此系统中禁止执行脚本。get-help about_signingset-ExecutionPolicy RemoteSigned对注册表项的访问被拒绝。PowerShell version 3 or higher is required.Copy this PowerShell script here.此更新不适用于您的计算机。错误：DNS名不存在按顺序选择操作（1/2/&frac34;/q）.手动对时。get-host$host.versionexpand –F:* .\\Windows6.1-KB2533623-x64.msu .dism.exe /online /Add-Package /PackagePath:.\\Windows6.1-KB2533623-x64.cabUbuntuWindows support for Ansible refers to this doc here.installsudo apt-get install software-properties-commonsudo apt-add-repository ppa:ansible/ansiblesudo apt-get updatesudo apt-get install ansibleinventorysudo vi /etc/ansible/hosts[ubuntu]127.0.0.110.9.10.15  ansible_ssh_user=songzyssh keyserver:ls ~/.sshssh-keygencat ~/.ssh/id_rsa.pubssh-add ~/.ssh/id_rsaIdentity added: /home/andy/.ssh/id_rsa (/home/andy/.ssh/id_rsa)client:cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keyssongzy12@taoli.tsinghuax.org | UNREACHABLE! =&gt; {    \"changed\": false,     \"msg\": \"SSH Error: data could not be sent to the remote host. Make sure this host can be reached over ssh\",     \"unreachable\": true}export ANSIBLE_SCP_IF_SSH=yssh: connect to host 127.0.0.1 port 22: Connection refusedsudo apt-get install openssh-serversudo service ssh start10.9.10.15 | UNREACHABLE! =&gt; {    \"changed\": false,     \"msg\": \"Failed to connect to the host via ssh.\",     \"unreachable\": true}ansible all -m pingad-hoc commandsansible all -m pingansible all -a \"ls\"playbooksvi playbook.yml- hosts: all  tasks:  - name: test connection    ping:- hosts: ubuntu  tasks:  - name: test script    script: test_touch.sh  - name: test shell    shell: ls    register: ps  - debug: msg=vi test_touch.shtouch test_touch.txtansible-playbook playbook.yml -vvipip route get 8.8.8.8 | awk '{print $NF; exit}'hostname -I101.6.244.5"
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+</head>
+ 
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
+  
+    <h2>All those little bugs I have ever met.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="songzy12.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Ansible</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-27T19:13:58+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:13 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><h2>OpenStack</h2>
+
+<ul>
+<li>cloud.iiis.systems</li>
+<li><a href="http://wiki.iiis.systems/w/index.php/OpenStack_User_Guide">http://wiki.iiis.systems/w/index.php/OpenStack_User_Guide</a></li>
+</ul>
+
+
+<p>VPN:</p>
+
+<ul>
+<li>gw.iiis.co</li>
+<li>test</li>
+<li>123456</li>
+<li>songzhengyang</li>
+<li>IlppYUrxCKF1</li>
+<li>10.2.2.44</li>
+</ul>
+
+
+<h2>Windows</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo pip install http://github.com/diyan/pywinrm/archive/master.zip#egg=pywinrm</span></code></pre></td></tr></table></div></figure>
+
+
+<p>DHCP: dynamic host configuration protocol
+NAT: network address transfer</p>
+
+<p>private IP:</p>
+
+<ul>
+<li>class A: 10.0.0.0 ~ 10.255.255.255</li>
+<li>class B: 172.16.0.0 ~ 172.31.255.255</li>
+<li>class C: 192.168.0.0 ~ 192.168.255.255</li>
+</ul>
+
+
+<h3>PowerShell</h3>
+
+<p>Run this PowerShell script <a href="https://github.com/ansible/ansible/blob/devel/examples/scripts/ConfigureRemotingForAnsible.ps1">here</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>因为在此系统中禁止执行脚本。</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>get-help about_signing
+</span><span class='line'>set-ExecutionPolicy RemoteSigned</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>对注册表项的访问被拒绝。</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>PowerShell version 3 or higher is required.</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Copy this PowerShell script <a href="https://github.com/cchurch/ansible/blob/devel/examples/scripts/upgrade_to_ps3.ps1">here</a>.</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>此更新不适用于您的计算机。
+</span><span class='line'>
+</span><span class='line'>错误：DNS名不存在</span></code></pre></td></tr></table></div></figure>
+
+
+<p>按顺序选择操作（1/2/&frac34;/q）.
+手动对时。</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>get-host
+</span><span class='line'>$host.version</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>expand –F:* .\Windows6.1-KB2533623-x64.msu .
+</span><span class='line'>dism.exe /online /Add-Package /PackagePath:.\Windows6.1-KB2533623-x64.cab</span></code></pre></td></tr></table></div></figure>
+
+
+<hr />
+
+<h2>Ubuntu</h2>
+
+<p>Windows support for Ansible refers to this doc <a href="http://ansible-tran.readthedocs.org/en/latest/docs/intro_windows.html">here</a>.</p>
+
+<h3>install</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install software-properties-common
+</span><span class='line'>sudo apt-add-repository ppa:ansible/ansible
+</span><span class='line'>sudo apt-get update
+</span><span class='line'>sudo apt-get install ansible</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>inventory</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo vi /etc/ansible/hosts</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>[ubuntu]
+</span><span class='line'>127.0.0.1
+</span><span class='line'>10.9.10.15  ansible_ssh_user=songzy</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>ssh key</h3>
+
+<p>server:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ls ~/.ssh
+</span><span class='line'>ssh-keygen
+</span><span class='line'>cat ~/.ssh/id_rsa.pub
+</span><span class='line'>ssh-add ~/.ssh/id_rsa
+</span><span class='line'>
+</span><span class='line'>Identity added: /home/andy/.ssh/id_rsa (/home/andy/.ssh/id_rsa)</span></code></pre></td></tr></table></div></figure>
+
+
+<p>client:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>cat id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>songzy12@taoli.tsinghuax.org | UNREACHABLE! =&gt; {
+</span><span class='line'>    "changed": false, 
+</span><span class='line'>    "msg": "SSH Error: data could not be sent to the remote host. Make sure this host can be reached over ssh", 
+</span><span class='line'>    "unreachable": true
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>export ANSIBLE_SCP_IF_SSH=y</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ssh: connect to host 127.0.0.1 port 22: Connection refused</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>sudo apt-get install openssh-server
+</span><span class='line'>sudo service ssh start</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>10.9.10.15 | UNREACHABLE! =&gt; {
+</span><span class='line'>    "changed": false, 
+</span><span class='line'>    "msg": "Failed to connect to the host via ssh.", 
+</span><span class='line'>    "unreachable": true
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ansible all -m ping</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>ad-hoc commands</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ansible all -m ping
+</span><span class='line'>ansible all -a "ls"</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>playbooks</h3>
+
+<p><code>vi playbook.yml</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>- hosts: all
+</span><span class='line'>  tasks:
+</span><span class='line'>  - name: test connection
+</span><span class='line'>    ping:
+</span><span class='line'>    
+</span><span class='line'>- hosts: ubuntu
+</span><span class='line'>  tasks:
+</span><span class='line'>  - name: test script
+</span><span class='line'>    script: test_touch.sh
+</span><span class='line'>    
+</span><span class='line'>  - name: test shell
+</span><span class='line'>    shell: ls
+</span><span class='line'>    register: ps
+</span><span class='line'>    
+</span><span class='line'>  - debug: msg=</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>vi test_touch.sh</code></p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>touch test_touch.txt</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ansible-playbook playbook.yml -vv</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>ip</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ip route get 8.8.8.8 | awk '{print $NF; exit}'
+</span><span class='line'>hostname -I
+</span><span class='line'>
+</span><span class='line'>101.6.244.5</span></code></pre></td></tr></table></div></figure>
+
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Zhengyang Song</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2016-08-27T19:13:58+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>27</span><span class='date-suffix'>th</span>, <span class='date-year'>2016</span></span> <span class='time'>7:13 pm</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2016/08/22/android-ndk/" title="Previous Post: Android NDK">&laquo; Android NDK</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2016/08/27/vnc/" title="Next Post: VNC">VNC &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/06/30/latex/">LaTeX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/04/captcha/">Captcha</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Zhengyang Song -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

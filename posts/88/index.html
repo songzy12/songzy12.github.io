@@ -1,0 +1,436 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Zhengyang Song's Notepad</title>
+  <meta name="author" content="Zhengyang Song">
+
+  
+  <meta name="description" content="EditText 1
+2
+3
+4
+5
+6
+7
+8
+9
+editText.addTextChangedListener(new TextWatcher() {
+@Override
+public void onTextChanged(CharSequence charSequence, int &hellip;">
+  
+  <meta name="keywords" content="Zhengyang Song, Technique, Blog, Programmer, Naive" />
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://songzy12.github.io/posts/88/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Zhengyang Song's Notepad" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+<!-- mathjax config similar to math.stackexchange -->
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  jax: ["input/TeX", "output/HTML-CSS"],
+  tex2jax: {
+    inlineMath: [ ['$', '$'] ],
+    displayMath: [ ['$$', '$$']],
+    processEscapes: true,
+    skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+  },
+  messageStyle: "none",
+  "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
+});
+</script>
+<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+
+  
+
+  <!-- Begin Jekyll SEO tag v2.5.3 -->
+<title>Zhengyang Song&rsquo;s Notepad - A Technique Blog of a Naive Programmer.</title>
+<meta property="og:title" content="Zhengyang Song&rsquo;s Notepad" />
+<meta name="description" content="A Technique Blog of a Naive Programmer." />
+<meta property='og:description' content="A Technique Blog of a Naive Programmer." />
+<link rel="canonical" href="http://songzy12.github.io/posts/88/" />
+<meta property='og:url' content='http://songzy12.github.io/posts/88/' />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Notepad" />
+<script type="application/ld+json">
+    {
+      "@context" : "http://schema.org",
+      "@type" : "WebSite",
+      "name" : "Zhengyang Song&rsquo;s Notepad",
+      "url" : "http://songzy12.github.io"
+    }
+  </script>
+<!-- End Jekyll SEO tag -->
+</head>
+ 
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Zhengyang Song's Notepad</a></h1>
+  
+    <h2>All those little bugs I have ever met.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="songzy12.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2016/08/21/android-widget/">Android Widget</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2016-08-21T20:07:03+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>21</span><span class='date-suffix'>st</span>, <span class='date-year'>2016</span></span> <span class='time'>8:07 pm</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>EditText</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>editText.addTextChangedListener(new TextWatcher() {
+</span><span class='line'>@Override
+</span><span class='line'>public void onTextChanged(CharSequence charSequence, int start, int before, int count) {
+</span><span class='line'>    // Only handle addition of characters
+</span><span class='line'>    if(count &gt; before) {
+</span><span class='line'>        // Write the last entered character to the pipe
+</span><span class='line'>        String s = charSequence.subSequence(before, count).toString();
+</span><span class='line'>    }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ImageView</h2>
+
+<p>scaleType:</p>
+
+<ul>
+<li>center</li>
+<li>fitCenter</li>
+</ul>
+
+
+<h3>setLayoutParams</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>img.setLayoutParams(new LinearLayout.LayoutParams(newWidth,newHeight))</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>setImageBitmap</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.picture);
+</span><span class='line'>img.setImageBitmap(bitmap);
+</span><span class='line'>
+</span><span class='line'>public void setImageBitmap(Bitmap bm) {
+</span><span class='line'>// if this is used frequently, mayhandle bitmaps explicitly
+</span><span class='line'>// to reduce the intermediate drawable object
+</span><span class='line'>    setImageDrawable(newBitmapDrawable(mContext.getResources(), bm));
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h3>getParent</h3>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>ImageView img = mImages[i][j];
+</span><span class='line'>LinearLayout pa = (LinearLayout) img.getParent();
+</span><span class='line'>pa.removeView(img);</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>LinearLayout</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>LinearLayout linralayout = new LinearLayout(context);
+</span><span class='line'>linralayout.setOrientation(LinearLayout.VERTICAL);
+</span><span class='line'>linralayout.setPadding(0, 0, 0, 0); // setPadding(left, top, right, bottom);
+</span><span class='line'>this.addView(linralayout);</span></code></pre></td></tr></table></div></figure>
+
+
+<ul>
+<li>content: The content of the box, where text and images appear</li>
+<li>padding: Clears an area around the content. The padding is transparent</li>
+<li>border: A border that goes around the padding and content</li>
+<li>margin: Clears an area outside the border. The margin is transparent</li>
+</ul>
+
+
+<h2>RadioGroup</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>RadioGroup style=(RadioGroup) findViewById(R.id.style);
+</span><span class='line'>RadioButton lingxin=(RadioButton) findViewById(R.id.lingxin);
+</span><span class='line'>style.setOnCheckedChangeListener( new OnCheckedChangeListener(){
+</span><span class='line'>  public void onCheckedChanged(RadioGroup group, int checkedId) {
+</span><span class='line'>      if(lingxin.getId() == checkedId){
+</span><span class='line'>        //
+</span><span class='line'>      }
+</span><span class='line'>    }
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ScrollView</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>&lt;android.support.v4.widget.SwipeRefreshLayout
+</span><span class='line'>    xmlns:android="http://schemas.android.com/apk/res/android"
+</span><span class='line'>    xmlns:tools="http://schemas.android.com/tools"
+</span><span class='line'>    android:id="@+id/swipeContainer"
+</span><span class='line'>    android:layout_width="match_parent"
+</span><span class='line'>    android:layout_height="match_parent"&gt;
+</span><span class='line'>    
+</span><span class='line'>    &lt;WebView android:id="@+id/webView"
+</span><span class='line'>        android:layout_width="wrap_content"
+</span><span class='line'>      android:layout_height="wrap_content" /&gt;
+</span><span class='line'>&lt;/android.support.v4.widget.SwipeRefreshLayout&gt;</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>int offset = textView.getMeasuredHeight()
+</span><span class='line'>        - scrollView.getMeasuredHeight();
+</span><span class='line'>if (offset &lt; 0) {
+</span><span class='line'>    offset = 0;
+</span><span class='line'>}
+</span><span class='line'>scrollView.scrollTo(0, offset);</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>SwipeRefreshLayout</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>public class MainActivity extends Activity implements SwipeRefreshLayout.OnRefreshListener {
+</span><span class='line'>  private SwipeRefreshLayout swipeContainer;
+</span><span class='line'>  @Override
+</span><span class='line'>    protected void onCreate(Bundle savedInstanceState) {
+</span><span class='line'>        super.onCreate(savedInstanceState);
+</span><span class='line'>      setContentView(R.layout.activity_main);
+</span><span class='line'>        
+</span><span class='line'>        swipeContainer = (SwipeRefreshLayout) findViewById(R.id.swipeContainer);
+</span><span class='line'>        swipeContainer.setOnRefreshListener(this);  
+</span><span class='line'>  }   
+</span><span class='line'>
+</span><span class='line'>  @Override
+</span><span class='line'>  public void onRefresh() {
+</span><span class='line'>      Log.i(TAG, "refreshing");
+</span><span class='line'>      swipeContainer.setRefreshing(false);
+</span><span class='line'>  }     
+</span><span class='line'>}   </span></code></pre></td></tr></table></div></figure>
+
+
+<h2>ViewHolder</h2>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>static class ViewHolder {
+</span><span class='line'>    public TextView info;
+</span><span class='line'>}
+</span><span class='line'>@Override
+</span><span class='line'>public View getView(int position, View convertView, ViewGroup parent) {
+</span><span class='line'>    ViewHolder holder;
+</span><span class='line'>    if(convertView == null) {
+</span><span class='line'>        holder = new ViewHolder();
+</span><span class='line'>        convertView = mInflater.inflate(R.layout.list_item, null);
+</span><span class='line'>        holder.info = (TextView)item.findViewById(R.id.info);
+</span><span class='line'>        convertView.setTag(holder);
+</span><span class='line'>    } else {
+</span><span class='line'>        holder = (ViewHolder)convertView.getTag();
+</span><span class='line'>        holder.info.setText("World");
+</span><span class='line'>    }
+</span><span class='line'>    return convertView;
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/posts/89">&larr; Older</a>
+    
+    <a href="/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/posts/87">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2018/06/30/latex/">LaTeX</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/05/04/captcha/">Captcha</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/17/tencent-sng/">Tencent SNG</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/04/16/generic-operating-system-services/">Generic Operating System Services</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2018/03/20/tencent-mig/">Tencent MIG</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2018 - Zhengyang Song -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
