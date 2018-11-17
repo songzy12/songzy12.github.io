@@ -150,12 +150,9 @@ Disallow:
 
 <h2>MathJax</h2>
 
-<p>```</p>
+<pre><code>\&lt;!-- mathjax config similar to math.stackexchange --&gt;
 
-<!-- mathjax config similar to math.stackexchange -->
-
-
-<script type="text/x-mathjax-config">
+\&lt;script type="text/x-mathjax-config"&gt;
 MathJax.Hub.Config({
   jax: ["input/TeX", "output/HTML-CSS"],
   tex2jax: {
@@ -167,30 +164,27 @@ MathJax.Hub.Config({
   messageStyle: "none",
   "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] }
 });
-</script>
+\&lt;/script&gt;
 
-
-<script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
-
-
-<pre><code>
-Here note the `https`. 
-
-当两个 `$` 之间有其他 html tag 的时候 MathJax 就会不工作。这时候我们可以右键审查元素来确定是哪些符号出现了问题，然后使用 `\` 来将其转义。
-
-## markdown
-
-Basic syntax for `GFM`(Github Flavored Markdown): [here](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
-
-We use `Linguist` to perform language detection and syntax highlighting. Valid keywords: [here](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
-
-## compass
-
-[compass command](http://compass-style.org/help/documentation/command-line/)
+\&lt;script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"&gt;&lt;/script&gt;
 </code></pre>
 
-<p>compass compile [path/to/project]
-```</p>
+<p>Here note the <code>https</code>.</p>
+
+<p>当两个 <code>$</code> 之间有其他 html tag 的时候 MathJax 就会不工作。这时候我们可以右键审查元素来确定是哪些符号出现了问题，然后使用 <code>\</code> 来将其转义。</p>
+
+<h2>markdown</h2>
+
+<p>Basic syntax for <code>GFM</code>(Github Flavored Markdown): <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/">here</a>.</p>
+
+<p>We use <code>Linguist</code> to perform language detection and syntax highlighting. Valid keywords: <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml">here</a>.</p>
+
+<h2>compass</h2>
+
+<p><a href="http://compass-style.org/help/documentation/command-line/">compass command</a></p>
+
+<pre><code>compass compile [path/to/project]
+</code></pre>
 
 <p>Compile the project&rsquo;s sass files into css.</p>
 
