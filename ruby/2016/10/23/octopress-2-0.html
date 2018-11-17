@@ -60,21 +60,6 @@ bundle exec rake gen_deploy
 
 <p>Note we ignore <code>_deploy</code> in <code>.gitignore</code>.</p>
 
-<pre><code>$ git remote -v
-origin  git@github.com:songzy12/songzy12.github.io.git (fetch)
-origin  git@github.com:songzy12/songzy12.github.io.git (push)
-$ git add .
-$ git commit -m 'source update'
-$ git push octopress
-</code></pre>
-
-<pre><code>$ cd _deploy
-$ git init
-$ git remote add octopress https://github.com/songzy12/octopress.git
-$ cd ..
-$ rake gen_deploy
-</code></pre>
-
 <h2>Rakefile</h2>
 
 <p>Insert one line after line 118 of <code>Rakefile</code> to avoid rendering error of <code>GFM</code>.</p>
@@ -94,7 +79,7 @@ end
 <p>Modify line 26 and line 27 of <code>Rakefile</code> to make the new post extension simple.</p>
 
 <pre><code>new_post_ext    = "md"  
-new_page_ext    = "md"
+new_page_ext    = "html"
 </code></pre>
 
 <h2>more</h2>
@@ -136,6 +121,33 @@ new_page_ext    = "md"
 
 <p>This will generate your blog, copy the generated files into <code>_deploy/</code>, add them to git, commit and push them up to the master branch. Use <code>Git Shell</code>.</p>
 
+<h2>_deploy</h2>
+
+<p><code>robots.txt</code>（统一小写）是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被漫游器获取的。</p>
+
+<p>允许所有的机器人：</p>
+
+<pre><code>User-agent: *
+Disallow:
+</code></pre>
+
+<p><code>Sitemap</code>指令被几大搜索引擎支持（包括Google、Yahoo、Bing和Ask），指定了网站<code>Sitemaps</code>文件的位置。 <code>Sitemaps</code>文件包含了网站页面所在的URL的一个列表。</p>
+
+<pre><code>Sitemap: &lt;http://www.example.com/sitemap.xml&gt;
+</code></pre>
+
+<h2>_config.yml</h2>
+
+<p>Modify line 6 and 7 of <code>_config.yml</code> to redefine the title and subtitle.</p>
+
+<h2>ordering</h2>
+
+<p>Only reverse chronological and chronological ordering is supported in Jekyll. <a href="http://jekyllbootstrap.com/lessons/jekyll-introduction.html">Here</a>.</p>
+
+<p>Rename the file and change the <code>date</code> filed in the header.</p>
+
+<p>Wait for several minutes so that <code>Github</code> can finish the updates about website. Use <code>Ctrl+F5</code>.</p>
+
 <h2>MathJax</h2>
 
 <p>```</p>
@@ -166,46 +178,19 @@ Here note the `https`.
 
 当两个 `$` 之间有其他 html tag 的时候 MathJax 就会不工作。这时候我们可以右键审查元素来确定是哪些符号出现了问题，然后使用 `\` 来将其转义。
 
-## _deploy
+## markdown
 
-`robots.txt`（统一小写）是一种存放于网站根目录下的ASCII编码的文本文件，它通常告诉网络搜索引擎的漫游器（又称网络蜘蛛），此网站中的哪些内容是不应被搜索引擎的漫游器获取的，哪些是可以被漫游器获取的。
+Basic syntax for `GFM`(Github Flavored Markdown): [here](https://help.github.com/articles/basic-writing-and-formatting-syntax/).
 
-允许所有的机器人：
+We use `Linguist` to perform language detection and syntax highlighting. Valid keywords: [here](https://github.com/github/linguist/blob/master/lib/linguist/languages.yml).
+
+## compass
+
+[compass command](http://compass-style.org/help/documentation/command-line/)
 </code></pre>
 
-<p>User-agent: *
-Disallow:
+<p>compass compile [path/to/project]
 ```</p>
-
-<p><code>Sitemap</code>指令被几大搜索引擎支持（包括Google、Yahoo、Bing和Ask），指定了网站<code>Sitemaps</code>文件的位置。 <code>Sitemaps</code>文件包含了网站页面所在的URL的一个列表。</p>
-
-<pre><code>Sitemap: &lt;http://www.example.com/sitemap.xml&gt;
-</code></pre>
-
-<h2>_config.yml</h2>
-
-<p>Modify line 6 and 7 of <code>_config.yml</code> to redefine the title and subtitle.</p>
-
-<h2>ordering</h2>
-
-<p>Only reverse chronological and chronological ordering is supported in Jekyll. <a href="http://jekyllbootstrap.com/lessons/jekyll-introduction.html">Here</a>.</p>
-
-<p>Rename the file and change the <code>date</code> filed in the header.</p>
-
-<p>Wait for several minutes so that <code>Github</code> can finish the updates about website. Use <code>Ctrl+F5</code>.</p>
-
-<h2>markdown</h2>
-
-<p>Basic syntax for <code>GFM</code>(Github Flavored Markdown): <a href="https://help.github.com/articles/basic-writing-and-formatting-syntax/">here</a>.</p>
-
-<p>We use <code>Linguist</code> to perform language detection and syntax highlighting. Valid keywords: <a href="https://github.com/github/linguist/blob/master/lib/linguist/languages.yml">here</a>.</p>
-
-<h2>compass</h2>
-
-<p><a href="http://compass-style.org/help/documentation/command-line/">compass command</a></p>
-
-<pre><code>compass compile [path/to/project]
-</code></pre>
 
 <p>Compile the project&rsquo;s sass files into css.</p>
 
