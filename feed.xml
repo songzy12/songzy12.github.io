@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-11-17T14:21:01+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Octopress 3.0</title><link href="http://localhost:4000/2018/11/17/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2018-11-17T14:08:14+08:00</published><updated>2018-11-17T14:08:14+08:00</updated><id>http://localhost:4000/2018/11/17/octopress-3-0</id><content type="html" xml:base="http://localhost:4000/2018/11/17/octopress-3-0.html">&lt;h2&gt;root&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2018-11-17T14:33:51+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2018/11/17/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2018-11-17T14:08:14+08:00</published><updated>2018-11-17T14:08:14+08:00</updated><id>http://songzy12.github.io/2018/11/17/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2018/11/17/octopress-3-0.html">&lt;h2&gt;root&lt;/h2&gt;
 
 &lt;p&gt;Note: all the following commands must be run under the root directory.&lt;/p&gt;
 
@@ -15,6 +15,46 @@ about.md
 index.md
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2&gt;_config.yml&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;title:  Zhengyang Song's Blog
+email: songzy.thu@gmail.com
+description: &amp;gt;- # this means to ignore newlines until &quot;baseurl:&quot;
+  All those little bugs I have ever met.
+baseurl: &quot;&quot; # the subpath of your site, e.g. /blog
+url: &quot;http://songzy12.github.io&quot; # the base hostname &amp;amp; protocol for your site, e.g. http://example.com
+twitter_username: 
+github_username:  songzy12
+
+# Default extension for new posts and pages
+post_ext: md
+page_ext: html
+
+# Default templates for posts and pages
+# Found in _templates/
+post_layout: post
+page_layout: page
+
+# Format titles with titlecase?
+titlecase: true
+
+# Change default template file (in _templates/)
+post_template: post
+page_template: page
+draft_template: draft
+
+# Build settings
+markdown: rdiscount
+rdiscount:
+  extensions:
+    - autolink
+    - footnotes
+    - smart
+theme: minima
+plugins:
+  - jekyll-feed
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2&gt;new post&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt; octopress new post hello -D Ruby
@@ -24,7 +64,19 @@ index.md
 
 &lt;pre&gt;&lt;code&gt;jekyll build
 jekyll serve
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">root</summary></entry><entry><title type="html">xnheulpb</title><link href="http://localhost:4000/2018/10/06/xnheulpb.html" rel="alternate" type="text/html" title="xnheulpb" /><published>2018-10-06T14:25:36+08:00</published><updated>2018-10-06T14:25:36+08:00</updated><id>http://localhost:4000/2018/10/06/xnheulpb</id><content type="html" xml:base="http://localhost:4000/2018/10/06/xnheulpb.html">&lt;p&gt;&lt;a href=&quot;http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166&quot;&gt;http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;deploy&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;octopress deploy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;source&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &quot;$(date)&quot;
+git push --set-upstream origin source
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">root</summary></entry><entry><title type="html">xnheulpb</title><link href="http://songzy12.github.io/2018/10/06/xnheulpb.html" rel="alternate" type="text/html" title="xnheulpb" /><published>2018-10-06T14:25:36+08:00</published><updated>2018-10-06T14:25:36+08:00</updated><id>http://songzy12.github.io/2018/10/06/xnheulpb</id><content type="html" xml:base="http://songzy12.github.io/2018/10/06/xnheulpb.html">&lt;p&gt;&lt;a href=&quot;http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166&quot;&gt;http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\InputMethod\Settings\CHS]
@@ -37,7 +89,7 @@ jekyll serve
 &quot;UDLLastUpdatedTime&quot;=&quot;2017-05-27 22:01:40&quot;
 &quot;UDLCount&quot;=dword:0000018b
 &quot;UDLVisibleCount&quot;=dword:0000018b
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166</summary></entry><entry><title type="html">LaTeX</title><link href="http://localhost:4000/2018/06/30/latex.html" rel="alternate" type="text/html" title="LaTeX" /><published>2018-06-30T12:00:04+08:00</published><updated>2018-06-30T12:00:04+08:00</updated><id>http://localhost:4000/2018/06/30/latex</id><content type="html" xml:base="http://localhost:4000/2018/06/30/latex.html">&lt;h2&gt;todo&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166</summary></entry><entry><title type="html">LaTeX</title><link href="http://songzy12.github.io/2018/06/30/latex.html" rel="alternate" type="text/html" title="LaTeX" /><published>2018-06-30T12:00:04+08:00</published><updated>2018-06-30T12:00:04+08:00</updated><id>http://songzy12.github.io/2018/06/30/latex</id><content type="html" xml:base="http://songzy12.github.io/2018/06/30/latex.html">&lt;h2&gt;todo&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;\usepackage[colorinlistoftodos]{todonotes}
 
@@ -283,14 +335,14 @@ extra parameters or packages included. \cite{knuthwebsite}.
 &amp;lt;test name=&quot;lang&quot;&amp;gt;
   &amp;lt;string&amp;gt;zh-cn&amp;lt;/string&amp;gt;
 &amp;lt;/test&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">todo</summary></entry><entry><title type="html">Captcha</title><link href="http://localhost:4000/2018/05/04/captcha.html" rel="alternate" type="text/html" title="Captcha" /><published>2018-05-04T19:53:33+08:00</published><updated>2018-05-04T19:53:33+08:00</updated><id>http://localhost:4000/2018/05/04/captcha</id><content type="html" xml:base="http://localhost:4000/2018/05/04/captcha.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Tencent SNG</title><link href="http://localhost:4000/2018/04/17/tencent-sng.html" rel="alternate" type="text/html" title="Tencent SNG" /><published>2018-04-17T19:56:43+08:00</published><updated>2018-04-17T19:56:43+08:00</updated><id>http://localhost:4000/2018/04/17/tencent-sng</id><content type="html" xml:base="http://localhost:4000/2018/04/17/tencent-sng.html">&lt;ul&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">todo</summary></entry><entry><title type="html">Captcha</title><link href="http://songzy12.github.io/2018/05/04/captcha.html" rel="alternate" type="text/html" title="Captcha" /><published>2018-05-04T19:53:33+08:00</published><updated>2018-05-04T19:53:33+08:00</updated><id>http://songzy12.github.io/2018/05/04/captcha</id><content type="html" xml:base="http://songzy12.github.io/2018/05/04/captcha.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Tencent SNG</title><link href="http://songzy12.github.io/2018/04/17/tencent-sng.html" rel="alternate" type="text/html" title="Tencent SNG" /><published>2018-04-17T19:56:43+08:00</published><updated>2018-04-17T19:56:43+08:00</updated><id>http://songzy12.github.io/2018/04/17/tencent-sng</id><content type="html" xml:base="http://songzy12.github.io/2018/04/17/tencent-sng.html">&lt;ul&gt;
 &lt;li&gt;项目中的有趣点或难点&lt;/li&gt;
 &lt;li&gt;xgboost 和 lr 的优缺点&lt;/li&gt;
 &lt;li&gt;C++ 虚函数的实现&lt;/li&gt;
 &lt;li&gt;线程和进程的区别&lt;/li&gt;
 &lt;li&gt;在模型中哪些 feature 最有用&lt;/li&gt;
 &lt;li&gt;算法题：将 1 到 m*n 按照螺旋方式填满 m * n 的矩阵。&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">项目中的有趣点或难点 xgboost 和 lr 的优缺点 C++ 虚函数的实现 线程和进程的区别 在模型中哪些 feature 最有用 算法题：将 1 到 m*n 按照螺旋方式填满 m * n 的矩阵。</summary></entry><entry><title type="html">Generic Operating System Services</title><link href="http://localhost:4000/python/2018/04/16/generic-operating-system-services.html" rel="alternate" type="text/html" title="Generic Operating System Services" /><published>2018-04-16T14:19:01+08:00</published><updated>2018-04-16T14:19:01+08:00</updated><id>http://localhost:4000/python/2018/04/16/generic-operating-system-services</id><content type="html" xml:base="http://localhost:4000/python/2018/04/16/generic-operating-system-services.html">&lt;h2&gt;io&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">项目中的有趣点或难点 xgboost 和 lr 的优缺点 C++ 虚函数的实现 线程和进程的区别 在模型中哪些 feature 最有用 算法题：将 1 到 m*n 按照螺旋方式填满 m * n 的矩阵。</summary></entry><entry><title type="html">Generic Operating System Services</title><link href="http://songzy12.github.io/python/2018/04/16/generic-operating-system-services.html" rel="alternate" type="text/html" title="Generic Operating System Services" /><published>2018-04-16T14:19:01+08:00</published><updated>2018-04-16T14:19:01+08:00</updated><id>http://songzy12.github.io/python/2018/04/16/generic-operating-system-services</id><content type="html" xml:base="http://songzy12.github.io/python/2018/04/16/generic-operating-system-services.html">&lt;h2&gt;io&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;import io
 io.open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True)
@@ -410,7 +462,7 @@ with open(&quot;active_user&quot;) as f:
 
 with open(&quot;text1&quot;) as f1, open(&quot;text2&quot;) as f2:
     pass
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">io</summary></entry><entry><title type="html">Tencent MIG</title><link href="http://localhost:4000/2018/03/20/tencent-mig.html" rel="alternate" type="text/html" title="Tencent MIG" /><published>2018-03-20T10:51:00+08:00</published><updated>2018-03-20T10:51:00+08:00</updated><id>http://localhost:4000/2018/03/20/tencent-mig</id><content type="html" xml:base="http://localhost:4000/2018/03/20/tencent-mig.html">&lt;h2&gt;Round 1&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">io</summary></entry><entry><title type="html">Tencent MIG</title><link href="http://songzy12.github.io/2018/03/20/tencent-mig.html" rel="alternate" type="text/html" title="Tencent MIG" /><published>2018-03-20T10:51:00+08:00</published><updated>2018-03-20T10:51:00+08:00</updated><id>http://songzy12.github.io/2018/03/20/tencent-mig</id><content type="html" xml:base="http://songzy12.github.io/2018/03/20/tencent-mig.html">&lt;h2&gt;Round 1&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;LECP&lt;/li&gt;
@@ -429,7 +481,7 @@ with open(&quot;text1&quot;) as f1, open(&quot;text2&quot;) as f2:
 &lt;li&gt;NLP&lt;/li&gt;
 &lt;li&gt;word2vec&lt;/li&gt;
 &lt;li&gt;skip-gram &amp;amp; c-bow&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Round 1</summary></entry><entry><title type="html">Google</title><link href="http://localhost:4000/2018/02/28/google.html" rel="alternate" type="text/html" title="Google" /><published>2018-02-28T12:52:17+08:00</published><updated>2018-02-28T12:52:17+08:00</updated><id>http://localhost:4000/2018/02/28/google</id><content type="html" xml:base="http://localhost:4000/2018/02/28/google.html">&lt;h2&gt;Phone Interview&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Round 1</summary></entry><entry><title type="html">Google</title><link href="http://songzy12.github.io/2018/02/28/google.html" rel="alternate" type="text/html" title="Google" /><published>2018-02-28T12:52:17+08:00</published><updated>2018-02-28T12:52:17+08:00</updated><id>http://songzy12.github.io/2018/02/28/google</id><content type="html" xml:base="http://songzy12.github.io/2018/02/28/google.html">&lt;h2&gt;Phone Interview&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://discuss.leetcode.com/topic/115712/compare-keyboard-events-sequences&quot;&gt;Compare keyboard events sequences&lt;/a&gt;&lt;/p&gt;
 
@@ -506,7 +558,7 @@ assert(compare_('1', '12\b') == True)
 assert(compare_('', '\b2\b') == True)
 assert(compare_('', '12\b2\b') == False)
 assert(compare_('1', '123\b2\b\b') == True)
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">Phone Interview</summary></entry><entry><title type="html">WAP</title><link href="http://localhost:4000/2018/02/22/wap.html" rel="alternate" type="text/html" title="WAP" /><published>2018-02-22T16:25:31+08:00</published><updated>2018-02-22T16:25:31+08:00</updated><id>http://localhost:4000/2018/02/22/wap</id><content type="html" xml:base="http://localhost:4000/2018/02/22/wap.html">&lt;h2&gt;Round 0&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">Phone Interview</summary></entry><entry><title type="html">WAP</title><link href="http://songzy12.github.io/2018/02/22/wap.html" rel="alternate" type="text/html" title="WAP" /><published>2018-02-22T16:25:31+08:00</published><updated>2018-02-22T16:25:31+08:00</updated><id>http://songzy12.github.io/2018/02/22/wap</id><content type="html" xml:base="http://songzy12.github.io/2018/02/22/wap.html">&lt;h2&gt;Round 0&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/zigzag-conversion/description/&quot;&gt;ZigZag Conversion&lt;/a&gt;&lt;/p&gt;
 
@@ -530,7 +582,7 @@ assert(compare_('1', '123\b2\b\b') == True)
 
 &lt;ul&gt;
 &lt;li&gt;Small Chat&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Round 0</summary></entry><entry><title type="html">Tencent IEG</title><link href="http://localhost:4000/2018/01/31/tencent-ieg.html" rel="alternate" type="text/html" title="Tencent IEG" /><published>2018-01-31T20:13:35+08:00</published><updated>2018-01-31T20:13:35+08:00</updated><id>http://localhost:4000/2018/01/31/tencent-ieg</id><content type="html" xml:base="http://localhost:4000/2018/01/31/tencent-ieg.html">&lt;p&gt;这个也是 LeetCode 原题：&lt;a href=&quot;https://leetcode.com/problems/integer-break/description/&quot;&gt;Integer Break&lt;/a&gt;&lt;/p&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Round 0</summary></entry><entry><title type="html">Tencent IEG</title><link href="http://songzy12.github.io/2018/01/31/tencent-ieg.html" rel="alternate" type="text/html" title="Tencent IEG" /><published>2018-01-31T20:13:35+08:00</published><updated>2018-01-31T20:13:35+08:00</updated><id>http://songzy12.github.io/2018/01/31/tencent-ieg</id><content type="html" xml:base="http://songzy12.github.io/2018/01/31/tencent-ieg.html">&lt;p&gt;这个也是 LeetCode 原题：&lt;a href=&quot;https://leetcode.com/problems/integer-break/description/&quot;&gt;Integer Break&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;在这里分享一道腾讯互娱的面试题目：&lt;/p&gt;
 
