@@ -22,6 +22,23 @@ url: "http://songzy12.github.io" # the base hostname & protocol for your site, e
 twitter_username: 
 github_username:  songzy12
 
+# Default extension for new posts and pages
+post_ext: md
+page_ext: html
+
+# Default templates for posts and pages
+# Found in _templates/
+post_layout: post
+page_layout: page
+
+# Format titles with titlecase?
+titlecase: true
+
+# Change default template file (in _templates/)
+post_template: post
+page_template: page
+draft_template: draft
+
 # Build settings
 markdown: rdiscount
 rdiscount:
