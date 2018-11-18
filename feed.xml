@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2018-11-17T14:43:33+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2018-11-17T14:08:14+08:00</published><updated>2018-11-17T14:08:14+08:00</updated><id>http://songzy12.github.io/ruby/2018/11/17/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html">&lt;h2&gt;root&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2018-11-18T14:04:46+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Supervisor</title><link href="http://songzy12.github.io/2018/11/18/supervisor.html" rel="alternate" type="text/html" title="Supervisor" /><published>2018-11-18T14:02:05+08:00</published><updated>2018-11-18T14:02:05+08:00</updated><id>http://songzy12.github.io/2018/11/18/supervisor</id><content type="html" xml:base="http://songzy12.github.io/2018/11/18/supervisor.html">&lt;ul&gt;
+&lt;li&gt;reread - Reread supervisor configuration. Do not update or restart the running services.&lt;/li&gt;
+&lt;li&gt;update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;.&lt;/li&gt;
+&lt;li&gt;reload - Reread supervisor configuration, reload supervisord and supervisorctl, restart services that were started.&lt;/li&gt;
+&lt;li&gt;restart - Restart service(s)&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">reread - Reread supervisor configuration. Do not update or restart the running services. update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;. reload - Reread supervisor configuration, reload supervisord and supervisorctl, restart services that were started. restart - Restart service(s)</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2018-11-17T14:08:14+08:00</published><updated>2018-11-17T14:08:14+08:00</updated><id>http://songzy12.github.io/ruby/2018/11/17/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html">&lt;h2&gt;root&lt;/h2&gt;
 
 &lt;p&gt;Note: all the following commands must be run under the root directory.&lt;/p&gt;
 
@@ -582,72 +587,4 @@ assert(compare_('1', '123\b2\b\b') == True)
 
 &lt;ul&gt;
 &lt;li&gt;Small Chat&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Round 0</summary></entry><entry><title type="html">Tencent IEG</title><link href="http://songzy12.github.io/2018/01/31/tencent-ieg.html" rel="alternate" type="text/html" title="Tencent IEG" /><published>2018-01-31T20:13:35+08:00</published><updated>2018-01-31T20:13:35+08:00</updated><id>http://songzy12.github.io/2018/01/31/tencent-ieg</id><content type="html" xml:base="http://songzy12.github.io/2018/01/31/tencent-ieg.html">&lt;p&gt;这个也是 LeetCode 原题：&lt;a href=&quot;https://leetcode.com/problems/integer-break/description/&quot;&gt;Integer Break&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;在这里分享一道腾讯互娱的面试题目：&lt;/p&gt;
-
-&lt;p&gt;给定 $m\in N$,
-$\max x_1\cdot x_2\dots x_{n-1}\cdot x_n$&lt;/p&gt;
-
-&lt;p&gt;s.t. $x_1+x_2+&amp;hellip;+x_n = m$ and $x_i \in N $.&lt;/p&gt;
-
-&lt;p&gt;（面试官给的题目里 $m = 25$）&lt;/p&gt;
-
-&lt;p&gt;下面我们介绍两种解法，一种是使用动态规划的编程解，另一种是直接手算出答案的数学解。&lt;/p&gt;
-
-&lt;h3&gt;动态规划&lt;/h3&gt;
-
-&lt;p&gt;我们使用 &lt;code&gt;dp(m)&lt;/code&gt; 表示将整数 &lt;code&gt;m&lt;/code&gt; 进行如上拆分后所能得到的最大乘积。那么我们要的结果就是 &lt;code&gt;dp(25)&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;如何计算 &lt;code&gt;dp(m)&lt;/code&gt; 呢？对于一般的情况，我们直接根据所拆分出来的第一个整数进行动态规划：&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;dp(m)= max{i * dp(m-i)}&lt;/code&gt; 其中，&lt;code&gt;i \in {1,...,m}&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;这里为了便于计算我们将边界条件设为 &lt;code&gt;dp(0) = 1&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;上面这个算法的复杂度是 &lt;code&gt;O(m^2)&lt;/code&gt; ：首先我们需要计算 &lt;code&gt;dp(1),...,dp(m)&lt;/code&gt; 这 &lt;code&gt;m&lt;/code&gt; 个值，然后在计算每个值&lt;code&gt;dp(m_0)&lt;/code&gt;的时候我们需要进行一个 &lt;code&gt;O(m_0)&lt;/code&gt; 层的循环。&lt;/p&gt;
-
-&lt;h3&gt;数学解法&lt;/h3&gt;
-
-&lt;p&gt;首先我们假设分成的份数 &lt;code&gt;n&lt;/code&gt; 是固定的，那么根据 &lt;a href=&quot;https://zh.wikipedia.org/wiki/%E7%AE%97%E6%9C%AF-%E5%87%A0%E4%BD%95%E5%B9%B3%E5%9D%87%E5%80%BC%E4%B8%8D%E7%AD%89%E5%BC%8F&quot;&gt;均值不等式&lt;/a&gt;我们有&lt;/p&gt;
-
-&lt;p&gt;$\prod_{i=1}^n x_i \le (\frac{\sum_{i=1}^n x_i}{n}) ^ n = (\frac{m}{n}) ^ n$&lt;/p&gt;
-
-&lt;p&gt;（几何平均值小于等于算术平均值）&lt;/p&gt;
-
-&lt;p&gt;上式取等的条件为各 $x_i$ 均相等。&lt;/p&gt;
-
-&lt;p&gt;也就是说，对于给定的 &lt;code&gt;n&lt;/code&gt; ，我们要使得各份尽量均匀的情况下乘积最大。&lt;/p&gt;
-
-&lt;p&gt;下面我们考虑最优的 &lt;code&gt;n&lt;/code&gt; 的取值。我们令 $g(n) = (\frac{m}{n})^n$, 于是只需要求 $g(n)$ 的最大值。&lt;/p&gt;
-
-&lt;p&gt;求导，$g'(n)=((\frac{m}{n})^n)&amp;lsquo;=(e^{n\ln(m/n)})&amp;rsquo;=e^{n\ln(m/n)}\cdot (n\ln(\frac{m}{n}))&amp;lsquo;$&lt;/p&gt;
-
-&lt;p&gt;因为 $(n\ln(\frac{m}{n}))&amp;lsquo;=ln(\frac{m}{n}) + n\cdot(ln(\frac{m}{n})&amp;rsquo;)=ln(\frac{m}{n}) + n \cdot \frac{n}{m} \cdot (-\frac{m}{n^2}) = ln(\frac{m}{n}) - 1$&lt;/p&gt;
-
-&lt;p&gt;从而 $g'(n) &gt; 0\Leftrightarrow  ln(\frac{m}{n})-1 &gt; 0 \Leftrightarrow ln(\frac{m}{n}) &gt; 1\Leftrightarrow \frac{m}{n} &gt; e \Leftrightarrow n &amp;lt; \frac{m}{e}$&lt;/p&gt;
-
-&lt;p&gt;也就是说，$g(n)$ 在 $(1, \frac{m}{e})$ 递增，在 $(\frac{m}{e}, +\infty)$ 递减。&lt;/p&gt;
-
-&lt;p&gt;所以 $g(n)$ 在 $n=\frac{m}{e}$ 时取最大值，也就是说对于给定的数 $m$, 我们希望分成 $\frac{m}{e}$ 份，也就是说我们希望每份分成的数值是 $e$. 这里的 $e=2.71828$.&lt;/p&gt;
-
-&lt;p&gt;由于要求分成整数，所以我们应该分成尽量多的 3 和最多两个 2（因为我们可以把3个2变成2个3）&lt;/p&gt;
-
-&lt;p&gt;具体来讲，如果 m % 3 == 0，那就是 m / 3 个 3; m % 3 == 2 就是  m / 3 个 3 和 1 个 2；m % 3 == 1, 我们把多出来的 1 和它前面的那个 3 放一起拆成两个 2（2 * 2 &gt; 1 * 3）, 就是 (m / 3 - 1) 个 3 和 2 个 2.&lt;/p&gt;
-
-&lt;p&gt;具体到 25，就是 25 = 3 * 7 + 2 * 2，最大的积为 $3^7\times 2^2$.&lt;/p&gt;
-
-&lt;p&gt;$\cdot$&lt;/p&gt;
-
-&lt;h3&gt;其他问题&lt;/h3&gt;
-
-&lt;p&gt;面试中遇到的其他问题包括：&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;说说 word2vec 的不同方法：CBOW v.s. skip-gram&lt;/li&gt;
-&lt;li&gt;说说 梯度弥散 v.s. 梯度爆炸&lt;/li&gt;
-&lt;li&gt;说说 线性回归 v.s 逻辑回归&lt;/li&gt;
-&lt;li&gt;说说 逻辑回归 中为什么使用 Sigmoid 函数&lt;/li&gt;
-&lt;li&gt;说说 SGD v.s. BGD&lt;/li&gt;
-&lt;li&gt;说说除了 SGD 之外其他的 Optimizer:  Adagrad, Adam&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><summary type="html">这个也是 LeetCode 原题：Integer Break</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">Round 0</summary></entry></feed>
