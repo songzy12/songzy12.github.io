@@ -1,4 +1,219 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2018-11-18T14:32:59+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Supervisor</title><link href="http://songzy12.github.io/2018/11/18/supervisor.html" rel="alternate" type="text/html" title="Supervisor" /><published>2018-11-18T14:02:05+08:00</published><updated>2018-11-18T14:02:05+08:00</updated><id>http://songzy12.github.io/2018/11/18/supervisor</id><content type="html" xml:base="http://songzy12.github.io/2018/11/18/supervisor.html">&lt;ul&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2018-11-18T14:49:23+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">vim</title><link href="http://songzy12.github.io/2018/11/18/vim.html" rel="alternate" type="text/html" title="vim" /><published>2018-11-18T14:45:00+08:00</published><updated>2018-11-18T14:45:00+08:00</updated><id>http://songzy12.github.io/2018/11/18/vim</id><content type="html" xml:base="http://songzy12.github.io/2018/11/18/vim.html">&lt;h2&gt;.vimrc&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;set nocompatible
+syntax on
+filetype plugin indent on
+set ic
+set hlsearch
+set encoding=utf-8
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
+set cursorline
+set autoindent
+set smartindent
+set scrolloff=4
+set showmatch
+set nu
+
+let python_highlight_all=1
+au Filetype python set tabstop=4
+au Filetype python set softtabstop=4
+au Filetype python set shiftwidth=4
+au Filetype python set expandtab
+au Filetype python set fileformat=unix
+
+colorscheme desert
+
+set nocompatible              &quot; required
+filetype off                  &quot; required
+
+&quot; set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+&quot; alternatively, pass a path where Vundle should install plugins
+&quot;call vundle#begin('~/some/path/here')
+
+&quot; let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+&quot; Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+Plugin 'Chiel92/vim-autoformat'
+nnoremap &amp;lt;F6&amp;gt; :Autoformat&amp;lt;CR&amp;gt;
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+
+
+&quot; All of your Plugins must be added before the following line
+call vundle#end()            &quot; required
+filetype plugin indent on    &quot; required
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;vundle&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/VundleVim/Vundle.vim&quot;&gt;https://github.com/VundleVim/Vundle.vim&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Put this in your &lt;code&gt;.vimrc&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Plugin 'Chiel92/vim-autoformat'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then restart vim and run &lt;code&gt;:PluginInstall&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2&gt;syntax&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;cd /usr/share/vim/vim74/syntax 
+vi python.vim
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;syn keyword pythonTodo      FIXME NOTE NOTES TODO XXX contained
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ls ~/.vim/
+ftdetect  ftplugin  indent  syntax
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;color&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;ls /usr/share/vim/vim74/colors/
+vi ~/.vimrc
+color default
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;|&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;80|&lt;/code&gt; should get you to position 80 in that line.&lt;/p&gt;
+
+&lt;h2&gt;d&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;dG 删除直到工作缓存区结尾的内容
+d1G 删除直到工作缓存区开始的内容
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;删除第9行到第200行的内容(先用200G转到第200行) ，使用&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;:9,.d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;e&lt;/h2&gt;
+
+&lt;p&gt;重新加载&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;:e
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;J&lt;/h2&gt;
+
+&lt;p&gt;合并行&lt;/p&gt;
+
+&lt;p&gt;In command mode:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[range]j[lines]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;here you want to do the whole buffer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;%j
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you just wanted to do 10 lines from the current cursor position:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;j10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you dont want to replace the new lines with spaces use ! after j.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;%j!
+j!10
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And for the uberfancy:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;5j20
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Would go to line 5, and join the next 20 lines.&lt;/p&gt;
+
+&lt;h2&gt;ret&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;set tabstop=4&lt;/code&gt;: set the tabs to display as four spaces.
+&lt;code&gt;set expandtab&lt;/code&gt;: insert spaces for tabs.
+&lt;code&gt;ret&lt;/code&gt;: replace tab&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;set expandtab
+:%ret! 4
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;s&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;:%s/源字符串/目的字符串/g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add a string(&lt;code&gt;*&lt;/code&gt;) to the end of each line in Vim:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;:%s/$/\*/g
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;set&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;nu&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;set nu
+set nonu
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;paste&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;set paste
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;invlist&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;set invlist
+set nolist
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;shell&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;ctrl+z 
+fg
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;:!vim --version
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;:shell
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;undo, redo&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;u&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;ctrl+r&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;vsp&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;vim -On file1 file2 # 分屏启动Vim
+:vsp filename # 分屏
+Ctrl+w r # 滚动分屏
+Ctrl+w = # 分屏宽度
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">.vimrc</summary></entry><entry><title type="html">Supervisor</title><link href="http://songzy12.github.io/2018/11/18/supervisor.html" rel="alternate" type="text/html" title="Supervisor" /><published>2018-11-18T14:02:05+08:00</published><updated>2018-11-18T14:02:05+08:00</updated><id>http://songzy12.github.io/2018/11/18/supervisor</id><content type="html" xml:base="http://songzy12.github.io/2018/11/18/supervisor.html">&lt;ul&gt;
 &lt;li&gt;reread - Reread supervisor configuration. Do not update or restart the running services.&lt;/li&gt;
 &lt;li&gt;update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;.&lt;/li&gt;
 &lt;li&gt;reload - Reread supervisor configuration, reload supervisord and supervisorctl&lt;/li&gt;
@@ -563,28 +778,4 @@ assert(compare_('1', '12\b') == True)
 assert(compare_('', '\b2\b') == True)
 assert(compare_('', '12\b2\b') == False)
 assert(compare_('1', '123\b2\b\b') == True)
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">Phone Interview</summary></entry><entry><title type="html">WAP</title><link href="http://songzy12.github.io/2018/02/22/wap.html" rel="alternate" type="text/html" title="WAP" /><published>2018-02-22T16:25:31+08:00</published><updated>2018-02-22T16:25:31+08:00</updated><id>http://songzy12.github.io/2018/02/22/wap</id><content type="html" xml:base="http://songzy12.github.io/2018/02/22/wap.html">&lt;h2&gt;Round 0&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/zigzag-conversion/description/&quot;&gt;ZigZag Conversion&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;Round 1&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://leetcode.com/problems/word-pattern/description/&quot;&gt;Word Pattern&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;Round 2&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://tonycao.gitbooks.io/leetcode-locked/content/LeetCode%20Locked/c1.5.html&quot;&gt;Strobogrammatic Number I, II, III&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;Round 3&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;勾股定理&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;grep&lt;/code&gt;, &lt;code&gt;find&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;Round 4&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;Small Chat&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Round 0</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">Phone Interview</summary></entry></feed>
