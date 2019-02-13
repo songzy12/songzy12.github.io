@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+<title>PPTP | Zhengyang Song&rsquo;s Blog</title>
+<meta name="generator" content="Jekyll v3.8.4" />
+<meta property="og:title" content="PPTP" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="PPTP" />
+<meta property="og:description" content="PPTP" />
+<link rel="canonical" href="http://localhost:4000/2017/11/30/shadowsocks-Copy-(2).html" />
+<meta property="og:url" content="http://localhost:4000/2017/11/30/shadowsocks-Copy-(2).html" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-11-30T19:45:03+08:00" />
+<script type="application/ld+json">
+{"headline":"PPTP","dateModified":"2017-11-30T19:45:03+08:00","datePublished":"2017-11-30T19:45:03+08:00","url":"http://localhost:4000/2017/11/30/shadowsocks-Copy-(2).html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2017/11/30/shadowsocks-Copy-(2).html"},"description":"PPTP","@type":"BlogPosting","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Zhengyang Song's Blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Zhengyang Song&#39;s Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">PPTP</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-11-30T19:45:03+08:00" itemprop="datePublished">Nov 30, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2>PPTP</h2>
+
+<pre><code>server name or address: 45.32.251.88
+user name: vpnuser
+password: shadowsocks
+</code></pre>
+
+<p><a href="https://www.vultr.com/docs/setup-a-pptp-vpn-server-on-ubuntu">PPTP VPN</a></p>
+
+<h3>Installing PPTPD</h3>
+
+<pre><code>apt-get install pptpd
+</code></pre>
+
+<h3>Adding users</h3>
+
+<pre><code class="">vi /etc/ppp/chap-secrets 
+# vpn   pptpd   shadowsocks *
+</code></pre>
+
+<h3>Edit the PPTPD settings</h3>
+
+<p>Change <code>localip</code> to your server IP.</p>
+
+<pre><code>ifconfig -a
+vi /etc/pptpd.conf 
+
+# localip 45.32.251.88
+# remoteip 192.168.0.234-238, 192.168.0.245
+</code></pre>
+
+<h3>Update sysctl.conf</h3>
+
+<pre><code>vi /etc/sysctl.conf 
+# net.ipv4.ip_forward = 1
+sysctl -p
+</code></pre>
+
+<pre><code>vi /etc/ppp/pptpd-options 
+# ms-dns 8.8.8.8    
+# ms-dns 8.8.4.4
+</code></pre>
+
+<h3>Restarting PPTPD</h3>
+
+<pre><code>service pptpd restart
+netstat -alpn | grep :1723
+
+systemctl start pptpd.service
+systemctl enable pptpd.service
+</code></pre>
+
+<h3>iptables</h3>
+
+<pre><code>ifconfig -a
+vi /etc/rc.local
+</code></pre>
+
+<pre><code># Accept all packets via ppp* interfaces (for example, ppp0)
+iptables -A INPUT -i ppp+ -j ACCEPT
+iptables -A OUTPUT -o ppp+ -j ACCEPT
+
+# Accept incoming connections to port 1723 (PPTP)
+iptables -A INPUT -p tcp --dport 1723 -j ACCEPT
+
+# Accept GRE packets
+iptables -A INPUT -p 47 -j ACCEPT
+iptables -A OUTPUT -p 47 -j ACCEPT
+
+# Enable IP forwarding
+iptables -F FORWARD
+iptables -A FORWARD -j ACCEPT
+
+# Enable NAT for eth0 on ppp* interfaces
+iptables -A POSTROUTING -t nat -o eth0 -j MASQUERADE
+iptables -A POSTROUTING -t nat -o ppp+ -j MASQUERADE
+</code></pre>
+
+<pre><code>tail -f /var/log/syslog
+</code></pre>
+
+<h3>hosts</h3>
+
+<pre><code>ping www.tumblr.com
+
+Pinging www.tumblr.com [66.6.42.30] with 32 bytes of data:
+Reply from 117.103.177.121: Destination net unreachable.
+
+nslookup
+
+&gt; www.tumblr.com
+Server:  google-public-dns-a.google.com
+Address:  8.8.8.8
+
+Non-authoritative answer:
+Name:    www.tumblr.com.dev.tsinghuax.org
+Address:  101.6.244.5
+</code></pre>
+
+<p>Just clear the <code>/etc/hosts</code> file.</p>
+
+<h3>MPPE required but peer negotiation failed</h3>
+
+<p>I had to enable Point-to-Point encryption(MPPE) in the Advanced Settings dialog.</p>
+
+<h3>tcpdump</h3>
+
+<p>ARP: Address Resolution Protocol.</p>
+
+<p>MAC address: Media Access Control address.</p>
+
+<p><code>lsb_release</code>: linux standard base.</p>
+
+<pre><code>tcpdump -ennqti eth0 \( arp or icmp \)
+</code></pre>
+
+<pre><code>56:00:00:39:b7:93 &gt; fe:00:00:39:b7:93, IPv4, length 102: 45.32.251.88 &gt; 221.229.172.35: ICMP 45.32.251.88 tcp port 22 unreachable, length 68
+</code></pre>
+
+<p>ICMP: Internet Control Message Protocol.</p>
+
+<p>Just correct the script for <code>l2tpd</code>.</p>
+
+<pre><code>NET_IFO=${VPN_IFACE:-'ens3'}
+NET_IFS=$(VPN_IFACE:-'ens3')
+</code></pre>
+
+  </div><a class="u-url" href="/2017/11/30/shadowsocks-Copy-(2).html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Zhengyang Song&#39;s Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song&#39;s Blog</li><li><a class="u-email" href="mailto:songzy.thu@gmail.com">songzy.thu@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

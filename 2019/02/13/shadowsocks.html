@@ -3,21 +3,21 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
-<title>Vultr | Zhengyang Song&rsquo;s Blog</title>
+<title>Shadowsocks | Zhengyang Song&rsquo;s Blog</title>
 <meta name="generator" content="Jekyll v3.8.4" />
-<meta property="og:title" content="Vultr" />
+<meta property="og:title" content="Shadowsocks" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="1E#m2WXS9LdvTCNA tail -f /var/log/syslog" />
 <meta property="og:description" content="1E#m2WXS9LdvTCNA tail -f /var/log/syslog" />
-<link rel="canonical" href="http://songzy12.github.io/2017/11/30/vultr.html" />
-<meta property="og:url" content="http://songzy12.github.io/2017/11/30/vultr.html" />
+<link rel="canonical" href="http://localhost:4000/2019/02/13/shadowsocks.html" />
+<meta property="og:url" content="http://localhost:4000/2019/02/13/shadowsocks.html" />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2017-11-30T19:45:03+08:00" />
+<meta property="article:published_time" content="2019-02-13T19:45:03+08:00" />
 <script type="application/ld+json">
-{"headline":"Vultr","dateModified":"2017-11-30T19:45:03+08:00","datePublished":"2017-11-30T19:45:03+08:00","url":"http://songzy12.github.io/2017/11/30/vultr.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/11/30/vultr.html"},"description":"1E#m2WXS9LdvTCNA tail -f /var/log/syslog","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"headline":"Shadowsocks","dateModified":"2019-02-13T19:45:03+08:00","datePublished":"2019-02-13T19:45:03+08:00","url":"http://localhost:4000/2019/02/13/shadowsocks.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2019/02/13/shadowsocks.html"},"description":"1E#m2WXS9LdvTCNA tail -f /var/log/syslog","@type":"BlogPosting","@context":"http://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/">Zhengyang Song&#39;s Blog</a><nav class="site-nav">
@@ -38,9 +38,9 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Vultr</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Shadowsocks</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2017-11-30T19:45:03+08:00" itemprop="datePublished">Nov 30, 2017
+      <time class="dt-published" datetime="2019-02-13T19:45:03+08:00" itemprop="datePublished">Feb 13, 2019
       </time></p>
   </header>
 
@@ -129,159 +129,7 @@ ssserver -c /etc/shadowsocks.json -d stop
 <pre><code>sudo less /var/log/shadowsocks.log
 </code></pre>
 
-<h2>L2TP</h2>
-
-<p><a href="https://github.com/hwdsl2/setup-ipsec-vpn">here</a>.</p>
-
-<pre><code>wget https://git.io/vpnsetup -O vpnsetup.sh &amp;&amp; sudo sh vpnsetup.sh
-</code></pre>
-
-<pre><code>NET_IFO=${VPN_IFACE:-'ens3'}
-NET_IFS=$(VPN_IFACE:-'ens3')
-</code></pre>
-
-<pre><code>Server IP: 45.32.251.88
-IPsec PSK: shadowsocks
-Username: vpnuser
-Password: shadowsocks
-</code></pre>
-
-<pre><code>无法建立计算机与 VPN 服务器之间的网络连接，因为远程服务器未响应。
-</code></pre>
-
-<p><a href="https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md">here</a>.</p>
-
-<pre><code>REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f
-</code></pre>
-
-<h2>PPTP</h2>
-
-<pre><code>server name or address: 45.32.251.88
-user name: vpnuser
-password: shadowsocks
-</code></pre>
-
-<p><a href="https://www.vultr.com/docs/setup-a-pptp-vpn-server-on-ubuntu">PPTP VPN</a></p>
-
-<h3>Installing PPTPD</h3>
-
-<pre><code>apt-get install pptpd
-</code></pre>
-
-<h3>Adding users</h3>
-
-<pre><code class="">vi /etc/ppp/chap-secrets 
-# vpn   pptpd   shadowsocks *
-</code></pre>
-
-<h3>Edit the PPTPD settings</h3>
-
-<p>Change <code>localip</code> to your server IP.</p>
-
-<pre><code>ifconfig -a
-vi /etc/pptpd.conf 
-
-# localip 45.32.251.88
-# remoteip 192.168.0.234-238, 192.168.0.245
-</code></pre>
-
-<h3>Update sysctl.conf</h3>
-
-<pre><code>vi /etc/sysctl.conf 
-# net.ipv4.ip_forward = 1
-sysctl -p
-</code></pre>
-
-<pre><code>vi /etc/ppp/pptpd-options 
-# ms-dns 8.8.8.8    
-# ms-dns 8.8.4.4
-</code></pre>
-
-<h3>Restarting PPTPD</h3>
-
-<pre><code>service pptpd restart
-netstat -alpn | grep :1723
-
-systemctl start pptpd.service
-systemctl enable pptpd.service
-</code></pre>
-
-<h3>iptables</h3>
-
-<pre><code>ifconfig -a
-vi /etc/rc.local
-</code></pre>
-
-<pre><code># Accept all packets via ppp* interfaces (for example, ppp0)
-iptables -A INPUT -i ppp+ -j ACCEPT
-iptables -A OUTPUT -o ppp+ -j ACCEPT
-
-# Accept incoming connections to port 1723 (PPTP)
-iptables -A INPUT -p tcp --dport 1723 -j ACCEPT
-
-# Accept GRE packets
-iptables -A INPUT -p 47 -j ACCEPT
-iptables -A OUTPUT -p 47 -j ACCEPT
-
-# Enable IP forwarding
-iptables -F FORWARD
-iptables -A FORWARD -j ACCEPT
-
-# Enable NAT for eth0 on ppp* interfaces
-iptables -A POSTROUTING -t nat -o eth0 -j MASQUERADE
-iptables -A POSTROUTING -t nat -o ppp+ -j MASQUERADE
-</code></pre>
-
-<pre><code>tail -f /var/log/syslog
-</code></pre>
-
-<h3>hosts</h3>
-
-<pre><code>ping www.tumblr.com
-
-Pinging www.tumblr.com [66.6.42.30] with 32 bytes of data:
-Reply from 117.103.177.121: Destination net unreachable.
-
-nslookup
-
-&gt; www.tumblr.com
-Server:  google-public-dns-a.google.com
-Address:  8.8.8.8
-
-Non-authoritative answer:
-Name:    www.tumblr.com.dev.tsinghuax.org
-Address:  101.6.244.5
-</code></pre>
-
-<p>Just clear the <code>/etc/hosts</code> file.</p>
-
-<h3>MPPE required but peer negotiation failed</h3>
-
-<p>I had to enable Point-to-Point encryption(MPPE) in the Advanced Settings dialog.</p>
-
-<h3>tcpdump</h3>
-
-<p>ARP: Address Resolution Protocol.</p>
-
-<p>MAC address: Media Access Control address.</p>
-
-<p><code>lsb_release</code>: linux standard base.</p>
-
-<pre><code>tcpdump -ennqti eth0 \( arp or icmp \)
-</code></pre>
-
-<pre><code>56:00:00:39:b7:93 &gt; fe:00:00:39:b7:93, IPv4, length 102: 45.32.251.88 &gt; 221.229.172.35: ICMP 45.32.251.88 tcp port 22 unreachable, length 68
-</code></pre>
-
-<p>ICMP: Internet Control Message Protocol.</p>
-
-<p>Just correct the script for <code>l2tpd</code>.</p>
-
-<pre><code>NET_IFO=${VPN_IFACE:-'ens3'}
-NET_IFS=$(VPN_IFACE:-'ens3')
-</code></pre>
-
-  </div><a class="u-url" href="/2017/11/30/vultr.html" hidden></a>
+  </div><a class="u-url" href="/2019/02/13/shadowsocks.html" hidden></a>
 </article>
 
       </div>

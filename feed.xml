@@ -1,4 +1,213 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2018-11-18T14:49:23+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">vim</title><link href="http://songzy12.github.io/2018/11/18/vim.html" rel="alternate" type="text/html" title="vim" /><published>2018-11-18T14:45:00+08:00</published><updated>2018-11-18T14:45:00+08:00</updated><id>http://songzy12.github.io/2018/11/18/vim</id><content type="html" xml:base="http://songzy12.github.io/2018/11/18/vim.html">&lt;h2&gt;.vimrc&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-02-13T22:32:21+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">V2Ray</title><link href="http://localhost:4000/2019/02/13/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2019-02-13T20:07:54+08:00</published><updated>2019-02-13T20:07:54+08:00</updated><id>http://localhost:4000/2019/02/13/v2ray</id><content type="html" xml:base="http://localhost:4000/2019/02/13/v2ray.html">&lt;p&gt;&lt;a href=&quot;https://yuan.ga/v2ray-complete-tutorial/&quot;&gt;https://yuan.ga/v2ray-complete-tutorial/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;server&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://install.direct/go.sh
+sudo bash go.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;PORT:
+UUID:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;&quot;log&quot;: {
+    &quot;loglevel&quot;: &quot;warning&quot;,
+    &quot;access&quot;: &quot;/var/log/v2ray/access.log&quot;,
+    &quot;error&quot;: &quot;/var/log/v2ray/error.log&quot;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo systemctl start v2ray
+sudo systemctl enable v2ray
+sudo systemctl status v2ray
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;client&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/v2ray/v2ray-core/releases&quot;&gt;https://github.com/v2ray/v2ray-core/releases&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &quot;inbounds&quot;: [
+    {
+      &quot;port&quot;: 1080,
+      &quot;protocol&quot;: &quot;socks&quot;,
+      &quot;sniffing&quot;: {
+        &quot;enabled&quot;: true,
+        &quot;destOverride&quot;: [&quot;http&quot;, &quot;tls&quot;]
+      },
+      &quot;settings&quot;: {
+        &quot;auth&quot;: &quot;noauth&quot;
+      }
+    },
+    {
+      &quot;port&quot;: 8080,
+      &quot;protocol&quot;: &quot;http&quot;,
+      &quot;sniffing&quot;: {
+        &quot;enabled&quot;: true,
+        &quot;destOverride&quot;: [&quot;http&quot;, &quot;tls&quot;]
+      },
+      &quot;settings&quot;: {
+        &quot;auth&quot;: &quot;noauth&quot;
+      }
+    }
+  ],
+  &quot;outbounds&quot;: [
+    {
+      &quot;protocol&quot;: &quot;vmess&quot;,
+      &quot;settings&quot;: {
+        &quot;vnext&quot;: [
+          {
+            &quot;address&quot;: &quot;8.8.8.8&quot;, // 服务器 IP
+            &quot;port&quot;: 443, // Vmess 协议端口
+            &quot;users&quot;: [
+              {
+                &quot;id&quot;: &quot;7d4cd078-e529-4bdb-a483-cf5733d96a66&quot;, // id（UUID）
+                &quot;alterId&quot;: 64 // 需要和服务端一致
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      &quot;tag&quot;: &quot;direct&quot;,
+      &quot;settings&quot;: {},
+      &quot;protocol&quot;: &quot;freedom&quot;
+    }
+  ],
+
+  &quot;routing&quot;: {
+    &quot;domainStrategy&quot;: &quot;IPOnDemand&quot;,
+    &quot;rules&quot;: [
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;ip&quot;: [
+          &quot;geoip:private&quot;
+        ],
+        &quot;outboundTag&quot;: &quot;direct&quot;
+      }
+    ]
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改 Windows 的系统代理&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http 127.0.0.1:8080
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;不需要 Proxy SwitchyOmega.&lt;/p&gt;
+
+&lt;p&gt;开机启动：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;WIN+R
+shell:startup
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">https://yuan.ga/v2ray-complete-tutorial/</summary></entry><entry><title type="html">L2TP</title><link href="http://localhost:4000/2019/02/13/l2tp.html" rel="alternate" type="text/html" title="L2TP" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://localhost:4000/2019/02/13/l2tp</id><content type="html" xml:base="http://localhost:4000/2019/02/13/l2tp.html">&lt;h2&gt;L2TP&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://git.io/vpnsetup -O vpnsetup.sh &amp;amp;&amp;amp; sudo sh vpnsetup.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;NET_IFO=${VPN_IFACE:-'ens3'}
+NET_IFS=$(VPN_IFACE:-'ens3')
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Server IP: 45.32.251.88
+IPsec PSK: shadowsocks
+Username: vpnuser
+Password: shadowsocks
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;无法建立计算机与 VPN 服务器之间的网络连接，因为远程服务器未响应。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">L2TP</summary></entry><entry><title type="html">Shadowsocks</title><link href="http://localhost:4000/2019/02/13/shadowsocks.html" rel="alternate" type="text/html" title="Shadowsocks" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://localhost:4000/2019/02/13/shadowsocks</id><content type="html" xml:base="http://localhost:4000/2019/02/13/shadowsocks.html">&lt;pre&gt;&lt;code&gt;1E#m2WXS9LdvTCNA
+tail -f /var/log/syslog
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Chrome 标签不同步也可能是因为 GFW 无法连接 Google 服务所致。&lt;/p&gt;
+
+&lt;h2&gt;socls&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;import urllib2
+import socks
+from sockshandler import SocksiPyHandler
+
+opener = urllib2.build_opener(SocksiPyHandler(socks.SOCKS5, &quot;127.0.0.1&quot;, 1080))
+x = opener.open(&quot;http://www.youtube.com/&quot;)
+print x.read()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;ss client&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/&quot;&gt;http://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get update
+sudo apt-get install python-pip
+sudo apt-get install python-setuptools m2crypto
+pip install shadowsocks
+sudo apt install shadowsocks
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;sslocal -s 11.22.33.44 -p 50003 -k &quot;123456&quot; -l 1080 -t 600 -m aes-256-cfb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;vi config.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &quot;server&quot;:&quot;11.22.33.44&quot;,
+    &quot;server_port&quot;:50003,
+    &quot;local_port&quot;:1080,
+    &quot;password&quot;:&quot;123456&quot;,
+    &quot;timeout&quot;:600,
+    &quot;method&quot;:&quot;aes-256-cfb&quot;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;sslocal -c shadowsocks.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;SwitchyOmega: &lt;a href=&quot;https://github.com/FelisCatus/SwitchyOmega/releases/&quot;&gt;https://github.com/FelisCatus/SwitchyOmega/releases/&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;nohup sslocal -c shadowsocks.json &amp;amp;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;ss server&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
+chmod +x shadowsocks.sh
+./shadowsocks.sh 2&amp;gt;&amp;amp;1 | tee shadowsocks.log
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;vi /etc/shadowsocks.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+    &quot;server&quot;:&quot;45.32.251.88&quot;,
+    &quot;server_port&quot;:8388,
+    &quot;local_address&quot;: &quot;127.0.0.1&quot;,
+    &quot;local_port&quot;:1080,
+    &quot;password&quot;:&quot;shadowsocks&quot;,
+    &quot;timeout&quot;:300,
+    &quot;method&quot;:&quot;aes-256-cfb&quot;,
+    &quot;fast_open&quot;: false
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;https://github.com/shadowsocks/shadowsocks-windows/releases
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;ssserver -c /etc/shadowsocks.json -d start
+ssserver -c /etc/shadowsocks.json -d stop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo less /var/log/shadowsocks.log
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">1E#m2WXS9LdvTCNA tail -f /var/log/syslog</summary></entry><entry><title type="html">vim</title><link href="http://localhost:4000/2018/11/18/vim.html" rel="alternate" type="text/html" title="vim" /><published>2018-11-18T14:45:00+08:00</published><updated>2018-11-18T14:45:00+08:00</updated><id>http://localhost:4000/2018/11/18/vim</id><content type="html" xml:base="http://localhost:4000/2018/11/18/vim.html">&lt;h2&gt;.vimrc&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;set nocompatible
 syntax on
@@ -213,12 +422,12 @@ fg
 :vsp filename # 分屏
 Ctrl+w r # 滚动分屏
 Ctrl+w = # 分屏宽度
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">.vimrc</summary></entry><entry><title type="html">Supervisor</title><link href="http://songzy12.github.io/2018/11/18/supervisor.html" rel="alternate" type="text/html" title="Supervisor" /><published>2018-11-18T14:02:05+08:00</published><updated>2018-11-18T14:02:05+08:00</updated><id>http://songzy12.github.io/2018/11/18/supervisor</id><content type="html" xml:base="http://songzy12.github.io/2018/11/18/supervisor.html">&lt;ul&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">.vimrc</summary></entry><entry><title type="html">Supervisor</title><link href="http://localhost:4000/2018/11/18/supervisor.html" rel="alternate" type="text/html" title="Supervisor" /><published>2018-11-18T14:02:05+08:00</published><updated>2018-11-18T14:02:05+08:00</updated><id>http://localhost:4000/2018/11/18/supervisor</id><content type="html" xml:base="http://localhost:4000/2018/11/18/supervisor.html">&lt;ul&gt;
 &lt;li&gt;reread - Reread supervisor configuration. Do not update or restart the running services.&lt;/li&gt;
 &lt;li&gt;update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;.&lt;/li&gt;
 &lt;li&gt;reload - Reread supervisor configuration, reload supervisord and supervisorctl&lt;/li&gt;
 &lt;li&gt;restart - Restart service(s)&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">reread - Reread supervisor configuration. Do not update or restart the running services. update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;. reload - Reread supervisor configuration, reload supervisord and supervisorctl restart - Restart service(s)</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2018-11-17T14:08:14+08:00</published><updated>2018-11-17T14:08:14+08:00</updated><id>http://songzy12.github.io/ruby/2018/11/17/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html">&lt;h2&gt;root&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">reread - Reread supervisor configuration. Do not update or restart the running services. update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;. reload - Reread supervisor configuration, reload supervisord and supervisorctl restart - Restart service(s)</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://localhost:4000/ruby/2018/11/17/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2018-11-17T14:08:14+08:00</published><updated>2018-11-17T14:08:14+08:00</updated><id>http://localhost:4000/ruby/2018/11/17/octopress-3-0</id><content type="html" xml:base="http://localhost:4000/ruby/2018/11/17/octopress-3-0.html">&lt;h2&gt;root&lt;/h2&gt;
 
 &lt;p&gt;Note: all the following commands must be run under the root directory.&lt;/p&gt;
 
@@ -296,7 +505,7 @@ jekyll serve
 &lt;pre&gt;&lt;code&gt;git add .
 git commit -m &quot;$(date)&quot;
 git push --set-upstream origin source
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">root</summary></entry><entry><title type="html">xnheulpb</title><link href="http://songzy12.github.io/2018/10/06/xnheulpb.html" rel="alternate" type="text/html" title="xnheulpb" /><published>2018-10-06T14:25:36+08:00</published><updated>2018-10-06T14:25:36+08:00</updated><id>http://songzy12.github.io/2018/10/06/xnheulpb</id><content type="html" xml:base="http://songzy12.github.io/2018/10/06/xnheulpb.html">&lt;p&gt;&lt;a href=&quot;http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166&quot;&gt;http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">root</summary></entry><entry><title type="html">xnheulpb</title><link href="http://localhost:4000/2018/10/06/xnheulpb.html" rel="alternate" type="text/html" title="xnheulpb" /><published>2018-10-06T14:25:36+08:00</published><updated>2018-10-06T14:25:36+08:00</updated><id>http://localhost:4000/2018/10/06/xnheulpb</id><content type="html" xml:base="http://localhost:4000/2018/10/06/xnheulpb.html">&lt;p&gt;&lt;a href=&quot;http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166&quot;&gt;http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\InputMethod\Settings\CHS]
@@ -309,7 +518,7 @@ git push --set-upstream origin source
 &quot;UDLLastUpdatedTime&quot;=&quot;2017-05-27 22:01:40&quot;
 &quot;UDLCount&quot;=dword:0000018b
 &quot;UDLVisibleCount&quot;=dword:0000018b
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166</summary></entry><entry><title type="html">LaTeX</title><link href="http://songzy12.github.io/2018/06/30/latex.html" rel="alternate" type="text/html" title="LaTeX" /><published>2018-06-30T12:00:04+08:00</published><updated>2018-06-30T12:00:04+08:00</updated><id>http://songzy12.github.io/2018/06/30/latex</id><content type="html" xml:base="http://songzy12.github.io/2018/06/30/latex.html">&lt;h2&gt;todo&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166</summary></entry><entry><title type="html">LaTeX</title><link href="http://localhost:4000/2018/06/30/latex.html" rel="alternate" type="text/html" title="LaTeX" /><published>2018-06-30T12:00:04+08:00</published><updated>2018-06-30T12:00:04+08:00</updated><id>http://localhost:4000/2018/06/30/latex</id><content type="html" xml:base="http://localhost:4000/2018/06/30/latex.html">&lt;h2&gt;todo&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;\usepackage[colorinlistoftodos]{todonotes}
 
@@ -555,227 +764,11 @@ extra parameters or packages included. \cite{knuthwebsite}.
 &amp;lt;test name=&quot;lang&quot;&amp;gt;
   &amp;lt;string&amp;gt;zh-cn&amp;lt;/string&amp;gt;
 &amp;lt;/test&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">todo</summary></entry><entry><title type="html">Captcha</title><link href="http://songzy12.github.io/2018/05/04/captcha.html" rel="alternate" type="text/html" title="Captcha" /><published>2018-05-04T19:53:33+08:00</published><updated>2018-05-04T19:53:33+08:00</updated><id>http://songzy12.github.io/2018/05/04/captcha</id><content type="html" xml:base="http://songzy12.github.io/2018/05/04/captcha.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Tencent SNG</title><link href="http://songzy12.github.io/2018/04/17/tencent-sng.html" rel="alternate" type="text/html" title="Tencent SNG" /><published>2018-04-17T19:56:43+08:00</published><updated>2018-04-17T19:56:43+08:00</updated><id>http://songzy12.github.io/2018/04/17/tencent-sng</id><content type="html" xml:base="http://songzy12.github.io/2018/04/17/tencent-sng.html">&lt;ul&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">todo</summary></entry><entry><title type="html">Captcha</title><link href="http://localhost:4000/2018/05/04/captcha.html" rel="alternate" type="text/html" title="Captcha" /><published>2018-05-04T19:53:33+08:00</published><updated>2018-05-04T19:53:33+08:00</updated><id>http://localhost:4000/2018/05/04/captcha</id><content type="html" xml:base="http://localhost:4000/2018/05/04/captcha.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Tencent SNG</title><link href="http://localhost:4000/2018/04/17/tencent-sng.html" rel="alternate" type="text/html" title="Tencent SNG" /><published>2018-04-17T19:56:43+08:00</published><updated>2018-04-17T19:56:43+08:00</updated><id>http://localhost:4000/2018/04/17/tencent-sng</id><content type="html" xml:base="http://localhost:4000/2018/04/17/tencent-sng.html">&lt;ul&gt;
 &lt;li&gt;项目中的有趣点或难点&lt;/li&gt;
 &lt;li&gt;xgboost 和 lr 的优缺点&lt;/li&gt;
 &lt;li&gt;C++ 虚函数的实现&lt;/li&gt;
 &lt;li&gt;线程和进程的区别&lt;/li&gt;
 &lt;li&gt;在模型中哪些 feature 最有用&lt;/li&gt;
 &lt;li&gt;算法题：将 1 到 m*n 按照螺旋方式填满 m * n 的矩阵。&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">项目中的有趣点或难点 xgboost 和 lr 的优缺点 C++ 虚函数的实现 线程和进程的区别 在模型中哪些 feature 最有用 算法题：将 1 到 m*n 按照螺旋方式填满 m * n 的矩阵。</summary></entry><entry><title type="html">Generic Operating System Services</title><link href="http://songzy12.github.io/python/2018/04/16/generic-operating-system-services.html" rel="alternate" type="text/html" title="Generic Operating System Services" /><published>2018-04-16T14:19:01+08:00</published><updated>2018-04-16T14:19:01+08:00</updated><id>http://songzy12.github.io/python/2018/04/16/generic-operating-system-services</id><content type="html" xml:base="http://songzy12.github.io/python/2018/04/16/generic-operating-system-services.html">&lt;h2&gt;io&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;import io
-io.open(file, mode='r', buffering=-1, encoding=None, errors=None, newline=None, closefd=True)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;The &lt;code&gt;open()&lt;/code&gt; function an alias to &lt;code&gt;io.open()&lt;/code&gt;. It wraps the OS-level file descriptor in a file object.&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;os.open()&lt;/code&gt; is just a wrapper for the lower-level POSIX syscall. It returns the file descriptor (a number) that represents the opened file.&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;logging&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;import logging  
-
-logging.basicConfig()
-logger = logging.getLogger('test')  
-# NOTSET &amp;lt; DEBUG &amp;lt; INFO &amp;lt; WARNING &amp;lt; ERROR &amp;lt; CRITICAL
-logger.setLevel(logging.DEBUG)  
-
-fh = logging.FileHandler('test.log')  
-fh.setLevel(logging.DEBUG)  
-
-ch = logging.StreamHandler()  
-ch.setLevel(logging.DEBUG)  
-
-formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')  
-fh.setFormatter(formatter)  
-ch.setFormatter(formatter)  
-
-logger.addHandler(fh)  
-logger.addHandler(ch)  
-
-# logger.debug, logger.info, logger.warning, logger.error, logger.critical
-logger.info('foorbar')  
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;optparse&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;parser = optparse.OptionParser(sys.argv[0]+' '+
-'-r &amp;lt;file_with URLs&amp;gt;')
-parser.add_option('-r', dest='URLs', type='string', 
-        help='specify target file with URLs')
-(options, args) = parser.parse_args()
-URLs=options.URLs
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;os&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;import os
-script_dir = os.path.dirname(__file__) # &amp;lt;-- absolute dir the script is in
-rel_path = &quot;2091/data.txt&quot;
-abs_file_path = os.path.join(script_dir, rel_path)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;makedirs&lt;/h3&gt;
-
-&lt;p&gt;Works like mkdir, except that any intermediate path segment (not just the rightmost) will be created if it does not exist.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;if not os.path.exists(directory):
-    os.makedirs(directory)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;path&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; filename, file_extension = os.path.splitext('/path/to/somefile.ext')
-&amp;gt;&amp;gt;&amp;gt; filename
-'/path/to/somefile'
-&amp;gt;&amp;gt;&amp;gt; file_extension
-'.ext'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;os.path.join(dir_name, file_name);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;import sys
-import os
-parent = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, parent)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;os.path.dirname(path)
-    Return the directory name of pathname path. This is the first element of the pair returned by passing path to the function split().
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;os.access(path, mode);
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;os.F_OK: test the existence of path&lt;/li&gt;
-&lt;li&gt;os.R_OK: readability&lt;/li&gt;
-&lt;li&gt;os.W_OK: writability&lt;/li&gt;
-&lt;li&gt;os.X_OK: executability&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3&gt;popen&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;output = os.popen('cat /proc/cpuinfo')
-print output.read()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;system&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;retvalue = os.system(&quot;ps -p 2993 -o time --no-headers&quot;)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;pickle&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;import pickle
-
-with open(&quot;active_user.pkl&quot;, &quot;wb&quot;) as f:
-    pickle.dump(active_user, f)
-
-with open(&quot;active_user&quot;) as f:
-    active_user = pickle.load(f)
-
-with open(&quot;text1&quot;) as f1, open(&quot;text2&quot;) as f2:
-    pass
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">io</summary></entry><entry><title type="html">Tencent MIG</title><link href="http://songzy12.github.io/2018/03/20/tencent-mig.html" rel="alternate" type="text/html" title="Tencent MIG" /><published>2018-03-20T10:51:00+08:00</published><updated>2018-03-20T10:51:00+08:00</updated><id>http://songzy12.github.io/2018/03/20/tencent-mig</id><content type="html" xml:base="http://songzy12.github.io/2018/03/20/tencent-mig.html">&lt;h2&gt;Round 1&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;LECP&lt;/li&gt;
-&lt;li&gt;SVM kernel&lt;/li&gt;
-&lt;li&gt;Sigmoid&lt;/li&gt;
-&lt;li&gt;Adam&lt;/li&gt;
-&lt;li&gt;XGBoost&lt;/li&gt;
-&lt;li&gt;Log Loss&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;Round 2&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;GBDT&lt;/li&gt;
-&lt;li&gt;NLP&lt;/li&gt;
-&lt;li&gt;word2vec&lt;/li&gt;
-&lt;li&gt;skip-gram &amp;amp; c-bow&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">Round 1</summary></entry><entry><title type="html">Google</title><link href="http://songzy12.github.io/2018/02/28/google.html" rel="alternate" type="text/html" title="Google" /><published>2018-02-28T12:52:17+08:00</published><updated>2018-02-28T12:52:17+08:00</updated><id>http://songzy12.github.io/2018/02/28/google</id><content type="html" xml:base="http://songzy12.github.io/2018/02/28/google.html">&lt;h2&gt;Phone Interview&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://discuss.leetcode.com/topic/115712/compare-keyboard-events-sequences&quot;&gt;Compare keyboard events sequences&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# abc123\b123\b  -&amp;gt; abc1212
-# abc1212        -&amp;gt; abc1212
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;Time O(n), Space O(n)&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;def convert(s):
-    res = []
-    index = 0
-    for i in range(len(s)):
-        # abc12123
-        if s[i] != '\b':
-            if len(res) == index:
-                res.append(s[i])
-            else:
-                res[index] = s[i]
-            index += 1
-        else:
-            if index == 0:
-                continue
-            else:
-                index -= 1
-        return ''.join(res[:index])
-
-def compare(s1, s2):
-    return convert(s1) == convert(s2)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;Time O(n), Space O(1)&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;def get_char(s, p):
-    cnt = 0
-    while p &amp;gt;= 0 and (cnt &amp;gt; 0 or s[p] == '\b'):
-        if s[p] == '\b':
-            cnt += 1
-        else:
-            cnt -= 1
-        p -= 1
-    return p
-
-def compare_(s1, s2):
-        p1 = len(s1) - 1
-        p2 = len(s2) - 1
-
-        while p1 &amp;gt;= 0 and p2 &amp;gt;= 0:
-            p1 = get_char(s1, p1)
-            p2 = get_char(s2, p2)
-
-            if p1 &amp;gt;= 0 and p2 &amp;gt;= 0:
-                if s1[p1] != s2[p2]:
-                    return False
-                else:
-                    p1 -= 1
-                    p2 -= 1
-
-        p1 = get_char(s1, p1)
-        p2 = get_char(s2, p2)
-        return p1 &amp;lt; 0 and p2 &amp;lt; 0
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;能抽象就抽象。多写几个函数。&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h3&gt;Test Case&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;assert(compare_('', '2\b') == True)
-assert(compare_('', '12\b') == False)
-assert(compare_('1', '12\b') == True)
-assert(compare_('', '\b2\b') == True)
-assert(compare_('', '12\b2\b') == False)
-assert(compare_('1', '123\b2\b\b') == True)
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">Phone Interview</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">项目中的有趣点或难点 xgboost 和 lr 的优缺点 C++ 虚函数的实现 线程和进程的区别 在模型中哪些 feature 最有用 算法题：将 1 到 m*n 按照螺旋方式填满 m * n 的矩阵。</summary></entry></feed>
