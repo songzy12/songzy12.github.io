@@ -1,4 +1,85 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-02-13T22:32:21+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">V2Ray</title><link href="http://localhost:4000/2019/02/13/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2019-02-13T20:07:54+08:00</published><updated>2019-02-13T20:07:54+08:00</updated><id>http://localhost:4000/2019/02/13/v2ray</id><content type="html" xml:base="http://localhost:4000/2019/02/13/v2ray.html">&lt;p&gt;&lt;a href=&quot;https://yuan.ga/v2ray-complete-tutorial/&quot;&gt;https://yuan.ga/v2ray-complete-tutorial/&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-02-14T18:21:51+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">WeChat</title><link href="http://songzy12.github.io/2019/02/14/wechat.html" rel="alternate" type="text/html" title="WeChat" /><published>2019-02-14T17:28:30+08:00</published><updated>2019-02-14T17:28:30+08:00</updated><id>http://songzy12.github.io/2019/02/14/wechat</id><content type="html" xml:base="http://songzy12.github.io/2019/02/14/wechat.html">&lt;p&gt;将Android上微信的聊天记录导出为 txt 的过程主要参考这两篇文章：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/28935173&quot;&gt;https://zhuanlan.zhihu.com/p/28935173&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.sy2k.com/2018/%E5%BE%AE%E4%BF%A1%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%BC%E5%87%BA%E5%B9%B6%E7%A0%B4%E8%A7%A3/&quot;&gt;https://www.sy2k.com/2018/%E5%BE%AE%E4%BF%A1%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%BC%E5%87%BA%E5%B9%B6%E7%A0%B4%E8%A7%A3/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt; &lt;/br&gt;&lt;/p&gt;
+
+&lt;p&gt;不需要做的事情大概有这样几点：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;不需要将手机 root&lt;/li&gt;
+&lt;li&gt;不需要使用 Android Studio&lt;/li&gt;
+&lt;li&gt;不需要使用 re 管理器&lt;/li&gt;
+&lt;li&gt;不需要修改安卓虚拟机的 IMEI 码&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt; &lt;/br&gt;&lt;/p&gt;
+
+&lt;p&gt;需要做的事情整个步骤如下所述：&lt;/p&gt;
+
+&lt;p&gt; &lt;/br&gt;&lt;/p&gt;
+
+&lt;p&gt;如果我们已经有手机的 root 权限，那我们可以直接在手机连接至计算机的情况下使用 &lt;code&gt;adb&lt;/code&gt; 来将 &lt;code&gt;/data/data/com.tencent.mm/MicroMsg&lt;/code&gt; 的某个 md5 子目录下的 &lt;code&gt;EnMicroMsg.db&lt;/code&gt; 拷贝至计算机。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;adb devices
+adb shell
+adb pull /data/data/com.tencent.mm/MicroMsg/xxxx/EnMicroMsg.db .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;使用 &lt;code&gt;adb devices&lt;/code&gt; 确认 &lt;code&gt;adb&lt;/code&gt; 能够发现我们的手机，&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;adb shell&lt;/code&gt; 可以在交互式命令行下找到文件的具体位置，&lt;/p&gt;
+
+&lt;p&gt;然后使用 &lt;code&gt;adb pull&lt;/code&gt; 来将对应位置处的文件从手机拷贝至计算机。&lt;/p&gt;
+
+&lt;p&gt;  &lt;/br&gt;&lt;/p&gt;
+
+&lt;p&gt;但是大概率我们是没有对手机做过 root 操作的，&lt;/p&gt;
+
+&lt;p&gt;除了冒险 root 手机之外我们还有其他的方法，那就是使用安卓模拟器。&lt;/p&gt;
+
+&lt;p&gt;这里我们使用 &lt;code&gt;Genymotion&lt;/code&gt;. 下载安装并运行 &lt;code&gt;Genymotion&lt;/code&gt;，并创建与手机型号一致的虚拟机。&lt;/p&gt;
+
+&lt;p&gt;因为虚拟机和真机的架构有点不同，为了安装微信 apk，我们需要下载与虚拟机相应版本的 &lt;code&gt;ARM_Translation&lt;/code&gt; ，并拖拽至运行中的虚拟机进行安装。&lt;/p&gt;
+
+&lt;p&gt;把微信官网的 apk 拖拽至运行中的虚拟器中进行安装，这样有 root 权限的虚拟机上就可以运行微信了。&lt;/p&gt;
+
+&lt;p&gt;  &lt;/br&gt;&lt;/p&gt;
+
+&lt;p&gt;我们将手机上目标用户的微信聊天记录备份至计算机，然后在虚拟机上登录微信，并将聊天记录备份进行同步。&lt;/p&gt;
+
+&lt;p&gt;注意虽然聊天记录备份也是后缀为 &lt;code&gt;.db&lt;/code&gt; 的文件 &lt;code&gt;Backup.db&lt;/code&gt;，但是我们无法用相同的方式打开查看。&lt;/p&gt;
+
+&lt;p&gt;现在我们使用 adb 将 &lt;code&gt;/data/data/com.tencent.mm/MicroMsg/&lt;/code&gt; 处的 &lt;code&gt;EnMicroMsg.db&lt;/code&gt; 文件拷贝至计算机。&lt;/p&gt;
+
+&lt;p&gt;这是一个加密的 SQLite 文件。&lt;/p&gt;
+
+&lt;p&gt;  &lt;/br&gt;&lt;/p&gt;
+
+&lt;p&gt;接下来我们使用 sqlcipher.exe 打开此数据库文件，但是需要输入相应的密码。&lt;/p&gt;
+
+&lt;p&gt;sqlcipher.exe 可以在这里下载：&lt;/p&gt;
+
+&lt;p&gt;密码的计算方式需要查看手机的IMEI 和 微信的 uid。&lt;/p&gt;
+
+&lt;p&gt;微信的 uid 通过 chrome 自带插件查看网页微信使用中产生的 Log：&amp;lt;chrome://net-internals/#events&gt;&lt;/p&gt;
+
+&lt;p&gt;而手机的 IMEI 可以通过在拨号键盘上输入： &lt;code&gt;*#06#&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;最后将 IMEI 和 uid 进行拼接，并做MD5计算：&lt;a href=&quot;http://tool.chinaz.com/tools/md5.aspx&quot;&gt;http://tool.chinaz.com/tools/md5.aspx&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;在计算时使用 32位[小] 选项，取计算结果的前7位即是数据库文件密码。&lt;/p&gt;
+
+&lt;p&gt;  &lt;/br&gt;&lt;/p&gt;
+
+&lt;p&gt;至此，我们就可以愉快地查看数据库内容啦。&lt;/p&gt;
+
+&lt;p&gt;将 &lt;code&gt;message&lt;/code&gt; 表里数据导出为 csv 就可以愉快地做数据分析了。&lt;/p&gt;</content><author><name></name></author><summary type="html">将Android上微信的聊天记录导出为 txt 的过程主要参考这两篇文章：</summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2019/02/13/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2019-02-13T20:07:54+08:00</published><updated>2019-02-13T20:07:54+08:00</updated><id>http://songzy12.github.io/2019/02/13/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2019/02/13/v2ray.html">&lt;p&gt;&lt;a href=&quot;https://yuan.ga/v2ray-complete-tutorial/&quot;&gt;https://yuan.ga/v2ray-complete-tutorial/&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;server&lt;/h2&gt;
 
@@ -102,7 +183,7 @@ sudo systemctl status v2ray
 
 &lt;pre&gt;&lt;code&gt;WIN+R
 shell:startup
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">https://yuan.ga/v2ray-complete-tutorial/</summary></entry><entry><title type="html">L2TP</title><link href="http://localhost:4000/2019/02/13/l2tp.html" rel="alternate" type="text/html" title="L2TP" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://localhost:4000/2019/02/13/l2tp</id><content type="html" xml:base="http://localhost:4000/2019/02/13/l2tp.html">&lt;h2&gt;L2TP&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">https://yuan.ga/v2ray-complete-tutorial/</summary></entry><entry><title type="html">L2TP</title><link href="http://songzy12.github.io/2019/02/13/l2tp.html" rel="alternate" type="text/html" title="L2TP" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://songzy12.github.io/2019/02/13/l2tp</id><content type="html" xml:base="http://songzy12.github.io/2019/02/13/l2tp.html">&lt;h2&gt;L2TP&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
@@ -125,7 +206,7 @@ Password: shadowsocks
 &lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">L2TP</summary></entry><entry><title type="html">Shadowsocks</title><link href="http://localhost:4000/2019/02/13/shadowsocks.html" rel="alternate" type="text/html" title="Shadowsocks" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://localhost:4000/2019/02/13/shadowsocks</id><content type="html" xml:base="http://localhost:4000/2019/02/13/shadowsocks.html">&lt;pre&gt;&lt;code&gt;1E#m2WXS9LdvTCNA
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">L2TP</summary></entry><entry><title type="html">Shadowsocks</title><link href="http://songzy12.github.io/2019/02/13/shadowsocks.html" rel="alternate" type="text/html" title="Shadowsocks" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://songzy12.github.io/2019/02/13/shadowsocks</id><content type="html" xml:base="http://songzy12.github.io/2019/02/13/shadowsocks.html">&lt;pre&gt;&lt;code&gt;1E#m2WXS9LdvTCNA
 tail -f /var/log/syslog
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -207,7 +288,7 @@ ssserver -c /etc/shadowsocks.json -d stop
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo less /var/log/shadowsocks.log
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">1E#m2WXS9LdvTCNA tail -f /var/log/syslog</summary></entry><entry><title type="html">vim</title><link href="http://localhost:4000/2018/11/18/vim.html" rel="alternate" type="text/html" title="vim" /><published>2018-11-18T14:45:00+08:00</published><updated>2018-11-18T14:45:00+08:00</updated><id>http://localhost:4000/2018/11/18/vim</id><content type="html" xml:base="http://localhost:4000/2018/11/18/vim.html">&lt;h2&gt;.vimrc&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">1E#m2WXS9LdvTCNA tail -f /var/log/syslog</summary></entry><entry><title type="html">vim</title><link href="http://songzy12.github.io/2018/11/18/vim.html" rel="alternate" type="text/html" title="vim" /><published>2018-11-18T14:45:00+08:00</published><updated>2018-11-18T14:45:00+08:00</updated><id>http://songzy12.github.io/2018/11/18/vim</id><content type="html" xml:base="http://songzy12.github.io/2018/11/18/vim.html">&lt;h2&gt;.vimrc&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;set nocompatible
 syntax on
@@ -422,12 +503,12 @@ fg
 :vsp filename # 分屏
 Ctrl+w r # 滚动分屏
 Ctrl+w = # 分屏宽度
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">.vimrc</summary></entry><entry><title type="html">Supervisor</title><link href="http://localhost:4000/2018/11/18/supervisor.html" rel="alternate" type="text/html" title="Supervisor" /><published>2018-11-18T14:02:05+08:00</published><updated>2018-11-18T14:02:05+08:00</updated><id>http://localhost:4000/2018/11/18/supervisor</id><content type="html" xml:base="http://localhost:4000/2018/11/18/supervisor.html">&lt;ul&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">.vimrc</summary></entry><entry><title type="html">Supervisor</title><link href="http://songzy12.github.io/2018/11/18/supervisor.html" rel="alternate" type="text/html" title="Supervisor" /><published>2018-11-18T14:02:05+08:00</published><updated>2018-11-18T14:02:05+08:00</updated><id>http://songzy12.github.io/2018/11/18/supervisor</id><content type="html" xml:base="http://songzy12.github.io/2018/11/18/supervisor.html">&lt;ul&gt;
 &lt;li&gt;reread - Reread supervisor configuration. Do not update or restart the running services.&lt;/li&gt;
 &lt;li&gt;update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;.&lt;/li&gt;
 &lt;li&gt;reload - Reread supervisor configuration, reload supervisord and supervisorctl&lt;/li&gt;
 &lt;li&gt;restart - Restart service(s)&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">reread - Reread supervisor configuration. Do not update or restart the running services. update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;. reload - Reread supervisor configuration, reload supervisord and supervisorctl restart - Restart service(s)</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://localhost:4000/ruby/2018/11/17/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2018-11-17T14:08:14+08:00</published><updated>2018-11-17T14:08:14+08:00</updated><id>http://localhost:4000/ruby/2018/11/17/octopress-3-0</id><content type="html" xml:base="http://localhost:4000/ruby/2018/11/17/octopress-3-0.html">&lt;h2&gt;root&lt;/h2&gt;
+&lt;/ul&gt;</content><author><name></name></author><summary type="html">reread - Reread supervisor configuration. Do not update or restart the running services. update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;. reload - Reread supervisor configuration, reload supervisord and supervisorctl restart - Restart service(s)</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2018-11-17T14:08:14+08:00</published><updated>2018-11-17T14:08:14+08:00</updated><id>http://songzy12.github.io/ruby/2018/11/17/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html">&lt;h2&gt;root&lt;/h2&gt;
 
 &lt;p&gt;Note: all the following commands must be run under the root directory.&lt;/p&gt;
 
@@ -505,7 +586,7 @@ jekyll serve
 &lt;pre&gt;&lt;code&gt;git add .
 git commit -m &quot;$(date)&quot;
 git push --set-upstream origin source
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">root</summary></entry><entry><title type="html">xnheulpb</title><link href="http://localhost:4000/2018/10/06/xnheulpb.html" rel="alternate" type="text/html" title="xnheulpb" /><published>2018-10-06T14:25:36+08:00</published><updated>2018-10-06T14:25:36+08:00</updated><id>http://localhost:4000/2018/10/06/xnheulpb</id><content type="html" xml:base="http://localhost:4000/2018/10/06/xnheulpb.html">&lt;p&gt;&lt;a href=&quot;http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166&quot;&gt;http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">root</summary></entry><entry><title type="html">xnheulpb</title><link href="http://songzy12.github.io/2018/10/06/xnheulpb.html" rel="alternate" type="text/html" title="xnheulpb" /><published>2018-10-06T14:25:36+08:00</published><updated>2018-10-06T14:25:36+08:00</updated><id>http://songzy12.github.io/2018/10/06/xnheulpb</id><content type="html" xml:base="http://songzy12.github.io/2018/10/06/xnheulpb.html">&lt;p&gt;&lt;a href=&quot;http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166&quot;&gt;http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;Windows Registry Editor Version 5.00
 [HKEY_CURRENT_USER\Software\Microsoft\InputMethod\Settings\CHS]
@@ -518,7 +599,7 @@ git push --set-upstream origin source
 &quot;UDLLastUpdatedTime&quot;=&quot;2017-05-27 22:01:40&quot;
 &quot;UDLCount&quot;=dword:0000018b
 &quot;UDLVisibleCount&quot;=dword:0000018b
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166</summary></entry><entry><title type="html">LaTeX</title><link href="http://localhost:4000/2018/06/30/latex.html" rel="alternate" type="text/html" title="LaTeX" /><published>2018-06-30T12:00:04+08:00</published><updated>2018-06-30T12:00:04+08:00</updated><id>http://localhost:4000/2018/06/30/latex</id><content type="html" xml:base="http://localhost:4000/2018/06/30/latex.html">&lt;h2&gt;todo&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166</summary></entry><entry><title type="html">LaTeX</title><link href="http://songzy12.github.io/2018/06/30/latex.html" rel="alternate" type="text/html" title="LaTeX" /><published>2018-06-30T12:00:04+08:00</published><updated>2018-06-30T12:00:04+08:00</updated><id>http://songzy12.github.io/2018/06/30/latex</id><content type="html" xml:base="http://songzy12.github.io/2018/06/30/latex.html">&lt;h2&gt;todo&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;\usepackage[colorinlistoftodos]{todonotes}
 
@@ -764,11 +845,4 @@ extra parameters or packages included. \cite{knuthwebsite}.
 &amp;lt;test name=&quot;lang&quot;&amp;gt;
   &amp;lt;string&amp;gt;zh-cn&amp;lt;/string&amp;gt;
 &amp;lt;/test&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">todo</summary></entry><entry><title type="html">Captcha</title><link href="http://localhost:4000/2018/05/04/captcha.html" rel="alternate" type="text/html" title="Captcha" /><published>2018-05-04T19:53:33+08:00</published><updated>2018-05-04T19:53:33+08:00</updated><id>http://localhost:4000/2018/05/04/captcha</id><content type="html" xml:base="http://localhost:4000/2018/05/04/captcha.html"></content><author><name></name></author><summary type="html"></summary></entry><entry><title type="html">Tencent SNG</title><link href="http://localhost:4000/2018/04/17/tencent-sng.html" rel="alternate" type="text/html" title="Tencent SNG" /><published>2018-04-17T19:56:43+08:00</published><updated>2018-04-17T19:56:43+08:00</updated><id>http://localhost:4000/2018/04/17/tencent-sng</id><content type="html" xml:base="http://localhost:4000/2018/04/17/tencent-sng.html">&lt;ul&gt;
-&lt;li&gt;项目中的有趣点或难点&lt;/li&gt;
-&lt;li&gt;xgboost 和 lr 的优缺点&lt;/li&gt;
-&lt;li&gt;C++ 虚函数的实现&lt;/li&gt;
-&lt;li&gt;线程和进程的区别&lt;/li&gt;
-&lt;li&gt;在模型中哪些 feature 最有用&lt;/li&gt;
-&lt;li&gt;算法题：将 1 到 m*n 按照螺旋方式填满 m * n 的矩阵。&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">项目中的有趣点或难点 xgboost 和 lr 的优缺点 C++ 虚函数的实现 线程和进程的区别 在模型中哪些 feature 最有用 算法题：将 1 到 m*n 按照螺旋方式填满 m * n 的矩阵。</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">todo</summary></entry><entry><title type="html">Captcha</title><link href="http://songzy12.github.io/2018/05/04/captcha.html" rel="alternate" type="text/html" title="Captcha" /><published>2018-05-04T19:53:33+08:00</published><updated>2018-05-04T19:53:33+08:00</updated><id>http://songzy12.github.io/2018/05/04/captcha</id><content type="html" xml:base="http://songzy12.github.io/2018/05/04/captcha.html"></content><author><name></name></author><summary type="html"></summary></entry></feed>
