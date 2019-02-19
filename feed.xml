@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-02-14T18:21:51+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">WeChat</title><link href="http://songzy12.github.io/2019/02/14/wechat.html" rel="alternate" type="text/html" title="WeChat" /><published>2019-02-14T17:28:30+08:00</published><updated>2019-02-14T17:28:30+08:00</updated><id>http://songzy12.github.io/2019/02/14/wechat</id><content type="html" xml:base="http://songzy12.github.io/2019/02/14/wechat.html">&lt;p&gt;将Android上微信的聊天记录导出为 txt 的过程主要参考这两篇文章：&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-02-19T13:21:55+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">WeChat</title><link href="http://songzy12.github.io/2019/02/14/wechat.html" rel="alternate" type="text/html" title="WeChat" /><published>2019-02-14T17:28:30+08:00</published><updated>2019-02-14T17:28:30+08:00</updated><id>http://songzy12.github.io/2019/02/14/wechat</id><content type="html" xml:base="http://songzy12.github.io/2019/02/14/wechat.html">&lt;p&gt;将Android上微信的聊天记录导出为 txt 的过程主要参考这两篇文章：&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/28935173&quot;&gt;https://zhuanlan.zhihu.com/p/28935173&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -354,6 +354,11 @@ filetype plugin indent on    &quot; required
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;Then restart vim and run &lt;code&gt;:PluginInstall&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;注意这里 autoformat 要对 Python 起作用的话还要安装 autopep8:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install autopep8
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2&gt;syntax&lt;/h2&gt;
 
