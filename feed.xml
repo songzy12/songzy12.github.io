@@ -1,4 +1,43 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-02-19T13:21:55+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">WeChat</title><link href="http://songzy12.github.io/2019/02/14/wechat.html" rel="alternate" type="text/html" title="WeChat" /><published>2019-02-14T17:28:30+08:00</published><updated>2019-02-14T17:28:30+08:00</updated><id>http://songzy12.github.io/2019/02/14/wechat</id><content type="html" xml:base="http://songzy12.github.io/2019/02/14/wechat.html">&lt;p&gt;将Android上微信的聊天记录导出为 txt 的过程主要参考这两篇文章：&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-02-28T20:47:47+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Iptables</title><link href="http://songzy12.github.io/2019/02/28/iptables.html" rel="alternate" type="text/html" title="Iptables" /><published>2019-02-28T20:45:53+08:00</published><updated>2019-02-28T20:45:53+08:00</updated><id>http://songzy12.github.io/2019/02/28/iptables</id><content type="html" xml:base="http://songzy12.github.io/2019/02/28/iptables.html">&lt;p&gt;查看设置：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo iptables -nL --line-numbers -t nat
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;删除设置：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo iptables -t nat -D PREROUTING 1
+sudo iptables -t nat -D POSTROUTING 7
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;添加设置：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo iptables -t nat -A PREROUTING -p tcp --dport 9005 -j DNAT --to-destination 10.0.2.180:9005
+sudo iptables -t nat -A POSTROUTING -p tcp -d 10.0.2.180 --dport 9005 -j SNAT --to-source 101.6.244.4
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">查看设置：</summary></entry><entry><title type="html">Supervisor</title><link href="http://songzy12.github.io/2019/02/28/supervisor.html" rel="alternate" type="text/html" title="Supervisor" /><published>2019-02-28T14:02:05+08:00</published><updated>2019-02-28T14:02:05+08:00</updated><id>http://songzy12.github.io/2019/02/28/supervisor</id><content type="html" xml:base="http://songzy12.github.io/2019/02/28/supervisor.html">&lt;ul&gt;
+&lt;li&gt;reread - Reread supervisor configuration. Do not update or restart the running services.&lt;/li&gt;
+&lt;li&gt;update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;.&lt;/li&gt;
+&lt;li&gt;reload - Reread supervisor configuration, reload supervisord and supervisorctl&lt;/li&gt;
+&lt;li&gt;restart - Restart service(s)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;logging&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;import logging 
+
+log = logging.getLogger(__name__)
+log.setLevel(logging.INFO)
+
+ch = logging.StreamHandler(sys.stdout)
+
+ch.setLevel(logging.DEBUG)
+
+formatter = logging.Formatter(
+    &quot;%(asctime)s - %(name)s - %(levelname)s - %(message)s&quot;)
+ch.setFormatter(formatter)
+
+log.addHandler(ch)
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">reread - Reread supervisor configuration. Do not update or restart the running services. update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;. reload - Reread supervisor configuration, reload supervisord and supervisorctl restart - Restart service(s)</summary></entry><entry><title type="html">WeChat</title><link href="http://songzy12.github.io/2019/02/14/wechat.html" rel="alternate" type="text/html" title="WeChat" /><published>2019-02-14T17:28:30+08:00</published><updated>2019-02-14T17:28:30+08:00</updated><id>http://songzy12.github.io/2019/02/14/wechat</id><content type="html" xml:base="http://songzy12.github.io/2019/02/14/wechat.html">&lt;p&gt;将Android上微信的聊天记录导出为 txt 的过程主要参考这两篇文章：&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/28935173&quot;&gt;https://zhuanlan.zhihu.com/p/28935173&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
@@ -508,12 +547,7 @@ fg
 :vsp filename # 分屏
 Ctrl+w r # 滚动分屏
 Ctrl+w = # 分屏宽度
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">.vimrc</summary></entry><entry><title type="html">Supervisor</title><link href="http://songzy12.github.io/2018/11/18/supervisor.html" rel="alternate" type="text/html" title="Supervisor" /><published>2018-11-18T14:02:05+08:00</published><updated>2018-11-18T14:02:05+08:00</updated><id>http://songzy12.github.io/2018/11/18/supervisor</id><content type="html" xml:base="http://songzy12.github.io/2018/11/18/supervisor.html">&lt;ul&gt;
-&lt;li&gt;reread - Reread supervisor configuration. Do not update or restart the running services.&lt;/li&gt;
-&lt;li&gt;update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;.&lt;/li&gt;
-&lt;li&gt;reload - Reread supervisor configuration, reload supervisord and supervisorctl&lt;/li&gt;
-&lt;li&gt;restart - Restart service(s)&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><summary type="html">reread - Reread supervisor configuration. Do not update or restart the running services. update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;. reload - Reread supervisor configuration, reload supervisord and supervisorctl restart - Restart service(s)</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2018-11-17T14:08:14+08:00</published><updated>2018-11-17T14:08:14+08:00</updated><id>http://songzy12.github.io/ruby/2018/11/17/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html">&lt;h2&gt;root&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">.vimrc</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2018-11-17T14:08:14+08:00</published><updated>2018-11-17T14:08:14+08:00</updated><id>http://songzy12.github.io/ruby/2018/11/17/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html">&lt;h2&gt;root&lt;/h2&gt;
 
 &lt;p&gt;Note: all the following commands must be run under the root directory.&lt;/p&gt;
 
@@ -850,4 +884,4 @@ extra parameters or packages included. \cite{knuthwebsite}.
 &amp;lt;test name=&quot;lang&quot;&amp;gt;
   &amp;lt;string&amp;gt;zh-cn&amp;lt;/string&amp;gt;
 &amp;lt;/test&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">todo</summary></entry><entry><title type="html">Captcha</title><link href="http://songzy12.github.io/2018/05/04/captcha.html" rel="alternate" type="text/html" title="Captcha" /><published>2018-05-04T19:53:33+08:00</published><updated>2018-05-04T19:53:33+08:00</updated><id>http://songzy12.github.io/2018/05/04/captcha</id><content type="html" xml:base="http://songzy12.github.io/2018/05/04/captcha.html"></content><author><name></name></author><summary type="html"></summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">todo</summary></entry></feed>
