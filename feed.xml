@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-02-28T20:47:47+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Iptables</title><link href="http://songzy12.github.io/2019/02/28/iptables.html" rel="alternate" type="text/html" title="Iptables" /><published>2019-02-28T20:45:53+08:00</published><updated>2019-02-28T20:45:53+08:00</updated><id>http://songzy12.github.io/2019/02/28/iptables</id><content type="html" xml:base="http://songzy12.github.io/2019/02/28/iptables.html">&lt;p&gt;查看设置：&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-03-03T16:20:28+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Nexus6P</title><link href="http://songzy12.github.io/2019/03/03/nexus6p.html" rel="alternate" type="text/html" title="Nexus6P" /><published>2019-03-03T14:59:18+08:00</published><updated>2019-03-03T14:59:18+08:00</updated><id>http://songzy12.github.io/2019/03/03/nexus6p</id><content type="html" xml:base="http://songzy12.github.io/2019/03/03/nexus6p.html">&lt;p&gt;Windows 10 自带开启热点功能，搜索 &lt;code&gt;hotspot&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://withdewhua.space/2018/10/13/http-proxy-share/#windows&quot;&gt;https://withdewhua.space/2018/10/13/http-proxy-share/#windows&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;然后设置 shadowsocks 允许 LAN 代理：&lt;code&gt;Allow Clients from LAN&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;在 Nexus 6P 启动界面配置代理手动：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ipconfig
+
+Wireless LAN adapter Local Area Connection* 15:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::99f2:dfc9:5e94:373c%27
+   IPv4 Address. . . . . . . . . . . : 192.168.137.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . :
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;解锁 Nexus 6P:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.mk52.cn/jiaocheng/1324.html&quot;&gt;http://www.mk52.cn/jiaocheng/1324.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;adb reboot bootloader
+fastboot devices
+fastboot flashing unlock
+fastboot reboot
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">Windows 10 自带开启热点功能，搜索 hotspot.</summary></entry><entry><title type="html">Iptables</title><link href="http://songzy12.github.io/2019/02/28/iptables.html" rel="alternate" type="text/html" title="Iptables" /><published>2019-02-28T20:45:53+08:00</published><updated>2019-02-28T20:45:53+08:00</updated><id>http://songzy12.github.io/2019/02/28/iptables</id><content type="html" xml:base="http://songzy12.github.io/2019/02/28/iptables.html">&lt;p&gt;查看设置：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo iptables -nL --line-numbers -t nat
 &lt;/code&gt;&lt;/pre&gt;
@@ -638,250 +665,4 @@ git push --set-upstream origin source
 &quot;UDLLastUpdatedTime&quot;=&quot;2017-05-27 22:01:40&quot;
 &quot;UDLCount&quot;=dword:0000018b
 &quot;UDLVisibleCount&quot;=dword:0000018b
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166</summary></entry><entry><title type="html">LaTeX</title><link href="http://songzy12.github.io/2018/06/30/latex.html" rel="alternate" type="text/html" title="LaTeX" /><published>2018-06-30T12:00:04+08:00</published><updated>2018-06-30T12:00:04+08:00</updated><id>http://songzy12.github.io/2018/06/30/latex</id><content type="html" xml:base="http://songzy12.github.io/2018/06/30/latex.html">&lt;h2&gt;todo&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;\usepackage[colorinlistoftodos]{todonotes}
-
-\todo[inline, color=green!40]{This is an inline comment.}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;enumitem&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;\usepackage{enumitem}
-
-\maketitle
-\begin{enumerate}[label=(\alph*)]
-\item an apple
-\item a banana
-\end{enumerate}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;verb&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;\verb|.bib|
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;href&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;\href{https://www.overleaf.com/blog/184}{Mendeley}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;equiv&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;a\equiv b \bmod p
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;matrix&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;x^{(1)}=\begin{bmatrix}\frac{3}{2}\\[0.3em]\frac{9}{4}\end{bmatrix}, 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Just use overleaf &lt;a href=&quot;https://www.overleaf.com/5269090dsqmsd#/16588846/&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h2&gt;jumpnav-main&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;\documentclass[chi_draft]{sigchi}
-\begin{document}
-%\usepackage{natbib}
-
-\title{}
-\author{}
-
-\maketitle
-
-\input{abstract}
-
-
-\input{intro}
-\input{related}
-\input{data}
-\input{problem}
-\input{observations}
-\input{approach}
-\input{exp}
-\input{conclusion}
-
-\bibliographystyle{SIGCHI-Reference-Format}
-\bibliography{references}
-
-\end{document}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;convex optimization&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;\begin{alignat*}{2}
-\min\quad &amp;amp; -2x_1-x_2+x_3 \\
-\mbox{s.t.}\quad
-&amp;amp;x_1+x_2+2x_3 \le 6  \\
-&amp;amp;x_1+4x_2-x_3 \le 4  \\
-&amp;amp;x_1, x_2, x_3 \ge 0
-\end{alignat*}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;MISC&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;\noindent
-\textbf{}
-\LaTeX{}
-\TeX\
-\TeX{}
-\textbackslash
-\textit{} 
-\empha{}
-{\bf }
-\smallskip
-\bigskip
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;tikz&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://cremeronline.com/LaTeX/minimaltikz.pdf&quot;&gt;here&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;\begin{center}
-\begin{tikzpicture}[domain=0:0.5,xscale=13,yscale=3.8]
-\draw[&amp;lt;-&amp;gt;] (0,2) node[left]{EUR}-- (0,0) -- (.7,0) node[below] {$q$};
-\draw[red] plot (\x, {0.25+\x/2+\x*\x/2}) node[right] {$v_1(x)$};
-\draw[green] plot (\x, {0.025+\x+\x*\x}) node[right] {$v_2(x)$};
-\draw[thin, dashed] plot (\x, {0.275+1.5*\x+1.5*\x*\x}) ;
-\draw[thick,domain=0:0.33666] plot (\x, {0.05+2*\x+2*\x*\x}) ;
-\draw[thick,domain=0.33666:0.5]
-plot (\x, {0.5+\x+\x*\x}) node[right] {$2\min[v_1,v_2]$};
-\end{tikzpicture}
-\end{center}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;tabular*&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://en.wikibooks.org/wiki/LaTeX/Tables#The_tabular.2A_environment&quot;&gt;table&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;\begin{tabular*}{0.75\textwidth}{@{\extracolsep{\fill} } | c | c | c | r | }
-  \hline
-  label 1 &amp;amp; label 2 &amp;amp; label 3 &amp;amp; label 4 \\
-  \hline 
-  item 1  &amp;amp; item 2  &amp;amp; item 3  &amp;amp; item 4  \\
-  \hline
-\end{tabular*}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;multirow&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-\begin{table}
-\caption{Statistics of the Dataset}
-\label{tab:dataset}
-\centering
-    \begin{tabular}{c|c|c|c}
-    \hline \hline
-    \multirow{3}{*}{Science}   &amp;amp; \multirow{2}{*}{Video} &amp;amp; Count &amp;amp; \\ \cline{3-4}
-                               &amp;amp;                        &amp;amp; Avg. length &amp;amp; \\ \cline{2-4}
-                               &amp;amp; User &amp;amp; Count &amp;amp;  \\ \cline{2-4}
-                               &amp;amp; \multirow{3}{*}{Back-jumps} &amp;amp; Count &amp;amp;       \\ \cline{3-4}
-                               &amp;amp;                             &amp;amp; Max back-jumps/video &amp;amp;       \\ \cline{3-4}
-                               &amp;amp;                             &amp;amp; Min back-jumps/video &amp;amp;       \\ \cline{2-4}
-    \hline \hline
-    \end{tabular}
-\end{table}
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;caption&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;\usepackage{caption} 
-\captionsetup[table]{skip=10pt}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;pdflatex&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;\documentclass{article}
-
-\begin{document}
-First document. This is a simple example, with no 
-extra parameters or packages included. \cite{knuthwebsite}.
-\end{document}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get install texlive
-pdftex /path/to/myfile.tex
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;bibtex&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;article.tex&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;\documentclass{article}
-\usepackage{natbib}
-
-\begin{document}
-First document. This is a simple example, with no 
-extra parameters or packages included. \cite{knuthwebsite}.
-
-\bibliographystyle{alpha}
-\bibliography{article}
-\end{document}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;code&gt;article.bib&lt;/code&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;@misc{knuthwebsite,
-    author    = &quot;Donald Knuth&quot;,
-    title     = &quot;Knuth: Computers and Typesetting&quot;,
-    url       = &quot;http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Suppose you have &lt;code&gt;article.tex&lt;/code&gt; and &lt;code&gt;article.bib&lt;/code&gt;. You need to run:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;latex article.tex (this will generate a document with question marks in place of unknown references)&lt;/li&gt;
-&lt;li&gt;bibtex article (this will parse all the .bib files that were included in the article and generate metainformation regarding references)&lt;/li&gt;
-&lt;li&gt;latex article.tex (this will generate document with all the references in the correct places)&lt;/li&gt;
-&lt;li&gt;latex article.tex (just in case if adding references broke page numbering somewhere)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt;Just add the following line to your &lt;code&gt;~/.bashrc&lt;/code&gt; file (modify the main keyword accordingly to the name of your &lt;code&gt;.tex&lt;/code&gt; and &lt;code&gt;.bib&lt;/code&gt; files)&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;alias texbib='pdflatex main.tex &amp;amp;&amp;amp; bibtex main &amp;amp;&amp;amp; pdflatex main.tex &amp;amp;&amp;amp; pdflatex main.tex &amp;amp;&amp;amp; gnome-open main.pdf'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;xelatex&lt;/h2&gt;
-
-&lt;p&gt;需要用 &lt;code&gt;xecjk&lt;/code&gt; 或 &lt;code&gt;zhspacing&lt;/code&gt; 设置中文字体。 &lt;code&gt;XeTex&lt;/code&gt; 缺省设了英文字体 &lt;code&gt;Latin Modern&lt;/code&gt;，所以你能看到英文字。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;\documentclass{article}
-\usepackage{xeCJK}
-
-\setCJKmainfont{simsun.ttf}
-\setCJKsansfont{simhei.ttf}
-\setCJKmonofont{simfang.ttf}
-
-\begin{document}
-
-\title{作业}
-\author{宋正阳}
-\date{\today}
-
-\maketitle
-
-\end{document}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;font&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;Fontconfig warning: &quot;/etc/fonts/conf.d/65-droid-sans-fonts.conf&quot;, line 96: Having multiple values in &amp;lt;test&amp;gt; isn't supported and may not work as expected
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt install --reinstall fontconfig
-
-&amp;lt;test name=&quot;lang&quot;&amp;gt;
-  &amp;lt;string&amp;gt;zh-cn&amp;lt;/string&amp;gt;
-  &amp;lt;string&amp;gt;zh-sg&amp;lt;/string&amp;gt;
-  &amp;lt;string&amp;gt;zh-hk&amp;lt;/string&amp;gt;
-  &amp;lt;string&amp;gt;zh-tw&amp;lt;/string&amp;gt;
-  &amp;lt;string&amp;gt;zh&amp;lt;/string&amp;gt;
-&amp;lt;/test&amp;gt;
-
-&amp;lt;test name=&quot;lang&quot;&amp;gt;
-  &amp;lt;string&amp;gt;zh-cn&amp;lt;/string&amp;gt;
-&amp;lt;/test&amp;gt;
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">todo</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166</summary></entry></feed>
