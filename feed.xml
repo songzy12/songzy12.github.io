@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-03-03T16:20:28+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Nexus6P</title><link href="http://songzy12.github.io/2019/03/03/nexus6p.html" rel="alternate" type="text/html" title="Nexus6P" /><published>2019-03-03T14:59:18+08:00</published><updated>2019-03-03T14:59:18+08:00</updated><id>http://songzy12.github.io/2019/03/03/nexus6p</id><content type="html" xml:base="http://songzy12.github.io/2019/03/03/nexus6p.html">&lt;p&gt;Windows 10 自带开启热点功能，搜索 &lt;code&gt;hotspot&lt;/code&gt;.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-03-12T17:54:32+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Ubuntu</title><link href="http://songzy12.github.io/2019/03/12/ubuntu.html" rel="alternate" type="text/html" title="Ubuntu" /><published>2019-03-12T17:12:30+08:00</published><updated>2019-03-12T17:12:30+08:00</updated><id>http://songzy12.github.io/2019/03/12/ubuntu</id><content type="html" xml:base="http://songzy12.github.io/2019/03/12/ubuntu.html">&lt;p&gt;Windows 查看磁盘分区格式&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;按下 &lt;code&gt;Win+R&lt;/code&gt; 打开运行，输入 &lt;code&gt;cmd&lt;/code&gt;，打开命令提示符；&lt;/li&gt;
+&lt;li&gt;输入 &lt;code&gt;diskpart&lt;/code&gt; 按回车执行，切换到 DISKPART 命令，输入&lt;code&gt;list disk&lt;/code&gt;，按回车；&lt;/li&gt;
+&lt;li&gt;查看最后一列的GPT，如果有*号则为GPT，如果没有则为MBR。&lt;/li&gt;
+&lt;/ol&gt;</content><author><name></name></author><summary type="html">Windows 查看磁盘分区格式</summary></entry><entry><title type="html">Nexus6P</title><link href="http://songzy12.github.io/2019/03/03/nexus6p.html" rel="alternate" type="text/html" title="Nexus6P" /><published>2019-03-03T14:59:18+08:00</published><updated>2019-03-03T14:59:18+08:00</updated><id>http://songzy12.github.io/2019/03/03/nexus6p</id><content type="html" xml:base="http://songzy12.github.io/2019/03/03/nexus6p.html">&lt;p&gt;Windows 10 自带开启热点功能，搜索 &lt;code&gt;hotspot&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://withdewhua.space/2018/10/13/http-proxy-share/#windows&quot;&gt;https://withdewhua.space/2018/10/13/http-proxy-share/#windows&lt;/a&gt;&lt;/p&gt;
 
@@ -249,30 +255,7 @@ sudo systemctl status v2ray
 
 &lt;pre&gt;&lt;code&gt;WIN+R
 shell:startup
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">https://yuan.ga/v2ray-complete-tutorial/</summary></entry><entry><title type="html">L2TP</title><link href="http://songzy12.github.io/2019/02/13/l2tp.html" rel="alternate" type="text/html" title="L2TP" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://songzy12.github.io/2019/02/13/l2tp</id><content type="html" xml:base="http://songzy12.github.io/2019/02/13/l2tp.html">&lt;h2&gt;L2TP&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget https://git.io/vpnsetup -O vpnsetup.sh &amp;amp;&amp;amp; sudo sh vpnsetup.sh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;NET_IFO=${VPN_IFACE:-'ens3'}
-NET_IFS=$(VPN_IFACE:-'ens3')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;Server IP: 45.32.251.88
-IPsec PSK: shadowsocks
-Username: vpnuser
-Password: shadowsocks
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;无法建立计算机与 VPN 服务器之间的网络连接，因为远程服务器未响应。
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">L2TP</summary></entry><entry><title type="html">Shadowsocks</title><link href="http://songzy12.github.io/2019/02/13/shadowsocks.html" rel="alternate" type="text/html" title="Shadowsocks" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://songzy12.github.io/2019/02/13/shadowsocks</id><content type="html" xml:base="http://songzy12.github.io/2019/02/13/shadowsocks.html">&lt;pre&gt;&lt;code&gt;1E#m2WXS9LdvTCNA
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">https://yuan.ga/v2ray-complete-tutorial/</summary></entry><entry><title type="html">Shadowsocks</title><link href="http://songzy12.github.io/2019/02/13/shadowsocks.html" rel="alternate" type="text/html" title="Shadowsocks" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://songzy12.github.io/2019/02/13/shadowsocks</id><content type="html" xml:base="http://songzy12.github.io/2019/02/13/shadowsocks.html">&lt;pre&gt;&lt;code&gt;1E#m2WXS9LdvTCNA
 tail -f /var/log/syslog
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -354,7 +337,30 @@ ssserver -c /etc/shadowsocks.json -d stop
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo less /var/log/shadowsocks.log
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">1E#m2WXS9LdvTCNA tail -f /var/log/syslog</summary></entry><entry><title type="html">vim</title><link href="http://songzy12.github.io/2018/11/18/vim.html" rel="alternate" type="text/html" title="vim" /><published>2018-11-18T14:45:00+08:00</published><updated>2018-11-18T14:45:00+08:00</updated><id>http://songzy12.github.io/2018/11/18/vim</id><content type="html" xml:base="http://songzy12.github.io/2018/11/18/vim.html">&lt;h2&gt;.vimrc&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">1E#m2WXS9LdvTCNA tail -f /var/log/syslog</summary></entry><entry><title type="html">L2TP</title><link href="http://songzy12.github.io/2019/02/13/l2tp.html" rel="alternate" type="text/html" title="L2TP" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://songzy12.github.io/2019/02/13/l2tp</id><content type="html" xml:base="http://songzy12.github.io/2019/02/13/l2tp.html">&lt;h2&gt;L2TP&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://git.io/vpnsetup -O vpnsetup.sh &amp;amp;&amp;amp; sudo sh vpnsetup.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;NET_IFO=${VPN_IFACE:-'ens3'}
+NET_IFS=$(VPN_IFACE:-'ens3')
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Server IP: 45.32.251.88
+IPsec PSK: shadowsocks
+Username: vpnuser
+Password: shadowsocks
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;无法建立计算机与 VPN 服务器之间的网络连接，因为远程服务器未响应。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">L2TP</summary></entry><entry><title type="html">vim</title><link href="http://songzy12.github.io/2018/11/18/vim.html" rel="alternate" type="text/html" title="vim" /><published>2018-11-18T14:45:00+08:00</published><updated>2018-11-18T14:45:00+08:00</updated><id>http://songzy12.github.io/2018/11/18/vim</id><content type="html" xml:base="http://songzy12.github.io/2018/11/18/vim.html">&lt;h2&gt;.vimrc&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;set nocompatible
 syntax on
@@ -652,17 +658,4 @@ jekyll serve
 &lt;pre&gt;&lt;code&gt;git add .
 git commit -m &quot;$(date)&quot;
 git push --set-upstream origin source
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">root</summary></entry><entry><title type="html">xnheulpb</title><link href="http://songzy12.github.io/2018/10/06/xnheulpb.html" rel="alternate" type="text/html" title="xnheulpb" /><published>2018-10-06T14:25:36+08:00</published><updated>2018-10-06T14:25:36+08:00</updated><id>http://songzy12.github.io/2018/10/06/xnheulpb</id><content type="html" xml:base="http://songzy12.github.io/2018/10/06/xnheulpb.html">&lt;p&gt;&lt;a href=&quot;http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166&quot;&gt;http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Windows Registry Editor Version 5.00
-[HKEY_CURRENT_USER\Software\Microsoft\InputMethod\Settings\CHS]
-&quot;LangBar Force On&quot;=dword:00000000
-&quot;Enable Double Pinyin&quot;=dword:00000001
-&quot;EmoticonTipTriggerCount&quot;=dword:00000001
-&quot;HapLastDownloadTime&quot;=hex(b):eb,69,29,59,00,00,00,00
-&quot;UserDefinedDoublePinyinScheme0&quot;=&quot;FlyPY*2*^*iuvdjhcwfg xmlnpbksqszxkrltvyovt&quot;
-&quot;DoublePinyinScheme&quot;=dword:0000000a
-&quot;UDLLastUpdatedTime&quot;=&quot;2017-05-27 22:01:40&quot;
-&quot;UDLCount&quot;=dword:0000018b
-&quot;UDLVisibleCount&quot;=dword:0000018b
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">http://www.flypy.com/bbs/forum.php?mod=viewthread&amp;amp;tid=166</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">root</summary></entry></feed>
