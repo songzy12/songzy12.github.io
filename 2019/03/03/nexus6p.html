@@ -74,6 +74,60 @@ fastboot flashing unlock
 fastboot reboot
 </code></pre>
 
+<p>如何进入 recovery mode:</p>
+
+<p><a href="http://www.mk52.cn/jiaocheng/1335.html">http://www.mk52.cn/jiaocheng/1335.html</a></p>
+
+<p>修复教程：</p>
+
+<p><a href="https://www.xda-developers.com/nexus-6p-bootloop-fix/">https://www.xda-developers.com/nexus-6p-bootloop-fix/</a></p>
+
+<p><a href="https://forum.xda-developers.com/nexus-6p/general/guide-fix-nexus-6p-bootloop-death-blod-t3640279">https://forum.xda-developers.com/nexus-6p/general/guide-fix-nexus-6p-bootloop-death-blod-t3640279</a></p>
+
+<pre><code>fastboot devices
+fastboot flash boot N2G48B_4Cores.img
+</code></pre>
+
+<p>现在问题变成了一直卡在开机 logo 界面（相对于无限重启）。</p>
+
+<p><a href="https://blog.csdn.net/anod/article/details/84297347">https://blog.csdn.net/anod/article/details/84297347</a></p>
+
+<p>刷入对应版本 (N2G48B) 的 OTA:</p>
+
+<p><a href="https://developers.google.com/android/ota">https://developers.google.com/android/ota</a></p>
+
+<p><a href="https://dl.google.com/dl/android/aosp/angler-ota-n2g48b-8166f6bf.zip">https://dl.google.com/dl/android/aosp/angler-ota-n2g48b-8166f6bf.zip</a></p>
+
+<pre><code>adb devices
+adb sideload angler-ota-n2g48b-*.zip
+</code></pre>
+
+<p>或许直接看这个：</p>
+
+<p><a href="https://forum.xda-developers.com/nexus-6p/help/help-unbricking-nexus-6p-t3382895">https://forum.xda-developers.com/nexus-6p/help/help-unbricking-nexus-6p-t3382895</a></p>
+
+<p>和上面一样，报错：</p>
+
+<pre><code>This package is for "angler" devices; this is a "".
+</code></pre>
+
+<p>原因在这里：</p>
+
+<p><a href="https://www.securitynewspaper.com/2017/05/12/oneplus-otas-analysis-exploitation/">https://www.securitynewspaper.com/2017/05/12/oneplus-otas-analysis-exploitation/</a></p>
+
+<p>或者这里：</p>
+
+<p><a href="https://drive.google.com/file/d/0Bz6x7k-VkpUJRjl6WjRhVmdXU0E/view">https://drive.google.com/file/d/0Bz6x7k-VkpUJRjl6WjRhVmdXU0E/view</a></p>
+
+<blockquote><p>You are now on the Android Recovery screen. On the third line at the top of the screen you
+will see something that looks like this:
+6.0.1 / MOB30I / 2756745
+The middle one is your current Build Number. Make note of this as the Rescue OTA you
+need corresponds to this one or a more recent one. (NOTE: You cannot install an older one
+than your current Build Number.)</p></blockquote>
+
+<p>总算是把 boot.img 恢复了，还是送到淘宝店家去修吧。</p>
+
   </div><a class="u-url" href="/2019/03/03/nexus6p.html" hidden></a>
 </article>
 

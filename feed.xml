@@ -1,4 +1,18 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-03-12T17:54:32+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Ubuntu</title><link href="http://songzy12.github.io/2019/03/12/ubuntu.html" rel="alternate" type="text/html" title="Ubuntu" /><published>2019-03-12T17:12:30+08:00</published><updated>2019-03-12T17:12:30+08:00</updated><id>http://songzy12.github.io/2019/03/12/ubuntu</id><content type="html" xml:base="http://songzy12.github.io/2019/03/12/ubuntu.html">&lt;p&gt;Windows 查看磁盘分区格式&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-03-14T02:40:32+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Xiaomi</title><link href="http://songzy12.github.io/2019/03/14/xiaomi.html" rel="alternate" type="text/html" title="Xiaomi" /><published>2019-03-14T01:09:49+08:00</published><updated>2019-03-14T01:09:49+08:00</updated><id>http://songzy12.github.io/2019/03/14/xiaomi</id><content type="html" xml:base="http://songzy12.github.io/2019/03/14/xiaomi.html">&lt;p&gt;小米 Note：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.miui.com/thread-18831512-1-1.html&quot;&gt;http://www.miui.com/thread-18831512-1-1.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;如何线刷：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.miui.com/shuaji-393.html&quot;&gt;http://www.miui.com/shuaji-393.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;线刷工具选项错误：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://bbs.xiaomi.cn/t-13302104&quot;&gt;http://bbs.xiaomi.cn/t-13302104&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Google 全家桶：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://opengapps.org/app/&quot;&gt;https://opengapps.org/app/&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">小米 Note：</summary></entry><entry><title type="html">Ubuntu</title><link href="http://songzy12.github.io/2019/03/12/ubuntu.html" rel="alternate" type="text/html" title="Ubuntu" /><published>2019-03-12T17:12:30+08:00</published><updated>2019-03-12T17:12:30+08:00</updated><id>http://songzy12.github.io/2019/03/12/ubuntu</id><content type="html" xml:base="http://songzy12.github.io/2019/03/12/ubuntu.html">&lt;p&gt;Windows 查看磁盘分区格式&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;按下 &lt;code&gt;Win+R&lt;/code&gt; 打开运行，输入 &lt;code&gt;cmd&lt;/code&gt;，打开命令提示符；&lt;/li&gt;
@@ -31,7 +45,61 @@ Wireless LAN adapter Local Area Connection* 15:
 fastboot devices
 fastboot flashing unlock
 fastboot reboot
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">Windows 10 自带开启热点功能，搜索 hotspot.</summary></entry><entry><title type="html">Iptables</title><link href="http://songzy12.github.io/2019/02/28/iptables.html" rel="alternate" type="text/html" title="Iptables" /><published>2019-02-28T20:45:53+08:00</published><updated>2019-02-28T20:45:53+08:00</updated><id>http://songzy12.github.io/2019/02/28/iptables</id><content type="html" xml:base="http://songzy12.github.io/2019/02/28/iptables.html">&lt;p&gt;查看设置：&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;如何进入 recovery mode:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.mk52.cn/jiaocheng/1335.html&quot;&gt;http://www.mk52.cn/jiaocheng/1335.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;修复教程：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.xda-developers.com/nexus-6p-bootloop-fix/&quot;&gt;https://www.xda-developers.com/nexus-6p-bootloop-fix/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://forum.xda-developers.com/nexus-6p/general/guide-fix-nexus-6p-bootloop-death-blod-t3640279&quot;&gt;https://forum.xda-developers.com/nexus-6p/general/guide-fix-nexus-6p-bootloop-death-blod-t3640279&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;fastboot devices
+fastboot flash boot N2G48B_4Cores.img
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;现在问题变成了一直卡在开机 logo 界面（相对于无限重启）。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/anod/article/details/84297347&quot;&gt;https://blog.csdn.net/anod/article/details/84297347&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;刷入对应版本 (N2G48B) 的 OTA:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developers.google.com/android/ota&quot;&gt;https://developers.google.com/android/ota&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://dl.google.com/dl/android/aosp/angler-ota-n2g48b-8166f6bf.zip&quot;&gt;https://dl.google.com/dl/android/aosp/angler-ota-n2g48b-8166f6bf.zip&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;adb devices
+adb sideload angler-ota-n2g48b-*.zip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;或许直接看这个：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://forum.xda-developers.com/nexus-6p/help/help-unbricking-nexus-6p-t3382895&quot;&gt;https://forum.xda-developers.com/nexus-6p/help/help-unbricking-nexus-6p-t3382895&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;和上面一样，报错：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;This package is for &quot;angler&quot; devices; this is a &quot;&quot;.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;原因在这里：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.securitynewspaper.com/2017/05/12/oneplus-otas-analysis-exploitation/&quot;&gt;https://www.securitynewspaper.com/2017/05/12/oneplus-otas-analysis-exploitation/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;或者这里：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://drive.google.com/file/d/0Bz6x7k-VkpUJRjl6WjRhVmdXU0E/view&quot;&gt;https://drive.google.com/file/d/0Bz6x7k-VkpUJRjl6WjRhVmdXU0E/view&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;You are now on the Android Recovery screen. On the third line at the top of the screen you
+will see something that looks like this:
+6.0.1 / MOB30I / 2756745
+The middle one is your current Build Number. Make note of this as the Rescue OTA you
+need corresponds to this one or a more recent one. (NOTE: You cannot install an older one
+than your current Build Number.)&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;总算是把 boot.img 恢复了，还是送到淘宝店家去修吧。&lt;/p&gt;</content><author><name></name></author><summary type="html">Windows 10 自带开启热点功能，搜索 hotspot.</summary></entry><entry><title type="html">Iptables</title><link href="http://songzy12.github.io/2019/02/28/iptables.html" rel="alternate" type="text/html" title="Iptables" /><published>2019-02-28T20:45:53+08:00</published><updated>2019-02-28T20:45:53+08:00</updated><id>http://songzy12.github.io/2019/02/28/iptables</id><content type="html" xml:base="http://songzy12.github.io/2019/02/28/iptables.html">&lt;p&gt;查看设置：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo iptables -nL --line-numbers -t nat
 &lt;/code&gt;&lt;/pre&gt;
@@ -580,82 +648,4 @@ fg
 :vsp filename # 分屏
 Ctrl+w r # 滚动分屏
 Ctrl+w = # 分屏宽度
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">.vimrc</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2018-11-17T14:08:14+08:00</published><updated>2018-11-17T14:08:14+08:00</updated><id>http://songzy12.github.io/ruby/2018/11/17/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html">&lt;h2&gt;root&lt;/h2&gt;
-
-&lt;p&gt;Note: all the following commands must be run under the root directory.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ls
-404.html
-Gemfile
-Gemfile.lock
-_config.yml
-_deploy.yml
-_posts/
-_site/
-_templates/
-about.md
-index.md
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;_config.yml&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;title:  Zhengyang Song's Blog
-email: songzy.thu@gmail.com
-description: &amp;gt;- # this means to ignore newlines until &quot;baseurl:&quot;
-  All those little bugs I have ever met.
-baseurl: &quot;&quot; # the subpath of your site, e.g. /blog
-url: &quot;http://songzy12.github.io&quot; # the base hostname &amp;amp; protocol for your site, e.g. http://example.com
-twitter_username: 
-github_username:  songzy12
-
-# Default extension for new posts and pages
-post_ext: md
-page_ext: html
-
-# Default templates for posts and pages
-# Found in _templates/
-post_layout: post
-page_layout: page
-
-# Format titles with titlecase?
-titlecase: true
-
-# Change default template file (in _templates/)
-post_template: post
-page_template: page
-draft_template: draft
-
-# Build settings
-markdown: rdiscount
-rdiscount:
-  extensions:
-    - autolink
-    - footnotes
-    - smart
-theme: minima
-plugins:
-  - jekyll-feed
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;new post&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt; octopress new post hello -D Ruby
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;build&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;jekyll build
-jekyll serve
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;deploy&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;octopress deploy
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;source&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;git add .
-git commit -m &quot;$(date)&quot;
-git push --set-upstream origin source
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">root</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">.vimrc</summary></entry></feed>
