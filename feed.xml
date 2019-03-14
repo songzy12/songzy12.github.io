@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-03-14T02:40:32+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Xiaomi</title><link href="http://songzy12.github.io/2019/03/14/xiaomi.html" rel="alternate" type="text/html" title="Xiaomi" /><published>2019-03-14T01:09:49+08:00</published><updated>2019-03-14T01:09:49+08:00</updated><id>http://songzy12.github.io/2019/03/14/xiaomi</id><content type="html" xml:base="http://songzy12.github.io/2019/03/14/xiaomi.html">&lt;p&gt;小米 Note：&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-03-14T16:20:13+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Xiaomi</title><link href="http://songzy12.github.io/2019/03/14/xiaomi.html" rel="alternate" type="text/html" title="Xiaomi" /><published>2019-03-14T01:09:49+08:00</published><updated>2019-03-14T01:09:49+08:00</updated><id>http://songzy12.github.io/2019/03/14/xiaomi</id><content type="html" xml:base="http://songzy12.github.io/2019/03/14/xiaomi.html">&lt;p&gt;小米 Note：&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.miui.com/thread-18831512-1-1.html&quot;&gt;http://www.miui.com/thread-18831512-1-1.html&lt;/a&gt;&lt;/p&gt;
 
@@ -12,7 +12,28 @@
 
 &lt;p&gt;Google 全家桶：&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://opengapps.org/app/&quot;&gt;https://opengapps.org/app/&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">小米 Note：</summary></entry><entry><title type="html">Ubuntu</title><link href="http://songzy12.github.io/2019/03/12/ubuntu.html" rel="alternate" type="text/html" title="Ubuntu" /><published>2019-03-12T17:12:30+08:00</published><updated>2019-03-12T17:12:30+08:00</updated><id>http://songzy12.github.io/2019/03/12/ubuntu</id><content type="html" xml:base="http://songzy12.github.io/2019/03/12/ubuntu.html">&lt;p&gt;Windows 查看磁盘分区格式&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://opengapps.org/app/&quot;&gt;https://opengapps.org/app/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;安装 Google 全家桶后闪退。查看 log:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;adb logcat *:E
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;03-14 15:56:16.090 20886 20886 E WebViewFactory: Chromium WebView package does not exist
+03-14 15:56:16.090 20886 20886 E WebViewFactory: android.webkit.WebViewFactory$MissingWebViewPackageException: Failed to load WebView provider: No WebView installed
+
+03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: FATAL EXCEPTION: main
+03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: Process: com.google.android.gms.ui, PID: 20886
+03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: java.lang.RuntimeException: Unable to start activity ComponentInfo{com.google.android.gms/com.google.android.gms.auth.uiflows.minutemaid.MinuteMaidActivity}: android.util.AndroidRuntimeException: android.webkit.WebViewFactory$MissingWebViewPackageException: Failed to load WebView provider: No WebView installed
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;所以就是 WebView 的问题，然后参考这个：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.quora.com/How-do-I-enable-Android-system-web-view-in-Android-7&quot;&gt;https://www.quora.com/How-do-I-enable-Android-system-web-view-in-Android-7&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;顺便回答了这个问题：&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.zhihu.com/question/63714089&quot;&gt;https://www.zhihu.com/question/63714089&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><summary type="html">小米 Note：</summary></entry><entry><title type="html">Ubuntu</title><link href="http://songzy12.github.io/2019/03/12/ubuntu.html" rel="alternate" type="text/html" title="Ubuntu" /><published>2019-03-12T17:12:30+08:00</published><updated>2019-03-12T17:12:30+08:00</updated><id>http://songzy12.github.io/2019/03/12/ubuntu</id><content type="html" xml:base="http://songzy12.github.io/2019/03/12/ubuntu.html">&lt;p&gt;Windows 查看磁盘分区格式&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;按下 &lt;code&gt;Win+R&lt;/code&gt; 打开运行，输入 &lt;code&gt;cmd&lt;/code&gt;，打开命令提示符；&lt;/li&gt;
