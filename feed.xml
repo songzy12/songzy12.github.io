@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-03-14T21:19:23+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Xiaomi</title><link href="http://songzy12.github.io/2019/03/14/xiaomi.html" rel="alternate" type="text/html" title="Xiaomi" /><published>2019-03-14T01:09:49+08:00</published><updated>2019-03-14T01:09:49+08:00</updated><id>http://songzy12.github.io/2019/03/14/xiaomi</id><content type="html" xml:base="http://songzy12.github.io/2019/03/14/xiaomi.html">&lt;p&gt;小米 Note：&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-04-05T00:00:33+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Normalization</title><link href="http://songzy12.github.io/2019/04/04/normalization.html" rel="alternate" type="text/html" title="Normalization" /><published>2019-04-04T23:31:16+08:00</published><updated>2019-04-04T23:31:16+08:00</updated><id>http://songzy12.github.io/2019/04/04/normalization</id><content type="html" xml:base="http://songzy12.github.io/2019/04/04/normalization.html">&lt;p&gt;A, B, C, D, E，5人排成一列，要求A必须站在B前面。&lt;/p&gt;
+
+&lt;p&gt;考虑这5个人的全排列，我们可以证明：&lt;/p&gt;
+
+&lt;p&gt;在所有的全排列中，“A 站在 B 的前面” 和 “B 站在 A 的前面” 的站法数目是一样的。&lt;/p&gt;
+
+&lt;p&gt;这是为什么呢？&lt;/p&gt;
+
+&lt;p&gt;对于任何一种“A站在B的前面”的站法，我们维持其余三人的位置不变，仅仅交换A和B的位置，便可以得到一种合法的“B站在A的前面”的站法。&lt;/p&gt;
+
+&lt;p&gt;同理，对于任何一种“B站在A的前面”的站法，我们维持其余三人的位置不变，仅仅交换A和B的位置，便可以得到一种合法的“A站在B的前面”的站法。&lt;/p&gt;
+
+&lt;p&gt;如上，“A 站在 B 的前面” 和 “B 站在 A 的前面” 的站法数目是一样的。&lt;/p&gt;
+
+&lt;p&gt;从而“A站在B的前面” 恰好占了所有可能全排列数目的一半，也就是 $A_5&lt;sup&gt;5&lt;/sup&gt;/2$&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;其实这个和组合数的计算公式的推导是同样的原理。&lt;/p&gt;
+
+&lt;p&gt;或许你还记得组合数的公式是 $C_n&lt;sup&gt;m&lt;/sup&gt; = A_n&lt;sup&gt;m&lt;/sup&gt; / A_m&lt;sup&gt;m&lt;/sup&gt;$。我们之所以要除掉 $A_m&lt;sup&gt;m&lt;/sup&gt;$，是因为在计算组合数的时候，我们对于选出来的 $m$ 个元素的 $A_m&lt;sup&gt;m&lt;/sup&gt;$ 种排列方式均视为同一种方式。&lt;/p&gt;
+
+&lt;p&gt;在上题中，我们之所以要除掉$2=A_2&lt;sup&gt;2&lt;/sup&gt;$ 是因为我们对于 $A,B$ 的两种排列方式视为同一种方式。&lt;/p&gt;
+
+&lt;p&gt;（AB 和 BA 的排列中去掉 BA 这种排列，等价于我们将 AB 和 BA 视为同一种排列，因为我们忽略掉了 AB 之间的相对顺序，因为我们在选出这两个元素来之后便定好了它们的相对顺序）&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;其实这个和分组也是同样的道理，或许你还记得，将 26 个人分成 2 个3人组和 4个5人组的分组方式是：&lt;/p&gt;
+
+&lt;p&gt;$C&lt;em&gt;{26}^3C&lt;/em&gt;{23}^3C&lt;em&gt;{20}^5C&lt;/em&gt;{15}^5C_{10}^5C_5&lt;sup&gt;6&lt;/sup&gt; / (A_2&lt;sup&gt;2&lt;/sup&gt; A_4&lt;sup&gt;4&lt;/sup&gt;)​$&lt;/p&gt;
+
+&lt;p&gt;下面的这个 $A_2&lt;sup&gt;2&lt;/sup&gt;$ 是因为我们不关心 2个3人组之间的相互顺序，$A_4&lt;sup&gt;4&lt;/sup&gt;$ 是因为我们不关心4个5人组之间的相互顺序。&lt;/p&gt;
+
+&lt;p&gt;其实上面的式子还等于：$A_{26}^{26} / ((A_3&lt;sup&gt;3&lt;/sup&gt;)&lt;sup&gt;2&lt;/sup&gt; (A_5&lt;sup&gt;5&lt;/sup&gt;)&lt;sup&gt;4&lt;/sup&gt;) /(A_2&lt;sup&gt;2&lt;/sup&gt; A_4&lt;sup&gt;4&lt;/sup&gt;)$&lt;/p&gt;
+
+&lt;p&gt;这个是说，考虑一个26人的全排列，&lt;/p&gt;
+
+&lt;p&gt;首先有2个组，我们不关心这2个组内3个人的顺序；然后有4个组，我们不关心这4个组内5个人的顺序；&lt;/p&gt;
+
+&lt;p&gt;对于人数相同的2个组，我们不关心这2个组的相对顺序；&lt;/p&gt;
+
+&lt;p&gt;对于人数相同的4个组，我们不关心这4个组的相对顺序。&lt;/p&gt;</content><author><name></name></author><summary type="html">A, B, C, D, E，5人排成一列，要求A必须站在B前面。</summary></entry><entry><title type="html">Xiaomi</title><link href="http://songzy12.github.io/2019/03/14/xiaomi.html" rel="alternate" type="text/html" title="Xiaomi" /><published>2019-03-14T01:09:49+08:00</published><updated>2019-03-14T01:09:49+08:00</updated><id>http://songzy12.github.io/2019/03/14/xiaomi</id><content type="html" xml:base="http://songzy12.github.io/2019/03/14/xiaomi.html">&lt;p&gt;小米 Note：&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.miui.com/thread-18831512-1-1.html&quot;&gt;http://www.miui.com/thread-18831512-1-1.html&lt;/a&gt;&lt;/p&gt;
 
@@ -13,6 +55,12 @@
 &lt;p&gt;Google 全家桶：&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://opengapps.org/app/&quot;&gt;https://opengapps.org/app/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;如何选择不同的 suite:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/opengapps/opengapps/wiki/Package-Comparison&quot;&gt;https://github.com/opengapps/opengapps/wiki/Package-Comparison&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;结论：mini 是最合适的。&lt;/p&gt;
 
 &lt;p&gt;安装 Google 全家桶后闪退。查看 log:&lt;/p&gt;
 
@@ -380,7 +428,30 @@ sudo systemctl status v2ray
 
 &lt;pre&gt;&lt;code&gt;WIN+R
 shell:startup
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">https://yuan.ga/v2ray-complete-tutorial/</summary></entry><entry><title type="html">Shadowsocks</title><link href="http://songzy12.github.io/2019/02/13/shadowsocks.html" rel="alternate" type="text/html" title="Shadowsocks" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://songzy12.github.io/2019/02/13/shadowsocks</id><content type="html" xml:base="http://songzy12.github.io/2019/02/13/shadowsocks.html">&lt;pre&gt;&lt;code&gt;1E#m2WXS9LdvTCNA
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">https://yuan.ga/v2ray-complete-tutorial/</summary></entry><entry><title type="html">L2TP</title><link href="http://songzy12.github.io/2019/02/13/l2tp.html" rel="alternate" type="text/html" title="L2TP" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://songzy12.github.io/2019/02/13/l2tp</id><content type="html" xml:base="http://songzy12.github.io/2019/02/13/l2tp.html">&lt;h2&gt;L2TP&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://git.io/vpnsetup -O vpnsetup.sh &amp;amp;&amp;amp; sudo sh vpnsetup.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;NET_IFO=${VPN_IFACE:-'ens3'}
+NET_IFS=$(VPN_IFACE:-'ens3')
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Server IP: 45.32.251.88
+IPsec PSK: shadowsocks
+Username: vpnuser
+Password: shadowsocks
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;无法建立计算机与 VPN 服务器之间的网络连接，因为远程服务器未响应。
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">L2TP</summary></entry><entry><title type="html">Shadowsocks</title><link href="http://songzy12.github.io/2019/02/13/shadowsocks.html" rel="alternate" type="text/html" title="Shadowsocks" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://songzy12.github.io/2019/02/13/shadowsocks</id><content type="html" xml:base="http://songzy12.github.io/2019/02/13/shadowsocks.html">&lt;pre&gt;&lt;code&gt;1E#m2WXS9LdvTCNA
 tail -f /var/log/syslog
 &lt;/code&gt;&lt;/pre&gt;
 
@@ -462,247 +533,4 @@ ssserver -c /etc/shadowsocks.json -d stop
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo less /var/log/shadowsocks.log
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">1E#m2WXS9LdvTCNA tail -f /var/log/syslog</summary></entry><entry><title type="html">L2TP</title><link href="http://songzy12.github.io/2019/02/13/l2tp.html" rel="alternate" type="text/html" title="L2TP" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://songzy12.github.io/2019/02/13/l2tp</id><content type="html" xml:base="http://songzy12.github.io/2019/02/13/l2tp.html">&lt;h2&gt;L2TP&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget https://git.io/vpnsetup -O vpnsetup.sh &amp;amp;&amp;amp; sudo sh vpnsetup.sh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;NET_IFO=${VPN_IFACE:-'ens3'}
-NET_IFS=$(VPN_IFACE:-'ens3')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;Server IP: 45.32.251.88
-IPsec PSK: shadowsocks
-Username: vpnuser
-Password: shadowsocks
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;无法建立计算机与 VPN 服务器之间的网络连接，因为远程服务器未响应。
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">L2TP</summary></entry><entry><title type="html">vim</title><link href="http://songzy12.github.io/2018/11/18/vim.html" rel="alternate" type="text/html" title="vim" /><published>2018-11-18T14:45:00+08:00</published><updated>2018-11-18T14:45:00+08:00</updated><id>http://songzy12.github.io/2018/11/18/vim</id><content type="html" xml:base="http://songzy12.github.io/2018/11/18/vim.html">&lt;h2&gt;.vimrc&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;set nocompatible
-syntax on
-filetype plugin indent on
-set ic
-set hlsearch
-set encoding=utf-8
-set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-set termencoding=utf-8
-set encoding=utf-8
-set cursorline
-set autoindent
-set smartindent
-set scrolloff=4
-set showmatch
-set nu
-
-let python_highlight_all=1
-au Filetype python set tabstop=4
-au Filetype python set softtabstop=4
-au Filetype python set shiftwidth=4
-au Filetype python set expandtab
-au Filetype python set fileformat=unix
-
-colorscheme desert
-
-set nocompatible              &quot; required
-filetype off                  &quot; required
-
-&quot; set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-&quot; alternatively, pass a path where Vundle should install plugins
-&quot;call vundle#begin('~/some/path/here')
-
-&quot; let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-&quot; Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-Plugin 'Chiel92/vim-autoformat'
-nnoremap &amp;lt;F6&amp;gt; :Autoformat&amp;lt;CR&amp;gt;
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
-
-
-&quot; All of your Plugins must be added before the following line
-call vundle#end()            &quot; required
-filetype plugin indent on    &quot; required
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;vundle&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/VundleVim/Vundle.vim&quot;&gt;https://github.com/VundleVim/Vundle.vim&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Put this in your &lt;code&gt;.vimrc&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Plugin 'Chiel92/vim-autoformat'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then restart vim and run &lt;code&gt;:PluginInstall&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;注意这里 autoformat 要对 Python 起作用的话还要安装 autopep8:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;pip install autopep8
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;syntax&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;cd /usr/share/vim/vim74/syntax 
-vi python.vim
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;syn keyword pythonTodo      FIXME NOTE NOTES TODO XXX contained
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;$ ls ~/.vim/
-ftdetect  ftplugin  indent  syntax
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;color&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;ls /usr/share/vim/vim74/colors/
-vi ~/.vimrc
-color default
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;|&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;80|&lt;/code&gt; should get you to position 80 in that line.&lt;/p&gt;
-
-&lt;h2&gt;d&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;dG 删除直到工作缓存区结尾的内容
-d1G 删除直到工作缓存区开始的内容
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;删除第9行到第200行的内容(先用200G转到第200行) ，使用&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;:9,.d
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;e&lt;/h2&gt;
-
-&lt;p&gt;重新加载&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;:e
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;J&lt;/h2&gt;
-
-&lt;p&gt;合并行&lt;/p&gt;
-
-&lt;p&gt;In command mode:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;[range]j[lines]
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;here you want to do the whole buffer:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;%j
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you just wanted to do 10 lines from the current cursor position:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;j10
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;If you dont want to replace the new lines with spaces use ! after j.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;%j!
-j!10
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;And for the uberfancy:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;5j20
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Would go to line 5, and join the next 20 lines.&lt;/p&gt;
-
-&lt;h2&gt;ret&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;set tabstop=4&lt;/code&gt;: set the tabs to display as four spaces.
-&lt;code&gt;set expandtab&lt;/code&gt;: insert spaces for tabs.
-&lt;code&gt;ret&lt;/code&gt;: replace tab&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;set expandtab
-:%ret! 4
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;s&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;:%s/源字符串/目的字符串/g
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Add a string(&lt;code&gt;*&lt;/code&gt;) to the end of each line in Vim:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;:%s/$/\*/g
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;set&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;nu&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;pre&gt;&lt;code&gt;set nu
-set nonu
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;paste&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;pre&gt;&lt;code&gt;set paste
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;ul&gt;
-&lt;li&gt;invlist&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;pre&gt;&lt;code&gt;set invlist
-set nolist
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;shell&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;ctrl+z 
-fg
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;:!vim --version
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;:shell
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;undo, redo&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;u&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;ctrl+r&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;vsp&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;vim -On file1 file2 # 分屏启动Vim
-:vsp filename # 分屏
-Ctrl+w r # 滚动分屏
-Ctrl+w = # 分屏宽度
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">.vimrc</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">1E#m2WXS9LdvTCNA tail -f /var/log/syslog</summary></entry></feed>
