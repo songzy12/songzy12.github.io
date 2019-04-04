@@ -1,4 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-04-05T00:00:33+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Normalization</title><link href="http://songzy12.github.io/2019/04/04/normalization.html" rel="alternate" type="text/html" title="Normalization" /><published>2019-04-04T23:31:16+08:00</published><updated>2019-04-04T23:31:16+08:00</updated><id>http://songzy12.github.io/2019/04/04/normalization</id><content type="html" xml:base="http://songzy12.github.io/2019/04/04/normalization.html">&lt;p&gt;A, B, C, D, E，5人排成一列，要求A必须站在B前面。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-04-05T01:33:24+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Linear-equation</title><link href="http://songzy12.github.io/2019/04/05/linear-equation.html" rel="alternate" type="text/html" title="Linear-equation" /><published>2019-04-05T01:22:02+08:00</published><updated>2019-04-05T01:22:02+08:00</updated><id>http://songzy12.github.io/2019/04/05/linear-equation</id><content type="html" xml:base="http://songzy12.github.io/2019/04/05/linear-equation.html">&lt;p&gt;某单位订阅了30份资料分发给3个部门，要求每个部门至少9份资料，一共有多少种不同的发放方法？&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;上面这个题目就是求下面这个方程的解的个数：&lt;/p&gt;
+
+&lt;p&gt;$x_1 + x_2 + x_3 = 30$&lt;/p&gt;
+
+&lt;p&gt;$x_1 \ge 9, x_2 \ge 9, x_3\ge 9$&lt;/p&gt;
+
+&lt;p&gt;因为我们会做的题目是求正整数解的个数，使用插板法。&lt;/p&gt;
+
+&lt;p&gt;所以我们就要把它转化成 $x_1' \ge 1$ 这种形式。&lt;/p&gt;
+
+&lt;p&gt;$x_1 \ge 9 \Leftrightarrow x_1-8\ge 1$&lt;/p&gt;
+
+&lt;p&gt;我们就把 $x_1 - 8$ 整体看成是一个新的变量就好了。&lt;/p&gt;
+
+&lt;p&gt;所以上面的式子就等价于&lt;/p&gt;
+
+&lt;p&gt;$(x_1 -8) + (x_2-8) + (x_3 -8) = 6$&lt;/p&gt;
+
+&lt;p&gt;$x_1-8\ge 1, x_2-8\ge 1,x_3 -8\ge1$&lt;/p&gt;
+
+&lt;p&gt;然后 6 个 1 中间有 5 个空，我们选2个空插板。&lt;/p&gt;
+
+&lt;p&gt;答案就是 $C_5&lt;sup&gt;2&lt;/sup&gt;$.&lt;/p&gt;</content><author><name></name></author><summary type="html">某单位订阅了30份资料分发给3个部门，要求每个部门至少9份资料，一共有多少种不同的发放方法？</summary></entry><entry><title type="html">Derangement</title><link href="http://songzy12.github.io/2019/04/05/derangement.html" rel="alternate" type="text/html" title="Derangement" /><published>2019-04-05T00:19:40+08:00</published><updated>2019-04-05T00:19:40+08:00</updated><id>http://songzy12.github.io/2019/04/05/derangement</id><content type="html" xml:base="http://songzy12.github.io/2019/04/05/derangement.html">&lt;p&gt;某科室从下属5个科室中各抽调了一名工作人员，交流到其他科室，如每个科室只能接收一个人的话，有多少种不同的人员安排方式？&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;这个就是&lt;a href=&quot;https://zh.wikipedia.org/zh-hans/%E9%94%99%E6%8E%92%E9%97%AE%E9%A2%98&quot;&gt;错排问题&lt;/a&gt;。&lt;/p&gt;
+
+&lt;p&gt;我们在这里说一下递推公式的推导过程。递推的意思就是根据比较小的 n 来计算比较大 的 n.&lt;/p&gt;
+
+&lt;p&gt;假设 $D_n$ 表示有 n 个人的时候，把他们进行打乱顺序，使得每个人打乱后的位置和其原始位置不一致，这样的打乱方式的个数。我们试着找一下 $D_n$ 和 $D_{n-1}$ 之间的关系。&lt;/p&gt;
+
+&lt;p&gt;对于任何一个合法的 n 个人的错排，我们考虑第1个人的位置，假设这个人的位置在 k，注意 k 有 n -1 种可能的取值。这里我们相当于把 $D_n​$ 根据第一个人的位置分成了 n-1 个等价类（回忆一下，就像我们刚才根据 A 和 B 的相对位置把6个人的排列分成了2个等价类一样：A在B前面，B在A前面）。&lt;/p&gt;
+
+&lt;p&gt;对于第1个人在位置k的这个等价类，我们考虑 k 的位置，进而把这种情况又分成两类：k在第1位，k不在第1位。&lt;/p&gt;
+
+&lt;p&gt;对于k在第1位，我们还剩下 n-2 个数要排，这 n-2 个数的合法排列方式是：2不在第2位，3不在第3位，&amp;hellip;, n 不在第 n 位。发现没有，这恰好对应于 n-2 个数的错排数目：$D_{n-2}$.&lt;/p&gt;
+
+&lt;p&gt;对于k不在第1位，我们便剩下 n-1 个数要排（因为我们现在不知道 k 的位置），这 n-1 个数的合法排列方式是：k不在第1位，2不在第2位，3不在第3位，&amp;hellip;, n 不在第n位。这恰好对应于 n-1 个数的错排数目，$D_{n-1}$.&lt;/p&gt;
+
+&lt;p&gt;回忆一下，n 个数的错排的意思是对于这n个数里的每个数，都有一个特定的位置是不能排的。&lt;/p&gt;
+
+&lt;p&gt;综上我们就可以得到一个递推式 $D_n = (n-1) (D&lt;em&gt;{n-1}+D&lt;/em&gt;{n-2})$&lt;/p&gt;
+
+&lt;p&gt;其次我们知道两个初始值：$D_1 = 0$, $D_2 = 1$&lt;/p&gt;
+
+&lt;p&gt;这是因为只有一个人的时候我们没法错排；只有两个人的时候我们只有 $(2,1)$ 这一种错排。&lt;/p&gt;
+
+&lt;p&gt;记住这个递推公式。对于 n 比较小的情况，我们使用这个递推式来计算答案就可以了。&lt;/p&gt;
+
+&lt;p&gt;比如上题便是要计算 $D_5​$.&lt;/p&gt;
+
+&lt;p&gt;$D_1 = 0$&lt;/p&gt;
+
+&lt;p&gt;$D_2 = 1$&lt;/p&gt;
+
+&lt;p&gt;$D_3 = 2 (D_2 + D_1) = 2(1+0) = 2$&lt;/p&gt;
+
+&lt;p&gt;$D_4 = 3(D_3 + D_2) = 3(2+1) = 9​$&lt;/p&gt;
+
+&lt;p&gt;$D_5 = 4(D_4+D_3) = 4(9+2) = 44$&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;在递推式之外，我们可以计算一下通项公式：&lt;/p&gt;
+
+&lt;p&gt;$D_n = (n-1) (D&lt;em&gt;{n-1} + D&lt;/em&gt;{n-2})$&lt;/p&gt;
+
+&lt;p&gt;左右两边同时除以 $n!​$,&lt;/p&gt;
+
+&lt;p&gt;$\frac{D_n}{n!} = \frac{n-1}{n} \frac{D&lt;em&gt;{n-1}}{(n-1)!} + \frac{1}{n} \frac{D&lt;/em&gt;{n-2}}{(n-2)!}$&lt;/p&gt;
+
+&lt;p&gt;$\frac{D_n}{n!} - \frac{D&lt;em&gt;{n-1}}{(n-1)!} = -\frac{1}{n} (\frac{D&lt;/em&gt;{n-1}}{(n-1)!} -  \frac{D_{n-2}}{(n-2)!})=\dots=(-1)&lt;sup&gt;n&lt;/sup&gt;\frac{1}{n!}​$&lt;/p&gt;
+
+&lt;p&gt;从而&lt;/p&gt;
+
+&lt;p&gt;$\frac{D_n}{n!} = (\frac{D_n}{n!} - \frac{D_{n-1}}{(n-1)!} ) +\dots+(\frac{D_2}{2!}-\frac{D_1}{1!}) + \frac{D_1}{1!} = (-1)&lt;sup&gt;n&lt;/sup&gt; \frac{1}{n!} + \dots + (-1)&lt;sup&gt;2&lt;/sup&gt; \frac{1}{2!}​$&lt;/p&gt;
+
+&lt;p&gt;$D_n = n!(\frac{1}{2!} - \frac{1}{3!} + \frac{1}{4!} - \frac{1}{5!} + \dots + (-1)&lt;sup&gt;n&lt;/sup&gt; \frac{1}{n!})​$&lt;/p&gt;
+
+&lt;p&gt;也可以记住这个通项公式，所以上面那个题目还可以这样算：&lt;/p&gt;
+
+&lt;p&gt;$D_5 = 5!(\frac{1}{2!}  - \frac{1}{3!} + \frac{1}{4!} - \frac{1}{5!}) = 60-20+5-1=44$&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;上面这个通项公式除了通过递推公式导出之外还可以通过&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E6%8E%92%E5%AE%B9%E5%8E%9F%E7%90%86&quot;&gt;容斥原理&lt;/a&gt;导出：&lt;/p&gt;
+
+&lt;p&gt;$D_n = A_n&lt;sup&gt;n&lt;/sup&gt; - C_n&lt;sup&gt;1&lt;/sup&gt; A&lt;em&gt;{n-1}^{n-2} + C_n&lt;sup&gt;2&lt;/sup&gt; A&lt;/em&gt;{n-2}^{n-2} - C_n&lt;sup&gt;3&lt;/sup&gt; A&lt;em&gt;{n-3}^{n-3}+ \dots + (-1)&lt;sup&gt;n&lt;/sup&gt; C&lt;/em&gt;{n}^n A_0&lt;sup&gt;0&lt;/sup&gt; ​$&lt;/p&gt;
+
+&lt;p&gt;$D_n= n!(1 - \frac{1}{1!} + \frac{1}{2!} - \frac{1}{3!} + \frac{1}{4!} - \frac{1}{5!} + \dots + (-1)&lt;sup&gt;n&lt;/sup&gt; \frac{1}{n!}) $&lt;/p&gt;
+
+&lt;p&gt;考虑所有的排列可能，减去其中一位排在原来位置的情况，加上有两位排在原来位置的情况，减去有三位排在原来位置的情况，依此类推。&lt;/p&gt;</content><author><name></name></author><summary type="html">某科室从下属5个科室中各抽调了一名工作人员，交流到其他科室，如每个科室只能接收一个人的话，有多少种不同的人员安排方式？</summary></entry><entry><title type="html">Normalization</title><link href="http://songzy12.github.io/2019/04/04/normalization.html" rel="alternate" type="text/html" title="Normalization" /><published>2019-04-04T23:31:16+08:00</published><updated>2019-04-04T23:31:16+08:00</updated><id>http://songzy12.github.io/2019/04/04/normalization</id><content type="html" xml:base="http://songzy12.github.io/2019/04/04/normalization.html">&lt;p&gt;A, B, C, D, E，5人排成一列，要求A必须站在B前面。&lt;/p&gt;
 
 &lt;p&gt;考虑这5个人的全排列，我们可以证明：&lt;/p&gt;
 
@@ -6,13 +102,11 @@
 
 &lt;p&gt;这是为什么呢？&lt;/p&gt;
 
-&lt;p&gt;对于任何一种“A站在B的前面”的站法，我们维持其余三人的位置不变，仅仅交换A和B的位置，便可以得到一种合法的“B站在A的前面”的站法。&lt;/p&gt;
+&lt;p&gt;对于任何一种“A站在B的前面”的站法，我们维持其余三人的位置不变，仅仅交换A和B的位置，便可以得到一种合法的“B站在A的前面”的站法；同理，对于任何一种“B站在A的前面”的站法，我们维持其余三人的位置不变，仅仅交换A和B的位置，便可以得到一种合法的“A站在B的前面”的站法。&lt;/p&gt;
 
-&lt;p&gt;同理，对于任何一种“B站在A的前面”的站法，我们维持其余三人的位置不变，仅仅交换A和B的位置，便可以得到一种合法的“A站在B的前面”的站法。&lt;/p&gt;
+&lt;p&gt;如上，我们在“A 站在 B 的前面” 和 “B 站在 A 的前面” 之间建立了一一对应，于是它们的站法数目是一样的。&lt;/p&gt;
 
-&lt;p&gt;如上，“A 站在 B 的前面” 和 “B 站在 A 的前面” 的站法数目是一样的。&lt;/p&gt;
-
-&lt;p&gt;从而“A站在B的前面” 恰好占了所有可能全排列数目的一半，也就是 $A_5&lt;sup&gt;5&lt;/sup&gt;/2$&lt;/p&gt;
+&lt;p&gt;从而“A站在B的前面” 恰好占了所有可能全排列数目的一半，也就是 $A_5&lt;sup&gt;5&lt;/sup&gt;/2​$&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -32,15 +126,21 @@
 
 &lt;p&gt;下面的这个 $A_2&lt;sup&gt;2&lt;/sup&gt;$ 是因为我们不关心 2个3人组之间的相互顺序，$A_4&lt;sup&gt;4&lt;/sup&gt;$ 是因为我们不关心4个5人组之间的相互顺序。&lt;/p&gt;
 
-&lt;p&gt;其实上面的式子还等于：$A_{26}^{26} / ((A_3&lt;sup&gt;3&lt;/sup&gt;)&lt;sup&gt;2&lt;/sup&gt; (A_5&lt;sup&gt;5&lt;/sup&gt;)&lt;sup&gt;4&lt;/sup&gt;) /(A_2&lt;sup&gt;2&lt;/sup&gt; A_4&lt;sup&gt;4&lt;/sup&gt;)$&lt;/p&gt;
+&lt;p&gt;其实上面的式子还等于：$A_{26}^{26} / ((A_3&lt;sup&gt;3&lt;/sup&gt;)&lt;sup&gt;2&lt;/sup&gt; (A_5&lt;sup&gt;5&lt;/sup&gt;)&lt;sup&gt;4&lt;/sup&gt;) /(A_2&lt;sup&gt;2&lt;/sup&gt; A_4&lt;sup&gt;4&lt;/sup&gt;)​$&lt;/p&gt;
 
-&lt;p&gt;这个是说，考虑一个26人的全排列，&lt;/p&gt;
+&lt;p&gt;这个是说，考虑一个26人的全排列 $A_{26}^{26}$，&lt;/p&gt;
 
-&lt;p&gt;首先有2个组，我们不关心这2个组内3个人的顺序；然后有4个组，我们不关心这4个组内5个人的顺序；&lt;/p&gt;
+&lt;p&gt;首先有2个组，我们不关心这2个组内3个人的顺序 $(A_3&lt;sup&gt;3&lt;/sup&gt;)&lt;sup&gt;2&lt;/sup&gt;​$；&lt;/p&gt;
 
-&lt;p&gt;对于人数相同的2个组，我们不关心这2个组的相对顺序；&lt;/p&gt;
+&lt;p&gt;然后有4个组，我们不关心这4个组内5个人的顺序 $(A_5&lt;sup&gt;5&lt;/sup&gt;)&lt;sup&gt;4&lt;/sup&gt;​$；&lt;/p&gt;
 
-&lt;p&gt;对于人数相同的4个组，我们不关心这4个组的相对顺序。&lt;/p&gt;</content><author><name></name></author><summary type="html">A, B, C, D, E，5人排成一列，要求A必须站在B前面。</summary></entry><entry><title type="html">Xiaomi</title><link href="http://songzy12.github.io/2019/03/14/xiaomi.html" rel="alternate" type="text/html" title="Xiaomi" /><published>2019-03-14T01:09:49+08:00</published><updated>2019-03-14T01:09:49+08:00</updated><id>http://songzy12.github.io/2019/03/14/xiaomi</id><content type="html" xml:base="http://songzy12.github.io/2019/03/14/xiaomi.html">&lt;p&gt;小米 Note：&lt;/p&gt;
+&lt;p&gt;对于人数相同的2个组，我们不关心这2个组的相对顺序 $A_2&lt;sup&gt;2&lt;/sup&gt;$；&lt;/p&gt;
+
+&lt;p&gt;对于人数相同的4个组，我们不关心这4个组的相对顺序 $ A_4&lt;sup&gt;4&lt;/sup&gt;​$。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;我们可以扩展两种情况：要求 AB 必须相邻，或者要求 AB 必须不相邻。&lt;/p&gt;</content><author><name></name></author><summary type="html">A, B, C, D, E，5人排成一列，要求A必须站在B前面。</summary></entry><entry><title type="html">Xiaomi</title><link href="http://songzy12.github.io/2019/03/14/xiaomi.html" rel="alternate" type="text/html" title="Xiaomi" /><published>2019-03-14T01:09:49+08:00</published><updated>2019-03-14T01:09:49+08:00</updated><id>http://songzy12.github.io/2019/03/14/xiaomi</id><content type="html" xml:base="http://songzy12.github.io/2019/03/14/xiaomi.html">&lt;p&gt;小米 Note：&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.miui.com/thread-18831512-1-1.html&quot;&gt;http://www.miui.com/thread-18831512-1-1.html&lt;/a&gt;&lt;/p&gt;
 
@@ -428,109 +528,4 @@ sudo systemctl status v2ray
 
 &lt;pre&gt;&lt;code&gt;WIN+R
 shell:startup
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">https://yuan.ga/v2ray-complete-tutorial/</summary></entry><entry><title type="html">L2TP</title><link href="http://songzy12.github.io/2019/02/13/l2tp.html" rel="alternate" type="text/html" title="L2TP" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://songzy12.github.io/2019/02/13/l2tp</id><content type="html" xml:base="http://songzy12.github.io/2019/02/13/l2tp.html">&lt;h2&gt;L2TP&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget https://git.io/vpnsetup -O vpnsetup.sh &amp;amp;&amp;amp; sudo sh vpnsetup.sh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;NET_IFO=${VPN_IFACE:-'ens3'}
-NET_IFS=$(VPN_IFACE:-'ens3')
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;Server IP: 45.32.251.88
-IPsec PSK: shadowsocks
-Username: vpnuser
-Password: shadowsocks
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;无法建立计算机与 VPN 服务器之间的网络连接，因为远程服务器未响应。
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">L2TP</summary></entry><entry><title type="html">Shadowsocks</title><link href="http://songzy12.github.io/2019/02/13/shadowsocks.html" rel="alternate" type="text/html" title="Shadowsocks" /><published>2019-02-13T19:45:03+08:00</published><updated>2019-02-13T19:45:03+08:00</updated><id>http://songzy12.github.io/2019/02/13/shadowsocks</id><content type="html" xml:base="http://songzy12.github.io/2019/02/13/shadowsocks.html">&lt;pre&gt;&lt;code&gt;1E#m2WXS9LdvTCNA
-tail -f /var/log/syslog
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Chrome 标签不同步也可能是因为 GFW 无法连接 Google 服务所致。&lt;/p&gt;
-
-&lt;h2&gt;socls&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;import urllib2
-import socks
-from sockshandler import SocksiPyHandler
-
-opener = urllib2.build_opener(SocksiPyHandler(socks.SOCKS5, &quot;127.0.0.1&quot;, 1080))
-x = opener.open(&quot;http://www.youtube.com/&quot;)
-print x.read()
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;ss client&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/&quot;&gt;http://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt-get update
-sudo apt-get install python-pip
-sudo apt-get install python-setuptools m2crypto
-pip install shadowsocks
-sudo apt install shadowsocks
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;sslocal -s 11.22.33.44 -p 50003 -k &quot;123456&quot; -l 1080 -t 600 -m aes-256-cfb
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;vi config.json
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-    &quot;server&quot;:&quot;11.22.33.44&quot;,
-    &quot;server_port&quot;:50003,
-    &quot;local_port&quot;:1080,
-    &quot;password&quot;:&quot;123456&quot;,
-    &quot;timeout&quot;:600,
-    &quot;method&quot;:&quot;aes-256-cfb&quot;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;sslocal -c shadowsocks.json
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;SwitchyOmega: &lt;a href=&quot;https://github.com/FelisCatus/SwitchyOmega/releases/&quot;&gt;https://github.com/FelisCatus/SwitchyOmega/releases/&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;nohup sslocal -c shadowsocks.json &amp;amp;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;ss server&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
-chmod +x shadowsocks.sh
-./shadowsocks.sh 2&amp;gt;&amp;amp;1 | tee shadowsocks.log
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;vi /etc/shadowsocks.json
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-    &quot;server&quot;:&quot;45.32.251.88&quot;,
-    &quot;server_port&quot;:8388,
-    &quot;local_address&quot;: &quot;127.0.0.1&quot;,
-    &quot;local_port&quot;:1080,
-    &quot;password&quot;:&quot;shadowsocks&quot;,
-    &quot;timeout&quot;:300,
-    &quot;method&quot;:&quot;aes-256-cfb&quot;,
-    &quot;fast_open&quot;: false
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;https://github.com/shadowsocks/shadowsocks-windows/releases
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;ssserver -c /etc/shadowsocks.json -d start
-ssserver -c /etc/shadowsocks.json -d stop
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo less /var/log/shadowsocks.log
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">1E#m2WXS9LdvTCNA tail -f /var/log/syslog</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">https://yuan.ga/v2ray-complete-tutorial/</summary></entry></feed>
