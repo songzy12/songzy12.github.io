@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Normalization"
+title: "Combinatorics"
 date: 2019-04-04T23:31:16+08:00
 ---
 
