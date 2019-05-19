@@ -1,4 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-04-05T01:33:24+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Linear-equation</title><link href="http://songzy12.github.io/2019/04/05/linear-equation.html" rel="alternate" type="text/html" title="Linear-equation" /><published>2019-04-05T01:22:02+08:00</published><updated>2019-04-05T01:22:02+08:00</updated><id>http://songzy12.github.io/2019/04/05/linear-equation</id><content type="html" xml:base="http://songzy12.github.io/2019/04/05/linear-equation.html">&lt;p&gt;某单位订阅了30份资料分发给3个部门，要求每个部门至少9份资料，一共有多少种不同的发放方法？&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-05-19T22:00:57+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Clock</title><link href="http://songzy12.github.io/2019/04/09/clock.html" rel="alternate" type="text/html" title="Clock" /><published>2019-04-09T13:11:45+08:00</published><updated>2019-04-09T13:11:45+08:00</updated><id>http://songzy12.github.io/2019/04/09/clock</id><content type="html" xml:base="http://songzy12.github.io/2019/04/09/clock.html">&lt;p&gt;8点30分之后参加会议，开始时手表时针分针120度角，上午结束时手表时针分针180度角。&lt;/p&gt;
+
+&lt;p&gt;问会议过程中时分呈90度角的情况最多多少次？&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;我们先就这一道题目来看怎么做，然后再扩展一些细节。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;我们先搞明白在一个12小时的周期内时针和分针是怎么转的。&lt;/p&gt;
+
+&lt;p&gt;之所以考虑一个12小时的周期，是因为在凌晨12点时时针和分针是在表盘上12这个数字处重合的；&lt;/p&gt;
+
+&lt;p&gt;然后经过12个小时后，时针和分针再次在表盘上12这个数字处重合。&lt;/p&gt;
+
+&lt;p&gt;凌晨12点，时针和分针在数字12处重合；然后时针慢，分针快。&lt;/p&gt;
+
+&lt;p&gt;接下来的一个小时里，分针转了一圈，回到了数字12处；而时针从数字12走到了数字1。&lt;/p&gt;
+
+&lt;p&gt;在这一个小时内除开始时它们两个是没有再次重合的，因为分针始终在时针的前面。&lt;/p&gt;
+
+&lt;p&gt;然后在接下来的每一个小时，分针都会走一圈，而时针就走过一个数字；在此期间它们都会相遇一次。&lt;/p&gt;
+
+&lt;p&gt;比如1点到2点时在数字1、2之间相遇，2点到3点时在数字2、3之间相遇。11点到12点时它们在数字12处相遇。&lt;/p&gt;
+
+&lt;p&gt;注意，中午12点在数字12处相遇和起始时凌晨12点是一样的。我们可以把它算作下一个12小时周期内的重合。&lt;/p&gt;
+
+&lt;p&gt;于是在12~1, &amp;hellip;, 1~2, 11~12 这12段里面，它们总共重合了11次。&lt;/p&gt;
+
+&lt;p&gt;这里我们把 “12~1 在数字12处重合” 和 “11~12 在数字12处重合” 不重复计算。&lt;/p&gt;
+
+&lt;p&gt;我们在最后一节里说明对于这11次重合如何计算精确的时间。&lt;/p&gt;
+
+&lt;p&gt;对于这每一次重合到下一次重合，时针和分针之间的角度都经历了0到180再到0这样的一个周期。&lt;/p&gt;
+
+&lt;p&gt;也就是说，在这12个小时里，时针和分针之间的角度总共经历了11次0到90到180再到90再到0.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;回到题目，90度角最多次，就考虑会议最早开始时间和最晚结束时间。&lt;/p&gt;
+
+&lt;p&gt;对于这道题目我们可以以每次时针和分针重合为一个周期来看。&lt;/p&gt;
+
+&lt;p&gt;我们就考虑 8点30分之后第一次夹角120度 和 中午12点之前最后一次夹角180度。&lt;/p&gt;
+
+&lt;p&gt;首先看一眼8点30分的时候处于什么状态。&lt;/p&gt;
+
+&lt;p&gt;首先8点30分的时候夹角是小于90度的，也是小于120度的。&lt;/p&gt;
+
+&lt;p&gt;它们在7~8之间相遇到，在8~9之间还没有相遇。&lt;/p&gt;
+
+&lt;p&gt;之后夹角会越来越小，直至它们在数字 8~9 之间重合。然后夹角慢慢变大。从0到90到120到180到90到0。&lt;/p&gt;
+
+&lt;p&gt;接下来这样数数：&lt;/p&gt;
+
+&lt;p&gt;8~9之间重合 到 9~10重合 时：90度1次。（因为去掉了 0到90到120 之间的这次）&lt;/p&gt;
+
+&lt;p&gt;9~10之间重合 到 10~11重合 时：90度2次。&lt;/p&gt;
+
+&lt;p&gt;10~11重合 到 11~12重合 时：90度1次。（这里因为去掉了 180到90到0 之间的这次）&lt;/p&gt;
+
+&lt;p&gt;总共有4次，我们不需要计算具体的时间。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;关于相遇的具体时间计算：分针每分钟走 360/60=6度，时针每分钟走 360/(12*60)=0.5度。&lt;/p&gt;
+
+&lt;p&gt;我们计算时可以从12点重合处开始计算。&lt;/p&gt;
+
+&lt;p&gt;比如我们如果要计算2点~3点的那次相遇，这时分针比时针多走了两圈。&lt;/p&gt;
+
+&lt;p&gt;速度 * 时间 = 路程&lt;/p&gt;
+
+&lt;p&gt;t (6 - 0.5) = 360 * 2&lt;/p&gt;
+
+&lt;p&gt;t = 720/5.5 = 131 分钟 = 2小时11分钟&lt;/p&gt;
+
+&lt;p&gt;所以差不多是 2点11分。&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;推论：&lt;/p&gt;
+
+&lt;p&gt;对于所有在 0~120 之间的角度，答案都是4.&lt;/p&gt;
+
+&lt;p&gt;对于在 120~180 之间的角度，答案是 5.&lt;/p&gt;</content><author><name></name></author><summary type="html">8点30分之后参加会议，开始时手表时针分针120度角，上午结束时手表时针分针180度角。</summary></entry><entry><title type="html">Linear-equation</title><link href="http://songzy12.github.io/2019/04/05/linear-equation.html" rel="alternate" type="text/html" title="Linear-equation" /><published>2019-04-05T01:22:02+08:00</published><updated>2019-04-05T01:22:02+08:00</updated><id>http://songzy12.github.io/2019/04/05/linear-equation</id><content type="html" xml:base="http://songzy12.github.io/2019/04/05/linear-equation.html">&lt;p&gt;某单位订阅了30份资料分发给3个部门，要求每个部门至少9份资料，一共有多少种不同的发放方法？&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -94,7 +180,7 @@
 
 &lt;p&gt;$D_n= n!(1 - \frac{1}{1!} + \frac{1}{2!} - \frac{1}{3!} + \frac{1}{4!} - \frac{1}{5!} + \dots + (-1)&lt;sup&gt;n&lt;/sup&gt; \frac{1}{n!}) $&lt;/p&gt;
 
-&lt;p&gt;考虑所有的排列可能，减去其中一位排在原来位置的情况，加上有两位排在原来位置的情况，减去有三位排在原来位置的情况，依此类推。&lt;/p&gt;</content><author><name></name></author><summary type="html">某科室从下属5个科室中各抽调了一名工作人员，交流到其他科室，如每个科室只能接收一个人的话，有多少种不同的人员安排方式？</summary></entry><entry><title type="html">Normalization</title><link href="http://songzy12.github.io/2019/04/04/normalization.html" rel="alternate" type="text/html" title="Normalization" /><published>2019-04-04T23:31:16+08:00</published><updated>2019-04-04T23:31:16+08:00</updated><id>http://songzy12.github.io/2019/04/04/normalization</id><content type="html" xml:base="http://songzy12.github.io/2019/04/04/normalization.html">&lt;p&gt;A, B, C, D, E，5人排成一列，要求A必须站在B前面。&lt;/p&gt;
+&lt;p&gt;考虑所有的排列可能，减去其中一位排在原来位置的情况，加上有两位排在原来位置的情况，减去有三位排在原来位置的情况，依此类推。&lt;/p&gt;</content><author><name></name></author><summary type="html">某科室从下属5个科室中各抽调了一名工作人员，交流到其他科室，如每个科室只能接收一个人的话，有多少种不同的人员安排方式？</summary></entry><entry><title type="html">Combinatorics</title><link href="http://songzy12.github.io/2019/04/04/combinatorics.html" rel="alternate" type="text/html" title="Combinatorics" /><published>2019-04-04T23:31:16+08:00</published><updated>2019-04-04T23:31:16+08:00</updated><id>http://songzy12.github.io/2019/04/04/combinatorics</id><content type="html" xml:base="http://songzy12.github.io/2019/04/04/combinatorics.html">&lt;p&gt;A, B, C, D, E，5人排成一列，要求A必须站在B前面。&lt;/p&gt;
 
 &lt;p&gt;考虑这5个人的全排列，我们可以证明：&lt;/p&gt;
 
@@ -424,108 +510,4 @@ adb pull /data/data/com.tencent.mm/MicroMsg/xxxx/EnMicroMsg.db .
 
 &lt;p&gt;至此，我们就可以愉快地查看数据库内容啦。&lt;/p&gt;
 
-&lt;p&gt;将 &lt;code&gt;message&lt;/code&gt; 表里数据导出为 csv 就可以愉快地做数据分析了。&lt;/p&gt;</content><author><name></name></author><summary type="html">将Android上微信的聊天记录导出为 txt 的过程主要参考这两篇文章：</summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2019/02/13/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2019-02-13T20:07:54+08:00</published><updated>2019-02-13T20:07:54+08:00</updated><id>http://songzy12.github.io/2019/02/13/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2019/02/13/v2ray.html">&lt;p&gt;&lt;a href=&quot;https://yuan.ga/v2ray-complete-tutorial/&quot;&gt;https://yuan.ga/v2ray-complete-tutorial/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;server&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;wget https://install.direct/go.sh
-sudo bash go.sh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;PORT:
-UUID:
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;&quot;log&quot;: {
-    &quot;loglevel&quot;: &quot;warning&quot;,
-    &quot;access&quot;: &quot;/var/log/v2ray/access.log&quot;,
-    &quot;error&quot;: &quot;/var/log/v2ray/error.log&quot;
-  }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo systemctl start v2ray
-sudo systemctl enable v2ray
-sudo systemctl status v2ray
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;client&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/v2ray/v2ray-core/releases&quot;&gt;https://github.com/v2ray/v2ray-core/releases&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-  &quot;inbounds&quot;: [
-    {
-      &quot;port&quot;: 1080,
-      &quot;protocol&quot;: &quot;socks&quot;,
-      &quot;sniffing&quot;: {
-        &quot;enabled&quot;: true,
-        &quot;destOverride&quot;: [&quot;http&quot;, &quot;tls&quot;]
-      },
-      &quot;settings&quot;: {
-        &quot;auth&quot;: &quot;noauth&quot;
-      }
-    },
-    {
-      &quot;port&quot;: 8080,
-      &quot;protocol&quot;: &quot;http&quot;,
-      &quot;sniffing&quot;: {
-        &quot;enabled&quot;: true,
-        &quot;destOverride&quot;: [&quot;http&quot;, &quot;tls&quot;]
-      },
-      &quot;settings&quot;: {
-        &quot;auth&quot;: &quot;noauth&quot;
-      }
-    }
-  ],
-  &quot;outbounds&quot;: [
-    {
-      &quot;protocol&quot;: &quot;vmess&quot;,
-      &quot;settings&quot;: {
-        &quot;vnext&quot;: [
-          {
-            &quot;address&quot;: &quot;8.8.8.8&quot;, // 服务器 IP
-            &quot;port&quot;: 443, // Vmess 协议端口
-            &quot;users&quot;: [
-              {
-                &quot;id&quot;: &quot;7d4cd078-e529-4bdb-a483-cf5733d96a66&quot;, // id（UUID）
-                &quot;alterId&quot;: 64 // 需要和服务端一致
-              }
-            ]
-          }
-        ]
-      }
-    },
-    {
-      &quot;tag&quot;: &quot;direct&quot;,
-      &quot;settings&quot;: {},
-      &quot;protocol&quot;: &quot;freedom&quot;
-    }
-  ],
-
-  &quot;routing&quot;: {
-    &quot;domainStrategy&quot;: &quot;IPOnDemand&quot;,
-    &quot;rules&quot;: [
-      {
-        &quot;type&quot;: &quot;field&quot;,
-        &quot;ip&quot;: [
-          &quot;geoip:private&quot;
-        ],
-        &quot;outboundTag&quot;: &quot;direct&quot;
-      }
-    ]
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;修改 Windows 的系统代理&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;http 127.0.0.1:8080
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;不需要 Proxy SwitchyOmega.&lt;/p&gt;
-
-&lt;p&gt;开机启动：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;WIN+R
-shell:startup
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">https://yuan.ga/v2ray-complete-tutorial/</summary></entry></feed>
+&lt;p&gt;将 &lt;code&gt;message&lt;/code&gt; 表里数据导出为 csv 就可以愉快地做数据分析了。&lt;/p&gt;</content><author><name></name></author><summary type="html">将Android上微信的聊天记录导出为 txt 的过程主要参考这两篇文章：</summary></entry></feed>
