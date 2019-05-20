@@ -1,4 +1,58 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-05-19T22:00:57+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Clock</title><link href="http://songzy12.github.io/2019/04/09/clock.html" rel="alternate" type="text/html" title="Clock" /><published>2019-04-09T13:11:45+08:00</published><updated>2019-04-09T13:11:45+08:00</updated><id>http://songzy12.github.io/2019/04/09/clock</id><content type="html" xml:base="http://songzy12.github.io/2019/04/09/clock.html">&lt;p&gt;8点30分之后参加会议，开始时手表时针分针120度角，上午结束时手表时针分针180度角。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-05-20T09:35:26+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Prime</title><link href="http://songzy12.github.io/2019/05/19/prime.html" rel="alternate" type="text/html" title="Prime" /><published>2019-05-19T23:31:16+08:00</published><updated>2019-05-19T23:31:16+08:00</updated><id>http://songzy12.github.io/2019/05/19/prime</id><content type="html" xml:base="http://songzy12.github.io/2019/05/19/prime.html">&lt;p&gt;设三个质数是 x, y, z&lt;/p&gt;
+
+&lt;p&gt;则 $\frac{1}{x} + \frac{1}{y} + \frac{1}{z} = \frac{xy+yz+zx}{xyz} = \frac{671}{1022}$&lt;/p&gt;
+
+&lt;p&gt;因为上面这个式子是不存在约分的情况，&lt;/p&gt;
+
+&lt;p&gt;所以我们知道 $xy+yz+zx = 671​$, $xyz = 1022​$&lt;/p&gt;
+
+&lt;p&gt;我们可以通过 xyz = 1022 分解质因数来得出 1022 = 2 * 511 = 2&lt;em&gt; 7&lt;/em&gt;73&lt;/p&gt;
+
+&lt;p&gt;所以三个质数的和是 2+7+73 = 82&lt;/p&gt;
+
+&lt;p&gt;两点说明：1. 为什么上面那个式子不存在约分的情况 2. 如何分解质因数&lt;/p&gt;
+
+&lt;p&gt;上面那个式子不存在约分的情况是因为&lt;/p&gt;
+
+&lt;p&gt;分母 xyz 的因子只有 x, y, z 三个数&lt;/p&gt;
+
+&lt;p&gt;而对于分子来说，以因子 x 为例：&lt;/p&gt;
+
+&lt;p&gt;(xy + yz+ zx) 其中 xy, zx 均能整除 x, 而 yz 不能整除 x （因为它们三个都是质数）&lt;/p&gt;
+
+&lt;p&gt;所以 (xy + yz + zx) 不能整除 x； x 不是 xy + yz + zx 的因子&lt;/p&gt;
+
+&lt;p&gt;同理 y, z 也不是。&lt;/p&gt;
+
+&lt;p&gt;如何分解质因数：首先我们能看出 2 是一个因子，1022 = 2 * 511&lt;/p&gt;
+
+&lt;p&gt;如何分解 511: 首先 $\sqrt{511}  &amp;lt; 25$ , 因为 25 * 25 &gt; 511&lt;/p&gt;
+
+&lt;p&gt;所以我们只要尝试 25 以内的所有素因数就可以了：2,3,5,7,11,13,17,19,23&lt;/p&gt;
+
+&lt;p&gt;当我们试到 7 的时候发现能整除，511 / 7 = 73&lt;/p&gt;
+
+&lt;p&gt;为什么我们只要尝试 $\sqrt{511}$ 以内的素因数就可以了呢？&lt;/p&gt;
+
+&lt;p&gt;一个结论：如果一个数 n 含有素因子，则其最小的那个素因子一定不超过 $\sqrt{n}$&lt;/p&gt;
+
+&lt;p&gt;我们可以使用反证法，假设最小的那个素因子 $&gt; \sqrt{n}$, 则最小的两个素因子乘起来就 $&gt;n$ 了。&lt;/p&gt;
+
+&lt;p&gt;好的我们看到 x = 2，然后有&lt;/p&gt;
+
+&lt;p&gt;$yz = 511$&lt;/p&gt;
+
+&lt;p&gt;$2 (y+z) + yz = 671$&lt;/p&gt;
+
+&lt;p&gt;于是 $y + z = 80$&lt;/p&gt;
+
+&lt;p&gt;从而 $511/z + z = 80$, $z&lt;sup&gt;2&lt;/sup&gt; - 80z + 511 = 0$&lt;/p&gt;
+
+&lt;p&gt;套公式&lt;/p&gt;
+
+&lt;p&gt;$z = (80 + \sqrt{80*80 - 4 * 511}) / 2 = $ (80 + 66) / 2 = 73&lt;/p&gt;
+
+&lt;p&gt;$y = (80 - 66) / 2 = 7$&lt;/p&gt;</content><author><name></name></author><summary type="html">设三个质数是 x, y, z</summary></entry><entry><title type="html">Clock</title><link href="http://songzy12.github.io/2019/04/09/clock.html" rel="alternate" type="text/html" title="Clock" /><published>2019-04-09T13:11:45+08:00</published><updated>2019-04-09T13:11:45+08:00</updated><id>http://songzy12.github.io/2019/04/09/clock</id><content type="html" xml:base="http://songzy12.github.io/2019/04/09/clock.html">&lt;p&gt;8点30分之后参加会议，开始时手表时针分针120度角，上午结束时手表时针分针180度角。&lt;/p&gt;
 
 &lt;p&gt;问会议过程中时分呈90度角的情况最多多少次？&lt;/p&gt;
 
@@ -429,85 +483,4 @@ formatter = logging.Formatter(
 ch.setFormatter(formatter)
 
 log.addHandler(ch)
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">reread - Reread supervisor configuration. Do not update or restart the running services. update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;. reload - Reread supervisor configuration, reload supervisord and supervisorctl restart - Restart service(s)</summary></entry><entry><title type="html">WeChat</title><link href="http://songzy12.github.io/2019/02/14/wechat.html" rel="alternate" type="text/html" title="WeChat" /><published>2019-02-14T17:28:30+08:00</published><updated>2019-02-14T17:28:30+08:00</updated><id>http://songzy12.github.io/2019/02/14/wechat</id><content type="html" xml:base="http://songzy12.github.io/2019/02/14/wechat.html">&lt;p&gt;将Android上微信的聊天记录导出为 txt 的过程主要参考这两篇文章：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/28935173&quot;&gt;https://zhuanlan.zhihu.com/p/28935173&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;a href=&quot;https://www.sy2k.com/2018/%E5%BE%AE%E4%BF%A1%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%BC%E5%87%BA%E5%B9%B6%E7%A0%B4%E8%A7%A3/&quot;&gt;https://www.sy2k.com/2018/%E5%BE%AE%E4%BF%A1%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%BC%E5%87%BA%E5%B9%B6%E7%A0%B4%E8%A7%A3/&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt; &lt;/br&gt;&lt;/p&gt;
-
-&lt;p&gt;不需要做的事情大概有这样几点：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;不需要将手机 root&lt;/li&gt;
-&lt;li&gt;不需要使用 Android Studio&lt;/li&gt;
-&lt;li&gt;不需要使用 re 管理器&lt;/li&gt;
-&lt;li&gt;不需要修改安卓虚拟机的 IMEI 码&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;p&gt; &lt;/br&gt;&lt;/p&gt;
-
-&lt;p&gt;需要做的事情整个步骤如下所述：&lt;/p&gt;
-
-&lt;p&gt; &lt;/br&gt;&lt;/p&gt;
-
-&lt;p&gt;如果我们已经有手机的 root 权限，那我们可以直接在手机连接至计算机的情况下使用 &lt;code&gt;adb&lt;/code&gt; 来将 &lt;code&gt;/data/data/com.tencent.mm/MicroMsg&lt;/code&gt; 的某个 md5 子目录下的 &lt;code&gt;EnMicroMsg.db&lt;/code&gt; 拷贝至计算机。&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adb devices
-adb shell
-adb pull /data/data/com.tencent.mm/MicroMsg/xxxx/EnMicroMsg.db .
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;使用 &lt;code&gt;adb devices&lt;/code&gt; 确认 &lt;code&gt;adb&lt;/code&gt; 能够发现我们的手机，&lt;/p&gt;
-
-&lt;p&gt;&lt;code&gt;adb shell&lt;/code&gt; 可以在交互式命令行下找到文件的具体位置，&lt;/p&gt;
-
-&lt;p&gt;然后使用 &lt;code&gt;adb pull&lt;/code&gt; 来将对应位置处的文件从手机拷贝至计算机。&lt;/p&gt;
-
-&lt;p&gt;  &lt;/br&gt;&lt;/p&gt;
-
-&lt;p&gt;但是大概率我们是没有对手机做过 root 操作的，&lt;/p&gt;
-
-&lt;p&gt;除了冒险 root 手机之外我们还有其他的方法，那就是使用安卓模拟器。&lt;/p&gt;
-
-&lt;p&gt;这里我们使用 &lt;code&gt;Genymotion&lt;/code&gt;. 下载安装并运行 &lt;code&gt;Genymotion&lt;/code&gt;，并创建与手机型号一致的虚拟机。&lt;/p&gt;
-
-&lt;p&gt;因为虚拟机和真机的架构有点不同，为了安装微信 apk，我们需要下载与虚拟机相应版本的 &lt;code&gt;ARM_Translation&lt;/code&gt; ，并拖拽至运行中的虚拟机进行安装。&lt;/p&gt;
-
-&lt;p&gt;把微信官网的 apk 拖拽至运行中的虚拟器中进行安装，这样有 root 权限的虚拟机上就可以运行微信了。&lt;/p&gt;
-
-&lt;p&gt;  &lt;/br&gt;&lt;/p&gt;
-
-&lt;p&gt;我们将手机上目标用户的微信聊天记录备份至计算机，然后在虚拟机上登录微信，并将聊天记录备份进行同步。&lt;/p&gt;
-
-&lt;p&gt;注意虽然聊天记录备份也是后缀为 &lt;code&gt;.db&lt;/code&gt; 的文件 &lt;code&gt;Backup.db&lt;/code&gt;，但是我们无法用相同的方式打开查看。&lt;/p&gt;
-
-&lt;p&gt;现在我们使用 adb 将 &lt;code&gt;/data/data/com.tencent.mm/MicroMsg/&lt;/code&gt; 处的 &lt;code&gt;EnMicroMsg.db&lt;/code&gt; 文件拷贝至计算机。&lt;/p&gt;
-
-&lt;p&gt;这是一个加密的 SQLite 文件。&lt;/p&gt;
-
-&lt;p&gt;  &lt;/br&gt;&lt;/p&gt;
-
-&lt;p&gt;接下来我们使用 sqlcipher.exe 打开此数据库文件，但是需要输入相应的密码。&lt;/p&gt;
-
-&lt;p&gt;sqlcipher.exe 可以在这里下载：&lt;/p&gt;
-
-&lt;p&gt;密码的计算方式需要查看手机的IMEI 和 微信的 uid。&lt;/p&gt;
-
-&lt;p&gt;微信的 uid 通过 chrome 自带插件查看网页微信使用中产生的 Log：&amp;lt;chrome://net-internals/#events&gt;&lt;/p&gt;
-
-&lt;p&gt;而手机的 IMEI 可以通过在拨号键盘上输入： &lt;code&gt;*#06#&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;最后将 IMEI 和 uid 进行拼接，并做MD5计算：&lt;a href=&quot;http://tool.chinaz.com/tools/md5.aspx&quot;&gt;http://tool.chinaz.com/tools/md5.aspx&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;在计算时使用 32位[小] 选项，取计算结果的前7位即是数据库文件密码。&lt;/p&gt;
-
-&lt;p&gt;  &lt;/br&gt;&lt;/p&gt;
-
-&lt;p&gt;至此，我们就可以愉快地查看数据库内容啦。&lt;/p&gt;
-
-&lt;p&gt;将 &lt;code&gt;message&lt;/code&gt; 表里数据导出为 csv 就可以愉快地做数据分析了。&lt;/p&gt;</content><author><name></name></author><summary type="html">将Android上微信的聊天记录导出为 txt 的过程主要参考这两篇文章：</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">reread - Reread supervisor configuration. Do not update or restart the running services. update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;. reload - Reread supervisor configuration, reload supervisord and supervisorctl restart - Restart service(s)</summary></entry></feed>
