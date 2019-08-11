@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Linear-equation"
+title: "Indefinite equation"
 date: 2019-04-05T01:22:02+08:00
 ---
 
