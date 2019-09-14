@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Linux | Zhengyang Song&rsquo;s Blog</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="Linux" />
+<meta name="author" content="Zhengyang Song" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="locale" />
+<meta property="og:description" content="locale" />
+<link rel="canonical" href="http://songzy12.github.io/2017/06/23/linux.html" />
+<meta property="og:url" content="http://songzy12.github.io/2017/06/23/linux.html" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-23T14:38:26+08:00" />
+<script type="application/ld+json">
+{"url":"http://songzy12.github.io/2017/06/23/linux.html","author":{"@type":"Person","name":"Zhengyang Song"},"headline":"Linux","dateModified":"2017-06-23T14:38:26+08:00","description":"locale","datePublished":"2017-06-23T14:38:26+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/06/23/linux.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /><script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-147981013-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Zhengyang Song&#39;s Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Linux</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-06-23T14:38:26+08:00" itemprop="datePublished">Jun 23, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <h2>locale</h2>
+
+<pre><code>vi ~/.bashrc
+</code></pre>
+
+<pre><code>export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+</code></pre>
+
+<h2>EFI</h2>
+
+<p><a href="http://linuxbsdos.com/2015/09/05/how-to-delete-grub-files-from-a-boot-efi-partition-in-windows-10/">http://linuxbsdos.com/2015/09/05/how-to-delete-grub-files-from-a-boot-efi-partition-in-windows-10/</a></p>
+
+<pre><code>% These commands are used to identify and select the hard drive
+
+diskpart
+
+list disk
+
+sel disk 
+
+% These commands are used to list the partitions, select the Boot EFI partition, 
+% then assign it a drive letter
+
+list vol
+
+sel vol 2
+
+assign letter=D:
+
+exit
+
+% These commands are used to change into the Boot EFI folder and delete the GRUB folder
+
+cd /d D:
+
+ls
+
+ls EFI
+
+cd EFI
+
+ls
+
+rmdir /s ubuntu
+</code></pre>
+
+<pre><code>diskpart
+select disk 0
+select partition 3
+delete partition override
+exit
+</code></pre>
+
+<h2>apt</h2>
+
+<pre><code>E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
+E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
+
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+</code></pre>
+
+<pre><code>Reading package lists... Error!
+E: Encountered a section with no Package: header
+E: Problem with MergeList /var/lib/apt/lists/cn.archive.ubuntu.com_ubuntu_dists_xenial-backports_main_binary-amd64_Packages
+E: The package lists or status file could not be parsed or opened.
+
+sudo rm -vf /var/lib/apt/lists/*
+sudo apt-get update
+</code></pre>
+
+<h3>upgrade</h3>
+
+<pre><code>sudo apt-get update
+sudo apt upgrade
+</code></pre>
+
+<pre><code>2 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+29 not fully installed or removed.
+</code></pre>
+
+<h3>autoclean, clean, autoremove</h3>
+
+<ul>
+<li><code>clean</code>: clean clears out the local repository of retrieved package files. It removes everything but the lock file from <code>/var/cache/apt/archives/</code> and <code>/var/cache/apt/archives/partial/</code>. When APT is used as a dselect(1) method, clean is run automatically. Those who do not use dselect will likely want to run apt-get clean from time to time to free up disk space.</li>
+<li><code>autoclean</code>: Like clean, autoclean clears out the local repository of retrieved package files. The difference is that it only removes package files that can no longer be downloaded, and are largely useless. This allows a cache to be maintained over a long period without it growing out of control. The configuration option <code>APT::Clean-Installed</code> will prevent installed packages from being erased if it is set to off.</li>
+<li><code>autoremove</code>: is used to remove packages that were automatically installed to satisfy dependencies for some package and that are no more needed.</li>
+</ul>
+
+
+<h2>awk</h2>
+
+<ul>
+<li>-F: &ndash;filed-separator</li>
+</ul>
+
+
+<h2>bg</h2>
+
+<pre><code>Ctrl-z
+fg
+</code></pre>
+
+<h2>chmod</h2>
+
+<pre><code>rm: cannot remove ‘date.csv’: Permission denied
+
+chmod 777 .
+</code></pre>
+
+<h2>curl</h2>
+
+<pre><code>curl -L https://raw.githubusercontent.com/edx/configuration/master/vagrant/release/devstack/Vagrantfile &gt; Vagrantfile
+curl -o vagrant_1.7.2_x86_64.deb https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
+</code></pre>
+
+<ul>
+<li>-L, &ndash;location: (HTTP/HTTPS) If the server reports that the requested page has moved to a different location (indicated with a Location: header and a 3XX response code), this option will make curl redo the request on the new place.</li>
+<li>-o, &ndash;output <file>: Write output to <file> instead of stdout.</li>
+</ul>
+
+
+<pre><code>curl http://{site,host}.host[1-5].com -o "#1_#2" 
+</code></pre>
+
+<h2>dirname</h2>
+
+<p>Get the name of the directory where a script is executed:</p>
+
+<pre><code>echo $(dirname $SHELL)
+echo $(dirname `readlink -f -- $0`)
+</code></pre>
+
+<h2>dpkg</h2>
+
+<pre><code>29 not fully installed or removed.
+</code></pre>
+
+<pre><code>sudo apt install -f
+</code></pre>
+
+<p>Searches for packages that have been installed only partially on your system. dpkg will suggest what to do with them to get them working.</p>
+
+<pre><code>sudo dpkg -C 
+</code></pre>
+
+<pre><code>The following packages have been unpacked but not yet configured.
+</code></pre>
+
+<pre><code>sudo dpkg --configure -a
+</code></pre>
+
+<pre><code>dpkg-query: package 'ibus-table' is not installed
+</code></pre>
+
+<pre><code>sudo apt install ibus-table
+</code></pre>
+
+<h2>du</h2>
+
+<p>disk usage.</p>
+
+<ul>
+<li>-s: &ndash;summarize</li>
+<li>-h: &ndash;human-readable</li>
+</ul>
+
+
+<pre><code>du -sh *
+</code></pre>
+
+<h2>file</h2>
+
+<pre><code>file CATS20LINUX 
+</code></pre>
+
+<pre><code>-bash: ./CATS20LINUX: No such file or directory 
+</code></pre>
+
+<p>You&rsquo;re probably trying to run a 32-bit binary on a 64-bit system that doesn&rsquo;t have 32-bit support installed.</p>
+
+<h2>find</h2>
+
+<pre><code>find . -name 'jquery.min.js'
+find . -name '*.md'
+</code></pre>
+
+<h2>gcc</h2>
+
+<p><a href="http://translationproject.org/domain/gcc.html">translationproject</a>.</p>
+
+<p><a href="http://docs.embarcadero.com/products/rad_studio/radstudio2007/RS2007_helpupdates/HUpdate4/EN/html/devwin32/cppcompmessagespart_xml.html">error message</a>.</p>
+
+<h2>gnome-open</h2>
+
+<pre><code>gnome-open main.pdf
+</code></pre>
+
+<h2>grep</h2>
+
+<pre><code>find -iname "*.py" | xargs grep -i mooc2
+</code></pre>
+
+<pre><code>grep -r 'pending' .
+</code></pre>
+
+<ul>
+<li>-v: &ndash;invert-match</li>
+<li>-i: &ndash;ignore-case</li>
+<li>-f: FILE</li>
+<li>-c: &ndash;count</li>
+<li>-n: &ndash;line-number</li>
+</ul>
+
+
+<h2>hosts</h2>
+
+<pre><code>sudo: unable to resolve host (none)
+</code></pre>
+
+<ul>
+<li>That the <code>/etc/hostname</code> file contains just the name of the machine.</li>
+<li>That <code>/etc/hosts</code> has an entry for localhost. It should have something like:</li>
+</ul>
+
+
+<pre><code>127.0.0.1    localhost.localdomain localhost
+127.0.1.1    my-machine
+</code></pre>
+
+<h2>ip</h2>
+
+<pre><code>curl http://ifconfig.me/ip
+wget -O- -q http://ifconfig.me/ip
+</code></pre>
+
+<h2>jar</h2>
+
+<pre><code>jar tf libsvm-3.17-sources.jar
+jar xf libsvm-3.17-sources.jar svm_scale.java
+</code></pre>
+
+<h2>javac</h2>
+
+<p>If anyone else has ever wondered about this I eventually tore open the <code>tools.jar</code> file located in <code>jdk(version_here)/lib</code>. From there your going to <code>sun/tools/javac/javac.properties</code> if you want to actually read the messages.</p>
+
+<pre><code>cd /usr/lib/jvm/java-8-openjdk-amd64/lib
+jar xf tools.jar sun/tools/javac/resources/javac.properties
+</code></pre>
+
+<h2>kill</h2>
+
+<pre><code>sudo netstat -antlp
+kill -s 9 20383
+</code></pre>
+
+<pre><code>jobs
+kill %1
+</code></pre>
+
+<pre><code>for pid in $(ps -ef | awk '/some search/ {print $2}'); do kill -9 $pid; done
+</code></pre>
+
+<h2>pkill</h2>
+
+<pre><code>pkill shardkv.test
+</code></pre>
+
+<h2>ls</h2>
+
+<ul>
+<li>-F(&ndash;classify): append indicator (one of <code>*/=&gt;@|</code>) to entries</li>
+<li><p>-1: list 1 file per line</p></li>
+<li><p><code>/</code> is a directory</p></li>
+<li><code>@</code> is a symlink</li>
+<li><code>|</code> is a named pipe (fifo)</li>
+<li><code>=</code> is a socket.</li>
+<li><code>*</code> for executable files</li>
+<li><code>&gt;</code> is for a &ldquo;door&rdquo; &ndash; a file type currently not implemented for Linux, but supported on Sun/Solaris.</li>
+</ul>
+
+
+<h2>lsb_release</h2>
+
+<p>Linux Standard Base.</p>
+
+<pre><code>lsb_release -a
+cat /etc/issue
+</code></pre>
+
+<h2>lsof</h2>
+
+<pre><code>lsof -u edxapp
+</code></pre>
+
+<p>lsof: list open files</p>
+
+<h2>man</h2>
+
+<pre><code>man 2 stat
+</code></pre>
+
+<p>The number corresponds to what section of the manual that page is from. The man page for man itself (man man) explains it and lists the standard ones:</p>
+
+<pre><code>    1      User Commands
+    2      System Calls
+    3      C Library Functions
+    4      Devices and Special Files
+    5      File Formats and Conventions
+    6      Games et. al.
+    7      Miscellanea
+    8      System Administration tools and Daemons
+</code></pre>
+
+<h2>meminfo</h2>
+
+<pre><code>cat /proc/meminfo
+</code></pre>
+
+<p>MemFree: The amount of physical RAM, in kilobytes, left unused by the system.</p>
+
+<p>MemAvailable: An estimate of how much memory is available for starting new applications, without swapping. Calculated from MemFree, SReclaimable, the size of the file LRU lists, and the low watermarks in each zone. The estimate takes into account that the system needs some page cache to function well, and that not all reclaimable slab will be reclaimable, due to items being in use. The impact of those factors will vary from system to system.</p>
+
+<h2>mkdir</h2>
+
+<ul>
+<li>-p: no error if existing, make parent directories as needed</li>
+</ul>
+
+
+<h2>netstat</h2>
+
+<ul>
+<li>-n: &ndash;numeric</li>
+<li>-p: &ndash;program</li>
+<li>-e: &ndash;extend</li>
+<li>-a: &ndash;all</li>
+<li>-u: UDP</li>
+<li>-t: TCP</li>
+</ul>
+
+
+<h2>option flags</h2>
+
+<pre><code>echo $-
+himBH
+</code></pre>
+
+<ul>
+<li>h: hashall:</li>
+<li>i: interactive</li>
+<li>m: monitor mode: <code>CTRL+Z</code>, <code>fg</code></li>
+<li>H: history expand: <code>~/.bash_history</code>, <code>!!</code></li>
+<li>B: brace expansion: <code>cp file{,.bak}</code></li>
+</ul>
+
+
+<p><code>if [ "${-#*i}" != "$-" ]</code> checking if your shell is interactive or not</p>
+
+<h2>passwd</h2>
+
+<pre><code>vi /etc/passwd
+sudo vi /etc/shadow
+</code></pre>
+
+<p>GECOS(comments field): general electric comprehensive operating system.</p>
+
+<h2>pgrep</h2>
+
+<pre><code>pgrep std_run.sh
+</code></pre>
+
+<h2>ps</h2>
+
+<pre><code>ps aux
+ps -f -u songzy
+</code></pre>
+
+<h2>pscp</h2>
+
+<pre><code>pscp songzy12@taoli.tsinghuax.org:Code-Craft/future_net.tar.gz .
+pscp songzy12@taoli.tsinghuax.org:Code-Craft/future_net/route.cpp .
+</code></pre>
+
+<h2>scp</h2>
+
+<pre><code>scp -r remote_username@remote_ip:remote_folder local_folder
+</code></pre>
+
+<h2>service</h2>
+
+<pre><code>service ssh status
+service ssh restart
+netstat –nlp | grep 22
+</code></pre>
+
+<h2>shift</h2>
+
+<pre><code>#!/bin/bash
+echo "Input: $@"
+shift 3
+echo "After shift: $@"
+</code></pre>
+
+<pre><code>$ myscript.sh one two three four five six
+
+Input: one two three four five six
+After shift: four five six
+</code></pre>
+
+<h2>ssh-keygen</h2>
+
+<p>client:</p>
+
+<pre><code>ssh-keygen -t rsa
+</code></pre>
+
+<p>server:</p>
+
+<pre><code>cat id_dsa.pub &gt;&gt; ~/.ssh/authorized_keys
+chmod 600 authorized_keys
+chmod 700 -R .ssh
+</code></pre>
+
+<ul>
+<li>-t: type</li>
+<li>-b: bits</li>
+<li>-C: comment</li>
+</ul>
+
+
+<h2>source</h2>
+
+<p>It executes the content of the file in the current shell.</p>
+
+<p>synonym: <code>.</code> (period).</p>
+
+<h2>squid</h2>
+
+<p>Squid（乌贼） is a caching and forwarding web proxy.</p>
+
+<h2>sticky bit</h2>
+
+<p>Once set, only the file&rsquo;s owner, the directory&rsquo;s owner, or root user can rename or delete the file.</p>
+
+<ul>
+<li>t: <code>chmod o+t /opt/dump/</code></li>
+<li>1: <code>chmod 1757 /opt/dump/</code></li>
+</ul>
+
+
+<h2>su</h2>
+
+<p>su (short for substitute user)</p>
+
+<h2>tar</h2>
+
+<pre><code>tar zxvf backups.tgz
+tar xvf jacana-data.tar.bz2
+</code></pre>
+
+<ul>
+<li>-z : Uncompress the resulting archive with gzip command.</li>
+<li>-x : Extract to disk from the archive.</li>
+<li>-v : Produce verbose output i.e. show progress and file names while extracting files.</li>
+<li>-f backup.tgz : Read the archive from the specified file called backup.tgz.</li>
+<li>-C /tmp/data : Unpack/extract files in /tmp/data instead of the default current directory.</li>
+</ul>
+
+
+<h2>unzip</h2>
+
+<pre><code>unzip '*.zip'
+unzip -v test.zip
+unzip -o test.zip -d tmp/
+</code></pre>
+
+<h2>gunzip</h2>
+
+<pre><code>gunzip file.gz
+gzip -d file.gz
+</code></pre>
+
+<h2>tee</h2>
+
+<pre><code>tee 
+</code></pre>
+
+<p>In computing, <code>tee</code> is a command in command-line interpreters (shells) using standard streams which reads standard input and writes it to both standard output and one or more files, effectively duplicating its input.</p>
+
+<h2>terminal</h2>
+
+<pre><code>ctrl+u
+ctrl+k
+</code></pre>
+
+<h2>top</h2>
+
+<pre><code>top
+cat /proc/cpuinfo
+cat /proc/meminfo
+</code></pre>
+
+<h2>tree</h2>
+
+<pre><code>sudo gedit /etc/apt/sources.list
+deb http://us.archive.ubuntu.com/ubuntu xenial main universe
+sudo apt-get update
+sudo apt-get install tree
+</code></pre>
+
+<h2>type</h2>
+
+<pre><code>type ls
+type cd
+</code></pre>
+
+<h2>wc</h2>
+
+<ul>
+<li>-l: print the newline counts</li>
+</ul>
+
+
+<h2>wget</h2>
+
+<ul>
+<li>-O: write documents to FILE</li>
+<li>-o: log messages to FILE</li>
+</ul>
+
+
+<pre><code>--2016-11-03 01:59:25--  http://pasky.or.cz/dev/brmson/glove.6B.50d.txt.gz
+Resolving pasky.or.cz (pasky.or.cz)... 80.243.110.53, 2a01:8c00:ff00:8320::
+Connecting to pasky.or.cz (pasky.or.cz)|80.243.110.53|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 69182520 (66M) [application/x-gzip]
+Saving to: ‘glove.6B.50d.txt.gz.4’
+
+glove.6B.50d.txt.gz.  48%[=========&gt;            ]  32.03M  8.27MB/s    in 5.9s
+
+2016-11-03 01:59:32 (5.43 MB/s) - Read error at byte 33586057/69182520 (Connection reset by peer). Retrying.
+</code></pre>
+
+<p>But I can use browser to download.</p>
+
+<hr />
+
+<h2>putty</h2>
+
+<pre><code>Network error: software caused connection abort
+</code></pre>
+
+<pre><code>sudo service ssh restart 
+</code></pre>
+
+<p>Test <code>127.0.0.1:7777</code>, they have the same behavior.</p>
+
+<p>The SSH server service in Ubuntu is named &ldquo;ssh&rdquo;.</p>
+
+<p>Just power off and restart.</p>
+
+<hr />
+
+<h2>cmd</h2>
+
+<h3>%~dp0</h3>
+
+<ul>
+<li><code>%0</code>: the batch file itself</li>
+<li><code>%1</code>-<code>%9</code>:  command line arguments</li>
+<li><code>d</code>: the drive letter</li>
+<li><code>p</code>: the path of the parameter</li>
+</ul>
+
+
+<h3>cls</h3>
+
+<p>clean screen.</p>
+
+<h3>findstr</h3>
+
+<pre><code>type *.md | findstr "&lt;p&gt;"
+</code></pre>
+
+<h3>mode</h3>
+
+<p>Sets the number of lines and columns (characters/line) of the display.</p>
+
+<pre><code>mode con cols=100 lines=60
+</code></pre>
+
+<hr />
+
+  </div><div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://songzy12.github.io/2017/06/23/linux.html';
+      this.page.identifier = 'http://songzy12.github.io/2017/06/23/linux.html';
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+
+      s.src = 'https://songzy12-github-io.disqus.com/embed.js';
+
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2017/06/23/linux.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song</li><li><a class="u-email" href="mailto:songzy.thu@gmail.com">songzy.thu@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

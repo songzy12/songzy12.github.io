@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>Python Project | Zhengyang Song&rsquo;s Blog</title>
+<meta name="generator" content="Jekyll v3.8.6" />
+<meta property="og:title" content="Python Project" />
+<meta name="author" content="Zhengyang Song" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Here." />
+<meta property="og:description" content="Here." />
+<link rel="canonical" href="http://songzy12.github.io/2016/08/12/python-project.html" />
+<meta property="og:url" content="http://songzy12.github.io/2016/08/12/python-project.html" />
+<meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-08-12T13:51:20+08:00" />
+<script type="application/ld+json">
+{"url":"http://songzy12.github.io/2016/08/12/python-project.html","author":{"@type":"Person","name":"Zhengyang Song"},"headline":"Python Project","dateModified":"2016-08-12T13:51:20+08:00","description":"Here.","datePublished":"2016-08-12T13:51:20+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/08/12/python-project.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /><script>
+if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-147981013-1', 'auto');
+  ga('send', 'pageview');
+}
+</script>
+  
+</head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Zhengyang Song&#39;s Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Python Project</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2016-08-12T13:51:20+08:00" itemprop="datePublished">Aug 12, 2016
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><a href="http://jeffknupp.com/blog/2013/08/16/open-sourcing-a-python-project-the-right-way/">Here</a>.</p>
+
+<ul>
+<li>project layout (directory structure)</li>
+<li><code>setuptools</code> and <code>setup.py</code> file</li>
+<li><code>git</code> for version control</li>
+<li><code>Github</code> Issues for bug tracking, feature requests, planned features, release management.</li>
+<li><code>git-flow</code> for git work flow</li>
+<li><code>py.test</code> for unit testing</li>
+<li><code>tox</code> for testing standardization</li>
+<li><code>Sphinx</code> for auto-generated HTML documentation</li>
+<li><code>TravisCI</code> for continuous testing integration</li>
+<li><code>ReadTheDocs</code> for continuous documentation integration</li>
+<li><code>Cookiecutter</code> to automate these steps when starting your next project</li>
+</ul>
+
+
+<h2>Project Layout</h2>
+
+<ul>
+<li>LICENSE</li>
+<li>README.md</li>
+<li>TODO.md</li>
+<li>docs/</li>
+<li>requirements.txt</li>
+<li>sandman/</li>
+<li>tests/</li>
+<li>setup.py</li>
+</ul>
+
+
+<h2>setuptools and setup.py</h2>
+
+<p><a href="https://setuptools.readthedocs.io/en/latest/setuptools.html">Here</a> and <a href="https://docs.python.org/2/distutils/index.html">here</a>.</p>
+
+<p>The <code>setuptools</code> package (really a set of enhancements for <code>distutils</code>) simplifies the building and distribution of Python packages.</p>
+
+<p><code>setup.py</code> should live in your project&rsquo;s root directory. The most important section of <code>setup.py</code> is the call to <code>setuptools.setup</code>, where all the meta-information about the package lives.</p>
+
+<pre><code>setup(
+    version=sandman.__version__,
+    install_requires = ['docutils&gt;=0.3'],
+    cmdclass={'test': PyTest},
+    long_description=__doc__, # metadata for upload to PyPI
+    entry_points={
+        'console_scripts': [
+            'sandmanctl = sandman.sandmanctl:run',
+            ],
+        },
+    packages = find_packages(),
+    test_suite='sandman.test.test_sandman', # for `python setup.py test`    
+    package_data={'sandman': ['templates/**', 'static/*/*']},
+)
+</code></pre>
+
+<h3>version</h3>
+
+<p>We can always use the package&rsquo;s version to populate the <code>version</code> parameter in <code>setup</code>.</p>
+
+<p>A version consists of an alternating series of release numbers and pre-release or post-release tags.</p>
+
+<p>A release number is a series of digits punctuated by dots.  Each series of digits is treated numerically.</p>
+
+<p>Following a release number, you can have either a pre-release or post-release tag.</p>
+
+<p>A pre-release tag is a series of letters that are alphabetically before <code>final</code>. You do not have to place a dot or dash before the prerelease tag if it’s immediately after a number. there are three special prerelease tags that are treated as if they were the letter <code>c</code>: <code>pre</code>, <code>preview</code>, and <code>rc</code>.</p>
+
+<p>A post-release tag is either a series of letters that are alphabetically greater than or equal to <code>final</code>, or a dash (<code>-</code>). Post-release tags are generally used to separate patch numbers, port numbers, build numbers, revision numbers, or date stamps from the release number.</p>
+
+<p>For example, <code>0.6a9.dev-r41475</code> could denote Subversion revision <code>41475</code> of the in- development version of the ninth alpha of release <code>0.6</code>. Notice that dev is a pre-release tag, so this version is a lower version number than <code>0.6a9</code>, which would be the actual ninth alpha of release <code>0.6</code>. But the <code>-r41475</code> is a post-release tag, so this version is newer than <code>0.6a9.dev</code>.</p>
+
+<h3>long_description</h3>
+
+<p>reStructuredText: It is part of the <code>Docutils</code> project of the Python Doc-SIG (Documentation Special Interest Group), aimed at creating a set of tools for Python similar to <code>Javadoc</code> for <code>Java</code> or <code>POD</code>(Plain Old Documentation) for <code>Perl</code>. <code>Docutils</code> can extract comments and information from Python programs, and format them into various forms of program documentation.</p>
+
+<p>REST: REpresentational State Transfer.</p>
+
+<p>I use <code>pandoc</code> to automatically generate <code>README.rst</code> from <code>README.md</code>.</p>
+
+<h3>package_data</h3>
+
+<p>Also notice that if you use paths, you must use a forward slash (/) as the path separator, even if you are on Windows. <code>Setuptools</code> automatically converts slashes to appropriate platform-specific separators at build time.</p>
+
+<ul>
+<li>include_package_data: Accept all data files and directories matched by <code>MANIFEST.in</code>.</li>
+<li>package_data: Specify additional patterns to match files and directories that may or may not be matched by <code>MANIFEST.in</code> or found in source control.</li>
+<li>exclude_package_data: Specify patterns for data files and directories that should not be included when a package is installed, even if they would otherwise have been included due to the use of the preceding options.</li>
+</ul>
+
+
+<h3>extras_require:</h3>
+
+<p>A dictionary mapping names of “extras” (optional features of your project) to strings or lists of strings specifying what other distributions must be installed to support those features.</p>
+
+<h3>test_suite</h3>
+
+<p><code>py.test</code> has a special entry (<code>class PyTest</code>) to allow <code>python setup.py test</code> to work correctly.</p>
+
+<p>A string naming a <code>unittest.TestCase</code> subclass (or a package or module containing one or more of them, or a method of such a subclass), or naming a function that can be called with no arguments and returns a <code>unittest.TestSuite</code>. If the named suite is a module, and the module has an <code>additional_tests()</code> function, it is called and the results are added to the tests to be run. If the named suite is a package, any submodules and subpackages are recursively added to the overall test suite.</p>
+
+<h3>entry_points</h3>
+
+<p>When this project is installed on non-Windows platforms (using <code>setup.py install</code>, <code>setup.py develop</code>, or by using EasyInstall), a set of <code>foo</code>, <code>bar</code>, and <code>baz</code> scripts will be installed that import <code>main_func</code> and <code>some_func</code> from the specified modules. The functions you specify are called with no arguments, and their return value is passed to <code>sys.exit()</code>, so you can return an errorlevel or message to print to <code>stderr</code>.</p>
+
+<p>Although <code>setup()</code> supports a <code>scripts</code> keyword for pointing to pre-made scripts to install, the recommended approach to achieve cross-platform compatibility is to use <code>console_scripts</code> entry points.</p>
+
+<h2>README.md</h2>
+
+<p><code>README.md</code>:</p>
+
+<ul>
+<li>A description of your project</li>
+<li>Links to the project&rsquo;s ReadTheDocs page</li>
+<li>A TravisCI button showing the state of the build</li>
+<li>&ldquo;Quickstart&rdquo; documentation (how to quickly install and use your project)</li>
+<li>A list of non-Python dependencies (if any) and how to install them</li>
+</ul>
+
+
+<h2>git-flow</h2>
+
+<p><a href="http://nvie.com/posts/a-successful-git-branching-model/">Here</a>.</p>
+
+<p>The <code>develop</code> is the branch you&rsquo;ll be doing most of your work off of; it&rsquo;s also the branch that represents the code to be deployed in the next release. <code>feature</code> branches represent non-trivial features and fixes that have not yet been deployed (a completed <code>feature</code> branch is merged back into <code>develop</code>). Updating master is done through the creation of a <code>release</code>.</p>
+
+<pre><code>git flow init
+
+git flow feature start &lt;feature name&gt;
+git flow feature finish &lt;feature name&gt;
+
+git flow release start &lt;release number&gt;
+git flow release finish &lt;release number&gt;
+
+git flow hotfix start &lt;release number&gt;
+git flow hotfix finish &lt;release number&gt;
+</code></pre>
+
+<h2>virtualenvwrapper</h2>
+
+<pre><code>pip install `virtualenvwrapper`
+echo "source /usr/local/bin/virtualenvwrapper.sh" &gt;&gt; ~/.bashrc
+</code></pre>
+
+<pre><code>mkproject [OPTIONS] DEST_DIR
+mkvirtualenv ossproject
+deactivate
+workon &lt;project name&gt;
+</code></pre>
+
+<pre><code>pip freeze &gt; requirements.txt
+</code></pre>
+
+<p>Commit <code>requirements.txt</code> to your git repo. In addition, you can now add the packages listed there as the value for the <code>install_requirements</code> argument to <code>distutils.setup</code> in <code>setup.py</code>.</p>
+
+<p>Doing that now will ensure that, when we later upload the package to <code>PyPI</code>. It can be <code>pip install</code>ed with automatically resolved dependencies.</p>
+
+<h2>py.test</h2>
+
+<p>In the Python automated testing ecosystem, there are two main alternatives to the (quite usable) Python standard library <code>unittest</code> package: <code>nose</code> and <code>py.test</code>. Both extend <code>unittest</code> to make it easier to work with while adding additional functionality.</p>
+
+<ul>
+<li>Support for setuptools/distutils projects: <code>python setup.py test</code> still works</li>
+<li>Support for &ldquo;normal&rdquo; <code>assert</code> statements (rather than needing to remember all the jUnit-style assert functions)</li>
+<li>Less boilerplate</li>
+<li>Support for multiple testing styles: <code>unittest</code>, <code>doctest</code>, <code>nose</code> tests</li>
+</ul>
+
+
+<p>In the <code>test</code> directory, create a file called <code>test_&lt;project_name&gt;.py</code>. <code>py.test</code>&rsquo;s test discovery mechanism will treat any file with the <code>test_</code> prefix as a test file (unless told otherwise).</p>
+
+<pre><code>pip install pytest-cov
+py.test --cov=path/to/package --cov-report=term --cov-report=html
+</code></pre>
+
+<h2>Tox</h2>
+
+<p><code>tox.ini</code>:</p>
+
+<pre><code>[tox]
+envlist=py27, py34
+
+[testenv]
+deps=
+    pytest
+    coverage
+    pytest-cov
+setenv=
+    PYTHONWARNINGS=all
+
+[pytest]
+adopts=--doctest-modules
+python_files=*.py
+python_functions=test_
+norecursedirs=.tox .git
+
+[testenv:py27]
+commands=
+    py.test --doctest-module
+
+[testenv:py34]
+commands=
+    py.test --doctest-module
+
+[testenv:py27verbose]
+basepython=python
+commands=
+    py.test --doctest-module --cov=. --cov-report term
+
+[testenv:py34verbose]
+basepython=python3.4
+commands=
+    py.test --doctest-module --cov=. --cov-report term
+</code></pre>
+
+<pre><code>tox
+tox -e py33verbose
+</code></pre>
+
+<p><code>setup.py</code></p>
+
+<pre><code>setup(
+    #...,
+    tests_require=['tox'],
+    cmdclass = {'test': Tox},
+    )
+</code></pre>
+
+<h2>Sphinx</h2>
+
+<p>We&rsquo;ll be keeping our documentation in the <code>docs</code> directory and the generated documentation in the <code>docs/generated</code> directory.</p>
+
+<p>To auto-generate reStructured Text documentation files from your <code>docstring</code>s, run the following command in your project&rsquo;s root directory:</p>
+
+<pre><code>sphinx-apidoc -F -o docs &lt;package name&gt;
+</code></pre>
+
+<p>This will create a <code>docs</code> directory with a number of documentation files. In addition, it creates a <code>conf.py</code> file, which is responsible for configuration of your documentation. You&rsquo;ll also see a <code>Makefile</code>, handy for building HTML documentation in one command (<code>make html</code>).</p>
+
+<h2>PyPI</h2>
+
+<p>Even if your project is available on GitHub, it&rsquo;s not until a release is uploaded to PyPI that your project is useful.</p>
+
+<p><code>cheesecake</code>. It analyzes your package and assigns &ldquo;scores&rdquo; in a number of categories. It measures how easy/correct packaging and installing your package is, the quality of the code, and the quality and quantity of your documentation.</p>
+
+<pre><code>python setup.py register
+python setup.py sdist upload
+</code></pre>
+
+<p>After uploading your first release to PyPI, the basic workflow is this:</p>
+
+<ul>
+<li>Do some work on your package (i.e. fix bugs, add features, etc)</li>
+<li>Make sure the tests pass</li>
+<li>&ldquo;Freeze&rdquo; your code by creating a release branch in git-flow</li>
+<li>Update the <strong>version</strong> number in your package&rsquo;s <strong>init</strong>.py file</li>
+<li>Run python setup.py sdist upload to upload the new version of your package to PyPI</li>
+</ul>
+
+
+<p>As long as you&rsquo;re properly managing your version numbers, there is no such thing as releasing &ldquo;too frequently.&rdquo;</p>
+
+<h2>TravisCI</h2>
+
+<p>Continuous Integration refers to the process of continuously integrating all changes for a project (rather than periodic bulk updates).</p>
+
+<p>Each time we push a commit to GitHub our tests run, telling us if the commit broke something.</p>
+
+<pre><code>language: python
+python:
+    - "2.7"
+install: 
+    - "pip install -r requirements.txt --use-mirrors"
+script: 
+    - "python setup.py test"
+</code></pre>
+
+<h2>ReadTheDocs</h2>
+
+<ul>
+<li>Repo: <a href="https://github.com/github_username/project_name.git">https://github.com/github_username/project_name.git</a></li>
+<li>Default Branch: develop</li>
+<li>Default Version: latest</li>
+<li>Python configuration file: (leave blank)</li>
+<li>Use virtualenv: (checked)</li>
+<li>Requirements file: requirements.txt</li>
+<li>Documentation Type: Sphinx HTML</li>
+</ul>
+
+
+<h2>Cookiecutter</h2>
+
+<p><code>Cookiecutter</code> is a command line tool that automates the process of starting a project in a way that makes doing the stuff discussed in this article easy.</p>
+
+<p>Don&rsquo;t repeat yourself.</p>
+
+  </div><div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://songzy12.github.io/2016/08/12/python-project.html';
+      this.page.identifier = 'http://songzy12.github.io/2016/08/12/python-project.html';
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+
+      s.src = 'https://songzy12-github-io.disqus.com/embed.js';
+
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2016/08/12/python-project.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song</li><li><a class="u-email" href="mailto:songzy.thu@gmail.com">songzy.thu@gmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

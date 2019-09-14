@@ -75,7 +75,23 @@ sudo iptables -t nat -D POSTROUTING 7
 sudo iptables -t nat -A POSTROUTING -p tcp -d 10.0.2.180 --dport 9005 -j SNAT --to-source 101.6.244.4
 </code></pre>
 
-  </div><a class="u-url" href="/2019/02/28/iptables.html" hidden></a>
+  </div><div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = 'http://songzy12.github.io/2019/02/28/iptables.html';
+      this.page.identifier = 'http://songzy12.github.io/2019/02/28/iptables.html';
+    };
+
+    (function() {
+      var d = document, s = d.createElement('script');
+
+      s.src = 'https://songzy12-github-io.disqus.com/embed.js';
+
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2019/02/28/iptables.html" hidden></a>
 </article>
 
       </div>
