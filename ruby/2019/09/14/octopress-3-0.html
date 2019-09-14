@@ -2,22 +2,23 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.5.0 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
 <title>Octopress 3.0 | Zhengyang Song&rsquo;s Blog</title>
-<meta name="generator" content="Jekyll v3.8.4" />
+<meta name="generator" content="Jekyll v3.8.6" />
 <meta property="og:title" content="Octopress 3.0" />
+<meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="root" />
-<meta property="og:description" content="root" />
-<link rel="canonical" href="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html" />
-<meta property="og:url" content="http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html" />
+<meta name="description" content="new post" />
+<meta property="og:description" content="new post" />
+<link rel="canonical" href="http://localhost:4000/ruby/2019/09/14/octopress-3-0.html" />
+<meta property="og:url" content="http://localhost:4000/ruby/2019/09/14/octopress-3-0.html" />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Blog" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-11-17T14:08:14+08:00" />
+<meta property="article:published_time" content="2019-09-14T14:08:14+08:00" />
 <script type="application/ld+json">
-{"headline":"Octopress 3.0","dateModified":"2018-11-17T14:08:14+08:00","datePublished":"2018-11-17T14:08:14+08:00","url":"http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/ruby/2018/11/17/octopress-3-0.html"},"description":"root","@type":"BlogPosting","@context":"http://schema.org"}</script>
+{"url":"http://localhost:4000/ruby/2019/09/14/octopress-3-0.html","author":{"@type":"Person","name":"Zhengyang Song"},"headline":"Octopress 3.0","dateModified":"2019-09-14T14:08:14+08:00","description":"new post","datePublished":"2019-09-14T14:08:14+08:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/ruby/2019/09/14/octopress-3-0.html"},"@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/">Zhengyang Song&#39;s Blog</a><nav class="site-nav">
@@ -30,7 +31,7 @@
           </span>
         </label>
 
-        <div class="trigger"><a class="page-link" href="/about/">About</a></div>
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
       </nav></div>
 </header>
 <main class="page-content" aria-label="Content">
@@ -40,37 +41,63 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Octopress 3.0</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2018-11-17T14:08:14+08:00" itemprop="datePublished">Nov 17, 2018
+      <time class="dt-published" datetime="2019-09-14T14:08:14+08:00" itemprop="datePublished">Sep 14, 2019
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2>root</h2>
+    <h2>new post</h2>
 
-<p>Note: all the following commands must be run under the root directory.</p>
+<pre><code> octopress new post hello -D Ruby
+</code></pre>
 
-<pre><code>$ ls
-404.html
-Gemfile
-Gemfile.lock
-_config.yml
-_deploy.yml
-_posts/
-_site/
-_templates/
-about.md
-index.md
+<h2>build</h2>
+
+<pre><code>jekyll build
+jekyll serve
+</code></pre>
+
+<h2>deploy</h2>
+
+<pre><code>octopress deploy
+</code></pre>
+
+<h2>source</h2>
+
+<p>源码和网站是在同一个 repo 的不同 branch 底下的。</p>
+
+<pre><code>git add .
+git commit -m "$(date)"
+git push --set-upstream origin source
+</code></pre>
+
+<h2>layouts</h2>
+
+<p><a href="https://github.com/jekyll/minima">https://github.com/jekyll/minima</a></p>
+
+<pre><code>ls $(bundle show minima)/_layouts/
+ls $(bundle show minima)/_includes
+</code></pre>
+
+<h3>footer</h3>
+
+<pre><code>vi $(bundle show minima)/_includes/footer.html
+</code></pre>
+
+<h3>header</h3>
+
+<pre><code>vi $(bundle show minima)/_includes/header.html
 </code></pre>
 
 <h2>_config.yml</h2>
 
 <pre><code>title:  Zhengyang Song's Blog
+author: Zhengyang Song
 email: songzy.thu@gmail.com
 description: &gt;- # this means to ignore newlines until "baseurl:"
   All those little bugs I have ever met.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://songzy12.github.io" # the base hostname &amp; protocol for your site, e.g. http://example.com
-twitter_username: 
 github_username:  songzy12
 
 # Default extension for new posts and pages
@@ -102,30 +129,12 @@ plugins:
   - jekyll-feed
 </code></pre>
 
-<h2>new post</h2>
+<h2>mirror</h2>
 
-<pre><code> octopress new post hello -D Ruby
+<pre><code>bundle config 'mirror.https://rubygems.org' 'https://ruby.taobao.org'
 </code></pre>
 
-<h2>build</h2>
-
-<pre><code>jekyll build
-jekyll serve
-</code></pre>
-
-<h2>deploy</h2>
-
-<pre><code>octopress deploy
-</code></pre>
-
-<h2>source</h2>
-
-<pre><code>git add .
-git commit -m "$(date)"
-git push --set-upstream origin source
-</code></pre>
-
-  </div><a class="u-url" href="/ruby/2018/11/17/octopress-3-0.html" hidden></a>
+  </div><a class="u-url" href="/ruby/2019/09/14/octopress-3-0.html" hidden></a>
 </article>
 
       </div>
@@ -134,12 +143,10 @@ git push --set-upstream origin source
 
   <div class="wrapper">
 
-    <h2 class="footer-heading">Zhengyang Song&#39;s Blog</h2>
-
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li class="p-name">Zhengyang Song&#39;s Blog</li><li><a class="u-email" href="mailto:songzy.thu@gmail.com">songzy.thu@gmail.com</a></li></ul>
+          <li class="p-name">Zhengyang Song</li><li><a class="u-email" href="mailto:songzy.thu@gmail.com">songzy.thu@gmail.com</a></li></ul>
       </div>
 
       <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>

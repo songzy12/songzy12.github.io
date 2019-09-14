@@ -1,4 +1,90 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.4">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-09-13T22:32:04+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><entry><title type="html">Prime</title><link href="http://songzy12.github.io/2019/05/19/prime.html" rel="alternate" type="text/html" title="Prime" /><published>2019-05-19T23:31:16+08:00</published><updated>2019-05-19T23:31:16+08:00</updated><id>http://songzy12.github.io/2019/05/19/prime</id><content type="html" xml:base="http://songzy12.github.io/2019/05/19/prime.html">&lt;p&gt;设三个质数是 x, y, z&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-09-14T16:43:16+08:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Octopress 3.0</title><link href="http://localhost:4000/ruby/2019/09/14/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2019-09-14T14:08:14+08:00</published><updated>2019-09-14T14:08:14+08:00</updated><id>http://localhost:4000/ruby/2019/09/14/octopress-3-0</id><content type="html" xml:base="http://localhost:4000/ruby/2019/09/14/octopress-3-0.html">&lt;h2&gt;new post&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt; octopress new post hello -D Ruby
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;build&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;jekyll build
+jekyll serve
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;deploy&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;octopress deploy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;source&lt;/h2&gt;
+
+&lt;p&gt;源码和网站是在同一个 repo 的不同 branch 底下的。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &quot;$(date)&quot;
+git push --set-upstream origin source
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;layouts&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/jekyll/minima&quot;&gt;https://github.com/jekyll/minima&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ls $(bundle show minima)/_layouts/
+ls $(bundle show minima)/_includes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;footer&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;vi $(bundle show minima)/_includes/footer.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;header&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;vi $(bundle show minima)/_includes/header.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;_config.yml&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;title:  Zhengyang Song's Blog
+author: Zhengyang Song
+email: songzy.thu@gmail.com
+description: &amp;gt;- # this means to ignore newlines until &quot;baseurl:&quot;
+  All those little bugs I have ever met.
+baseurl: &quot;&quot; # the subpath of your site, e.g. /blog
+url: &quot;http://songzy12.github.io&quot; # the base hostname &amp;amp; protocol for your site, e.g. http://example.com
+github_username:  songzy12
+
+# Default extension for new posts and pages
+post_ext: md
+page_ext: html
+
+# Default templates for posts and pages
+# Found in _templates/
+post_layout: post
+page_layout: page
+
+# Format titles with titlecase?
+titlecase: true
+
+# Change default template file (in _templates/)
+post_template: post
+page_template: page
+draft_template: draft
+
+# Build settings
+markdown: rdiscount
+rdiscount:
+  extensions:
+    - autolink
+    - footnotes
+    - smart
+theme: minima
+plugins:
+  - jekyll-feed
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;mirror&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;bundle config 'mirror.https://rubygems.org' 'https://ruby.taobao.org'
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">new post</summary></entry><entry><title type="html">Prime</title><link href="http://localhost:4000/2019/05/19/prime.html" rel="alternate" type="text/html" title="Prime" /><published>2019-05-19T23:31:16+08:00</published><updated>2019-05-19T23:31:16+08:00</updated><id>http://localhost:4000/2019/05/19/prime</id><content type="html" xml:base="http://localhost:4000/2019/05/19/prime.html">&lt;p&gt;设三个质数是 x, y, z&lt;/p&gt;
 
 &lt;p&gt;则 $\frac{1}{x} + \frac{1}{y} + \frac{1}{z} = \frac{xy+yz+zx}{xyz} = \frac{671}{1022}$&lt;/p&gt;
 
@@ -52,7 +138,7 @@
 
 &lt;p&gt;$z = (80 + \sqrt{80*80 - 4 * 511}) / 2 = $ (80 + 66) / 2 = 73&lt;/p&gt;
 
-&lt;p&gt;$y = (80 - 66) / 2 = 7$&lt;/p&gt;</content><author><name></name></author><summary type="html">设三个质数是 x, y, z</summary></entry><entry><title type="html">Clock</title><link href="http://songzy12.github.io/2019/04/09/clock.html" rel="alternate" type="text/html" title="Clock" /><published>2019-04-09T13:11:45+08:00</published><updated>2019-04-09T13:11:45+08:00</updated><id>http://songzy12.github.io/2019/04/09/clock</id><content type="html" xml:base="http://songzy12.github.io/2019/04/09/clock.html">&lt;p&gt;8点30分之后参加会议，开始时手表时针分针120度角，上午结束时手表时针分针180度角。&lt;/p&gt;
+&lt;p&gt;$y = (80 - 66) / 2 = 7$&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">设三个质数是 x, y, z</summary></entry><entry><title type="html">Clock</title><link href="http://localhost:4000/2019/04/09/clock.html" rel="alternate" type="text/html" title="Clock" /><published>2019-04-09T13:11:45+08:00</published><updated>2019-04-09T13:11:45+08:00</updated><id>http://localhost:4000/2019/04/09/clock</id><content type="html" xml:base="http://localhost:4000/2019/04/09/clock.html">&lt;p&gt;8点30分之后参加会议，开始时手表时针分针120度角，上午结束时手表时针分针180度角。&lt;/p&gt;
 
 &lt;p&gt;问会议过程中时分呈90度角的情况最多多少次？&lt;/p&gt;
 
@@ -138,7 +224,7 @@
 
 &lt;p&gt;对于所有在 0~120 之间的角度，答案都是4.&lt;/p&gt;
 
-&lt;p&gt;对于在 120~180 之间的角度，答案是 5.&lt;/p&gt;</content><author><name></name></author><summary type="html">8点30分之后参加会议，开始时手表时针分针120度角，上午结束时手表时针分针180度角。</summary></entry><entry><title type="html">Indefinite equation</title><link href="http://songzy12.github.io/2019/04/05/Indefinite-equation.html" rel="alternate" type="text/html" title="Indefinite equation" /><published>2019-04-05T01:22:02+08:00</published><updated>2019-04-05T01:22:02+08:00</updated><id>http://songzy12.github.io/2019/04/05/Indefinite-equation</id><content type="html" xml:base="http://songzy12.github.io/2019/04/05/Indefinite-equation.html">&lt;p&gt;某单位订阅了30份资料分发给3个部门，要求每个部门至少9份资料，一共有多少种不同的发放方法？&lt;/p&gt;
+&lt;p&gt;对于在 120~180 之间的角度，答案是 5.&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">8点30分之后参加会议，开始时手表时针分针120度角，上午结束时手表时针分针180度角。</summary></entry><entry><title type="html">Indefinite equation</title><link href="http://localhost:4000/2019/04/05/Indefinite-equation.html" rel="alternate" type="text/html" title="Indefinite equation" /><published>2019-04-05T01:22:02+08:00</published><updated>2019-04-05T01:22:02+08:00</updated><id>http://localhost:4000/2019/04/05/Indefinite-equation</id><content type="html" xml:base="http://localhost:4000/2019/04/05/Indefinite-equation.html">&lt;p&gt;某单位订阅了30份资料分发给3个部门，要求每个部门至少9份资料，一共有多少种不同的发放方法？&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -164,7 +250,7 @@
 
 &lt;p&gt;然后 6 个 1 中间有 5 个空，我们选2个空插板。&lt;/p&gt;
 
-&lt;p&gt;答案就是 $C_5&lt;sup&gt;2&lt;/sup&gt;$.&lt;/p&gt;</content><author><name></name></author><summary type="html">某单位订阅了30份资料分发给3个部门，要求每个部门至少9份资料，一共有多少种不同的发放方法？</summary></entry><entry><title type="html">Derangement</title><link href="http://songzy12.github.io/2019/04/05/derangement.html" rel="alternate" type="text/html" title="Derangement" /><published>2019-04-05T00:19:40+08:00</published><updated>2019-04-05T00:19:40+08:00</updated><id>http://songzy12.github.io/2019/04/05/derangement</id><content type="html" xml:base="http://songzy12.github.io/2019/04/05/derangement.html">&lt;p&gt;某科室从下属5个科室中各抽调了一名工作人员，交流到其他科室，如每个科室只能接收一个人的话，有多少种不同的人员安排方式？&lt;/p&gt;
+&lt;p&gt;答案就是 $C_5&lt;sup&gt;2&lt;/sup&gt;$.&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">某单位订阅了30份资料分发给3个部门，要求每个部门至少9份资料，一共有多少种不同的发放方法？</summary></entry><entry><title type="html">Derangement</title><link href="http://localhost:4000/2019/04/05/derangement.html" rel="alternate" type="text/html" title="Derangement" /><published>2019-04-05T00:19:40+08:00</published><updated>2019-04-05T00:19:40+08:00</updated><id>http://localhost:4000/2019/04/05/derangement</id><content type="html" xml:base="http://localhost:4000/2019/04/05/derangement.html">&lt;p&gt;某科室从下属5个科室中各抽调了一名工作人员，交流到其他科室，如每个科室只能接收一个人的话，有多少种不同的人员安排方式？&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -234,7 +320,7 @@
 
 &lt;p&gt;$D_n= n!(1 - \frac{1}{1!} + \frac{1}{2!} - \frac{1}{3!} + \frac{1}{4!} - \frac{1}{5!} + \dots + (-1)&lt;sup&gt;n&lt;/sup&gt; \frac{1}{n!}) $&lt;/p&gt;
 
-&lt;p&gt;考虑所有的排列可能，减去其中一位排在原来位置的情况，加上有两位排在原来位置的情况，减去有三位排在原来位置的情况，依此类推。&lt;/p&gt;</content><author><name></name></author><summary type="html">某科室从下属5个科室中各抽调了一名工作人员，交流到其他科室，如每个科室只能接收一个人的话，有多少种不同的人员安排方式？</summary></entry><entry><title type="html">Combinatorics</title><link href="http://songzy12.github.io/2019/04/04/combinatorics.html" rel="alternate" type="text/html" title="Combinatorics" /><published>2019-04-04T23:31:16+08:00</published><updated>2019-04-04T23:31:16+08:00</updated><id>http://songzy12.github.io/2019/04/04/combinatorics</id><content type="html" xml:base="http://songzy12.github.io/2019/04/04/combinatorics.html">&lt;p&gt;A, B, C, D, E，5人排成一列，要求A必须站在B前面。&lt;/p&gt;
+&lt;p&gt;考虑所有的排列可能，减去其中一位排在原来位置的情况，加上有两位排在原来位置的情况，减去有三位排在原来位置的情况，依此类推。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">某科室从下属5个科室中各抽调了一名工作人员，交流到其他科室，如每个科室只能接收一个人的话，有多少种不同的人员安排方式？</summary></entry><entry><title type="html">Combinatorics</title><link href="http://localhost:4000/2019/04/04/combinatorics.html" rel="alternate" type="text/html" title="Combinatorics" /><published>2019-04-04T23:31:16+08:00</published><updated>2019-04-04T23:31:16+08:00</updated><id>http://localhost:4000/2019/04/04/combinatorics</id><content type="html" xml:base="http://localhost:4000/2019/04/04/combinatorics.html">&lt;p&gt;A, B, C, D, E，5人排成一列，要求A必须站在B前面。&lt;/p&gt;
 
 &lt;p&gt;考虑这5个人的全排列，我们可以证明：&lt;/p&gt;
 
@@ -280,7 +366,7 @@
 
 &lt;hr /&gt;
 
-&lt;p&gt;我们可以扩展两种情况：要求 AB 必须相邻，或者要求 AB 必须不相邻。&lt;/p&gt;</content><author><name></name></author><summary type="html">A, B, C, D, E，5人排成一列，要求A必须站在B前面。</summary></entry><entry><title type="html">Xiaomi</title><link href="http://songzy12.github.io/2019/03/14/xiaomi.html" rel="alternate" type="text/html" title="Xiaomi" /><published>2019-03-14T01:09:49+08:00</published><updated>2019-03-14T01:09:49+08:00</updated><id>http://songzy12.github.io/2019/03/14/xiaomi</id><content type="html" xml:base="http://songzy12.github.io/2019/03/14/xiaomi.html">&lt;p&gt;小米 Note：&lt;/p&gt;
+&lt;p&gt;我们可以扩展两种情况：要求 AB 必须相邻，或者要求 AB 必须不相邻。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">A, B, C, D, E，5人排成一列，要求A必须站在B前面。</summary></entry><entry><title type="html">Xiaomi</title><link href="http://localhost:4000/2019/03/14/xiaomi.html" rel="alternate" type="text/html" title="Xiaomi" /><published>2019-03-14T01:09:49+08:00</published><updated>2019-03-14T01:09:49+08:00</updated><id>http://localhost:4000/2019/03/14/xiaomi</id><content type="html" xml:base="http://localhost:4000/2019/03/14/xiaomi.html">&lt;p&gt;小米 Note：&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://www.miui.com/thread-18831512-1-1.html&quot;&gt;http://www.miui.com/thread-18831512-1-1.html&lt;/a&gt;&lt;/p&gt;
 
@@ -357,13 +443,13 @@ adb install -r GBoard.apk
 adb install -r GBoard.apk
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;好的上面这两个都是不行的。看来目前就只能 wipe data 然后重装。&lt;/p&gt;</content><author><name></name></author><summary type="html">小米 Note：</summary></entry><entry><title type="html">Ubuntu</title><link href="http://songzy12.github.io/2019/03/12/dual-boot.html" rel="alternate" type="text/html" title="Ubuntu" /><published>2019-03-12T17:12:30+08:00</published><updated>2019-03-12T17:12:30+08:00</updated><id>http://songzy12.github.io/2019/03/12/dual-boot</id><content type="html" xml:base="http://songzy12.github.io/2019/03/12/dual-boot.html">&lt;p&gt;Windows 查看磁盘分区格式&lt;/p&gt;
+&lt;p&gt;好的上面这两个都是不行的。看来目前就只能 wipe data 然后重装。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">小米 Note：</summary></entry><entry><title type="html">Ubuntu</title><link href="http://localhost:4000/2019/03/12/dual-boot.html" rel="alternate" type="text/html" title="Ubuntu" /><published>2019-03-12T17:12:30+08:00</published><updated>2019-03-12T17:12:30+08:00</updated><id>http://localhost:4000/2019/03/12/dual-boot</id><content type="html" xml:base="http://localhost:4000/2019/03/12/dual-boot.html">&lt;p&gt;Windows 查看磁盘分区格式&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;按下 &lt;code&gt;Win+R&lt;/code&gt; 打开运行，输入 &lt;code&gt;cmd&lt;/code&gt;，打开命令提示符；&lt;/li&gt;
 &lt;li&gt;输入 &lt;code&gt;diskpart&lt;/code&gt; 按回车执行，切换到 DISKPART 命令，输入&lt;code&gt;list disk&lt;/code&gt;，按回车；&lt;/li&gt;
 &lt;li&gt;查看最后一列的GPT，如果有*号则为GPT，如果没有则为MBR。&lt;/li&gt;
-&lt;/ol&gt;</content><author><name></name></author><summary type="html">Windows 查看磁盘分区格式</summary></entry><entry><title type="html">Nexus6P</title><link href="http://songzy12.github.io/2019/03/03/nexus6p.html" rel="alternate" type="text/html" title="Nexus6P" /><published>2019-03-03T14:59:18+08:00</published><updated>2019-03-03T14:59:18+08:00</updated><id>http://songzy12.github.io/2019/03/03/nexus6p</id><content type="html" xml:base="http://songzy12.github.io/2019/03/03/nexus6p.html">&lt;p&gt;Windows 10 自带开启热点功能，搜索 &lt;code&gt;hotspot&lt;/code&gt;.&lt;/p&gt;
+&lt;/ol&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Windows 查看磁盘分区格式</summary></entry><entry><title type="html">Nexus6P</title><link href="http://localhost:4000/2019/03/03/nexus6p.html" rel="alternate" type="text/html" title="Nexus6P" /><published>2019-03-03T14:59:18+08:00</published><updated>2019-03-03T14:59:18+08:00</updated><id>http://localhost:4000/2019/03/03/nexus6p</id><content type="html" xml:base="http://localhost:4000/2019/03/03/nexus6p.html">&lt;p&gt;Windows 10 自带开启热点功能，搜索 &lt;code&gt;hotspot&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://withdewhua.space/2018/10/13/http-proxy-share/#windows&quot;&gt;https://withdewhua.space/2018/10/13/http-proxy-share/#windows&lt;/a&gt;&lt;/p&gt;
 
@@ -444,7 +530,7 @@ The middle one is your current Build Number. Make note of this as the Rescue OTA
 need corresponds to this one or a more recent one. (NOTE: You cannot install an older one
 than your current Build Number.)&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;p&gt;总算是把 boot.img 恢复了，还是送到淘宝店家去修吧。&lt;/p&gt;</content><author><name></name></author><summary type="html">Windows 10 自带开启热点功能，搜索 hotspot.</summary></entry><entry><title type="html">Iptables</title><link href="http://songzy12.github.io/2019/02/28/iptables.html" rel="alternate" type="text/html" title="Iptables" /><published>2019-02-28T20:45:53+08:00</published><updated>2019-02-28T20:45:53+08:00</updated><id>http://songzy12.github.io/2019/02/28/iptables</id><content type="html" xml:base="http://songzy12.github.io/2019/02/28/iptables.html">&lt;p&gt;查看设置：&lt;/p&gt;
+&lt;p&gt;总算是把 boot.img 恢复了，还是送到淘宝店家去修吧。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Windows 10 自带开启热点功能，搜索 hotspot.</summary></entry><entry><title type="html">Iptables</title><link href="http://localhost:4000/2019/02/28/iptables.html" rel="alternate" type="text/html" title="Iptables" /><published>2019-02-28T20:45:53+08:00</published><updated>2019-02-28T20:45:53+08:00</updated><id>http://localhost:4000/2019/02/28/iptables</id><content type="html" xml:base="http://localhost:4000/2019/02/28/iptables.html">&lt;p&gt;查看设置：&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo iptables -nL --line-numbers -t nat
 &lt;/code&gt;&lt;/pre&gt;
@@ -459,28 +545,4 @@ sudo iptables -t nat -D POSTROUTING 7
 
 &lt;pre&gt;&lt;code&gt;sudo iptables -t nat -A PREROUTING -p tcp --dport 9005 -j DNAT --to-destination 10.0.2.180:9005
 sudo iptables -t nat -A POSTROUTING -p tcp -d 10.0.2.180 --dport 9005 -j SNAT --to-source 101.6.244.4
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">查看设置：</summary></entry><entry><title type="html">Supervisor</title><link href="http://songzy12.github.io/2019/02/28/supervisor.html" rel="alternate" type="text/html" title="Supervisor" /><published>2019-02-28T14:02:05+08:00</published><updated>2019-02-28T14:02:05+08:00</updated><id>http://songzy12.github.io/2019/02/28/supervisor</id><content type="html" xml:base="http://songzy12.github.io/2019/02/28/supervisor.html">&lt;ul&gt;
-&lt;li&gt;reread - Reread supervisor configuration. Do not update or restart the running services.&lt;/li&gt;
-&lt;li&gt;update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;.&lt;/li&gt;
-&lt;li&gt;reload - Reread supervisor configuration, reload supervisord and supervisorctl&lt;/li&gt;
-&lt;li&gt;restart - Restart service(s)&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;logging&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;import logging 
-
-log = logging.getLogger(__name__)
-log.setLevel(logging.INFO)
-
-ch = logging.StreamHandler(sys.stdout)
-
-ch.setLevel(logging.DEBUG)
-
-formatter = logging.Formatter(
-    &quot;%(asctime)s - %(name)s - %(levelname)s - %(message)s&quot;)
-ch.setFormatter(formatter)
-
-log.addHandler(ch)
-&lt;/code&gt;&lt;/pre&gt;</content><author><name></name></author><summary type="html">reread - Reread supervisor configuration. Do not update or restart the running services. update - Restart service(s) whose configuration has changed. Usually run after &amp;lsquo;reread&amp;rsquo;. reload - Reread supervisor configuration, reload supervisord and supervisorctl restart - Restart service(s)</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">查看设置：</summary></entry></feed>
