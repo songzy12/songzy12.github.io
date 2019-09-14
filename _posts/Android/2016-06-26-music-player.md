@@ -3,7 +3,7 @@ layout: post
 title: "Music Player"
 date: 2016-06-26 20:00:17 +0800
 comments: true
-categories: Android
+categories: 
 
 ---
 

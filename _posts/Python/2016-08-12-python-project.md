@@ -3,7 +3,7 @@ layout: post
 title: "Python Project"
 date: 2016-08-12 13:51:20 +0800
 comments: true
-categories: Python
+categories: 
 
 ---
 

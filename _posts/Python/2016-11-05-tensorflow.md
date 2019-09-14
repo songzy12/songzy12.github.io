@@ -3,7 +3,7 @@ layout: post
 title: "TensorFlow"
 date: 2016-11-05 20:42:05 +0800
 comments: true
-categories: Python
+categories: 
 
 ---
 

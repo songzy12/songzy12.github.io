@@ -3,7 +3,7 @@ layout: post
 title: "Click Through Rate"
 date: 2016-03-21 21:42:56 +0800
 comments: true
-categories: Python
+categories: 
 
 ---
 

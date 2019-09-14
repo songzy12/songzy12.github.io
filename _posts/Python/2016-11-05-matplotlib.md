@@ -3,7 +3,7 @@ layout: post
 title: "matplotlib"
 date: 2016-11-05 16:46:28 +0800
 comments: true
-categories: Python
+categories: 
 
 ---
 

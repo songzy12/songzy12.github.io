@@ -3,7 +3,7 @@ layout: post
 title: "Reverse Engineering"
 date: 2016-08-16 13:51:20 +0800
 comments: true
-categories: Android
+categories: 
 
 ---
 

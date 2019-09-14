@@ -3,7 +3,7 @@ layout: post
 title: "Python Dist Packages"
 date: 2016-09-11 14:44:05 +0800
 comments: true
-categories: Python
+categories: 
 
 ---
 

@@ -3,7 +3,7 @@ layout: post
 title: "Bluetooth Profile"
 date: 2016-03-01 14:36:00 +0800
 comments: true
-categories: Android
+categories: 
 
 ---
 
