@@ -9,8 +9,6 @@ description:
 
 ---
 
-
-
 这个也是 LeetCode 原题：[Integer Break](https://leetcode.com/problems/integer-break/description/)
 
 在这里分享一道腾讯互娱的面试题目：

@@ -5,9 +5,6 @@ date: 2019-02-28T14:02:05+08:00
 categories: 
 ---
 
-
-
-
 * reread - Reread supervisor configuration. Do not update or restart the running services.
 * update - Restart service(s) whose configuration has changed. Usually run after 'reread'.
 * reload - Reread supervisor configuration, reload supervisord and supervisorctl

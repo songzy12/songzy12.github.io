@@ -7,50 +7,44 @@ categories:
 
 ---
 
-事情的起因是舍友问了这样一道题目：
+一枚硬币, 扔出 H 的概率为 $p$, T 的概率为 $q$, 计算首次扔出 $T\underbrace{H\dots H}_{k}$ 所需投掷次数的数学期望。 
 
-```
-一枚硬币, 扔出 H 的概率为 p, T 的概率为 q, 计算首次扔出 T\underbrace{H\dots H}_{k} 所需投掷次数的数学期望。 
-```
 
-我们先来考虑 `\underbrace{H\dots H}_{k}` 这样简单后的情形，然后试图将其推广到任意模式的一般情况。
+我们先来考虑 $\underbrace{H\dots H}_{k}$ 这样简单后的情形，然后试图将其推广到任意模式的一般情况。
 
-记 随机变量 `X_k` 为 首次投掷出 `\underbrace{H\dots H}_{k}` 所需的次数。
+记 随机变量 $X_k$ 为 首次投掷出 $\underbrace{H\dots H}_{k}$ 所需的次数。
 
-### 法一
+### Solution 1
 
-设我们要求的数学期望为 `e`, 则有 
+设我们要求的数学期望为 $e$, 则有 
 
-```
+$$
 e = q (1+e) + p q (2+e) + p p q (3+e) + p^{k-1} q (k+e) + p^k k 
-```
+$$
 
-这是对前 `k` 位可能出现的模式进行分类讨论得到的。
+这是对前 $k$ 位可能出现的模式进行分类讨论得到的。
 
-记 `S=1+2p+3p^2+\dots+kp^{k-1}`, 可得 `S=1/q((1-p^k)/q-kp^k)`.
+记 $S=1+2p+3p^2+\dots+kp^{k-1}$, 可得 $S=1/q((1-p^k)/q-kp^k)$.
 
-```
+$$
 e 
-= q(1+2p+3p^2+\dots+kp^{k-1})+kp^k+q(1+p+\dots+p^{k-1})e
-= q 1/q ((1-p^k)/q-kp^k) + kp^k + q 1/q(1-p^k) e
-= (1-p^k)/q + (1-p^k) e
-```
+= q(1+2p+3p^2+\dots+kp^{k-1})+kp^k+q(1+p+\dots+p^{k-1})e $$
+$$e = q\cdot 1/q ((1-p^k)/q-kp^k) + kp^k + q 1/q(1-p^k) e$$
+$$e = (1-p^k)/q + (1-p^k) e$$
+
 
 从而
 
-```
-e = 1/q (1/p ^k - 1)
-```
+$$e = 1/q (1/p ^k - 1)$$
 
 这与我们上面的结果是吻合的。
 
 推广：首次投掷出 HTHHT
 
-```
-e = q(1+e) + pp(2+e) + pqq(3+e) + pqpq(4+e) + pqppp(5+e) + pqppq 5
-```
+$$e = q(1+e) + pp(2+e) + pqq(3+e) + pqpq(4+e) + pqppp(5+e) + pqppq 5$$
 
-### 法二
+
+### Solution 2
 
 ```
 X_k = (X_{k-1} + 1)\cdot p + (X_{k-1} + 1 + X_k)\cdot q
@@ -89,7 +83,7 @@ Pr(Z=n) = \sum_m [Pr(X=m) Pr(Y=n-m)]
 
 推广：首次投掷出 HTHHT
 
-### 法三
+### Solution 3
 
 If `f(x)` is the generating function of the probability `p_n` of the ending after `n` tosses
 
