@@ -50,6 +50,9 @@ theme: minima
 plugins:
   - jekyll-feed
 
+header_pages:
+  - about.md
+
 google_analytics: UA-147981013-1
 
 disqus:
