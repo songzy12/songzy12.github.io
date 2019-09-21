@@ -1,4 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-09-14T21:04:17+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2019/09/14/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2019-09-14T14:08:14+08:00</published><updated>2019-09-14T14:08:14+08:00</updated><id>http://songzy12.github.io/2019/09/14/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2019/09/14/octopress-3-0.html">&lt;h2&gt;new post&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-09-21T23:13:58+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2019/09/21/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2019-09-21T20:07:54+08:00</published><updated>2019-09-21T20:07:54+08:00</updated><id>http://songzy12.github.io/2019/09/21/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2019/09/21/v2ray.html">&lt;p&gt;&lt;a href=&quot;https://yuan.ga/v2ray-complete-tutorial/&quot;&gt;https://yuan.ga/v2ray-complete-tutorial/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;server&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://install.direct/go.sh
+sudo bash go.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;PORT:
+UUID:
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;&quot;log&quot;: {
+    &quot;loglevel&quot;: &quot;warning&quot;,
+    &quot;access&quot;: &quot;/var/log/v2ray/access.log&quot;,
+    &quot;error&quot;: &quot;/var/log/v2ray/error.log&quot;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo systemctl start v2ray
+sudo systemctl enable v2ray
+sudo systemctl status v2ray
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;client&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/v2ray/v2ray-core/releases&quot;&gt;https://github.com/v2ray/v2ray-core/releases&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &quot;inbounds&quot;: [
+    {
+      &quot;port&quot;: 1080,
+      &quot;protocol&quot;: &quot;socks&quot;,
+      &quot;sniffing&quot;: {
+        &quot;enabled&quot;: true,
+        &quot;destOverride&quot;: [&quot;http&quot;, &quot;tls&quot;]
+      },
+      &quot;settings&quot;: {
+        &quot;auth&quot;: &quot;noauth&quot;
+      }
+    },
+    {
+      &quot;port&quot;: 8080,
+      &quot;protocol&quot;: &quot;http&quot;,
+      &quot;sniffing&quot;: {
+        &quot;enabled&quot;: true,
+        &quot;destOverride&quot;: [&quot;http&quot;, &quot;tls&quot;]
+      },
+      &quot;settings&quot;: {
+        &quot;auth&quot;: &quot;noauth&quot;
+      }
+    }
+  ],
+  &quot;outbounds&quot;: [
+    {
+      &quot;protocol&quot;: &quot;vmess&quot;,
+      &quot;settings&quot;: {
+        &quot;vnext&quot;: [
+          {
+            &quot;address&quot;: &quot;8.8.8.8&quot;, // 服务器 IP
+            &quot;port&quot;: 443, // Vmess 协议端口
+            &quot;users&quot;: [
+              {
+                &quot;id&quot;: &quot;7d4cd078-e529-4bdb-a483-cf5733d96a66&quot;, // id（UUID）
+                &quot;alterId&quot;: 64 // 需要和服务端一致
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      &quot;tag&quot;: &quot;direct&quot;,
+      &quot;settings&quot;: {},
+      &quot;protocol&quot;: &quot;freedom&quot;
+    }
+  ],
+
+  &quot;routing&quot;: {
+    &quot;domainStrategy&quot;: &quot;IPOnDemand&quot;,
+    &quot;rules&quot;: [
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;ip&quot;: [
+          &quot;geoip:private&quot;
+        ],
+        &quot;outboundTag&quot;: &quot;direct&quot;
+      }
+    ]
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;修改 Windows 的系统代理&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http 127.0.0.1:8080
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://yuan.ga/v2ray-complete-tutorial/</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2019/09/14/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2019-09-14T14:08:14+08:00</published><updated>2019-09-14T14:08:14+08:00</updated><id>http://songzy12.github.io/2019/09/14/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2019/09/14/octopress-3-0.html">&lt;h2&gt;new post&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt; octopress new post hello -D Ruby
 &lt;/code&gt;&lt;/pre&gt;
@@ -549,19 +645,4 @@ The middle one is your current Build Number. Make note of this as the Rescue OTA
 need corresponds to this one or a more recent one. (NOTE: You cannot install an older one
 than your current Build Number.)&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;p&gt;总算是把 boot.img 恢复了，还是送到淘宝店家去修吧。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Windows 10 自带开启热点功能，搜索 hotspot.</summary></entry><entry><title type="html">Iptables</title><link href="http://songzy12.github.io/2019/02/28/iptables.html" rel="alternate" type="text/html" title="Iptables" /><published>2019-02-28T20:45:53+08:00</published><updated>2019-02-28T20:45:53+08:00</updated><id>http://songzy12.github.io/2019/02/28/iptables</id><content type="html" xml:base="http://songzy12.github.io/2019/02/28/iptables.html">&lt;p&gt;查看设置：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo iptables -nL --line-numbers -t nat
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;删除设置：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo iptables -t nat -D PREROUTING 1
-sudo iptables -t nat -D POSTROUTING 7
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;添加设置：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo iptables -t nat -A PREROUTING -p tcp --dport 9005 -j DNAT --to-destination 10.0.2.180:9005
-sudo iptables -t nat -A POSTROUTING -p tcp -d 10.0.2.180 --dport 9005 -j SNAT --to-source 101.6.244.4
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">查看设置：</summary></entry></feed>
+&lt;p&gt;总算是把 boot.img 恢复了，还是送到淘宝店家去修吧。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Windows 10 自带开启热点功能，搜索 hotspot.</summary></entry></feed>

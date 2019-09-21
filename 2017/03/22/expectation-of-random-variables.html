@@ -16,21 +16,9 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2017-03-22T13:11:13+08:00" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/03/22/expectation-of-random-variables.html"},"url":"http://songzy12.github.io/2017/03/22/expectation-of-random-variables.html","author":{"@type":"Person","name":"Zhengyang Song"},"description":"一枚硬币, 扔出 H 的概率为 $p$, T 的概率为 $q$, 计算首次扔出 $T\\underbrace{H\\dots H}_{k}$ 所需投掷次数的数学期望。","headline":"Expectation of Random Variables","dateModified":"2017-03-22T13:11:13+08:00","datePublished":"2017-03-22T13:11:13+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"headline":"Expectation of Random Variables","dateModified":"2017-03-22T13:11:13+08:00","datePublished":"2017-03-22T13:11:13+08:00","url":"http://songzy12.github.io/2017/03/22/expectation-of-random-variables.html","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/03/22/expectation-of-random-variables.html"},"author":{"@type":"Person","name":"Zhengyang Song"},"description":"一枚硬币, 扔出 H 的概率为 $p$, T 的概率为 $q$, 计算首次扔出 $T\\underbrace{H\\dots H}_{k}$ 所需投掷次数的数学期望。","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /><script>
-if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-147981013-1', 'auto');
-  ga('send', 'pageview');
-}
-</script>
-  
-</head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/">Zhengyang Song&#39;s Blog</a><nav class="site-nav">
@@ -76,11 +64,11 @@ $$</p>
 
 <p>记 $S=1+2p+3p<sup>2</sup>+\dots+kp^{k-1}$, 可得 $S=1/q((1-p<sup>k</sup>)/q-kp<sup>k</sup>)$.</p>
 
-<p>$$
-e
-= q(1+2p+3p<sup>2</sup>+\dots+kp^{k-1})+kp<sup>k</sup>+q(1+p+\dots+p^{k-1})e $$
-$$e = q\cdot 1/q ((1-p<sup>k</sup>)/q-kp<sup>k</sup>) + kp<sup>k</sup> + q 1/q(1-p<sup>k</sup>) e$$
-$$e = (1-p<sup>k</sup>)/q + (1-p<sup>k</sup>) e$$</p>
+<pre><code>  e 
+= q(1+2p+3p^2+\dots+kp^{k-1})+kp^k+q(1+p+\dots+p^{k-1})e
+= q\cdot 1/q ((1-p^k)/q-kp^k) + kp^k + q 1/q(1-p^k) e
+= (1-p^k)/q + (1-p^k) e
+</code></pre>
 
 <p>从而</p>
 
@@ -166,23 +154,7 @@ HTHHT   p^3q^2x^5
 =
 </code></pre>
 
-  </div><div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = 'http://songzy12.github.io/2017/03/22/expectation-of-random-variables.html';
-      this.page.identifier = 'http://songzy12.github.io/2017/03/22/expectation-of-random-variables.html';
-    };
-
-    (function() {
-      var d = document, s = d.createElement('script');
-
-      s.src = 'https://songzy12-github-io.disqus.com/embed.js';
-
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2017/03/22/expectation-of-random-variables.html" hidden></a>
+  </div><a class="u-url" href="/2017/03/22/expectation-of-random-variables.html" hidden></a>
 </article>
 
       </div>
