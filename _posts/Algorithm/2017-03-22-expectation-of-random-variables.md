@@ -26,11 +26,12 @@ $$
 
 记 $S=1+2p+3p^2+\dots+kp^{k-1}$, 可得 $S=1/q((1-p^k)/q-kp^k)$.
 
-$$
-e 
-= q(1+2p+3p^2+\dots+kp^{k-1})+kp^k+q(1+p+\dots+p^{k-1})e $$
-$$e = q\cdot 1/q ((1-p^k)/q-kp^k) + kp^k + q 1/q(1-p^k) e$$
-$$e = (1-p^k)/q + (1-p^k) e$$
+```
+  e 
+= q(1+2p+3p^2+\dots+kp^{k-1})+kp^k+q(1+p+\dots+p^{k-1})e
+= q\cdot 1/q ((1-p^k)/q-kp^k) + kp^k + q 1/q(1-p^k) e
+= (1-p^k)/q + (1-p^k) e
+```
 
 
 从而
