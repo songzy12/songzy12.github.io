@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-09-21T23:13:58+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2019/09/21/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2019-09-21T20:07:54+08:00</published><updated>2019-09-21T20:07:54+08:00</updated><id>http://songzy12.github.io/2019/09/21/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2019/09/21/v2ray.html">&lt;p&gt;&lt;a href=&quot;https://yuan.ga/v2ray-complete-tutorial/&quot;&gt;https://yuan.ga/v2ray-complete-tutorial/&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-10-07T17:38:16+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Segment Tree</title><link href="http://songzy12.github.io/2019/10/07/segment-tree.html" rel="alternate" type="text/html" title="Segment Tree" /><published>2019-10-07T17:14:21+08:00</published><updated>2019-10-07T17:14:21+08:00</updated><id>http://songzy12.github.io/2019/10/07/segment-tree</id><content type="html" xml:base="http://songzy12.github.io/2019/10/07/segment-tree.html">&lt;p&gt;Representation of Segment trees:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Leaf Nodes are the elements of the input array.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Each internal node represents some merging of the leaf nodes.&lt;/p&gt;
+
+&lt;p&gt;The merging may be different for different problems.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;Sum of given range&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/&quot;&gt;https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;Find the sum of elements from index l to r where 0 &amp;lt;= l &amp;lt;= r &amp;lt;= n-1&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;Change value of a specified element of the array to a new value x.&lt;/p&gt;
+
+&lt;p&gt;We need to do arr[i] = x where 0 &amp;lt;= i &amp;lt;= n-1.&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Can we perform both the operations in O(log n) time once given the array?&lt;/p&gt;
+
+&lt;h2&gt;Range Minimum Query&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/&quot;&gt;https://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Lazy Propagation&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/&quot;&gt;https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;What if there are updates on a range of array indexes?
+For example add 10 to all values at indexes from 2 to 7 in array.&lt;/p&gt;
+
+&lt;p&gt;Lazy Propagation – An optimization to make range updates faster&lt;/p&gt;
+
+&lt;p&gt;When there are many updates and updates are done on a range, we can postpone some updates (avoid recursive calls in update) and do those updates only when required.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/&quot;&gt;https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Given an array arr[] of size N. There are two types of operations:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Update(l, r, x) : Increment the a[i] (l &amp;lt;= i &amp;lt;= r) with value x.&lt;/li&gt;
+&lt;li&gt;Query(l, r) : Find the maximum value in the array in a range l to r (both are included).&lt;/li&gt;
+&lt;/ol&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Representation of Segment trees:</summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2019/09/21/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2019-09-21T20:07:54+08:00</published><updated>2019-09-21T20:07:54+08:00</updated><id>http://songzy12.github.io/2019/09/21/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2019/09/21/v2ray.html">&lt;p&gt;&lt;a href=&quot;https://yuan.ga/v2ray-complete-tutorial/&quot;&gt;https://yuan.ga/v2ray-complete-tutorial/&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;server&lt;/h2&gt;
 
@@ -100,6 +146,8 @@ sudo systemctl status v2ray
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2&gt;build&lt;/h2&gt;
+
+&lt;p&gt;Here we set &lt;code&gt;JEKYLL_ENV=production&lt;/code&gt; to enable &lt;code&gt;google_analytics&lt;/code&gt; and &lt;code&gt;disqus&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;JEKYLL_ENV=production jekyll build
 JEKYLL_ENV=production jekyll serve
@@ -339,7 +387,7 @@ plugins:
 
 &lt;p&gt;对于所有在 0~120 之间的角度，答案都是4.&lt;/p&gt;
 
-&lt;p&gt;对于在 120~180 之间的角度，答案是 5.&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">8点30分之后参加会议，开始时手表时针分针120度角，上午结束时手表时针分针180度角。</summary></entry><entry><title type="html">Indefinite equation</title><link href="http://songzy12.github.io/2019/04/05/Indefinite-equation.html" rel="alternate" type="text/html" title="Indefinite equation" /><published>2019-04-05T01:22:02+08:00</published><updated>2019-04-05T01:22:02+08:00</updated><id>http://songzy12.github.io/2019/04/05/Indefinite-equation</id><content type="html" xml:base="http://songzy12.github.io/2019/04/05/Indefinite-equation.html">&lt;p&gt;某单位订阅了30份资料分发给3个部门，要求每个部门至少9份资料，一共有多少种不同的发放方法？&lt;/p&gt;
+&lt;p&gt;对于在 120~180 之间的角度，答案是 5.&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">8点30分之后参加会议，开始时手表时针分针120度角，上午结束时手表时针分针180度角。</summary></entry><entry><title type="html">Indefinite equation</title><link href="http://songzy12.github.io/2019/04/05/indefinite-equation.html" rel="alternate" type="text/html" title="Indefinite equation" /><published>2019-04-05T01:22:02+08:00</published><updated>2019-04-05T01:22:02+08:00</updated><id>http://songzy12.github.io/2019/04/05/indefinite-equation</id><content type="html" xml:base="http://songzy12.github.io/2019/04/05/indefinite-equation.html">&lt;p&gt;某单位订阅了30份资料分发给3个部门，要求每个部门至少9份资料，一共有多少种不同的发放方法？&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -564,85 +612,4 @@ adb install -r GBoard.apk
 &lt;li&gt;按下 &lt;code&gt;Win+R&lt;/code&gt; 打开运行，输入 &lt;code&gt;cmd&lt;/code&gt;，打开命令提示符；&lt;/li&gt;
 &lt;li&gt;输入 &lt;code&gt;diskpart&lt;/code&gt; 按回车执行，切换到 DISKPART 命令，输入&lt;code&gt;list disk&lt;/code&gt;，按回车；&lt;/li&gt;
 &lt;li&gt;查看最后一列的GPT，如果有*号则为GPT，如果没有则为MBR。&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Windows 查看磁盘分区格式</summary></entry><entry><title type="html">Nexus6P</title><link href="http://songzy12.github.io/2019/03/03/nexus6p.html" rel="alternate" type="text/html" title="Nexus6P" /><published>2019-03-03T14:59:18+08:00</published><updated>2019-03-03T14:59:18+08:00</updated><id>http://songzy12.github.io/2019/03/03/nexus6p</id><content type="html" xml:base="http://songzy12.github.io/2019/03/03/nexus6p.html">&lt;p&gt;Windows 10 自带开启热点功能，搜索 &lt;code&gt;hotspot&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://withdewhua.space/2018/10/13/http-proxy-share/#windows&quot;&gt;https://withdewhua.space/2018/10/13/http-proxy-share/#windows&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;然后设置 shadowsocks 允许 LAN 代理：&lt;code&gt;Allow Clients from LAN&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;在 Nexus 6P 启动界面配置代理手动：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;ipconfig
-
-Wireless LAN adapter Local Area Connection* 15:
-
-   Connection-specific DNS Suffix  . :
-   Link-local IPv6 Address . . . . . : fe80::99f2:dfc9:5e94:373c%27
-   IPv4 Address. . . . . . . . . . . : 192.168.137.1
-   Subnet Mask . . . . . . . . . . . : 255.255.255.0
-   Default Gateway . . . . . . . . . :
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;解锁 Nexus 6P:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.mk52.cn/jiaocheng/1324.html&quot;&gt;http://www.mk52.cn/jiaocheng/1324.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adb reboot bootloader
-fastboot devices
-fastboot flashing unlock
-fastboot reboot
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;如何进入 recovery mode:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.mk52.cn/jiaocheng/1335.html&quot;&gt;http://www.mk52.cn/jiaocheng/1335.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;修复教程：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.xda-developers.com/nexus-6p-bootloop-fix/&quot;&gt;https://www.xda-developers.com/nexus-6p-bootloop-fix/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://forum.xda-developers.com/nexus-6p/general/guide-fix-nexus-6p-bootloop-death-blod-t3640279&quot;&gt;https://forum.xda-developers.com/nexus-6p/general/guide-fix-nexus-6p-bootloop-death-blod-t3640279&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;fastboot devices
-fastboot flash boot N2G48B_4Cores.img
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;现在问题变成了一直卡在开机 logo 界面（相对于无限重启）。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://blog.csdn.net/anod/article/details/84297347&quot;&gt;https://blog.csdn.net/anod/article/details/84297347&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;刷入对应版本 (N2G48B) 的 OTA:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developers.google.com/android/ota&quot;&gt;https://developers.google.com/android/ota&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://dl.google.com/dl/android/aosp/angler-ota-n2g48b-8166f6bf.zip&quot;&gt;https://dl.google.com/dl/android/aosp/angler-ota-n2g48b-8166f6bf.zip&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adb devices
-adb sideload angler-ota-n2g48b-*.zip
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;或许直接看这个：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://forum.xda-developers.com/nexus-6p/help/help-unbricking-nexus-6p-t3382895&quot;&gt;https://forum.xda-developers.com/nexus-6p/help/help-unbricking-nexus-6p-t3382895&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;和上面一样，报错：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;This package is for &quot;angler&quot; devices; this is a &quot;&quot;.
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;原因在这里：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.securitynewspaper.com/2017/05/12/oneplus-otas-analysis-exploitation/&quot;&gt;https://www.securitynewspaper.com/2017/05/12/oneplus-otas-analysis-exploitation/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;或者这里：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://drive.google.com/file/d/0Bz6x7k-VkpUJRjl6WjRhVmdXU0E/view&quot;&gt;https://drive.google.com/file/d/0Bz6x7k-VkpUJRjl6WjRhVmdXU0E/view&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;You are now on the Android Recovery screen. On the third line at the top of the screen you
-will see something that looks like this:
-6.0.1 / MOB30I / 2756745
-The middle one is your current Build Number. Make note of this as the Rescue OTA you
-need corresponds to this one or a more recent one. (NOTE: You cannot install an older one
-than your current Build Number.)&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;总算是把 boot.img 恢复了，还是送到淘宝店家去修吧。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Windows 10 自带开启热点功能，搜索 hotspot.</summary></entry></feed>
+&lt;/ol&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Windows 查看磁盘分区格式</summary></entry></feed>
