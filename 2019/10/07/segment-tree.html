@@ -18,19 +18,7 @@
 <script type="application/ld+json">
 {"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2019/10/07/segment-tree.html"},"url":"http://songzy12.github.io/2019/10/07/segment-tree.html","author":{"@type":"Person","name":"Zhengyang Song"},"description":"Representation of Segment trees:","headline":"Segment Tree","dateModified":"2019-10-07T17:14:21+08:00","datePublished":"2019-10-07T17:14:21+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /><script>
-if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-147981013-1', 'auto');
-  ga('send', 'pageview');
-}
-</script>
-  
-</head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Blog" /></head>
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/">Zhengyang Song&#39;s Blog</a><nav class="site-nav">
@@ -86,6 +74,147 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p><a href="https://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/">https://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/</a></p>
 
+<h3>Example</h3>
+
+<p><a href="https://codeforces.com/contest/1208/problem/d">https://codeforces.com/contest/1208/problem/d</a></p>
+
+<pre><code># https://codeforces.com/contest/1208/problem/D
+
+from sys import stdin, stdout
+input = stdin.readline
+# print = stdout.write
+
+# 1. the right most 0 is the index of current minimum value
+# 2. we abstract the current value for all the elements to the right
+# 3. Then we can do recusion
+
+# To find the last index with value zero,
+# we can use segment tree to get range minimum query with lazy propagation.
+
+# https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/
+
+n = int(input())
+array = list(map(int, input().split()))
+
+MAX = n * n
+
+
+class Node:
+    def __init__(self, val, index, s, e):
+        self.lazy = 0
+        # for leaf node, store the value of array
+        # for internal node, store the value of interval
+        self.val = val
+        self.index = index
+
+        self.s = s
+        self.e = e
+
+        self.left = None
+        self.right = None
+
+
+class SegmentTree:
+    def __init__(self, array):
+        self.root = self.build(array)
+
+    def build(self, array):
+        def _build(array, s, e):
+            if s == e:
+                cur = Node(array[s], s, s, e)
+                return cur
+            mid = (s + e) // 2
+            left = _build(array, s, mid)
+            right = _build(array, mid + 1, e)
+
+            if left.val &lt; right.val:
+                cur = Node(left.val, left.index, s, e)
+            else:
+                cur = Node(right.val, right.index, s, e)
+
+            cur.left = left
+            cur.right = right
+            return cur
+
+        root = _build(array, 0, len(array) - 1)
+        return root
+
+    def modify(self, s, e, diff):
+        # add diff to all the array elements from s to e (inclusive)
+        def _modify(cur, s, e, diff):
+            if cur.s &gt; e or cur.e &lt; s:
+                return cur.val, cur.index
+            if cur.s == cur.e:
+                cur.val += diff
+                return cur.val, cur.index
+
+            # note here [s, mid] is wrong because that 
+            # [s, mid] may be larger than [s, e]
+
+            left_val, left_index = _modify(cur.left, s, e, diff)
+            right_val, right_index = _modify(cur.right, s, e, diff)
+
+            if left_val &lt; right_val:
+                cur.val = left_val
+                cur.index = left_index
+            else:
+                cur.val = right_val
+                cur.index = right_index
+            return cur.val, cur.index
+        _modify(self.root, s, e, diff)
+
+    def query(self, s, e):
+        # return the index of the minimum of array from s to e (inclusive)
+        def _query(cur, s, e):
+            if cur.s &gt; e or cur.e &lt; s:
+                return MAX, -1
+            if cur.s == s and cur.e == e:
+                return cur.val, cur.index
+
+            mid = (cur.s + cur.e) // 2
+
+            left_val, left_index = _query(cur.left, s, mid)
+            right_val, right_index = _query(cur.right, mid+1, e)
+
+            if left_val &lt; right_val:
+                return left_val, left_index
+            else:
+                return right_val, right_index
+
+        val, index = _query(self.root, s, e)
+        return val, index
+
+
+def debug(tree):
+    l = [tree.root]
+    while l:
+        next_l = []
+        for node in l:
+            print("(%d, %d): %d, %d\t" %
+                  (node.s, node.e, node.val, node.index), end="")
+            if node.left:
+                next_l.append(node.left)
+            if node.right:
+                next_l.append(node.right)
+        print()
+        l = next_l
+
+
+tree = SegmentTree(array)
+
+result = [0 for i in range(n)]
+cur = 1
+while cur &lt;= n:
+    val, index = tree.query(0, n - 1)
+    if index &lt; n - 1:
+        tree.modify(index + 1, n - 1, -cur)
+    tree.modify(index, index, MAX)
+
+    result[index] = cur
+    cur += 1
+print(" ".join(map(str, result)))
+</code></pre>
+
 <h2>Lazy Propagation</h2>
 
 <p><a href="https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/">https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/</a></p>
@@ -107,23 +236,170 @@ For example add 10 to all values at indexes from 2 to 7 in array.</p>
 </ol>
 
 
-  </div><div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = 'http://songzy12.github.io/2019/10/07/segment-tree.html';
-      this.page.identifier = 'http://songzy12.github.io/2019/10/07/segment-tree.html';
-    };
+<h3>Example</h3>
 
-    (function() {
-      var d = document, s = d.createElement('script');
+<pre><code># https://codeforces.com/contest/1208/problem/D
 
-      s.src = 'https://songzy12-github-io.disqus.com/embed.js';
+from sys import stdin, stdout
+input = stdin.readline
+print = stdout.write
 
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2019/10/07/segment-tree.html" hidden></a>
+# 1. the right most 0 is the index of current minimum value
+# 2. we abstract the current value for all the elements to the right
+# 3. Then we can do recusion
+
+# To find the last index with value zero,
+# we can use segment tree to get range minimum query with lazy propagation.
+
+# https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/
+
+n = int(input())
+array = list(map(int, input().split()))
+
+MAX = n * n
+
+
+class Node:
+    def __init__(self, val, index, s, e):
+        self.lazy = 0
+        # for leaf node, store the value of array
+        # for internal node, store the value of interval
+        self.val = val
+        self.index = index
+
+        self.s = s
+        self.e = e
+
+        self.left = None
+        self.right = None
+
+
+class SegmentTree:
+    def __init__(self, array):
+        self.root = self.build(array)
+
+    def build(self, array):
+        def _build(array, s, e):
+            if s == e:
+                cur = Node(array[s], s, s, e)
+                return cur
+            mid = (s + e) // 2
+            left = _build(array, s, mid)
+            right = _build(array, mid + 1, e)
+
+            if left.val &lt; right.val:
+                cur = Node(left.val, left.index, s, e)
+            else:
+                cur = Node(right.val, right.index, s, e)
+
+            cur.left = left
+            cur.right = right
+            return cur
+
+        root = _build(array, 0, len(array) - 1)
+        return root
+
+    def modify(self, s, e, diff):
+        # add diff to all the array elements from s to e (inclusive)
+        def _modify(cur, s, e, diff):
+            # print("cur: [%d, %d], midify: [%d, %d], diff: %d" %
+            #       (cur.s, cur.e, s, e, diff))
+            if cur.s &gt; e or cur.e &lt; s:
+                return cur.val + cur.lazy, cur.index
+
+            if cur.s == s and cur.e == e:
+                cur.lazy += diff
+                return cur.val + cur.lazy, cur.index
+
+            mid = (cur.s + cur.e) // 2
+
+            # note here cur.lazy will affect [cur.s, cur.e]
+            # while diff will only affect [s, e]
+            _modify(cur.left, cur.s, mid, cur.lazy)
+            _modify(cur.right, mid + 1, cur.e, cur.lazy)
+            cur.lazy = 0
+
+            if s - 1 &lt; mid &lt; e:                
+                left_val, left_index = _modify(
+                    cur.left, s, mid, diff)
+                right_val, right_index = _modify(
+                    cur.right, mid + 1, e, diff)
+            else:
+                left_val, left_index = _modify(
+                    cur.left, s, e, diff)
+                right_val, right_index = _modify(
+                    cur.right, s, e, diff)
+
+            if left_val &lt; right_val:
+                cur.val = left_val
+                cur.index = left_index
+            else:
+                cur.val = right_val
+                cur.index = right_index
+            return cur.val, cur.index
+        _modify(self.root, s, e, diff)
+
+    def query(self, s, e):
+        # return the index of the minimum of array from s to e (inclusive)
+        def _query(cur, s, e):
+            if cur.s &gt; e or cur.e &lt; s:
+                return cur.val + cur.lazy, cur.index
+            if cur.s == s and cur.e == e:
+                return cur.val + cur.lazy, cur.index
+
+            mid = (cur.s + cur.e) // 2
+            if s - 1 &lt; mid &lt; e:
+                left_val, left_index = _query(
+                    cur.left, s, mid)
+                right_val, right_index = _query(
+                    cur.right, mid + 1, e)
+            else:
+                left_val, left_index = _query(
+                    cur.left, s, e)
+                right_val, right_index = _query(
+                    cur.right, s, e)
+
+            if left_val &lt; right_val:
+                return left_val + cur.lazy, left_index
+            else:
+                return right_val + cur.lazy, right_index
+
+        val, index = _query(self.root, s, e)
+        return val, index
+
+
+def debug(tree):
+    l = [tree.root]
+    while l:
+        next_l = []
+        for node in l:
+            print("[%d, %d]: %d+%d of %d" % (node.s, node.e, node.val, node.lazy, node.index), end=" | ")
+            if node.left:
+                next_l.append(node.left)
+            if node.right:
+                next_l.append(node.right)
+        print()
+        l = next_l
+
+
+tree = SegmentTree(array)
+
+result = [0 for i in range(n)]
+cur = 1
+while cur &lt;= n:
+    val, index = tree.query(0, n - 1)
+    if index &lt; n - 1:
+        tree.modify(index + 1, n - 1, -cur)
+    tree.modify(index, index, MAX)
+
+    # debug(tree)
+
+    result[index] = cur
+    cur += 1
+print(" ".join(map(str, result)))
+</code></pre>
+
+  </div><a class="u-url" href="/2019/10/07/segment-tree.html" hidden></a>
 </article>
 
       </div>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-10-07T17:38:16+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Segment Tree</title><link href="http://songzy12.github.io/2019/10/07/segment-tree.html" rel="alternate" type="text/html" title="Segment Tree" /><published>2019-10-07T17:14:21+08:00</published><updated>2019-10-07T17:14:21+08:00</updated><id>http://songzy12.github.io/2019/10/07/segment-tree</id><content type="html" xml:base="http://songzy12.github.io/2019/10/07/segment-tree.html">&lt;p&gt;Representation of Segment trees:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-10-11T22:55:40+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Segment Tree</title><link href="http://songzy12.github.io/2019/10/07/segment-tree.html" rel="alternate" type="text/html" title="Segment Tree" /><published>2019-10-07T17:14:21+08:00</published><updated>2019-10-07T17:14:21+08:00</updated><id>http://songzy12.github.io/2019/10/07/segment-tree</id><content type="html" xml:base="http://songzy12.github.io/2019/10/07/segment-tree.html">&lt;p&gt;Representation of Segment trees:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Leaf Nodes are the elements of the input array.&lt;/p&gt;&lt;/li&gt;
@@ -26,6 +26,147 @@
 
 &lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/&quot;&gt;https://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/&lt;/a&gt;&lt;/p&gt;
 
+&lt;h3&gt;Example&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://codeforces.com/contest/1208/problem/d&quot;&gt;https://codeforces.com/contest/1208/problem/d&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# https://codeforces.com/contest/1208/problem/D
+
+from sys import stdin, stdout
+input = stdin.readline
+# print = stdout.write
+
+# 1. the right most 0 is the index of current minimum value
+# 2. we abstract the current value for all the elements to the right
+# 3. Then we can do recusion
+
+# To find the last index with value zero,
+# we can use segment tree to get range minimum query with lazy propagation.
+
+# https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/
+
+n = int(input())
+array = list(map(int, input().split()))
+
+MAX = n * n
+
+
+class Node:
+    def __init__(self, val, index, s, e):
+        self.lazy = 0
+        # for leaf node, store the value of array
+        # for internal node, store the value of interval
+        self.val = val
+        self.index = index
+
+        self.s = s
+        self.e = e
+
+        self.left = None
+        self.right = None
+
+
+class SegmentTree:
+    def __init__(self, array):
+        self.root = self.build(array)
+
+    def build(self, array):
+        def _build(array, s, e):
+            if s == e:
+                cur = Node(array[s], s, s, e)
+                return cur
+            mid = (s + e) // 2
+            left = _build(array, s, mid)
+            right = _build(array, mid + 1, e)
+
+            if left.val &amp;lt; right.val:
+                cur = Node(left.val, left.index, s, e)
+            else:
+                cur = Node(right.val, right.index, s, e)
+
+            cur.left = left
+            cur.right = right
+            return cur
+
+        root = _build(array, 0, len(array) - 1)
+        return root
+
+    def modify(self, s, e, diff):
+        # add diff to all the array elements from s to e (inclusive)
+        def _modify(cur, s, e, diff):
+            if cur.s &amp;gt; e or cur.e &amp;lt; s:
+                return cur.val, cur.index
+            if cur.s == cur.e:
+                cur.val += diff
+                return cur.val, cur.index
+
+            # note here [s, mid] is wrong because that 
+            # [s, mid] may be larger than [s, e]
+
+            left_val, left_index = _modify(cur.left, s, e, diff)
+            right_val, right_index = _modify(cur.right, s, e, diff)
+
+            if left_val &amp;lt; right_val:
+                cur.val = left_val
+                cur.index = left_index
+            else:
+                cur.val = right_val
+                cur.index = right_index
+            return cur.val, cur.index
+        _modify(self.root, s, e, diff)
+
+    def query(self, s, e):
+        # return the index of the minimum of array from s to e (inclusive)
+        def _query(cur, s, e):
+            if cur.s &amp;gt; e or cur.e &amp;lt; s:
+                return MAX, -1
+            if cur.s == s and cur.e == e:
+                return cur.val, cur.index
+
+            mid = (cur.s + cur.e) // 2
+
+            left_val, left_index = _query(cur.left, s, mid)
+            right_val, right_index = _query(cur.right, mid+1, e)
+
+            if left_val &amp;lt; right_val:
+                return left_val, left_index
+            else:
+                return right_val, right_index
+
+        val, index = _query(self.root, s, e)
+        return val, index
+
+
+def debug(tree):
+    l = [tree.root]
+    while l:
+        next_l = []
+        for node in l:
+            print(&quot;(%d, %d): %d, %d\t&quot; %
+                  (node.s, node.e, node.val, node.index), end=&quot;&quot;)
+            if node.left:
+                next_l.append(node.left)
+            if node.right:
+                next_l.append(node.right)
+        print()
+        l = next_l
+
+
+tree = SegmentTree(array)
+
+result = [0 for i in range(n)]
+cur = 1
+while cur &amp;lt;= n:
+    val, index = tree.query(0, n - 1)
+    if index &amp;lt; n - 1:
+        tree.modify(index + 1, n - 1, -cur)
+    tree.modify(index, index, MAX)
+
+    result[index] = cur
+    cur += 1
+print(&quot; &quot;.join(map(str, result)))
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2&gt;Lazy Propagation&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/&quot;&gt;https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/&lt;/a&gt;&lt;/p&gt;
@@ -44,7 +185,171 @@ For example add 10 to all values at indexes from 2 to 7 in array.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Update(l, r, x) : Increment the a[i] (l &amp;lt;= i &amp;lt;= r) with value x.&lt;/li&gt;
 &lt;li&gt;Query(l, r) : Find the maximum value in the array in a range l to r (both are included).&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Representation of Segment trees:</summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2019/09/21/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2019-09-21T20:07:54+08:00</published><updated>2019-09-21T20:07:54+08:00</updated><id>http://songzy12.github.io/2019/09/21/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2019/09/21/v2ray.html">&lt;p&gt;&lt;a href=&quot;https://yuan.ga/v2ray-complete-tutorial/&quot;&gt;https://yuan.ga/v2ray-complete-tutorial/&lt;/a&gt;&lt;/p&gt;
+&lt;/ol&gt;
+
+
+&lt;h3&gt;Example&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;# https://codeforces.com/contest/1208/problem/D
+
+from sys import stdin, stdout
+input = stdin.readline
+print = stdout.write
+
+# 1. the right most 0 is the index of current minimum value
+# 2. we abstract the current value for all the elements to the right
+# 3. Then we can do recusion
+
+# To find the last index with value zero,
+# we can use segment tree to get range minimum query with lazy propagation.
+
+# https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/
+
+n = int(input())
+array = list(map(int, input().split()))
+
+MAX = n * n
+
+
+class Node:
+    def __init__(self, val, index, s, e):
+        self.lazy = 0
+        # for leaf node, store the value of array
+        # for internal node, store the value of interval
+        self.val = val
+        self.index = index
+
+        self.s = s
+        self.e = e
+
+        self.left = None
+        self.right = None
+
+
+class SegmentTree:
+    def __init__(self, array):
+        self.root = self.build(array)
+
+    def build(self, array):
+        def _build(array, s, e):
+            if s == e:
+                cur = Node(array[s], s, s, e)
+                return cur
+            mid = (s + e) // 2
+            left = _build(array, s, mid)
+            right = _build(array, mid + 1, e)
+
+            if left.val &amp;lt; right.val:
+                cur = Node(left.val, left.index, s, e)
+            else:
+                cur = Node(right.val, right.index, s, e)
+
+            cur.left = left
+            cur.right = right
+            return cur
+
+        root = _build(array, 0, len(array) - 1)
+        return root
+
+    def modify(self, s, e, diff):
+        # add diff to all the array elements from s to e (inclusive)
+        def _modify(cur, s, e, diff):
+            # print(&quot;cur: [%d, %d], midify: [%d, %d], diff: %d&quot; %
+            #       (cur.s, cur.e, s, e, diff))
+            if cur.s &amp;gt; e or cur.e &amp;lt; s:
+                return cur.val + cur.lazy, cur.index
+
+            if cur.s == s and cur.e == e:
+                cur.lazy += diff
+                return cur.val + cur.lazy, cur.index
+
+            mid = (cur.s + cur.e) // 2
+
+            # note here cur.lazy will affect [cur.s, cur.e]
+            # while diff will only affect [s, e]
+            _modify(cur.left, cur.s, mid, cur.lazy)
+            _modify(cur.right, mid + 1, cur.e, cur.lazy)
+            cur.lazy = 0
+
+            if s - 1 &amp;lt; mid &amp;lt; e:                
+                left_val, left_index = _modify(
+                    cur.left, s, mid, diff)
+                right_val, right_index = _modify(
+                    cur.right, mid + 1, e, diff)
+            else:
+                left_val, left_index = _modify(
+                    cur.left, s, e, diff)
+                right_val, right_index = _modify(
+                    cur.right, s, e, diff)
+
+            if left_val &amp;lt; right_val:
+                cur.val = left_val
+                cur.index = left_index
+            else:
+                cur.val = right_val
+                cur.index = right_index
+            return cur.val, cur.index
+        _modify(self.root, s, e, diff)
+
+    def query(self, s, e):
+        # return the index of the minimum of array from s to e (inclusive)
+        def _query(cur, s, e):
+            if cur.s &amp;gt; e or cur.e &amp;lt; s:
+                return cur.val + cur.lazy, cur.index
+            if cur.s == s and cur.e == e:
+                return cur.val + cur.lazy, cur.index
+
+            mid = (cur.s + cur.e) // 2
+            if s - 1 &amp;lt; mid &amp;lt; e:
+                left_val, left_index = _query(
+                    cur.left, s, mid)
+                right_val, right_index = _query(
+                    cur.right, mid + 1, e)
+            else:
+                left_val, left_index = _query(
+                    cur.left, s, e)
+                right_val, right_index = _query(
+                    cur.right, s, e)
+
+            if left_val &amp;lt; right_val:
+                return left_val + cur.lazy, left_index
+            else:
+                return right_val + cur.lazy, right_index
+
+        val, index = _query(self.root, s, e)
+        return val, index
+
+
+def debug(tree):
+    l = [tree.root]
+    while l:
+        next_l = []
+        for node in l:
+            print(&quot;[%d, %d]: %d+%d of %d&quot; % (node.s, node.e, node.val, node.lazy, node.index), end=&quot; | &quot;)
+            if node.left:
+                next_l.append(node.left)
+            if node.right:
+                next_l.append(node.right)
+        print()
+        l = next_l
+
+
+tree = SegmentTree(array)
+
+result = [0 for i in range(n)]
+cur = 1
+while cur &amp;lt;= n:
+    val, index = tree.query(0, n - 1)
+    if index &amp;lt; n - 1:
+        tree.modify(index + 1, n - 1, -cur)
+    tree.modify(index, index, MAX)
+
+    # debug(tree)
+
+    result[index] = cur
+    cur += 1
+print(&quot; &quot;.join(map(str, result)))
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Representation of Segment trees:</summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2019/09/21/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2019-09-21T20:07:54+08:00</published><updated>2019-09-21T20:07:54+08:00</updated><id>http://songzy12.github.io/2019/09/21/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2019/09/21/v2ray.html">&lt;p&gt;&lt;a href=&quot;https://yuan.ga/v2ray-complete-tutorial/&quot;&gt;https://yuan.ga/v2ray-complete-tutorial/&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;server&lt;/h2&gt;
 
