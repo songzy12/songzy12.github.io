@@ -1,4 +1,61 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2019-10-12T23:45:31+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Segment Tree</title><link href="http://songzy12.github.io/2019/10/07/segment-tree.html" rel="alternate" type="text/html" title="Segment Tree" /><published>2019-10-07T17:14:21+08:00</published><updated>2019-10-07T17:14:21+08:00</updated><id>http://songzy12.github.io/2019/10/07/segment-tree</id><content type="html" xml:base="http://songzy12.github.io/2019/10/07/segment-tree.html">&lt;p&gt;Representation of Segment trees:&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-04-11T20:32:10+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Aho-Corasick algorithm</title><link href="http://songzy12.github.io/2020/04/11/aho-corasick-algorithm.html" rel="alternate" type="text/html" title="Aho-Corasick algorithm" /><published>2020-04-11T20:29:50+08:00</published><updated>2020-04-11T20:29:50+08:00</updated><id>http://songzy12.github.io/2020/04/11/aho-corasick-algorithm</id><content type="html" xml:base="http://songzy12.github.io/2020/04/11/aho-corasick-algorithm.html">&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/&quot;&gt;https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/</summary></entry><entry><title type="html">Binary Indexed Tree</title><link href="http://songzy12.github.io/2019/10/12/binary-indexed-tree.html" rel="alternate" type="text/html" title="Binary Indexed Tree" /><published>2019-10-12T10:14:50+08:00</published><updated>2019-10-12T10:14:50+08:00</updated><id>http://songzy12.github.io/2019/10/12/binary-indexed-tree</id><content type="html" xml:base="http://songzy12.github.io/2019/10/12/binary-indexed-tree.html">&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/&quot;&gt;https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We have an array arr[0 &amp;hellip; n-1]. We would like to&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Compute the sum of the first i elements.&lt;/li&gt;
+&lt;li&gt;Modify the value of a specified element of the array ar[i] = x where 0 &amp;lt;= i &amp;lt;= n-1.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;Low Bit&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;int lowbit(int x) {
+    return x &amp;amp; (-x);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;One Dimension&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;int sum(int x) {
+    int ret = 0;
+    while(x &amp;gt; 0) {
+        ret += BIT[x];
+        x -= lowbit(x);
+    }
+    return ret;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;void add(x, val) {
+    while(x &amp;lt;= N) {
+        BIT[x] += val;
+        x += lowbit(x);
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Two Dimension&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;void add(int x, int y, int val) {
+    for(int i = x; i &amp;lt;= N; i += lowbit(i)) {
+        for(int j = y; j &amp;lt;= N; j += lowbit(j)) {
+            BIT2[i][j] += val;
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;int sum(int x, int y) {
+    int ret = 0;
+    for(int i = x; i &amp;gt; 0; i -= lowbit(i)) {
+        for(int j = y; j &amp;gt; 0; j -= lowbit(j)) {
+            ret += BIT2[i][j];
+        }
+    }
+    return ret;
+}
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/</summary></entry><entry><title type="html">Segment Tree</title><link href="http://songzy12.github.io/2019/10/07/segment-tree.html" rel="alternate" type="text/html" title="Segment Tree" /><published>2019-10-07T17:14:21+08:00</published><updated>2019-10-07T17:14:21+08:00</updated><id>http://songzy12.github.io/2019/10/07/segment-tree</id><content type="html" xml:base="http://songzy12.github.io/2019/10/07/segment-tree.html">&lt;p&gt;Representation of Segment trees:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;p&gt;Leaf Nodes are the elements of the input array.&lt;/p&gt;&lt;/li&gt;
@@ -834,87 +891,4 @@ plugins:
 
 &lt;hr /&gt;
 
-&lt;p&gt;我们可以扩展两种情况：要求 AB 必须相邻，或者要求 AB 必须不相邻。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">A, B, C, D, E，5人排成一列，要求A必须站在B前面。</summary></entry><entry><title type="html">Xiaomi</title><link href="http://songzy12.github.io/2019/03/14/xiaomi.html" rel="alternate" type="text/html" title="Xiaomi" /><published>2019-03-14T01:09:49+08:00</published><updated>2019-03-14T01:09:49+08:00</updated><id>http://songzy12.github.io/2019/03/14/xiaomi</id><content type="html" xml:base="http://songzy12.github.io/2019/03/14/xiaomi.html">&lt;p&gt;小米 Note：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.miui.com/thread-18831512-1-1.html&quot;&gt;http://www.miui.com/thread-18831512-1-1.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;如何线刷：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.miui.com/shuaji-393.html&quot;&gt;http://www.miui.com/shuaji-393.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;线刷工具选项错误：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://bbs.xiaomi.cn/t-13302104&quot;&gt;http://bbs.xiaomi.cn/t-13302104&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Google 全家桶：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://opengapps.org/app/&quot;&gt;https://opengapps.org/app/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;如何选择不同的 suite:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/opengapps/opengapps/wiki/Package-Comparison&quot;&gt;https://github.com/opengapps/opengapps/wiki/Package-Comparison&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;结论：mini 是最合适的。&lt;/p&gt;
-
-&lt;p&gt;安装 Google 全家桶后闪退。查看 log:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adb logcat *:E
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;03-14 15:56:16.090 20886 20886 E WebViewFactory: Chromium WebView package does not exist
-03-14 15:56:16.090 20886 20886 E WebViewFactory: android.webkit.WebViewFactory$MissingWebViewPackageException: Failed to load WebView provider: No WebView installed
-
-03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: FATAL EXCEPTION: main
-03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: Process: com.google.android.gms.ui, PID: 20886
-03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: java.lang.RuntimeException: Unable to start activity ComponentInfo{com.google.android.gms/com.google.android.gms.auth.uiflows.minutemaid.MinuteMaidActivity}: android.util.AndroidRuntimeException: android.webkit.WebViewFactory$MissingWebViewPackageException: Failed to load WebView provider: No WebView installed
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;所以就是 WebView 的问题，然后参考这个：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.quora.com/How-do-I-enable-Android-system-web-view-in-Android-7&quot;&gt;https://www.quora.com/How-do-I-enable-Android-system-web-view-in-Android-7&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;顺便回答了这个问题：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.zhihu.com/question/63714089&quot;&gt;https://www.zhihu.com/question/63714089&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;输入法设置也闪退：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;03-14 19:29:40.418 16063 16063 E AndroidRuntime: FATAL EXCEPTION: main
-03-14 19:29:40.418 16063 16063 E AndroidRuntime: Process: com.android.inputmethod.latin, PID: 16063
-03-14 19:29:40.418 16063 16063 E AndroidRuntime: java.lang.RuntimeException: Unable to resume activity {com.android.inputmethod.latin/com.google.android.apps.inputmethod.latin.preference.SettingsActivity}: java.lang.RuntimeException: Preference xml file not specified
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/opengapps/aosp_build/issues/116&quot;&gt;https://github.com/opengapps/aosp_build/issues/116&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;说什么清了 data 然后重装 GBoard.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adb shell ls -lR | grep inputmethod
-adb shell ls -lR | grep LatinIMEGooglePrebuilt
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;查看包名：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/6289149/read-the-package-name-of-an-android-apk&quot;&gt;https://stackoverflow.com/questions/6289149/read-the-package-name-of-an-android-apk&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adb shell &quot;pm list packages -f&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;重装：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/12483720/adb-how-to-reinstall-an-app-without-retaining-the-data&quot;&gt;https://stackoverflow.com/questions/12483720/adb-how-to-reinstall-an-app-without-retaining-the-data&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adb uninstall com.android.inputmethod.latin
-adb install -r GBoard.apk
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;adb shell pm clear com.android.inputmethod.latin
-adb install -r GBoard.apk
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;好的上面这两个都是不行的。看来目前就只能 wipe data 然后重装。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">小米 Note：</summary></entry><entry><title type="html">Ubuntu</title><link href="http://songzy12.github.io/2019/03/12/dual-boot.html" rel="alternate" type="text/html" title="Ubuntu" /><published>2019-03-12T17:12:30+08:00</published><updated>2019-03-12T17:12:30+08:00</updated><id>http://songzy12.github.io/2019/03/12/dual-boot</id><content type="html" xml:base="http://songzy12.github.io/2019/03/12/dual-boot.html">&lt;p&gt;Windows 查看磁盘分区格式&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;按下 &lt;code&gt;Win+R&lt;/code&gt; 打开运行，输入 &lt;code&gt;cmd&lt;/code&gt;，打开命令提示符；&lt;/li&gt;
-&lt;li&gt;输入 &lt;code&gt;diskpart&lt;/code&gt; 按回车执行，切换到 DISKPART 命令，输入&lt;code&gt;list disk&lt;/code&gt;，按回车；&lt;/li&gt;
-&lt;li&gt;查看最后一列的GPT，如果有*号则为GPT，如果没有则为MBR。&lt;/li&gt;
-&lt;/ol&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Windows 查看磁盘分区格式</summary></entry></feed>
+&lt;p&gt;我们可以扩展两种情况：要求 AB 必须相邻，或者要求 AB 必须不相邻。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">A, B, C, D, E，5人排成一列，要求A必须站在B前面。</summary></entry></feed>
