@@ -1,13 +1,20 @@
 ---
 layout: post
 title: "Binary Indexed Tree"
-date: 2017-10-21 10:14:50 +0800
+date: 2019-10-12 10:14:50 +0800
 comments: true
 categories: 
 keywords: 
 description: 
 
 ---
+
+<https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/>
+
+We have an array arr[0 . . . n-1]. We would like to
+
+1. Compute the sum of the first i elements.
+2. Modify the value of a specified element of the array ar[i] = x where 0 <= i <= n-1.
 
 ## Low Bit
 
@@ -23,7 +30,7 @@ int lowbit(int x) {
 int sum(int x) {
     int ret = 0;
     while(x > 0) {
-        ret += BIT[x]);
+        ret += BIT[x];
         x -= lowbit(x);
     }
     return ret;
