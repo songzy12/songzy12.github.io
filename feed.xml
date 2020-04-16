@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-04-17T02:07:35+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2020/04/16/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2020-04-16T20:07:54+08:00</published><updated>2020-04-16T20:07:54+08:00</updated><id>http://songzy12.github.io/2020/04/16/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2020/04/16/v2ray.html">&lt;h2&gt;default&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-04-17T02:30:06+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2020/04/16/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2020-04-16T20:07:54+08:00</published><updated>2020-04-16T20:07:54+08:00</updated><id>http://songzy12.github.io/2020/04/16/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2020/04/16/v2ray.html">&lt;h2&gt;default&lt;/h2&gt;
 
 &lt;h3&gt;server&lt;/h3&gt;
 
@@ -197,7 +197,114 @@ source ~/.bashrc
   &quot;outbounds&quot;: [
       &quot;streamSettings&quot;:{
         &quot;network&quot;:&quot;ws&quot;
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">default</summary></entry><entry><title type="html">Aho-Corasick algorithm</title><link href="http://songzy12.github.io/2020/04/11/aho-corasick-algorithm.html" rel="alternate" type="text/html" title="Aho-Corasick algorithm" /><published>2020-04-11T20:29:50+08:00</published><updated>2020-04-11T20:29:50+08:00</updated><id>http://songzy12.github.io/2020/04/11/aho-corasick-algorithm</id><content type="html" xml:base="http://songzy12.github.io/2020/04/11/aho-corasick-algorithm.html">&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/&quot;&gt;https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/</summary></entry><entry><title type="html">Binary Indexed Tree</title><link href="http://songzy12.github.io/2019/10/12/binary-indexed-tree.html" rel="alternate" type="text/html" title="Binary Indexed Tree" /><published>2019-10-12T10:14:50+08:00</published><updated>2019-10-12T10:14:50+08:00</updated><id>http://songzy12.github.io/2019/10/12/binary-indexed-tree</id><content type="html" xml:base="http://songzy12.github.io/2019/10/12/binary-indexed-tree.html">&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/&quot;&gt;https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">default</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2020/04/16/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2020-04-16T14:08:14+08:00</published><updated>2020-04-16T14:08:14+08:00</updated><id>http://songzy12.github.io/2020/04/16/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2020/04/16/octopress-3-0.html">&lt;h2&gt;new post&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt; octopress new post hello -D Ruby
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;build&lt;/h2&gt;
+
+&lt;p&gt;Here we set &lt;code&gt;JEKYLL_ENV=production&lt;/code&gt; to enable &lt;code&gt;google_analytics&lt;/code&gt; and &lt;code&gt;disqus&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;JEKYLL_ENV=production jekyll build
+JEKYLL_ENV=production jekyll serve
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;deploy&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;octopress deploy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;source&lt;/h2&gt;
+
+&lt;p&gt;源码和网站是在同一个 repo 的不同 branch 底下的。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &quot;$(date)&quot;
+git push --set-upstream origin source
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;mirror&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;bundle config mirror.https://rubygems.org https://gems.ruby-china.com
+gem sources -l
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;minima&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/jekyll/minima&quot;&gt;https://github.com/jekyll/minima&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;comments&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;disqus:
+  shortname: my_disqus_shortname
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;google_analytics&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;  google_analytics: UA-NNNNNNNN-N
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;excerpts&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;show_excerpts: true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;layouts&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;ls $(bundle show minima)/_layouts
+ls $(bundle show minima)/_includes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;header&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;vi $(bundle show minima)/_includes/header.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;footer&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;vi $(bundle show minima)/_includes/footer.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;_config.yml&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;title:  Zhengyang Song's Blog
+author: Zhengyang Song
+email: songzy.thu@gmail.com
+description: &amp;gt;- # this means to ignore newlines until &quot;baseurl:&quot;
+  All those little bugs I have ever met.
+baseurl: &quot;&quot; # the subpath of your site, e.g. /blog
+url: &quot;http://songzy12.github.io&quot; # the base hostname &amp;amp; protocol for your site, e.g. http://example.com
+github_username:  songzy12
+
+# Default extension for new posts and pages
+post_ext: md
+page_ext: html
+
+# Default templates for posts and pages
+# Found in _templates/
+post_layout: post
+page_layout: page
+
+# Format titles with titlecase?
+titlecase: true
+
+# Change default template file (in _templates/)
+post_template: post
+page_template: page
+draft_template: draft
+
+# Build settings
+markdown: rdiscount
+rdiscount:
+  extensions:
+    - autolink
+    - footnotes
+    - smart
+theme: minima
+plugins:
+  - jekyll-feed
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">new post</summary></entry><entry><title type="html">Aho-Corasick algorithm</title><link href="http://songzy12.github.io/2020/04/11/aho-corasick-algorithm.html" rel="alternate" type="text/html" title="Aho-Corasick algorithm" /><published>2020-04-11T20:29:50+08:00</published><updated>2020-04-11T20:29:50+08:00</updated><id>http://songzy12.github.io/2020/04/11/aho-corasick-algorithm</id><content type="html" xml:base="http://songzy12.github.io/2020/04/11/aho-corasick-algorithm.html">&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/&quot;&gt;https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/</summary></entry><entry><title type="html">Binary Indexed Tree</title><link href="http://songzy12.github.io/2019/10/12/binary-indexed-tree.html" rel="alternate" type="text/html" title="Binary Indexed Tree" /><published>2019-10-12T10:14:50+08:00</published><updated>2019-10-12T10:14:50+08:00</updated><id>http://songzy12.github.io/2019/10/12/binary-indexed-tree</id><content type="html" xml:base="http://songzy12.github.io/2019/10/12/binary-indexed-tree.html">&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/&quot;&gt;https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;We have an array arr[0 &amp;hellip; n-1]. We would like to&lt;/p&gt;
 
@@ -887,81 +994,4 @@ print(&quot; &quot;.join(map(str, result)))
 
 &lt;hr /&gt;
 
-&lt;p&gt;我们可以扩展两种情况：要求 AB 必须相邻，或者要求 AB 必须不相邻。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">A, B, C, D, E，5人排成一列，要求A必须站在B前面。</summary></entry><entry><title type="html">Xiaomi</title><link href="http://songzy12.github.io/2019/03/14/xiaomi.html" rel="alternate" type="text/html" title="Xiaomi" /><published>2019-03-14T01:09:49+08:00</published><updated>2019-03-14T01:09:49+08:00</updated><id>http://songzy12.github.io/2019/03/14/xiaomi</id><content type="html" xml:base="http://songzy12.github.io/2019/03/14/xiaomi.html">&lt;p&gt;小米 Note：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.miui.com/thread-18831512-1-1.html&quot;&gt;http://www.miui.com/thread-18831512-1-1.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;如何线刷：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://www.miui.com/shuaji-393.html&quot;&gt;http://www.miui.com/shuaji-393.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;线刷工具选项错误：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://bbs.xiaomi.cn/t-13302104&quot;&gt;http://bbs.xiaomi.cn/t-13302104&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Google 全家桶：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://opengapps.org/app/&quot;&gt;https://opengapps.org/app/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;如何选择不同的 suite:&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/opengapps/opengapps/wiki/Package-Comparison&quot;&gt;https://github.com/opengapps/opengapps/wiki/Package-Comparison&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;结论：mini 是最合适的。&lt;/p&gt;
-
-&lt;p&gt;安装 Google 全家桶后闪退。查看 log:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adb logcat *:E
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;03-14 15:56:16.090 20886 20886 E WebViewFactory: Chromium WebView package does not exist
-03-14 15:56:16.090 20886 20886 E WebViewFactory: android.webkit.WebViewFactory$MissingWebViewPackageException: Failed to load WebView provider: No WebView installed
-
-03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: FATAL EXCEPTION: main
-03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: Process: com.google.android.gms.ui, PID: 20886
-03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: java.lang.RuntimeException: Unable to start activity ComponentInfo{com.google.android.gms/com.google.android.gms.auth.uiflows.minutemaid.MinuteMaidActivity}: android.util.AndroidRuntimeException: android.webkit.WebViewFactory$MissingWebViewPackageException: Failed to load WebView provider: No WebView installed
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;所以就是 WebView 的问题，然后参考这个：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.quora.com/How-do-I-enable-Android-system-web-view-in-Android-7&quot;&gt;https://www.quora.com/How-do-I-enable-Android-system-web-view-in-Android-7&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;顺便回答了这个问题：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.zhihu.com/question/63714089&quot;&gt;https://www.zhihu.com/question/63714089&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;输入法设置也闪退：&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;03-14 19:29:40.418 16063 16063 E AndroidRuntime: FATAL EXCEPTION: main
-03-14 19:29:40.418 16063 16063 E AndroidRuntime: Process: com.android.inputmethod.latin, PID: 16063
-03-14 19:29:40.418 16063 16063 E AndroidRuntime: java.lang.RuntimeException: Unable to resume activity {com.android.inputmethod.latin/com.google.android.apps.inputmethod.latin.preference.SettingsActivity}: java.lang.RuntimeException: Preference xml file not specified
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/opengapps/aosp_build/issues/116&quot;&gt;https://github.com/opengapps/aosp_build/issues/116&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;说什么清了 data 然后重装 GBoard.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adb shell ls -lR | grep inputmethod
-adb shell ls -lR | grep LatinIMEGooglePrebuilt
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;查看包名：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/6289149/read-the-package-name-of-an-android-apk&quot;&gt;https://stackoverflow.com/questions/6289149/read-the-package-name-of-an-android-apk&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adb shell &quot;pm list packages -f&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;重装：&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/12483720/adb-how-to-reinstall-an-app-without-retaining-the-data&quot;&gt;https://stackoverflow.com/questions/12483720/adb-how-to-reinstall-an-app-without-retaining-the-data&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;adb uninstall com.android.inputmethod.latin
-adb install -r GBoard.apk
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;adb shell pm clear com.android.inputmethod.latin
-adb install -r GBoard.apk
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;好的上面这两个都是不行的。看来目前就只能 wipe data 然后重装。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">小米 Note：</summary></entry></feed>
+&lt;p&gt;我们可以扩展两种情况：要求 AB 必须相邻，或者要求 AB 必须不相邻。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">A, B, C, D, E，5人排成一列，要求A必须站在B前面。</summary></entry></feed>
