@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-04-17T02:30:06+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2020/04/16/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2020-04-16T20:07:54+08:00</published><updated>2020-04-16T20:07:54+08:00</updated><id>http://songzy12.github.io/2020/04/16/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2020/04/16/v2ray.html">&lt;h2&gt;default&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-06-04T00:28:04+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Git Proxy</title><link href="http://songzy12.github.io/2020/06/04/git-proxy.html" rel="alternate" type="text/html" title="Git Proxy" /><published>2020-06-04T00:20:33+08:00</published><updated>2020-06-04T00:20:33+08:00</updated><id>http://songzy12.github.io/2020/06/04/git-proxy</id><content type="html" xml:base="http://songzy12.github.io/2020/06/04/git-proxy.html">&lt;p&gt;This article shows how to enable Proxy when using Git.&lt;/p&gt;
+
+&lt;p&gt;If you have enabled proxy like V2Ray on your local machine, you can use this command to set Proxy for Git:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global http.proxy localhost:1081
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then when you do &lt;code&gt;git clone&lt;/code&gt;, use the HTTP link rather than the SSH link:
+&lt;code&gt;
+ git clone https://github.com/songzy12/Supply-Chain-Risk-Related-Classification.git
+&lt;/code&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to enable Proxy when using Git.</summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2020/06/03/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2020-06-03T20:07:54+08:00</published><updated>2020-06-03T20:07:54+08:00</updated><id>http://songzy12.github.io/2020/06/03/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2020/06/03/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
+
+&lt;h2&gt;default&lt;/h2&gt;
 
 &lt;h3&gt;server&lt;/h3&gt;
 
@@ -91,6 +103,8 @@ source ~/.bashrc
   }
 }
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: remember to change the &lt;code&gt;inbounds.settings.clients.id&lt;/code&gt; parameter to your own value.&lt;/p&gt;
 
 &lt;h3&gt;client&lt;/h3&gt;
 
@@ -197,9 +211,11 @@ source ~/.bashrc
   &quot;outbounds&quot;: [
       &quot;streamSettings&quot;:{
         &quot;network&quot;:&quot;ws&quot;
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">default</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2020/04/16/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2020-04-16T14:08:14+08:00</published><updated>2020-04-16T14:08:14+08:00</updated><id>http://songzy12.github.io/2020/04/16/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2020/04/16/octopress-3-0.html">&lt;h2&gt;new post&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to install and enabel V2Ray proxy.</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2020/04/16/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2020-04-16T14:08:14+08:00</published><updated>2020-04-16T14:08:14+08:00</updated><id>http://songzy12.github.io/2020/04/16/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2020/04/16/octopress-3-0.html">&lt;p&gt;This article shows the basic usage of Octopress 3.0.&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt; octopress new post hello -D Ruby
+&lt;h2&gt;new post&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;octopress new post hello -D Ruby
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2&gt;build&lt;/h2&gt;
@@ -304,7 +320,7 @@ rdiscount:
 theme: minima
 plugins:
   - jekyll-feed
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">new post</summary></entry><entry><title type="html">Aho-Corasick algorithm</title><link href="http://songzy12.github.io/2020/04/11/aho-corasick-algorithm.html" rel="alternate" type="text/html" title="Aho-Corasick algorithm" /><published>2020-04-11T20:29:50+08:00</published><updated>2020-04-11T20:29:50+08:00</updated><id>http://songzy12.github.io/2020/04/11/aho-corasick-algorithm</id><content type="html" xml:base="http://songzy12.github.io/2020/04/11/aho-corasick-algorithm.html">&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/&quot;&gt;https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/</summary></entry><entry><title type="html">Binary Indexed Tree</title><link href="http://songzy12.github.io/2019/10/12/binary-indexed-tree.html" rel="alternate" type="text/html" title="Binary Indexed Tree" /><published>2019-10-12T10:14:50+08:00</published><updated>2019-10-12T10:14:50+08:00</updated><id>http://songzy12.github.io/2019/10/12/binary-indexed-tree</id><content type="html" xml:base="http://songzy12.github.io/2019/10/12/binary-indexed-tree.html">&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/&quot;&gt;https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows the basic usage of Octopress 3.0.</summary></entry><entry><title type="html">Aho-Corasick algorithm</title><link href="http://songzy12.github.io/2020/04/11/aho-corasick-algorithm.html" rel="alternate" type="text/html" title="Aho-Corasick algorithm" /><published>2020-04-11T20:29:50+08:00</published><updated>2020-04-11T20:29:50+08:00</updated><id>http://songzy12.github.io/2020/04/11/aho-corasick-algorithm</id><content type="html" xml:base="http://songzy12.github.io/2020/04/11/aho-corasick-algorithm.html">&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/&quot;&gt;https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/</summary></entry><entry><title type="html">Binary Indexed Tree</title><link href="http://songzy12.github.io/2019/10/12/binary-indexed-tree.html" rel="alternate" type="text/html" title="Binary Indexed Tree" /><published>2019-10-12T10:14:50+08:00</published><updated>2019-10-12T10:14:50+08:00</updated><id>http://songzy12.github.io/2019/10/12/binary-indexed-tree</id><content type="html" xml:base="http://songzy12.github.io/2019/10/12/binary-indexed-tree.html">&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/&quot;&gt;https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;We have an array arr[0 &amp;hellip; n-1]. We would like to&lt;/p&gt;
 
@@ -948,50 +964,4 @@ print(&quot; &quot;.join(map(str, result)))
 
 &lt;p&gt;$D_n= n!(1 - \frac{1}{1!} + \frac{1}{2!} - \frac{1}{3!} + \frac{1}{4!} - \frac{1}{5!} + \dots + (-1)&lt;sup&gt;n&lt;/sup&gt; \frac{1}{n!}) $&lt;/p&gt;
 
-&lt;p&gt;考虑所有的排列可能，减去其中一位排在原来位置的情况，加上有两位排在原来位置的情况，减去有三位排在原来位置的情况，依此类推。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">某科室从下属5个科室中各抽调了一名工作人员，交流到其他科室，如每个科室只能接收一个人的话，有多少种不同的人员安排方式？</summary></entry><entry><title type="html">Combinatorics</title><link href="http://songzy12.github.io/2019/04/04/combinatorics.html" rel="alternate" type="text/html" title="Combinatorics" /><published>2019-04-04T23:31:16+08:00</published><updated>2019-04-04T23:31:16+08:00</updated><id>http://songzy12.github.io/2019/04/04/combinatorics</id><content type="html" xml:base="http://songzy12.github.io/2019/04/04/combinatorics.html">&lt;p&gt;A, B, C, D, E，5人排成一列，要求A必须站在B前面。&lt;/p&gt;
-
-&lt;p&gt;考虑这5个人的全排列，我们可以证明：&lt;/p&gt;
-
-&lt;p&gt;在所有的全排列中，“A 站在 B 的前面” 和 “B 站在 A 的前面” 的站法数目是一样的。&lt;/p&gt;
-
-&lt;p&gt;这是为什么呢？&lt;/p&gt;
-
-&lt;p&gt;对于任何一种“A站在B的前面”的站法，我们维持其余三人的位置不变，仅仅交换A和B的位置，便可以得到一种合法的“B站在A的前面”的站法；同理，对于任何一种“B站在A的前面”的站法，我们维持其余三人的位置不变，仅仅交换A和B的位置，便可以得到一种合法的“A站在B的前面”的站法。&lt;/p&gt;
-
-&lt;p&gt;如上，我们在“A 站在 B 的前面” 和 “B 站在 A 的前面” 之间建立了一一对应，于是它们的站法数目是一样的。&lt;/p&gt;
-
-&lt;p&gt;从而“A站在B的前面” 恰好占了所有可能全排列数目的一半，也就是 $A_5&lt;sup&gt;5&lt;/sup&gt;/2​$&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;其实这个和组合数的计算公式的推导是同样的原理。&lt;/p&gt;
-
-&lt;p&gt;或许你还记得组合数的公式是 $C_n&lt;sup&gt;m&lt;/sup&gt; = A_n&lt;sup&gt;m&lt;/sup&gt; / A_m&lt;sup&gt;m&lt;/sup&gt;$。我们之所以要除掉 $A_m&lt;sup&gt;m&lt;/sup&gt;$，是因为在计算组合数的时候，我们对于选出来的 $m$ 个元素的 $A_m&lt;sup&gt;m&lt;/sup&gt;$ 种排列方式均视为同一种方式。&lt;/p&gt;
-
-&lt;p&gt;在上题中，我们之所以要除掉$2=A_2&lt;sup&gt;2&lt;/sup&gt;$ 是因为我们对于 $A,B$ 的两种排列方式视为同一种方式。&lt;/p&gt;
-
-&lt;p&gt;（AB 和 BA 的排列中去掉 BA 这种排列，等价于我们将 AB 和 BA 视为同一种排列，因为我们忽略掉了 AB 之间的相对顺序，因为我们在选出这两个元素来之后便定好了它们的相对顺序）&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;其实这个和分组也是同样的道理，或许你还记得，将 26 个人分成 2 个3人组和 4个5人组的分组方式是：&lt;/p&gt;
-
-&lt;p&gt;$C&lt;em&gt;{26}^3C&lt;/em&gt;{23}^3C&lt;em&gt;{20}^5C&lt;/em&gt;{15}^5C_{10}^5C_5&lt;sup&gt;6&lt;/sup&gt; / (A_2&lt;sup&gt;2&lt;/sup&gt; A_4&lt;sup&gt;4&lt;/sup&gt;)​$&lt;/p&gt;
-
-&lt;p&gt;下面的这个 $A_2&lt;sup&gt;2&lt;/sup&gt;$ 是因为我们不关心 2个3人组之间的相互顺序，$A_4&lt;sup&gt;4&lt;/sup&gt;$ 是因为我们不关心4个5人组之间的相互顺序。&lt;/p&gt;
-
-&lt;p&gt;其实上面的式子还等于：$A_{26}^{26} / ((A_3&lt;sup&gt;3&lt;/sup&gt;)&lt;sup&gt;2&lt;/sup&gt; (A_5&lt;sup&gt;5&lt;/sup&gt;)&lt;sup&gt;4&lt;/sup&gt;) /(A_2&lt;sup&gt;2&lt;/sup&gt; A_4&lt;sup&gt;4&lt;/sup&gt;)​$&lt;/p&gt;
-
-&lt;p&gt;这个是说，考虑一个26人的全排列 $A_{26}^{26}$，&lt;/p&gt;
-
-&lt;p&gt;首先有2个组，我们不关心这2个组内3个人的顺序 $(A_3&lt;sup&gt;3&lt;/sup&gt;)&lt;sup&gt;2&lt;/sup&gt;​$；&lt;/p&gt;
-
-&lt;p&gt;然后有4个组，我们不关心这4个组内5个人的顺序 $(A_5&lt;sup&gt;5&lt;/sup&gt;)&lt;sup&gt;4&lt;/sup&gt;​$；&lt;/p&gt;
-
-&lt;p&gt;对于人数相同的2个组，我们不关心这2个组的相对顺序 $A_2&lt;sup&gt;2&lt;/sup&gt;$；&lt;/p&gt;
-
-&lt;p&gt;对于人数相同的4个组，我们不关心这4个组的相对顺序 $ A_4&lt;sup&gt;4&lt;/sup&gt;​$。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;我们可以扩展两种情况：要求 AB 必须相邻，或者要求 AB 必须不相邻。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">A, B, C, D, E，5人排成一列，要求A必须站在B前面。</summary></entry></feed>
+&lt;p&gt;考虑所有的排列可能，减去其中一位排在原来位置的情况，加上有两位排在原来位置的情况，减去有三位排在原来位置的情况，依此类推。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">某科室从下属5个科室中各抽调了一名工作人员，交流到其他科室，如每个科室只能接收一个人的话，有多少种不同的人员安排方式？</summary></entry></feed>
