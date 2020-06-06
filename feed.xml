@@ -1,4 +1,97 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-06-04T00:28:04+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Git Proxy</title><link href="http://songzy12.github.io/2020/06/04/git-proxy.html" rel="alternate" type="text/html" title="Git Proxy" /><published>2020-06-04T00:20:33+08:00</published><updated>2020-06-04T00:20:33+08:00</updated><id>http://songzy12.github.io/2020/06/04/git-proxy</id><content type="html" xml:base="http://songzy12.github.io/2020/06/04/git-proxy.html">&lt;p&gt;This article shows how to enable Proxy when using Git.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-06-06T18:56:01+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/06/06/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-06-06T16:29:08+08:00</published><updated>2020-06-06T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/06/06/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/06/06/workspace-setup.html">&lt;p&gt;This shows what we need to do when we move to a brand new Linux environment.&lt;/p&gt;
+
+&lt;h2&gt;oh my zsh&lt;/h2&gt;
+
+&lt;p&gt;Project link: &lt;a href=&quot;https://github.com/ohmyzsh/ohmyzsh&quot;&gt;https://github.com/ohmyzsh/ohmyzsh&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Install script: &lt;a href=&quot;https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&quot;&gt;https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Download and run the script:
+&lt;code&gt;
+sh install.sh
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h2&gt;apt source&lt;/h2&gt;
+
+&lt;p&gt;Project link: &lt;a href=&quot;https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/&quot;&gt;https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vi /etc/apt/sources.list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+
+# 预发布软件源，不建议启用
+# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;pip source&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt install python3-pip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pip.pypa.io/en/stable/user_guide/#config-file&quot;&gt;https://pip.pypa.io/en/stable/user_guide/#config-file&lt;/a&gt;
+&lt;a href=&quot;https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4&quot;&gt;https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir ~/.pip
+
+echo &quot;[global]&quot; &amp;gt; ~/.pip/pip.conf
+echo &quot;  index-url = https://mirrors.aliyun.com/pypi/simple/&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
+echo &quot;[install]&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
+echo &quot;  trusted-host=mirrors.aliyun.com&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
+echo &quot;&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;python virtualenvwrapper&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://virtualenvwrapper.readthedocs.io/en/latest/install.html&quot;&gt;https://virtualenvwrapper.readthedocs.io/en/latest/install.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install virtualenvwrapper
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;vi ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;git config&lt;/h2&gt;
+
+&lt;h3&gt;proxy&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/evantoli/f8c23a37eb3558ab8765&quot;&gt;https://gist.github.com/evantoli/f8c23a37eb3558ab8765&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global http.proxy localhost:1081
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;user&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global user.email &quot;songzy_thu@163.com&quot;
+git config --global user.name &quot;Zhengyang Song&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;node, npm, nvm&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/installation-of-node-js-on-linux/&quot;&gt;https://www.geeksforgeeks.org/installation-of-node-js-on-linux/&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt install nodejs
+sudo apt install npm
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.aliyun.com/mirror/NPM&quot;&gt;https://developer.aliyun.com/mirror/NPM&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm config set registry https://registry.npm.taobao.org
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This shows what we need to do when we move to a brand new Linux environment.</summary></entry><entry><title type="html">Git Proxy</title><link href="http://songzy12.github.io/2020/06/04/git-proxy.html" rel="alternate" type="text/html" title="Git Proxy" /><published>2020-06-04T00:20:33+08:00</published><updated>2020-06-04T00:20:33+08:00</updated><id>http://songzy12.github.io/2020/06/04/git-proxy</id><content type="html" xml:base="http://songzy12.github.io/2020/06/04/git-proxy.html">&lt;p&gt;This article shows how to enable Proxy when using Git.&lt;/p&gt;
 
 &lt;p&gt;If you have enabled proxy like V2Ray on your local machine, you can use this command to set Proxy for Git:&lt;/p&gt;
 
@@ -7,7 +100,7 @@
 
 &lt;p&gt;Then when you do &lt;code&gt;git clone&lt;/code&gt;, use the HTTP link rather than the SSH link:
 &lt;code&gt;
- git clone https://github.com/songzy12/Supply-Chain-Risk-Related-Classification.git
+ git clone https://github.com/songzy12/xxx.git
 &lt;/code&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to enable Proxy when using Git.</summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2020/06/03/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2020-06-03T20:07:54+08:00</published><updated>2020-06-03T20:07:54+08:00</updated><id>http://songzy12.github.io/2020/06/03/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2020/06/03/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
 
 &lt;h2&gt;default&lt;/h2&gt;
@@ -237,7 +330,7 @@ JEKYLL_ENV=production jekyll serve
 
 &lt;pre&gt;&lt;code&gt;git add .
 git commit -m &quot;$(date)&quot;
-git push --set-upstream origin source
+git push origin source
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2&gt;mirror&lt;/h2&gt;
@@ -894,74 +987,4 @@ print(&quot; &quot;.join(map(str, result)))
 
 &lt;p&gt;然后 6 个 1 中间有 5 个空，我们选2个空插板。&lt;/p&gt;
 
-&lt;p&gt;答案就是 $C_5&lt;sup&gt;2&lt;/sup&gt;$.&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">某单位订阅了30份资料分发给3个部门，要求每个部门至少9份资料，一共有多少种不同的发放方法？</summary></entry><entry><title type="html">Derangement</title><link href="http://songzy12.github.io/2019/04/05/derangement.html" rel="alternate" type="text/html" title="Derangement" /><published>2019-04-05T00:19:40+08:00</published><updated>2019-04-05T00:19:40+08:00</updated><id>http://songzy12.github.io/2019/04/05/derangement</id><content type="html" xml:base="http://songzy12.github.io/2019/04/05/derangement.html">&lt;p&gt;某科室从下属5个科室中各抽调了一名工作人员，交流到其他科室，如每个科室只能接收一个人的话，有多少种不同的人员安排方式？&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;这个就是&lt;a href=&quot;https://zh.wikipedia.org/zh-hans/%E9%94%99%E6%8E%92%E9%97%AE%E9%A2%98&quot;&gt;错排问题&lt;/a&gt;。&lt;/p&gt;
-
-&lt;p&gt;我们在这里说一下递推公式的推导过程。递推的意思就是根据比较小的 n 来计算比较大 的 n.&lt;/p&gt;
-
-&lt;p&gt;假设 $D_n$ 表示有 n 个人的时候，把他们进行打乱顺序，使得每个人打乱后的位置和其原始位置不一致，这样的打乱方式的个数。我们试着找一下 $D_n$ 和 $D_{n-1}$ 之间的关系。&lt;/p&gt;
-
-&lt;p&gt;对于任何一个合法的 n 个人的错排，我们考虑第1个人的位置，假设这个人的位置在 k，注意 k 有 n -1 种可能的取值。这里我们相当于把 $D_n​$ 根据第一个人的位置分成了 n-1 个等价类（回忆一下，就像我们刚才根据 A 和 B 的相对位置把6个人的排列分成了2个等价类一样：A在B前面，B在A前面）。&lt;/p&gt;
-
-&lt;p&gt;对于第1个人在位置k的这个等价类，我们考虑 k 的位置，进而把这种情况又分成两类：k在第1位，k不在第1位。&lt;/p&gt;
-
-&lt;p&gt;对于k在第1位，我们还剩下 n-2 个数要排，这 n-2 个数的合法排列方式是：2不在第2位，3不在第3位，&amp;hellip;, n 不在第 n 位。发现没有，这恰好对应于 n-2 个数的错排数目：$D_{n-2}$.&lt;/p&gt;
-
-&lt;p&gt;对于k不在第1位，我们便剩下 n-1 个数要排（因为我们现在不知道 k 的位置），这 n-1 个数的合法排列方式是：k不在第1位，2不在第2位，3不在第3位，&amp;hellip;, n 不在第n位。这恰好对应于 n-1 个数的错排数目，$D_{n-1}$.&lt;/p&gt;
-
-&lt;p&gt;回忆一下，n 个数的错排的意思是对于这n个数里的每个数，都有一个特定的位置是不能排的。&lt;/p&gt;
-
-&lt;p&gt;综上我们就可以得到一个递推式 $D_n = (n-1) (D&lt;em&gt;{n-1}+D&lt;/em&gt;{n-2})$&lt;/p&gt;
-
-&lt;p&gt;其次我们知道两个初始值：$D_1 = 0$, $D_2 = 1$&lt;/p&gt;
-
-&lt;p&gt;这是因为只有一个人的时候我们没法错排；只有两个人的时候我们只有 $(2,1)$ 这一种错排。&lt;/p&gt;
-
-&lt;p&gt;记住这个递推公式。对于 n 比较小的情况，我们使用这个递推式来计算答案就可以了。&lt;/p&gt;
-
-&lt;p&gt;比如上题便是要计算 $D_5​$.&lt;/p&gt;
-
-&lt;p&gt;$D_1 = 0$&lt;/p&gt;
-
-&lt;p&gt;$D_2 = 1$&lt;/p&gt;
-
-&lt;p&gt;$D_3 = 2 (D_2 + D_1) = 2(1+0) = 2$&lt;/p&gt;
-
-&lt;p&gt;$D_4 = 3(D_3 + D_2) = 3(2+1) = 9​$&lt;/p&gt;
-
-&lt;p&gt;$D_5 = 4(D_4+D_3) = 4(9+2) = 44$&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;在递推式之外，我们可以计算一下通项公式：&lt;/p&gt;
-
-&lt;p&gt;$D_n = (n-1) (D&lt;em&gt;{n-1} + D&lt;/em&gt;{n-2})$&lt;/p&gt;
-
-&lt;p&gt;左右两边同时除以 $n!​$,&lt;/p&gt;
-
-&lt;p&gt;$\frac{D_n}{n!} = \frac{n-1}{n} \frac{D&lt;em&gt;{n-1}}{(n-1)!} + \frac{1}{n} \frac{D&lt;/em&gt;{n-2}}{(n-2)!}$&lt;/p&gt;
-
-&lt;p&gt;$\frac{D_n}{n!} - \frac{D&lt;em&gt;{n-1}}{(n-1)!} = -\frac{1}{n} (\frac{D&lt;/em&gt;{n-1}}{(n-1)!} -  \frac{D_{n-2}}{(n-2)!})=\dots=(-1)&lt;sup&gt;n&lt;/sup&gt;\frac{1}{n!}​$&lt;/p&gt;
-
-&lt;p&gt;从而&lt;/p&gt;
-
-&lt;p&gt;$\frac{D_n}{n!} = (\frac{D_n}{n!} - \frac{D_{n-1}}{(n-1)!} ) +\dots+(\frac{D_2}{2!}-\frac{D_1}{1!}) + \frac{D_1}{1!} = (-1)&lt;sup&gt;n&lt;/sup&gt; \frac{1}{n!} + \dots + (-1)&lt;sup&gt;2&lt;/sup&gt; \frac{1}{2!}​$&lt;/p&gt;
-
-&lt;p&gt;$D_n = n!(\frac{1}{2!} - \frac{1}{3!} + \frac{1}{4!} - \frac{1}{5!} + \dots + (-1)&lt;sup&gt;n&lt;/sup&gt; \frac{1}{n!})​$&lt;/p&gt;
-
-&lt;p&gt;也可以记住这个通项公式，所以上面那个题目还可以这样算：&lt;/p&gt;
-
-&lt;p&gt;$D_5 = 5!(\frac{1}{2!}  - \frac{1}{3!} + \frac{1}{4!} - \frac{1}{5!}) = 60-20+5-1=44$&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;上面这个通项公式除了通过递推公式导出之外还可以通过&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E6%8E%92%E5%AE%B9%E5%8E%9F%E7%90%86&quot;&gt;容斥原理&lt;/a&gt;导出：&lt;/p&gt;
-
-&lt;p&gt;$D_n = A_n&lt;sup&gt;n&lt;/sup&gt; - C_n&lt;sup&gt;1&lt;/sup&gt; A&lt;em&gt;{n-1}^{n-2} + C_n&lt;sup&gt;2&lt;/sup&gt; A&lt;/em&gt;{n-2}^{n-2} - C_n&lt;sup&gt;3&lt;/sup&gt; A&lt;em&gt;{n-3}^{n-3}+ \dots + (-1)&lt;sup&gt;n&lt;/sup&gt; C&lt;/em&gt;{n}^n A_0&lt;sup&gt;0&lt;/sup&gt; ​$&lt;/p&gt;
-
-&lt;p&gt;$D_n= n!(1 - \frac{1}{1!} + \frac{1}{2!} - \frac{1}{3!} + \frac{1}{4!} - \frac{1}{5!} + \dots + (-1)&lt;sup&gt;n&lt;/sup&gt; \frac{1}{n!}) $&lt;/p&gt;
-
-&lt;p&gt;考虑所有的排列可能，减去其中一位排在原来位置的情况，加上有两位排在原来位置的情况，减去有三位排在原来位置的情况，依此类推。&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">某科室从下属5个科室中各抽调了一名工作人员，交流到其他科室，如每个科室只能接收一个人的话，有多少种不同的人员安排方式？</summary></entry></feed>
+&lt;p&gt;答案就是 $C_5&lt;sup&gt;2&lt;/sup&gt;$.&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">某单位订阅了30份资料分发给3个部门，要求每个部门至少9份资料，一共有多少种不同的发放方法？</summary></entry></feed>
