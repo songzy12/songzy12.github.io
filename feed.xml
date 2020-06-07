@@ -1,4 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-06-06T18:56:01+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/06/06/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-06-06T16:29:08+08:00</published><updated>2020-06-06T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/06/06/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/06/06/workspace-setup.html">&lt;p&gt;This shows what we need to do when we move to a brand new Linux environment.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-06-07T15:18:14+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Blog</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/06/06/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-06-06T16:29:08+08:00</published><updated>2020-06-06T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/06/06/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/06/06/workspace-setup.html">&lt;p&gt;This shows what we need to do when we move to a brand new Linux environment.&lt;/p&gt;
+
+&lt;h2&gt;wget proxy&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;vi ~/.wgetrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;http_proxy = http://localhost:1081
+https_proxy = http://localhost:1081
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2&gt;oh my zsh&lt;/h2&gt;
 
@@ -80,13 +89,22 @@ source /usr/local/bin/virtualenvwrapper.sh
 git config --global user.name &quot;Zhengyang Song&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2&gt;node, npm, nvm&lt;/h2&gt;
+&lt;h2&gt;nodejs&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/installation-of-node-js-on-linux/&quot;&gt;https://www.geeksforgeeks.org/installation-of-node-js-on-linux/&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;nvm&lt;/h3&gt;
 
-&lt;pre&gt;&lt;code&gt;sudo apt install nodejs
-sudo apt install npm
+&lt;pre&gt;&lt;code&gt;wget -qO- 
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;nvm ls
+nvm ls-remote
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;nvm install 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;npm source&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://developer.aliyun.com/mirror/NPM&quot;&gt;https://developer.aliyun.com/mirror/NPM&lt;/a&gt;&lt;/p&gt;
 

@@ -60,6 +60,15 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <div class="post-content e-content" itemprop="articleBody">
     <p>This shows what we need to do when we move to a brand new Linux environment.</p>
 
+<h2>wget proxy</h2>
+
+<pre><code>vi ~/.wgetrc
+</code></pre>
+
+<pre><code>http_proxy = http://localhost:1081
+https_proxy = http://localhost:1081
+</code></pre>
+
 <h2>oh my zsh</h2>
 
 <p>Project link: <a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
@@ -140,13 +149,22 @@ source /usr/local/bin/virtualenvwrapper.sh
 git config --global user.name "Zhengyang Song"
 </code></pre>
 
-<h2>node, npm, nvm</h2>
+<h2>nodejs</h2>
 
-<p><a href="https://www.geeksforgeeks.org/installation-of-node-js-on-linux/">https://www.geeksforgeeks.org/installation-of-node-js-on-linux/</a></p>
+<h3>nvm</h3>
 
-<pre><code>sudo apt install nodejs
-sudo apt install npm
+<pre><code>wget -qO- 
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 </code></pre>
+
+<pre><code>nvm ls
+nvm ls-remote
+</code></pre>
+
+<pre><code>nvm install 
+</code></pre>
+
+<h3>npm source</h3>
 
 <p><a href="https://developer.aliyun.com/mirror/NPM">https://developer.aliyun.com/mirror/NPM</a></p>
 
