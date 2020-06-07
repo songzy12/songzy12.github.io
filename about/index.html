@@ -63,99 +63,87 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <h2>Experience</h2>
 
-<h3>Internship Experience</h3>
+<h3>Internship</h3>
+
+<h4>XuetangX (2016 Autumn - 2019 Spring)</h4>
+
+<ul>
+<li>The web spider to collect candidate question-answer data from community QA website.</li>
+<li>The question classification module to classify the user query into one of the predefined categories. We use SVM model together with n-gram TF-IDF features. The F1 score is 0.77 on our test dataset.</li>
+<li>The question matching module to match the user query to one of our predefined questions. We run experiments with the MatchZoo toolkit, the precision of the best model is about 0.84.</li>
+<li>The system is running online on <a href="http://www.xuetangx.com">http://www.xuetangx.com</a>.</li>
+</ul>
+
 
 <h4>Microsoft STCA (2018 Summer)</h4>
-
-<p>The Click Through Rate Prediction Module.</p>
 
 <ul>
 <li>We apply the Wide &amp; Deep model to the CTR prediction task using TensorFlow.</li>
 <li>Four types of features are used: article, user, context, and combined features.</li>
-<li>The AUC is about 0.89 on our dataset, about 0.05 higher than FM model.</li>
+<li>The AUC is about 0.89 on our dataset, higher than FM model by 0.05.</li>
 </ul>
 
 
-<h4>XuetangX (2017 Spring)</h4>
-
-<p>Question Answering System on MOOC Platform.</p>
+<h4>Ever (2018 Spring - 2018 Autumn)</h4>
 
 <ul>
-<li>The question classification module to classify the user query into one of the predefined categories. We
-use SVM model together with n-gram TF-IDF features. The F1 score is 0.77 on our test dataset.</li>
-<li>The web spider to collect candidate question-answer pairs from community QA site like zhihu.com.</li>
-<li>The question matching module to match the user query to one of our candidate question-answer pairs.
-We run experiments with the MatchZoo toolkit, the precision is about 0.84.</li>
-<li>This system is running online on <a href="http://www.xuetangx.com.">http://www.xuetangx.com.</a></li>
+<li>Backend APIs of the WeChat mini-program &ldquo;EverParty&rdquo;:
+
+<ul>
+<li>Image CAPTCHA, SMS Code, Activity List, Activity Detail</li>
+</ul>
+</li>
+<li>The user recommendation algorithm for the Android App &ldquo;Ever&rdquo;.</li>
 </ul>
 
 
-<h4>Ever (2018 Spring)</h4>
+<h3>Project</h3>
 
-<p>Backend and Algorithm of WeChat Mini Program for Hosting Parties.</p>
+<h4>Nebulas DApps (2018 Spring)</h4>
 
 <ul>
-<li>API: Image CAPTCHA, SMS Code, Activity List, Activity Detail</li>
-<li>The profile card recommendation algorithm.</li>
-<li>You can search “EverParty” and try this in WeChat Mini Program.</li>
+<li>A set of DApps on Nebulas blockchain platform.</li>
+<li>We use Bootstrap framework for the front-end design.</li>
+<li>We use JavaScript engine provided by Nebulas to implement the smart contracts.</li>
+<li>Several games and tools are implemented such like 2048, lottery, poll, auction, etc.</li>
+<li>Project page: <a href="https://dappdog.github.io/">https://dappdog.github.io/</a></li>
 </ul>
 
 
-<h3>Project Experience</h3>
-
-<h4>Nebulas DApp (2018 Spring)</h4>
-
-<p>A Bunch of DApps Based on Nebulas Blockchain Platform.</p>
+<h4>LECP Algorithm Demo (2017 Spring)</h4>
 
 <ul>
-<li>The front-end is written in HTML and JavaScript. We use Bootstrap framework.</li>
-<li>The back-end is some smart contracts written in JavaScript for the engine provided by Nebulas platform.</li>
-<li>We implemented several games and business tools such like 2048, lottery, poll, auction and so on.</li>
-<li>The project main page is at <a href="https://dappdog.github.io/.">https://dappdog.github.io/.</a></li>
+<li>An algorithm demo to solve the &ldquo;Largest Empty Convex Polygon&rdquo; problem.</li>
+<li>Given a set of points in the 2-dimensional space, find the empty convex polygon with most points.</li>
+<li>We use duality to get an angular sort of all points in time $O(n \log n)$ rather than $O(n<sup>2</sup> \log n)$.</li>
+<li>Code: <a href="https://github.com/songzy12/LECP">https://github.com/songzy12/LECP</a></li>
 </ul>
 
 
-<h4>LECP (2017 Spring)</h4>
-
-<p>Algorithm Demo of Largest Empty Convex Polygon Problem.</p>
+<h4>CNTK Tutorial (2017 Spring)</h4>
 
 <ul>
-<li>Given a set of points in 2-dimensional space, how to find the empty convex polygon with most points.</li>
-<li>We use duality to get an angular sort of all points in time O(n log n) rather than O(n2 log n).</li>
-<li>The code is available at <a href="https://github.com/songzy12/LECP.">https://github.com/songzy12/LECP.</a></li>
+<li>A Jupyter notebook tutorial for the Microsoft CNTK framework to compare the performance of ResNet using different optimizers on the CIFAR-10 dataset.</li>
+<li>Code: <a href="https://github.com/Microsoft/CNTK/pull/1820">https://github.com/Microsoft/CNTK/pull/1820</a></li>
 </ul>
 
 
-<h4>CNTK Manual (2017 Spring)</h4>
-
-<p>An Example for Microsoft CNTK to Compare Different Learners.</p>
+<h4>EtherLend DApp (2016 Autumn)</h4>
 
 <ul>
-<li>Jupyter Notebook of different optimizers for image classification on CIFAR-10 dataset utilizing ResNet.</li>
-<li>The code is available at <a href="https://github.com/Microsoft/CNTK/pull/1820">https://github.com/Microsoft/CNTK/pull/1820</a></li>
+<li>A DApp on Ethereum blockchain platform simulating the &ldquo;ROSCA&rdquo; protocal.</li>
+<li>We use the Truffle framework to implement the smart contract.</li>
+<li>We implemented the backend using node.js that accepts request from the Android client, then interacts with the Blockchain client through web3.js API, then send the response back to the client.</li>
+<li>Code: <a href="https://github.com/Sun-Jc/EtherLend">https://github.com/Sun-Jc/EtherLend</a></li>
 </ul>
 
 
-<h4>EtherLend (2016 Autumn)</h4>
-
-<p>A DApp on Ethereum Blockchain Platform Simulating &ldquo;ROSCA&rdquo;.</p>
+<h3>Algorithm/Code Competition</h3>
 
 <ul>
-<li>We use the Truffle framework for smart contracts, Node.js server with Web3.js API.</li>
-<li>I am in charge of the Node backend that receives calls from Android client, and interacts with the
-Blockchain client through Web3.js API, then gives the response to the application.</li>
-<li>The code is available at <a href="https://github.com/Sun-Jc/EtherLend.">https://github.com/Sun-Jc/EtherLend.</a></li>
-</ul>
-
-
-<h3>Contest/Competition Experience</h3>
-
-<ul>
-<li>CIKM AnalytiCup 2018: Rank 53/1027, 2018 Summer</li>
 <li>Spooky Author Identification: Rank 40/1244 (top 4%), 2017 Autumn</li>
 <li>Russian AI Cup 2017: Rank 293/932, 2017 Autumn</li>
 <li>CCF CSP: Point 370/500 (Top 2.09%), 2015 Autumn</li>
-<li>NECCS: Third Prize, 2015.04</li>
 </ul>
 
 
@@ -175,14 +163,19 @@ Frameworks for SPOC Services.&rdquo; (2018).</li>
 </ul>
 
 
+<h2>Scholarship</h2>
+
+<ul>
+<li>Tsinghua Xuetang Scholarship, 2012-2016</li>
+<li>National Encouragement Scholarship, 2012-2013</li>
+</ul>
+
+
 <h2>MISCs</h2>
 
 <ul>
-<li>A Day with Google in Beijing, 2016 &amp; 2017</li>
-<li>Tsinghua Xuetang Scholarship, 2012-2016</li>
-<li>National Encouragement Scholarship, 2012-2013</li>
+<li>A Day with Google, 2016 &amp; 2017</li>
 <li>JLPT: N2, 2016.12</li>
-<li>CET-6: Point 607/710, 2014.06</li>
 </ul>
 
 
@@ -191,9 +184,7 @@ Frameworks for SPOC Services.&rdquo; (2018).</li>
 <ul>
 <li>GitHub: <a href="https://github.com/songzy12">https://github.com/songzy12</a></li>
 <li>Kaggle: <a href="https://www.kaggle.com/songzy12">https://www.kaggle.com/songzy12</a></li>
-<li>Topcoder: <a href="https://www.topcoder.com/members/songzy12/">https://www.topcoder.com/members/songzy12/</a></li>
 <li>Codeforces: <a href="http://codeforces.com/profile/songzy12">http://codeforces.com/profile/songzy12</a></li>
-<li>Blog: <a href="https://songzy12.github.io/">https://songzy12.github.io/</a></li>
 </ul>
 
 
