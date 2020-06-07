@@ -6,6 +6,17 @@ date: 2020-06-06T16:29:08+08:00
 
 This shows what we need to do when we move to a brand new Linux environment.
 
+## wget proxy
+
+```
+vi ~/.wgetrc
+```
+
+```
+http_proxy = http://localhost:1081
+https_proxy = http://localhost:1081
+```
+
 ## oh my zsh
 
 Project link: <https://github.com/ohmyzsh/ohmyzsh>
@@ -95,14 +106,25 @@ git config --global user.email "songzy_thu@163.com"
 git config --global user.name "Zhengyang Song"
 ```
 
-## node, npm, nvm
+## nodejs
 
-<https://www.geeksforgeeks.org/installation-of-node-js-on-linux/>
+### nvm
 
 ```
-sudo apt install nodejs
-sudo apt install npm
+wget -qO- 
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 ```
+
+```
+nvm ls
+nvm ls-remote
+```
+
+```
+nvm install 
+```
+
+### npm source
 
 <https://developer.aliyun.com/mirror/NPM>
 
