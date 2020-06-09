@@ -91,6 +91,12 @@ source /usr/local/bin/virtualenvwrapper.sh
 
 ## git config
 
+### vim editor
+
+```
+git config --global core.editor "vim"
+```
+
 ### proxy 
 
 <https://gist.github.com/evantoli/f8c23a37eb3558ab8765>
