@@ -60,15 +60,16 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <div class="post-content e-content" itemprop="articleBody">
     <p>This article shows how to enable Proxy when using Git.</p>
 
-<p>If you have enabled proxy like V2Ray on your local machine, you can use this command to set Proxy for Git:</p>
+<p>If you have enabled proxy like V2Ray on your local machine,
+you can use this command to set Proxy for Git:</p>
 
 <pre><code>git config --global http.proxy localhost:1081
 </code></pre>
 
-<p>Then when you do <code>git clone</code>, use the HTTP link rather than the SSH link:
-<code>
- git clone https://github.com/songzy12/xxx.git
-</code></p>
+<p>Then when you do <code>git clone</code>, use the HTTP link rather than the SSH link:</p>
+
+<pre><code> git clone https://github.com/songzy12/xxx.git
+</code></pre>
 
   </div><div id="disqus_thread"></div>
   <script>

@@ -123,24 +123,24 @@ curl http://localhost:9201/_stats?pretty=1
 
 <h2>安装</h2>
 
-<p>install:
-<code>
-curl -L -O http://download.elasticsearch.org/PATH/TO/VERSION.zip &lt;1&gt;
+<p>install:</p>
+
+<pre><code>curl -L -O http://download.elasticsearch.org/PATH/TO/VERSION.zip &lt;1&gt;
 unzip elasticsearch-$VERSION.zip
 cd  elasticsearch-$VERSION
-</code></p>
+</code></pre>
 
 <p>config: <code>./config/elasticsearch.yml</code></p>
 
-<p>status:
-<code>
-curl 'http://localhost:9200/?pretty'
-</code></p>
+<p>status:</p>
 
-<p>shutdown:
-<code>
-curl -XPOST 'http://localhost:9200/_shutdown'
-</code></p>
+<pre><code>curl 'http://localhost:9200/?pretty'
+</code></pre>
+
+<p>shutdown:</p>
+
+<pre><code>curl -XPOST 'http://localhost:9200/_shutdown'
+</code></pre>
 
 <h2>API</h2>
 
@@ -186,26 +186,26 @@ Elasticsearch -&gt; Indices   -&gt; Types  -&gt; Documents -&gt; Fields
 
 <h2>搜索</h2>
 
-<p>检索文档:
-<code>
-GET /megacorp/employee/1
-</code></p>
+<p>检索文档:</p>
 
-<p>简单搜索：
-<code>
-GET /megacorp/employee/_search
-</code></p>
+<pre><code>GET /megacorp/employee/1
+</code></pre>
+
+<p>简单搜索：</p>
+
+<pre><code>GET /megacorp/employee/_search
+</code></pre>
 
 <p>默认情况下搜索会返回前10个结果。</p>
 
-<p>query string:
-<code>
-GET /megacorp/employee/_search?q=last_name:Smith
-</code></p>
+<p>query string:</p>
 
-<p>DSL(domain specific language):
-<code>
-GET /megacorp/employee/_search
+<pre><code>GET /megacorp/employee/_search?q=last_name:Smith
+</code></pre>
+
+<p>DSL(domain specific language):</p>
+
+<pre><code>GET /megacorp/employee/_search
 {
     "query" : {
         "match" : {
@@ -213,11 +213,11 @@ GET /megacorp/employee/_search
         }
     }
 }
-</code></p>
+</code></pre>
 
-<p>filter:
-<code>
-GET /megacorp/employee/_search
+<p>filter:</p>
+
+<pre><code>GET /megacorp/employee/_search
 {
     "query" : {
         "filtered" : {
@@ -234,11 +234,11 @@ GET /megacorp/employee/_search
         }
     }
 }
-</code></p>
+</code></pre>
 
-<p>match:
-<code>
-GET /megacorp/employee/_search
+<p>match:</p>
+
+<pre><code>GET /megacorp/employee/_search
 {
     "query" : {
         "match" : {
@@ -246,13 +246,13 @@ GET /megacorp/employee/_search
         }
     }
 }
-</code></p>
+</code></pre>
 
 <p>相关性(relevance)的概念在Elasticsearch中非常重要，而这个概念在传统关系型数据库中是不可想象的，因为传统数据库对记录的查询只有匹配或者不匹配。</p>
 
-<p>phrase:
-<code>
-GET /megacorp/employee/_search
+<p>phrase:</p>
+
+<pre><code>GET /megacorp/employee/_search
 {
     "query" : {
         "match_phrase" : {
@@ -260,11 +260,11 @@ GET /megacorp/employee/_search
         }
     }
 }
-</code></p>
+</code></pre>
 
-<p>highlight:
-<code>
-GET /megacorp/employee/_search
+<p>highlight:</p>
+
+<pre><code>GET /megacorp/employee/_search
 {
     "query" : {
         "match_phrase" : {
@@ -277,7 +277,7 @@ GET /megacorp/employee/_search
         }
     }
 }
-</code></p>
+</code></pre>
 
 <h2>聚合</h2>
 

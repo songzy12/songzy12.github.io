@@ -1,4 +1,79 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-06-25T16:35:17+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Base64</title><link href="http://songzy12.github.io/2020/06/25/base64.html" rel="alternate" type="text/html" title="Base64" /><published>2020-06-25T13:34:52+08:00</published><updated>2020-06-25T13:34:52+08:00</updated><id>http://songzy12.github.io/2020/06/25/base64</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/base64.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Base64&quot;&gt;https://en.wikipedia.org/wiki/Base64&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-06-26T02:26:28+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">ANS</title><link href="http://songzy12.github.io/2020/06/25/ans.html" rel="alternate" type="text/html" title="ANS" /><published>2020-06-25T21:22:45+08:00</published><updated>2020-06-25T21:22:45+08:00</updated><id>http://songzy12.github.io/2020/06/25/ans</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/ans.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Asymmetric_numeral_systems&quot;&gt;https://en.wikipedia.org/wiki/Asymmetric_numeral_systems&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;uABS&lt;/h2&gt;
+
+&lt;p&gt;Decoding:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;s = ceil((x+1)*p) - ceil(x*p)  // 0 if fract(x*p) &amp;lt; 1-p, else 1
+if s = 0 then new_x = x - ceil(x*p)   // D(x) = (new_x, 0)
+if s = 1 then new_x = ceil(x*p)  // D(x) = (new_x, 1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Encoding:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if s = 0 then new_x = ceil((x+1)/(1-p)) - 1 // C(x,0) = new_x
+if s = 1 then new_x = floor(x/p)  // C(x,1) = new_x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/ANS_uABS.png&quot; alt=&quot;uABS&quot; /&gt;&lt;/p&gt;
+
+&lt;h2&gt;rANS &amp;amp; Streaming&lt;/h2&gt;
+
+&lt;h2&gt;tANS&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/ANS_tANS.png&quot; alt=&quot;tANS&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Asymmetric_numeral_systems</summary></entry><entry><title type="html">Arithmetic Coding</title><link href="http://songzy12.github.io/2020/06/25/arithmetic-coding.html" rel="alternate" type="text/html" title="Arithmetic Coding" /><published>2020-06-25T21:13:34+08:00</published><updated>2020-06-25T21:13:34+08:00</updated><id>http://songzy12.github.io/2020/06/25/arithmetic-coding</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/arithmetic-coding.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Arithmetic_coding&quot;&gt;https://en.wikipedia.org/wiki/Arithmetic_coding&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Arithmetic coding differs from other forms of entropy encoding, such as Huffman coding, in that rather than separating the input into component symbols and replacing each with a code, arithmetic coding encodes the entire message into a single number, an arbitrary-precision fraction q where $0.0 \le q &amp;lt; 1.0$. It represents the current information as a range, defined by two numbers.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/Arithmetic_coding.svg.png&quot; alt=&quot;Example&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Arithmetic_coding</summary></entry><entry><title type="html">Shannon–Fano Coding</title><link href="http://songzy12.github.io/2020/06/25/shannon-fano-coding.html" rel="alternate" type="text/html" title="Shannon–Fano Coding" /><published>2020-06-25T21:00:31+08:00</published><updated>2020-06-25T21:00:31+08:00</updated><id>http://songzy12.github.io/2020/06/25/shannon-fano-coding</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/shannon-fano-coding.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Shannon%E2%80%93Fano_coding&quot;&gt;https://en.wikipedia.org/wiki/Shannon%E2%80%93Fano_coding&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Shannon Coding&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/Shannon_Code.png&quot; alt=&quot;Shannon Code&quot; /&gt;&lt;/p&gt;
+
+&lt;h2&gt;Fano Coding&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/Fano_Code.png&quot; alt=&quot;Fano Code&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Shannon%E2%80%93Fano_coding</summary></entry><entry><title type="html">Huffman Coding</title><link href="http://songzy12.github.io/2020/06/25/huffman-coding.html" rel="alternate" type="text/html" title="Huffman Coding" /><published>2020-06-25T20:34:10+08:00</published><updated>2020-06-25T20:34:10+08:00</updated><id>http://songzy12.github.io/2020/06/25/huffman-coding</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/huffman-coding.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Huffman_coding&quot;&gt;https://en.wikipedia.org/wiki/Huffman_coding&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;As in other entropy encoding methods, more common symbols are generally represented using fewer bits than less common symbols.
+However, although optimal among methods encoding symbols separately, Huffman coding is not always optimal among all compression methods - it is replaced with arithmetic coding or asymmetric numeral systems if better compression ratio is required.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;Huffman tree generated from the exact frequencies of the text &amp;ldquo;this is an example of a huffman tree&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/Huffman_tree.svg.png&quot; alt=&quot;Huffman Tree&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/Huffman_tree-Code.png&quot; alt=&quot;Huffman Code&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Huffman_coding</summary></entry><entry><title type="html">LZW</title><link href="http://songzy12.github.io/2020/06/25/lzw.html" rel="alternate" type="text/html" title="LZW" /><published>2020-06-25T17:26:03+08:00</published><updated>2020-06-25T17:26:03+08:00</updated><id>http://songzy12.github.io/2020/06/25/lzw</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/lzw.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch&quot;&gt;https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;It is the algorithm of the widely used Unix file compression utility compress and is used in the GIF image format.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2&gt;Algorithm&lt;/h2&gt;
+
+&lt;p&gt;A high level view of the encoding algorithm is shown here:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Initialize the dictionary to contain all strings of length one.&lt;/li&gt;
+&lt;li&gt;Find the longest string W in the dictionary that matches the current input.&lt;/li&gt;
+&lt;li&gt;Emit the dictionary index for W to output and remove W from the input.&lt;/li&gt;
+&lt;li&gt;Add W followed by the next symbol in the input to the dictionary.&lt;/li&gt;
+&lt;li&gt;Go to Step 2.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;&lt;code&gt;TOBEORNOTTOBEORTOBEORNOT#&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/LZW-Dict.png&quot; alt=&quot;Dict&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Encoding&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/LZW-Encoding.png&quot; alt=&quot;Dict&quot; /&gt;&lt;/p&gt;
+
+&lt;h3&gt;Decoding&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/LZW-Decoding.png&quot; alt=&quot;Dict&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch</summary></entry><entry><title type="html">Base64</title><link href="http://songzy12.github.io/2020/06/25/base64.html" rel="alternate" type="text/html" title="Base64" /><published>2020-06-25T13:34:52+08:00</published><updated>2020-06-25T13:34:52+08:00</updated><id>http://songzy12.github.io/2020/06/25/base64</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/base64.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Base64&quot;&gt;https://en.wikipedia.org/wiki/Base64&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Char Set&lt;/h2&gt;
 
@@ -146,15 +221,16 @@ nvm ls-remote
 &lt;pre&gt;&lt;code&gt;npm config set registry https://registry.npm.taobao.org
 &lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This shows what we need to do when we move to a brand new Linux environment.</summary></entry><entry><title type="html">Git Proxy</title><link href="http://songzy12.github.io/2020/06/04/git-proxy.html" rel="alternate" type="text/html" title="Git Proxy" /><published>2020-06-04T00:20:33+08:00</published><updated>2020-06-04T00:20:33+08:00</updated><id>http://songzy12.github.io/2020/06/04/git-proxy</id><content type="html" xml:base="http://songzy12.github.io/2020/06/04/git-proxy.html">&lt;p&gt;This article shows how to enable Proxy when using Git.&lt;/p&gt;
 
-&lt;p&gt;If you have enabled proxy like V2Ray on your local machine, you can use this command to set Proxy for Git:&lt;/p&gt;
+&lt;p&gt;If you have enabled proxy like V2Ray on your local machine,
+you can use this command to set Proxy for Git:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;git config --global http.proxy localhost:1081
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Then when you do &lt;code&gt;git clone&lt;/code&gt;, use the HTTP link rather than the SSH link:
-&lt;code&gt;
- git clone https://github.com/songzy12/xxx.git
-&lt;/code&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to enable Proxy when using Git.</summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2020/06/03/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2020-06-03T20:07:54+08:00</published><updated>2020-06-03T20:07:54+08:00</updated><id>http://songzy12.github.io/2020/06/03/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2020/06/03/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
+&lt;p&gt;Then when you do &lt;code&gt;git clone&lt;/code&gt;, use the HTTP link rather than the SSH link:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; git clone https://github.com/songzy12/xxx.git
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to enable Proxy when using Git.</summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2020/06/03/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2020-06-03T20:07:54+08:00</published><updated>2020-06-03T20:07:54+08:00</updated><id>http://songzy12.github.io/2020/06/03/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2020/06/03/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
 
 &lt;h2&gt;default&lt;/h2&gt;
 
@@ -466,552 +542,4 @@ rdiscount:
 theme: minima
 plugins:
   - jekyll-feed
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows the basic usage of Octopress 3.0.</summary></entry><entry><title type="html">Aho-Corasick algorithm</title><link href="http://songzy12.github.io/2020/04/11/aho-corasick-algorithm.html" rel="alternate" type="text/html" title="Aho-Corasick algorithm" /><published>2020-04-11T20:29:50+08:00</published><updated>2020-04-11T20:29:50+08:00</updated><id>http://songzy12.github.io/2020/04/11/aho-corasick-algorithm</id><content type="html" xml:base="http://songzy12.github.io/2020/04/11/aho-corasick-algorithm.html">&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/&quot;&gt;https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/</summary></entry><entry><title type="html">Binary Indexed Tree</title><link href="http://songzy12.github.io/2019/10/12/binary-indexed-tree.html" rel="alternate" type="text/html" title="Binary Indexed Tree" /><published>2019-10-12T10:14:50+08:00</published><updated>2019-10-12T10:14:50+08:00</updated><id>http://songzy12.github.io/2019/10/12/binary-indexed-tree</id><content type="html" xml:base="http://songzy12.github.io/2019/10/12/binary-indexed-tree.html">&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/&quot;&gt;https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;We have an array arr[0 &amp;hellip; n-1]. We would like to&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Compute the sum of the first i elements.&lt;/li&gt;
-&lt;li&gt;Modify the value of a specified element of the array ar[i] = x where 0 &amp;lt;= i &amp;lt;= n-1.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h2&gt;Low Bit&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;int lowbit(int x) {
-    return x &amp;amp; (-x);
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;One Dimension&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;int sum(int x) {
-    int ret = 0;
-    while(x &amp;gt; 0) {
-        ret += BIT[x];
-        x -= lowbit(x);
-    }
-    return ret;
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;void add(x, val) {
-    while(x &amp;lt;= N) {
-        BIT[x] += val;
-        x += lowbit(x);
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;Two Dimension&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;void add(int x, int y, int val) {
-    for(int i = x; i &amp;lt;= N; i += lowbit(i)) {
-        for(int j = y; j &amp;lt;= N; j += lowbit(j)) {
-            BIT2[i][j] += val;
-        }
-    }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;int sum(int x, int y) {
-    int ret = 0;
-    for(int i = x; i &amp;gt; 0; i -= lowbit(i)) {
-        for(int j = y; j &amp;gt; 0; j -= lowbit(j)) {
-            ret += BIT2[i][j];
-        }
-    }
-    return ret;
-}
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://www.geeksforgeeks.org/binary-indexed-tree-or-fenwick-tree-2/</summary></entry><entry><title type="html">Segment Tree</title><link href="http://songzy12.github.io/2019/10/07/segment-tree.html" rel="alternate" type="text/html" title="Segment Tree" /><published>2019-10-07T17:14:21+08:00</published><updated>2019-10-07T17:14:21+08:00</updated><id>http://songzy12.github.io/2019/10/07/segment-tree</id><content type="html" xml:base="http://songzy12.github.io/2019/10/07/segment-tree.html">&lt;p&gt;Representation of Segment trees:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Leaf Nodes are the elements of the input array.&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Each internal node represents some merging of the leaf nodes.&lt;/p&gt;
-
-&lt;p&gt;The merging may be different for different problems.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h2&gt;Sum of given range&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/&quot;&gt;https://www.geeksforgeeks.org/segment-tree-set-1-sum-of-given-range/&lt;/a&gt;&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;&lt;p&gt;Find the sum of elements from index l to r where 0 &amp;lt;= l &amp;lt;= r &amp;lt;= n-1&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;Change value of a specified element of the array to a new value x.&lt;/p&gt;
-
-&lt;p&gt;We need to do arr[i] = x where 0 &amp;lt;= i &amp;lt;= n-1.&lt;/p&gt;&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;p&gt;Can we perform both the operations in O(log n) time once given the array?&lt;/p&gt;
-
-&lt;h2&gt;Range Minimum Query&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/&quot;&gt;https://www.geeksforgeeks.org/segment-tree-set-1-range-minimum-query/&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3&gt;Example&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://codeforces.com/contest/1208/problem/d&quot;&gt;https://codeforces.com/contest/1208/problem/d&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;# https://codeforces.com/contest/1208/problem/D
-
-from sys import stdin, stdout
-input = stdin.readline
-# print = stdout.write
-
-# 1. the right most 0 is the index of current minimum value
-# 2. we abstract the current value for all the elements to the right
-# 3. Then we can do recusion
-
-# To find the last index with value zero,
-# we can use segment tree to get range minimum query with lazy propagation.
-
-# https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/
-
-n = int(input())
-array = list(map(int, input().split()))
-
-MAX = n * n
-
-
-class Node:
-    def __init__(self, val, index, s, e):
-        self.lazy = 0
-        # for leaf node, store the value of array
-        # for internal node, store the value of interval
-        self.val = val
-        self.index = index
-
-        self.s = s
-        self.e = e
-
-        self.left = None
-        self.right = None
-
-
-class SegmentTree:
-    def __init__(self, array):
-        self.root = self.build(array)
-
-    def build(self, array):
-        def _build(array, s, e):
-            if s == e:
-                cur = Node(array[s], s, s, e)
-                return cur
-            mid = (s + e) // 2
-            left = _build(array, s, mid)
-            right = _build(array, mid + 1, e)
-
-            if left.val &amp;lt; right.val:
-                cur = Node(left.val, left.index, s, e)
-            else:
-                cur = Node(right.val, right.index, s, e)
-
-            cur.left = left
-            cur.right = right
-            return cur
-
-        root = _build(array, 0, len(array) - 1)
-        return root
-
-    def modify(self, s, e, diff):
-        # add diff to all the array elements from s to e (inclusive)
-        def _modify(cur, s, e, diff):
-            if cur.s &amp;gt; e or cur.e &amp;lt; s:
-                return cur.val, cur.index
-            if cur.s == cur.e:
-                cur.val += diff
-                return cur.val, cur.index
-
-            # note here [s, mid] is wrong because that 
-            # [s, mid] may be larger than [s, e]
-
-            left_val, left_index = _modify(cur.left, s, e, diff)
-            right_val, right_index = _modify(cur.right, s, e, diff)
-
-            if left_val &amp;lt; right_val:
-                cur.val = left_val
-                cur.index = left_index
-            else:
-                cur.val = right_val
-                cur.index = right_index
-            return cur.val, cur.index
-        _modify(self.root, s, e, diff)
-
-    def query(self, s, e):
-        # return the index of the minimum of array from s to e (inclusive)
-        def _query(cur, s, e):
-            if cur.s &amp;gt; e or cur.e &amp;lt; s:
-                return MAX, -1
-            if cur.s == s and cur.e == e:
-                return cur.val, cur.index
-
-            mid = (cur.s + cur.e) // 2
-
-            left_val, left_index = _query(cur.left, s, mid)
-            right_val, right_index = _query(cur.right, mid+1, e)
-
-            if left_val &amp;lt; right_val:
-                return left_val, left_index
-            else:
-                return right_val, right_index
-
-        val, index = _query(self.root, s, e)
-        return val, index
-
-
-def debug(tree):
-    l = [tree.root]
-    while l:
-        next_l = []
-        for node in l:
-            print(&quot;(%d, %d): %d, %d\t&quot; %
-                  (node.s, node.e, node.val, node.index), end=&quot;&quot;)
-            if node.left:
-                next_l.append(node.left)
-            if node.right:
-                next_l.append(node.right)
-        print()
-        l = next_l
-
-
-tree = SegmentTree(array)
-
-result = [0 for i in range(n)]
-cur = 1
-while cur &amp;lt;= n:
-    val, index = tree.query(0, n - 1)
-    if index &amp;lt; n - 1:
-        tree.modify(index + 1, n - 1, -cur)
-    tree.modify(index, index, MAX)
-
-    result[index] = cur
-    cur += 1
-print(&quot; &quot;.join(map(str, result)))
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;Lazy Propagation&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/&quot;&gt;https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;What if there are updates on a range of array indexes?
-For example add 10 to all values at indexes from 2 to 7 in array.&lt;/p&gt;
-
-&lt;p&gt;Lazy Propagation – An optimization to make range updates faster&lt;/p&gt;
-
-&lt;p&gt;When there are many updates and updates are done on a range, we can postpone some updates (avoid recursive calls in update) and do those updates only when required.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/&quot;&gt;https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Given an array arr[] of size N. There are two types of operations:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Update(l, r, x) : Increment the a[i] (l &amp;lt;= i &amp;lt;= r) with value x.&lt;/li&gt;
-&lt;li&gt;Query(l, r) : Find the maximum value in the array in a range l to r (both are included).&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h3&gt;Example&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;# https://codeforces.com/contest/1208/problem/D
-
-from sys import stdin, stdout
-input = stdin.readline
-print = stdout.write
-
-# 1. the right most 0 is the index of current minimum value
-# 2. we abstract the current value for all the elements to the right
-# 3. Then we can do recusion
-
-# To find the last index with value zero,
-# we can use segment tree to get range minimum query with lazy propagation.
-
-# https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/
-
-n = int(input())
-array = list(map(int, input().split()))
-
-MAX = n * n
-
-
-class Node:
-    def __init__(self, val, index, s, e):
-        self.lazy = 0
-        # for leaf node, store the value of array
-        # for internal node, store the value of interval
-        self.val = val
-        self.index = index
-
-        self.s = s
-        self.e = e
-
-        self.left = None
-        self.right = None
-
-
-class SegmentTree:
-    def __init__(self, array):
-        self.root = self.build(array)
-
-    def build(self, array):
-        def _build(array, s, e):
-            if s == e:
-                cur = Node(array[s], s, s, e)
-                return cur
-            mid = (s + e) // 2
-            left = _build(array, s, mid)
-            right = _build(array, mid + 1, e)
-
-            if left.val &amp;lt; right.val:
-                cur = Node(left.val, left.index, s, e)
-            else:
-                cur = Node(right.val, right.index, s, e)
-
-            cur.left = left
-            cur.right = right
-            return cur
-
-        root = _build(array, 0, len(array) - 1)
-        return root
-
-    def modify(self, s, e, diff):
-        # add diff to all the array elements from s to e (inclusive)
-        def _modify(cur, s, e, diff):
-            # print(&quot;cur: [%d, %d], midify: [%d, %d], diff: %d&quot; %
-            #       (cur.s, cur.e, s, e, diff))
-            if cur.s &amp;gt; e or cur.e &amp;lt; s:
-                return cur.val + cur.lazy, cur.index
-
-            if cur.s == s and cur.e == e:
-                cur.lazy += diff
-                return cur.val + cur.lazy, cur.index
-
-            mid = (cur.s + cur.e) // 2
-
-            # note here cur.lazy will affect [cur.s, cur.e]
-            # while diff will only affect [s, e]
-            _modify(cur.left, cur.s, mid, cur.lazy)
-            _modify(cur.right, mid + 1, cur.e, cur.lazy)
-            cur.lazy = 0
-
-            if s - 1 &amp;lt; mid &amp;lt; e:                
-                left_val, left_index = _modify(
-                    cur.left, s, mid, diff)
-                right_val, right_index = _modify(
-                    cur.right, mid + 1, e, diff)
-            else:
-                left_val, left_index = _modify(
-                    cur.left, s, e, diff)
-                right_val, right_index = _modify(
-                    cur.right, s, e, diff)
-
-            if left_val &amp;lt; right_val:
-                cur.val = left_val
-                cur.index = left_index
-            else:
-                cur.val = right_val
-                cur.index = right_index
-            return cur.val, cur.index
-        _modify(self.root, s, e, diff)
-
-    def query(self, s, e):
-        # return the index of the minimum of array from s to e (inclusive)
-        def _query(cur, s, e):
-            if cur.s &amp;gt; e or cur.e &amp;lt; s:
-                return cur.val + cur.lazy, cur.index
-            if cur.s == s and cur.e == e:
-                return cur.val + cur.lazy, cur.index
-
-            mid = (cur.s + cur.e) // 2
-            if s - 1 &amp;lt; mid &amp;lt; e:
-                left_val, left_index = _query(
-                    cur.left, s, mid)
-                right_val, right_index = _query(
-                    cur.right, mid + 1, e)
-            else:
-                left_val, left_index = _query(
-                    cur.left, s, e)
-                right_val, right_index = _query(
-                    cur.right, s, e)
-
-            if left_val &amp;lt; right_val:
-                return left_val + cur.lazy, left_index
-            else:
-                return right_val + cur.lazy, right_index
-
-        val, index = _query(self.root, s, e)
-        return val, index
-
-
-def debug(tree):
-    l = [tree.root]
-    while l:
-        next_l = []
-        for node in l:
-            print(&quot;[%d, %d]: %d+%d of %d&quot; % (node.s, node.e, node.val, node.lazy, node.index), end=&quot; | &quot;)
-            if node.left:
-                next_l.append(node.left)
-            if node.right:
-                next_l.append(node.right)
-        print()
-        l = next_l
-
-
-tree = SegmentTree(array)
-
-result = [0 for i in range(n)]
-cur = 1
-while cur &amp;lt;= n:
-    val, index = tree.query(0, n - 1)
-    if index &amp;lt; n - 1:
-        tree.modify(index + 1, n - 1, -cur)
-    tree.modify(index, index, MAX)
-
-    # debug(tree)
-
-    result[index] = cur
-    cur += 1
-print(&quot; &quot;.join(map(str, result)))
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Representation of Segment trees:</summary></entry><entry><title type="html">Prime</title><link href="http://songzy12.github.io/2019/05/19/prime.html" rel="alternate" type="text/html" title="Prime" /><published>2019-05-19T23:31:16+08:00</published><updated>2019-05-19T23:31:16+08:00</updated><id>http://songzy12.github.io/2019/05/19/prime</id><content type="html" xml:base="http://songzy12.github.io/2019/05/19/prime.html">&lt;p&gt;设三个质数是 x, y, z&lt;/p&gt;
-
-&lt;p&gt;则 $\frac{1}{x} + \frac{1}{y} + \frac{1}{z} = \frac{xy+yz+zx}{xyz} = \frac{671}{1022}$&lt;/p&gt;
-
-&lt;p&gt;因为上面这个式子是不存在约分的情况，&lt;/p&gt;
-
-&lt;p&gt;所以我们知道 $xy+yz+zx = 671​$, $xyz = 1022​$&lt;/p&gt;
-
-&lt;p&gt;我们可以通过 xyz = 1022 分解质因数来得出 1022 = 2 * 511 = 2&lt;em&gt; 7&lt;/em&gt;73&lt;/p&gt;
-
-&lt;p&gt;所以三个质数的和是 2+7+73 = 82&lt;/p&gt;
-
-&lt;p&gt;两点说明：1. 为什么上面那个式子不存在约分的情况 2. 如何分解质因数&lt;/p&gt;
-
-&lt;p&gt;上面那个式子不存在约分的情况是因为&lt;/p&gt;
-
-&lt;p&gt;分母 xyz 的因子只有 x, y, z 三个数&lt;/p&gt;
-
-&lt;p&gt;而对于分子来说，以因子 x 为例：&lt;/p&gt;
-
-&lt;p&gt;(xy + yz+ zx) 其中 xy, zx 均能整除 x, 而 yz 不能整除 x （因为它们三个都是质数）&lt;/p&gt;
-
-&lt;p&gt;所以 (xy + yz + zx) 不能整除 x； x 不是 xy + yz + zx 的因子&lt;/p&gt;
-
-&lt;p&gt;同理 y, z 也不是。&lt;/p&gt;
-
-&lt;p&gt;如何分解质因数：首先我们能看出 2 是一个因子，1022 = 2 * 511&lt;/p&gt;
-
-&lt;p&gt;如何分解 511: 首先 $\sqrt{511}  &amp;lt; 25$ , 因为 25 * 25 &gt; 511&lt;/p&gt;
-
-&lt;p&gt;所以我们只要尝试 25 以内的所有素因数就可以了：2,3,5,7,11,13,17,19,23&lt;/p&gt;
-
-&lt;p&gt;当我们试到 7 的时候发现能整除，511 / 7 = 73&lt;/p&gt;
-
-&lt;p&gt;为什么我们只要尝试 $\sqrt{511}$ 以内的素因数就可以了呢？&lt;/p&gt;
-
-&lt;p&gt;一个结论：如果一个数 n 含有素因子，则其最小的那个素因子一定不超过 $\sqrt{n}$&lt;/p&gt;
-
-&lt;p&gt;我们可以使用反证法，假设最小的那个素因子 $&gt; \sqrt{n}$, 则最小的两个素因子乘起来就 $&gt;n$ 了。&lt;/p&gt;
-
-&lt;p&gt;好的我们看到 x = 2，然后有&lt;/p&gt;
-
-&lt;p&gt;$yz = 511$&lt;/p&gt;
-
-&lt;p&gt;$2 (y+z) + yz = 671$&lt;/p&gt;
-
-&lt;p&gt;于是 $y + z = 80$&lt;/p&gt;
-
-&lt;p&gt;从而 $511/z + z = 80$, $z&lt;sup&gt;2&lt;/sup&gt; - 80z + 511 = 0$&lt;/p&gt;
-
-&lt;p&gt;套公式&lt;/p&gt;
-
-&lt;p&gt;$z = (80 + \sqrt{80*80 - 4 * 511}) / 2 = $ (80 + 66) / 2 = 73&lt;/p&gt;
-
-&lt;p&gt;$y = (80 - 66) / 2 = 7$&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">设三个质数是 x, y, z</summary></entry><entry><title type="html">Clock</title><link href="http://songzy12.github.io/2019/04/09/clock.html" rel="alternate" type="text/html" title="Clock" /><published>2019-04-09T13:11:45+08:00</published><updated>2019-04-09T13:11:45+08:00</updated><id>http://songzy12.github.io/2019/04/09/clock</id><content type="html" xml:base="http://songzy12.github.io/2019/04/09/clock.html">&lt;p&gt;8点30分之后参加会议，开始时手表时针分针120度角，上午结束时手表时针分针180度角。&lt;/p&gt;
-
-&lt;p&gt;问会议过程中时分呈90度角的情况最多多少次？&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;我们先就这一道题目来看怎么做，然后再扩展一些细节。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;我们先搞明白在一个12小时的周期内时针和分针是怎么转的。&lt;/p&gt;
-
-&lt;p&gt;之所以考虑一个12小时的周期，是因为在凌晨12点时时针和分针是在表盘上12这个数字处重合的；&lt;/p&gt;
-
-&lt;p&gt;然后经过12个小时后，时针和分针再次在表盘上12这个数字处重合。&lt;/p&gt;
-
-&lt;p&gt;凌晨12点，时针和分针在数字12处重合；然后时针慢，分针快。&lt;/p&gt;
-
-&lt;p&gt;接下来的一个小时里，分针转了一圈，回到了数字12处；而时针从数字12走到了数字1。&lt;/p&gt;
-
-&lt;p&gt;在这一个小时内除开始时它们两个是没有再次重合的，因为分针始终在时针的前面。&lt;/p&gt;
-
-&lt;p&gt;然后在接下来的每一个小时，分针都会走一圈，而时针就走过一个数字；在此期间它们都会相遇一次。&lt;/p&gt;
-
-&lt;p&gt;比如1点到2点时在数字1、2之间相遇，2点到3点时在数字2、3之间相遇。11点到12点时它们在数字12处相遇。&lt;/p&gt;
-
-&lt;p&gt;注意，中午12点在数字12处相遇和起始时凌晨12点是一样的。我们可以把它算作下一个12小时周期内的重合。&lt;/p&gt;
-
-&lt;p&gt;于是在12~1, &amp;hellip;, 1~2, 11~12 这12段里面，它们总共重合了11次。&lt;/p&gt;
-
-&lt;p&gt;这里我们把 “12~1 在数字12处重合” 和 “11~12 在数字12处重合” 不重复计算。&lt;/p&gt;
-
-&lt;p&gt;我们在最后一节里说明对于这11次重合如何计算精确的时间。&lt;/p&gt;
-
-&lt;p&gt;对于这每一次重合到下一次重合，时针和分针之间的角度都经历了0到180再到0这样的一个周期。&lt;/p&gt;
-
-&lt;p&gt;也就是说，在这12个小时里，时针和分针之间的角度总共经历了11次0到90到180再到90再到0.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;回到题目，90度角最多次，就考虑会议最早开始时间和最晚结束时间。&lt;/p&gt;
-
-&lt;p&gt;对于这道题目我们可以以每次时针和分针重合为一个周期来看。&lt;/p&gt;
-
-&lt;p&gt;我们就考虑 8点30分之后第一次夹角120度 和 中午12点之前最后一次夹角180度。&lt;/p&gt;
-
-&lt;p&gt;首先看一眼8点30分的时候处于什么状态。&lt;/p&gt;
-
-&lt;p&gt;首先8点30分的时候夹角是小于90度的，也是小于120度的。&lt;/p&gt;
-
-&lt;p&gt;它们在7~8之间相遇到，在8~9之间还没有相遇。&lt;/p&gt;
-
-&lt;p&gt;之后夹角会越来越小，直至它们在数字 8~9 之间重合。然后夹角慢慢变大。从0到90到120到180到90到0。&lt;/p&gt;
-
-&lt;p&gt;接下来这样数数：&lt;/p&gt;
-
-&lt;p&gt;8~9之间重合 到 9~10重合 时：90度1次。（因为去掉了 0到90到120 之间的这次）&lt;/p&gt;
-
-&lt;p&gt;9~10之间重合 到 10~11重合 时：90度2次。&lt;/p&gt;
-
-&lt;p&gt;10~11重合 到 11~12重合 时：90度1次。（这里因为去掉了 180到90到0 之间的这次）&lt;/p&gt;
-
-&lt;p&gt;总共有4次，我们不需要计算具体的时间。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;关于相遇的具体时间计算：分针每分钟走 360/60=6度，时针每分钟走 360/(12*60)=0.5度。&lt;/p&gt;
-
-&lt;p&gt;我们计算时可以从12点重合处开始计算。&lt;/p&gt;
-
-&lt;p&gt;比如我们如果要计算2点~3点的那次相遇，这时分针比时针多走了两圈。&lt;/p&gt;
-
-&lt;p&gt;速度 * 时间 = 路程&lt;/p&gt;
-
-&lt;p&gt;t (6 - 0.5) = 360 * 2&lt;/p&gt;
-
-&lt;p&gt;t = 720/5.5 = 131 分钟 = 2小时11分钟&lt;/p&gt;
-
-&lt;p&gt;所以差不多是 2点11分。&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;推论：&lt;/p&gt;
-
-&lt;p&gt;对于所有在 0~120 之间的角度，答案都是4.&lt;/p&gt;
-
-&lt;p&gt;对于在 120~180 之间的角度，答案是 5.&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">8点30分之后参加会议，开始时手表时针分针120度角，上午结束时手表时针分针180度角。</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows the basic usage of Octopress 3.0.</summary></entry></feed>
