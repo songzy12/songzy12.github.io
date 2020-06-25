@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-06-25T16:19:23+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Base64</title><link href="http://songzy12.github.io/2020/06/25/base64.html" rel="alternate" type="text/html" title="Base64" /><published>2020-06-25T13:34:52+08:00</published><updated>2020-06-25T13:34:52+08:00</updated><id>http://songzy12.github.io/2020/06/25/base64</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/base64.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Base64&quot;&gt;https://en.wikipedia.org/wiki/Base64&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-06-25T16:35:17+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Base64</title><link href="http://songzy12.github.io/2020/06/25/base64.html" rel="alternate" type="text/html" title="Base64" /><published>2020-06-25T13:34:52+08:00</published><updated>2020-06-25T13:34:52+08:00</updated><id>http://songzy12.github.io/2020/06/25/base64</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/base64.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Base64&quot;&gt;https://en.wikipedia.org/wiki/Base64&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Char Set&lt;/h2&gt;
 
@@ -12,15 +12,15 @@
 
 &lt;p&gt;Base64 encoding would turn each 3 Bytes group ($3&lt;em&gt;8=24$) to 4 Bytes ($4&lt;/em&gt;6=24$), where 6 bits = 2**6 = 64.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;img/Base64-3Bytes.png&quot; alt=&quot;3 Bytes&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/Base64-3Bytes.png&quot; alt=&quot;3 Bytes&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;img/Base64-2Bytes.png&quot; alt=&quot;2 Bytes&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/Base64-2Bytes.png&quot; alt=&quot;2 Bytes&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;img/Base64-1Byte.png&quot; alt=&quot;1 Byte&quot; /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/Base64-1Byte.png&quot; alt=&quot;1 Byte&quot; /&gt;&lt;/p&gt;
 
 &lt;h2&gt;Example&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;img/Base64-Example.png&quot; alt=&quot;Example&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Base64</summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/06/06/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-06-06T16:29:08+08:00</published><updated>2020-06-06T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/06/06/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/06/06/workspace-setup.html">&lt;p&gt;This shows what we need to do when we move to a brand new Linux environment.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;/img/Base64-Example.png&quot; alt=&quot;Example&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Base64</summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/06/06/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-06-06T16:29:08+08:00</published><updated>2020-06-06T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/06/06/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/06/06/workspace-setup.html">&lt;p&gt;This shows what we need to do when we move to a brand new Linux environment.&lt;/p&gt;
 
 &lt;h2&gt;wget proxy&lt;/h2&gt;
 
