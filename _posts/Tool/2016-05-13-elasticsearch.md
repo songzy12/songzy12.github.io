@@ -76,6 +76,7 @@ curl http://localhost:9201/_stats?pretty=1
 ## 安装
 
 install: 
+
 ```
 curl -L -O http://download.elasticsearch.org/PATH/TO/VERSION.zip <1>
 unzip elasticsearch-$VERSION.zip
@@ -85,11 +86,13 @@ cd  elasticsearch-$VERSION
 config: `./config/elasticsearch.yml`
 
 status:
+
 ```
 curl 'http://localhost:9200/?pretty'
 ```
 
 shutdown:
+
 ```
 curl -XPOST 'http://localhost:9200/_shutdown'
 ```
@@ -140,11 +143,13 @@ PUT /megacorp/employee/1
 ## 搜索
 
 检索文档:
+
 ```
 GET /megacorp/employee/1
 ```
 
 简单搜索：
+
 ```
 GET /megacorp/employee/_search
 ```
@@ -153,11 +158,13 @@ GET /megacorp/employee/_search
 
 
 query string:
+
 ```
 GET /megacorp/employee/_search?q=last_name:Smith
 ```
 
 DSL(domain specific language):
+
 ```
 GET /megacorp/employee/_search
 {
@@ -170,6 +177,7 @@ GET /megacorp/employee/_search
 ```
 
 filter:
+
 ```
 GET /megacorp/employee/_search
 {
@@ -191,6 +199,7 @@ GET /megacorp/employee/_search
 ```
 
 match:
+
 ```
 GET /megacorp/employee/_search
 {
@@ -205,6 +214,7 @@ GET /megacorp/employee/_search
 相关性(relevance)的概念在Elasticsearch中非常重要，而这个概念在传统关系型数据库中是不可想象的，因为传统数据库对记录的查询只有匹配或者不匹配。
 
 phrase:
+
 ```
 GET /megacorp/employee/_search
 {
@@ -217,6 +227,7 @@ GET /megacorp/employee/_search
 ```
 
 highlight:
+
 ```
 GET /megacorp/employee/_search
 {

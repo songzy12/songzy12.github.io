@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Autograder"
+title: "AutoGrader"
 date: 2016-08-31 20:49:10 +0800
 comments: true
 categories: 

@@ -9,25 +9,3 @@ categories:
 * update - Restart service(s) whose configuration has changed. Usually run after 'reread'.
 * reload - Reread supervisor configuration, reload supervisord and supervisorctl
 * restart - Restart service(s)
-
-
-
-## logging
-
-```
-import logging 
-
-log = logging.getLogger(__name__)
-log.setLevel(logging.INFO)
-
-ch = logging.StreamHandler(sys.stdout)
-
-ch.setLevel(logging.DEBUG)
-
-formatter = logging.Formatter(
-    "%(asctime)s - %(name)s - %(levelname)s - %(message)s")
-ch.setFormatter(formatter)
-
-log.addHandler(ch)
-```
-
