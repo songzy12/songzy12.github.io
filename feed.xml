@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-06-09T23:27:23+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/06/06/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-06-06T16:29:08+08:00</published><updated>2020-06-06T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/06/06/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/06/06/workspace-setup.html">&lt;p&gt;This shows what we need to do when we move to a brand new Linux environment.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-06-25T16:19:23+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Base64</title><link href="http://songzy12.github.io/2020/06/25/base64.html" rel="alternate" type="text/html" title="Base64" /><published>2020-06-25T13:34:52+08:00</published><updated>2020-06-25T13:34:52+08:00</updated><id>http://songzy12.github.io/2020/06/25/base64</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/base64.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Base64&quot;&gt;https://en.wikipedia.org/wiki/Base64&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Char Set&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;64 base: &lt;code&gt;a-z&lt;/code&gt;, &lt;code&gt;A-Z&lt;/code&gt;, &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;/&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;padding: &lt;code&gt;=&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Encoding&lt;/h2&gt;
+
+&lt;p&gt;Base64 encoding would turn each 3 Bytes group ($3&lt;em&gt;8=24$) to 4 Bytes ($4&lt;/em&gt;6=24$), where 6 bits = 2**6 = 64.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/Base64-3Bytes.png&quot; alt=&quot;3 Bytes&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/Base64-2Bytes.png&quot; alt=&quot;2 Bytes&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/Base64-1Byte.png&quot; alt=&quot;1 Byte&quot; /&gt;&lt;/p&gt;
+
+&lt;h2&gt;Example&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;img/Base64-Example.png&quot; alt=&quot;Example&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Base64</summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/06/06/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-06-06T16:29:08+08:00</published><updated>2020-06-06T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/06/06/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/06/06/workspace-setup.html">&lt;p&gt;This shows what we need to do when we move to a brand new Linux environment.&lt;/p&gt;
 
 &lt;h2&gt;wget proxy&lt;/h2&gt;
 
@@ -19,6 +41,14 @@ https_proxy = http://localhost:1081
 &lt;code&gt;
 sh install.sh
 &lt;/code&gt;&lt;/p&gt;
+
+&lt;h3&gt;tmux config&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;vi ~/.tmux.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;set -g default-shell /usr/bin/zsh
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2&gt;apt source&lt;/h2&gt;
 
@@ -984,30 +1014,4 @@ print(&quot; &quot;.join(map(str, result)))
 
 &lt;p&gt;对于所有在 0~120 之间的角度，答案都是4.&lt;/p&gt;
 
-&lt;p&gt;对于在 120~180 之间的角度，答案是 5.&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">8点30分之后参加会议，开始时手表时针分针120度角，上午结束时手表时针分针180度角。</summary></entry><entry><title type="html">Indefinite equation</title><link href="http://songzy12.github.io/2019/04/05/indefinite-equation.html" rel="alternate" type="text/html" title="Indefinite equation" /><published>2019-04-05T01:22:02+08:00</published><updated>2019-04-05T01:22:02+08:00</updated><id>http://songzy12.github.io/2019/04/05/indefinite-equation</id><content type="html" xml:base="http://songzy12.github.io/2019/04/05/indefinite-equation.html">&lt;p&gt;某单位订阅了30份资料分发给3个部门，要求每个部门至少9份资料，一共有多少种不同的发放方法？&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;上面这个题目就是求下面这个方程的解的个数：&lt;/p&gt;
-
-&lt;p&gt;$x_1 + x_2 + x_3 = 30$&lt;/p&gt;
-
-&lt;p&gt;$x_1 \ge 9, x_2 \ge 9, x_3\ge 9$&lt;/p&gt;
-
-&lt;p&gt;因为我们会做的题目是求正整数解的个数，使用插板法。&lt;/p&gt;
-
-&lt;p&gt;所以我们就要把它转化成 $x_1' \ge 1$ 这种形式。&lt;/p&gt;
-
-&lt;p&gt;$x_1 \ge 9 \Leftrightarrow x_1-8\ge 1$&lt;/p&gt;
-
-&lt;p&gt;我们就把 $x_1 - 8$ 整体看成是一个新的变量就好了。&lt;/p&gt;
-
-&lt;p&gt;所以上面的式子就等价于&lt;/p&gt;
-
-&lt;p&gt;$(x_1 -8) + (x_2-8) + (x_3 -8) = 6$&lt;/p&gt;
-
-&lt;p&gt;$x_1-8\ge 1, x_2-8\ge 1,x_3 -8\ge1$&lt;/p&gt;
-
-&lt;p&gt;然后 6 个 1 中间有 5 个空，我们选2个空插板。&lt;/p&gt;
-
-&lt;p&gt;答案就是 $C_5&lt;sup&gt;2&lt;/sup&gt;$.&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">某单位订阅了30份资料分发给3个部门，要求每个部门至少9份资料，一共有多少种不同的发放方法？</summary></entry></feed>
+&lt;p&gt;对于在 120~180 之间的角度，答案是 5.&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">8点30分之后参加会议，开始时手表时针分针120度角，上午结束时手表时针分针180度角。</summary></entry></feed>
