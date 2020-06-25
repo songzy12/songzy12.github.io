@@ -28,6 +28,16 @@ Download and run the script:
 sh install.sh
 ```
 
+### tmux config
+
+```
+vi ~/.tmux.conf
+```
+
+```
+set -g default-shell /usr/bin/zsh
+```
+
 ## apt source
 
 Project link: <https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/>
