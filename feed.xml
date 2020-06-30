@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-06-26T18:16:09+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">QR Code</title><link href="http://songzy12.github.io/2020/06/26/qr-code.html" rel="alternate" type="text/html" title="QR Code" /><published>2020-06-26T17:57:44+08:00</published><updated>2020-06-26T17:57:44+08:00</updated><id>http://songzy12.github.io/2020/06/26/qr-code</id><content type="html" xml:base="http://songzy12.github.io/2020/06/26/qr-code.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/QR_code&quot;&gt;https://en.wikipedia.org/wiki/QR_code&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-01T01:14:33+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">QR Code</title><link href="http://songzy12.github.io/2020/06/26/qr-code.html" rel="alternate" type="text/html" title="QR Code" /><published>2020-06-26T17:57:44+08:00</published><updated>2020-06-26T17:57:44+08:00</updated><id>http://songzy12.github.io/2020/06/26/qr-code</id><content type="html" xml:base="http://songzy12.github.io/2020/06/26/qr-code.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/QR_code&quot;&gt;https://en.wikipedia.org/wiki/QR_code&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;QR Code:  Quick Response code&lt;/p&gt;
 
@@ -303,15 +303,207 @@ nvm ls-remote
 &lt;p&gt;&lt;a href=&quot;https://developer.aliyun.com/mirror/NPM&quot;&gt;https://developer.aliyun.com/mirror/NPM&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;npm config set registry https://registry.npm.taobao.org
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This shows what we need to do when we move to a brand new Linux environment.</summary></entry><entry><title type="html">Git Proxy</title><link href="http://songzy12.github.io/2020/06/04/git-proxy.html" rel="alternate" type="text/html" title="Git Proxy" /><published>2020-06-04T00:20:33+08:00</published><updated>2020-06-04T00:20:33+08:00</updated><id>http://songzy12.github.io/2020/06/04/git-proxy</id><content type="html" xml:base="http://songzy12.github.io/2020/06/04/git-proxy.html">&lt;p&gt;This article shows how to enable Proxy when using Git.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This shows what we need to do when we move to a brand new Linux environment.</summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2020/06/03/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2020-06-03T20:07:54+08:00</published><updated>2020-06-03T20:07:54+08:00</updated><id>http://songzy12.github.io/2020/06/03/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2020/06/03/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
 
-&lt;p&gt;If you have enabled proxy like V2Ray on your local machine,
-you can use this command to set Proxy for Git:&lt;/p&gt;
+&lt;h2&gt;default&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;git config --global http.proxy localhost:1081
+&lt;h3&gt;server&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://install.direct/go.sh
+sudo bash go.sh
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;Then when you do &lt;code&gt;git clone&lt;/code&gt;, use the HTTP link rather than the SSH link:&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;PORT:
+UUID:
+&lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt; git clone https://github.com/songzy12/xxx.git
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to enable Proxy when using Git.</summary></entry></feed>
+&lt;pre&gt;&lt;code&gt;&quot;log&quot;: {
+    &quot;loglevel&quot;: &quot;warning&quot;,
+    &quot;access&quot;: &quot;/var/log/v2ray/access.log&quot;,
+    &quot;error&quot;: &quot;/var/log/v2ray/error.log&quot;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo systemctl start v2ray
+sudo systemctl enable v2ray
+sudo systemctl status v2ray
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;client&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/v2ray/v2ray-core/releases&quot;&gt;https://github.com/v2ray/v2ray-core/releases&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;tls&lt;/h2&gt;
+
+&lt;h3&gt;certificate&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt-get -y install socat
+curl  https://get.acme.sh | sh
+source ~/.bashrc 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo ~/.acme.sh/acme.sh --issue -d songzy.cc --standalone -k ec-256
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo ~/.acme.sh/acme.sh --renew -d songzy.cc --force --ecc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo ~/.acme.sh/acme.sh --installcert -d songzy.cc --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;server&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &quot;inbounds&quot;: [{
+    &quot;port&quot;: 443,
+    &quot;protocol&quot;: &quot;vmess&quot;,
+    &quot;settings&quot;: {
+      &quot;clients&quot;: [
+        {
+          &quot;id&quot;: &quot;899cbb8a-fad2-45bd-8608-8483956d641c&quot;,
+          &quot;level&quot;: 1,
+          &quot;alterId&quot;: 0
+        }
+      ]
+    },
+    &quot;streamSettings&quot;: {
+      &quot;network&quot;: &quot;tcp&quot;,
+      &quot;security&quot;: &quot;tls&quot;,
+      &quot;tlsSettings&quot;: {
+        &quot;certificates&quot;: [
+          {
+            &quot;certificateFile&quot;: &quot;/etc/v2ray/v2ray.crt&quot;,
+            &quot;keyFile&quot;: &quot;/etc/v2ray/v2ray.key&quot;
+          }
+        ]
+      }
+    }
+  }],
+  &quot;outbounds&quot;: [{
+    &quot;protocol&quot;: &quot;freedom&quot;,
+    &quot;settings&quot;: {}
+  },{
+    &quot;protocol&quot;: &quot;blackhole&quot;,
+    &quot;settings&quot;: {},
+    &quot;tag&quot;: &quot;blocked&quot;
+  }],
+  &quot;routing&quot;: {
+    &quot;rules&quot;: [
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;ip&quot;: [&quot;geoip:private&quot;],
+        &quot;outboundTag&quot;: &quot;blocked&quot;
+      }
+    ]
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: remember to change the &lt;code&gt;inbounds.settings.clients.id&lt;/code&gt; parameter to your own value.&lt;/p&gt;
+
+&lt;h3&gt;client&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &quot;log&quot;: {
+    &quot;access&quot;: &quot;&quot;,
+    &quot;error&quot;: &quot;&quot;,
+    &quot;loglevel&quot;: &quot;warning&quot;
+  },
+  &quot;inbound&quot;: {
+    &quot;port&quot;: 1080,
+    &quot;listen&quot;: &quot;127.0.0.1&quot;,
+    &quot;protocol&quot;: &quot;socks&quot;,
+    &quot;settings&quot;: {
+      &quot;auth&quot;: &quot;noauth&quot;,
+      &quot;udp&quot;: true,
+      &quot;ip&quot;: &quot;127.0.0.1&quot;,
+      &quot;clients&quot;: null
+    },
+    &quot;streamSettings&quot;: null
+  },
+  &quot;outbound&quot;: {
+    &quot;tag&quot;: &quot;agentout&quot;,
+    &quot;protocol&quot;: &quot;vmess&quot;,
+    &quot;settings&quot;: {
+      &quot;vnext&quot;: [
+        {
+          &quot;address&quot;: &quot;songzy.cc&quot;,
+          &quot;port&quot;: 443,
+          &quot;users&quot;: [
+            {
+              &quot;id&quot;: &quot;899cbb8a-fad2-45bd-8608-8483956d641c&quot;,
+              &quot;alterId&quot;: 0,
+              &quot;email&quot;: &quot;t@t.tt&quot;,
+              &quot;security&quot;: &quot;aes-128-gcm&quot;
+            }
+          ]
+        }
+      ],
+      &quot;servers&quot;: null
+    },
+    &quot;streamSettings&quot;: {
+      &quot;network&quot;: &quot;ws&quot;,
+      &quot;security&quot;: &quot;tls&quot;,
+      &quot;tlsSettings&quot;: {
+        &quot;allowInsecure&quot;: true,
+        &quot;serverName&quot;: null
+      },
+      &quot;tcpSettings&quot;: null,
+      &quot;kcpSettings&quot;: null,
+      &quot;wsSettings&quot;: {
+        &quot;connectionReuse&quot;: true,
+        &quot;path&quot;: &quot;/&quot;,
+        &quot;headers&quot;: null
+      },
+      &quot;httpSettings&quot;: null
+    },
+    &quot;mux&quot;: {
+      &quot;enabled&quot;: true
+    }
+  },
+  &quot;inboundDetour&quot;: null,
+  &quot;outboundDetour&quot;: [
+    {
+      &quot;protocol&quot;: &quot;freedom&quot;,
+      &quot;settings&quot;: {
+        &quot;response&quot;: null
+      },
+      &quot;tag&quot;: &quot;direct&quot;
+    },
+    {
+      &quot;protocol&quot;: &quot;blackhole&quot;,
+      &quot;settings&quot;: {
+        &quot;response&quot;: {
+          &quot;type&quot;: &quot;http&quot;
+        }
+      },
+      &quot;tag&quot;: &quot;blockout&quot;
+    }
+  ],
+  &quot;dns&quot;: {
+    &quot;servers&quot;: [
+      &quot;8.8.8.8&quot;,
+      &quot;8.8.4.4&quot;,
+      &quot;localhost&quot;
+    ]
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;ws&lt;/h2&gt;
+
+&lt;h3&gt;server&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &quot;inbounds&quot;: [{
+    &quot;streamSettings&quot;: {
+      &quot;network&quot;: &quot;tcp&quot;,
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;client&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &quot;outbounds&quot;: [
+      &quot;streamSettings&quot;:{
+        &quot;network&quot;:&quot;ws&quot;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to install and enabel V2Ray proxy.</summary></entry></feed>
