@@ -10,7 +10,7 @@ categories:
 ## Javascript Level 1
 
 ```
-<script type='text/javascript'> 
+\<script type='text/javascript'> 
 $(function(){ 
 	$('.level-form').submit(function(e){ 
 		e.preventDefault(); 
