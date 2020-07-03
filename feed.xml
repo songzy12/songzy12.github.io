@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-03T22:31:32+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Brute Force</title><link href="http://songzy12.github.io/2020/07/03/brute-force.html" rel="alternate" type="text/html" title="Brute Force" /><published>2020-07-03T22:26:03+08:00</published><updated>2020-07-03T22:26:03+08:00</updated><id>http://songzy12.github.io/2020/07/03/brute-force</id><content type="html" xml:base="http://songzy12.github.io/2020/07/03/brute-force.html">&lt;p&gt;Brute Force Challenges of DVWA.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-03T22:45:51+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Brute Force</title><link href="http://songzy12.github.io/2020/07/03/brute-force.html" rel="alternate" type="text/html" title="Brute Force" /><published>2020-07-03T22:26:03+08:00</published><updated>2020-07-03T22:26:03+08:00</updated><id>http://songzy12.github.io/2020/07/03/brute-force</id><content type="html" xml:base="http://songzy12.github.io/2020/07/03/brute-force.html">&lt;p&gt;Brute Force Challenges of DVWA.&lt;/p&gt;
 
 &lt;h2&gt;Low&lt;/h2&gt;
 
@@ -9,6 +9,8 @@
 
 &lt;p&gt;No filter of user inputs, we can have two ways to bypass the password check.&lt;/p&gt;
 
+&lt;h3&gt;Solution&lt;/h3&gt;
+
 &lt;p&gt;If we know the user name, we can fill in &lt;code&gt;admin' or '1' = '1&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;    $query  = &quot;SELECT * FROM `users` WHERE user = 'admin' or '1'='1' AND password = '$pass';&quot;;
@@ -17,7 +19,21 @@
 &lt;p&gt;If we do not know the user name, we can fill in &lt;code&gt;x' or 1 = 1 limit 1 #&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;    $query  = &quot;SELECT * FROM `users` WHERE user = 'xxx' or 1 = 1 limit 1 #' AND password = '$pass';&quot;;
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Brute Force Challenges of DVWA.</summary></entry><entry><title type="html">Apache</title><link href="http://songzy12.github.io/2020/07/01/apache.html" rel="alternate" type="text/html" title="Apache" /><published>2020-07-01T21:18:19+08:00</published><updated>2020-07-01T21:18:19+08:00</updated><id>http://songzy12.github.io/2020/07/01/apache</id><content type="html" xml:base="http://songzy12.github.io/2020/07/01/apache.html">&lt;p&gt;&lt;a href=&quot;https://ubuntu.com/tutorials/install-and-configure-apache&quot;&gt;https://ubuntu.com/tutorials/install-and-configure-apache&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Medium&lt;/h2&gt;
+
+&lt;h3&gt;Code&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Sanitise username input
+    $user = $_GET[ 'username' ];
+    $user = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;amp;&amp;amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $user ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
+
+    // Check the database
+    $query  = &quot;SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Solution&lt;/h3&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Brute Force Challenges of DVWA.</summary></entry><entry><title type="html">Apache</title><link href="http://songzy12.github.io/2020/07/01/apache.html" rel="alternate" type="text/html" title="Apache" /><published>2020-07-01T21:18:19+08:00</published><updated>2020-07-01T21:18:19+08:00</updated><id>http://songzy12.github.io/2020/07/01/apache</id><content type="html" xml:base="http://songzy12.github.io/2020/07/01/apache.html">&lt;p&gt;&lt;a href=&quot;https://ubuntu.com/tutorials/install-and-configure-apache&quot;&gt;https://ubuntu.com/tutorials/install-and-configure-apache&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo apt update
 sudo apt install apache2
