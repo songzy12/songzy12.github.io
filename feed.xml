@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-03T22:45:51+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Brute Force</title><link href="http://songzy12.github.io/2020/07/03/brute-force.html" rel="alternate" type="text/html" title="Brute Force" /><published>2020-07-03T22:26:03+08:00</published><updated>2020-07-03T22:26:03+08:00</updated><id>http://songzy12.github.io/2020/07/03/brute-force</id><content type="html" xml:base="http://songzy12.github.io/2020/07/03/brute-force.html">&lt;p&gt;Brute Force Challenges of DVWA.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-04T17:12:14+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Brute Force</title><link href="http://songzy12.github.io/2020/07/03/brute-force.html" rel="alternate" type="text/html" title="Brute Force" /><published>2020-07-03T22:26:03+08:00</published><updated>2020-07-03T22:26:03+08:00</updated><id>http://songzy12.github.io/2020/07/03/brute-force</id><content type="html" xml:base="http://songzy12.github.io/2020/07/03/brute-force.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Low&lt;/h2&gt;
 
@@ -9,17 +9,44 @@
 
 &lt;p&gt;No filter of user inputs, we can have two ways to bypass the password check.&lt;/p&gt;
 
-&lt;h3&gt;Solution&lt;/h3&gt;
+&lt;h3&gt;SQL Injection&lt;/h3&gt;
 
-&lt;p&gt;If we know the user name, we can fill in &lt;code&gt;admin' or '1' = '1&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://www.w3schools.com/sql/sql_injection.asp&quot;&gt;https://www.w3schools.com/sql/sql_injection.asp&lt;/a&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;    $query  = &quot;SELECT * FROM `users` WHERE user = 'admin' or '1'='1' AND password = '$pass';&quot;;
+&lt;p&gt;If we know the user name, we can fill in&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;user: &lt;code&gt;admin' or '' = '&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;    $query  = &quot;SELECT * FROM `users` WHERE user = 'admin' or ''='' AND password = '$pass';&quot;;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;If we do not know the user name, we can fill in &lt;code&gt;x' or 1 = 1 limit 1 #&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;If we do not know the user name, we can fill in&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;user: &lt;code&gt;x' or 1 = 1 limit 1 #&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;user: &lt;code&gt;x' or 1 = 1 limit 1 --&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
 
 &lt;pre&gt;&lt;code&gt;    $query  = &quot;SELECT * FROM `users` WHERE user = 'xxx' or 1 = 1 limit 1 #' AND password = '$pass';&quot;;
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We failed to do something like:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;user: &lt;code&gt;xxx' or ''='';  DROP TABLE Persons; #&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;    $query  = &quot;SELECT * FROM `users` WHERE user = 'xxx'; DROP TABLE Persons; #' AND password = '';&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.php.net/manual/en/mysqli.quickstart.multiple-statement.php&quot;&gt;https://www.php.net/manual/en/mysqli.quickstart.multiple-statement.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;The API functions mysqli_query() and mysqli_real_query() do not set a connection flag necessary for activating multi queries in the server. An extra API call is used for multiple statements to reduce the likeliness of accidental SQL injection attacks. An attacker may try to add statements such as ; DROP DATABASE mysql or ; SELECT SLEEP(999). If the attacker succeeds in adding SQL to the statement string but mysqli_multi_query is not used, the server will not execute the second, injected and malicious SQL statement.&lt;/p&gt;&lt;/blockquote&gt;
 
 &lt;h2&gt;Medium&lt;/h2&gt;
 
@@ -33,21 +60,34 @@
     $query  = &quot;SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';&quot;;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3&gt;Solution&lt;/h3&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Brute Force Challenges of DVWA.</summary></entry><entry><title type="html">Apache</title><link href="http://songzy12.github.io/2020/07/01/apache.html" rel="alternate" type="text/html" title="Apache" /><published>2020-07-01T21:18:19+08:00</published><updated>2020-07-01T21:18:19+08:00</updated><id>http://songzy12.github.io/2020/07/01/apache</id><content type="html" xml:base="http://songzy12.github.io/2020/07/01/apache.html">&lt;p&gt;&lt;a href=&quot;https://ubuntu.com/tutorials/install-and-configure-apache&quot;&gt;https://ubuntu.com/tutorials/install-and-configure-apache&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Solution&lt;/h3&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php</summary></entry><entry><title type="html">Apache</title><link href="http://songzy12.github.io/2020/07/01/apache.html" rel="alternate" type="text/html" title="Apache" /><published>2020-07-01T21:18:19+08:00</published><updated>2020-07-01T21:18:19+08:00</updated><id>http://songzy12.github.io/2020/07/01/apache</id><content type="html" xml:base="http://songzy12.github.io/2020/07/01/apache.html">&lt;p&gt;&lt;a href=&quot;https://ubuntu.com/tutorials/install-and-configure-apache&quot;&gt;https://ubuntu.com/tutorials/install-and-configure-apache&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Install&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo apt update
 sudo apt install apache2
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2&gt;Web Page&lt;/h2&gt;
+
 &lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;ls /var/www/html/index.html
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Config&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;cd /etc/apache2/sites-available/
 sudo cp 000-default.conf gci.conf
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2&gt;Start Server&lt;/h2&gt;
+
 &lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo a2ensite gci.conf
 service apache2 reload
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Log&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;tail -f /var/log/apache2/error.log
 &lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://ubuntu.com/tutorials/install-and-configure-apache</summary></entry><entry><title type="html">QR Code</title><link href="http://songzy12.github.io/2020/06/26/qr-code.html" rel="alternate" type="text/html" title="QR Code" /><published>2020-06-26T17:57:44+08:00</published><updated>2020-06-26T17:57:44+08:00</updated><id>http://songzy12.github.io/2020/06/26/qr-code</id><content type="html" xml:base="http://songzy12.github.io/2020/06/26/qr-code.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/QR_code&quot;&gt;https://en.wikipedia.org/wiki/QR_code&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;QR Code:  Quick Response code&lt;/p&gt;
