@@ -86,22 +86,22 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 <p>If we do not know the user name, we can fill in</p>
 
 <ul>
-<li>user: <code>x' or 1 = 1 limit 1 #</code>.</li>
-<li>user: <code>x' or 1 = 1 limit 1 --</code>.</li>
+<li>user: <code>' or 1 = 1 limit 1 #</code>.</li>
+<li>user: <code>' or 1 = 1 limit 1 --</code>.</li>
 </ul>
 
 
-<pre><code>    $query  = "SELECT * FROM `users` WHERE user = 'xxx' or 1 = 1 limit 1 #' AND password = '$pass';";
+<pre><code>    $query  = "SELECT * FROM `users` WHERE user = '' or 1 = 1 limit 1 #' AND password = '$pass';";
 </code></pre>
 
 <p>We failed to do something like:</p>
 
 <ul>
-<li>user: <code>xxx' or ''='';  DROP TABLE Persons; #</code></li>
+<li>user: <code>' or ''='';  DROP TABLE Persons; #</code></li>
 </ul>
 
 
-<pre><code>    $query  = "SELECT * FROM `users` WHERE user = 'xxx'; DROP TABLE Persons; #' AND password = '';";
+<pre><code>    $query  = "SELECT * FROM `users` WHERE user = ''; DROP TABLE Persons; #' AND password = '';";
 </code></pre>
 
 <p><a href="https://www.php.net/manual/en/mysqli.quickstart.multiple-statement.php">https://www.php.net/manual/en/mysqli.quickstart.multiple-statement.php</a></p>
@@ -120,7 +120,31 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
     $query  = "SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';";
 </code></pre>
 
-<h3>Solution</h3>
+<h3>Burp Suite</h3>
+
+<h4>Proxy</h4>
+
+<p><a href="https://portswigger.net/burp/documentation/desktop/tools/proxy/options">https://portswigger.net/burp/documentation/desktop/tools/proxy/options</a></p>
+
+<h5>HTTPS</h5>
+
+<p><a href="https://cloud.tencent.com/developer/news/288748">https://cloud.tencent.com/developer/news/288748</a></p>
+
+<blockquote><p>打开这个证书文件，根据提示安装这个证书，基本上是一路『下一步』，唯一需要注意的是，在『证书存储』这一步选择将证书存储在『受信任的根证书颁发机构』。</p></blockquote>
+
+<h5>localhost</h5>
+
+<p>We can use ip address from <code>ipconfig</code> rather than <code>127.0.0.1</code> to let Burp Suite log the local requests.</p>
+
+<h4>Intruder</h4>
+
+<p><a href="https://portswigger.net/support/analyzing-burp-intruder-attack-results">https://portswigger.net/support/analyzing-burp-intruder-attack-results</a></p>
+
+<h5>Payloads</h5>
+
+<p><a href="https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt">https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt</a></p>
+
+<h2>High</h2>
 
   </div><div id="disqus_thread"></div>
   <script>
