@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-06T00:23:39+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Brute Force</title><link href="http://songzy12.github.io/2020/07/03/brute-force.html" rel="alternate" type="text/html" title="Brute Force" /><published>2020-07-03T22:26:03+08:00</published><updated>2020-07-03T22:26:03+08:00</updated><id>http://songzy12.github.io/2020/07/03/brute-force</id><content type="html" xml:base="http://songzy12.github.io/2020/07/03/brute-force.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-07T23:11:58+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Brute Force</title><link href="http://songzy12.github.io/2020/07/03/brute-force.html" rel="alternate" type="text/html" title="Brute Force" /><published>2020-07-03T22:26:03+08:00</published><updated>2020-07-03T22:26:03+08:00</updated><id>http://songzy12.github.io/2020/07/03/brute-force</id><content type="html" xml:base="http://songzy12.github.io/2020/07/03/brute-force.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Low&lt;/h2&gt;
 
@@ -60,6 +60,12 @@
     $query  = &quot;SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';&quot;;
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;We can write our own script (e.g., using python) or use the Burp Suite, together with a password dictionary.&lt;/p&gt;
+
+&lt;h3&gt;Common Passwords&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt&quot;&gt;https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt&lt;/a&gt;&lt;/p&gt;
+
 &lt;h3&gt;Burp Suite&lt;/h3&gt;
 
 &lt;h4&gt;Proxy&lt;/h4&gt;
@@ -80,11 +86,25 @@
 
 &lt;p&gt;&lt;a href=&quot;https://portswigger.net/support/analyzing-burp-intruder-attack-results&quot;&gt;https://portswigger.net/support/analyzing-burp-intruder-attack-results&lt;/a&gt;&lt;/p&gt;
 
-&lt;h5&gt;Payloads&lt;/h5&gt;
+&lt;h2&gt;High&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt&quot;&gt;https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Code&lt;/h3&gt;
 
-&lt;h2&gt;High&lt;/h2&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php</summary></entry><entry><title type="html">Apache</title><link href="http://songzy12.github.io/2020/07/01/apache.html" rel="alternate" type="text/html" title="Apache" /><published>2020-07-01T21:18:19+08:00</published><updated>2020-07-01T21:18:19+08:00</updated><id>http://songzy12.github.io/2020/07/01/apache</id><content type="html" xml:base="http://songzy12.github.io/2020/07/01/apache.html">&lt;p&gt;&lt;a href=&quot;https://ubuntu.com/tutorials/install-and-configure-apache&quot;&gt;https://ubuntu.com/tutorials/install-and-configure-apache&lt;/a&gt;&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;    // Check Anti-CSRF token
+    checkToken( $_REQUEST[ 'user_token' ], $_SESSION[ 'session_token' ], 'index.php' );
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;CSRF&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://portswigger.net/web-security/csrf/tokens&quot;&gt;https://portswigger.net/web-security/csrf/tokens&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;Macro&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://portswigger.net/support/using-burp-suites-session-handling-rules-with-anti-csrf-tokens&quot;&gt;https://portswigger.net/support/using-burp-suites-session-handling-rules-with-anti-csrf-tokens&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;Recursive Grep&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://nvisium.com/blog/2014/02/14/using-burp-intruder-to-test-csrf.html&quot;&gt;https://nvisium.com/blog/2014/02/14/using-burp-intruder-to-test-csrf.html&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php</summary></entry><entry><title type="html">Apache</title><link href="http://songzy12.github.io/2020/07/01/apache.html" rel="alternate" type="text/html" title="Apache" /><published>2020-07-01T21:18:19+08:00</published><updated>2020-07-01T21:18:19+08:00</updated><id>http://songzy12.github.io/2020/07/01/apache</id><content type="html" xml:base="http://songzy12.github.io/2020/07/01/apache.html">&lt;p&gt;&lt;a href=&quot;https://ubuntu.com/tutorials/install-and-configure-apache&quot;&gt;https://ubuntu.com/tutorials/install-and-configure-apache&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Install&lt;/h2&gt;
 

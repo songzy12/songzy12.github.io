@@ -69,8 +69,9 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p>Here we set <code>JEKYLL_ENV=production</code> to enable <code>google_analytics</code> and <code>disqus</code>.</p>
 
-<pre><code>JEKYLL_ENV=production jekyll build
-JEKYLL_ENV=production jekyll serve
+<pre><code>export JEKYLL_ENV=production
+jekyll build
+jekyll serve
 </code></pre>
 
 <h2>deploy</h2>

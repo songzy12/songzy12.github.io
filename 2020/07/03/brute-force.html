@@ -120,6 +120,12 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
     $query  = "SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';";
 </code></pre>
 
+<p>We can write our own script (e.g., using python) or use the Burp Suite, together with a password dictionary.</p>
+
+<h3>Common Passwords</h3>
+
+<p><a href="https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt">https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt</a></p>
+
 <h3>Burp Suite</h3>
 
 <h4>Proxy</h4>
@@ -140,11 +146,25 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p><a href="https://portswigger.net/support/analyzing-burp-intruder-attack-results">https://portswigger.net/support/analyzing-burp-intruder-attack-results</a></p>
 
-<h5>Payloads</h5>
-
-<p><a href="https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt">https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt</a></p>
-
 <h2>High</h2>
+
+<h3>Code</h3>
+
+<pre><code>    // Check Anti-CSRF token
+    checkToken( $_REQUEST[ 'user_token' ], $_SESSION[ 'session_token' ], 'index.php' );
+</code></pre>
+
+<h3>CSRF</h3>
+
+<p><a href="https://portswigger.net/web-security/csrf/tokens">https://portswigger.net/web-security/csrf/tokens</a></p>
+
+<h4>Macro</h4>
+
+<p><a href="https://portswigger.net/support/using-burp-suites-session-handling-rules-with-anti-csrf-tokens">https://portswigger.net/support/using-burp-suites-session-handling-rules-with-anti-csrf-tokens</a></p>
+
+<h4>Recursive Grep</h4>
+
+<p><a href="https://nvisium.com/blog/2014/02/14/using-burp-intruder-to-test-csrf.html">https://nvisium.com/blog/2014/02/14/using-burp-intruder-to-test-csrf.html</a></p>
 
   </div><div id="disqus_thread"></div>
   <script>
