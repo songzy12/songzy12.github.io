@@ -62,6 +62,12 @@ We failed to do something like:
     $query  = "SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';";
 ```
 
+We can write our own script (e.g., using python) or use the Burp Suite, together with a password dictionary.
+
+### Common Passwords
+
+<https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt>
+
 ### Burp Suite 
 
 #### Proxy
@@ -82,8 +88,23 @@ We can use ip address from `ipconfig` rather than `127.0.0.1` to let Burp Suite 
 
 <https://portswigger.net/support/analyzing-burp-intruder-attack-results>
 
-##### Payloads
-
-<https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt>
-
 ## High
+
+### Code
+
+```
+    // Check Anti-CSRF token
+    checkToken( $_REQUEST[ 'user_token' ], $_SESSION[ 'session_token' ], 'index.php' );
+```
+
+### CSRF
+
+<https://portswigger.net/web-security/csrf/tokens>
+
+#### Macro 
+
+<https://portswigger.net/support/using-burp-suites-session-handling-rules-with-anti-csrf-tokens>
+
+#### Recursive Grep
+
+<https://nvisium.com/blog/2014/02/14/using-burp-intruder-to-test-csrf.html>
