@@ -101,9 +101,27 @@ We can use ip address from `ipconfig` rather than `127.0.0.1` to let Burp Suite 
 
 <https://portswigger.net/web-security/csrf/tokens>
 
+### Burp Suite
+
 #### Macro 
 
 <https://portswigger.net/support/using-burp-suites-session-handling-rules-with-anti-csrf-tokens>
+
+<https://www.youtube.com/watch?v=GWLMmkv3z38>
+
+
+#### regex
+
+```
+			<input type="password" AUTOCOMPLETE="off" name="password"><br />
+			<br />
+			<input type="submit" value="Login" name="Login">
+			<input type='hidden' name='user_token' value='91c32cd7d7e731f7874c0a42046b4ec0' />
+```
+
+```
+name='user_token' value='(.*?)'
+```
 
 #### Recursive Grep
 
