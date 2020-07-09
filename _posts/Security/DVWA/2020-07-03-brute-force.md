@@ -123,6 +123,21 @@ We can use ip address from `ipconfig` rather than `127.0.0.1` to let Burp Suite 
 name='user_token' value='(.*?)'
 ```
 
+## Impossible
+
+```
+    // Check the database (Check user information)
+    $data = $db->prepare( 'SELECT failed_login, last_login FROM users WHERE user = (:user) LIMIT 1;' );
+    
+        // Calculate when the user would be allowed to login again
+        $last_login = strtotime( $row[ 'last_login' ] );
+        $timeout    = $last_login + ($lockout_time * 60);
+        $timenow    = time();
+        
+        // Login failed
+        sleep( rand( 2, 4 ) );
+```
+
 ## More
 
 ### OWASP
