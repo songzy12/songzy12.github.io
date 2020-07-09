@@ -177,9 +177,31 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 <pre><code>name='user_token' value='(.*?)'
 </code></pre>
 
-<h4>Recursive Grep</h4>
+<h2>More</h2>
 
-<p><a href="https://nvisium.com/blog/2014/02/14/using-burp-intruder-to-test-csrf.html">https://nvisium.com/blog/2014/02/14/using-burp-intruder-to-test-csrf.html</a></p>
+<h3>OWASP</h3>
+
+<p><a href="https://wiki.owasp.org/index.php/Testing_for_Brute_Force_(OWASP-AT-004)">https://wiki.owasp.org/index.php/Testing_for_Brute_Force_(OWASP-AT-004)</a></p>
+
+<h3>hydra</h3>
+
+<p><a href="http://www.sillychicken.co.nz/2011/05/how-to-brute-force-http-forms-in-windows/">http://www.sillychicken.co.nz/2011/05/how-to-brute-force-http-forms-in-windows/</a></p>
+
+<pre><code>hydra -l hydra -P password.lst -s 80 -f www.sillychicken.co.nz http-post-form "/administrator/index.php:usrname=^USER^&amp;pass=^PASS^&amp;submit=Login:Incorrect Username"
+</code></pre>
+
+<blockquote><p>hydra –> The hydra program
+-l –> (lower case “L” not to be confused with a upper case i) single username to target. Use uppercase -L to specify a username list) i have setup the “hydra” account for this demo and has already been deleted
+-P –> Provide path to password lis. -p to try a single password ie “passw0rd”
+-s –> Port to target default port for http is 80
+-f –> Exits the program after the first match is made
+{Site Address} I.E www.sillychicken.com. Do not include <a href="http://">http://</a>
+http-post-form –> service to brute force. Hydra README has the command as http-form-post       using that will give you an error
+{Path to postback page} everything after the site address must start with “/”
+{USERNAME_NAME} –> the name of the username postback variable
+^USER^ –> this will be replaced with the username specified by -l or -L username list
+^PASS^ –> this will be replaced with the password from the defined list
+{Failed login text} –> text that will only be found in a failed login</p></blockquote>
 
   </div><div id="disqus_thread"></div>
   <script>
