@@ -158,9 +158,24 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p><a href="https://portswigger.net/web-security/csrf/tokens">https://portswigger.net/web-security/csrf/tokens</a></p>
 
+<h3>Burp Suite</h3>
+
 <h4>Macro</h4>
 
 <p><a href="https://portswigger.net/support/using-burp-suites-session-handling-rules-with-anti-csrf-tokens">https://portswigger.net/support/using-burp-suites-session-handling-rules-with-anti-csrf-tokens</a></p>
+
+<p><a href="https://www.youtube.com/watch?v=GWLMmkv3z38">https://www.youtube.com/watch?v=GWLMmkv3z38</a></p>
+
+<h4>regex</h4>
+
+<pre><code>            &lt;input type="password" AUTOCOMPLETE="off" name="password"&gt;&lt;br /&gt;
+            &lt;br /&gt;
+            &lt;input type="submit" value="Login" name="Login"&gt;
+            &lt;input type='hidden' name='user_token' value='91c32cd7d7e731f7874c0a42046b4ec0' /&gt;
+</code></pre>
+
+<pre><code>name='user_token' value='(.*?)'
+</code></pre>
 
 <h4>Recursive Grep</h4>
 

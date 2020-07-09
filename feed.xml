@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-07T23:11:58+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Brute Force</title><link href="http://songzy12.github.io/2020/07/03/brute-force.html" rel="alternate" type="text/html" title="Brute Force" /><published>2020-07-03T22:26:03+08:00</published><updated>2020-07-03T22:26:03+08:00</updated><id>http://songzy12.github.io/2020/07/03/brute-force</id><content type="html" xml:base="http://songzy12.github.io/2020/07/03/brute-force.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-09T21:00:31+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Brute Force</title><link href="http://songzy12.github.io/2020/07/03/brute-force.html" rel="alternate" type="text/html" title="Brute Force" /><published>2020-07-03T22:26:03+08:00</published><updated>2020-07-03T22:26:03+08:00</updated><id>http://songzy12.github.io/2020/07/03/brute-force</id><content type="html" xml:base="http://songzy12.github.io/2020/07/03/brute-force.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Low&lt;/h2&gt;
 
@@ -98,9 +98,24 @@
 
 &lt;p&gt;&lt;a href=&quot;https://portswigger.net/web-security/csrf/tokens&quot;&gt;https://portswigger.net/web-security/csrf/tokens&lt;/a&gt;&lt;/p&gt;
 
+&lt;h3&gt;Burp Suite&lt;/h3&gt;
+
 &lt;h4&gt;Macro&lt;/h4&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://portswigger.net/support/using-burp-suites-session-handling-rules-with-anti-csrf-tokens&quot;&gt;https://portswigger.net/support/using-burp-suites-session-handling-rules-with-anti-csrf-tokens&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=GWLMmkv3z38&quot;&gt;https://www.youtube.com/watch?v=GWLMmkv3z38&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;regex&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;            &amp;lt;input type=&quot;password&quot; AUTOCOMPLETE=&quot;off&quot; name=&quot;password&quot;&amp;gt;&amp;lt;br /&amp;gt;
+            &amp;lt;br /&amp;gt;
+            &amp;lt;input type=&quot;submit&quot; value=&quot;Login&quot; name=&quot;Login&quot;&amp;gt;
+            &amp;lt;input type='hidden' name='user_token' value='91c32cd7d7e731f7874c0a42046b4ec0' /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;name='user_token' value='(.*?)'
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h4&gt;Recursive Grep&lt;/h4&gt;
 
