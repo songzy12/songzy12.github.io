@@ -123,6 +123,29 @@ We can use ip address from `ipconfig` rather than `127.0.0.1` to let Burp Suite 
 name='user_token' value='(.*?)'
 ```
 
-#### Recursive Grep
+## More
 
-<https://nvisium.com/blog/2014/02/14/using-burp-intruder-to-test-csrf.html>
+### OWASP
+
+<https://wiki.owasp.org/index.php/Testing_for_Brute_Force_(OWASP-AT-004)>
+
+### hydra
+
+<http://www.sillychicken.co.nz/2011/05/how-to-brute-force-http-forms-in-windows/>
+
+```
+hydra -l hydra -P password.lst -s 80 -f www.sillychicken.co.nz http-post-form "/administrator/index.php:usrname=^USER^&pass=^PASS^&submit=Login:Incorrect Username"
+```
+
+> hydra –> The hydra program
+> -l –> (lower case “L” not to be confused with a upper case i) single username to target. Use uppercase -L to specify a username list) i have setup the “hydra” account for this demo and has already been deleted
+> -P –> Provide path to password lis. -p to try a single password ie “passw0rd”
+> -s –> Port to target default port for http is 80
+> -f –> Exits the program after the first match is made
+> {Site Address} I.E www.sillychicken.com. Do not include http://
+> http-post-form –> service to brute force. Hydra README has the command as http-form-post       using that will give you an error
+> {Path to postback page} everything after the site address must start with “/”
+> {USERNAME_NAME} –> the name of the username postback variable
+> ^USER^ –> this will be replaced with the username specified by -l or -L username list
+> ^PASS^ –> this will be replaced with the password from the defined list
+> {Failed login text} –> text that will only be found in a failed login
