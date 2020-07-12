@@ -177,6 +177,20 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 <pre><code>name='user_token' value='(.*?)'
 </code></pre>
 
+<h2>Impossible</h2>
+
+<pre><code>    // Check the database (Check user information)
+    $data = $db-&gt;prepare( 'SELECT failed_login, last_login FROM users WHERE user = (:user) LIMIT 1;' );
+
+        // Calculate when the user would be allowed to login again
+        $last_login = strtotime( $row[ 'last_login' ] );
+        $timeout    = $last_login + ($lockout_time * 60);
+        $timenow    = time();
+
+        // Login failed
+        sleep( rand( 2, 4 ) );
+</code></pre>
+
 <h2>More</h2>
 
 <h3>OWASP</h3>

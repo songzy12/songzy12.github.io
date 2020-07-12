@@ -134,6 +134,17 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 <pre><code>ping  -c 4 baidu.com |lsb_release -a
 </code></pre>
 
+<h2>Impossible</h2>
+
+<pre><code>    // Split the IP into 4 octects
+    $octet = explode( ".", $target );
+
+    // Check IF each octet is an integer
+    if( ( is_numeric( $octet[0] ) ) &amp;&amp; ( is_numeric( $octet[1] ) ) &amp;&amp; ( is_numeric( $octet[2] ) ) &amp;&amp; ( is_numeric( $octet[3] ) ) &amp;&amp; ( sizeof( $octet ) == 4 ) ) {
+        // If all 4 octets are int's put the IP back together.
+        $target = $octet[0] . '.' . $octet[1] . '.' . $octet[2] . '.' . $octet[3];
+</code></pre>
+
   </div><div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
