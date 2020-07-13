@@ -3,20 +3,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>vim | Zhengyang Song&rsquo;s Secret Base</title>
+<title>Vim Config | Zhengyang Song&rsquo;s Secret Base</title>
 <meta name="generator" content="Jekyll v3.8.6" />
-<meta property="og:title" content="vim" />
+<meta property="og:title" content="Vim Config" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content=".vimrc" />
 <meta property="og:description" content=".vimrc" />
-<link rel="canonical" href="http://songzy12.github.io/2018/11/18/vim.html" />
-<meta property="og:url" content="http://songzy12.github.io/2018/11/18/vim.html" />
+<link rel="canonical" href="http://songzy12.github.io/2020/07/13/vim-config.html" />
+<meta property="og:url" content="http://songzy12.github.io/2020/07/13/vim-config.html" />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2018-11-18T14:45:00+08:00" />
+<meta property="article:published_time" content="2020-07-13T21:18:08+08:00" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2018/11/18/vim.html"},"url":"http://songzy12.github.io/2018/11/18/vim.html","author":{"@type":"Person","name":"Zhengyang Song"},"description":".vimrc","headline":"vim","dateModified":"2018-11-18T14:45:00+08:00","datePublished":"2018-11-18T14:45:00+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2020/07/13/vim-config.html"},"url":"http://songzy12.github.io/2020/07/13/vim-config.html","author":{"@type":"Person","name":"Zhengyang Song"},"description":".vimrc","headline":"Vim Config","dateModified":"2020-07-13T21:18:08+08:00","datePublished":"2020-07-13T21:18:08+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /><script>
 if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
@@ -51,9 +51,9 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">vim</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Vim Config</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2018-11-18T14:45:00+08:00" itemprop="datePublished">Nov 18, 2018
+      <time class="dt-published" datetime="2020-07-13T21:18:08+08:00" itemprop="datePublished">Jul 13, 2020
       </time></p>
   </header>
 
@@ -62,7 +62,6 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <pre><code>set nocompatible
 syntax on
-filetype plugin indent on
 set ic
 set hlsearch
 set encoding=utf-8
@@ -76,12 +75,11 @@ set scrolloff=4
 set showmatch
 set nu
 
-let python_highlight_all=1
-au Filetype python set tabstop=4
-au Filetype python set softtabstop=4
-au Filetype python set shiftwidth=4
-au Filetype python set expandtab
-au Filetype python set fileformat=unix
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set fileformat=unix
 
 colorscheme desert
 
@@ -130,161 +128,11 @@ filetype plugin indent on    " required
 <pre><code>pip install autopep8
 </code></pre>
 
-<h2>syntax</h2>
-
-<pre><code>cd /usr/share/vim/vim74/syntax 
-vi python.vim
-</code></pre>
-
-<pre><code>syn keyword pythonTodo      FIXME NOTE NOTES TODO XXX contained
-</code></pre>
-
-<pre><code>$ ls ~/.vim/
-ftdetect  ftplugin  indent  syntax
-</code></pre>
-
-<h2>color</h2>
-
-<pre><code>ls /usr/share/vim/vim74/colors/
-vi ~/.vimrc
-color default
-</code></pre>
-
-<h2>|</h2>
-
-<p><code>80|</code> should get you to position 80 in that line.</p>
-
-<h2>d</h2>
-
-<pre><code>dG 删除直到工作缓存区结尾的内容
-d1G 删除直到工作缓存区开始的内容
-</code></pre>
-
-<p>删除第9行到第200行的内容(先用200G转到第200行) ，使用</p>
-
-<pre><code>:9,.d
-</code></pre>
-
-<h2>e</h2>
-
-<p>重新加载</p>
-
-<pre><code>:e
-</code></pre>
-
-<h2>J</h2>
-
-<p>合并行</p>
-
-<p>In command mode:</p>
-
-<pre><code>[range]j[lines]
-</code></pre>
-
-<p>here you want to do the whole buffer:</p>
-
-<pre><code>%j
-</code></pre>
-
-<p>If you just wanted to do 10 lines from the current cursor position:</p>
-
-<pre><code>j10
-</code></pre>
-
-<p>If you dont want to replace the new lines with spaces use ! after j.</p>
-
-<pre><code>%j!
-j!10
-</code></pre>
-
-<p>And for the uberfancy:</p>
-
-<pre><code>5j20
-</code></pre>
-
-<p>Would go to line 5, and join the next 20 lines.</p>
-
-<h2>ret</h2>
-
-<p><code>set tabstop=4</code>: set the tabs to display as four spaces.
-<code>set expandtab</code>: insert spaces for tabs.
-<code>ret</code>: replace tab</p>
-
-<pre><code>set expandtab
-:%ret! 4
-</code></pre>
-
-<h2>s</h2>
-
-<pre><code>:%s/源字符串/目的字符串/g
-</code></pre>
-
-<p>Add a string(<code>*</code>) to the end of each line in Vim:</p>
-
-<pre><code>:%s/$/\*/g
-</code></pre>
-
-<h2>set</h2>
-
-<ul>
-<li>nu</li>
-</ul>
-
-
-<pre><code>set nu
-set nonu
-</code></pre>
-
-<ul>
-<li>paste</li>
-</ul>
-
-
-<pre><code>set paste
-</code></pre>
-
-<ul>
-<li>invlist</li>
-</ul>
-
-
-<pre><code>set invlist
-set nolist
-</code></pre>
-
-<h2>shell</h2>
-
-<pre><code>ctrl+z 
-fg
-</code></pre>
-
-<pre><code>:!vim --version
-</code></pre>
-
-<pre><code>:shell
-</code></pre>
-
-<h2>undo, redo</h2>
-
-<ul>
-<li><code>u</code></li>
-<li><code>ctrl+r</code></li>
-</ul>
-
-
-<h2>vsp</h2>
-
-<pre><code>vim -On file1 file2 # 分屏启动Vim
-:vsp filename # 分屏
-Ctrl+w r # 滚动分屏
-Ctrl+w = # 分屏宽度
-</code></pre>
-
   </div><div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = 'http://songzy12.github.io/2018/11/18/vim.html';
-      this.page.identifier = 'http://songzy12.github.io/2018/11/18/vim.html';
+      this.page.url = 'http://songzy12.github.io/2020/07/13/vim-config.html';
+      this.page.identifier = 'http://songzy12.github.io/2020/07/13/vim-config.html';
     };
 
     (function() {
@@ -296,7 +144,7 @@ Ctrl+w = # 分屏宽度
       (d.head || d.body).appendChild(s);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2018/11/18/vim.html" hidden></a>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2020/07/13/vim-config.html" hidden></a>
 </article>
 
       </div>

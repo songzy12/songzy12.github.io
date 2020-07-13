@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-12T15:40:15+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">CSRF</title><link href="http://songzy12.github.io/2020/07/09/csrf.html" rel="alternate" type="text/html" title="CSRF" /><published>2020-07-09T23:22:25+08:00</published><updated>2020-07-09T23:22:25+08:00</updated><id>http://songzy12.github.io/2020/07/09/csrf</id><content type="html" xml:base="http://songzy12.github.io/2020/07/09/csrf.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/csrf/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/csrf/index.php&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-07-13T21:33:40+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Vim Config</title><link href="http://songzy12.github.io/2020/07/13/vim-config.html" rel="alternate" type="text/html" title="Vim Config" /><published>2020-07-13T21:18:08+08:00</published><updated>2020-07-13T21:18:08+08:00</updated><id>http://songzy12.github.io/2020/07/13/vim-config</id><content type="html" xml:base="http://songzy12.github.io/2020/07/13/vim-config.html">&lt;h2&gt;.vimrc&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;set nocompatible
+syntax on
+set ic
+set hlsearch
+set encoding=utf-8
+set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+set termencoding=utf-8
+set encoding=utf-8
+set cursorline
+set autoindent
+set smartindent
+set scrolloff=4
+set showmatch
+set nu
+
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set fileformat=unix
+
+colorscheme desert
+
+set nocompatible              &quot; required
+filetype off                  &quot; required
+
+&quot; set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+&quot; alternatively, pass a path where Vundle should install plugins
+&quot;call vundle#begin('~/some/path/here')
+
+&quot; let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+
+&quot; Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+Plugin 'Chiel92/vim-autoformat'
+nnoremap &amp;lt;F6&amp;gt; :Autoformat&amp;lt;CR&amp;gt;
+let g:autoformat_autoindent = 0
+let g:autoformat_retab = 0
+let g:autoformat_remove_trailing_spaces = 0
+
+
+&quot; All of your Plugins must be added before the following line
+call vundle#end()            &quot; required
+filetype plugin indent on    &quot; required
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;vundle&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/VundleVim/Vundle.vim&quot;&gt;https://github.com/VundleVim/Vundle.vim&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Put this in your &lt;code&gt;.vimrc&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Plugin 'Chiel92/vim-autoformat'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then restart vim and run &lt;code&gt;:PluginInstall&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;注意这里 autoformat 要对 Python 起作用的话还要安装 autopep8:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install autopep8
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">.vimrc</summary></entry><entry><title type="html">CSRF</title><link href="http://songzy12.github.io/2020/07/09/csrf.html" rel="alternate" type="text/html" title="CSRF" /><published>2020-07-09T23:22:25+08:00</published><updated>2020-07-09T23:22:25+08:00</updated><id>http://songzy12.github.io/2020/07/09/csrf</id><content type="html" xml:base="http://songzy12.github.io/2020/07/09/csrf.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/csrf/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/csrf/index.php&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Low&lt;/h2&gt;
 
@@ -453,15 +521,4 @@ if s = 1 then new_x = floor(x/p)  // C(x,1) = new_x
 
 &lt;h2&gt;Fano Coding&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/Fano_Code.png&quot; alt=&quot;Fano Code&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Shannon%E2%80%93Fano_coding</summary></entry><entry><title type="html">Huffman Coding</title><link href="http://songzy12.github.io/2020/06/25/huffman-coding.html" rel="alternate" type="text/html" title="Huffman Coding" /><published>2020-06-25T20:34:10+08:00</published><updated>2020-06-25T20:34:10+08:00</updated><id>http://songzy12.github.io/2020/06/25/huffman-coding</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/huffman-coding.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Huffman_coding&quot;&gt;https://en.wikipedia.org/wiki/Huffman_coding&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;As in other entropy encoding methods, more common symbols are generally represented using fewer bits than less common symbols.
-However, although optimal among methods encoding symbols separately, Huffman coding is not always optimal among all compression methods - it is replaced with arithmetic coding or asymmetric numeral systems if better compression ratio is required.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;h2&gt;Example&lt;/h2&gt;
-
-&lt;p&gt;Huffman tree generated from the exact frequencies of the text &amp;ldquo;this is an example of a huffman tree&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/Huffman_tree.svg.png&quot; alt=&quot;Huffman Tree&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/Huffman_tree-Code.png&quot; alt=&quot;Huffman Code&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Huffman_coding</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/img/Fano_Code.png&quot; alt=&quot;Fano Code&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Shannon%E2%80%93Fano_coding</summary></entry></feed>
