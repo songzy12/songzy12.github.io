@@ -7,9 +7,7 @@ date: 2020-07-13T21:18:08+08:00
 ## .vimrc
 
 ```
-set nocompatible
-syntax on
-set ic
+set ignorecase 
 set hlsearch
 set encoding=utf-8
 set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
@@ -20,7 +18,7 @@ set autoindent
 set smartindent
 set scrolloff=4
 set showmatch
-set nu
+set number
 
 set tabstop=4
 set softtabstop=4
