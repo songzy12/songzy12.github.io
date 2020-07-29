@@ -68,6 +68,12 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
     if( $pass_new == $pass_conf ) {
 </code></pre>
 
+<p>We can just embed a iframe or image element on our website where we send a request to the victim url.</p>
+
+<p>Then we cheat the victim user to open our malicious website.</p>
+
+<p>If he has a valid cookie at this time, then the attack would succeed.</p>
+
 <h2>Medium</h2>
 
 <h3>Source</h3>
@@ -75,6 +81,8 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 <pre><code>    // Checks to see where the request came from
     if( stripos( $_SERVER[ 'HTTP_REFERER' ] ,$_SERVER[ 'SERVER_NAME' ]) !== false ) {
 </code></pre>
+
+<p>We can just embed the target server_name somewhere (e.g., prefix) in our requestor website.</p>
 
 <h2>High</h2>
 
@@ -85,6 +93,8 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 </code></pre>
 
 <h3>XSS</h3>
+
+<p>We need to use XSS to obtain the anti-CSRF tokens before we send requests to the target url.</p>
 
 <pre><code>var theUrl = 'http://localhost:8888/dvwa/vulnerabilities/csrf/';
 var pass = 'password';
