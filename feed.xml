@@ -1,4 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-08-02T22:46:21+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">File Inclusion</title><link href="http://songzy12.github.io/2020/08/02/file-inclusion.html" rel="alternate" type="text/html" title="File Inclusion" /><published>2020-08-02T15:32:25+08:00</published><updated>2020-08-02T15:32:25+08:00</updated><id>http://songzy12.github.io/2020/08/02/file-inclusion</id><content type="html" xml:base="http://songzy12.github.io/2020/08/02/file-inclusion.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/fi/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/fi/index.php&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-08-21T22:01:53+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">GPU Virtual Machines Prices</title><link href="http://songzy12.github.io/2020/08/21/gpu-vm-prices.html" rel="alternate" type="text/html" title="GPU Virtual Machines Prices" /><published>2020-08-21T21:08:10+08:00</published><updated>2020-08-21T21:08:10+08:00</updated><id>http://songzy12.github.io/2020/08/21/gpu-vm-prices</id><content type="html" xml:base="http://songzy12.github.io/2020/08/21/gpu-vm-prices.html">&lt;p&gt;Just want compare the prices of GPU VMs.&lt;/p&gt;
+
+&lt;h2&gt;Tencent Cloud&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://buy.cloud.tencent.com/cvm?tab=custom&amp;amp;step=1&amp;amp;devPayMode=monthly&amp;amp;regionId=8&amp;amp;zoneId=800003&amp;amp;instanceType=SA2.SMALL1&amp;amp;platform=Ubuntu&amp;amp;systemDiskType=CLOUD_PREMIUM&amp;amp;systemDiskSize=50&amp;amp;bandwidthType=BANDWIDTH_PREPAID&amp;amp;bandwidth=1&amp;amp;hpcClusterId=null&quot;&gt;https://buy.cloud.tencent.com/cvm?tab=custom&amp;amp;step=1&amp;amp;devPayMode=monthly&amp;amp;regionId=8&amp;amp;zoneId=800003&amp;amp;instanceType=SA2.SMALL1&amp;amp;platform=Ubuntu&amp;amp;systemDiskType=CLOUD_PREMIUM&amp;amp;systemDiskSize=50&amp;amp;bandwidthType=BANDWIDTH_PREPAID&amp;amp;bandwidth=1&amp;amp;hpcClusterId=null&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1 颗 Tesla M40  2781.28元/月&lt;/li&gt;
+&lt;li&gt;1 颗 Tesla P4   2000元/月&lt;/li&gt;
+&lt;li&gt;1 颗 NVIDIA T4  2500元/月&lt;/li&gt;
+&lt;li&gt;1 颗 Tesla P40  4400元/月&lt;/li&gt;
+&lt;li&gt;1 颗 Tesla V100-NVLINK-32G   5190元/月&lt;/li&gt;
+&lt;li&gt;&amp;frac14; 颗 NVIDIA T4 975元/月&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Baidu Cloud&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://cloud.baidu.com/calculator.html?fromGpuProduct=true#/bcc/price&quot;&gt;https://cloud.baidu.com/calculator.html?fromGpuProduct=true#/bcc/price&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;NVIDIA Tesla T4   ￥3182.00&lt;/li&gt;
+&lt;li&gt;NVIDIA Tesla V100-16G ￥5143.00&lt;/li&gt;
+&lt;li&gt;NVIDIA Tesla P40  ￥4031.00&lt;/li&gt;
+&lt;li&gt;NVIDIA Tesla P4   ￥2894.00&lt;/li&gt;
+&lt;li&gt;NVIDIA Tesla K40  ￥3164.00&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Huawei Cloud&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.huaweicloud.com/product/ecs.html&quot;&gt;https://www.huaweicloud.com/product/ecs.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GPU型号 Nvidia T4 单GPU显存 16G   ￥3,514.79/月&lt;/li&gt;
+&lt;li&gt;GPU型号 Nvidia V100 单GPU显存 16G ￥7,889.80/月&lt;/li&gt;
+&lt;li&gt;GPU型号 Nvidia M60 单GPU显存 8G   ￥3,527.70/月&lt;/li&gt;
+&lt;li&gt;GPU型号 Nvidia P100 单GPU显存 16G ￥5,277.70/月&lt;/li&gt;
+&lt;li&gt;GPU型号 Nvidia P4 单GPU显存 8G    ￥3,193.90/月&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Aliyun&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.aliyun.com/product/ecs&quot;&gt;https://www.aliyun.com/product/ecs&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Google Cloud&lt;/h2&gt;
+
+&lt;p&gt;NVIDIA K80、P100、P4、T4 及 V100 GPU&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://cloud.google.com/compute/gpus-pricing&quot;&gt;https://cloud.google.com/compute/gpus-pricing&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;NVIDIA® Tesla® T4   1 个 GPU   16 GB GDDR6 $178.85 per GPU&lt;/li&gt;
+&lt;li&gt;NVIDIA® Tesla® P4   1 个 GPU   8 GB GDDR5  $306.60 per GPU&lt;/li&gt;
+&lt;li&gt;NVIDIA® Tesla® V100 1 个 GPU   16 GB HBM2  $1267.28 per GPU&lt;/li&gt;
+&lt;li&gt;NVIDIA® Tesla® P100 1 个 GPU   16 GB HBM2  $746.06 per GPU&lt;/li&gt;
+&lt;li&gt;NVIDIA® Tesla® K80  1 个 GPU   12 GB GDDR5 $229.95 per GPU&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Microsoft Azure&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#n-series&quot;&gt;https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#n-series&lt;/a&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;1X K80    ~$657/month&lt;/li&gt;
+&lt;li&gt;1X P100   ~$1,511.10/month&lt;/li&gt;
+&lt;li&gt;1X V100   ~$2,233.80/month&lt;/li&gt;
+&lt;li&gt;1X T4 ~$383.98/month&lt;/li&gt;
+&lt;li&gt;1X M60    ~$797.1600/month&lt;/li&gt;
+&lt;li&gt;1X P40    ~$1,511.10/month&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Just want compare the prices of GPU VMs.</summary></entry><entry><title type="html">File Inclusion</title><link href="http://songzy12.github.io/2020/08/02/file-inclusion.html" rel="alternate" type="text/html" title="File Inclusion" /><published>2020-08-02T15:32:25+08:00</published><updated>2020-08-02T15:32:25+08:00</updated><id>http://songzy12.github.io/2020/08/02/file-inclusion</id><content type="html" xml:base="http://songzy12.github.io/2020/08/02/file-inclusion.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/fi/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/fi/index.php&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;allow-url-include&lt;/h2&gt;
 
@@ -612,8 +684,4 @@ if s = 1 then new_x = floor(x/p)  // C(x,1) = new_x
 
 &lt;h2&gt;tANS&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/ANS_tANS.png&quot; alt=&quot;tANS&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Asymmetric_numeral_systems</summary></entry><entry><title type="html">Arithmetic Coding</title><link href="http://songzy12.github.io/2020/06/25/arithmetic-coding.html" rel="alternate" type="text/html" title="Arithmetic Coding" /><published>2020-06-25T21:13:34+08:00</published><updated>2020-06-25T21:13:34+08:00</updated><id>http://songzy12.github.io/2020/06/25/arithmetic-coding</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/arithmetic-coding.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Arithmetic_coding&quot;&gt;https://en.wikipedia.org/wiki/Arithmetic_coding&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;Arithmetic coding differs from other forms of entropy encoding, such as Huffman coding, in that rather than separating the input into component symbols and replacing each with a code, arithmetic coding encodes the entire message into a single number, an arbitrary-precision fraction q where $0.0 \le q &amp;lt; 1.0$. It represents the current information as a range, defined by two numbers.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/Arithmetic_coding.svg.png&quot; alt=&quot;Example&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Arithmetic_coding</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/img/ANS_tANS.png&quot; alt=&quot;tANS&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Asymmetric_numeral_systems</summary></entry></feed>
