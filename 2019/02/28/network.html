@@ -3,20 +3,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Iptables | Zhengyang Song&rsquo;s Secret Base</title>
+<title>Network | Zhengyang Song&rsquo;s Secret Base</title>
 <meta name="generator" content="Jekyll v3.8.6" />
-<meta property="og:title" content="Iptables" />
+<meta property="og:title" content="Network" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="查看设置：" />
-<meta property="og:description" content="查看设置：" />
-<link rel="canonical" href="http://songzy12.github.io/2019/02/28/iptables.html" />
-<meta property="og:url" content="http://songzy12.github.io/2019/02/28/iptables.html" />
+<meta name="description" content="netstat" />
+<meta property="og:description" content="netstat" />
+<link rel="canonical" href="http://songzy12.github.io/2019/02/28/network.html" />
+<meta property="og:url" content="http://songzy12.github.io/2019/02/28/network.html" />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2019-02-28T20:45:53+08:00" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2019/02/28/iptables.html"},"url":"http://songzy12.github.io/2019/02/28/iptables.html","author":{"@type":"Person","name":"Zhengyang Song"},"description":"查看设置：","headline":"Iptables","dateModified":"2019-02-28T20:45:53+08:00","datePublished":"2019-02-28T20:45:53+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2019/02/28/network.html"},"url":"http://songzy12.github.io/2019/02/28/network.html","author":{"@type":"Person","name":"Zhengyang Song"},"description":"netstat","headline":"Network","dateModified":"2019-02-28T20:45:53+08:00","datePublished":"2019-02-28T20:45:53+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /><script>
 if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
@@ -51,14 +51,49 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Iptables</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Network</h1>
     <p class="post-meta">
       <time class="dt-published" datetime="2019-02-28T20:45:53+08:00" itemprop="datePublished">Feb 28, 2019
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>查看设置：</p>
+    <h2>netstat</h2>
+
+<ul>
+<li>-n: &ndash;numeric</li>
+<li>-p: &ndash;program</li>
+<li>-e: &ndash;extend</li>
+<li>-a: &ndash;all</li>
+<li>-u: UDP</li>
+<li>-t: TCP</li>
+</ul>
+
+
+<h2>hosts</h2>
+
+<pre><code>sudo: unable to resolve host (none)
+</code></pre>
+
+<ul>
+<li>That the <code>/etc/hostname</code> file contains just the name of the machine.</li>
+<li>That <code>/etc/hosts</code> has an entry for localhost. It should have something like:</li>
+</ul>
+
+
+<pre><code>127.0.0.1    localhost.localdomain localhost
+127.0.1.1    my-machine
+</code></pre>
+
+<h2>ip</h2>
+
+<pre><code>curl http://ifconfig.me/ip
+wget -O- -q http://ifconfig.me/ip
+</code></pre>
+
+<h2>iptables</h2>
+
+<p>查看设置：</p>
 
 <pre><code>sudo iptables -nL --line-numbers -t nat
 </code></pre>
@@ -75,11 +110,59 @@ sudo iptables -t nat -D POSTROUTING 7
 sudo iptables -t nat -A POSTROUTING -p tcp -d 10.0.2.180 --dport 9005 -j SNAT --to-source 101.6.244.4
 </code></pre>
 
+<h2>wget</h2>
+
+<ul>
+<li>-O: write documents to FILE</li>
+<li>-o: log messages to FILE</li>
+</ul>
+
+
+<pre><code>--2016-11-03 01:59:25--  http://pasky.or.cz/dev/brmson/glove.6B.50d.txt.gz
+Resolving pasky.or.cz (pasky.or.cz)... 80.243.110.53, 2a01:8c00:ff00:8320::
+Connecting to pasky.or.cz (pasky.or.cz)|80.243.110.53|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 69182520 (66M) [application/x-gzip]
+Saving to: ‘glove.6B.50d.txt.gz.4’
+
+glove.6B.50d.txt.gz.  48%[=========&gt;            ]  32.03M  8.27MB/s    in 5.9s
+
+2016-11-03 01:59:32 (5.43 MB/s) - Read error at byte 33586057/69182520 (Connection reset by peer). Retrying.
+</code></pre>
+
+<p>But I can use browser to download.</p>
+
+<h2>curl</h2>
+
+<pre><code>curl -L https://raw.githubusercontent.com/edx/configuration/master/vagrant/release/devstack/Vagrantfile &gt; Vagrantfile
+curl -o vagrant_1.7.2_x86_64.deb https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
+</code></pre>
+
+<ul>
+<li>-L, &ndash;location: (HTTP/HTTPS) If the server reports that the requested page has moved to a different location (indicated with a Location: header and a 3XX response code), this option will make curl redo the request on the new place.</li>
+<li>-o, &ndash;output <file>: Write output to <file> instead of stdout.</li>
+</ul>
+
+
+<pre><code>curl http://{site,host}.host[1-5].com -o "#1_#2" 
+</code></pre>
+
+<h2>pscp</h2>
+
+<pre><code>pscp songzy12@taoli.tsinghuax.org:Code-Craft/future_net.tar.gz .
+pscp songzy12@taoli.tsinghuax.org:Code-Craft/future_net/route.cpp .
+</code></pre>
+
+<h2>scp</h2>
+
+<pre><code>scp -r remote_username@remote_ip:remote_folder local_folder
+</code></pre>
+
   </div><div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = 'http://songzy12.github.io/2019/02/28/iptables.html';
-      this.page.identifier = 'http://songzy12.github.io/2019/02/28/iptables.html';
+      this.page.url = 'http://songzy12.github.io/2019/02/28/network.html';
+      this.page.identifier = 'http://songzy12.github.io/2019/02/28/network.html';
     };
 
     (function() {
@@ -91,7 +174,7 @@ sudo iptables -t nat -A POSTROUTING -p tcp -d 10.0.2.180 --dport 9005 -j SNAT --
       (d.head || d.body).appendChild(s);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2019/02/28/iptables.html" hidden></a>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2019/02/28/network.html" hidden></a>
 </article>
 
       </div>

@@ -3,20 +3,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>tmux | Zhengyang Song&rsquo;s Secret Base</title>
+<title>Jobs | Zhengyang Song&rsquo;s Secret Base</title>
 <meta name="generator" content="Jekyll v3.8.6" />
-<meta property="og:title" content="tmux" />
+<meta property="og:title" content="Jobs" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Basic knowledge about tmux." />
-<meta property="og:description" content="Basic knowledge about tmux." />
-<link rel="canonical" href="http://songzy12.github.io/2016/10/29/tmux.html" />
-<meta property="og:url" content="http://songzy12.github.io/2016/10/29/tmux.html" />
+<meta name="description" content="top" />
+<meta property="og:description" content="top" />
+<link rel="canonical" href="http://songzy12.github.io/2019/02/28/jobs.html" />
+<meta property="og:url" content="http://songzy12.github.io/2019/02/28/jobs.html" />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-10-29T20:49:55+08:00" />
+<meta property="article:published_time" content="2019-02-28T14:02:05+08:00" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/10/29/tmux.html"},"url":"http://songzy12.github.io/2016/10/29/tmux.html","author":{"@type":"Person","name":"Zhengyang Song"},"description":"Basic knowledge about tmux.","headline":"tmux","dateModified":"2016-10-29T20:49:55+08:00","datePublished":"2016-10-29T20:49:55+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2019/02/28/jobs.html"},"url":"http://songzy12.github.io/2019/02/28/jobs.html","author":{"@type":"Person","name":"Zhengyang Song"},"description":"top","headline":"Jobs","dateModified":"2019-02-28T14:02:05+08:00","datePublished":"2019-02-28T14:02:05+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /><script>
 if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
@@ -51,150 +51,98 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">tmux</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Jobs</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2016-10-29T20:49:55+08:00" itemprop="datePublished">Oct 29, 2016
+      <time class="dt-published" datetime="2019-02-28T14:02:05+08:00" itemprop="datePublished">Feb 28, 2019
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Basic knowledge about tmux.</p>
+    <h2>top</h2>
 
-<h2>copy paste</h2>
-
-<ol>
-<li>enter copy mode using Control+b [</li>
-<li>navigate to beginning of text, you want to select and hit Control+Space</li>
-<li>move around using arrow keys to select region</li>
-<li>when you reach end of region simply hit Alt+w to copy the region</li>
-<li>now Control+b ] will paste the selection</li>
-</ol>
-
-
-<h2>scroll</h2>
-
-<pre><code>vi ~/.tmux.conf
+<pre><code>top
+cat /proc/cpuinfo
+cat /proc/meminfo
 </code></pre>
 
-<pre><code>set -g mouse on
+<ul>
+<li>MemFree: The amount of physical RAM, in kilobytes, left unused by the system.</li>
+<li>MemAvailable: An estimate of how much memory is available for starting new applications, without swapping. Calculated from MemFree, SReclaimable, the size of the file LRU lists, and the low watermarks in each zone. The estimate takes into account that the system needs some page cache to function well, and that not all reclaimable slab will be reclaimable, due to items being in use. The impact of those factors will vary from system to system.</li>
+</ul>
+
+
+<h2>du</h2>
+
+<p>disk usage.</p>
+
+<ul>
+<li>-s: &ndash;summarize</li>
+<li>-h: &ndash;human-readable</li>
+</ul>
+
+
+<pre><code>du -sh *
 </code></pre>
 
-<h2>session</h2>
+<h2>ps</h2>
 
-<p>session指的是按下tmux命令后 存在的连接便是session</p>
-
-<pre><code>创建session
-tmux
-
-创建并指定session名字
-tmux new -s $session_name
-
-tmux rename -t target_session new_name
-
-重命名session
-Ctrl+b $
-
-删除session
-Ctrl+b :kill-session
-
-临时退出session
-Ctrl+b d
-
-列出session
-tmux ls
-
-进入已存在的session
-tmux a -t $session_name
-
-删除所有session
-Ctrl+b :kill-server
-
-删除指定session
-tmux kill-session -t $session_name
+<pre><code>ps aux
+ps -f -u songzy
 </code></pre>
 
-<h2>window</h2>
+<h2>lsof</h2>
 
-<p>window在session里，可以有N个window，并且window可以在不同的session里移动</p>
-
-<pre><code>创建window
-Ctrl+b c
-
-删除window
-Ctrl+b &amp;
-
-下一个window
-Ctrl+b n
-
-上一个window
-Ctrl+b p
-
-重命名window
-Ctrl+b ,
-
-在多个window里搜索关键字
-Ctrl+b f
-
-在相邻的两个window里切换
-Ctrl+b l
+<pre><code>lsof -u edxapp
 </code></pre>
 
-<h2>panel</h2>
+<p>lsof: list open files</p>
 
-<p>pane在window里，可以有N个pane，并且pane可以在不同的window里移动、合并、拆分</p>
+<h2>bg</h2>
 
-<pre><code>创建pane
-横切split pane horizontal
-Ctrl+b ” (问号的上面，shift+’)
+<pre><code>Ctrl-z
+fg
+</code></pre>
 
-竖切split pane vertical
-Ctrl+b % （shift+5）
+<h2>kill</h2>
 
-按顺序在pane之间移动
-Ctrl+b o
+<pre><code>sudo netstat -antlp
+kill -s 9 20383
+</code></pre>
 
-上下左右选择pane
-Ctrl+b 方向键上下左右
+<pre><code>jobs
+kill %1
+</code></pre>
 
-调整pane的大小
-Ctrl+b :resize-pane -U #向上
-Ctrl+b :resize-pane -D #向下
-Ctrl+b :resize-pane -L #向左
-Ctrl+b :resize-pane -R #向右
-在上下左右的调整里，最后的参数可以加数字 用以控制移动的大小，例如：
-Ctrl+b :resize-pane -D 50
+<pre><code>for pid in $(ps -ef | awk '/some search/ {print $2}'); do kill -9 $pid; done
+</code></pre>
 
-在同一个window里左右移动pane
-Ctrl+b { （往左边，往上面）
-Ctrl+b } （往右边，往下面）
+<h2>pkill</h2>
 
-删除pane
-Ctrl+b x
+<pre><code>pkill shardkv.test
+</code></pre>
 
-更换pane排版
-Ctrl+b “空格”
+<h2>supervisor</h2>
 
-移动pane至window
-Ctrl+b !
+<ul>
+<li>reread - Reread supervisor configuration. Do not update or restart the running services.</li>
+<li>update - Restart service(s) whose configuration has changed. Usually run after &lsquo;reread&rsquo;.</li>
+<li>reload - Reread supervisor configuration, reload supervisord and supervisorctl</li>
+<li>restart - Restart service(s)</li>
+</ul>
 
-移动pane合并至某个window
-Ctrl+b :join-pane -t $window_name
 
-显示pane编号
-Ctrl+b q
+<h2>service</h2>
 
-按顺序移动pane位置
-Ctrl+b Ctrl+o
-
-滚动输出
-Ctrl+b [
+<pre><code>service ssh status
+service ssh restart
+netstat –nlp | grep 22
 </code></pre>
 
   </div><div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = 'http://songzy12.github.io/2016/10/29/tmux.html';
-      this.page.identifier = 'http://songzy12.github.io/2016/10/29/tmux.html';
+      this.page.url = 'http://songzy12.github.io/2019/02/28/jobs.html';
+      this.page.identifier = 'http://songzy12.github.io/2019/02/28/jobs.html';
     };
 
     (function() {
@@ -206,7 +154,7 @@ Ctrl+b [
       (d.head || d.body).appendChild(s);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2016/10/29/tmux.html" hidden></a>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2019/02/28/jobs.html" hidden></a>
 </article>
 
       </div>
