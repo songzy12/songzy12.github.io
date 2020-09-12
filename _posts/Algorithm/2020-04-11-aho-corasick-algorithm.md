@@ -9,7 +9,4 @@ description:
 
 ---
 
-
-
-https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/
-
+<https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/>
