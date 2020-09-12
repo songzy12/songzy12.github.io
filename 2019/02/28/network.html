@@ -158,6 +158,20 @@ pscp songzy12@taoli.tsinghuax.org:Code-Craft/future_net/route.cpp .
 <pre><code>scp -r remote_username@remote_ip:remote_folder local_folder
 </code></pre>
 
+<h2>putty</h2>
+
+<pre><code>Network error: software caused connection abort
+</code></pre>
+
+<pre><code>sudo service ssh restart 
+</code></pre>
+
+<p>Test <code>127.0.0.1:7777</code>, they have the same behavior.</p>
+
+<p>The SSH server service in Ubuntu is named &ldquo;ssh&rdquo;.</p>
+
+<p>Just power off and restart.</p>
+
   </div><div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {

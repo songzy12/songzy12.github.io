@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-09-12T23:25:01+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">CPP</title><link href="http://songzy12.github.io/2020/09/12/cpp.html" rel="alternate" type="text/html" title="CPP" /><published>2020-09-12T23:21:31+08:00</published><updated>2020-09-12T23:21:31+08:00</updated><id>http://songzy12.github.io/2020/09/12/cpp</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/cpp.html">&lt;h2&gt;gcc&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-09-12T23:25:52+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">CPP</title><link href="http://songzy12.github.io/2020/09/12/cpp.html" rel="alternate" type="text/html" title="CPP" /><published>2020-09-12T23:21:31+08:00</published><updated>2020-09-12T23:21:31+08:00</updated><id>http://songzy12.github.io/2020/09/12/cpp</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/cpp.html">&lt;h2&gt;gcc&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://translationproject.org/domain/gcc.html&quot;&gt;translationproject&lt;/a&gt;.&lt;/p&gt;
 
@@ -14,19 +14,7 @@ jar xf libsvm-3.17-sources.jar svm_scale.java
 
 &lt;pre&gt;&lt;code&gt;cd /usr/lib/jvm/java-8-openjdk-amd64/lib
 jar xf tools.jar sun/tools/javac/resources/javac.properties
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">jar</summary></entry><entry><title type="html">PuTTY</title><link href="http://songzy12.github.io/2020/09/12/putty.html" rel="alternate" type="text/html" title="PuTTY" /><published>2020-09-12T23:11:24+08:00</published><updated>2020-09-12T23:11:24+08:00</updated><id>http://songzy12.github.io/2020/09/12/putty</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/putty.html">&lt;h2&gt;putty&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;Network error: software caused connection abort
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo service ssh restart 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Test &lt;code&gt;127.0.0.1:7777&lt;/code&gt;, they have the same behavior.&lt;/p&gt;
-
-&lt;p&gt;The SSH server service in Ubuntu is named &amp;ldquo;ssh&amp;rdquo;.&lt;/p&gt;
-
-&lt;p&gt;Just power off and restart.&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">putty</summary></entry><entry><title type="html">Dos Batch</title><link href="http://songzy12.github.io/2020/09/12/dos-batch.html" rel="alternate" type="text/html" title="Dos Batch" /><published>2020-09-12T23:09:46+08:00</published><updated>2020-09-12T23:09:46+08:00</updated><id>http://songzy12.github.io/2020/09/12/dos-batch</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/dos-batch.html">&lt;h2&gt;%~dp0&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">jar</summary></entry><entry><title type="html">Dos Batch</title><link href="http://songzy12.github.io/2020/09/12/dos-batch.html" rel="alternate" type="text/html" title="Dos Batch" /><published>2020-09-12T23:09:46+08:00</published><updated>2020-09-12T23:09:46+08:00</updated><id>http://songzy12.github.io/2020/09/12/dos-batch</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/dos-batch.html">&lt;h2&gt;%~dp0&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;%0&lt;/code&gt;: the batch file itself&lt;/li&gt;
@@ -529,4 +517,161 @@ xmlhttp.send();
     if( ( is_numeric( $octet[0] ) ) &amp;amp;&amp;amp; ( is_numeric( $octet[1] ) ) &amp;amp;&amp;amp; ( is_numeric( $octet[2] ) ) &amp;amp;&amp;amp; ( is_numeric( $octet[3] ) ) &amp;amp;&amp;amp; ( sizeof( $octet ) == 4 ) ) {
         // If all 4 octets are int's put the IP back together.
         $target = $octet[0] . '.' . $octet[1] . '.' . $octet[2] . '.' . $octet[3];
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/exec/index.php</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/exec/index.php</summary></entry><entry><title type="html">Brute Force</title><link href="http://songzy12.github.io/2020/07/03/brute-force.html" rel="alternate" type="text/html" title="Brute Force" /><published>2020-07-03T22:26:03+08:00</published><updated>2020-07-03T22:26:03+08:00</updated><id>http://songzy12.github.io/2020/07/03/brute-force</id><content type="html" xml:base="http://songzy12.github.io/2020/07/03/brute-force.html">&lt;p&gt;&lt;a href=&quot;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&quot;&gt;https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Low&lt;/h2&gt;
+
+&lt;h3&gt;Code&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;    $query  = &quot;SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;No filter of user inputs, we can have two ways to bypass the password check.&lt;/p&gt;
+
+&lt;h3&gt;SQL Injection&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.w3schools.com/sql/sql_injection.asp&quot;&gt;https://www.w3schools.com/sql/sql_injection.asp&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;If we know the user name, we can fill in&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;user: &lt;code&gt;admin' or '' = '&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;    $query  = &quot;SELECT * FROM `users` WHERE user = 'admin' or ''='' AND password = '$pass';&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If we do not know the user name, we can fill in&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;user: &lt;code&gt;' or 1 = 1 limit 1 #&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;user: &lt;code&gt;' or 1 = 1 limit 1 --&lt;/code&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;    $query  = &quot;SELECT * FROM `users` WHERE user = '' or 1 = 1 limit 1 #' AND password = '$pass';&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We failed to do something like:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;user: &lt;code&gt;' or ''='';  DROP TABLE Persons; #&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;pre&gt;&lt;code&gt;    $query  = &quot;SELECT * FROM `users` WHERE user = ''; DROP TABLE Persons; #' AND password = '';&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.php.net/manual/en/mysqli.quickstart.multiple-statement.php&quot;&gt;https://www.php.net/manual/en/mysqli.quickstart.multiple-statement.php&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;The API functions mysqli_query() and mysqli_real_query() do not set a connection flag necessary for activating multi queries in the server. An extra API call is used for multiple statements to reduce the likeliness of accidental SQL injection attacks. An attacker may try to add statements such as ; DROP DATABASE mysql or ; SELECT SLEEP(999). If the attacker succeeds in adding SQL to the statement string but mysqli_multi_query is not used, the server will not execute the second, injected and malicious SQL statement.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2&gt;Medium&lt;/h2&gt;
+
+&lt;h3&gt;Code&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Sanitise username input
+    $user = $_GET[ 'username' ];
+    $user = ((isset($GLOBALS[&quot;___mysqli_ston&quot;]) &amp;amp;&amp;amp; is_object($GLOBALS[&quot;___mysqli_ston&quot;])) ? mysqli_real_escape_string($GLOBALS[&quot;___mysqli_ston&quot;],  $user ) : ((trigger_error(&quot;[MySQLConverterToo] Fix the mysql_escape_string() call! This code does not work.&quot;, E_USER_ERROR)) ? &quot;&quot; : &quot;&quot;));
+
+    // Check the database
+    $query  = &quot;SELECT * FROM `users` WHERE user = '$user' AND password = '$pass';&quot;;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We can write our own script (e.g., using python) or use the Burp Suite, together with a password dictionary.&lt;/p&gt;
+
+&lt;h3&gt;Common Passwords&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt&quot;&gt;https://github.com/danielmiessler/SecLists/blob/master/Passwords/Common-Credentials/10k-most-common.txt&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;Burp Suite&lt;/h3&gt;
+
+&lt;h4&gt;Proxy&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://portswigger.net/burp/documentation/desktop/tools/proxy/options&quot;&gt;https://portswigger.net/burp/documentation/desktop/tools/proxy/options&lt;/a&gt;&lt;/p&gt;
+
+&lt;h5&gt;HTTPS&lt;/h5&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://cloud.tencent.com/developer/news/288748&quot;&gt;https://cloud.tencent.com/developer/news/288748&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;打开这个证书文件，根据提示安装这个证书，基本上是一路『下一步』，唯一需要注意的是，在『证书存储』这一步选择将证书存储在『受信任的根证书颁发机构』。&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h5&gt;localhost&lt;/h5&gt;
+
+&lt;p&gt;We can use ip address from &lt;code&gt;ipconfig&lt;/code&gt; rather than &lt;code&gt;127.0.0.1&lt;/code&gt; to let Burp Suite log the local requests.&lt;/p&gt;
+
+&lt;h4&gt;Intruder&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://portswigger.net/support/analyzing-burp-intruder-attack-results&quot;&gt;https://portswigger.net/support/analyzing-burp-intruder-attack-results&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;High&lt;/h2&gt;
+
+&lt;h3&gt;Code&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Check Anti-CSRF token
+    checkToken( $_REQUEST[ 'user_token' ], $_SESSION[ 'session_token' ], 'index.php' );
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;CSRF&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://portswigger.net/web-security/csrf/tokens&quot;&gt;https://portswigger.net/web-security/csrf/tokens&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;Burp Suite&lt;/h3&gt;
+
+&lt;h4&gt;Macro&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://portswigger.net/support/using-burp-suites-session-handling-rules-with-anti-csrf-tokens&quot;&gt;https://portswigger.net/support/using-burp-suites-session-handling-rules-with-anti-csrf-tokens&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?v=GWLMmkv3z38&quot;&gt;https://www.youtube.com/watch?v=GWLMmkv3z38&lt;/a&gt;&lt;/p&gt;
+
+&lt;h4&gt;regex&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;            &amp;lt;input type=&quot;password&quot; AUTOCOMPLETE=&quot;off&quot; name=&quot;password&quot;&amp;gt;&amp;lt;br /&amp;gt;
+            &amp;lt;br /&amp;gt;
+            &amp;lt;input type=&quot;submit&quot; value=&quot;Login&quot; name=&quot;Login&quot;&amp;gt;
+            &amp;lt;input type='hidden' name='user_token' value='91c32cd7d7e731f7874c0a42046b4ec0' /&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;name='user_token' value='(.*?)'
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Impossible&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;    // Check the database (Check user information)
+    $data = $db-&amp;gt;prepare( 'SELECT failed_login, last_login FROM users WHERE user = (:user) LIMIT 1;' );
+
+        // Calculate when the user would be allowed to login again
+        $last_login = strtotime( $row[ 'last_login' ] );
+        $timeout    = $last_login + ($lockout_time * 60);
+        $timenow    = time();
+
+        // Login failed
+        sleep( rand( 2, 4 ) );
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;More&lt;/h2&gt;
+
+&lt;h3&gt;OWASP&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://wiki.owasp.org/index.php/Testing_for_Brute_Force_(OWASP-AT-004)&quot;&gt;https://wiki.owasp.org/index.php/Testing_for_Brute_Force_(OWASP-AT-004)&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;hydra&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.sillychicken.co.nz/2011/05/how-to-brute-force-http-forms-in-windows/&quot;&gt;http://www.sillychicken.co.nz/2011/05/how-to-brute-force-http-forms-in-windows/&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;hydra -l hydra -P password.lst -s 80 -f www.sillychicken.co.nz http-post-form &quot;/administrator/index.php:usrname=^USER^&amp;amp;pass=^PASS^&amp;amp;submit=Login:Incorrect Username&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;&lt;p&gt;hydra –&gt; The hydra program
+-l –&gt; (lower case “L” not to be confused with a upper case i) single username to target. Use uppercase -L to specify a username list) i have setup the “hydra” account for this demo and has already been deleted
+-P –&gt; Provide path to password lis. -p to try a single password ie “passw0rd”
+-s –&gt; Port to target default port for http is 80
+-f –&gt; Exits the program after the first match is made
+{Site Address} I.E www.sillychicken.com. Do not include &lt;a href=&quot;http://&quot;&gt;http://&lt;/a&gt;
+http-post-form –&gt; service to brute force. Hydra README has the command as http-form-post       using that will give you an error
+{Path to postback page} everything after the site address must start with “/”
+{USERNAME_NAME} –&gt; the name of the username postback variable
+^USER^ –&gt; this will be replaced with the username specified by -l or -L username list
+^PASS^ –&gt; this will be replaced with the password from the defined list
+{Failed login text} –&gt; text that will only be found in a failed login&lt;/p&gt;&lt;/blockquote&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php</summary></entry></feed>
