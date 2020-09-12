@@ -1,20 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-09-12T23:25:52+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">CPP</title><link href="http://songzy12.github.io/2020/09/12/cpp.html" rel="alternate" type="text/html" title="CPP" /><published>2020-09-12T23:21:31+08:00</published><updated>2020-09-12T23:21:31+08:00</updated><id>http://songzy12.github.io/2020/09/12/cpp</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/cpp.html">&lt;h2&gt;gcc&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://translationproject.org/domain/gcc.html&quot;&gt;translationproject&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://docs.embarcadero.com/products/rad_studio/radstudio2007/RS2007_helpupdates/HUpdate4/EN/html/devwin32/cppcompmessagespart_xml.html&quot;&gt;error message&lt;/a&gt;.&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">gcc</summary></entry><entry><title type="html">Java</title><link href="http://songzy12.github.io/2020/09/12/java.html" rel="alternate" type="text/html" title="Java" /><published>2020-09-12T23:19:02+08:00</published><updated>2020-09-12T23:19:02+08:00</updated><id>http://songzy12.github.io/2020/09/12/java</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/java.html">&lt;h2&gt;jar&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;jar tf libsvm-3.17-sources.jar
-jar xf libsvm-3.17-sources.jar svm_scale.java
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;javac&lt;/h2&gt;
-
-&lt;p&gt;If anyone else has ever wondered about this I eventually tore open the &lt;code&gt;tools.jar&lt;/code&gt; file located in &lt;code&gt;jdk(version_here)/lib&lt;/code&gt;. From there your going to &lt;code&gt;sun/tools/javac/javac.properties&lt;/code&gt; if you want to actually read the messages.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;cd /usr/lib/jvm/java-8-openjdk-amd64/lib
-jar xf tools.jar sun/tools/javac/resources/javac.properties
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">jar</summary></entry><entry><title type="html">Dos Batch</title><link href="http://songzy12.github.io/2020/09/12/dos-batch.html" rel="alternate" type="text/html" title="Dos Batch" /><published>2020-09-12T23:09:46+08:00</published><updated>2020-09-12T23:09:46+08:00</updated><id>http://songzy12.github.io/2020/09/12/dos-batch</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/dos-batch.html">&lt;h2&gt;%~dp0&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-09-12T23:28:15+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Dos Batch</title><link href="http://songzy12.github.io/2020/09/12/dos-batch.html" rel="alternate" type="text/html" title="Dos Batch" /><published>2020-09-12T23:09:46+08:00</published><updated>2020-09-12T23:09:46+08:00</updated><id>http://songzy12.github.io/2020/09/12/dos-batch</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/dos-batch.html">&lt;h2&gt;%~dp0&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;%0&lt;/code&gt;: the batch file itself&lt;/li&gt;
@@ -674,4 +658,84 @@ http-post-form –&gt; service to brute force. Hydra README has the command as h
 {USERNAME_NAME} –&gt; the name of the username postback variable
 ^USER^ –&gt; this will be replaced with the username specified by -l or -L username list
 ^PASS^ –&gt; this will be replaced with the password from the defined list
-{Failed login text} –&gt; text that will only be found in a failed login&lt;/p&gt;&lt;/blockquote&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php</summary></entry></feed>
+{Failed login text} –&gt; text that will only be found in a failed login&lt;/p&gt;&lt;/blockquote&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/ethicalhack3r/DVWA/blob/master/vulnerabilities/brute/index.php</summary></entry><entry><title type="html">Apache</title><link href="http://songzy12.github.io/2020/07/01/apache.html" rel="alternate" type="text/html" title="Apache" /><published>2020-07-01T21:18:19+08:00</published><updated>2020-07-01T21:18:19+08:00</updated><id>http://songzy12.github.io/2020/07/01/apache</id><content type="html" xml:base="http://songzy12.github.io/2020/07/01/apache.html">&lt;p&gt;&lt;a href=&quot;https://ubuntu.com/tutorials/install-and-configure-apache&quot;&gt;https://ubuntu.com/tutorials/install-and-configure-apache&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Install&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo apt update
+sudo apt install apache2
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Web Page&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;ls /var/www/html/index.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Config&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;cd /etc/apache2/sites-available/
+sudo cp 000-default.conf gci.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Start Server&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code class=&quot;bash&quot;&gt;sudo a2ensite gci.conf
+service apache2 reload
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Log&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;tail -f /var/log/apache2/error.log
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://ubuntu.com/tutorials/install-and-configure-apache</summary></entry><entry><title type="html">QR Code</title><link href="http://songzy12.github.io/2020/06/26/qr-code.html" rel="alternate" type="text/html" title="QR Code" /><published>2020-06-26T17:57:44+08:00</published><updated>2020-06-26T17:57:44+08:00</updated><id>http://songzy12.github.io/2020/06/26/qr-code</id><content type="html" xml:base="http://songzy12.github.io/2020/06/26/qr-code.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/QR_code&quot;&gt;https://en.wikipedia.org/wiki/QR_code&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;QR Code:  Quick Response code&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;The processor locates the three distinctive squares at the corners of the QR code image, using a smaller square (or multiple squares) near the fourth corner to normalize the image for size, orientation, and angle of viewing.&lt;/p&gt;
+
+&lt;p&gt;The small dots throughout the QR code are then converted to binary numbers and validated with an error-correcting algorithm.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2&gt;Storage&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;The amount of data that can be stored in the QR code symbol depends on the datatype (mode, or input character set), version (1, &amp;hellip;, 40, indicating the overall dimensions of the symbol, i.e. 4 × version number + 17 dots on each side), and error correction level.&lt;/p&gt;
+
+&lt;p&gt;The maximum storage capacities occur for version 40 and error correction level L (low), denoted by 40-L&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;h2&gt;Error Correction&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;QR codes use Reed–Solomon error correction over the finite field $\displaystyle \mathbb {F} _{256}$, the elements of which are encoded as bytes of 8 bits.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;                    &lt;/th&gt;
+&lt;th&gt;                                    &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt; Level L (Low)      &lt;/td&gt;
+&lt;td&gt; 7% of data bytes can be restored.  &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; Level M (Medium)   &lt;/td&gt;
+&lt;td&gt; 15% of data bytes can be restored. &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; Level Q (Quartile) &lt;/td&gt;
+&lt;td&gt; 25% of data bytes can be restored. &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; Level H (High)     &lt;/td&gt;
+&lt;td&gt; 30% of data bytes can be restored. &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h2&gt;Encoding&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/QR_Format_Information.svg.png&quot; alt=&quot;QR Format&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/QR_Character_Placement.svg.png&quot; alt=&quot;QR Character Placement&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/img/QR_Ver3_Codeword_Ordering.svg.png&quot; alt=&quot;QR Ver3 Codeword Ordering&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/QR_code</summary></entry></feed>
