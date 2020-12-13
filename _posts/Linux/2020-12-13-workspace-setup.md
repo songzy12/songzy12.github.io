@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Workspace Setup"
-date: 2020-06-06T16:29:08+08:00
+date: 2020-12-13T16:29:08+08:00
 ---
 
 This shows what we need to do when we move to a brand new Linux environment.
