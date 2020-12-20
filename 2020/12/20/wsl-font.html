@@ -3,20 +3,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>CMD Font | Zhengyang Song&rsquo;s Secret Base</title>
+<title>WSL Font | Zhengyang Song&rsquo;s Secret Base</title>
 <meta name="generator" content="Jekyll v3.8.6" />
-<meta property="og:title" content="CMD Font" />
+<meta property="og:title" content="WSL Font" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="https://github.com/microsoft/WSL/issues/1517" />
 <meta property="og:description" content="https://github.com/microsoft/WSL/issues/1517" />
-<link rel="canonical" href="http://songzy12.github.io/2020/12/20/cmd-font.html" />
-<meta property="og:url" content="http://songzy12.github.io/2020/12/20/cmd-font.html" />
+<link rel="canonical" href="http://songzy12.github.io/2020/12/20/wsl-font.html" />
+<meta property="og:url" content="http://songzy12.github.io/2020/12/20/wsl-font.html" />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2020-12-20T14:08:18+08:00" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2020/12/20/cmd-font.html"},"url":"http://songzy12.github.io/2020/12/20/cmd-font.html","author":{"@type":"Person","name":"Zhengyang Song"},"description":"https://github.com/microsoft/WSL/issues/1517","headline":"CMD Font","dateModified":"2020-12-20T14:08:18+08:00","datePublished":"2020-12-20T14:08:18+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2020/12/20/wsl-font.html"},"url":"http://songzy12.github.io/2020/12/20/wsl-font.html","author":{"@type":"Person","name":"Zhengyang Song"},"description":"https://github.com/microsoft/WSL/issues/1517","headline":"WSL Font","dateModified":"2020-12-20T14:08:18+08:00","datePublished":"2020-12-20T14:08:18+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /><script>
 if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
@@ -51,7 +51,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">CMD Font</h1>
+    <h1 class="post-title p-name" itemprop="name headline">WSL Font</h1>
     <p class="post-meta">
       <time class="dt-published" datetime="2020-12-20T14:08:18+08:00" itemprop="datePublished">Dec 20, 2020
       </time></p>
@@ -61,6 +61,11 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
     <p><a href="https://github.com/microsoft/WSL/issues/1517">https://github.com/microsoft/WSL/issues/1517</a></p>
 
 <h2>oh-my-zsh Theme</h2>
+
+<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
+
+<pre><code>export ZSH_THEME=robbyrussell
+</code></pre>
 
 <pre><code>vi ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
 </code></pre>
@@ -76,14 +81,25 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <h2>True Type fonts</h2>
 
-<pre><code>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont]
+<pre><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont
 </code></pre>
+
+<h2>Tmux / Vim</h2>
+
+<p><a href="https://github.com/microsoft/WSL/issues/3988">https://github.com/microsoft/WSL/issues/3988</a></p>
+
+<ol>
+<li>Open regedit.</li>
+<li>Find this. <code>HKEY_CURRENT_USER\Console\C:_Program Files_WindowsApps_CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2020.812.0_x64__79rhkp1fndgsc_ubuntu2004.exe</code>.</li>
+<li>then, add CodePage（Type: DWORD, Value: 0x01b5).</li>
+</ol>
+
 
   </div><div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = 'http://songzy12.github.io/2020/12/20/cmd-font.html';
-      this.page.identifier = 'http://songzy12.github.io/2020/12/20/cmd-font.html';
+      this.page.url = 'http://songzy12.github.io/2020/12/20/wsl-font.html';
+      this.page.identifier = 'http://songzy12.github.io/2020/12/20/wsl-font.html';
     };
 
     (function() {
@@ -95,7 +111,7 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
       (d.head || d.body).appendChild(s);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2020/12/20/cmd-font.html" hidden></a>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2020/12/20/wsl-font.html" hidden></a>
 </article>
 
       </div>
