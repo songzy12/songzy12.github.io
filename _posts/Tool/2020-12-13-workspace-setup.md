@@ -32,7 +32,7 @@ wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sh install.sh
 ```
 
-### tmux config
+## tmux config
 
 ```
 vi ~/.tmux.conf
@@ -66,7 +66,9 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted 
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
 ```
 
-## pip source
+## python 
+
+### pip source
 
 ```
 sudo apt install python3-pip
@@ -85,7 +87,18 @@ echo "  trusted-host=mirrors.aliyun.com" >> ~/.pip/pip.conf
 echo "" >> ~/.pip/pip.conf
 ```
 
-## python virtualenvwrapper
+### jupyter notebook
+
+```
+jupyter notebook --generate-config
+vi ~/.jupyter/jupyter_notebook_config.py
+```
+
+```
+c.NotebookApp.use_redirect_file = False
+```
+
+### virtualenvwrapper
 
 <https://virtualenvwrapper.readthedocs.io/en/latest/install.html>
 
