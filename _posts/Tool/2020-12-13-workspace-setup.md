@@ -98,6 +98,11 @@ vi ~/.jupyter/jupyter_notebook_config.py
 c.NotebookApp.use_redirect_file = False
 ```
 
+```
+pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+```
+
 ### virtualenvwrapper
 
 <https://virtualenvwrapper.readthedocs.io/en/latest/install.html>
