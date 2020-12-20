@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-12-20T16:39:09+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2020/12/20/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2020-12-20T14:08:18+08:00</published><updated>2020-12-20T14:08:18+08:00</updated><id>http://songzy12.github.io/2020/12/20/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2020/12/20/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-12-20T20:31:15+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2020/12/20/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2020-12-20T14:08:18+08:00</published><updated>2020-12-20T14:08:18+08:00</updated><id>http://songzy12.github.io/2020/12/20/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2020/12/20/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;oh-my-zsh Theme&lt;/h2&gt;
 
@@ -175,7 +175,7 @@ wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sh install.sh
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3&gt;tmux config&lt;/h3&gt;
+&lt;h2&gt;tmux config&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;vi ~/.tmux.conf
 &lt;/code&gt;&lt;/pre&gt;
@@ -205,7 +205,9 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted 
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2&gt;pip source&lt;/h2&gt;
+&lt;h2&gt;python&lt;/h2&gt;
+
+&lt;h3&gt;pip source&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo apt install python3-pip
 &lt;/code&gt;&lt;/pre&gt;
@@ -222,7 +224,16 @@ echo &quot;  trusted-host=mirrors.aliyun.com&quot; &amp;gt;&amp;gt; ~/.pip/pip.c
 echo &quot;&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2&gt;python virtualenvwrapper&lt;/h2&gt;
+&lt;h3&gt;jupyter notebook&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;jupyter notebook --generate-config
+vi ~/.jupyter/jupyter_notebook_config.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;c.NotebookApp.use_redirect_file = False
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;virtualenvwrapper&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://virtualenvwrapper.readthedocs.io/en/latest/install.html&quot;&gt;https://virtualenvwrapper.readthedocs.io/en/latest/install.html&lt;/a&gt;&lt;/p&gt;
 

@@ -83,7 +83,7 @@ wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sh install.sh
 </code></pre>
 
-<h3>tmux config</h3>
+<h2>tmux config</h2>
 
 <pre><code>vi ~/.tmux.conf
 </code></pre>
@@ -113,7 +113,9 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted 
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
 </code></pre>
 
-<h2>pip source</h2>
+<h2>python</h2>
+
+<h3>pip source</h3>
 
 <pre><code>sudo apt install python3-pip
 </code></pre>
@@ -130,7 +132,16 @@ echo "  trusted-host=mirrors.aliyun.com" &gt;&gt; ~/.pip/pip.conf
 echo "" &gt;&gt; ~/.pip/pip.conf
 </code></pre>
 
-<h2>python virtualenvwrapper</h2>
+<h3>jupyter notebook</h3>
+
+<pre><code>jupyter notebook --generate-config
+vi ~/.jupyter/jupyter_notebook_config.py
+</code></pre>
+
+<pre><code>c.NotebookApp.use_redirect_file = False
+</code></pre>
+
+<h3>virtualenvwrapper</h3>
 
 <p><a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html">https://virtualenvwrapper.readthedocs.io/en/latest/install.html</a></p>
 
