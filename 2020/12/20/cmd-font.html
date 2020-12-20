@@ -3,20 +3,20 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
-<title>Octopress 3.0 | Zhengyang Song&rsquo;s Secret Base</title>
+<title>CMD Font | Zhengyang Song&rsquo;s Secret Base</title>
 <meta name="generator" content="Jekyll v3.8.6" />
-<meta property="og:title" content="Octopress 3.0" />
+<meta property="og:title" content="CMD Font" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This article shows the basic usage of Octopress 3.0." />
-<meta property="og:description" content="This article shows the basic usage of Octopress 3.0." />
-<link rel="canonical" href="http://songzy12.github.io/2020/04/16/octopress-3-0.html" />
-<meta property="og:url" content="http://songzy12.github.io/2020/04/16/octopress-3-0.html" />
+<meta name="description" content="https://github.com/microsoft/WSL/issues/1517" />
+<meta property="og:description" content="https://github.com/microsoft/WSL/issues/1517" />
+<link rel="canonical" href="http://songzy12.github.io/2020/12/20/cmd-font.html" />
+<meta property="og:url" content="http://songzy12.github.io/2020/12/20/cmd-font.html" />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-04-16T14:08:14+08:00" />
+<meta property="article:published_time" content="2020-12-20T14:08:18+08:00" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2020/04/16/octopress-3-0.html"},"url":"http://songzy12.github.io/2020/04/16/octopress-3-0.html","author":{"@type":"Person","name":"Zhengyang Song"},"description":"This article shows the basic usage of Octopress 3.0.","headline":"Octopress 3.0","dateModified":"2020-04-16T14:08:14+08:00","datePublished":"2020-04-16T14:08:14+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2020/12/20/cmd-font.html"},"url":"http://songzy12.github.io/2020/12/20/cmd-font.html","author":{"@type":"Person","name":"Zhengyang Song"},"description":"https://github.com/microsoft/WSL/issues/1517","headline":"CMD Font","dateModified":"2020-12-20T14:08:18+08:00","datePublished":"2020-12-20T14:08:18+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /><script>
 if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
@@ -51,130 +51,39 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Octopress 3.0</h1>
+    <h1 class="post-title p-name" itemprop="name headline">CMD Font</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2020-04-16T14:08:14+08:00" itemprop="datePublished">Apr 16, 2020
+      <time class="dt-published" datetime="2020-12-20T14:08:18+08:00" itemprop="datePublished">Dec 20, 2020
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>This article shows the basic usage of Octopress 3.0.</p>
+    <p><a href="https://github.com/microsoft/WSL/issues/1517">https://github.com/microsoft/WSL/issues/1517</a></p>
 
-<h2>new post</h2>
+<h2>oh-my-zsh Theme</h2>
 
-<pre><code>octopress new post hello -D Ruby
+<pre><code>vi ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
 </code></pre>
 
-<h2>build</h2>
+<h2>Powerline fonts</h2>
 
-<p>Here we set <code>JEKYLL_ENV=production</code> to enable <code>google_analytics</code> and <code>disqus</code>.</p>
+<p><a href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></p>
 
-<pre><code>export JEKYLL_ENV=production
-jekyll serve
+<pre><code>/c/Users/songzy/.local/share/fonts/ -&gt; C:\Windows\Fonts
 </code></pre>
 
-<h2>deploy</h2>
+<p><code>DejaVu Sans Mono for Powerline</code>.</p>
 
-<pre><code>jekyll build
-octopress deploy
-</code></pre>
+<h2>True Type fonts</h2>
 
-<h2>source</h2>
-
-<p>源码和网站是在同一个 repo 的不同 branch 底下的。</p>
-
-<pre><code>git add .
-git commit -m "$(date)"
-git push origin source
-</code></pre>
-
-<h2>mirror</h2>
-
-<pre><code>bundle config mirror.https://rubygems.org https://gems.ruby-china.com
-gem sources -l
-</code></pre>
-
-<h2>minima</h2>
-
-<p><a href="https://github.com/jekyll/minima">https://github.com/jekyll/minima</a></p>
-
-<h3>comments</h3>
-
-<pre><code>disqus:
-  shortname: my_disqus_shortname
-</code></pre>
-
-<h3>google_analytics</h3>
-
-<pre><code>  google_analytics: UA-NNNNNNNN-N
-</code></pre>
-
-<h3>excerpts</h3>
-
-<pre><code>show_excerpts: true
-</code></pre>
-
-<h3>layouts</h3>
-
-<pre><code>ls $(bundle show minima)/_layouts
-ls $(bundle show minima)/_includes
-</code></pre>
-
-<h4>header</h4>
-
-<pre><code>vi $(bundle show minima)/_includes/header.html
-</code></pre>
-
-<h4>footer</h4>
-
-<pre><code>vi $(bundle show minima)/_includes/footer.html
-</code></pre>
-
-<h2>_config.yml</h2>
-
-<pre><code>title:  Zhengyang Song's Blog
-author: Zhengyang Song
-email: songzy.thu@gmail.com
-description: &gt;- # this means to ignore newlines until "baseurl:"
-  All those little bugs I have ever met.
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://songzy12.github.io" # the base hostname &amp; protocol for your site, e.g. http://example.com
-github_username:  songzy12
-
-# Default extension for new posts and pages
-post_ext: md
-page_ext: html
-
-# Default templates for posts and pages
-# Found in _templates/
-post_layout: post
-page_layout: page
-
-# Format titles with titlecase?
-titlecase: true
-
-# Change default template file (in _templates/)
-post_template: post
-page_template: page
-draft_template: draft
-
-# Build settings
-markdown: rdiscount
-rdiscount:
-  extensions:
-    - autolink
-    - footnotes
-    - smart
-theme: minima
-plugins:
-  - jekyll-feed
+<pre><code>[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont]
 </code></pre>
 
   </div><div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = 'http://songzy12.github.io/2020/04/16/octopress-3-0.html';
-      this.page.identifier = 'http://songzy12.github.io/2020/04/16/octopress-3-0.html';
+      this.page.url = 'http://songzy12.github.io/2020/12/20/cmd-font.html';
+      this.page.identifier = 'http://songzy12.github.io/2020/12/20/cmd-font.html';
     };
 
     (function() {
@@ -186,7 +95,7 @@ plugins:
       (d.head || d.body).appendChild(s);
     })();
   </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2020/04/16/octopress-3-0.html" hidden></a>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2020/12/20/cmd-font.html" hidden></a>
 </article>
 
       </div>

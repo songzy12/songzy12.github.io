@@ -1,4 +1,133 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-12-19T23:26:21+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/12/13/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-12-13T16:29:08+08:00</published><updated>2020-12-13T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/12/13/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/12/13/workspace-setup.html">&lt;p&gt;This shows what we need to do when we move to a brand new Linux environment.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2020-12-20T15:15:51+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">CMD Font</title><link href="http://songzy12.github.io/2020/12/20/cmd-font.html" rel="alternate" type="text/html" title="CMD Font" /><published>2020-12-20T14:08:18+08:00</published><updated>2020-12-20T14:08:18+08:00</updated><id>http://songzy12.github.io/2020/12/20/cmd-font</id><content type="html" xml:base="http://songzy12.github.io/2020/12/20/cmd-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;oh-my-zsh Theme&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;vi ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Powerline fonts&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/powerline/fonts&quot;&gt;https://github.com/powerline/fonts&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/c/Users/songzy/.local/share/fonts/ -&amp;gt; C:\Windows\Fonts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;DejaVu Sans Mono for Powerline&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2&gt;True Type fonts&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont]
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/microsoft/WSL/issues/1517</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2020/12/19/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2020-12-19T14:08:14+08:00</published><updated>2020-12-19T14:08:14+08:00</updated><id>http://songzy12.github.io/2020/12/19/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2020/12/19/octopress-3-0.html">&lt;p&gt;This article shows the basic usage of Octopress 3.0.&lt;/p&gt;
+
+&lt;h2&gt;new post&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;octopress new post hello -D Ruby
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;build&lt;/h2&gt;
+
+&lt;p&gt;Here we set &lt;code&gt;JEKYLL_ENV=production&lt;/code&gt; to enable &lt;code&gt;google_analytics&lt;/code&gt; and &lt;code&gt;disqus&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export JEKYLL_ENV=production
+jekyll serve
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;deploy&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;jekyll build
+octopress deploy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;source&lt;/h2&gt;
+
+&lt;p&gt;源码和网站是在同一个 repo 的不同 branch 底下的。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &quot;$(date)&quot;
+git push origin source
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;mirror&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;bundle config mirror.https://rubygems.org https://gems.ruby-china.com
+gem sources -l
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;minima&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/jekyll/minima&quot;&gt;https://github.com/jekyll/minima&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;comments&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;disqus:
+  shortname: my_disqus_shortname
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;google_analytics&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;  google_analytics: UA-NNNNNNNN-N
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;excerpts&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;show_excerpts: true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;layouts&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;ls $(bundle show minima)/_layouts
+ls $(bundle show minima)/_includes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;header&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;vi $(bundle show minima)/_includes/header.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;footer&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;vi $(bundle show minima)/_includes/footer.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;_config.yml&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;title:  Zhengyang Song's Blog
+author: Zhengyang Song
+email: songzy.thu@gmail.com
+description: &amp;gt;- # this means to ignore newlines until &quot;baseurl:&quot;
+  All those little bugs I have ever met.
+baseurl: &quot;&quot; # the subpath of your site, e.g. /blog
+url: &quot;http://songzy12.github.io&quot; # the base hostname &amp;amp; protocol for your site, e.g. http://example.com
+github_username:  songzy12
+
+# Default extension for new posts and pages
+post_ext: md
+page_ext: html
+
+# Default templates for posts and pages
+# Found in _templates/
+post_layout: post
+page_layout: page
+
+# Format titles with titlecase?
+titlecase: true
+
+# Change default template file (in _templates/)
+post_template: post
+page_template: page
+draft_template: draft
+
+# Build settings
+markdown: rdiscount
+rdiscount:
+  extensions:
+    - autolink
+    - footnotes
+    - smart
+theme: minima
+plugins:
+  - jekyll-feed
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows the basic usage of Octopress 3.0.</summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/12/13/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-12-13T16:29:08+08:00</published><updated>2020-12-13T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/12/13/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/12/13/workspace-setup.html">&lt;p&gt;This shows what we need to do when we move to a brand new Linux environment.&lt;/p&gt;
 
 &lt;h2&gt;wget proxy&lt;/h2&gt;
 
@@ -484,31 +613,4 @@ GIF was one of the first two image formats commonly used on Web sites, the other
 
 &lt;h2&gt;Example&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/GIF_example.png&quot; alt=&quot;Example&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/GIF</summary></entry><entry><title type="html">ANS</title><link href="http://songzy12.github.io/2020/06/25/ans.html" rel="alternate" type="text/html" title="ANS" /><published>2020-06-25T21:22:45+08:00</published><updated>2020-06-25T21:22:45+08:00</updated><id>http://songzy12.github.io/2020/06/25/ans</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/ans.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Asymmetric_numeral_systems&quot;&gt;https://en.wikipedia.org/wiki/Asymmetric_numeral_systems&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;uABS&lt;/h2&gt;
-
-&lt;p&gt;Decoding:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;s = ceil((x+1)*p) - ceil(x*p)  // 0 if fract(x*p) &amp;lt; 1-p, else 1
-if s = 0 then new_x = x - ceil(x*p)   // D(x) = (new_x, 0)
-if s = 1 then new_x = ceil(x*p)  // D(x) = (new_x, 1)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Encoding:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;if s = 0 then new_x = ceil((x+1)/(1-p)) - 1 // C(x,0) = new_x
-if s = 1 then new_x = floor(x/p)  // C(x,1) = new_x
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/ANS_uABS.png&quot; alt=&quot;uABS&quot; /&gt;&lt;/p&gt;
-
-&lt;h2&gt;rANS &amp;amp; Streaming&lt;/h2&gt;
-
-&lt;h2&gt;tANS&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/ANS_tANS.png&quot; alt=&quot;tANS&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Asymmetric_numeral_systems</summary></entry><entry><title type="html">Arithmetic Coding</title><link href="http://songzy12.github.io/2020/06/25/arithmetic-coding.html" rel="alternate" type="text/html" title="Arithmetic Coding" /><published>2020-06-25T21:13:34+08:00</published><updated>2020-06-25T21:13:34+08:00</updated><id>http://songzy12.github.io/2020/06/25/arithmetic-coding</id><content type="html" xml:base="http://songzy12.github.io/2020/06/25/arithmetic-coding.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Arithmetic_coding&quot;&gt;https://en.wikipedia.org/wiki/Arithmetic_coding&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;Arithmetic coding differs from other forms of entropy encoding, such as Huffman coding, in that rather than separating the input into component symbols and replacing each with a code, arithmetic coding encodes the entire message into a single number, an arbitrary-precision fraction q where $0.0 \le q &amp;lt; 1.0$. It represents the current information as a range, defined by two numbers.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/Arithmetic_coding.svg.png&quot; alt=&quot;Example&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/Arithmetic_coding</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/img/GIF_example.png&quot; alt=&quot;Example&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/GIF</summary></entry></feed>
