@@ -180,6 +180,22 @@ source /usr/local/bin/virtualenvwrapper.sh
 git config --global user.name "Zhengyang Song"
 </code></pre>
 
+<h2>docker</h2>
+
+<pre><code>mkdir -p /etc/docker
+
+sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
+{
+  "registry-mirrors": ["http://hub-mirror.c.163.com"]
+}
+</code></pre>
+
+<pre><code>sudo service docker restart
+</code></pre>
+
+<pre><code>docker info
+</code></pre>
+
 <h2>nodejs</h2>
 
 <h3>nvm</h3>
