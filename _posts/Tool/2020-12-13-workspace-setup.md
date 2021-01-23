@@ -144,6 +144,25 @@ git config --global user.email "songzy_thu@163.com"
 git config --global user.name "Zhengyang Song"
 ```
 
+## docker
+
+```
+mkdir -p /etc/docker
+
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["http://hub-mirror.c.163.com"]
+}
+```
+
+```
+sudo service docker restart
+```
+
+```
+docker info
+```
+
 ## nodejs
 
 ### nvm
