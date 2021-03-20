@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-01-23T20:35:06+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2020/12/20/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2020-12-20T14:08:18+08:00</published><updated>2020-12-20T14:08:18+08:00</updated><id>http://songzy12.github.io/2020/12/20/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2020/12/20/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-03-20T16:19:00+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Windows Battery Report</title><link href="http://songzy12.github.io/2021/03/20/battery.html" rel="alternate" type="text/html" title="Windows Battery Report" /><published>2021-03-20T16:04:37+08:00</published><updated>2021-03-20T16:04:37+08:00</updated><id>http://songzy12.github.io/2021/03/20/battery</id><content type="html" xml:base="http://songzy12.github.io/2021/03/20/battery.html">&lt;pre&gt;&lt;code&gt;powercfg /batteryreport
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;BATTERY 1   BATTERY 2
+NAME    01AV419 01AV423
+MANUFACTURER    SANYO   LGC
+SERIAL NUMBER   186 4024
+CHEMISTRY   LION    LiP
+DESIGN CAPACITY 24,020 mWh  23,940 mWh
+FULL CHARGE CAPACITY    12,540 mWh  9,410 mWh
+CYCLE COUNT 298 333
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;BATTERY 1
+NAME    01AV419
+MANUFACTURER    SANYO
+SERIAL NUMBER   186
+CHEMISTRY   LION
+DESIGN CAPACITY 24,020 mWh
+FULL CHARGE CAPACITY    13,010 mWh
+CYCLE COUNT 298
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">powercfg /batteryreport</summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2020/12/20/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2020-12-20T14:08:18+08:00</published><updated>2020-12-20T14:08:18+08:00</updated><id>http://songzy12.github.io/2020/12/20/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2020/12/20/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;oh-my-zsh Theme&lt;/h2&gt;
 
@@ -635,36 +656,4 @@ service apache2 reload
 
 &lt;p&gt;&lt;img src=&quot;/img/QR_Character_Placement.svg.png&quot; alt=&quot;QR Character Placement&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&quot;/img/QR_Ver3_Codeword_Ordering.svg.png&quot; alt=&quot;QR Ver3 Codeword Ordering&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/QR_code</summary></entry><entry><title type="html">GIF</title><link href="http://songzy12.github.io/2020/06/26/gif.html" rel="alternate" type="text/html" title="GIF" /><published>2020-06-26T14:36:29+08:00</published><updated>2020-06-26T14:36:29+08:00</updated><id>http://songzy12.github.io/2020/06/26/gif</id><content type="html" xml:base="http://songzy12.github.io/2020/06/26/gif.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/GIF&quot;&gt;https://en.wikipedia.org/wiki/GIF&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;The format supports up to 8 bits per pixel for each image, allowing a single image to reference its own palette of up to 256 different colors chosen from the 24-bit RGB color space.
-It also supports animations and allows a separate palette of up to 256 colors for each frame.
-GIF images are compressed using the Lempel–Ziv–Welch (LZW) lossless data compression technique to reduce the file size without degrading the visual quality.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;h2&gt;History&lt;/h2&gt;
-
-&lt;blockquote&gt;&lt;p&gt;The original version of GIF was called 87a.
-In 1989, CompuServe released an enhanced version, called 89a, which added support for animation delays (multiple images in a stream were already supported in 87a), transparent background colors, and storage of application-specific metadata.
-The two versions can be distinguished by looking at the first six bytes of the file (the &amp;ldquo;magic number&amp;rdquo; or signature), which, when interpreted as ASCII, read &amp;ldquo;GIF87a&amp;rdquo; and &amp;ldquo;GIF89a&amp;rdquo;, respectively.
-GIF was one of the first two image formats commonly used on Web sites, the other being the black-and-white XBM.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;h2&gt;File format&lt;/h2&gt;
-
-&lt;blockquote&gt;&lt;p&gt;GIF files start with a fixed-length header (&amp;ldquo;GIF87a&amp;rdquo; or &amp;ldquo;GIF89a&amp;rdquo;) giving the version, followed by a fixed-length Logical Screen Descriptor giving the pixel dimensions and other characteristics of the logical screen.&lt;/p&gt;
-
-&lt;p&gt;The screen descriptor may also specify the presence and size of a Global Color Table, which follows next if present.&lt;/p&gt;
-
-&lt;p&gt;Thereafter, the file is divided into segments, each introduced by a 1-byte sentinel:
-- An image (introduced by 0x2C, an ASCII comma &amp;lsquo;,&amp;rsquo;)
-- An extension block (introduced by 0x21, an ASCII exclamation point &amp;lsquo;!&amp;rsquo;)
-- The trailer (a single byte of value 0x3B, an ASCII semicolon &amp;lsquo;;&amp;rsquo;), which should be the last byte of the file.&lt;/p&gt;
-
-&lt;p&gt;An image starts with a fixed-length Image Descriptor, which may specify the presence and size of a Local Color Table (which follows next if present).&lt;/p&gt;
-
-&lt;p&gt;The image data follows: one byte giving the bit width of the unencoded symbols (which must be at least 2 bits wide, even for bi-color images), followed by a linked list of sub-blocks containing the LZW-encoded data.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/GIF_format.png&quot; alt=&quot;Format&quot; /&gt;&lt;/p&gt;
-
-&lt;h2&gt;Example&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/GIF_example.png&quot; alt=&quot;Example&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/GIF</summary></entry></feed>
+&lt;p&gt;&lt;img src=&quot;/img/QR_Ver3_Codeword_Ordering.svg.png&quot; alt=&quot;QR Ver3 Codeword Ordering&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/QR_code</summary></entry></feed>
