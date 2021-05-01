@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-03-20T16:19:00+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Windows Battery Report</title><link href="http://songzy12.github.io/2021/03/20/battery.html" rel="alternate" type="text/html" title="Windows Battery Report" /><published>2021-03-20T16:04:37+08:00</published><updated>2021-03-20T16:04:37+08:00</updated><id>http://songzy12.github.io/2021/03/20/battery</id><content type="html" xml:base="http://songzy12.github.io/2021/03/20/battery.html">&lt;pre&gt;&lt;code&gt;powercfg /batteryreport
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-05-01T22:59:15+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Windows Battery Report</title><link href="http://songzy12.github.io/2021/03/20/battery.html" rel="alternate" type="text/html" title="Windows Battery Report" /><published>2021-03-20T16:04:37+08:00</published><updated>2021-03-20T16:04:37+08:00</updated><id>http://songzy12.github.io/2021/03/20/battery</id><content type="html" xml:base="http://songzy12.github.io/2021/03/20/battery.html">&lt;pre&gt;&lt;code&gt;powercfg /batteryreport
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;BATTERY 1   BATTERY 2
@@ -21,17 +21,21 @@ FULL CHARGE CAPACITY    13,010 mWh
 CYCLE COUNT 298
 &lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">powercfg /batteryreport</summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2020/12/20/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2020-12-20T14:08:18+08:00</published><updated>2020-12-20T14:08:18+08:00</updated><id>http://songzy12.github.io/2020/12/20/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2020/12/20/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2&gt;oh-my-zsh Theme&lt;/h2&gt;
+&lt;h2&gt;Zsh Theme&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/ohmyzsh/ohmyzsh/wiki/Themes&quot;&gt;https://github.com/ohmyzsh/ohmyzsh/wiki/Themes&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;How to set zsh theme:&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;export ZSH_THEME=robbyrussell
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;p&gt;How to view all avaliable zsh theme:&lt;/p&gt;
+
 &lt;pre&gt;&lt;code&gt;vi ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2&gt;Powerline fonts&lt;/h2&gt;
+&lt;h2&gt;Powerline Fonts&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/powerline/fonts&quot;&gt;https://github.com/powerline/fonts&lt;/a&gt;&lt;/p&gt;
 
@@ -40,12 +44,18 @@ CYCLE COUNT 298
 
 &lt;p&gt;&lt;code&gt;DejaVu Sans Mono for Powerline&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h2&gt;True Type fonts&lt;/h2&gt;
+&lt;h2&gt;Monospace Fonts to Registry&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/&quot;&gt;https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2&gt;Tmux / Vim&lt;/h2&gt;
+&lt;h2&gt;CodePage&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ss64.com/nt/chcp.html&quot;&gt;https://ss64.com/nt/chcp.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;437&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/3988&quot;&gt;https://github.com/microsoft/WSL/issues/3988&lt;/a&gt;&lt;/p&gt;
 
@@ -55,6 +65,10 @@ CYCLE COUNT 298
 &lt;li&gt;then, add CodePage（Type: DWORD, Value: 0x01b5).&lt;/li&gt;
 &lt;/ol&gt;
 
+
+&lt;h3&gt;65001&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8&quot;&gt;https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Reference&lt;/h2&gt;
 

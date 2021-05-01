@@ -60,17 +60,21 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <div class="post-content e-content" itemprop="articleBody">
     <p><a href="https://github.com/microsoft/WSL/issues/1517">https://github.com/microsoft/WSL/issues/1517</a></p>
 
-<h2>oh-my-zsh Theme</h2>
+<h2>Zsh Theme</h2>
 
 <p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
+
+<p>How to set zsh theme:</p>
 
 <pre><code>export ZSH_THEME=robbyrussell
 </code></pre>
 
+<p>How to view all avaliable zsh theme:</p>
+
 <pre><code>vi ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
 </code></pre>
 
-<h2>Powerline fonts</h2>
+<h2>Powerline Fonts</h2>
 
 <p><a href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></p>
 
@@ -79,12 +83,18 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <p><code>DejaVu Sans Mono for Powerline</code>.</p>
 
-<h2>True Type fonts</h2>
+<h2>Monospace Fonts to Registry</h2>
+
+<p><a href="https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/">https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/</a></p>
 
 <pre><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont
 </code></pre>
 
-<h2>Tmux / Vim</h2>
+<h2>CodePage</h2>
+
+<p><a href="https://ss64.com/nt/chcp.html">https://ss64.com/nt/chcp.html</a></p>
+
+<h3>437</h3>
 
 <p><a href="https://github.com/microsoft/WSL/issues/3988">https://github.com/microsoft/WSL/issues/3988</a></p>
 
@@ -94,6 +104,10 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 <li>then, add CodePage（Type: DWORD, Value: 0x01b5).</li>
 </ol>
 
+
+<h3>65001</h3>
+
+<p><a href="https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8">https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8</a></p>
 
 <h2>Reference</h2>
 
