@@ -108,15 +108,17 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 <p><a href="https://github.com/microsoft/WSL/issues/3988">https://github.com/microsoft/WSL/issues/3988</a></p>
 
 <ol>
-<li>Open regedit.</li>
+<li>Open <code>regedit</code>.</li>
 <li>Find this. <code>HKEY_CURRENT_USER\Console\C:_Program Files_WindowsApps_CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2020.812.0_x64__79rhkp1fndgsc_ubuntu2004.exe</code>.</li>
-<li>then, add CodePage（Type: DWORD, Value: 0x01b5).</li>
+<li>then, add CodePage (Type: DWORD, Value: 0x01b5).</li>
 </ol>
 
 
 <h3>65001</h3>
 
 <p><a href="https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8">https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8</a></p>
+
+<p><code>Language settings</code> -> <code>Administrative language settings</code> -> <code>Change system locale...</code> -> <code>Beta: Use Unicode UTF-8 for worldwide language support</code>.</p>
 
 <h2>Reference</h2>
 

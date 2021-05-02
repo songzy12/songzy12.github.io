@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-05-01T23:10:30+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T14:08:18+08:00</published><updated>2021-05-01T14:08:18+08:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-05-02T12:42:59+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T14:08:18+08:00</published><updated>2021-05-01T14:08:18+08:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Zsh Theme&lt;/h2&gt;
 
@@ -48,15 +48,17 @@
 &lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/3988&quot;&gt;https://github.com/microsoft/WSL/issues/3988&lt;/a&gt;&lt;/p&gt;
 
 &lt;ol&gt;
-&lt;li&gt;Open regedit.&lt;/li&gt;
+&lt;li&gt;Open &lt;code&gt;regedit&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Find this. &lt;code&gt;HKEY_CURRENT_USER\Console\C:_Program Files_WindowsApps_CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2020.812.0_x64__79rhkp1fndgsc_ubuntu2004.exe&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;then, add CodePage（Type: DWORD, Value: 0x01b5).&lt;/li&gt;
+&lt;li&gt;then, add CodePage (Type: DWORD, Value: 0x01b5).&lt;/li&gt;
 &lt;/ol&gt;
 
 
 &lt;h3&gt;65001&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8&quot;&gt;https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Language settings&lt;/code&gt; -&gt; &lt;code&gt;Administrative language settings&lt;/code&gt; -&gt; &lt;code&gt;Change system locale...&lt;/code&gt; -&gt; &lt;code&gt;Beta: Use Unicode UTF-8 for worldwide language support&lt;/code&gt;.&lt;/p&gt;
 
 &lt;h2&gt;Reference&lt;/h2&gt;
 
