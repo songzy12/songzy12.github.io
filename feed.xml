@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-05-05T14:43:08+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/05/05/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-05-05T12:23:11+08:00</published><updated>2021-05-05T12:23:11+08:00</updated><id>http://songzy12.github.io/2021/05/05/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/05/05/tensorflow-gpu.html">&lt;p&gt;Enable TF 1.15 with RTX 3090.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-05-05T14:46:20+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/05/05/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-05-05T12:23:11+08:00</published><updated>2021-05-05T12:23:11+08:00</updated><id>http://songzy12.github.io/2021/05/05/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/05/05/tensorflow-gpu.html">&lt;p&gt;Enable TF 1.15 with RTX 3090.&lt;/p&gt;
 
 &lt;h2&gt;CUDA&lt;/h2&gt;
 
@@ -16,17 +16,15 @@
 ./BlackScholes
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2&gt;TensorFlow&lt;/h2&gt;
+&lt;h2&gt;TensorFlow 1.15.4&lt;/h2&gt;
 
-&lt;h3&gt;1.15.4&lt;/h3&gt;
+&lt;h3&gt;Nvidia TensorFlow&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/NVIDIA/tensorflow#install&quot;&gt;https://github.com/NVIDIA/tensorflow#install&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;python3 -m pip install nvidia-pyindex
 python3 -m pip install nvidia-tensorflow
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Failed.&lt;/p&gt;
 
 &lt;h3&gt;Verify&lt;/h3&gt;
 
