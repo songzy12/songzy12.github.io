@@ -23,9 +23,9 @@ cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
 ./BlackScholes
 ```
 
-## TensorFlow
+## TensorFlow 1.15.4
 
-### 1.15.4
+### Nvidia TensorFlow
 
 <https://github.com/NVIDIA/tensorflow#install>
 
@@ -33,8 +33,6 @@ cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
 python3 -m pip install nvidia-pyindex
 python3 -m pip install nvidia-tensorflow
 ```
-
-Failed.
 
 ### Verify
 
