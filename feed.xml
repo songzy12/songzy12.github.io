@@ -1,4 +1,95 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-05-05T12:03:06+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T14:08:18+08:00</published><updated>2021-05-01T14:08:18+08:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-05-05T14:43:08+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/05/05/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-05-05T12:23:11+08:00</published><updated>2021-05-05T12:23:11+08:00</updated><id>http://songzy12.github.io/2021/05/05/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/05/05/tensorflow-gpu.html">&lt;p&gt;Enable TF 1.15 with RTX 3090.&lt;/p&gt;
+
+&lt;h2&gt;CUDA&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&quot;&gt;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations&quot;&gt;https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;Driver&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda/wsl&quot;&gt;https://developer.nvidia.com/cuda/wsl&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;Verify&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
+./BlackScholes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;TensorFlow&lt;/h2&gt;
+
+&lt;h3&gt;1.15.4&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/NVIDIA/tensorflow#install&quot;&gt;https://github.com/NVIDIA/tensorflow#install&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;python3 -m pip install nvidia-pyindex
+python3 -m pip install nvidia-tensorflow
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Failed.&lt;/p&gt;
+
+&lt;h3&gt;Verify&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available&quot;&gt;https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import tensorflow as tf
+
+tf.test.is_gpu_available(
+    cuda_only=False, min_cuda_compute_capability=None
+)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.nvidia.com/blog/accelerating-tensorflow-on-a100-gpus/&quot;&gt;https://developer.nvidia.com/blog/accelerating-tensorflow-on-a100-gpus/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Appendix&lt;/h2&gt;
+
+&lt;h3&gt;Tensorflow Tested Build from Source&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/install/source#gpu&quot;&gt;https://www.tensorflow.org/install/source#gpu&lt;/a&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt; Version &lt;/th&gt;
+&lt;th&gt; Python version &lt;/th&gt;
+&lt;th&gt; Compiler &lt;/th&gt;
+&lt;th&gt; Build tools &lt;/th&gt;
+&lt;th&gt; cuDNN &lt;/th&gt;
+&lt;th&gt; CUDA &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt; tensorflow-2.4.0 &lt;/td&gt;
+&lt;td&gt; 3.6-3.8 &lt;/td&gt;
+&lt;td&gt; GCC 7.3.1 &lt;/td&gt;
+&lt;td&gt; Bazel 3.1.0 &lt;/td&gt;
+&lt;td&gt; 8.0 &lt;/td&gt;
+&lt;td&gt; 11.0 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; tensorflow_gpu-1.15.0 &lt;/td&gt;
+&lt;td&gt; 2.7、3.3-3.7 &lt;/td&gt;
+&lt;td&gt; GCC 7.3.1 &lt;/td&gt;
+&lt;td&gt; Bazel 0.26.1 &lt;/td&gt;
+&lt;td&gt; 7.4 &lt;/td&gt;
+&lt;td&gt; 10.0 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h3&gt;Remove Python 3.7&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt list --installed | grep python3.7
+sudo apt remove python3.7
+sudo apt autoremove
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable TF 1.15 with RTX 3090.</summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T14:08:18+08:00</published><updated>2021-05-01T14:08:18+08:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Zsh Theme&lt;/h2&gt;
 
@@ -629,56 +720,4 @@ service apache2 reload
 &lt;h2&gt;Log&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;tail -f /var/log/apache2/error.log
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://ubuntu.com/tutorials/install-and-configure-apache</summary></entry><entry><title type="html">QR Code</title><link href="http://songzy12.github.io/2020/06/26/qr-code.html" rel="alternate" type="text/html" title="QR Code" /><published>2020-06-26T17:57:44+08:00</published><updated>2020-06-26T17:57:44+08:00</updated><id>http://songzy12.github.io/2020/06/26/qr-code</id><content type="html" xml:base="http://songzy12.github.io/2020/06/26/qr-code.html">&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/QR_code&quot;&gt;https://en.wikipedia.org/wiki/QR_code&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;QR Code:  Quick Response code&lt;/p&gt;
-
-&lt;blockquote&gt;&lt;p&gt;The processor locates the three distinctive squares at the corners of the QR code image, using a smaller square (or multiple squares) near the fourth corner to normalize the image for size, orientation, and angle of viewing.&lt;/p&gt;
-
-&lt;p&gt;The small dots throughout the QR code are then converted to binary numbers and validated with an error-correcting algorithm.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;h2&gt;Storage&lt;/h2&gt;
-
-&lt;blockquote&gt;&lt;p&gt;The amount of data that can be stored in the QR code symbol depends on the datatype (mode, or input character set), version (1, &amp;hellip;, 40, indicating the overall dimensions of the symbol, i.e. 4 × version number + 17 dots on each side), and error correction level.&lt;/p&gt;
-
-&lt;p&gt;The maximum storage capacities occur for version 40 and error correction level L (low), denoted by 40-L&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;h2&gt;Error Correction&lt;/h2&gt;
-
-&lt;blockquote&gt;&lt;p&gt;QR codes use Reed–Solomon error correction over the finite field $\displaystyle \mathbb {F} _{256}$, the elements of which are encoded as bytes of 8 bits.&lt;/p&gt;&lt;/blockquote&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;                    &lt;/th&gt;
-&lt;th&gt;                                    &lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt; Level L (Low)      &lt;/td&gt;
-&lt;td&gt; 7% of data bytes can be restored.  &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt; Level M (Medium)   &lt;/td&gt;
-&lt;td&gt; 15% of data bytes can be restored. &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt; Level Q (Quartile) &lt;/td&gt;
-&lt;td&gt; 25% of data bytes can be restored. &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt; Level H (High)     &lt;/td&gt;
-&lt;td&gt; 30% of data bytes can be restored. &lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-
-&lt;h2&gt;Encoding&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/QR_Format_Information.svg.png&quot; alt=&quot;QR Format&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/QR_Character_Placement.svg.png&quot; alt=&quot;QR Character Placement&quot; /&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/QR_Ver3_Codeword_Ordering.svg.png&quot; alt=&quot;QR Ver3 Codeword Ordering&quot; /&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://en.wikipedia.org/wiki/QR_code</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://ubuntu.com/tutorials/install-and-configure-apache</summary></entry></feed>
