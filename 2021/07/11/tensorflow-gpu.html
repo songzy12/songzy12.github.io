@@ -10,15 +10,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Enable TF 1.15 with RTX 3090." />
 <meta property="og:description" content="Enable TF 1.15 with RTX 3090." />
-<link rel="canonical" href="http://songzy12.github.io/2021/05/05/tensorflow-gpu.html" />
-<meta property="og:url" content="http://songzy12.github.io/2021/05/05/tensorflow-gpu.html" />
+<link rel="canonical" href="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" />
+<meta property="og:url" content="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-05-05T12:23:11+08:00" />
+<meta property="article:published_time" content="2021-07-11T12:23:11+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="TensorFlow GPU" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://songzy12.github.io/2021/05/05/tensorflow-gpu.html","headline":"TensorFlow GPU","dateModified":"2021-05-05T12:23:11+08:00","datePublished":"2021-05-05T12:23:11+08:00","author":{"@type":"Person","name":"Zhengyang Song"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2021/05/05/tensorflow-gpu.html"},"description":"Enable TF 1.15 with RTX 3090.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://songzy12.github.io/2021/07/11/tensorflow-gpu.html","headline":"TensorFlow GPU","dateModified":"2021-07-11T12:23:11+08:00","datePublished":"2021-07-11T12:23:11+08:00","author":{"@type":"Person","name":"Zhengyang Song"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2021/07/11/tensorflow-gpu.html"},"description":"Enable TF 1.15 with RTX 3090.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -43,7 +43,7 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">TensorFlow GPU</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2021-05-05T12:23:11+08:00" itemprop="datePublished">May 5, 2021
+      <time class="dt-published" datetime="2021-07-11T12:23:11+08:00" itemprop="datePublished">Jul 11, 2021
       </time></p>
   </header>
 
@@ -60,10 +60,21 @@
 
 <p><a href="https://developer.nvidia.com/cuda/wsl">https://developer.nvidia.com/cuda/wsl</a></p>
 
+<p>Then restart your computer.</p>
+
 <h3>Verify</h3>
 
 <pre><code>cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
 ./BlackScholes
+</code></pre>
+
+<h3>Toolkit</h3>
+
+<pre><code>cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
+sudo ln -s libcusolver.so.10 libcusolver.so.11
+</code></pre>
+
+<pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib
 </code></pre>
 
 <h2>TensorFlow 1.15.4</h2>
@@ -82,9 +93,7 @@ python3 -m pip install nvidia-tensorflow
 
 <pre><code>import tensorflow as tf
 
-tf.test.is_gpu_available(
-    cuda_only=False, min_cuda_compute_capability=None
-)
+tf.config.list_physical_devices('GPU')
 </code></pre>
 
 <h2>Reference</h2>
@@ -103,29 +112,29 @@ tf.test.is_gpu_available(
 <table>
 <thead>
 <tr>
-<th> Version </th>
+<th> Version               </th>
 <th> Python version </th>
-<th> Compiler </th>
-<th> Build tools </th>
+<th> Compiler  </th>
+<th> Build tools  </th>
 <th> cuDNN </th>
 <th> CUDA </th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td> tensorflow-2.4.0 </td>
-<td> 3.6-3.8 </td>
+<td> tensorflow-2.4.0      </td>
+<td> 3.6-3.8        </td>
 <td> GCC 7.3.1 </td>
-<td> Bazel 3.1.0 </td>
-<td> 8.0 </td>
+<td> Bazel 3.1.0  </td>
+<td> 8.0   </td>
 <td> 11.0 </td>
 </tr>
 <tr>
 <td> tensorflow_gpu-1.15.0 </td>
-<td> 2.7、3.3-3.7 </td>
+<td> 2.7、3.3-3.7   </td>
 <td> GCC 7.3.1 </td>
 <td> Bazel 0.26.1 </td>
-<td> 7.4 </td>
+<td> 7.4   </td>
 <td> 10.0 </td>
 </tr>
 </tbody>
@@ -139,7 +148,7 @@ sudo apt remove python3.7
 sudo apt autoremove
 </code></pre>
 
-  </div><a class="u-url" href="/2021/05/05/tensorflow-gpu.html" hidden></a>
+  </div><a class="u-url" href="/2021/07/11/tensorflow-gpu.html" hidden></a>
 </article>
 
       </div>

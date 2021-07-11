@@ -1,4 +1,102 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-07-01T22:17:46+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2021/07/01/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2021-07-01T20:07:54+08:00</published><updated>2021-07-01T20:07:54+08:00</updated><id>http://songzy12.github.io/2021/07/01/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2021/07/01/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-07-11T14:30:41+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-07-11T12:23:11+08:00</published><updated>2021-07-11T12:23:11+08:00</updated><id>http://songzy12.github.io/2021/07/11/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html">&lt;p&gt;Enable TF 1.15 with RTX 3090.&lt;/p&gt;
+
+&lt;h2&gt;CUDA&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&quot;&gt;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations&quot;&gt;https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;Driver&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda/wsl&quot;&gt;https://developer.nvidia.com/cuda/wsl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Then restart your computer.&lt;/p&gt;
+
+&lt;h3&gt;Verify&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
+./BlackScholes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Toolkit&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
+sudo ln -s libcusolver.so.10 libcusolver.so.11
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;TensorFlow 1.15.4&lt;/h2&gt;
+
+&lt;h3&gt;Nvidia TensorFlow&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/NVIDIA/tensorflow#install&quot;&gt;https://github.com/NVIDIA/tensorflow#install&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;python3 -m pip install nvidia-pyindex
+python3 -m pip install nvidia-tensorflow
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Verify&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available&quot;&gt;https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import tensorflow as tf
+
+tf.config.list_physical_devices('GPU')
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.nvidia.com/blog/accelerating-tensorflow-on-a100-gpus/&quot;&gt;https://developer.nvidia.com/blog/accelerating-tensorflow-on-a100-gpus/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Appendix&lt;/h2&gt;
+
+&lt;h3&gt;Tensorflow Tested Build from Source&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/install/source#gpu&quot;&gt;https://www.tensorflow.org/install/source#gpu&lt;/a&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt; Version               &lt;/th&gt;
+&lt;th&gt; Python version &lt;/th&gt;
+&lt;th&gt; Compiler  &lt;/th&gt;
+&lt;th&gt; Build tools  &lt;/th&gt;
+&lt;th&gt; cuDNN &lt;/th&gt;
+&lt;th&gt; CUDA &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt; tensorflow-2.4.0      &lt;/td&gt;
+&lt;td&gt; 3.6-3.8        &lt;/td&gt;
+&lt;td&gt; GCC 7.3.1 &lt;/td&gt;
+&lt;td&gt; Bazel 3.1.0  &lt;/td&gt;
+&lt;td&gt; 8.0   &lt;/td&gt;
+&lt;td&gt; 11.0 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; tensorflow_gpu-1.15.0 &lt;/td&gt;
+&lt;td&gt; 2.7、3.3-3.7   &lt;/td&gt;
+&lt;td&gt; GCC 7.3.1 &lt;/td&gt;
+&lt;td&gt; Bazel 0.26.1 &lt;/td&gt;
+&lt;td&gt; 7.4   &lt;/td&gt;
+&lt;td&gt; 10.0 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h3&gt;Remove Python 3.7&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt list --installed | grep python3.7
+sudo apt remove python3.7
+sudo apt autoremove
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable TF 1.15 with RTX 3090.</summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2021/07/01/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2021-07-01T20:07:54+08:00</published><updated>2021-07-01T20:07:54+08:00</updated><id>http://songzy12.github.io/2021/07/01/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2021/07/01/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
 
 &lt;h2&gt;release&lt;/h2&gt;
 
@@ -207,96 +305,7 @@ source ~/.bashrc
   &quot;outbounds&quot;: [
       &quot;streamSettings&quot;:{
         &quot;network&quot;:&quot;ws&quot;
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to install and enabel V2Ray proxy.</summary></entry><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/05/05/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-05-05T12:23:11+08:00</published><updated>2021-05-05T12:23:11+08:00</updated><id>http://songzy12.github.io/2021/05/05/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/05/05/tensorflow-gpu.html">&lt;p&gt;Enable TF 1.15 with RTX 3090.&lt;/p&gt;
-
-&lt;h2&gt;CUDA&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&quot;&gt;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations&quot;&gt;https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3&gt;Driver&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda/wsl&quot;&gt;https://developer.nvidia.com/cuda/wsl&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3&gt;Verify&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
-./BlackScholes
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;TensorFlow 1.15.4&lt;/h2&gt;
-
-&lt;h3&gt;Nvidia TensorFlow&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/NVIDIA/tensorflow#install&quot;&gt;https://github.com/NVIDIA/tensorflow#install&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;python3 -m pip install nvidia-pyindex
-python3 -m pip install nvidia-tensorflow
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;Verify&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available&quot;&gt;https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;import tensorflow as tf
-
-tf.test.is_gpu_available(
-    cuda_only=False, min_cuda_compute_capability=None
-)
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;Reference&lt;/h2&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://developer.nvidia.com/blog/accelerating-tensorflow-on-a100-gpus/&quot;&gt;https://developer.nvidia.com/blog/accelerating-tensorflow-on-a100-gpus/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;Appendix&lt;/h2&gt;
-
-&lt;h3&gt;Tensorflow Tested Build from Source&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/install/source#gpu&quot;&gt;https://www.tensorflow.org/install/source#gpu&lt;/a&gt;&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt; Version &lt;/th&gt;
-&lt;th&gt; Python version &lt;/th&gt;
-&lt;th&gt; Compiler &lt;/th&gt;
-&lt;th&gt; Build tools &lt;/th&gt;
-&lt;th&gt; cuDNN &lt;/th&gt;
-&lt;th&gt; CUDA &lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt; tensorflow-2.4.0 &lt;/td&gt;
-&lt;td&gt; 3.6-3.8 &lt;/td&gt;
-&lt;td&gt; GCC 7.3.1 &lt;/td&gt;
-&lt;td&gt; Bazel 3.1.0 &lt;/td&gt;
-&lt;td&gt; 8.0 &lt;/td&gt;
-&lt;td&gt; 11.0 &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt; tensorflow_gpu-1.15.0 &lt;/td&gt;
-&lt;td&gt; 2.7、3.3-3.7 &lt;/td&gt;
-&lt;td&gt; GCC 7.3.1 &lt;/td&gt;
-&lt;td&gt; Bazel 0.26.1 &lt;/td&gt;
-&lt;td&gt; 7.4 &lt;/td&gt;
-&lt;td&gt; 10.0 &lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-
-
-&lt;h3&gt;Remove Python 3.7&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt list --installed | grep python3.7
-sudo apt remove python3.7
-sudo apt autoremove
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable TF 1.15 with RTX 3090.</summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T14:08:18+08:00</published><updated>2021-05-01T14:08:18+08:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to install and enabel V2Ray proxy.</summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T14:08:18+08:00</published><updated>2021-05-01T14:08:18+08:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Zsh Theme&lt;/h2&gt;
 
