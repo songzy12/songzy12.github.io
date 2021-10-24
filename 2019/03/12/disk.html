@@ -3,22 +3,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Crypt | Zhengyang Song&rsquo;s Secret Base</title>
+<title>Disk | Zhengyang Song&rsquo;s Secret Base</title>
 <meta name="generator" content="Jekyll v3.8.7" />
-<meta property="og:title" content="Crypt" />
+<meta property="og:title" content="Disk" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Crypt Level 1" />
-<meta property="og:description" content="Crypt Level 1" />
-<link rel="canonical" href="http://songzy12.github.io/2017/04/04/crypt.html" />
-<meta property="og:url" content="http://songzy12.github.io/2017/04/04/crypt.html" />
+<meta name="description" content="EFI" />
+<meta property="og:description" content="EFI" />
+<link rel="canonical" href="http://songzy12.github.io/2019/03/12/disk.html" />
+<meta property="og:url" content="http://songzy12.github.io/2019/03/12/disk.html" />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2017-04-04T22:20:23+08:00" />
+<meta property="article:published_time" content="2019-03-12T17:12:30+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Crypt" />
+<meta property="twitter:title" content="Disk" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://songzy12.github.io/2017/04/04/crypt.html","headline":"Crypt","dateModified":"2017-04-04T22:20:23+08:00","datePublished":"2017-04-04T22:20:23+08:00","author":{"@type":"Person","name":"Zhengyang Song"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/04/04/crypt.html"},"description":"Crypt Level 1","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://songzy12.github.io/2019/03/12/disk.html","headline":"Disk","dateModified":"2019-03-12T17:12:30+08:00","datePublished":"2019-03-12T17:12:30+08:00","author":{"@type":"Person","name":"Zhengyang Song"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2019/03/12/disk.html"},"description":"EFI","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -41,54 +41,70 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Crypt</h1>
+    <h1 class="post-title p-name" itemprop="name headline">Disk</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2017-04-04T22:20:23+08:00" itemprop="datePublished">Apr 4, 2017
+      <time class="dt-published" datetime="2019-03-12T17:12:30+08:00" itemprop="datePublished">Mar 12, 2019
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2>Crypt Level 1</h2>
+    <h2>EFI</h2>
 
-<p>Just read the message backwards.</p>
+<p><a href="http://linuxbsdos.com/2015/09/05/how-to-delete-grub-files-from-a-boot-efi-partition-in-windows-10/">http://linuxbsdos.com/2015/09/05/how-to-delete-grub-files-from-a-boot-efi-partition-in-windows-10/</a></p>
 
-<h2>Crypt Level 2</h2>
+<pre><code>% These commands are used to identify and select the hard drive
 
-<p>Shift the letters.</p>
+diskpart
 
-<h2>Crypt Level 3</h2>
+list disk
 
-<p>[morse]<a href="https://zh.wikipedia.org/zh-hans/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81">https://zh.wikipedia.org/zh-hans/%E6%91%A9%E5%B0%94%E6%96%AF%E7%94%B5%E7%A0%81</a>.</p>
+sel disk 
 
-<h2>Crypt Level 4</h2>
+% These commands are used to list the partitions, select the Boot EFI partition, 
+% then assign it a drive letter
 
-<pre><code>Dc
-Hi
-Jhll
-Pass
+list vol
 
-abcdefghijklmnopqrstuvwxyz
-fxihxxtaxpdsnrgxemlxwxvxco  
+sel vol 2
 
-cdhwqancqmkl
-ihavefriends
+assign letter=D:
+
+exit
+
+% These commands are used to change into the Boot EFI folder and delete the GRUB folder
+
+cd /d D:
+
+ls
+
+ls EFI
+
+cd EFI
+
+ls
+
+rmdir /s ubuntu
 </code></pre>
 
-<h2>Crypt Level 5</h2>
+<pre><code>diskpart
+select disk 0
+select partition 3
+delete partition override
+exit
+</code></pre>
 
-<p><a href="https://quipqiup.com/">substitution ciphers</a></p>
+<h2>Windows</h2>
 
-<h2>Crypt Level 6</h2>
+<p>Windows 查看磁盘分区格式</p>
 
-<p><a href="https://en.wikipedia.org/wiki/Steganography">steganography</a></p>
+<ol>
+<li>按下 <code>Win+R</code> 打开运行，输入 <code>cmd</code>，打开命令提示符；</li>
+<li>输入 <code>diskpart</code> 按回车执行，切换到 DISKPART 命令，输入<code>list disk</code>，按回车；</li>
+<li>查看最后一列的GPT，如果有*号则为GPT，如果没有则为MBR。</li>
+</ol>
 
-<p>Audacity` for audio processing.</p>
 
-<p><a href="https://en.wikipedia.org/wiki/Maya_numerals">Maya numerals</a>.</p>
-
-<p><a href="http://chxo.com/scripts/hex2string.php">hexadecimal converter</a></p>
-
-  </div><a class="u-url" href="/2017/04/04/crypt.html" hidden></a>
+  </div><a class="u-url" href="/2019/03/12/disk.html" hidden></a>
 </article>
 
       </div>
