@@ -1,4 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-10-24T15:35:05+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-07-11T12:23:11+08:00</published><updated>2021-07-11T12:23:11+08:00</updated><id>http://songzy12.github.io/2021/07/11/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html">&lt;p&gt;Enable TF 1.15 with RTX 3090.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-10-24T20:33:01+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Paddle GPU</title><link href="http://songzy12.github.io/2021/10/21/paddle-gpu.html" rel="alternate" type="text/html" title="Paddle GPU" /><published>2021-10-21T15:43:08+08:00</published><updated>2021-10-21T15:43:08+08:00</updated><id>http://songzy12.github.io/2021/10/21/paddle-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/10/21/paddle-gpu.html">&lt;p&gt;Enable GPU for PaddlePaddle.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;W1024 17:30:14.785153  6727 device_context.cc:404] Please NOTE: device: 0, GPU Compute Capability: 8.6, Driver API Version: 11.4, Runtime API Version: 10.2
+W1024 17:30:14.788581  6727 device_context.cc:422] device: 0, cuDNN Version: 8.1.
+Traceback (most recent call last):
+  File &quot;train.py&quot;, line 63, in &amp;lt;module&amp;gt;
+    model = FastText(vocab_size, num_classes, args.emb_dim)
+  File &quot;/home/songzy/fastText-paddle/model.py&quot;, line 21, in __init__
+    self.embedder = nn.Embedding(vocab_size, emb_dim)
+  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/nn/layer/common.py&quot;, line 1343, in __init__
+    self.weight = self.create_parameter(
+  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/dygraph/layers.py&quot;, line 411, in create_parameter
+    return self._helper.create_parameter(temp_attr, shape, dtype, is_bias,
+  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/layer_helper_base.py&quot;, line 369, in create_parameter
+    return self.main_program.global_block().create_parameter(
+  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/framework.py&quot;, line 2920, in create_parameter
+    initializer(param, self)
+  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/initializer.py&quot;, line 561, in __call__
+    op = block.append_op(
+  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/framework.py&quot;, line 2946, in append_op
+    _dygraph_tracer().trace_op(type,
+  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/dygraph/tracer.py&quot;, line 43, in trace_op
+    self.trace(type, inputs, outputs, attrs,
+SystemError: (Fatal) Operator uniform_random raises an thrust::system::system_error exception.
+The exception content is
+:parallel_for failed: cudaErrorNoKernelImageForDevice: no kernel image is available for execution on the device. (at /paddle/paddle/fluid/imperative/tracer.cc:192)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ python
+&amp;gt;&amp;gt;&amp;gt; import paddle
+&amp;gt;&amp;gt;&amp;gt; paddle.utils.run_check() 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;&lt;p&gt;这种情况一般出现在编译和运行在不同架构的显卡上，且cmake时未指定运行时需要的CUDA架构。可以在cmake时加上 -DCUDA_ARCH_NAME=All（或者特定的架构如Turing、Volta、Pascal等），否则会使用默认值Auto，此时只会当前的CUDA架构编译。&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;$ nvidia-smi
+
+Sun Oct 24 20:28:01 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.28       Driver Version: 470.76       CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0  On |                  N/A |
+| 30%   35C    P8    16W / 350W |   1782MiB / 24576MiB |    ERR!      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html&quot;&gt;https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install paddlepaddle-gpu==2.1.3.post110 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable GPU for PaddlePaddle.</summary></entry><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-07-11T12:23:11+08:00</published><updated>2021-07-11T12:23:11+08:00</updated><id>http://songzy12.github.io/2021/07/11/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html">&lt;p&gt;Enable TF 1.15 with RTX 3090.&lt;/p&gt;
 
 &lt;h2&gt;CUDA&lt;/h2&gt;
 
@@ -10,7 +72,7 @@
 
 &lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda/wsl&quot;&gt;https://developer.nvidia.com/cuda/wsl&lt;/a&gt;&lt;/p&gt;
 
-&lt;p&gt;Then restart your computer.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Then restart your computer&lt;/strong&gt;.&lt;/p&gt;
 
 &lt;h3&gt;Verify&lt;/h3&gt;
 
@@ -842,70 +904,4 @@ nvm ls-remote
 &lt;li&gt;1X T4 ~$383.98/month&lt;/li&gt;
 &lt;li&gt;1X M60    ~$797.1600/month&lt;/li&gt;
 &lt;li&gt;1X P40    ~$1,511.10/month&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Just want compare the prices of GPU VMs.</summary></entry><entry><title type="html">Vim Config</title><link href="http://songzy12.github.io/2020/07/13/vim-config.html" rel="alternate" type="text/html" title="Vim Config" /><published>2020-07-13T21:18:08+08:00</published><updated>2020-07-13T21:18:08+08:00</updated><id>http://songzy12.github.io/2020/07/13/vim-config</id><content type="html" xml:base="http://songzy12.github.io/2020/07/13/vim-config.html">&lt;h2&gt;.vimrc&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;set ignorecase 
-set hlsearch
-set encoding=utf-8
-set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-set termencoding=utf-8
-set encoding=utf-8
-set cursorline
-set autoindent
-set smartindent
-set scrolloff=4
-set showmatch
-set number
-
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set fileformat=unix
-
-colorscheme desert
-
-set nocompatible              &quot; required
-filetype off                  &quot; required
-
-&quot; set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-&quot; alternatively, pass a path where Vundle should install plugins
-&quot;call vundle#begin('~/some/path/here')
-
-&quot; let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-&quot; Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-Plugin 'Chiel92/vim-autoformat'
-nnoremap &amp;lt;F6&amp;gt; :Autoformat&amp;lt;CR&amp;gt;
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
-
-
-&quot; All of your Plugins must be added before the following line
-call vundle#end()            &quot; required
-filetype plugin indent on    &quot; required
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;vundle&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/VundleVim/Vundle.vim&quot;&gt;https://github.com/VundleVim/Vundle.vim&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Put this in your &lt;code&gt;.vimrc&lt;/code&gt;.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Plugin 'Chiel92/vim-autoformat'
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Then restart vim and run &lt;code&gt;:PluginInstall&lt;/code&gt;.&lt;/p&gt;
-
-&lt;p&gt;注意这里 autoformat 要对 Python 起作用的话还要安装 autopep8:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;pip install autopep8
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">.vimrc</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Just want compare the prices of GPU VMs.</summary></entry></feed>
