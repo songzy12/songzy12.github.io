@@ -16,7 +16,7 @@ Enable TF 1.15 with RTX 3090.
 
 <https://developer.nvidia.com/cuda/wsl>
 
-Then restart your computer.
+**Then restart your computer**.
 
 ### Verify
 
