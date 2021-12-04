@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-11-30T21:51:00+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2021/11/30/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2021-11-30T20:07:54+08:00</published><updated>2021-11-30T20:07:54+08:00</updated><id>http://songzy12.github.io/2021/11/30/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2021/11/30/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-12-04T14:50:57+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2021/11/30/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2021-11-30T20:07:54+08:00</published><updated>2021-11-30T20:07:54+08:00</updated><id>http://songzy12.github.io/2021/11/30/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2021/11/30/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
 
 &lt;h2&gt;release&lt;/h2&gt;
 
@@ -227,6 +227,13 @@ $ ~/.acme.sh/acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v
   &quot;outbounds&quot;: [
       &quot;streamSettings&quot;:{
         &quot;network&quot;:&quot;ws&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;env var&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
+export http_proxy=http://$windows_host:10809
+export https_proxy=http://$windows_host:10809
 &lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to install and enabel V2Ray proxy.</summary></entry><entry><title type="html">Paddle GPU</title><link href="http://songzy12.github.io/2021/10/21/paddle-gpu.html" rel="alternate" type="text/html" title="Paddle GPU" /><published>2021-10-21T15:43:08+08:00</published><updated>2021-10-21T15:43:08+08:00</updated><id>http://songzy12.github.io/2021/10/21/paddle-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/10/21/paddle-gpu.html">&lt;p&gt;Enable GPU for PaddlePaddle.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;W1024 17:30:14.785153  6727 device_context.cc:404] Please NOTE: device: 0, GPU Compute Capability: 8.6, Driver API Version: 11.4, Runtime API Version: 10.2
