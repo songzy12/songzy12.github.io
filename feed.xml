@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2021-12-04T14:50:57+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2021/11/30/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2021-11-30T20:07:54+08:00</published><updated>2021-11-30T20:07:54+08:00</updated><id>http://songzy12.github.io/2021/11/30/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2021/11/30/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-01-14T20:15:14+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Ssh</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="Ssh" /><published>2022-01-13T00:00:00+08:00</published><updated>2022-01-13T00:00:00+08:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html"></content><author><name>Zhengyang Song</name></author><summary type="html"></summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2021/11/30/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2021-11-30T20:07:54+08:00</published><updated>2021-11-30T20:07:54+08:00</updated><id>http://songzy12.github.io/2021/11/30/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2021/11/30/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
 
 &lt;h2&gt;release&lt;/h2&gt;
 
@@ -859,76 +859,4 @@ nvm ls-remote
 &lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/43063489&quot;&gt;https://zhuanlan.zhihu.com/p/43063489&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/61411536&quot;&gt;https://zhuanlan.zhihu.com/p/61411536&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/question/67965694&quot;&gt;https://www.zhihu.com/question/67965694&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Here we discuss how to use external GPU for ThinkPad T470.</summary></entry><entry><title type="html">GPU Virtual Machines Prices</title><link href="http://songzy12.github.io/2020/08/21/gpu-vm-prices.html" rel="alternate" type="text/html" title="GPU Virtual Machines Prices" /><published>2020-08-21T21:08:10+08:00</published><updated>2020-08-21T21:08:10+08:00</updated><id>http://songzy12.github.io/2020/08/21/gpu-vm-prices</id><content type="html" xml:base="http://songzy12.github.io/2020/08/21/gpu-vm-prices.html">&lt;p&gt;Just want compare the prices of GPU VMs.&lt;/p&gt;
-
-&lt;h2&gt;Tencent Cloud&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://buy.cloud.tencent.com/cvm?tab=custom&amp;amp;step=1&amp;amp;devPayMode=monthly&amp;amp;regionId=8&amp;amp;zoneId=800003&amp;amp;instanceType=SA2.SMALL1&amp;amp;platform=Ubuntu&amp;amp;systemDiskType=CLOUD_PREMIUM&amp;amp;systemDiskSize=50&amp;amp;bandwidthType=BANDWIDTH_PREPAID&amp;amp;bandwidth=1&amp;amp;hpcClusterId=null&quot;&gt;https://buy.cloud.tencent.com/cvm?tab=custom&amp;amp;step=1&amp;amp;devPayMode=monthly&amp;amp;regionId=8&amp;amp;zoneId=800003&amp;amp;instanceType=SA2.SMALL1&amp;amp;platform=Ubuntu&amp;amp;systemDiskType=CLOUD_PREMIUM&amp;amp;systemDiskSize=50&amp;amp;bandwidthType=BANDWIDTH_PREPAID&amp;amp;bandwidth=1&amp;amp;hpcClusterId=null&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;1 颗 Tesla M40  2781.28元/月&lt;/li&gt;
-&lt;li&gt;1 颗 Tesla P4   2000元/月&lt;/li&gt;
-&lt;li&gt;1 颗 NVIDIA T4  2500元/月&lt;/li&gt;
-&lt;li&gt;1 颗 Tesla P40  4400元/月&lt;/li&gt;
-&lt;li&gt;1 颗 Tesla V100-NVLINK-32G   5190元/月&lt;/li&gt;
-&lt;li&gt;&amp;frac14; 颗 NVIDIA T4 975元/月&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;Baidu Cloud&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://cloud.baidu.com/calculator.html?fromGpuProduct=true#/bcc/price&quot;&gt;https://cloud.baidu.com/calculator.html?fromGpuProduct=true#/bcc/price&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;NVIDIA Tesla T4   ￥3182.00&lt;/li&gt;
-&lt;li&gt;NVIDIA Tesla V100-16G ￥5143.00&lt;/li&gt;
-&lt;li&gt;NVIDIA Tesla P40  ￥4031.00&lt;/li&gt;
-&lt;li&gt;NVIDIA Tesla P4   ￥2894.00&lt;/li&gt;
-&lt;li&gt;NVIDIA Tesla K40  ￥3164.00&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;Huawei Cloud&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.huaweicloud.com/product/ecs.html&quot;&gt;https://www.huaweicloud.com/product/ecs.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;GPU型号 Nvidia T4 单GPU显存 16G   ￥3,514.79/月&lt;/li&gt;
-&lt;li&gt;GPU型号 Nvidia V100 单GPU显存 16G ￥7,889.80/月&lt;/li&gt;
-&lt;li&gt;GPU型号 Nvidia M60 单GPU显存 8G   ￥3,527.70/月&lt;/li&gt;
-&lt;li&gt;GPU型号 Nvidia P100 单GPU显存 16G ￥5,277.70/月&lt;/li&gt;
-&lt;li&gt;GPU型号 Nvidia P4 单GPU显存 8G    ￥3,193.90/月&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;Aliyun&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.aliyun.com/product/ecs&quot;&gt;https://www.aliyun.com/product/ecs&lt;/a&gt;&lt;/p&gt;
-
-&lt;h2&gt;Google Cloud&lt;/h2&gt;
-
-&lt;p&gt;NVIDIA K80、P100、P4、T4 及 V100 GPU&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://cloud.google.com/compute/gpus-pricing&quot;&gt;https://cloud.google.com/compute/gpus-pricing&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;NVIDIA® Tesla® T4   1 个 GPU   16 GB GDDR6 $178.85 per GPU&lt;/li&gt;
-&lt;li&gt;NVIDIA® Tesla® P4   1 个 GPU   8 GB GDDR5  $306.60 per GPU&lt;/li&gt;
-&lt;li&gt;NVIDIA® Tesla® V100 1 个 GPU   16 GB HBM2  $1267.28 per GPU&lt;/li&gt;
-&lt;li&gt;NVIDIA® Tesla® P100 1 个 GPU   16 GB HBM2  $746.06 per GPU&lt;/li&gt;
-&lt;li&gt;NVIDIA® Tesla® K80  1 个 GPU   12 GB GDDR5 $229.95 per GPU&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;Microsoft Azure&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#n-series&quot;&gt;https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#n-series&lt;/a&gt;&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;1X K80    ~$657/month&lt;/li&gt;
-&lt;li&gt;1X P100   ~$1,511.10/month&lt;/li&gt;
-&lt;li&gt;1X V100   ~$2,233.80/month&lt;/li&gt;
-&lt;li&gt;1X T4 ~$383.98/month&lt;/li&gt;
-&lt;li&gt;1X M60    ~$797.1600/month&lt;/li&gt;
-&lt;li&gt;1X P40    ~$1,511.10/month&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Just want compare the prices of GPU VMs.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Here we discuss how to use external GPU for ThinkPad T470.</summary></entry></feed>
