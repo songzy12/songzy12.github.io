@@ -279,6 +279,13 @@ $ ~/.acme.sh/acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v
         "network":"ws"
 </code></pre>
 
+<h2>env var</h2>
+
+<pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
+export http_proxy=http://$windows_host:10809
+export https_proxy=http://$windows_host:10809
+</code></pre>
+
 <h2>routing: direct or proxy?</h2>
 
 <pre><code>  "routing": {
@@ -315,13 +322,6 @@ $ ~/.acme.sh/acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v
       }
     ]
   }
-</code></pre>
-
-<h2>env var</h2>
-
-<pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
-export http_proxy=http://$windows_host:10809
-export https_proxy=http://$windows_host:10809
 </code></pre>
 
   </div><a class="u-url" href="/2021/11/30/v2ray.html" hidden></a>

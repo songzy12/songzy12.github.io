@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-01-23T17:45:34+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">SSH</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="SSH" /><published>2022-01-13T20:46:54+08:00</published><updated>2022-01-13T20:46:54+08:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html">&lt;p&gt;How to config SSH of tencent cloud.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-01-23T17:53:12+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">SSH</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="SSH" /><published>2022-01-13T20:46:54+08:00</published><updated>2022-01-13T20:46:54+08:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html">&lt;p&gt;How to config SSH of tencent cloud.&lt;/p&gt;
 
 &lt;h2&gt;Config Files for Client &amp;amp; Server&lt;/h2&gt;
 
@@ -250,6 +250,13 @@ $ ~/.acme.sh/acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v
         &quot;network&quot;:&quot;ws&quot;
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h2&gt;env var&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
+export http_proxy=http://$windows_host:10809
+export https_proxy=http://$windows_host:10809
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2&gt;routing: direct or proxy?&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;  &quot;routing&quot;: {
@@ -286,13 +293,6 @@ $ ~/.acme.sh/acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v
       }
     ]
   }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;env var&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
-export http_proxy=http://$windows_host:10809
-export https_proxy=http://$windows_host:10809
 &lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to install and enabel V2Ray proxy.</summary></entry><entry><title type="html">Paddle GPU</title><link href="http://songzy12.github.io/2021/10/21/paddle-gpu.html" rel="alternate" type="text/html" title="Paddle GPU" /><published>2021-10-21T15:43:08+08:00</published><updated>2021-10-21T15:43:08+08:00</updated><id>http://songzy12.github.io/2021/10/21/paddle-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/10/21/paddle-gpu.html">&lt;p&gt;Enable GPU for PaddlePaddle.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;W1024 17:30:14.785153  6727 device_context.cc:404] Please NOTE: device: 0, GPU Compute Capability: 8.6, Driver API Version: 11.4, Runtime API Version: 10.2
