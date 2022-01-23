@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-01-18T21:20:01+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">SSH</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="SSH" /><published>2022-01-13T20:46:54+08:00</published><updated>2022-01-13T20:46:54+08:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html">&lt;p&gt;How to config SSH of tencent cloud.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-01-23T17:45:34+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">SSH</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="SSH" /><published>2022-01-13T20:46:54+08:00</published><updated>2022-01-13T20:46:54+08:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html">&lt;p&gt;How to config SSH of tencent cloud.&lt;/p&gt;
 
 &lt;h2&gt;Config Files for Client &amp;amp; Server&lt;/h2&gt;
 
@@ -248,6 +248,44 @@ $ ~/.acme.sh/acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v
   &quot;outbounds&quot;: [
       &quot;streamSettings&quot;:{
         &quot;network&quot;:&quot;ws&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;routing: direct or proxy?&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;  &quot;routing&quot;: {
+    &quot;domainStrategy&quot;: &quot;IPOnDemand&quot;,
+    &quot;rules&quot;: [
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;inboundTag&quot;: [
+          &quot;api&quot;
+        ],
+        &quot;outboundTag&quot;: &quot;api&quot;
+      },
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;outboundTag&quot;: &quot;proxy&quot;,
+        &quot;domain&quot;: [
+          &quot;udp&quot;,
+          &quot;tcp&quot;
+        ]
+      },
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;outboundTag&quot;: &quot;direct&quot;,
+        &quot;domain&quot;: [
+          &quot;geosite:cn&quot;
+        ]
+      },
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;outboundTag&quot;: &quot;block&quot;,
+        &quot;domain&quot;: [
+          &quot;geosite:category-ads-all&quot;
+        ]
+      }
+    ]
+  }
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2&gt;env var&lt;/h2&gt;
