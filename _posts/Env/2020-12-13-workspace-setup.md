@@ -112,13 +112,15 @@ pip install virtualenvwrapper
 ```
 
 ```
-vi ~/.bashrc
+# vi ~/.bashrc
+vi ~/.zshrc
 ```
 
 ```
 export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
+# source /usr/local/bin/virtualenvwrapper.sh
+source ~/.local/bin/virtualenvwrapper.sh
 ```
 
 ## git config
