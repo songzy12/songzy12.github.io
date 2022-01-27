@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-01-25T23:59:35+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">SSH</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="SSH" /><published>2022-01-13T20:46:54+08:00</published><updated>2022-01-13T20:46:54+08:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html">&lt;p&gt;How to config SSH of tencent cloud.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.6">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-01-27T17:47:17+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">SSH</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="SSH" /><published>2022-01-13T20:46:54+08:00</published><updated>2022-01-13T20:46:54+08:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html">&lt;p&gt;How to config SSH of tencent cloud.&lt;/p&gt;
 
 &lt;h2&gt;Config Files for Client &amp;amp; Server&lt;/h2&gt;
 
@@ -759,12 +759,14 @@ jupyter contrib nbextension install --user
 &lt;pre&gt;&lt;code&gt;pip install virtualenvwrapper
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;vi ~/.bashrc
+&lt;pre&gt;&lt;code&gt;# vi ~/.bashrc
+vi ~/.zshrc
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
+# source /usr/local/bin/virtualenvwrapper.sh
+source ~/.local/bin/virtualenvwrapper.sh
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2&gt;git config&lt;/h2&gt;
