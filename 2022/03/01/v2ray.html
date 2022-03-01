@@ -75,78 +75,19 @@ sudo systemctl enable v2ray
 sudo systemctl status v2ray
 </code></pre>
 
+<h3>vmess aead</h3>
+
+<pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+</code></pre>
+
 <h2>config</h2>
 
 <pre><code>sudo vi /usr/local/etc/v2ray/config.json
 </code></pre>
 
-<h3>log</h3>
-
-<pre><code>  "log": {
-    "loglevel": "warning",
-    "access": "/var/log/v2ray/access.log",
-    "error": "/var/log/v2ray/error.log"
-  }
-</code></pre>
-
-<h3>server</h3>
-
-<pre><code>{
-  "inbounds": [{
-    "port": 443,
-    "protocol": "vmess",
-    "settings": {
-      "clients": [
-        {
-          "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
-          "level": 1,
-          "alterId": 0
-        }
-      ]
-    },
-    "streamSettings": {
-      "network": "tcp",
-      "security": "tls",
-      "tlsSettings": {
-        "certificates": [
-          {
-            "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
-            "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
-          }
-        ]
-      }
-    }
-  }],
-  "outbounds": [{
-    "protocol": "freedom",
-    "settings": {}
-  },{
-    "protocol": "blackhole",
-    "settings": {},
-    "tag": "blocked"
-  }],
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "ip": ["geoip:private"],
-        "outboundTag": "blocked"
-      }
-    ]
-  }
-}
-</code></pre>
-
-<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
-
 <h3>client</h3>
 
 <pre><code>{
-  "log": {
-    "access": "",
-    "error": "",
-    "loglevel": "warning"
-  },
   "inbound": {
     "port": 1080,
     "listen": "127.0.0.1",
@@ -228,6 +169,99 @@ sudo systemctl status v2ray
 }
 </code></pre>
 
+<h3>server</h3>
+
+<pre><code>{
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
+            "level": 1,
+            "alterId": 0
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "tcp",
+        "security": "tls",
+        "tlsSettings": {
+          "certificates": [
+            {
+              "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
+              "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ]
+}
+</code></pre>
+
+<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
+
+<h2>log</h2>
+
+<pre><code>  "log": {
+    "loglevel": "warning",
+    "access": "/var/log/v2ray/access.log",
+    "error": "/var/log/v2ray/error.log"
+  }
+</code></pre>
+
+<h2>routing rules</h2>
+
+<pre><code>  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "api"
+        ],
+        "outboundTag": "api"
+      },
+      {
+        "type": "field",
+        "outboundTag": "proxy",
+        "domain": [
+          "udp",
+          "tcp"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "domain": [
+          "geosite:cn"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "block",
+        "domain": [
+          "geosite:category-ads-all"
+        ]
+      }
+    ]
+  }
+</code></pre>
+
 <h2>tls</h2>
 
 <h3>ufw</h3>
@@ -274,54 +308,11 @@ $ source ~/.bashrc
 [Tue Nov 30 01:46:38 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
 </code></pre>
 
-<h2>vmess aead</h2>
-
-<pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
-</code></pre>
-
 <h2>http_proxy</h2>
 
 <pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 export http_proxy=http://$windows_host:10809
 export https_proxy=http://$windows_host:10809
-</code></pre>
-
-<h2>routing rules</h2>
-
-<pre><code>  "routing": {
-    "domainStrategy": "IPOnDemand",
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api"
-      },
-      {
-        "type": "field",
-        "outboundTag": "proxy",
-        "domain": [
-          "udp",
-          "tcp"
-        ]
-      },
-      {
-        "type": "field",
-        "outboundTag": "direct",
-        "domain": [
-          "geosite:cn"
-        ]
-      },
-      {
-        "type": "field",
-        "outboundTag": "block",
-        "domain": [
-          "geosite:category-ads-all"
-        ]
-      }
-    ]
-  }
 </code></pre>
 
   </div><a class="u-url" href="/2022/03/01/v2ray.html" hidden></a>

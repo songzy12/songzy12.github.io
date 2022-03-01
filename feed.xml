@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-03-01T20:25:53+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/03/01/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-03-01T20:12:09+08:00</published><updated>2022-03-01T20:12:09+08:00</updated><id>http://songzy12.github.io/2022/03/01/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/03/01/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-03-01T20:37:37+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/03/01/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-03-01T20:12:09+08:00</published><updated>2022-03-01T20:12:09+08:00</updated><id>http://songzy12.github.io/2022/03/01/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/03/01/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
 
 &lt;h2&gt;github&lt;/h2&gt;
 
@@ -25,78 +25,19 @@ sudo systemctl enable v2ray
 sudo systemctl status v2ray
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h3&gt;vmess aead&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2&gt;config&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;sudo vi /usr/local/etc/v2ray/config.json
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3&gt;log&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;  &quot;log&quot;: {
-    &quot;loglevel&quot;: &quot;warning&quot;,
-    &quot;access&quot;: &quot;/var/log/v2ray/access.log&quot;,
-    &quot;error&quot;: &quot;/var/log/v2ray/error.log&quot;
-  }
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;server&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;{
-  &quot;inbounds&quot;: [{
-    &quot;port&quot;: 443,
-    &quot;protocol&quot;: &quot;vmess&quot;,
-    &quot;settings&quot;: {
-      &quot;clients&quot;: [
-        {
-          &quot;id&quot;: &quot;899cbb8a-fad2-45bd-8608-8483956d641c&quot;,
-          &quot;level&quot;: 1,
-          &quot;alterId&quot;: 0
-        }
-      ]
-    },
-    &quot;streamSettings&quot;: {
-      &quot;network&quot;: &quot;tcp&quot;,
-      &quot;security&quot;: &quot;tls&quot;,
-      &quot;tlsSettings&quot;: {
-        &quot;certificates&quot;: [
-          {
-            &quot;certificateFile&quot;: &quot;/usr/local/etc/v2ray/songzy.cc.cer&quot;,
-            &quot;keyFile&quot;: &quot;/usr/local/etc/v2ray/songzy.cc.key&quot;
-          }
-        ]
-      }
-    }
-  }],
-  &quot;outbounds&quot;: [{
-    &quot;protocol&quot;: &quot;freedom&quot;,
-    &quot;settings&quot;: {}
-  },{
-    &quot;protocol&quot;: &quot;blackhole&quot;,
-    &quot;settings&quot;: {},
-    &quot;tag&quot;: &quot;blocked&quot;
-  }],
-  &quot;routing&quot;: {
-    &quot;rules&quot;: [
-      {
-        &quot;type&quot;: &quot;field&quot;,
-        &quot;ip&quot;: [&quot;geoip:private&quot;],
-        &quot;outboundTag&quot;: &quot;blocked&quot;
-      }
-    ]
-  }
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;Note: remember to set the value &lt;code&gt;inbounds.settings.clients.id&lt;/code&gt; correctly.&lt;/p&gt;
-
 &lt;h3&gt;client&lt;/h3&gt;
 
 &lt;pre&gt;&lt;code&gt;{
-  &quot;log&quot;: {
-    &quot;access&quot;: &quot;&quot;,
-    &quot;error&quot;: &quot;&quot;,
-    &quot;loglevel&quot;: &quot;warning&quot;
-  },
   &quot;inbound&quot;: {
     &quot;port&quot;: 1080,
     &quot;listen&quot;: &quot;127.0.0.1&quot;,
@@ -178,6 +119,99 @@ sudo systemctl status v2ray
 }
 &lt;/code&gt;&lt;/pre&gt;
 
+&lt;h3&gt;server&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &quot;inbounds&quot;: [
+    {
+      &quot;port&quot;: 443,
+      &quot;protocol&quot;: &quot;vmess&quot;,
+      &quot;settings&quot;: {
+        &quot;clients&quot;: [
+          {
+            &quot;id&quot;: &quot;899cbb8a-fad2-45bd-8608-8483956d641c&quot;,
+            &quot;level&quot;: 1,
+            &quot;alterId&quot;: 0
+          }
+        ]
+      },
+      &quot;streamSettings&quot;: {
+        &quot;network&quot;: &quot;tcp&quot;,
+        &quot;security&quot;: &quot;tls&quot;,
+        &quot;tlsSettings&quot;: {
+          &quot;certificates&quot;: [
+            {
+              &quot;certificateFile&quot;: &quot;/usr/local/etc/v2ray/songzy.cc.cer&quot;,
+              &quot;keyFile&quot;: &quot;/usr/local/etc/v2ray/songzy.cc.key&quot;
+            }
+          ]
+        }
+      }
+    }
+  ],
+  &quot;outbounds&quot;: [
+    {
+      &quot;protocol&quot;: &quot;freedom&quot;,
+      &quot;settings&quot;: {}
+    },
+    {
+      &quot;protocol&quot;: &quot;blackhole&quot;,
+      &quot;settings&quot;: {},
+      &quot;tag&quot;: &quot;blocked&quot;
+    }
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: remember to set the value &lt;code&gt;inbounds.settings.clients.id&lt;/code&gt; correctly.&lt;/p&gt;
+
+&lt;h2&gt;log&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;  &quot;log&quot;: {
+    &quot;loglevel&quot;: &quot;warning&quot;,
+    &quot;access&quot;: &quot;/var/log/v2ray/access.log&quot;,
+    &quot;error&quot;: &quot;/var/log/v2ray/error.log&quot;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;routing rules&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;  &quot;routing&quot;: {
+    &quot;domainStrategy&quot;: &quot;IPOnDemand&quot;,
+    &quot;rules&quot;: [
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;inboundTag&quot;: [
+          &quot;api&quot;
+        ],
+        &quot;outboundTag&quot;: &quot;api&quot;
+      },
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;outboundTag&quot;: &quot;proxy&quot;,
+        &quot;domain&quot;: [
+          &quot;udp&quot;,
+          &quot;tcp&quot;
+        ]
+      },
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;outboundTag&quot;: &quot;direct&quot;,
+        &quot;domain&quot;: [
+          &quot;geosite:cn&quot;
+        ]
+      },
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;outboundTag&quot;: &quot;block&quot;,
+        &quot;domain&quot;: [
+          &quot;geosite:category-ads-all&quot;
+        ]
+      }
+    ]
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
 &lt;h2&gt;tls&lt;/h2&gt;
 
 &lt;h3&gt;ufw&lt;/h3&gt;
@@ -224,54 +258,11 @@ $ source ~/.bashrc
 [Tue Nov 30 01:46:38 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2&gt;vmess aead&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
-&lt;/code&gt;&lt;/pre&gt;
-
 &lt;h2&gt;http_proxy&lt;/h2&gt;
 
 &lt;pre&gt;&lt;code&gt;windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 export http_proxy=http://$windows_host:10809
 export https_proxy=http://$windows_host:10809
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;routing rules&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;  &quot;routing&quot;: {
-    &quot;domainStrategy&quot;: &quot;IPOnDemand&quot;,
-    &quot;rules&quot;: [
-      {
-        &quot;type&quot;: &quot;field&quot;,
-        &quot;inboundTag&quot;: [
-          &quot;api&quot;
-        ],
-        &quot;outboundTag&quot;: &quot;api&quot;
-      },
-      {
-        &quot;type&quot;: &quot;field&quot;,
-        &quot;outboundTag&quot;: &quot;proxy&quot;,
-        &quot;domain&quot;: [
-          &quot;udp&quot;,
-          &quot;tcp&quot;
-        ]
-      },
-      {
-        &quot;type&quot;: &quot;field&quot;,
-        &quot;outboundTag&quot;: &quot;direct&quot;,
-        &quot;domain&quot;: [
-          &quot;geosite:cn&quot;
-        ]
-      },
-      {
-        &quot;type&quot;: &quot;field&quot;,
-        &quot;outboundTag&quot;: &quot;block&quot;,
-        &quot;domain&quot;: [
-          &quot;geosite:category-ads-all&quot;
-        ]
-      }
-    ]
-  }
 &lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to install and enabel V2Ray proxy.</summary></entry><entry><title type="html">SSH</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="SSH" /><published>2022-01-13T20:46:54+08:00</published><updated>2022-01-13T20:46:54+08:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html">&lt;p&gt;How to config SSH of tencent cloud.&lt;/p&gt;
 
 &lt;h2&gt;Config Files for Client &amp;amp; Server&lt;/h2&gt;
