@@ -2,35 +2,25 @@
 <html lang="en"><head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
 <title>V2Ray | Zhengyang Song&rsquo;s Secret Base</title>
-<meta name="generator" content="Jekyll v3.8.6" />
+<meta name="generator" content="Jekyll v3.8.7" />
 <meta property="og:title" content="V2Ray" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="This article shows how to install and enabel V2Ray proxy." />
 <meta property="og:description" content="This article shows how to install and enabel V2Ray proxy." />
-<link rel="canonical" href="http://songzy12.github.io/2021/11/30/v2ray.html" />
-<meta property="og:url" content="http://songzy12.github.io/2021/11/30/v2ray.html" />
+<link rel="canonical" href="http://songzy12.github.io/2022/03/01/v2ray.html" />
+<meta property="og:url" content="http://songzy12.github.io/2022/03/01/v2ray.html" />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-11-30T20:07:54+08:00" />
+<meta property="article:published_time" content="2022-03-01T20:12:09+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V2Ray" />
 <script type="application/ld+json">
-{"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2021/11/30/v2ray.html"},"url":"http://songzy12.github.io/2021/11/30/v2ray.html","author":{"@type":"Person","name":"Zhengyang Song"},"description":"This article shows how to install and enabel V2Ray proxy.","headline":"V2Ray","dateModified":"2021-11-30T20:07:54+08:00","datePublished":"2021-11-30T20:07:54+08:00","@type":"BlogPosting","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://songzy12.github.io/2022/03/01/v2ray.html","headline":"V2Ray","dateModified":"2022-03-01T20:12:09+08:00","datePublished":"2022-03-01T20:12:09+08:00","author":{"@type":"Person","name":"Zhengyang Song"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2022/03/01/v2ray.html"},"description":"This article shows how to install and enabel V2Ray proxy.","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /><script>
-if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-147981013-1', 'auto');
-  ga('send', 'pageview');
-}
-</script>
-  
-</head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /></head>
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/">Zhengyang Song&#39;s Secret Base</a><nav class="site-nav">
@@ -53,22 +43,36 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">V2Ray</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2021-11-30T20:07:54+08:00" itemprop="datePublished">Nov 30, 2021
+      <time class="dt-published" datetime="2022-03-01T20:12:09+08:00" itemprop="datePublished">Mar 1, 2022
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
     <p>This article shows how to install and enabel V2Ray proxy.</p>
 
-<h2>release</h2>
+<h2>github</h2>
 
-<p><a href="https://github.com/v2ray/v2ray-core/releases">https://github.com/v2ray/v2ray-core/releases</a></p>
+<ul>
+<li>core: <a href="https://github.com/v2ray/v2ray-core/releases">https://github.com/v2ray/v2ray-core/releases</a></li>
+<li>v2fly: <a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></li>
+<li>v2rayN: <a href="https://github.com/2dust/v2rayN">https://github.com/2dust/v2rayN</a></li>
+</ul>
 
-<h2>install</h2>
 
-<p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
+<h2>v2fly</h2>
 
-<pre><code>bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+<pre><code>// 安裝執行檔和 .dat 資料檔
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+
+// 只更新 .dat 資料檔
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+</code></pre>
+
+<h2>start</h2>
+
+<pre><code>sudo systemctl start v2ray
+sudo systemctl enable v2ray
+sudo systemctl status v2ray
 </code></pre>
 
 <h2>config</h2>
@@ -78,58 +82,11 @@ if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNo
 
 <h3>log</h3>
 
-<pre><code>"log": {
+<pre><code>  "log": {
     "loglevel": "warning",
     "access": "/var/log/v2ray/access.log",
     "error": "/var/log/v2ray/error.log"
   }
-</code></pre>
-
-<h2>run</h2>
-
-<pre><code>sudo systemctl start v2ray
-sudo systemctl enable v2ray
-sudo systemctl status v2ray
-</code></pre>
-
-<hr />
-
-<h2>tls</h2>
-
-<h3>certificate</h3>
-
-<pre><code>$ sudo apt-get -y install socat
-$ curl  https://get.acme.sh | sh
-$ source ~/.bashrc 
-</code></pre>
-
-<pre><code>$ sudo su
-$ ~/.acme.sh/acme.sh --issue -d songzy.cc --standalone -k ec-256 --debug
-
-[Tue Nov 30 01:44:27 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
-[Tue Nov 30 01:44:27 PM UTC 2021] Your cert key is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.key
-[Tue Nov 30 01:44:27 PM UTC 2021] The intermediate CA cert is in  /root/.acme.sh/songzy.cc_ecc/ca.cer
-[Tue Nov 30 01:44:27 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
-[Tue Nov 30 01:44:27 PM UTC 2021] _on_issue_success
-</code></pre>
-
-<pre><code>$ sudo su
-$ ~/.acme.sh/acme.sh --renew -d songzy.cc --force --ecc --debug
-
-
-[Tue Nov 30 01:46:38 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
-[Tue Nov 30 01:46:38 PM UTC 2021] Your cert key is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.key
-[Tue Nov 30 01:46:38 PM UTC 2021] The intermediate CA cert is in  /root/.acme.sh/songzy.cc_ecc/ca.cer
-[Tue Nov 30 01:46:38 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
-[Tue Nov 30 01:46:38 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
-[Tue Nov 30 01:46:38 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
-</code></pre>
-
-<pre><code>$ sudo su
-$ ~/.acme.sh/acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v2ray/songzy.cc.cer --keypath /usr/local/etc/v2ray/songzy.cc.key --ecc
-
-[Tue Nov 30 01:47:43 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
-[Tue Nov 30 01:47:43 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
 </code></pre>
 
 <h3>server</h3>
@@ -180,7 +137,7 @@ $ ~/.acme.sh/acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v
 }
 </code></pre>
 
-<p>Note: remember to change the <code>inbounds.settings.clients.id</code> parameter to your own value.</p>
+<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
 
 <h3>client</h3>
 
@@ -271,32 +228,65 @@ $ ~/.acme.sh/acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v
 }
 </code></pre>
 
-<h2>ws</h2>
+<h2>tls</h2>
 
-<h3>server</h3>
+<h3>ufw</h3>
 
-<pre><code>{
-  "inbounds": [{
-    "streamSettings": {
-      "network": "ws",
+<pre><code>sudo ufw allow http
+sudo ufw allow 80
+sudo ufw allow https
+sudo ufw allow 443
 </code></pre>
 
-<h3>client</h3>
+<h3>acme.sh</h3>
 
-<pre><code>{
-  "outbounds": [
-      "streamSettings":{
-        "network":"ws"
+<pre><code>$ curl https://get.acme.sh | sh
+$ source ~/.bashrc 
 </code></pre>
 
-<h2>env var</h2>
+<h4>issue &amp; install</h4>
+
+<pre><code>$ acme.sh --issue -d songzy.cc --standalone -k ec-256 --debug
+
+[Tue Nov 30 01:44:27 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
+[Tue Nov 30 01:44:27 PM UTC 2021] Your cert key is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.key
+[Tue Nov 30 01:44:27 PM UTC 2021] The intermediate CA cert is in  /root/.acme.sh/songzy.cc_ecc/ca.cer
+[Tue Nov 30 01:44:27 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
+[Tue Nov 30 01:44:27 PM UTC 2021] _on_issue_success
+</code></pre>
+
+<pre><code>$ acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v2ray/songzy.cc.cer --keypath /usr/local/etc/v2ray/songzy.cc.key --ecc
+
+[Tue Nov 30 01:47:43 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
+[Tue Nov 30 01:47:43 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
+</code></pre>
+
+<h4>renew</h4>
+
+<pre><code>$ acme.sh --renew -d songzy.cc --force --ecc --debug
+
+
+[Tue Nov 30 01:46:38 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
+[Tue Nov 30 01:46:38 PM UTC 2021] Your cert key is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.key
+[Tue Nov 30 01:46:38 PM UTC 2021] The intermediate CA cert is in  /root/.acme.sh/songzy.cc_ecc/ca.cer
+[Tue Nov 30 01:46:38 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
+[Tue Nov 30 01:46:38 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
+[Tue Nov 30 01:46:38 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
+</code></pre>
+
+<h2>vmess aead</h2>
+
+<pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+</code></pre>
+
+<h2>http_proxy</h2>
 
 <pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 export http_proxy=http://$windows_host:10809
 export https_proxy=http://$windows_host:10809
 </code></pre>
 
-<h2>routing: direct or proxy?</h2>
+<h2>routing rules</h2>
 
 <pre><code>  "routing": {
     "domainStrategy": "IPOnDemand",
@@ -334,23 +324,7 @@ export https_proxy=http://$windows_host:10809
   }
 </code></pre>
 
-  </div><div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = 'http://songzy12.github.io/2021/11/30/v2ray.html';
-      this.page.identifier = 'http://songzy12.github.io/2021/11/30/v2ray.html';
-    };
-
-    (function() {
-      var d = document, s = d.createElement('script');
-
-      s.src = 'https://songzy12-github-io.disqus.com/embed.js';
-
-      s.setAttribute('data-timestamp', +new Date());
-      (d.head || d.body).appendChild(s);
-    })();
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript><a class="u-url" href="/2021/11/30/v2ray.html" hidden></a>
+  </div><a class="u-url" href="/2022/03/01/v2ray.html" hidden></a>
 </article>
 
       </div>
@@ -358,6 +332,8 @@ export https_proxy=http://$windows_host:10809
   <data class="u-url" href="/"></data>
 
   <div class="wrapper">
+
+    <h2 class="footer-heading">Zhengyang Song&#39;s Secret Base</h2>
 
     <div class="footer-col-wrapper">
       <div class="footer-col footer-col-1">
