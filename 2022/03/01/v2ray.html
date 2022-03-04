@@ -274,8 +274,14 @@ sudo ufw allow 443
 
 <h3>acme.sh</h3>
 
-<pre><code>$ curl https://get.acme.sh | sh
+<pre><code>$ apt install socat
+$ curl https://get.acme.sh | sh
 $ source ~/.bashrc 
+</code></pre>
+
+<h4>register account</h4>
+
+<pre><code>acme.sh --register-account -m songzy_thu@163.com
 </code></pre>
 
 <h4>issue &amp; install</h4>
