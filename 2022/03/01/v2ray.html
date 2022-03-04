@@ -68,6 +68,14 @@ bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/mast
 bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
 </code></pre>
 
+<h2>ufw</h2>
+
+<pre><code>sudo ufw allow http
+sudo ufw allow 80
+sudo ufw allow https
+sudo ufw allow 443
+</code></pre>
+
 <h2>start</h2>
 
 <pre><code>sudo service v2ray status
@@ -262,29 +270,21 @@ sudo service v2ray stop
   }
 </code></pre>
 
-<h2>tls</h2>
+<h2>tls (acme.sh)</h2>
 
-<h3>ufw</h3>
-
-<pre><code>sudo ufw allow http
-sudo ufw allow 80
-sudo ufw allow https
-sudo ufw allow 443
-</code></pre>
-
-<h3>acme.sh</h3>
+<h3>install</h3>
 
 <pre><code>$ apt install socat
 $ curl https://get.acme.sh | sh
 $ source ~/.bashrc 
 </code></pre>
 
-<h4>register account</h4>
+<h3>register</h3>
 
 <pre><code>acme.sh --register-account -m songzy_thu@163.com
 </code></pre>
 
-<h4>issue &amp; install</h4>
+<h3>issue &amp; installcert</h3>
 
 <pre><code>$ acme.sh --issue -d songzy.cc --standalone -k ec-256 --debug
 
@@ -301,7 +301,7 @@ $ source ~/.bashrc
 [Tue Nov 30 01:47:43 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
 </code></pre>
 
-<h4>renew</h4>
+<h3>renew</h3>
 
 <pre><code>$ acme.sh --renew -d songzy.cc --force --ecc --debug
 
