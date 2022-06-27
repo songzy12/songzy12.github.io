@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-03-04T21:28:01+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/03/01/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-03-01T20:12:09+08:00</published><updated>2022-03-01T20:12:09+08:00</updated><id>http://songzy12.github.io/2022/03/01/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/03/01/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-06-27T22:44:49+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/03/01/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-03-01T20:12:09+08:00</published><updated>2022-03-01T20:12:09+08:00</updated><id>http://songzy12.github.io/2022/03/01/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/03/01/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
 
 &lt;h2&gt;github&lt;/h2&gt;
 
@@ -817,11 +817,18 @@ nvm ls-remote
 &lt;pre&gt;&lt;code&gt;nvm install 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3&gt;npm source&lt;/h3&gt;
+&lt;h3&gt;npm registry&lt;/h3&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://developer.aliyun.com/mirror/NPM&quot;&gt;https://developer.aliyun.com/mirror/NPM&lt;/a&gt;&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;npm config set registry https://registry.npm.taobao.org
+&lt;pre&gt;&lt;code&gt;npm config get registry
+npm config set registry https://registry.npm.taobao.org
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;yarn registry&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;yarn config get registry
+yarn config set registry https://registry.npm.taobao.org
 &lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This shows what we need to do when we move to a brand new Linux environment.</summary></entry><entry><title type="html">Dos Batch</title><link href="http://songzy12.github.io/2020/09/12/dos-batch.html" rel="alternate" type="text/html" title="Dos Batch" /><published>2020-09-12T23:09:46+08:00</published><updated>2020-09-12T23:09:46+08:00</updated><id>http://songzy12.github.io/2020/09/12/dos-batch</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/dos-batch.html">&lt;h2&gt;%~dp0&lt;/h2&gt;
 
 &lt;ul&gt;
