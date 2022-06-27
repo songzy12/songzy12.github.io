@@ -183,10 +183,18 @@ nvm ls-remote
 nvm install 
 ```
 
-### npm source
+### npm registry
 
 <https://developer.aliyun.com/mirror/NPM>
 
 ```
+npm config get registry
 npm config set registry https://registry.npm.taobao.org
+```
+
+### yarn registry
+
+```
+yarn config get registry
+yarn config set registry https://registry.npm.taobao.org
 ```
