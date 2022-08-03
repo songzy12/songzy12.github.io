@@ -1,5 +1,7 @@
 _site
 .sass-cache
+.ink-cache
+.code-highlighter-cache
 .jekyll-metadata
 .deploy
 Gemfile.lock
