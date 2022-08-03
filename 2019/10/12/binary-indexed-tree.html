@@ -10,44 +10,49 @@
 
 <h2>Low Bit</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>int lowbit(int x) &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    return x &amp; (-x);
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>int lowbit(int x) {
+    return x &amp; (-x);
+}
+</code></pre>
 
 <h2>One Dimension</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>int sum(int x) &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    int ret = 0;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    while(x > 0) &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        ret += BIT[x];
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>        x -= lowbit(x);
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    return ret;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>int sum(int x) {
+    int ret = 0;
+    while(x &gt; 0) {
+        ret += BIT[x];
+        x -= lowbit(x);
+    }
+    return ret;
+}
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>void add(x, val) &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    while(x &lt;= N) &#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>        BIT[x] += val;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        x += lowbit(x);
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>void add(x, val) {
+    while(x &lt;= N) {
+        BIT[x] += val;
+        x += lowbit(x);
+    }
+}
+</code></pre>
 
 <h2>Two Dimension</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>void add(int x, int y, int val) &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    for(int i = x; i &lt;= N; i += lowbit(i)) &#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>        for(int j = y; j &lt;= N; j += lowbit(j)) &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>            BIT2[i][j] += val;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>void add(int x, int y, int val) {
+    for(int i = x; i &lt;= N; i += lowbit(i)) {
+        for(int j = y; j &lt;= N; j += lowbit(j)) {
+            BIT2[i][j] += val;
+        }
+    }
+}
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>int sum(int x, int y) &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    int ret = 0;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    for(int i = x; i > 0; i -= lowbit(i)) &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        for(int j = y; j > 0; j -= lowbit(j)) &#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>            ret += BIT2[i][j];
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    return ret;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>int sum(int x, int y) {
+    int ret = 0;
+    for(int i = x; i &gt; 0; i -= lowbit(i)) {
+        for(int j = y; j &gt; 0; j -= lowbit(j)) {
+            ret += BIT2[i][j];
+        }
+    }
+    return ret;
+}
+</code></pre>

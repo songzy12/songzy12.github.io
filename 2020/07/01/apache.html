@@ -2,23 +2,28 @@
 
 <h2>Install</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt update
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt install apache2</div></div></pre></div></figure></p>
+<pre><code>sudo apt update
+sudo apt install apache2
+</code></pre>
 
 <h2>Web Page</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>ls /var/www/html/index.html</div></div></pre></div></figure></p>
+<pre><code>ls /var/www/html/index.html
+</code></pre>
 
 <h2>Config</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>cd /etc/apache2/sites-available/
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo cp 000-default.conf gci.conf</div></div></pre></div></figure></p>
+<pre><code>cd /etc/apache2/sites-available/
+sudo cp 000-default.conf gci.conf
+</code></pre>
 
 <h2>Start Server</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo a2ensite gci.conf
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>service apache2 reload</div></div></pre></div></figure></p>
+<pre><code>sudo a2ensite gci.conf
+service apache2 reload
+</code></pre>
 
 <h2>Log</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>tail -f /var/log/apache2/error.log</div></div></pre></div></figure></p>
+<pre><code>tail -f /var/log/apache2/error.log
+</code></pre>

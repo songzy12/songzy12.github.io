@@ -4,14 +4,16 @@
 
 <p>Decoding:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>s = ceil((x+1)<em>p) - ceil(x</em>p)  // 0 if fract(x<em>p) &lt; 1-p, else 1
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>if s = 0 then new_x = x - ceil(x</em>p)   // D(x) = (new_x, 0)
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>if s = 1 then new_x = ceil(x*p)  // D(x) = (new_x, 1)</div></div></pre></div></figure></p>
+<pre><code>s = ceil((x+1)*p) - ceil(x*p)  // 0 if fract(x*p) &lt; 1-p, else 1
+if s = 0 then new_x = x - ceil(x*p)   // D(x) = (new_x, 0)
+if s = 1 then new_x = ceil(x*p)  // D(x) = (new_x, 1)
+</code></pre>
 
 <p>Encoding:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>if s = 0 then new_x = ceil((x+1)/(1-p)) - 1 // C(x,0) = new_x
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>if s = 1 then new_x = floor(x/p)  // C(x,1) = new_x</div></div></pre></div></figure></p>
+<pre><code>if s = 0 then new_x = ceil((x+1)/(1-p)) - 1 // C(x,0) = new_x
+if s = 1 then new_x = floor(x/p)  // C(x,1) = new_x
+</code></pre>
 
 <p><img src="/img/ANS_uABS.png" alt="uABS" /></p>
 

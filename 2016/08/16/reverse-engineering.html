@@ -25,8 +25,9 @@
 
 <h2>apktool</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>apktool d RecentContest_beta.apk
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>apktool b RecentContest_beta</div></div></pre></div></figure></p>
+<pre><code>apktool d RecentContest_beta.apk
+apktool b RecentContest_beta
+</code></pre>
 
 <h2>RecentContest</h2>
 
@@ -34,14 +35,19 @@
 
 <p>To remove <code>Private</code> access contests from the json result, just insert the following lines after <code>:cond_1</code> of file <code>JsonStringAnalysis.smali</code></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>const-string v8, &ldquo;Private&rdquo;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>invoke-virtual &#x7b;v0, v8&#x7d;, Ljava/lang/String;->equals(Ljava/lang/Object;)Z
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>move-result v8
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>if-nez v8, :try_end_0</div></div></pre></div></figure></p>
+<pre><code>const-string v8, "Private"
+
+invoke-virtual {v0, v8}, Ljava/lang/String;-&gt;equals(Ljava/lang/Object;)Z
+
+move-result v8
+
+if-nez v8, :try_end_0
+</code></pre>
 
 <h2>testsign</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>java -jar testsign.jar RecentContest_beta.apk RecentContest_beta-signed.apk</div></div></pre></div></figure></p>
+<pre><code>java -jar testsign.jar RecentContest_beta.apk RecentContest_beta-signed.apk
+</code></pre>
 
 <h2>smali</h2>
 
@@ -70,13 +76,15 @@
 </ul>
 
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>Lcom/example/myapp/MyClass;</div></div></pre></div></figure></p>
+<pre><code>Lcom/example/myapp/MyClass;
+</code></pre>
 
 <h3>Methods</h3>
 
 <p>.method keyword method-name parameters/return</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>.method private delayedAnimationFrame(J)Z</div></div></pre></div></figure></p>
+<pre><code>.method private delayedAnimationFrame(J)Z
+</code></pre>
 
 <h3>Registers</h3>
 

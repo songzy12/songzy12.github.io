@@ -1,68 +1,83 @@
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>1E#m2WXS9LdvTCNA
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>tail -f /var/log/syslog</div></div></pre></div></figure></p>
+<pre><code>1E#m2WXS9LdvTCNA
+tail -f /var/log/syslog
+</code></pre>
 
 <p>Chrome 标签不同步也可能是因为 GFW 无法连接 Google 服务所致。</p>
 
 <h2>socls</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>import urllib2
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>import socks
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>from sockshandler import SocksiPyHandler
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>opener = urllib2.build_opener(SocksiPyHandler(socks.SOCKS5, &ldquo;127.0.0.1&rdquo;, 1080))
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>x = opener.open(&ldquo;<a href="http://www.youtube.com/">http://www.youtube.com/</a>&rdquo;)
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>print x.read()</div></div></pre></div></figure></p>
+<pre><code>import urllib2
+import socks
+from sockshandler import SocksiPyHandler
+
+opener = urllib2.build_opener(SocksiPyHandler(socks.SOCKS5, "127.0.0.1", 1080))
+x = opener.open("http://www.youtube.com/")
+print x.read()
+</code></pre>
 
 <h2>ss client</h2>
 
 <p><a href="http://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/">http://www.sundabao.com/ubuntu%E4%BD%BF%E7%94%A8shadowsocks/</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt-get update
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt-get install python-pip
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt-get install python-setuptools m2crypto
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>pip install shadowsocks
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt install shadowsocks</div></div></pre></div></figure></p>
+<pre><code>sudo apt-get update
+sudo apt-get install python-pip
+sudo apt-get install python-setuptools m2crypto
+pip install shadowsocks
+sudo apt install shadowsocks
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sslocal -s 11.22.33.44 -p 50003 -k &ldquo;123456&rdquo; -l 1080 -t 600 -m aes-256-cfb</div></div></pre></div></figure></p>
+<pre><code>sslocal -s 11.22.33.44 -p 50003 -k "123456" -l 1080 -t 600 -m aes-256-cfb
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>vi config.json</div></div></pre></div></figure></p>
+<pre><code>vi config.json
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;server&rdquo;:&ldquo;11.22.33.44&rdquo;,
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;server_port&rdquo;:50003,
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;local_port&rdquo;:1080,
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;password&rdquo;:&ldquo;123456&rdquo;,
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;timeout&rdquo;:600,
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;method&rdquo;:&ldquo;aes-256-cfb&rdquo;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>{
+    "server":"11.22.33.44",
+    "server_port":50003,
+    "local_port":1080,
+    "password":"123456",
+    "timeout":600,
+    "method":"aes-256-cfb"
+}
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sslocal -c shadowsocks.json</div></div></pre></div></figure></p>
+<pre><code>sslocal -c shadowsocks.json
+</code></pre>
 
 <p>SwitchyOmega: <a href="https://github.com/FelisCatus/SwitchyOmega/releases/">https://github.com/FelisCatus/SwitchyOmega/releases/</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>nohup sslocal -c shadowsocks.json &amp;</div></div></pre></div></figure></p>
+<pre><code>nohup sslocal -c shadowsocks.json &amp;
+</code></pre>
 
 <h2>ss server</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>wget &ndash;no-check-certificate <a href="https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh">https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh</a>
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>chmod +x shadowsocks.sh
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>./shadowsocks.sh 2>&amp;1 | tee shadowsocks.log</div></div></pre></div></figure></p>
+<pre><code>wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks.sh
+chmod +x shadowsocks.sh
+./shadowsocks.sh 2&gt;&amp;1 | tee shadowsocks.log
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>vi /etc/shadowsocks.json</div></div></pre></div></figure></p>
+<pre><code>vi /etc/shadowsocks.json
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;server&rdquo;:&ldquo;45.32.251.88&rdquo;,
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;server_port&rdquo;:8388,
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;local_address&rdquo;: &ldquo;127.0.0.1&rdquo;,
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;local_port&rdquo;:1080,
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;password&rdquo;:&ldquo;shadowsocks&rdquo;,
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;timeout&rdquo;:300,
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;method&rdquo;:&ldquo;aes-256-cfb&rdquo;,
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;fast_open&rdquo;: false
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>{
+    "server":"45.32.251.88",
+    "server_port":8388,
+    "local_address": "127.0.0.1",
+    "local_port":1080,
+    "password":"shadowsocks",
+    "timeout":300,
+    "method":"aes-256-cfb",
+    "fast_open": false
+}
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'><a href="https://github.com/shadowsocks/shadowsocks-windows/releases">https://github.com/shadowsocks/shadowsocks-windows/releases</a></div></div></pre></div></figure></p>
+<pre><code>https://github.com/shadowsocks/shadowsocks-windows/releases
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>ssserver -c /etc/shadowsocks.json -d start
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>ssserver -c /etc/shadowsocks.json -d stop</div></div></pre></div></figure></p>
+<pre><code>ssserver -c /etc/shadowsocks.json -d start
+ssserver -c /etc/shadowsocks.json -d stop
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo less /var/log/shadowsocks.log</div></div></pre></div></figure></p>
+<pre><code>sudo less /var/log/shadowsocks.log
+</code></pre>

@@ -22,13 +22,16 @@
 
 <p>安装 Google 全家桶后闪退。查看 log:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>adb logcat *:E</div></div></pre></div></figure></p>
+<pre><code>adb logcat *:E
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>03-14 15:56:16.090 20886 20886 E WebViewFactory: Chromium WebView package does not exist
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>03-14 15:56:16.090 20886 20886 E WebViewFactory: android.webkit.WebViewFactory$MissingWebViewPackageException: Failed to load WebView provider: No WebView installed
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: FATAL EXCEPTION: main
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: Process: com.google.android.gms.ui, PID: 20886
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: java.lang.RuntimeException: Unable to start activity ComponentInfo&#x7b;com.google.android.gms/com.google.android.gms.auth.uiflows.minutemaid.MinuteMaidActivity&#x7d;: android.util.AndroidRuntimeException: android.webkit.WebViewFactory$MissingWebViewPackageException: Failed to load WebView provider: No WebView installed</div></div></pre></div></figure></p>
+<pre><code>03-14 15:56:16.090 20886 20886 E WebViewFactory: Chromium WebView package does not exist
+03-14 15:56:16.090 20886 20886 E WebViewFactory: android.webkit.WebViewFactory$MissingWebViewPackageException: Failed to load WebView provider: No WebView installed
+
+03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: FATAL EXCEPTION: main
+03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: Process: com.google.android.gms.ui, PID: 20886
+03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: java.lang.RuntimeException: Unable to start activity ComponentInfo{com.google.android.gms/com.google.android.gms.auth.uiflows.minutemaid.MinuteMaidActivity}: android.util.AndroidRuntimeException: android.webkit.WebViewFactory$MissingWebViewPackageException: Failed to load WebView provider: No WebView installed
+</code></pre>
 
 <p>所以就是 WebView 的问题，然后参考这个：</p>
 
@@ -40,31 +43,36 @@
 
 <p>输入法设置也闪退：</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>03-14 19:29:40.418 16063 16063 E AndroidRuntime: FATAL EXCEPTION: main
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>03-14 19:29:40.418 16063 16063 E AndroidRuntime: Process: com.android.inputmethod.latin, PID: 16063
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>03-14 19:29:40.418 16063 16063 E AndroidRuntime: java.lang.RuntimeException: Unable to resume activity &#x7b;com.android.inputmethod.latin/com.google.android.apps.inputmethod.latin.preference.SettingsActivity&#x7d;: java.lang.RuntimeException: Preference xml file not specified</div></div></pre></div></figure></p>
+<pre><code>03-14 19:29:40.418 16063 16063 E AndroidRuntime: FATAL EXCEPTION: main
+03-14 19:29:40.418 16063 16063 E AndroidRuntime: Process: com.android.inputmethod.latin, PID: 16063
+03-14 19:29:40.418 16063 16063 E AndroidRuntime: java.lang.RuntimeException: Unable to resume activity {com.android.inputmethod.latin/com.google.android.apps.inputmethod.latin.preference.SettingsActivity}: java.lang.RuntimeException: Preference xml file not specified
+</code></pre>
 
 <p><a href="https://github.com/opengapps/aosp_build/issues/116">https://github.com/opengapps/aosp_build/issues/116</a></p>
 
 <p>说什么清了 data 然后重装 GBoard.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>adb shell ls -lR | grep inputmethod
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>adb shell ls -lR | grep LatinIMEGooglePrebuilt</div></div></pre></div></figure></p>
+<pre><code>adb shell ls -lR | grep inputmethod
+adb shell ls -lR | grep LatinIMEGooglePrebuilt
+</code></pre>
 
 <p>查看包名：</p>
 
 <p><a href="https://stackoverflow.com/questions/6289149/read-the-package-name-of-an-android-apk">https://stackoverflow.com/questions/6289149/read-the-package-name-of-an-android-apk</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>adb shell &ldquo;pm list packages -f&rdquo;</div></div></pre></div></figure></p>
+<pre><code>adb shell "pm list packages -f"
+</code></pre>
 
 <p>重装：</p>
 
 <p><a href="https://stackoverflow.com/questions/12483720/adb-how-to-reinstall-an-app-without-retaining-the-data">https://stackoverflow.com/questions/12483720/adb-how-to-reinstall-an-app-without-retaining-the-data</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>adb uninstall com.android.inputmethod.latin
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>adb install -r GBoard.apk</div></div></pre></div></figure></p>
+<pre><code>adb uninstall com.android.inputmethod.latin
+adb install -r GBoard.apk
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>adb shell pm clear com.android.inputmethod.latin
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>adb install -r GBoard.apk</div></div></pre></div></figure></p>
+<pre><code>adb shell pm clear com.android.inputmethod.latin
+adb install -r GBoard.apk
+</code></pre>
 
 <p>好的上面这两个都是不行的。看来目前就只能 wipe data 然后重装。</p>

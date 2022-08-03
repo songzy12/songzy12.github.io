@@ -12,7 +12,8 @@
 
 <h2>hosts</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo: unable to resolve host (none)</div></div></pre></div></figure></p>
+<pre><code>sudo: unable to resolve host (none)
+</code></pre>
 
 <ul>
 <li>That the <code>/etc/hostname</code> file contains just the name of the machine.</li>
@@ -20,29 +21,34 @@
 </ul>
 
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>127.0.0.1    localhost.localdomain localhost
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>127.0.1.1    my-machine</div></div></pre></div></figure></p>
+<pre><code>127.0.0.1    localhost.localdomain localhost
+127.0.1.1    my-machine
+</code></pre>
 
 <h2>ip</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>curl <a href="http://ifconfig.me/ip">http://ifconfig.me/ip</a>
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>wget -O- -q <a href="http://ifconfig.me/ip">http://ifconfig.me/ip</a></div></div></pre></div></figure></p>
+<pre><code>curl http://ifconfig.me/ip
+wget -O- -q http://ifconfig.me/ip
+</code></pre>
 
 <h2>iptables</h2>
 
 <p>查看设置：</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo iptables -nL &ndash;line-numbers -t nat</div></div></pre></div></figure></p>
+<pre><code>sudo iptables -nL --line-numbers -t nat
+</code></pre>
 
 <p>删除设置：</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo iptables -t nat -D PREROUTING 1
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo iptables -t nat -D POSTROUTING 7</div></div></pre></div></figure></p>
+<pre><code>sudo iptables -t nat -D PREROUTING 1
+sudo iptables -t nat -D POSTROUTING 7
+</code></pre>
 
 <p>添加设置：</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo iptables -t nat -A PREROUTING -p tcp &ndash;dport 9005 -j DNAT &ndash;to-destination 10.0.2.180:9005
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo iptables -t nat -A POSTROUTING -p tcp -d 10.0.2.180 &ndash;dport 9005 -j SNAT &ndash;to-source 101.6.244.4</div></div></pre></div></figure></p>
+<pre><code>sudo iptables -t nat -A PREROUTING -p tcp --dport 9005 -j DNAT --to-destination 10.0.2.180:9005
+sudo iptables -t nat -A POSTROUTING -p tcp -d 10.0.2.180 --dport 9005 -j SNAT --to-source 101.6.244.4
+</code></pre>
 
 <h2>wget</h2>
 
@@ -52,21 +58,25 @@
 </ul>
 
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>&ndash;2016-11-03 01:59:25&ndash;  <a href="http://pasky.or.cz/dev/brmson/glove.6B.50d.txt.gz">http://pasky.or.cz/dev/brmson/glove.6B.50d.txt.gz</a>
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>Resolving pasky.or.cz (pasky.or.cz)&hellip; 80.243.110.53, 2a01:8c00:ff00:8320::
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>Connecting to pasky.or.cz (pasky.or.cz)|80.243.110.53|:80&hellip; connected.
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>HTTP request sent, awaiting response&hellip; 200 OK
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>Length: 69182520 (66M) [application/x-gzip]
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>Saving to: ‘glove.6B.50d.txt.gz.4’
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>glove.6B.50d.txt.gz.  48%[=========>            ]  32.03M  8.27MB/s    in 5.9s
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>2016-11-03 01:59:32 (5.43 MB/s) - Read error at byte 33586057/69182520 (Connection reset by peer). Retrying.</div></div></pre></div></figure></p>
+<pre><code>--2016-11-03 01:59:25--  http://pasky.or.cz/dev/brmson/glove.6B.50d.txt.gz
+Resolving pasky.or.cz (pasky.or.cz)... 80.243.110.53, 2a01:8c00:ff00:8320::
+Connecting to pasky.or.cz (pasky.or.cz)|80.243.110.53|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 69182520 (66M) [application/x-gzip]
+Saving to: ‘glove.6B.50d.txt.gz.4’
+
+glove.6B.50d.txt.gz.  48%[=========&gt;            ]  32.03M  8.27MB/s    in 5.9s
+
+2016-11-03 01:59:32 (5.43 MB/s) - Read error at byte 33586057/69182520 (Connection reset by peer). Retrying.
+</code></pre>
 
 <p>But I can use browser to download.</p>
 
 <h2>curl</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>curl -L <a href="https://raw.githubusercontent.com/edx/configuration/master/vagrant/release/devstack/Vagrantfile">https://raw.githubusercontent.com/edx/configuration/master/vagrant/release/devstack/Vagrantfile</a> > Vagrantfile
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>curl -o vagrant_1.7.2_x86_64.deb <a href="https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb">https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb</a></div></div></pre></div></figure></p>
+<pre><code>curl -L https://raw.githubusercontent.com/edx/configuration/master/vagrant/release/devstack/Vagrantfile &gt; Vagrantfile
+curl -o vagrant_1.7.2_x86_64.deb https://releases.hashicorp.com/vagrant/1.8.1/vagrant_1.8.1_x86_64.deb
+</code></pre>
 
 <ul>
 <li>-L, &ndash;location: (HTTP/HTTPS) If the server reports that the requested page has moved to a different location (indicated with a Location: header and a 3XX response code), this option will make curl redo the request on the new place.</li>
@@ -74,22 +84,27 @@
 </ul>
 
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>curl <a href="http://&amp;#x7b;site,host&amp;#x7d;.host">http://&amp;#x7b;site,host&amp;#x7d;.host</a>[1-5].com -o &ldquo;#1_#2&rdquo; </div></div></pre></div></figure></p>
+<pre><code>curl http://{site,host}.host[1-5].com -o "#1_#2" 
+</code></pre>
 
 <h2>pscp</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>pscp songzy12@taoli.tsinghuax.org:Code-Craft/future_net.tar.gz .
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>pscp songzy12@taoli.tsinghuax.org:Code-Craft/future_net/route.cpp .</div></div></pre></div></figure></p>
+<pre><code>pscp songzy12@taoli.tsinghuax.org:Code-Craft/future_net.tar.gz .
+pscp songzy12@taoli.tsinghuax.org:Code-Craft/future_net/route.cpp .
+</code></pre>
 
 <h2>scp</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>scp -r remote_username@remote_ip:remote_folder local_folder</div></div></pre></div></figure></p>
+<pre><code>scp -r remote_username@remote_ip:remote_folder local_folder
+</code></pre>
 
 <h2>putty</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>Network error: software caused connection abort</div></div></pre></div></figure></p>
+<pre><code>Network error: software caused connection abort
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo service ssh restart </div></div></pre></div></figure></p>
+<pre><code>sudo service ssh restart 
+</code></pre>
 
 <p>Test <code>127.0.0.1:7777</code>, they have the same behavior.</p>
 

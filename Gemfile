@@ -5,10 +5,7 @@ gem 'octopress', '~> 3.0.0'
 gem "minima", "~> 2.0"
 
 group :jekyll_plugins do
-  gem 'octopress-genesis-theme'
-  gem 'octopress-codefence'
-  gem 'octopress-solarized'
-  gem 'octopress-feeds'
+  gem "jekyll-feed", "~> 0.6"
 end
 
 gem 'rdiscount', '~> 2.0'

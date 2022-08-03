@@ -2,42 +2,52 @@
 
 <h2>new post</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>octopress new post hello -D Ruby</div></div></pre></div></figure></p>
+<pre><code>octopress new post hello -D Ruby
+</code></pre>
 
 <h2>build</h2>
 
 <p>Here we set <code>JEKYLL_ENV=production</code> to enable <code>google_analytics</code> and <code>disqus</code>.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>export JEKYLL_ENV=production
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>jekyll serve</div></div></pre></div></figure></p>
+<pre><code>export JEKYLL_ENV=production
+jekyll serve
+</code></pre>
 
 <h2>deploy</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>jekyll build
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>octopress deploy</div></div></pre></div></figure></p>
+<pre><code>jekyll build
+octopress deploy
+</code></pre>
 
 <h2>source</h2>
 
 <p>源码和网站是在同一个 repo 的不同 branch 底下的。</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>git add .
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>git commit -m &ldquo;$(date)&rdquo;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>git push origin source
-</div></div></pre></div></figure></p>
+<pre><code>git add .
+git commit -m "$(date)"
+git push origin source
+</code></pre>
 
 <h2>Gemfile</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>source &ldquo;<a href="https://gems.ruby-china.com">https://gems.ruby-china.com</a>&rdquo;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>gem &lsquo;octopress&rsquo;, &lsquo;~> 3.0.0&rsquo;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>group :jekyll_plugins do
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>  gem &lsquo;octopress-genesis-theme&rsquo;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>  gem &lsquo;octopress-codefence&rsquo;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>  gem &lsquo;octopress-solarized&rsquo;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>  gem &lsquo;octopress-feeds&rsquo;
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>end</div></div></pre></div></figure></p>
+<pre><code>source "https://gems.ruby-china.com"
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>bundle install
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>bundle clean &ndash;force</div></div></pre></div></figure></p>
+gem 'octopress', '~&gt; 3.0.0'
+gem "minima", "~&gt; 2.0"
+
+group :jekyll_plugins do
+  gem "jekyll-feed", "~&gt; 0.6"
+end
+
+gem 'rdiscount', '~&gt; 2.0'
+gem 'sinatra', '~&gt; 1.4.2'
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "wdm", "~&gt; 0.1.0" if Gem.win_platform?
+</code></pre>
+
+<pre><code>bundle install
+bundle clean --force
+</code></pre>
 
 <h2>minima</h2>
 
@@ -45,60 +55,72 @@
 
 <h3>comments</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>disqus:
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>  shortname: my_disqus_shortname</div></div></pre></div></figure></p>
+<pre><code>disqus:
+  shortname: my_disqus_shortname
+</code></pre>
 
 <h3>google_analytics</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>  google_analytics: UA-NNNNNNNN-N</div></div></pre></div></figure></p>
+<pre><code>  google_analytics: UA-NNNNNNNN-N
+</code></pre>
 
 <h3>excerpts</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>show_excerpts: true</div></div></pre></div></figure></p>
+<pre><code>show_excerpts: true
+</code></pre>
 
 <h3>layouts</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>ls $(bundle show minima)/<em>layouts
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>ls $(bundle show minima)/</em>includes</div></div></pre></div></figure></p>
+<pre><code>ls $(bundle show minima)/_layouts
+ls $(bundle show minima)/_includes
+</code></pre>
 
 <h4>header</h4>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>vi $(bundle show minima)/_includes/header.html</div></div></pre></div></figure></p>
+<pre><code>vi $(bundle show minima)/_includes/header.html
+</code></pre>
 
 <h4>footer</h4>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>vi $(bundle show minima)/_includes/footer.html</div></div></pre></div></figure></p>
+<pre><code>vi $(bundle show minima)/_includes/footer.html
+</code></pre>
 
 <h2>_config.yml</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>title:  Zhengyang Song&rsquo;s Blog
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>author: Zhengyang Song
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>email: <a href="&#x6d;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#115;&#x6f;&#x6e;&#x67;&#x7a;&#x79;&#x2e;&#116;&#104;&#117;&#x40;&#x67;&#109;&#97;&#x69;&#x6c;&#x2e;&#99;&#x6f;&#109;">&#x73;&#111;&#110;&#103;&#x7a;&#121;&#x2e;&#x74;&#x68;&#117;&#64;&#103;&#x6d;&#x61;&#x69;&#108;&#x2e;&#99;&#x6f;&#x6d;</a>
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>description: >- # this means to ignore newlines until &ldquo;baseurl:&rdquo;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>  All those little bugs I have ever met.
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>baseurl: &ldquo;&rdquo; # the subpath of your site, e.g. /blog
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>url: &ldquo;<a href="http://songzy12.github.io">http://songzy12.github.io</a>&rdquo; # the base hostname &amp; protocol for your site, e.g. <a href="http://example.com">http://example.com</a>
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>github_username:  songzy12
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'># Default extension for new posts and pages
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>post_ext: md
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>page_ext: html
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'># Default templates for posts and pages
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'># Found in <em>templates/
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>post_layout: post
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>page_layout: page
-</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'># Format titles with titlecase?
-</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>titlecase: true
-</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'># Change default template file (in </em>templates/)
-</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>post_template: post
-</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>page_template: page
-</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>draft_template: draft
-</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'># Build settings
-</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'>markdown: rdiscount
-</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'>rdiscount:
-</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>  extensions:
-</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'>    - autolink
-</div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>    - footnotes
-</div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>    - smart
-</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'>theme: minima
-</div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'>plugins:
-</div></div><div data-line='36' class='code-highlight-row numbered'><div class='code-highlight-line'>  - jekyll-feed</div></div></pre></div></figure></p>
+<pre><code>title:  Zhengyang Song's Blog
+author: Zhengyang Song
+email: songzy.thu@gmail.com
+description: &gt;- # this means to ignore newlines until "baseurl:"
+  All those little bugs I have ever met.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://songzy12.github.io" # the base hostname &amp; protocol for your site, e.g. http://example.com
+github_username:  songzy12
+
+# Default extension for new posts and pages
+post_ext: md
+page_ext: html
+
+# Default templates for posts and pages
+# Found in _templates/
+post_layout: post
+page_layout: page
+
+# Format titles with titlecase?
+titlecase: true
+
+# Change default template file (in _templates/)
+post_template: post
+page_template: page
+draft_template: draft
+
+# Build settings
+markdown: rdiscount
+rdiscount:
+  extensions:
+    - autolink
+    - footnotes
+    - smart
+theme: minima
+plugins:
+  - jekyll-feed
+</code></pre>

@@ -1,164 +1,193 @@
 <h2>todo</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage[colorinlistoftodos]&#x7b;todonotes&#x7d;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>\todo[inline, color=green!40]&#x7b;This is an inline comment.&#x7d;</div></div></pre></div></figure></p>
+<pre><code>\usepackage[colorinlistoftodos]{todonotes}
+
+\todo[inline, color=green!40]{This is an inline comment.}
+</code></pre>
 
 <h2>enumitem</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;enumitem&#x7d;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>\maketitle
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>\begin&#x7b;enumerate&#x7d;[label=(\alph*)]
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>\item an apple
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>\item a banana
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>\end&#x7b;enumerate&#x7d;</div></div></pre></div></figure></p>
+<pre><code>\usepackage{enumitem}
+
+\maketitle
+\begin{enumerate}[label=(\alph*)]
+\item an apple
+\item a banana
+\end{enumerate}
+</code></pre>
 
 <h2>verb</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>\verb|.bib|</div></div></pre></div></figure></p>
+<pre><code>\verb|.bib|
+</code></pre>
 
 <h2>href</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>\href&#x7b;<a href="https://www.overleaf.com/blog/184&amp;#x7d;&amp;#x7b;Mendeley&amp;#x7d;">https://www.overleaf.com/blog/184&amp;#x7d;&amp;#x7b;Mendeley&amp;#x7d;</a></div></div></pre></div></figure></p>
+<pre><code>\href{https://www.overleaf.com/blog/184}{Mendeley}
+</code></pre>
 
 <h2>equiv</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>a\equiv b \bmod p</div></div></pre></div></figure></p>
+<pre><code>a\equiv b \bmod p
+</code></pre>
 
 <h2>matrix</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>x^&#x7b;(1)&#x7d;=\begin&#x7b;bmatrix&#x7d;\frac&#x7b;3&#x7d;&#x7b;2&#x7d;\[0.3em]\frac&#x7b;9&#x7d;&#x7b;4&#x7d;\end&#x7b;bmatrix&#x7d;, </div></div></pre></div></figure></p>
+<pre><code>x^{(1)}=\begin{bmatrix}\frac{3}{2}\\[0.3em]\frac{9}{4}\end{bmatrix}, 
+</code></pre>
 
 <p>Just use overleaf <a href="https://www.overleaf.com/5269090dsqmsd#/16588846/">here</a>.</p>
 
 <h2>jumpnav-main</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>\documentclass[chi_draft]&#x7b;sigchi&#x7d;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>\begin&#x7b;document&#x7d;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>%\usepackage&#x7b;natbib&#x7d;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>\title&#x7b;&#x7d;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>\author&#x7b;&#x7d;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>\maketitle
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>\input&#x7b;abstract&#x7d;
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>\input&#x7b;intro&#x7d;
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>\input&#x7b;related&#x7d;
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>\input&#x7b;data&#x7d;
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>\input&#x7b;problem&#x7d;
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>\input&#x7b;observations&#x7d;
-</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>\input&#x7b;approach&#x7d;
-</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>\input&#x7b;exp&#x7d;
-</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>\input&#x7b;conclusion&#x7d;
-</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>\bibliographystyle&#x7b;SIGCHI-Reference-Format&#x7d;
-</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>\bibliography&#x7b;references&#x7d;
-</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>\end&#x7b;document&#x7d;</div></div></pre></div></figure></p>
+<pre><code>\documentclass[chi_draft]{sigchi}
+\begin{document}
+%\usepackage{natbib}
+
+\title{}
+\author{}
+
+\maketitle
+
+\input{abstract}
+
+
+\input{intro}
+\input{related}
+\input{data}
+\input{problem}
+\input{observations}
+\input{approach}
+\input{exp}
+\input{conclusion}
+
+\bibliographystyle{SIGCHI-Reference-Format}
+\bibliography{references}
+
+\end{document}
+</code></pre>
 
 <h2>convex optimization</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>\begin&#x7b;alignat<em>&#x7d;&#x7b;2&#x7d;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>\min\quad &amp; -2x_1-x_2+x_3 \
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>\mbox&#x7b;s.t.&#x7d;\quad
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>&amp;x_1+x_2+2x_3 \le 6  \
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>&amp;x_1+4x_2-x_3 \le 4  \
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>&amp;x_1, x_2, x_3 \ge 0
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>\end&#x7b;alignat</em>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>\begin{alignat*}{2}
+\min\quad &amp; -2x_1-x_2+x_3 \\
+\mbox{s.t.}\quad
+&amp;x_1+x_2+2x_3 \le 6  \\
+&amp;x_1+4x_2-x_3 \le 4  \\
+&amp;x_1, x_2, x_3 \ge 0
+\end{alignat*}
+</code></pre>
 
 <h2>MISC</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>\noindent
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>\textbf&#x7b;&#x7d;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>\LaTeX&#x7b;&#x7d;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>\TeX\
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>\TeX&#x7b;&#x7d;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>\textbackslash
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>\textit&#x7b;&#x7d;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>\empha&#x7b;&#x7d;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;\bf &#x7d;
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>\smallskip
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>\bigskip</div></div></pre></div></figure></p>
+<pre><code>\noindent
+\textbf{}
+\LaTeX{}
+\TeX\
+\TeX{}
+\textbackslash
+\textit{} 
+\empha{}
+{\bf }
+\smallskip
+\bigskip
+</code></pre>
 
 <h2>tikz</h2>
 
 <p><a href="http://cremeronline.com/LaTeX/minimaltikz.pdf">here</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>\begin&#x7b;center&#x7d;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>\begin&#x7b;tikzpicture&#x7d;[domain=0:0.5,xscale=13,yscale=3.8]
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>\draw[&lt;->] (0,2) node[left]&#x7b;EUR&#x7d;&ndash; (0,0) &ndash; (.7,0) node[below] &#x7b;$q$&#x7d;;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>\draw[red] plot (\x, &#x7b;0.25+\x/2+\x<em>\x/2&#x7d;) node[right] &#x7b;$v_1(x)$&#x7d;;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>\draw[green] plot (\x, &#x7b;0.025+\x+\x</em>\x&#x7d;) node[right] &#x7b;$v_2(x)$&#x7d;;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>\draw[thin, dashed] plot (\x, &#x7b;0.275+1.5<em>\x+1.5</em>\x<em>\x&#x7d;) ;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>\draw[thick,domain=0:0.33666] plot (\x, &#x7b;0.05+2</em>\x+2<em>\x</em>\x&#x7d;) ;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>\draw[thick,domain=0.33666:0.5]
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>plot (\x, &#x7b;0.5+\x+\x*\x&#x7d;) node[right] &#x7b;$2\min[v_1,v_2]$&#x7d;;
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>\end&#x7b;tikzpicture&#x7d;
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>\end&#x7b;center&#x7d;</div></div></pre></div></figure></p>
+<pre><code>\begin{center}
+\begin{tikzpicture}[domain=0:0.5,xscale=13,yscale=3.8]
+\draw[&lt;-&gt;] (0,2) node[left]{EUR}-- (0,0) -- (.7,0) node[below] {$q$};
+\draw[red] plot (\x, {0.25+\x/2+\x*\x/2}) node[right] {$v_1(x)$};
+\draw[green] plot (\x, {0.025+\x+\x*\x}) node[right] {$v_2(x)$};
+\draw[thin, dashed] plot (\x, {0.275+1.5*\x+1.5*\x*\x}) ;
+\draw[thick,domain=0:0.33666] plot (\x, {0.05+2*\x+2*\x*\x}) ;
+\draw[thick,domain=0.33666:0.5]
+plot (\x, {0.5+\x+\x*\x}) node[right] {$2\min[v_1,v_2]$};
+\end{tikzpicture}
+\end{center}
+</code></pre>
 
 <h2>tabular*</h2>
 
 <p><a href="https://en.wikibooks.org/wiki/LaTeX/Tables#The_tabular.2A_environment">table</a>.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>\begin&#x7b;tabular<em>&#x7d;&#x7b;0.75\textwidth&#x7d;&#x7b;@&#x7b;\extracolsep&#x7b;\fill&#x7d; &#x7d; | c | c | c | r | &#x7d;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>  \hline
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>  label 1 &amp; label 2 &amp; label 3 &amp; label 4 \
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>  \hline
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>  item 1  &amp; item 2  &amp; item 3  &amp; item 4  \
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>  \hline
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>\end&#x7b;tabular</em>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>\begin{tabular*}{0.75\textwidth}{@{\extracolsep{\fill} } | c | c | c | r | }
+  \hline
+  label 1 &amp; label 2 &amp; label 3 &amp; label 4 \\
+  \hline 
+  item 1  &amp; item 2  &amp; item 3  &amp; item 4  \\
+  \hline
+\end{tabular*}
+</code></pre>
 
 <h3>multirow</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>\begin&#x7b;table&#x7d;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>\caption&#x7b;Statistics of the Dataset&#x7d;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>\label&#x7b;tab:dataset&#x7d;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>\centering
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>    \begin&#x7b;tabular&#x7d;&#x7b;c|c|c|c&#x7d;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    \hline \hline
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    \multirow&#x7b;3&#x7d;&#x7b;<em>&#x7d;&#x7b;Science&#x7d;   &amp; \multirow&#x7b;2&#x7d;&#x7b;</em>&#x7d;&#x7b;Video&#x7d; &amp; Count &amp; \ \cline&#x7b;3-4&#x7d;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>                               &amp;                        &amp; Avg. length &amp; \ \cline&#x7b;2-4&#x7d;
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>                               &amp; User &amp; Count &amp;  \ \cline&#x7b;2-4&#x7d;
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>                               &amp; \multirow&#x7b;3&#x7d;&#x7b;*&#x7d;&#x7b;Back-jumps&#x7d; &amp; Count &amp;       \ \cline&#x7b;3-4&#x7d;
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>                               &amp;                            &amp; Max back-jumps/video &amp;       \ \cline&#x7b;3-4&#x7d;
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>                              &amp;                             &amp; Min back-jumps/video &amp;       \ \cline&#x7b;2-4&#x7d;
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>    \hline \hline
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>    \end&#x7b;tabular&#x7d;
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>\end&#x7b;table&#x7d;
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>{
+\begin{table}
+\caption{Statistics of the Dataset}
+\label{tab:dataset}
+\centering
+    \begin{tabular}{c|c|c|c}
+    \hline \hline
+    \multirow{3}{*}{Science}   &amp; \multirow{2}{*}{Video} &amp; Count &amp; \\ \cline{3-4}
+                               &amp;                        &amp; Avg. length &amp; \\ \cline{2-4}
+                               &amp; User &amp; Count &amp;  \\ \cline{2-4}
+                               &amp; \multirow{3}{*}{Back-jumps} &amp; Count &amp;       \\ \cline{3-4}
+                               &amp;                             &amp; Max back-jumps/video &amp;       \\ \cline{3-4}
+                               &amp;                             &amp; Min back-jumps/video &amp;       \\ \cline{2-4}
+    \hline \hline
+    \end{tabular}
+\end{table}
+}
+</code></pre>
 
 <h2>caption</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;caption&#x7d;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>\captionsetup[table]&#x7b;skip=10pt&#x7d;</div></div></pre></div></figure></p>
+<pre><code>\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
+</code></pre>
 
 <h2>pdflatex</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>\documentclass&#x7b;article&#x7d;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>\begin&#x7b;document&#x7d;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>First document. This is a simple example, with no
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>extra parameters or packages included. \cite&#x7b;knuthwebsite&#x7d;.
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>\end&#x7b;document&#x7d;</div></div></pre></div></figure></p>
+<pre><code>\documentclass{article}
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt-get install texlive
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>pdftex /path/to/myfile.tex</div></div></pre></div></figure></p>
+\begin{document}
+First document. This is a simple example, with no 
+extra parameters or packages included. \cite{knuthwebsite}.
+\end{document}
+</code></pre>
+
+<pre><code>sudo apt-get install texlive
+pdftex /path/to/myfile.tex
+</code></pre>
 
 <h2>bibtex</h2>
 
 <p><code>article.tex</code></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>\documentclass&#x7b;article&#x7d;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;natbib&#x7d;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>\begin&#x7b;document&#x7d;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>First document. This is a simple example, with no
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>extra parameters or packages included. \cite&#x7b;knuthwebsite&#x7d;.
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>\bibliographystyle&#x7b;alpha&#x7d;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>\bibliography&#x7b;article&#x7d;
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>\end&#x7b;document&#x7d;</div></div></pre></div></figure></p>
+<pre><code>\documentclass{article}
+\usepackage{natbib}
+
+\begin{document}
+First document. This is a simple example, with no 
+extra parameters or packages included. \cite{knuthwebsite}.
+
+\bibliographystyle{alpha}
+\bibliography{article}
+\end{document}
+</code></pre>
 
 <p><code>article.bib</code></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>@misc&#x7b;knuthwebsite,
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    author    = &ldquo;Donald Knuth&rdquo;,
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    title     = &ldquo;Knuth: Computers and Typesetting&rdquo;,
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    url       = &ldquo;<a href="http://www-cs-faculty.stanford.edu/~&amp;#x7b;&amp;#x7d;uno/abcde.html">http://www-cs-faculty.stanford.edu/~&amp;#x7b;&amp;#x7d;uno/abcde.html</a>&rdquo;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>@misc{knuthwebsite,
+    author    = "Donald Knuth",
+    title     = "Knuth: Computers and Typesetting",
+    url       = "http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html"
+}
+</code></pre>
 
 <p>Suppose you have <code>article.tex</code> and <code>article.bib</code>. You need to run:</p>
 
@@ -172,36 +201,47 @@
 
 <p>Just add the following line to your <code>~/.bashrc</code> file (modify the main keyword accordingly to the name of your <code>.tex</code> and <code>.bib</code> files)</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>alias texbib=&lsquo;pdflatex main.tex &amp;&amp; bibtex main &amp;&amp; pdflatex main.tex &amp;&amp; pdflatex main.tex &amp;&amp; gnome-open main.pdf&rsquo;</div></div></pre></div></figure></p>
+<pre><code>alias texbib='pdflatex main.tex &amp;&amp; bibtex main &amp;&amp; pdflatex main.tex &amp;&amp; pdflatex main.tex &amp;&amp; gnome-open main.pdf'
+</code></pre>
 
 <h2>xelatex</h2>
 
 <p>需要用 <code>xecjk</code> 或 <code>zhspacing</code> 设置中文字体。 <code>XeTex</code> 缺省设了英文字体 <code>Latin Modern</code>，所以你能看到英文字。</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>\documentclass&#x7b;article&#x7d;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>\usepackage&#x7b;xeCJK&#x7d;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>\setCJKmainfont&#x7b;simsun.ttf&#x7d;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>\setCJKsansfont&#x7b;simhei.ttf&#x7d;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>\setCJKmonofont&#x7b;simfang.ttf&#x7d;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>\begin&#x7b;document&#x7d;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>\title&#x7b;作业&#x7d;
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>\author&#x7b;宋正阳&#x7d;
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>\date&#x7b;\today&#x7d;
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>\maketitle
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>\end&#x7b;document&#x7d;</div></div></pre></div></figure></p>
+<pre><code>\documentclass{article}
+\usepackage{xeCJK}
+
+\setCJKmainfont{simsun.ttf}
+\setCJKsansfont{simhei.ttf}
+\setCJKmonofont{simfang.ttf}
+
+\begin{document}
+
+\title{作业}
+\author{宋正阳}
+\date{\today}
+
+\maketitle
+
+\end{document}
+</code></pre>
 
 <h2>font</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>Fontconfig warning: &ldquo;/etc/fonts/conf.d/65-droid-sans-fonts.conf&rdquo;, line 96: Having multiple values in &lt;test> isn&rsquo;t supported and may not work as expected</div></div></pre></div></figure></p>
+<pre><code>Fontconfig warning: "/etc/fonts/conf.d/65-droid-sans-fonts.conf", line 96: Having multiple values in &lt;test&gt; isn't supported and may not work as expected
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt install &ndash;reinstall fontconfig
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;test name=&ldquo;lang&rdquo;>
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>  &lt;string>zh-cn&lt;/string>
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>  &lt;string>zh-sg&lt;/string>
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>  &lt;string>zh-hk&lt;/string>
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>  &lt;string>zh-tw&lt;/string>
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>  &lt;string>zh&lt;/string>
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;/test>
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;test name=&ldquo;lang&rdquo;>
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>  &lt;string>zh-cn&lt;/string>
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;/test></div></div></pre></div></figure></p>
+<pre><code>sudo apt install --reinstall fontconfig
+
+&lt;test name="lang"&gt;
+  &lt;string&gt;zh-cn&lt;/string&gt;
+  &lt;string&gt;zh-sg&lt;/string&gt;
+  &lt;string&gt;zh-hk&lt;/string&gt;
+  &lt;string&gt;zh-tw&lt;/string&gt;
+  &lt;string&gt;zh&lt;/string&gt;
+&lt;/test&gt;
+
+&lt;test name="lang"&gt;
+  &lt;string&gt;zh-cn&lt;/string&gt;
+&lt;/test&gt;
+</code></pre>

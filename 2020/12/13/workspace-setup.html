@@ -2,10 +2,12 @@
 
 <h2>wget proxy</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>vi ~/.wgetrc</div></div></pre></div></figure></p>
+<pre><code>vi ~/.wgetrc
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>http_proxy = <a href="http://localhost:1081">http://localhost:1081</a>
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>https_proxy = <a href="http://localhost:1081">http://localhost:1081</a></div></div></pre></div></figure></p>
+<pre><code>http_proxy = http://localhost:1081
+https_proxy = http://localhost:1081
+</code></pre>
 
 <h2>oh my zsh</h2>
 
@@ -15,103 +17,126 @@
 
 <p>Download and run the script:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt install zsh
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>wget <a href="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh">https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh</a>
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>sh install.sh</div></div></pre></div></figure></p>
+<pre><code>sudo apt install zsh
+
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sh install.sh
+</code></pre>
 
 <h2>tmux config</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>vi ~/.tmux.conf</div></div></pre></div></figure></p>
+<pre><code>vi ~/.tmux.conf
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>set -g default-shell /usr/bin/zsh</div></div></pre></div></figure></p>
+<pre><code>set -g default-shell /usr/bin/zsh
+</code></pre>
 
 <h2>apt source</h2>
 
 <p>Project link: <a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>vi /etc/apt/sources.list</div></div></pre></div></figure></p>
+<pre><code>vi /etc/apt/sources.list
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>deb <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</a> focal main restricted universe multiverse
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'># deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</a> focal main restricted universe multiverse
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>deb <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</a> focal-updates main restricted universe multiverse
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'># deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</a> focal-updates main restricted universe multiverse
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>deb <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</a> focal-backports main restricted universe multiverse
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'># deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</a> focal-backports main restricted universe multiverse
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>deb <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</a> focal-security main restricted universe multiverse
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'># deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</a> focal-security main restricted universe multiverse
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'># 预发布软件源，不建议启用
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'># deb <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</a> focal-proposed main restricted universe multiverse
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'># deb-src <a href="https://mirrors.tuna.tsinghua.edu.cn/ubuntu/">https://mirrors.tuna.tsinghua.edu.cn/ubuntu/</a> focal-proposed main restricted universe multiverse</div></div></pre></div></figure></p>
+<pre><code># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+
+# 预发布软件源，不建议启用
+# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+</code></pre>
 
 <h2>python</h2>
 
 <h3>pip source</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt install python3-pip</div></div></pre></div></figure></p>
+<pre><code>sudo apt install python3-pip
+</code></pre>
 
 <p><a href="https://pip.pypa.io/en/stable/user_guide/#config-file">https://pip.pypa.io/en/stable/user_guide/#config-file</a>
 <a href="https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4">https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>mkdir ~/.pip
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>echo &ldquo;[global]&rdquo; > ~/.pip/pip.conf
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>echo &ldquo;  index-url = <a href="https://mirrors.aliyun.com/pypi/simple/">https://mirrors.aliyun.com/pypi/simple/</a>&rdquo; >> ~/.pip/pip.conf
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>echo &ldquo;[install]&rdquo; >> ~/.pip/pip.conf
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>echo &ldquo;  trusted-host=mirrors.aliyun.com&rdquo; >> ~/.pip/pip.conf
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>echo &ldquo;&rdquo; >> ~/.pip/pip.conf</div></div></pre></div></figure></p>
+<pre><code>mkdir ~/.pip
+
+echo "[global]" &gt; ~/.pip/pip.conf
+echo "  index-url = https://mirrors.aliyun.com/pypi/simple/" &gt;&gt; ~/.pip/pip.conf
+echo "[install]" &gt;&gt; ~/.pip/pip.conf
+echo "  trusted-host=mirrors.aliyun.com" &gt;&gt; ~/.pip/pip.conf
+echo "" &gt;&gt; ~/.pip/pip.conf
+</code></pre>
 
 <h3>jupyter notebook</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>jupyter notebook &ndash;generate-config
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>vi ~/.jupyter/jupyter_notebook_config.py</div></div></pre></div></figure></p>
+<pre><code>jupyter notebook --generate-config
+vi ~/.jupyter/jupyter_notebook_config.py
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>c.NotebookApp.use_redirect_file = False</div></div></pre></div></figure></p>
+<pre><code>c.NotebookApp.use_redirect_file = False
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>pip install jupyter_contrib_nbextensions
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>jupyter contrib nbextension install &ndash;user</div></div></pre></div></figure></p>
+<pre><code>pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+</code></pre>
 
 <h3>virtualenvwrapper</h3>
 
 <p><a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html">https://virtualenvwrapper.readthedocs.io/en/latest/install.html</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>pip install virtualenvwrapper</div></div></pre></div></figure></p>
+<pre><code>pip install virtualenvwrapper
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'># vi ~/.bashrc
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>vi ~/.zshrc</div></div></pre></div></figure></p>
+<pre><code># vi ~/.bashrc
+vi ~/.zshrc
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>export WORKON_HOME=$HOME/.virtualenvs
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'># source /usr/local/bin/virtualenvwrapper.sh
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>source ~/.local/bin/virtualenvwrapper.sh</div></div></pre></div></figure></p>
+<pre><code>export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# source /usr/local/bin/virtualenvwrapper.sh
+source ~/.local/bin/virtualenvwrapper.sh
+</code></pre>
 
 <h2>git config</h2>
 
 <h3>vim editor</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>git config &ndash;global core.editor &ldquo;vim&rdquo;</div></div></pre></div></figure></p>
+<pre><code>git config --global core.editor "vim"
+</code></pre>
 
 <h3>proxy</h3>
 
 <p><a href="https://gist.github.com/evantoli/f8c23a37eb3558ab8765">https://gist.github.com/evantoli/f8c23a37eb3558ab8765</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>git config &ndash;global http.proxy localhost:1081</div></div></pre></div></figure></p>
+<pre><code>git config --global http.proxy localhost:1081
+</code></pre>
 
 <h3>user</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>git config &ndash;global user.email &ldquo;<a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#x73;&#x6f;&#x6e;&#103;&#x7a;&#121;&#x5f;&#116;&#x68;&#117;&#64;&#x31;&#x36;&#51;&#x2e;&#99;&#x6f;&#109;">&#115;&#x6f;&#110;&#103;&#x7a;&#x79;&#95;&#x74;&#104;&#x75;&#64;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#109;</a>&rdquo;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>git config &ndash;global user.name &ldquo;Zhengyang Song&rdquo;</div></div></pre></div></figure></p>
+<pre><code>git config --global user.email "songzy_thu@163.com"
+git config --global user.name "Zhengyang Song"
+</code></pre>
 
 <h2>docker</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>mkdir -p /etc/docker
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo tee /etc/docker/daemon.json &lt;&lt;-&lsquo;EOF&rsquo;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>  &ldquo;registry-mirrors&rdquo;: [&ldquo;<a href="http://hub-mirror.c.163.com">http://hub-mirror.c.163.com</a>&rdquo;]
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>mkdir -p /etc/docker
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo service docker restart</div></div></pre></div></figure></p>
+sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
+{
+  "registry-mirrors": ["http://hub-mirror.c.163.com"]
+}
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>docker info</div></div></pre></div></figure></p>
+<pre><code>sudo service docker restart
+</code></pre>
+
+<pre><code>docker info
+</code></pre>
 
 <h2>nodejs</h2>
 
@@ -119,22 +144,27 @@
 
 <p><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>wget -qO-
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'><a href="https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh">https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh</a> | bash</div></div></pre></div></figure></p>
+<pre><code>wget -qO- 
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>nvm ls
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>nvm ls-remote</div></div></pre></div></figure></p>
+<pre><code>nvm ls
+nvm ls-remote
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>nvm install </div></div></pre></div></figure></p>
+<pre><code>nvm install 
+</code></pre>
 
 <h3>npm registry</h3>
 
 <p><a href="https://developer.aliyun.com/mirror/NPM">https://developer.aliyun.com/mirror/NPM</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>npm config get registry
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>npm config set registry <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a></div></div></pre></div></figure></p>
+<pre><code>npm config get registry
+npm config set registry https://registry.npm.taobao.org
+</code></pre>
 
 <h3>yarn registry</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>yarn config get registry
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>yarn config set registry <a href="https://registry.npm.taobao.org">https://registry.npm.taobao.org</a></div></div></pre></div></figure></p>
+<pre><code>yarn config get registry
+yarn config set registry https://registry.npm.taobao.org
+</code></pre>

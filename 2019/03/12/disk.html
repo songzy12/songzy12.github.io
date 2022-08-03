@@ -2,29 +2,46 @@
 
 <p><a href="http://linuxbsdos.com/2015/09/05/how-to-delete-grub-files-from-a-boot-efi-partition-in-windows-10/">http://linuxbsdos.com/2015/09/05/how-to-delete-grub-files-from-a-boot-efi-partition-in-windows-10/</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>% These commands are used to identify and select the hard drive
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>diskpart
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>list disk
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>sel disk
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>% These commands are used to list the partitions, select the Boot EFI partition,
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>% then assign it a drive letter
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>list vol
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>sel vol 2
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>assign letter=D:
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>exit
-</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>% These commands are used to change into the Boot EFI folder and delete the GRUB folder
-</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>cd /d D:
-</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>ls
-</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'>ls EFI
-</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'>cd EFI
-</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>ls
-</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>rmdir /s ubuntu</div></div></pre></div></figure></p>
+<pre><code>% These commands are used to identify and select the hard drive
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>diskpart
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>select disk 0
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>select partition 3
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>delete partition override
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>exit</div></div></pre></div></figure></p>
+diskpart
+
+list disk
+
+sel disk 
+
+% These commands are used to list the partitions, select the Boot EFI partition, 
+% then assign it a drive letter
+
+list vol
+
+sel vol 2
+
+assign letter=D:
+
+exit
+
+% These commands are used to change into the Boot EFI folder and delete the GRUB folder
+
+cd /d D:
+
+ls
+
+ls EFI
+
+cd EFI
+
+ls
+
+rmdir /s ubuntu
+</code></pre>
+
+<pre><code>diskpart
+select disk 0
+select partition 3
+delete partition override
+exit
+</code></pre>
 
 <h2>Windows</h2>
 

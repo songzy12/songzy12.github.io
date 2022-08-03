@@ -4,529 +4,590 @@
 
 <h3>通知</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>public void notification()&#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    mBuilder = new NotificationCompat.Builder(this);
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    mBuilder.setAutoCancel(true)//点击后让通知将消失<br/>
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>            .setOngoing(false)//ture，设置他为一个正在进行的通知。他们通常是用来表示一个后台任务,用户积极参与(如播放音乐)或以某种方式正在等待,因此占用设备(如一个文件下载,同步操作,主动网络连接)
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>            .setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>            .setPriority(Notification.PRIORITY_DEFAULT)//设置该通知优先级
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>            .setDefaults(Notification.DEFAULT_SOUND)//向通知添加声音、闪灯和振动效果的最简单、最一致的方式是使用当前的用户默认设置，使用defaults属性，可以组合：
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>            .setContentTitle(&ldquo;Music Player&rdquo;)
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>            .setContentText(&ldquo;Click to return&rdquo;)
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>           .setTicker(&ldquo;Click me&rdquo;)
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>           .setSmallIcon(R.drawable.ic_launcher);
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>   //点击的意图ACTION是跳转到Intent
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>   Intent resultIntent = new Intent(this, MainActivity.class);
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>   resultIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>   PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>   mBuilder.setContentIntent(pendingIntent);
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>   mNotificationManager.notify(notifyId, mBuilder.build());
-</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>public void notification(){
+    mBuilder = new NotificationCompat.Builder(this);
+    mBuilder.setAutoCancel(true)//点击后让通知将消失  
+            .setOngoing(false)//ture，设置他为一个正在进行的通知。他们通常是用来表示一个后台任务,用户积极参与(如播放音乐)或以某种方式正在等待,因此占用设备(如一个文件下载,同步操作,主动网络连接)
+            .setWhen(System.currentTimeMillis())//通知产生的时间，会在通知信息里显示
+            .setPriority(Notification.PRIORITY_DEFAULT)//设置该通知优先级
+            .setDefaults(Notification.DEFAULT_SOUND)//向通知添加声音、闪灯和振动效果的最简单、最一致的方式是使用当前的用户默认设置，使用defaults属性，可以组合：
+            .setContentTitle("Music Player")
+            .setContentText("Click to return")
+            .setTicker("Click me")
+            .setSmallIcon(R.drawable.ic_launcher);
+    //点击的意图ACTION是跳转到Intent
+    Intent resultIntent = new Intent(this, MainActivity.class);
+    resultIntent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+    PendingIntent pendingIntent = PendingIntent.getActivity(this, 0,resultIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+    mBuilder.setContentIntent(pendingIntent);
+    mNotificationManager.notify(notifyId, mBuilder.build());
+}
+</code></pre>
 
 <h3>播放列表</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>mBtnPlaylist.setOnClickListener(new View.OnClickListener() &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    @Override
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    public void onClick(View arg0) &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        Bundle b = new Bundle();
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>        b.putLongArray(&ldquo;mSongIds&rdquo;, mSongIds);
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        Intent i = new Intent(getApplicationContext(), PlayListActivity.class);
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>        i.putExtras(b);
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>        startActivityForResult(i, 100);       <br/>
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;);</div></div></pre></div></figure></p>
+<pre><code>mBtnPlaylist.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View arg0) {
+        Bundle b = new Bundle();
+        b.putLongArray("mSongIds", mSongIds);
+        Intent i = new Intent(getApplicationContext(), PlayListActivity.class);
+        i.putExtras(b);
+        startActivityForResult(i, 100);         
+    }
+});
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>Bundle b = getIntent().getExtras();
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>long[] mySongIds = b.getLongArray(&ldquo;mSongIds&rdquo;);
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>this.songsList = new ArrayList&lt;HashMap&lt;String, String>>();
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>for (int i = 0; i &lt; mySongIds.length; i++) &#x7b;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    // creating new HashMap
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    HashMap&lt;String, String> song = new HashMap&lt;String, String>();
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>    song.put(&ldquo;songTitle&rdquo;, mySongIds[i] + &ldquo;&rdquo;);
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>   // adding HashList to ArrayList
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>   this.songsList.add(song);
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>// Adding menuItems to ListView
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>ListAdapter adapter = new SimpleAdapter(this, this.songsList,
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>       R.layout.playlist_item, new String[] &#x7b; &ldquo;songTitle&rdquo; &#x7d;, new int[] &#x7b;
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>               R.id.songTitle &#x7d;);
-</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>setListAdapter(adapter);
-</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>// selecting single ListView item
-</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>ListView lv = getListView();
-</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>// listening to single listitem click
-</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>lv.setOnItemClickListener(new OnItemClickListener() &#x7b;
-</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'> @Override
-</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'>   public void onItemClick(AdapterView&lt;?> parent, View view,
-</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'>           int position, long id) &#x7b;
-</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'>       // getting listitem index
-</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>       int songIndex = position;
-</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>     // Starting new intent
-</div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>       Intent in = new Intent(getApplicationContext(),
-</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'>               MainActivity.class);
-</div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'>       // Sending songIndex to PlayerActivity
-</div></div><div data-line='36' class='code-highlight-row numbered'><div class='code-highlight-line'>       in.putExtra(&ldquo;songIndex&rdquo;, songIndex);
-</div></div><div data-line='37' class='code-highlight-row numbered'><div class='code-highlight-line'>       setResult(100, in);
-</div></div><div data-line='38' class='code-highlight-row numbered'><div class='code-highlight-line'>       // Closing PlayListView
-</div></div><div data-line='39' class='code-highlight-row numbered'><div class='code-highlight-line'>       finish();
-</div></div><div data-line='40' class='code-highlight-row numbered'><div class='code-highlight-line'>   &#x7d;
-</div></div><div data-line='41' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;);</div></div></pre></div></figure></p>
+<pre><code>Bundle b = getIntent().getExtras();
+long[] mySongIds = b.getLongArray("mSongIds");
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>protected void onActivityResult(int requestCode, int resultCode, Intent data) &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    super.onActivityResult(requestCode, resultCode, data);
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    if(resultCode == 100)&#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        currentSongIndex = data.getExtras().getInt(&ldquo;songIndex&rdquo;);
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>        mSongId = mSongIds[currentSongIndex];
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        play(mSongId);
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+this.songsList = new ArrayList&lt;HashMap&lt;String, String&gt;&gt;();
+
+for (int i = 0; i &lt; mySongIds.length; i++) {
+    // creating new HashMap
+    HashMap&lt;String, String&gt; song = new HashMap&lt;String, String&gt;();
+    song.put("songTitle", mySongIds[i] + "");
+    // adding HashList to ArrayList
+    this.songsList.add(song);
+}
+
+// Adding menuItems to ListView
+ListAdapter adapter = new SimpleAdapter(this, this.songsList,
+        R.layout.playlist_item, new String[] { "songTitle" }, new int[] {
+                R.id.songTitle });
+
+setListAdapter(adapter);
+
+// selecting single ListView item
+ListView lv = getListView();
+// listening to single listitem click
+lv.setOnItemClickListener(new OnItemClickListener() {
+
+    @Override
+    public void onItemClick(AdapterView&lt;?&gt; parent, View view,
+            int position, long id) {
+        // getting listitem index
+        int songIndex = position;
+
+        // Starting new intent
+        Intent in = new Intent(getApplicationContext(),
+                MainActivity.class);
+        // Sending songIndex to PlayerActivity
+        in.putExtra("songIndex", songIndex);
+        setResult(100, in);
+        // Closing PlayListView
+        finish();
+    }
+});
+</code></pre>
+
+<pre><code>protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if(resultCode == 100){
+        currentSongIndex = data.getExtras().getInt("songIndex");
+        mSongId = mSongIds[currentSongIndex];
+        play(mSongId);
+    }
+}
+</code></pre>
 
 <h3>随机播放</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>private void next() &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    if(isRepeat)&#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>        // repeat is on play same song again
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d; else if(isShuffle)&#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>        // shuffle is on - play a random song
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        Random rand = new Random();
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>        currentSongIndex = rand.nextInt((mSongIds.length - 1) - 0 + 1) + 0;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d; else&#x7b;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>        // no repeat or shuffle ON - play next song
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>       currentSongIndex = (currentSongIndex + 1) % mSongIds.length;
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>   &#x7d;
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>   mSongId = mSongIds[currentSongIndex];
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>   play(mSongId);
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>private void next() {
+    if(isRepeat){
+        // repeat is on play same song again
+    } else if(isShuffle){
+        // shuffle is on - play a random song
+        Random rand = new Random();
+        currentSongIndex = rand.nextInt((mSongIds.length - 1) - 0 + 1) + 0;
+    } else{
+        // no repeat or shuffle ON - play next song
+        currentSongIndex = (currentSongIndex + 1) % mSongIds.length;
+    }
+    mSongId = mSongIds[currentSongIndex];
+    play(mSongId);
+}
+</code></pre>
 
 <h3>专辑图</h3>
 
 <p>3454712, 31655244, 8061609, 114626026, 123772450, 130244125, 38280826, 7348261</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>File sdcardPath = Environment.getExternalStorageDirectory();
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>// sdcard_path.toString() == &ldquo;/storage/emulated/0&rdquo;;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>String folder = &ldquo;baidu/music&rdquo;;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>File dirPath = new File(sdcardPath + &ldquo;/&rdquo; + folder + &ldquo;/&rdquo;);
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>if (!dirPath.exists())<br/>
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>    dirPath.mkdirs();
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>ImageManager.init(this, ImageManager.POSTFIX_JPG,
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    dirPath.toString(), 1 * 1024 * 1024);</div></div></pre></div></figure></p>
+<pre><code>File sdcardPath = Environment.getExternalStorageDirectory();
+// sdcard_path.toString() == "/storage/emulated/0";
+String folder = "baidu/music";
+File dirPath = new File(sdcardPath + "/" + folder + "/");
+if (!dirPath.exists())  
+    dirPath.mkdirs();
+ImageManager.init(this, ImageManager.POSTFIX_JPG,
+    dirPath.toString(), 1 * 1024 * 1024);
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>private void loadImage(String title, String artist) &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    LogUtil.i(TAG, &ldquo;title: &rdquo; + title + &ldquo;, artist: &rdquo; + artist);
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    OnlineManagerEngine
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>            .getInstance(getApplicationContext())
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>            .getSearchManager(getBaseContext())
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>            .getLyricPicAsync(getApplicationContext(),
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>                    title, artist,
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>                    new LrcPicSearchListener() &#x7b;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>                        @Override
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>                        public void onGetLrcPicList(LrcPicList list) &#x7b;
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>                           if (list.getErrorCode() == list.OK) &#x7b;
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>                                LrcPic lrcPic = (LrcPic) list.getItems()
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>                                        .get(0);
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>                                LogUtil.i(TAG, &ldquo;LrcPic: &rdquo; + lrcPic.toString());
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>                                ImageManager.render(lrcPic.getPicBig(),
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>                                        mayuri, -1, -1, 0, false, false);
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>                            &#x7d;
-</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>                        &#x7d;
-</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>                    &#x7d;);
-</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>private void loadImage(String title, String artist) {
+    LogUtil.i(TAG, "title: " + title + ", artist: " + artist);
+    OnlineManagerEngine
+            .getInstance(getApplicationContext())
+            .getSearchManager(getBaseContext())
+            .getLyricPicAsync(getApplicationContext(),
+                    title, artist,
+                    new LrcPicSearchListener() {
+                        @Override
+                        public void onGetLrcPicList(LrcPicList list) {
+                            if (list.getErrorCode() == list.OK) {
+                                LrcPic lrcPic = (LrcPic) list.getItems()
+                                        .get(0);
+                                LogUtil.i(TAG, "LrcPic: " + lrcPic.toString());
+                                ImageManager.render(lrcPic.getPicBig(),
+                                        mayuri, -1, -1, 0, false, false);
+                            }
+                        }
+                    });
+}
+</code></pre>
 
 <h2>基本功能</h2>
 
 <h3>播放</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>private void start() &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    if (isLossless) &#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>        mStreamPlayer.prepareLossless(mSongId);
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d; else &#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>        mStreamPlayer.prepare(mSongId == 0 ? mSongIds[index] : mSongId,
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>                TextUtil.isEmpty(mBit) ? &ldquo;128&rdquo; : mBit);
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    status = PLAYING;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>    mBtnPlay.setImageResource(R.drawable.pause);
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>    setTimer();
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>private void start() {
+    if (isLossless) {
+        mStreamPlayer.prepareLossless(mSongId);
+    } else {
+        mStreamPlayer.prepare(mSongId == 0 ? mSongIds[index] : mSongId,
+                TextUtil.isEmpty(mBit) ? "128" : mBit);
+    }
+    status = PLAYING;
+    mBtnPlay.setImageResource(R.drawable.pause);
+    setTimer();
+}
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;selector xmlns:android=&ldquo;<a href="http://schemas.android.com/apk/res/android">http://schemas.android.com/apk/res/android</a>&rdquo;>
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    &lt;item android:drawable=&ldquo;@drawable/img_btn_play_pressed&rdquo;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>        android:state_focused=&ldquo;true&rdquo;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        android:state_pressed=&ldquo;true&rdquo; />
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>    &lt;item android:drawable=&ldquo;@drawable/img_btn_play_pressed&rdquo;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        android:state_focused=&ldquo;false&rdquo;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>        android:state_pressed=&ldquo;true&rdquo; />
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    &lt;item android:drawable=&ldquo;@drawable/img_btn_play_pressed&rdquo;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>            android:state_focused=&ldquo;true&rdquo; />
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>    &lt;item android:drawable=&ldquo;@drawable/img_btn_play&rdquo;
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>        android:state_focused=&ldquo;false&rdquo;
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>        android:state_pressed=&ldquo;false&rdquo; />
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;/selector></div></div></pre></div></figure></p>
+<pre><code>&lt;selector xmlns:android="http://schemas.android.com/apk/res/android"&gt;
+    &lt;item android:drawable="@drawable/img_btn_play_pressed"
+        android:state_focused="true"
+        android:state_pressed="true" /&gt;
+    &lt;item android:drawable="@drawable/img_btn_play_pressed"
+        android:state_focused="false"
+        android:state_pressed="true" /&gt;
+    &lt;item android:drawable="@drawable/img_btn_play_pressed" 
+            android:state_focused="true" /&gt;
+    &lt;item android:drawable="@drawable/img_btn_play"
+        android:state_focused="false"
+        android:state_pressed="false" /&gt;
+&lt;/selector&gt;
+</code></pre>
 
 <h3>当前播放时长、显示播放总时长</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>private void setTimer() &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    mTimer = new Timer(true);
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    TimerTask task = new TimerTask() &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        public void run() &#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>            mHandler.sendEmptyMessage(REFRESH_POSITION);
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    mTimer.scheduleAtFixedRate(task, 0, 1000);  <br/>
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>private Handler mHandler = new Handler() &#x7b;
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>    @Override
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>    public void handleMessage(Message msg) &#x7b;
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>        switch (msg.what) &#x7b;
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>            case REFRESH_POSITION:
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>                long position = mStreamPlayer.position();
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>                mPosition.setText(strftime(Math.max(position, 0)));
-</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>                mSeekBar.setProgress((int) mStreamPlayer.position());
-</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>                break;
-</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>            case REFRESH_DURATION:
-</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>                mDuration.setText(strftime(mStreamPlayer.duration()));
-</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>                break;
-</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>            default:
-</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>                break;
-</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;;
-</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'>private String strftime(long millisecond) &#x7b;
-</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>   long second = millisecond / 1000;
-</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'>   long minute = second / 60;
-</div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>   String time = String.format(Locale.getDefault(), &ldquo;%02d:%02d&rdquo;, minute, second % 60);
-</div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>   LogUtil.i(TAG, &ldquo;millisecond: &rdquo; + millisecond + &ldquo;, time: &rdquo; + time);
-</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'>   return time;
-</div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>private void setTimer() {
+    mTimer = new Timer(true);
+    TimerTask task = new TimerTask() {
+        public void run() {
+            mHandler.sendEmptyMessage(REFRESH_POSITION);
+        }
+    };
+    mTimer.scheduleAtFixedRate(task, 0, 1000);    
+}
+
+private Handler mHandler = new Handler() {
+    @Override
+    public void handleMessage(Message msg) {
+        switch (msg.what) {
+            case REFRESH_POSITION:
+                long position = mStreamPlayer.position();
+                mPosition.setText(strftime(Math.max(position, 0)));
+                mSeekBar.setProgress((int) mStreamPlayer.position());
+                break;
+            case REFRESH_DURATION:
+                mDuration.setText(strftime(mStreamPlayer.duration()));
+                break;
+            default:
+                break;
+        }
+    }
+};
+
+private String strftime(long millisecond) {
+    long second = millisecond / 1000;
+    long minute = second / 60;
+    String time = String.format(Locale.getDefault(), "%02d:%02d", minute, second % 60);
+    LogUtil.i(TAG, "millisecond: " + millisecond + ", time: " + time);
+    return time;
+}
+</code></pre>
 
 <h3>进度条</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>OnPreparedListener mOnPreparedListener = new OnPreparedListener() &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    @Override
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    public void onPrepared() &#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>        // TODO Auto-generated method stub
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        if (mSeekBar != null) &#x7b;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>            mSeekBar.setMax((int) mStreamPlayer.duration());
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>            mHandler.sendEmptyMessage(REFRESH_DURATION);
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>            mHandler.sendEmptyMessage(REFRESH_POSITION);
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>        LogUtil.i(TAG, &ldquo;onPrepared&hellip;.&rdquo;);
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>        // if (status == PLAYING &amp;&amp; !mStreamPlayer.isPlaying())
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>        mStreamPlayer.start();
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;;</div></div></pre></div></figure></p>
+<pre><code>OnPreparedListener mOnPreparedListener = new OnPreparedListener() {
+
+    @Override
+    public void onPrepared() {
+        // TODO Auto-generated method stub
+        if (mSeekBar != null) {
+            mSeekBar.setMax((int) mStreamPlayer.duration());
+            mHandler.sendEmptyMessage(REFRESH_DURATION);
+            mHandler.sendEmptyMessage(REFRESH_POSITION);
+        }
+        LogUtil.i(TAG, "onPrepared....");
+        // if (status == PLAYING &amp;&amp; !mStreamPlayer.isPlaying())
+        mStreamPlayer.start();
+    }
+};
+</code></pre>
 
 <h3>进度条拖动</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>mSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    @Override
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    public void onProgressChanged(SeekBar arg0, int arg1, boolean arg2) &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        // TODO Auto-generated method stub
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    @Override
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>    public void onStartTrackingTouch(SeekBar seekBar) &#x7b;
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>        // TODO Auto-generated method stub
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>    @Override
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>    public void onStopTrackingTouch(SeekBar seekBar) &#x7b;
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>        // TODO Auto-generated method stub
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>        int progress = seekBar.getProgress();
-</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>        int pos = (int) mStreamPlayer.seek(progress);
-</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>        seekBar.setProgress(pos);
-</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>        mPosition.setText(strftime(mStreamPlayer.position()));
-</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;);</div></div></pre></div></figure></p>
+<pre><code>mSeekBar.setOnSeekBarChangeListener(new OnSeekBarChangeListener() {
+    @Override
+    public void onProgressChanged(SeekBar arg0, int arg1, boolean arg2) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onStartTrackingTouch(SeekBar seekBar) {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    public void onStopTrackingTouch(SeekBar seekBar) {
+        // TODO Auto-generated method stub
+        int progress = seekBar.getProgress();
+        int pos = (int) mStreamPlayer.seek(progress);
+        seekBar.setProgress(pos);
+        mPosition.setText(strftime(mStreamPlayer.position()));
+    }
+});
+</code></pre>
 
 <h3>暂停</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>mBtnPlay.setOnClickListener(new OnClickListener() &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    @Override
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    public void onClick(View v) &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        switch (status) &#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>            case PLAYING: pause(); break;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>            case PAUSED: resume(); break;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>            default: start(); break;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>         &#x7d;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;);</div></div></pre></div></figure></p>
+<pre><code>mBtnPlay.setOnClickListener(new OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        switch (status) {
+            case PLAYING: pause(); break;
+            case PAUSED: resume(); break;
+            default: start(); break;
+         }
+    }
+});
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>private void resume() &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    mStreamPlayer.start();
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    status = PLAYING;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    mBtnPlay.setImageResource(R.drawable.pause);
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>private void pause() &#x7b;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    mStreamPlayer.pause();
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>    status = PAUSED;
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>    mBtnPlay.setImageResource(R.drawable.play);
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>private void resume() {
+    mStreamPlayer.start();
+    status = PLAYING;
+    mBtnPlay.setImageResource(R.drawable.pause);
+}
+
+private void pause() {
+    mStreamPlayer.pause();
+    status = PAUSED;
+    mBtnPlay.setImageResource(R.drawable.play);
+}
+</code></pre>
 
 <h3>下一曲、 上一曲</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>private void previous() &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    currentSongIndex = (mSongIds.length + currentSongIndex - 1) %  mSongIds.length;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    mSongId = mSongIds[currentSongIndex];
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    play(mSongId);
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code class="">private void previous() {
+    currentSongIndex = (mSongIds.length + currentSongIndex - 1) %  mSongIds.length;
+    mSongId = mSongIds[currentSongIndex];
+    play(mSongId);
+}
+</code></pre>
 
 <h3>歌曲名、歌手名</h3>
 
 <p>null: 254515, 890663, 31387633, 2043518, 2104023, 539896, 2127370
 not null: 1262598, 265898, 6172939, 2494343</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>private void setMusicInfo()&#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    long musicId = mStreamPlayer.getMusicId();
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    String album = mStreamPlayer.getMusicAlbum();
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    String artist = mStreamPlayer.getMusicArtist();
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>    String title = mStreamPlayer.getMusicTitle();
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>    mTitle.setText(title);
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    mMusicId.setText(String.valueOf(musicId));
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    mArtist.setText(artist);
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>    mAlbum.setText(album);
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>private void setMusicInfo(){
+    long musicId = mStreamPlayer.getMusicId();
+    String album = mStreamPlayer.getMusicAlbum();
+    String artist = mStreamPlayer.getMusicArtist();
+    String title = mStreamPlayer.getMusicTitle();
+    mTitle.setText(title);
+    mMusicId.setText(String.valueOf(musicId));
+    mArtist.setText(artist);
+    mAlbum.setText(album);
+}
+</code></pre>
 
 <h3>后台可播放</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>android:persistent=&ldquo;true&rdquo;</div></div></pre></div></figure></p>
+<pre><code>android:persistent="true"
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>public void onBackPressed()&#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    new AlertDialog.Builder(this).setTitle(&ldquo;Run in background?&rdquo;)
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    .setIcon(android.R.drawable.ic_dialog_info)
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    .setPositiveButton(&ldquo;No&rdquo;, new DialogInterface.OnClickListener() &#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        @Override
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>        public void onClick(DialogInterface dialog, int which) &#x7b;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>            // 点击“确认”后的操作
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>            MainActivity.this.finish();
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;)
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>    .setNegativeButton(&ldquo;Yes&rdquo;, new DialogInterface.OnClickListener() &#x7b;
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>        @Override
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>        public void onClick(DialogInterface dialog, int which) &#x7b;
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>            bg();
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;).show();
-</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;
-</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>private void bg() &#x7b;
-</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>   PackageManager pm = getPackageManager();
-</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>   ResolveInfo homeInfo = pm.resolveActivity(new Intent(Intent.ACTION_MAIN)
-</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>   .addCategory(Intent.CATEGORY_HOME), 0);
-</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>   ActivityInfo ai = homeInfo.activityInfo;
-</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'>    Intent startIntent = new Intent(Intent.ACTION_MAIN);
-</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'>    startIntent.addCategory(Intent.CATEGORY_LAUNCHER);
-</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'>    startIntent.setComponent(new ComponentName(ai.packageName, ai.name));
-</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'>    startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>    try &#x7b;
-</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'>        startActivity(startIntent);
-</div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d; catch (SecurityException e) &#x7b;
-</div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>        LogUtil.e(TAG, &ldquo;Make sure to create a MAIN intent-filter for the corresponding activity.&rdquo;);
-</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>public void onBackPressed(){
+    new AlertDialog.Builder(this).setTitle("Run in background?")
+    .setIcon(android.R.drawable.ic_dialog_info)
+    .setPositiveButton("No", new DialogInterface.OnClickListener() {
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            // 点击“确认”后的操作
+            MainActivity.this.finish();
+        }
+    })
+    .setNegativeButton("Yes", new DialogInterface.OnClickListener() {
+
+        @Override
+        public void onClick(DialogInterface dialog, int which) {
+            bg();
+        }
+    }).show();
+}
+
+private void bg() {
+    PackageManager pm = getPackageManager();
+    ResolveInfo homeInfo = pm.resolveActivity(new Intent(Intent.ACTION_MAIN)
+    .addCategory(Intent.CATEGORY_HOME), 0);
+    ActivityInfo ai = homeInfo.activityInfo;
+    Intent startIntent = new Intent(Intent.ACTION_MAIN);
+    startIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+    startIntent.setComponent(new ComponentName(ai.packageName, ai.name));
+    startIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+    try {
+        startActivity(startIntent);
+    } catch (SecurityException e) {
+        LogUtil.e(TAG, "Make sure to create a MAIN intent-filter for the corresponding activity.");
+    }
+}
+</code></pre>
 
 <h2>手势功能</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>@Override
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>public boolean onTouchEvent(MotionEvent event) &#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    return mDetector.onTouchEvent(event);
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>mDetector = new GestureDetector(this, mGestureListener);
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>GestureDetector.SimpleOnGestureListener mGestureListener = new GestureDetector.SimpleOnGestureListener() &#x7b;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>    float MIN_MOVE = 100;
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>    @Override
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>    public boolean onScroll(MotionEvent e1, MotionEvent e2, float vX, float vY) &#x7b;
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>       LogUtil.d(TAG, &ldquo;onScroll&hellip;&rdquo;);
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>        return false;
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>    @Override
-</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>    public boolean onFling(MotionEvent e1, MotionEvent e2, float vX, float vY) &#x7b;
-</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>       LogUtil.d(TAG, &ldquo;onFling&hellip;&rdquo;);
-</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>       float deltaX = e2.getX() - e1.getX();
-</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>        if(deltaX > MIN_MOVE)&#x7b;
-</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>            fastForward(deltaX);
-</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d; else if(deltaX &lt; -MIN_MOVE)&#x7b;
-</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>            rewind(-deltaX);
-</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'>        float deltaY = e2.getY() - e1.getY();
-</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'>        if(deltaY > MIN_MOVE)&#x7b;
-</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'>            volumeDown(deltaY);
-</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d; else if(deltaY &lt; -MIN_MOVE)&#x7b;
-</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'>            volumeUp(-deltaY);
-</div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>        return false;
-</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;;</div></div></pre></div></figure></p>
+<pre><code>@Override
+public boolean onTouchEvent(MotionEvent event) {
+    return mDetector.onTouchEvent(event);
+}
+
+mDetector = new GestureDetector(this, mGestureListener);
+
+GestureDetector.SimpleOnGestureListener mGestureListener = new GestureDetector.SimpleOnGestureListener() {
+    float MIN_MOVE = 100;
+
+    @Override
+    public boolean onScroll(MotionEvent e1, MotionEvent e2, float vX, float vY) {
+        LogUtil.d(TAG, "onScroll...");
+        return false;
+    }
+
+    @Override
+    public boolean onFling(MotionEvent e1, MotionEvent e2, float vX, float vY) {
+        LogUtil.d(TAG, "onFling...");
+        float deltaX = e2.getX() - e1.getX(); 
+        if(deltaX &gt; MIN_MOVE){
+            fastForward(deltaX);
+        } else if(deltaX &lt; -MIN_MOVE){
+            rewind(-deltaX);
+        } 
+
+        float deltaY = e2.getY() - e1.getY(); 
+        if(deltaY &gt; MIN_MOVE){
+            volumeDown(deltaY);
+        } else if(deltaY &lt; -MIN_MOVE){
+            volumeUp(-deltaY);
+        }
+        return false;
+    }
+};
+</code></pre>
 
 <h3>左右滑动快进快退</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>private void fastForward(float delta)&#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    LogUtil.d(TAG, &ldquo;fastForward: &rdquo; + delta);
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    // delta typically 100, 100ms * 100 = 10000ms = 10s
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    int progress =  Math.min(mSongProgressBar.getMax(), mSongProgressBar.getProgress() + (int)(delta * 100));
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>    mSongProgressBar.setProgress(progress);
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>    mSongCurrentDurationLabel.setText(strftime(mStreamPlayer.position()));
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    mStreamPlayer.seek(progress);
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>private void rewind(float delta)&#x7b;
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>   LogUtil.d(TAG, &ldquo;rewind: &rdquo; + delta);
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>   int progress =  Math.max(0, mSongProgressBar.getProgress() - (int)(delta * 100));
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>    mSongProgressBar.setProgress(progress);
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>    mSongCurrentDurationLabel.setText(strftime(progress));
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>   mStreamPlayer.seek(progress);
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>private void fastForward(float delta){
+    LogUtil.d(TAG, "fastForward: " + delta);
+    // delta typically 100, 100ms * 100 = 10000ms = 10s 
+    int progress =  Math.min(mSongProgressBar.getMax(), mSongProgressBar.getProgress() + (int)(delta * 100));
+    mSongProgressBar.setProgress(progress);
+    mSongCurrentDurationLabel.setText(strftime(mStreamPlayer.position()));
+    mStreamPlayer.seek(progress);
+}
+
+private void rewind(float delta){
+    LogUtil.d(TAG, "rewind: " + delta);
+    int progress =  Math.max(0, mSongProgressBar.getProgress() - (int)(delta * 100));
+    mSongProgressBar.setProgress(progress);
+    mSongCurrentDurationLabel.setText(strftime(progress));
+    mStreamPlayer.seek(progress);
+}
+</code></pre>
 
 <h3>上下滑动调节音量</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>private void volumeUp(float delta)&#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    int max = mAudioManager.getStreamMaxVolume( AudioManager.STREAM_MUSIC );
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    int current = mAudioManager.getStreamVolume( AudioManager.STREAM_MUSIC );
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, Math.min(current + 1, max), AudioManager.FLAG_SHOW_UI);
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>    LogUtil.d(TAG, &ldquo;max : &rdquo; + max + &ldquo; current : &rdquo; + current);
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>private void volumeDown(float delta)&#x7b;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>    int current = mAudioManager.getStreamVolume( AudioManager.STREAM_MUSIC );
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>    mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, Math.max(0, current - 1), AudioManager.FLAG_SHOW_UI);
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>    LogUtil.d(TAG, &ldquo;min : &rdquo; + 0 + &ldquo; current : &rdquo; + current);
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>private void volumeUp(float delta){
+    int max = mAudioManager.getStreamMaxVolume( AudioManager.STREAM_MUSIC );
+    int current = mAudioManager.getStreamVolume( AudioManager.STREAM_MUSIC );
+    mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, Math.min(current + 1, max), AudioManager.FLAG_SHOW_UI);
+    LogUtil.d(TAG, "max : " + max + " current : " + current);
+}
+
+private void volumeDown(float delta){
+    int current = mAudioManager.getStreamVolume( AudioManager.STREAM_MUSIC );
+    mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC, Math.max(0, current - 1), AudioManager.FLAG_SHOW_UI);
+    LogUtil.d(TAG, "min : " + 0 + " current : " + current);
+}
+</code></pre>
 
 <h2>特殊事件处理</h2>
 
 <h3>无网、网络数据错误导致无法播放时的异常页面显示</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>OnBlockListener mOnBlockListener = new OnBlockListener() &#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    @Override
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    public void onBlocked() &#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>        LogUtil.i(TAG,
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>                &ldquo;onBlocked&hellip; isPlaying : &rdquo; + mStreamPlayer.isPlaying());
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>        mStreamPlayer.pause();
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>        status = PAUSED;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>        checkNetConnected();
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;;
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>private boolean isNetConnected() &#x7b;<br/>
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);<br/>
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>    if (cm != null) &#x7b;<br/>
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>        NetworkInfo[] infos = cm.getAllNetworkInfo();<br/>
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>        if (infos != null) &#x7b;<br/>
-</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>            for (NetworkInfo ni : infos) &#x7b;<br/>
-</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>                if (ni.isConnected()) &#x7b;<br/>
-</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>                    return true;<br/>
-</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>                &#x7d;<br/>
-</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7d;<br/>
-</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;<br/>
-</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;<br/>
-</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>    return false;<br/>
-</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;<br/>
-</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'>private void checkNetConnected() &#x7b;
-</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'>   if (isNetConnected())
-</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>       return;
-</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'>   LogUtil.i(TAG, &ldquo;Net Disconnected&hellip;&rdquo;);
-</div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>   Toast.makeText(getApplicationContext(), &ldquo;Net Disconnected&hellip;&rdquo;,
-</div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>           Toast.LENGTH_LONG).show();
-</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>OnBlockListener mOnBlockListener = new OnBlockListener() {
+
+    @Override
+    public void onBlocked() {
+        LogUtil.i(TAG,
+                "onBlocked... isPlaying : " + mStreamPlayer.isPlaying());
+        mStreamPlayer.pause();
+        status = PAUSED;
+        checkNetConnected();
+    }
+};
+
+private boolean isNetConnected() {  
+    ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);  
+    if (cm != null) {  
+        NetworkInfo[] infos = cm.getAllNetworkInfo();  
+        if (infos != null) {  
+            for (NetworkInfo ni : infos) {  
+                if (ni.isConnected()) {  
+                    return true;  
+                }  
+            }  
+        }  
+    }  
+    return false;  
+}  
+
+private void checkNetConnected() {
+    if (isNetConnected())
+        return;
+    LogUtil.i(TAG, "Net Disconnected...");
+    Toast.makeText(getApplicationContext(), "Net Disconnected...",
+            Toast.LENGTH_LONG).show();
+
+}
+</code></pre>
 
 <h3>播放状态下，拔掉耳机，自动暂停播放；播放状态下插入耳机，播放继续。</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.MODIFY_AUDIO_SETTINGS&rdquo; /></div></div></pre></div></figure></p>
+<pre><code>&lt;uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /&gt;
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>public void onCreate(Bundle savedInstanceState) &#x7b;<br/>
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    super.onCreate(savedInstanceState);<br/>
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    setContentView(R.layout.main);<br/>
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>    IntentFilter filter = new IntentFilter();<br/>
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>    filter.addAction(Intent.ACTION_HEADSET_PLUG);<br/>
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    registerReceiver(headsetReceiver, filter);<br/>
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;<br/>
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>private BroadcastReceiver headsetReceiver = new BroadcastReceiver() &#x7b;<br/>
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>    @Override<br/>
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>    public void onReceive(Context context, Intent intent) &#x7b;  <br/>
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>         LogUtil.i(TAG, &ldquo;state: &rdquo;+intent.getIntExtra(&ldquo;state&rdquo;, 0));
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>         if(intent.getIntExtra(&ldquo;state&rdquo;, 0) == 1)&#x7b; <br/>
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>             resume();
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>         &#x7d;else if(intent.getIntExtra(&ldquo;state&rdquo;, 0) == 0)&#x7b;<br/>
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>             pause();<br/>
-</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>         &#x7d;  <br/>
-</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;<br/>
-</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;; </div></div></pre></div></figure></p>
+<pre><code>public void onCreate(Bundle savedInstanceState) {  
+    super.onCreate(savedInstanceState);  
+    setContentView(R.layout.main);  
+
+    IntentFilter filter = new IntentFilter();  
+    filter.addAction(Intent.ACTION_HEADSET_PLUG);  
+    registerReceiver(headsetReceiver, filter);  
+}  
+
+private BroadcastReceiver headsetReceiver = new BroadcastReceiver() {  
+    @Override  
+    public void onReceive(Context context, Intent intent) {    
+         LogUtil.i(TAG, "state: "+intent.getIntExtra("state", 0));
+         if(intent.getIntExtra("state", 0) == 1){   
+             resume();
+         }else if(intent.getIntExtra("state", 0) == 0){  
+             pause();  
+         }    
+    }  
+}; 
+</code></pre>
 
 <h3>播放状态下来电话，自动暂停播放；一旦挂掉电话，自动恢复播放。</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.READ_PHONE_STATE&rdquo;>&lt;/uses-permission><br/>
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.PROCESS_OUTGOING_CALLS&rdquo;>&lt;/uses-permission> </div></div></pre></div></figure></p>
+<pre><code>&lt;uses-permission android:name="android.permission.READ_PHONE_STATE"&gt;&lt;/uses-permission&gt;  
+&lt;uses-permission android:name="android.permission.PROCESS_OUTGOING_CALLS"&gt;&lt;/uses-permission&gt; 
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;activity
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    android:name=&ldquo;.MainActivity&rdquo;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    android:label=&ldquo;@string/app_name&rdquo; >
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    &lt;intent-filter>
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>        &lt;action android:name=&ldquo;android.intent.action.MAIN&rdquo; />
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        &lt;category android:name=&ldquo;android.intent.category.LAUNCHER&rdquo; />
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    &lt;/intent-filter>
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    &lt;intent-filter>
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>        &lt;!&ndash; 获取来电广播 &ndash;>
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>       &lt;action android:name=&ldquo;android.intent.action.PHONE_STATE&rdquo; />
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>       &lt;!&ndash; 获取去电广播 &ndash;>
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>       &lt;action android:name=&ldquo;android.intent.action.NEW_OUTGOING_CALL&rdquo; />
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>   &lt;/intent-filter>
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;/activity></div></div></pre></div></figure></p>
+<pre><code>&lt;activity
+    android:name=".MainActivity"
+    android:label="@string/app_name" &gt;
+    &lt;intent-filter&gt;
+        &lt;action android:name="android.intent.action.MAIN" /&gt;
+        &lt;category android:name="android.intent.category.LAUNCHER" /&gt;
+    &lt;/intent-filter&gt;
+    &lt;intent-filter&gt;
+        &lt;!-- 获取来电广播 --&gt;
+        &lt;action android:name="android.intent.action.PHONE_STATE" /&gt;
+        &lt;!-- 获取去电广播 --&gt;
+        &lt;action android:name="android.intent.action.NEW_OUTGOING_CALL" /&gt;
+    &lt;/intent-filter&gt;
+&lt;/activity&gt;
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>IntentFilter phoneFilter = new IntentFilter(&ldquo;android.intent.action.PHONE_STATE&rdquo;);<br/>
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>phoneFilter.addAction(Intent.ACTION_NEW_OUTGOING_CALL);
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>registerReceiver(phoneReceiver, phoneFilter);</div></div></pre></div></figure></p>
+<pre><code>IntentFilter phoneFilter = new IntentFilter("android.intent.action.PHONE_STATE");  
+phoneFilter.addAction(Intent.ACTION_NEW_OUTGOING_CALL);
+registerReceiver(phoneReceiver, phoneFilter);
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>private BroadcastReceiver phoneReceiver = new BroadcastReceiver()&#x7b;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    @Override
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    public void onReceive(Context context, Intent intent) &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        //拨打电话
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>        if (intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL)) &#x7b;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>            final String phoneNum = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>            LogUtil.i(TAG, &ldquo;phoneNum: &rdquo; + phoneNum);
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>            pause();
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d; else &#x7b;
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>            TelephonyManager tm = (TelephonyManager) context.getSystemService(Service.TELEPHONY_SERVICE);
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>            tm.listen(listener,PhoneStateListener.LISTEN_CALL_STATE);
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>    PhoneStateListener listener = new PhoneStateListener()&#x7b;
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>        @Override
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>        public void onCallStateChanged(int state, String incomingNumber) &#x7b;
-</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>            super.onCallStateChanged(state, incomingNumber);
-</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>            switch(state)&#x7b;
-</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>                //电话等待接听
-</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>                case TelephonyManager.CALL_STATE_RINGING:
-</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>                    pause();
-</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>                    LogUtil.i(TAG, &ldquo;call state ringing&hellip;&rdquo;);
-</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>                    break;
-</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>                //电话接听
-</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'>                case TelephonyManager.CALL_STATE_OFFHOOK:
-</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'>                    LogUtil.i(TAG, &ldquo;call state offhook&hellip;&rdquo;);
-</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'>                    break;
-</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'>                //电话挂机
-</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>                case TelephonyManager.CALL_STATE_IDLE:
-</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'>                    LogUtil.i(TAG, &ldquo;call state idle&hellip;&rdquo;);
-</div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>                    resume();
-</div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>                    break;
-</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7d;
-</div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='36' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;;
-</div></div><div data-line='37' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;;</div></div></pre></div></figure></p>
+<pre><code>private BroadcastReceiver phoneReceiver = new BroadcastReceiver(){
+    @Override
+    public void onReceive(Context context, Intent intent) {
+        //拨打电话
+        if (intent.getAction().equals(Intent.ACTION_NEW_OUTGOING_CALL)) {
+            final String phoneNum = intent.getStringExtra(Intent.EXTRA_PHONE_NUMBER);
+            LogUtil.i(TAG, "phoneNum: " + phoneNum);
+            pause();
+        } else {
+            TelephonyManager tm = (TelephonyManager) context.getSystemService(Service.TELEPHONY_SERVICE);
+            tm.listen(listener,PhoneStateListener.LISTEN_CALL_STATE);
+        }
+    }
+
+    PhoneStateListener listener = new PhoneStateListener(){
+        @Override
+        public void onCallStateChanged(int state, String incomingNumber) {
+            super.onCallStateChanged(state, incomingNumber);
+            switch(state){
+                //电话等待接听
+                case TelephonyManager.CALL_STATE_RINGING:
+                    pause();
+                    LogUtil.i(TAG, "call state ringing...");
+                    break;
+                //电话接听
+                case TelephonyManager.CALL_STATE_OFFHOOK:
+                    LogUtil.i(TAG, "call state offhook...");
+                    break;
+                //电话挂机
+                case TelephonyManager.CALL_STATE_IDLE:
+                    LogUtil.i(TAG, "call state idle...");
+                    resume();
+                    break;
+            }
+        }
+    };
+};
+</code></pre>
 
 <h2>uses-permission</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.MOUNT_UNMOUNT_FILESYSTEMS&rdquo; />
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.WRITE_EXTERNAL_STORAGE&rdquo; />
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.ACCESS_COARSE_LOCATION&rdquo; />
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.CHANGE_WIFI_STATE&rdquo; />
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.RECORD_AUDIO&rdquo; />
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.READ_TING_MP3&rdquo; />
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.WRITE_TING_MP3&rdquo; />
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.WRITE_SETTINGS&rdquo; />
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.INTERNET&rdquo; />
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.ACCESS_NETWORK_STATE&rdquo; />
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.WAKE_LOCK&rdquo; />
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.READ_PHONE_STATE&rdquo; />
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.ACCESS_WIFI_STATE&rdquo; />
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.KILL_BACKGROUND_PROCESSES&rdquo; />
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.RESTART_PACKAGES&rdquo; />
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.MODIFY_AUDIO_SETTINGS&rdquo; />
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.GET_ACCOUNTS&rdquo; />
-</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.USE_CREDENTIALS&rdquo; />
-</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.MANAGE_ACCOUNTS&rdquo; />
-</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.AUTHENTICATE_ACCOUNTS&rdquo; />
-</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.CALL_PHONE&rdquo; />
-</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.permission.ACCESS_FINE_LOCATION&rdquo; />
-</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>&lt;uses-permission android:name=&ldquo;android.hardware.sensor.accelerometer&rdquo; /></div></div></pre></div></figure></p>
+<pre><code>&lt;uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" /&gt;
+&lt;uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /&gt;
+&lt;uses-permission android:name="android.permission.CHANGE_WIFI_STATE" /&gt;
+&lt;uses-permission android:name="android.permission.RECORD_AUDIO" /&gt;
+&lt;uses-permission android:name="android.permission.READ_TING_MP3" /&gt;
+&lt;uses-permission android:name="android.permission.WRITE_TING_MP3" /&gt;
+&lt;uses-permission android:name="android.permission.WRITE_SETTINGS" /&gt;
+&lt;uses-permission android:name="android.permission.INTERNET" /&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /&gt;
+&lt;uses-permission android:name="android.permission.WAKE_LOCK" /&gt;
+&lt;uses-permission android:name="android.permission.READ_PHONE_STATE" /&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /&gt;
+&lt;uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES" /&gt;
+&lt;uses-permission android:name="android.permission.RESTART_PACKAGES" /&gt;
+&lt;uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" /&gt;
+&lt;uses-permission android:name="android.permission.GET_ACCOUNTS" /&gt;
+&lt;uses-permission android:name="android.permission.USE_CREDENTIALS" /&gt;
+&lt;uses-permission android:name="android.permission.MANAGE_ACCOUNTS" /&gt;
+&lt;uses-permission android:name="android.permission.AUTHENTICATE_ACCOUNTS" /&gt;
+&lt;uses-permission android:name="android.permission.CALL_PHONE" /&gt;
+&lt;uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /&gt;
+&lt;uses-permission android:name="android.hardware.sensor.accelerometer" /&gt;
+</code></pre>

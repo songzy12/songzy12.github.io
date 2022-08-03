@@ -2,57 +2,62 @@
 
 <p>The standard similarity algorithm used in Elasticsearch is known as term frequency/inverse document frequency, or TF/IDF.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>GET /<em>search?explain
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>   &ldquo;query&rdquo;   : &#x7b; &ldquo;match&rdquo; : &#x7b; &ldquo;tweet&rdquo; : &ldquo;honeymoon&rdquo; &#x7d;&#x7d;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>&ldquo;</em>explanation&rdquo;: &#x7b;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>   &ldquo;description&rdquo;: &ldquo;weight(tweet:honeymoon in 0)
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>                  [PerFieldSimilarity], result of:&rdquo;,
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>   &ldquo;value&rdquo;:       0.076713204,
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>   &ldquo;details&rdquo;: [
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7b;
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>         &ldquo;description&rdquo;: &ldquo;fieldWeight in 0, product of:&rdquo;,
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>         &ldquo;value&rdquo;:       0.076713204,
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>         &ldquo;details&rdquo;: [
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7b;<br/>
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>               &ldquo;description&rdquo;: &ldquo;tf(freq=1.0), with freq of:&rdquo;,
-</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>               &ldquo;value&rdquo;:       1,
-</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>               &ldquo;details&rdquo;: [
-</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>                  &#x7b;
-</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>                     &ldquo;description&rdquo;: &ldquo;termFreq=1.0&rdquo;,
-</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>                     &ldquo;value&rdquo;:       1
-</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>                  &#x7d;
-</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>               ]
-</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7d;,
-</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7b;
-</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'>               &ldquo;description&rdquo;: &ldquo;idf(docFreq=1, maxDocs=1)&rdquo;,
-</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'>               &ldquo;value&rdquo;:       0.30685282
-</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7d;,
-</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7b;
-</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'>               &ldquo;description&rdquo;: &ldquo;fieldNorm(doc=0)&rdquo;,
-</div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>               &ldquo;value&rdquo;:        0.25,
-</div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7d;
-</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'>         ]
-</div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7d;
-</div></div><div data-line='36' class='code-highlight-row numbered'><div class='code-highlight-line'>   ]
-</div></div><div data-line='37' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>GET /_search?explain 
+{
+   "query"   : { "match" : { "tweet" : "honeymoon" }}
+}
+
+
+"_explanation": { 
+   "description": "weight(tweet:honeymoon in 0)
+                  [PerFieldSimilarity], result of:",
+   "value":       0.076713204,
+   "details": [
+      {
+         "description": "fieldWeight in 0, product of:",
+         "value":       0.076713204,
+         "details": [
+            {  
+               "description": "tf(freq=1.0), with freq of:",
+               "value":       1,
+               "details": [
+                  {
+                     "description": "termFreq=1.0",
+                     "value":       1
+                  }
+               ]
+            },
+            { 
+               "description": "idf(docFreq=1, maxDocs=1)",
+               "value":       0.30685282
+            },
+            { 
+               "description": "fieldNorm(doc=0)",
+               "value":        0.25,
+            }
+         ]
+      }
+   ]
+}
+</code></pre>
 
 <h2>_bulk</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>$ cat requests
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b; &ldquo;index&rdquo; : &#x7b; &ldquo;<em>index&rdquo; : &ldquo;test&rdquo;, &ldquo;</em>type&rdquo; : &ldquo;type1&rdquo;, &ldquo;<em>id&rdquo; : &ldquo;1&rdquo; &#x7d; &#x7d;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b; &ldquo;field1&rdquo; : &ldquo;value1&rdquo; &#x7d;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>$ curl -s -XPOST localhost:9200/</em>bulk &ndash;data-binary @requests; echo
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;&ldquo;took&rdquo;:7,&ldquo;items&rdquo;:[&#x7b;&ldquo;create&rdquo;:&#x7b;&ldquo;<em>index&rdquo;:&ldquo;test&rdquo;,&ldquo;</em>type&rdquo;:&ldquo;type1&rdquo;,&ldquo;<em>id&rdquo;:&ldquo;1&rdquo;,&ldquo;</em>version&rdquo;:1,&ldquo;ok&rdquo;:true&#x7d;&#x7d;]&#x7d;</div></div></pre></div></figure></p>
+<pre><code>$ cat requests
+{ "index" : { "_index" : "test", "_type" : "type1", "_id" : "1" } }
+{ "field1" : "value1" }
+$ curl -s -XPOST localhost:9200/_bulk --data-binary @requests; echo
+{"took":7,"items":[{"create":{"_index":"test","_type":"type1","_id":"1","_version":1,"ok":true}}]}
+</code></pre>
 
 <p>And if you are using <code>index/type/_bulk</code> endpoint, you can also ignore <code>_index</code> and <code>_type</code>.</p>
 
 <h2>_stats</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>curl -XGET &lsquo;<a href="http://localhost:9200/_mapping?pretty=true">http://localhost:9200/_mapping?pretty=true</a>&rsquo;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>curl <a href="http://localhost:9201/_stats/indices?pretty=1">http://localhost:9201/_stats/indices?pretty=1</a>
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>curl <a href="http://localhost:9201/_stats?pretty=1">http://localhost:9201/_stats?pretty=1</a></div></div></pre></div></figure></p>
+<pre><code>curl -XGET 'http://localhost:9200/_mapping?pretty=true'
+curl http://localhost:9201/_stats/indices?pretty=1
+curl http://localhost:9201/_stats?pretty=1
+</code></pre>
 
 <p><a href="http://es.xiaoleilu.com/">Tutorial here</a></p>
 
@@ -60,23 +65,27 @@
 
 <p>install:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>curl -L -O <a href="http://download.elasticsearch.org/PATH/TO/VERSION.zip">http://download.elasticsearch.org/PATH/TO/VERSION.zip</a> &lt;1>
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>unzip elasticsearch-$VERSION.zip
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>cd  elasticsearch-$VERSION</div></div></pre></div></figure></p>
+<pre><code>curl -L -O http://download.elasticsearch.org/PATH/TO/VERSION.zip &lt;1&gt;
+unzip elasticsearch-$VERSION.zip
+cd  elasticsearch-$VERSION
+</code></pre>
 
 <p>config: <code>./config/elasticsearch.yml</code></p>
 
 <p>status:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>curl &lsquo;<a href="http://localhost:9200/?pretty">http://localhost:9200/?pretty</a>&rsquo;</div></div></pre></div></figure></p>
+<pre><code>curl 'http://localhost:9200/?pretty'
+</code></pre>
 
 <p>shutdown:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>curl -XPOST &lsquo;<a href="http://localhost:9200/_shutdown">http://localhost:9200/_shutdown</a>&rsquo;</div></div></pre></div></figure></p>
+<pre><code>curl -XPOST 'http://localhost:9200/_shutdown'
+</code></pre>
 
 <h2>API</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>curl -X&lt;VERB> &lsquo;&lt;PROTOCOL>://&lt;HOST>:&lt;PORT>/&lt;PATH>?&lt;QUERY_STRING>&rsquo; -d &lsquo;&lt;BODY>&rsquo;</div></div></pre></div></figure></p>
+<pre><code>curl -X&lt;VERB&gt; '&lt;PROTOCOL&gt;://&lt;HOST&gt;:&lt;PORT&gt;/&lt;PATH&gt;?&lt;QUERY_STRING&gt;' -d '&lt;BODY&gt;'
+</code></pre>
 
 <ul>
 <li>VERB HTTP方法：GET, POST, PUT, HEAD, DELETE</li>
@@ -89,139 +98,152 @@
 </ul>
 
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>curl -XGET &lsquo;<a href="http://localhost:9200/_count?pretty">http://localhost:9200/_count?pretty</a>&rsquo; -d &lsquo;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;query&rdquo;: &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;match_all&rdquo;: &#x7b;&#x7d;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>curl -XGET 'http://localhost:9200/_count?pretty' -d '
+{
+    "query": {
+        "match_all": {}
+    }
+}
+</code></pre>
 
 <h2>索引</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>Relational DB -> Databases -> Tables -> Rows -> Columns
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>Elasticsearch -> Indices   -> Types  -> Documents -> Fields</div></div></pre></div></figure></p>
+<pre><code>Relational DB -&gt; Databases -&gt; Tables -&gt; Rows -&gt; Columns
+Elasticsearch -&gt; Indices   -&gt; Types  -&gt; Documents -&gt; Fields
+</code></pre>
 
 <p>默认情况下，文档中的所有字段都会被索引（拥有一个倒排索引），只有这样他们才是可被搜索的。</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>PUT /megacorp/employee/1
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;first_name&rdquo; : &ldquo;John&rdquo;,
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;last_name&rdquo; :  &ldquo;Smith&rdquo;,
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;age&rdquo; :        25,
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;about&rdquo; :      &ldquo;I love to go rock climbing&rdquo;,
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;interests&rdquo;: [ &ldquo;sports&rdquo;, &ldquo;music&rdquo; ]
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>PUT /megacorp/employee/1
+{
+    "first_name" : "John",
+    "last_name" :  "Smith",
+    "age" :        25,
+    "about" :      "I love to go rock climbing",
+    "interests": [ "sports", "music" ]
+}
+</code></pre>
 
 <h2>搜索</h2>
 
 <p>检索文档:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>GET /megacorp/employee/1</div></div></pre></div></figure></p>
+<pre><code>GET /megacorp/employee/1
+</code></pre>
 
 <p>简单搜索：</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>GET /megacorp/employee/_search</div></div></pre></div></figure></p>
+<pre><code>GET /megacorp/employee/_search
+</code></pre>
 
 <p>默认情况下搜索会返回前10个结果。</p>
 
 <p>query string:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>GET /megacorp/employee/_search?q=last_name:Smith</div></div></pre></div></figure></p>
+<pre><code>GET /megacorp/employee/_search?q=last_name:Smith
+</code></pre>
 
 <p>DSL(domain specific language):</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>GET /megacorp/employee/_search
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;query&rdquo; : &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;match&rdquo; : &#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>            &ldquo;last_name&rdquo; : &ldquo;Smith&rdquo;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>GET /megacorp/employee/_search
+{
+    "query" : {
+        "match" : {
+            "last_name" : "Smith"
+        }
+    }
+}
+</code></pre>
 
 <p>filter:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>GET /megacorp/employee/_search
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;query&rdquo; : &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;filtered&rdquo; : &#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>            &ldquo;filter&rdquo; : &#x7b;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>                &ldquo;range&rdquo; : &#x7b;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>                    &ldquo;age&rdquo; : &#x7b; &ldquo;gt&rdquo; : 30 &#x7d; &lt;1>
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>                &#x7d;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7d;,
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>            &ldquo;query&rdquo; : &#x7b;
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>                &ldquo;match&rdquo; : &#x7b;
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>                    &ldquo;last_name&rdquo; : &ldquo;smith&rdquo; &lt;2>
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>                &#x7d;
-</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7d;
-</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>GET /megacorp/employee/_search
+{
+    "query" : {
+        "filtered" : {
+            "filter" : {
+                "range" : {
+                    "age" : { "gt" : 30 } &lt;1&gt;
+                }
+            },
+            "query" : {
+                "match" : {
+                    "last_name" : "smith" &lt;2&gt;
+                }
+            }
+        }
+    }
+}
+</code></pre>
 
 <p>match:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>GET /megacorp/employee/_search
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;query&rdquo; : &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;match&rdquo; : &#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>            &ldquo;about&rdquo; : &ldquo;rock climbing&rdquo;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>GET /megacorp/employee/_search
+{
+    "query" : {
+        "match" : {
+            "about" : "rock climbing"
+        }
+    }
+}
+</code></pre>
 
 <p>相关性(relevance)的概念在Elasticsearch中非常重要，而这个概念在传统关系型数据库中是不可想象的，因为传统数据库对记录的查询只有匹配或者不匹配。</p>
 
 <p>phrase:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>GET /megacorp/employee/_search
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;query&rdquo; : &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;match_phrase&rdquo; : &#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>            &ldquo;about&rdquo; : &ldquo;rock climbing&rdquo;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>GET /megacorp/employee/_search
+{
+    "query" : {
+        "match_phrase" : {
+            "about" : "rock climbing"
+        }
+    }
+}
+</code></pre>
 
 <p>highlight:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>GET /megacorp/employee/_search
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;query&rdquo; : &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;match_phrase&rdquo; : &#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>            &ldquo;about&rdquo; : &ldquo;rock climbing&rdquo;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;,
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;highlight&rdquo;: &#x7b;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;fields&rdquo; : &#x7b;
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>            &ldquo;about&rdquo; : &#x7b;&#x7d;
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>GET /megacorp/employee/_search
+{
+    "query" : {
+        "match_phrase" : {
+            "about" : "rock climbing"
+        }
+    },
+    "highlight": {
+        "fields" : {
+            "about" : {}
+        }
+    }
+}
+</code></pre>
 
 <h2>聚合</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>GET /megacorp/employee/_search
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;aggs&rdquo; : &#x7b;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;all_interests&rdquo; : &#x7b;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>            &ldquo;terms&rdquo; : &#x7b; &ldquo;field&rdquo; : &ldquo;interests&rdquo; &#x7d;,
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>            &ldquo;aggs&rdquo; : &#x7b;
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>                &ldquo;avg_age&rdquo; : &#x7b;
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>                    &ldquo;avg&rdquo; : &#x7b; &ldquo;field&rdquo; : &ldquo;age&rdquo; &#x7d;
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>                &#x7d;
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7d;
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>GET /megacorp/employee/_search
+{
+    "aggs" : {
+        "all_interests" : {
+            "terms" : { "field" : "interests" },
+            "aggs" : {
+                "avg_age" : {
+                    "avg" : { "field" : "age" }
+                }
+            }
+        }
+    }
+}
+</code></pre>
 
 <h2>乐观并发控制</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>PUT /website/blog/1?version=1 &lt;1>
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>  &ldquo;title&rdquo;: &ldquo;My first blog entry&rdquo;,
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>  &ldquo;text&rdquo;:  &ldquo;Starting to get the hang of this&hellip;&rdquo;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>PUT /website/blog/1?version=1 &lt;1&gt;
+{
+  "title": "My first blog entry",
+  "text":  "Starting to get the hang of this..."
+}
+</code></pre>
 
 <p>我们只希望文档的_version是1时更新才生效。</p>
 

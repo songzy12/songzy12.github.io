@@ -1,8 +1,9 @@
 <h2>top</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>top
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>cat /proc/cpuinfo
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>cat /proc/meminfo</div></div></pre></div></figure></p>
+<pre><code>top
+cat /proc/cpuinfo
+cat /proc/meminfo
+</code></pre>
 
 <ul>
 <li>MemFree: The amount of physical RAM, in kilobytes, left unused by the system.</li>
@@ -20,37 +21,45 @@
 </ul>
 
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>du -sh *</div></div></pre></div></figure></p>
+<pre><code>du -sh *
+</code></pre>
 
 <h2>ps</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>ps aux
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>ps -f -u songzy</div></div></pre></div></figure></p>
+<pre><code>ps aux
+ps -f -u songzy
+</code></pre>
 
 <h2>lsof</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>lsof -u edxapp</div></div></pre></div></figure></p>
+<pre><code>lsof -u edxapp
+</code></pre>
 
 <p>lsof: list open files</p>
 
 <h2>bg</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>Ctrl-z
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>fg</div></div></pre></div></figure></p>
+<pre><code>Ctrl-z
+fg
+</code></pre>
 
 <h2>kill</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo netstat -antlp
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>kill -s 9 20383</div></div></pre></div></figure></p>
+<pre><code>sudo netstat -antlp
+kill -s 9 20383
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>jobs
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>kill %1</div></div></pre></div></figure></p>
+<pre><code>jobs
+kill %1
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>for pid in $(ps -ef | awk &lsquo;/some search/ &#x7b;print $2&#x7d;&rsquo;); do kill -9 $pid; done</div></div></pre></div></figure></p>
+<pre><code>for pid in $(ps -ef | awk '/some search/ {print $2}'); do kill -9 $pid; done
+</code></pre>
 
 <h2>pkill</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>pkill shardkv.test</div></div></pre></div></figure></p>
+<pre><code>pkill shardkv.test
+</code></pre>
 
 <h2>supervisor</h2>
 
@@ -64,6 +73,7 @@
 
 <h2>service</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>service ssh status
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>service ssh restart
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>netstat –nlp | grep 22</div></div></pre></div></figure></p>
+<pre><code>service ssh status
+service ssh restart
+netstat –nlp | grep 22
+</code></pre>

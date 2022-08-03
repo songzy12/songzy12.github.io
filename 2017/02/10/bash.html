@@ -1,14 +1,17 @@
 <h2>terminal</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>ctrl+u
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>ctrl+k</div></div></pre></div></figure></p>
+<pre><code>ctrl+u
+ctrl+k
+</code></pre>
 
 <h2>locale</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>vi ~/.bashrc</div></div></pre></div></figure></p>
+<pre><code>vi ~/.bashrc
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>export LC_ALL=&ldquo;en_US.UTF-8&rdquo;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>export LANG=&ldquo;en_US.UTF-8&rdquo;</div></div></pre></div></figure></p>
+<pre><code>export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+</code></pre>
 
 <h2>source</h2>
 
@@ -18,8 +21,9 @@
 
 <h2>$-</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>echo $-
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>himBH</div></div></pre></div></figure></p>
+<pre><code>echo $-
+himBH
+</code></pre>
 
 <ul>
 <li>h: hashall:</li>
@@ -53,7 +57,8 @@
 
 <p>Example use: lets say you want to grep a file for the string <code>-v</code> - normally <code>-v</code> will be considered the option to reverse the matching meaning (only show lines that do not match), but with <code>--</code> you can grep for string <code>-v</code> like this:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>grep &ndash; -v file</div></div></pre></div></figure></p>
+<pre><code>grep -- -v file
+</code></pre>
 
 <h2>[ ]</h2>
 
@@ -67,68 +72,80 @@
 </ul>
 
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>if [ -f &ldquo;$FILE&rdquo; ]
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>if [[ -f $FILE ]]
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>if [ &ldquo;$ANSWER&rdquo; = y -o &ldquo;$ANSWER&rdquo; = yes ]
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>if [[ $ANSWER =~ ^y(es)?$ ]]
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>if [[ $ANSWER = y* ]]</div></div></pre></div></figure></p>
+<pre><code>if [ -f "$FILE" ]
+if [[ -f $FILE ]]
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>-z字串 字串长度伪则为真。
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>-n字串 字串长度不伪则为真。</div></div></pre></div></figure></p>
+if [ "$ANSWER" = y -o "$ANSWER" = yes ]
+if [[ $ANSWER =~ ^y(es)?$ ]]
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>-e文件名 如果文件存在则为真。
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>-r文件名 如果文件存在且可读则为真。
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>-w文件名 如果文件存在且可写则为真。
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>-x文件名 如果文件存在且可执行则为真。
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>-s文件名 如果文件存在且至少有一个字符则为真。
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>-d文件名 如果文件存在且为目录则为真。
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>-f文件名 如果文件存在且为普通文件则为真。
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>-c文件名 如果文件存在且为字符型特殊文件则为真。
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>-b文件名 如果文件存在且为块特殊文件则为真</div></div></pre></div></figure></p>
+if [[ $ANSWER = y* ]]
+</code></pre>
+
+<pre><code>-z字串 字串长度伪则为真。
+-n字串 字串长度不伪则为真。
+</code></pre>
+
+<pre><code>-e文件名 如果文件存在则为真。
+-r文件名 如果文件存在且可读则为真。
+-w文件名 如果文件存在且可写则为真。
+-x文件名 如果文件存在且可执行则为真。
+-s文件名 如果文件存在且至少有一个字符则为真。
+-d文件名 如果文件存在且为目录则为真。
+-f文件名 如果文件存在且为普通文件则为真。
+-c文件名 如果文件存在且为字符型特殊文件则为真。
+-b文件名 如果文件存在且为块特殊文件则为真
+</code></pre>
 
 <h2>()</h2>
 
 <p><code>$()</code> is command substitution</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>$ echo &ldquo;my hostname is: $(hostname)&rdquo;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>my uptime is: MYPC</div></div></pre></div></figure></p>
+<pre><code>$ echo "my hostname is: $(hostname)"
+my uptime is: MYPC
+</code></pre>
 
 <p><code>$(( ))</code> is arithmetic expansion</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>$ echo &ldquo;$(( 5 + 5 ))&rdquo;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>10</div></div></pre></div></figure></p>
+<pre><code>$ echo "$(( 5 + 5 ))"
+10
+</code></pre>
 
 <p><code>${ }</code> This is used to refer to variables and avoid confusion over their name.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>$ v=&ldquo;hello&rdquo;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>$ echo &ldquo;$vbye&rdquo;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>$ echo &ldquo;$&#x7b;v&#x7d;bye&rdquo;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>hellobye</div></div></pre></div></figure></p>
+<pre><code>$ v="hello"
+$ echo "$vbye"
+
+$ echo "${v}bye"
+hellobye
+</code></pre>
 
 <p>Also, it is used to reference array elements:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>$ declare -A my_arr
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>$ my_arr[a]=&ldquo;hello&rdquo;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>$ echo &ldquo;$&#x7b;my_arr[a]&#x7d;&rdquo;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>hello</div></div></pre></div></figure></p>
+<pre><code>$ declare -A my_arr
+$ my_arr[a]="hello"
+$ echo "${my_arr[a]}"
+hello
+</code></pre>
 
 <p><code>( )</code> and <code>{ }</code> are also used as grouping commands</p>
 
 <p><code>( )</code> runs in a subshell:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>$ v=5
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>$ ( v=2; echo &ldquo;$v&rdquo; )
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>2
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>$ echo &ldquo;$v&rdquo;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>5</div></div></pre></div></figure></p>
+<pre><code>$ v=5
+$ ( v=2; echo "$v" )
+2
+$ echo "$v"
+5
+</code></pre>
 
 <p>Whereas <code>{ list, }</code> does not:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>$ v=5
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>$ &#x7b; v=2; echo &ldquo;$v&rdquo;; &#x7d;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>2
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>$ echo &ldquo;$v&rdquo;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>2</div></div></pre></div></figure></p>
+<pre><code>$ v=5
+$ { v=2; echo "$v"; }
+2
+$ echo "$v"
+2
+</code></pre>
 
 <h2>{ }</h2>
 
@@ -145,13 +162,15 @@
 </ul>
 
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>INFORMIX_HOME=&ldquo;$&#x7b;INFORMIX_HOME%/&#x7d;&rdquo; # Strip the trailing / (if exists)</div></div></pre></div></figure></p>
+<pre><code>INFORMIX_HOME="${INFORMIX_HOME%/}" # Strip the trailing / (if exists)
+</code></pre>
 
 <p>注意: 上述条件变量替换中,除(2)外,其余均不影响变量本身的值</p>
 
 <h2>set</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>set -euxo pipefail</div></div></pre></div></figure></p>
+<pre><code>set -euxo pipefail
+</code></pre>
 
 <ul>
 <li><code>-x</code>: print commands and their arguments as they are executed</li>
@@ -168,20 +187,23 @@
 
 <p><a href="http://www.tldp.org/LDP/abs/html/options.html">here</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>-s    stdin   Read commands from stdin</div></div></pre></div></figure></p>
+<pre><code>-s  stdin   Read commands from stdin
+</code></pre>
 
 <h2>BASH_SOURCE</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>#!/bin/sh
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>echo &ldquo;$&#x7b;BASH_SOURCE[0]&#x7d;&rdquo;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>echo &ldquo;$&#x7b;BASH_SOURCE]&#x7d;&rdquo;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>echo &ldquo;$( dirname &rdquo;$&#x7b;BASH_SOURCE[0]&#x7d;&ldquo; )&rdquo;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>DIR=&ldquo;$( cd &rdquo;$( dirname &ldquo;$&#x7b;BASH_SOURCE[0]&#x7d;&rdquo; )&ldquo; &amp;&amp; pwd )&rdquo;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>echo $DIR</div></div></pre></div></figure></p>
+<pre><code>#!/bin/sh
+echo "${BASH_SOURCE[0]}"
+echo "${BASH_SOURCE]}"
+echo "$( dirname "${BASH_SOURCE[0]}" )"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &amp;&amp; pwd )"
+echo $DIR
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>./abc/test.sh
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>./abc/test.sh
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>./abc/
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>/home/abc</div></div></pre></div></figure></p>
+<pre><code>./abc/test.sh
+./abc/test.sh
+./abc/
+/home/abc
+</code></pre>
 
 <p><code>DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &amp;&amp; pwd )"</code> 得到shell脚本文件所在完整路径（绝对路径）及文件名（无论<code>source</code>,<code>sh</code>,<code>.</code>三种调用方式），且不改变shell的当前目录。</p>

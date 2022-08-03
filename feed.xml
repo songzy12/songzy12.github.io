@@ -1,0 +1,958 @@
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://songzy12.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="2.5.3">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-08-04T00:40:45+08:00</updated><id>http://songzy12.github.io/</id><title type="html">Zhengyang Song&#39;s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/03/01/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-03-01T20:12:09+08:00</published><updated>2022-03-01T20:12:09+08:00</updated><id>http://songzy12.github.io/2022/03/01/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/03/01/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
+
+&lt;h2&gt;github&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;core: &lt;a href=&quot;https://github.com/v2ray/v2ray-core/releases&quot;&gt;https://github.com/v2ray/v2ray-core/releases&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;v2fly: &lt;a href=&quot;https://github.com/v2fly/fhs-install-v2ray&quot;&gt;https://github.com/v2fly/fhs-install-v2ray&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;v2rayN: &lt;a href=&quot;https://github.com/2dust/v2rayN/releases&quot;&gt;https://github.com/2dust/v2rayN/releases&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;v2fly&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;// 安裝執行檔和 .dat 資料檔
+bash &amp;lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+
+// 只更新 .dat 資料檔
+bash &amp;lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;ufw&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo ufw allow http
+sudo ufw allow 80
+sudo ufw allow https
+sudo ufw allow 443
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;start&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo service v2ray status
+sudo service v2ray start
+sudo service v2ray stop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;vmess aead&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;config&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo vi /usr/local/etc/v2ray/config.json
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;client&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &quot;inbound&quot;: {
+    &quot;port&quot;: 1080,
+    &quot;listen&quot;: &quot;127.0.0.1&quot;,
+    &quot;protocol&quot;: &quot;socks&quot;,
+    &quot;settings&quot;: {
+      &quot;auth&quot;: &quot;noauth&quot;,
+      &quot;udp&quot;: true,
+      &quot;ip&quot;: &quot;127.0.0.1&quot;,
+      &quot;clients&quot;: null
+    },
+    &quot;streamSettings&quot;: null
+  },
+  &quot;outbound&quot;: {
+    &quot;tag&quot;: &quot;agentout&quot;,
+    &quot;protocol&quot;: &quot;vmess&quot;,
+    &quot;settings&quot;: {
+      &quot;vnext&quot;: [
+        {
+          &quot;address&quot;: &quot;songzy.cc&quot;,
+          &quot;port&quot;: 443,
+          &quot;users&quot;: [
+            {
+              &quot;id&quot;: &quot;899cbb8a-fad2-45bd-8608-8483956d641c&quot;,
+              &quot;alterId&quot;: 0,
+              &quot;email&quot;: &quot;t@t.tt&quot;,
+              &quot;security&quot;: &quot;aes-128-gcm&quot;
+            }
+          ]
+        }
+      ],
+      &quot;servers&quot;: null
+    },
+    &quot;streamSettings&quot;: {
+      &quot;network&quot;: &quot;ws&quot;,
+      &quot;security&quot;: &quot;tls&quot;,
+      &quot;tlsSettings&quot;: {
+        &quot;allowInsecure&quot;: true,
+        &quot;serverName&quot;: null
+      },
+      &quot;tcpSettings&quot;: null,
+      &quot;kcpSettings&quot;: null,
+      &quot;wsSettings&quot;: {
+        &quot;connectionReuse&quot;: true,
+        &quot;path&quot;: &quot;/&quot;,
+        &quot;headers&quot;: null
+      },
+      &quot;httpSettings&quot;: null
+    },
+    &quot;mux&quot;: {
+      &quot;enabled&quot;: true
+    }
+  },
+  &quot;inboundDetour&quot;: null,
+  &quot;outboundDetour&quot;: [
+    {
+      &quot;protocol&quot;: &quot;freedom&quot;,
+      &quot;settings&quot;: {
+        &quot;response&quot;: null
+      },
+      &quot;tag&quot;: &quot;direct&quot;
+    },
+    {
+      &quot;protocol&quot;: &quot;blackhole&quot;,
+      &quot;settings&quot;: {
+        &quot;response&quot;: {
+          &quot;type&quot;: &quot;http&quot;
+        }
+      },
+      &quot;tag&quot;: &quot;blockout&quot;
+    }
+  ],
+  &quot;dns&quot;: {
+    &quot;servers&quot;: [
+      &quot;8.8.8.8&quot;,
+      &quot;8.8.4.4&quot;,
+      &quot;localhost&quot;
+    ]
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;server&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+  &quot;inbounds&quot;: [
+    {
+      &quot;port&quot;: 443,
+      &quot;protocol&quot;: &quot;vmess&quot;,
+      &quot;settings&quot;: {
+        &quot;clients&quot;: [
+          {
+            &quot;id&quot;: &quot;899cbb8a-fad2-45bd-8608-8483956d641c&quot;,
+            &quot;level&quot;: 1,
+            &quot;alterId&quot;: 0
+          }
+        ]
+      },
+      &quot;streamSettings&quot;: {
+        &quot;network&quot;: &quot;ws&quot;,
+        &quot;security&quot;: &quot;tls&quot;,
+        &quot;tlsSettings&quot;: {
+          &quot;certificates&quot;: [
+            {
+              &quot;certificateFile&quot;: &quot;/usr/local/etc/v2ray/songzy.cc.cer&quot;,
+              &quot;keyFile&quot;: &quot;/usr/local/etc/v2ray/songzy.cc.key&quot;
+            }
+          ]
+        }
+      }
+    }
+  ],
+  &quot;outbounds&quot;: [
+    {
+      &quot;protocol&quot;: &quot;freedom&quot;,
+      &quot;settings&quot;: {}
+    },
+    {
+      &quot;protocol&quot;: &quot;blackhole&quot;,
+      &quot;settings&quot;: {},
+      &quot;tag&quot;: &quot;blocked&quot;
+    }
+  ]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note: remember to set the value &lt;code&gt;inbounds.settings.clients.id&lt;/code&gt; correctly.&lt;/p&gt;
+
+&lt;h2&gt;log&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;  &quot;log&quot;: {
+    &quot;loglevel&quot;: &quot;warning&quot;,
+    &quot;access&quot;: &quot;/var/log/v2ray/access.log&quot;,
+    &quot;error&quot;: &quot;/var/log/v2ray/error.log&quot;
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;routing rules&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;  &quot;routing&quot;: {
+    &quot;domainStrategy&quot;: &quot;IPOnDemand&quot;,
+    &quot;rules&quot;: [
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;inboundTag&quot;: [
+          &quot;api&quot;
+        ],
+        &quot;outboundTag&quot;: &quot;api&quot;
+      },
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;outboundTag&quot;: &quot;proxy&quot;,
+        &quot;domain&quot;: [
+          &quot;udp&quot;,
+          &quot;tcp&quot;
+        ]
+      },
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;outboundTag&quot;: &quot;direct&quot;,
+        &quot;domain&quot;: [
+          &quot;geosite:cn&quot;
+        ]
+      },
+      {
+        &quot;type&quot;: &quot;field&quot;,
+        &quot;outboundTag&quot;: &quot;block&quot;,
+        &quot;domain&quot;: [
+          &quot;geosite:category-ads-all&quot;
+        ]
+      }
+    ]
+  }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;tls (acme.sh)&lt;/h2&gt;
+
+&lt;h3&gt;install&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ apt install socat
+$ curl https://get.acme.sh | sh
+$ source ~/.bashrc 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;register&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;acme.sh --register-account -m songzy_thu@163.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;issue &amp;amp; installcert&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ acme.sh --issue -d songzy.cc --standalone -k ec-256 --debug
+
+[Tue Nov 30 01:44:27 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
+[Tue Nov 30 01:44:27 PM UTC 2021] Your cert key is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.key
+[Tue Nov 30 01:44:27 PM UTC 2021] The intermediate CA cert is in  /root/.acme.sh/songzy.cc_ecc/ca.cer
+[Tue Nov 30 01:44:27 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
+[Tue Nov 30 01:44:27 PM UTC 2021] _on_issue_success
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v2ray/songzy.cc.cer --keypath /usr/local/etc/v2ray/songzy.cc.key --ecc
+
+[Tue Nov 30 01:47:43 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
+[Tue Nov 30 01:47:43 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;renew&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ acme.sh --renew -d songzy.cc --force --ecc --debug
+
+
+[Tue Nov 30 01:46:38 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
+[Tue Nov 30 01:46:38 PM UTC 2021] Your cert key is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.key
+[Tue Nov 30 01:46:38 PM UTC 2021] The intermediate CA cert is in  /root/.acme.sh/songzy.cc_ecc/ca.cer
+[Tue Nov 30 01:46:38 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
+[Tue Nov 30 01:46:38 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
+[Tue Nov 30 01:46:38 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;http_proxy&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;windows_host=`cat /etc/resolv.conf|grep nameserver|awk &#39;{print $2}&#39;`
+export http_proxy=http://$windows_host:10809
+export https_proxy=http://$windows_host:10809
+&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">This article shows how to install and enabel V2Ray proxy.</summary></entry><entry><title type="html">SSH</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="SSH" /><published>2022-01-13T20:46:54+08:00</published><updated>2022-01-13T20:46:54+08:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html">&lt;p&gt;How to config SSH of tencent cloud.&lt;/p&gt;
+
+&lt;h2&gt;Config Files for Client &amp;amp; Server&lt;/h2&gt;
+
+&lt;p&gt;For OpenSSH, the SSH client user configuration file is named &lt;strong&gt;config&lt;/strong&gt;, and the SSH client system-wide configuration file is named &lt;strong&gt;ssh_config&lt;/strong&gt;. The files reside at the following locations:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;User configuration file location: &lt;code&gt;$HOME/.ssh/config&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;System-wide configuration file default location: &lt;code&gt;/etc/ssh/ssh_config&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;An SSH client obtains its configurations from &lt;strong&gt;the ssh command-line options&lt;/strong&gt;, &lt;strong&gt;the user configuration file&lt;/strong&gt;, and &lt;strong&gt;the system-wide configuration file&lt;/strong&gt;, in that order. For each parameter, the SSH client uses the first obtained value for that parameter.&lt;/p&gt;
+
+&lt;p&gt;The SSH server has its own set of configuration files, including the SSH server system-wide configuration file named &lt;strong&gt;sshd_config&lt;/strong&gt;. By default, these files reside in the &lt;code&gt;/etc/ssh&lt;/code&gt; directory on the remote host.&lt;/p&gt;
+
+&lt;h2&gt;GSSAPIAuthentication&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo vi /etc/ssh/ssh_config
+
+GSSAPIAuthentication no
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;IO util&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;该实例云硬盘「disk-12z41atd」的io_util已达100%，请关注磁盘业务情况。可参考文档：点击查看&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://cloud.tencent.com/document/product/213/57337#.E7.A1.AC.E7.9B.98-.25util-.E9.AB.98&quot;&gt;https://cloud.tencent.com/document/product/213/57337#.E7.A1.AC.E7.9B.98-.25util-.E9.AB.98&lt;/a&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;硬盘 %util 高&lt;/p&gt;
+
+&lt;p&gt;故障现象：实例卡顿，使用 SSH 或 VNC 登录慢或无响应。&lt;/p&gt;
+
+&lt;p&gt;可能原因：IO 高导致硬盘 %util 达到100%。&lt;/p&gt;
+
+&lt;p&gt;处理步骤：查看 IO 高是否合理，且需评估是否减少 IO 读写或者置换更高性能的硬盘。&lt;/p&gt;&lt;/blockquote&gt;</content><summary type="html">How to config SSH of tencent cloud.</summary></entry><entry><title type="html">Paddle GPU</title><link href="http://songzy12.github.io/2021/10/21/paddle-gpu.html" rel="alternate" type="text/html" title="Paddle GPU" /><published>2021-10-21T15:43:08+08:00</published><updated>2021-10-21T15:43:08+08:00</updated><id>http://songzy12.github.io/2021/10/21/paddle-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/10/21/paddle-gpu.html">&lt;p&gt;Enable GPU for PaddlePaddle.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;W1024 17:30:14.785153  6727 device_context.cc:404] Please NOTE: device: 0, GPU Compute Capability: 8.6, Driver API Version: 11.4, Runtime API Version: 10.2
+W1024 17:30:14.788581  6727 device_context.cc:422] device: 0, cuDNN Version: 8.1.
+Traceback (most recent call last):
+  File &quot;train.py&quot;, line 63, in &amp;lt;module&amp;gt;
+    model = FastText(vocab_size, num_classes, args.emb_dim)
+  File &quot;/home/songzy/fastText-paddle/model.py&quot;, line 21, in __init__
+    self.embedder = nn.Embedding(vocab_size, emb_dim)
+  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/nn/layer/common.py&quot;, line 1343, in __init__
+    self.weight = self.create_parameter(
+  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/dygraph/layers.py&quot;, line 411, in create_parameter
+    return self._helper.create_parameter(temp_attr, shape, dtype, is_bias,
+  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/layer_helper_base.py&quot;, line 369, in create_parameter
+    return self.main_program.global_block().create_parameter(
+  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/framework.py&quot;, line 2920, in create_parameter
+    initializer(param, self)
+  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/initializer.py&quot;, line 561, in __call__
+    op = block.append_op(
+  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/framework.py&quot;, line 2946, in append_op
+    _dygraph_tracer().trace_op(type,
+  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/dygraph/tracer.py&quot;, line 43, in trace_op
+    self.trace(type, inputs, outputs, attrs,
+SystemError: (Fatal) Operator uniform_random raises an thrust::system::system_error exception.
+The exception content is
+:parallel_for failed: cudaErrorNoKernelImageForDevice: no kernel image is available for execution on the device. (at /paddle/paddle/fluid/imperative/tracer.cc:192)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ python
+&amp;gt;&amp;gt;&amp;gt; import paddle
+&amp;gt;&amp;gt;&amp;gt; paddle.utils.run_check() 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;blockquote&gt;&lt;p&gt;这种情况一般出现在编译和运行在不同架构的显卡上，且cmake时未指定运行时需要的CUDA架构。可以在cmake时加上 -DCUDA_ARCH_NAME=All（或者特定的架构如Turing、Volta、Pascal等），否则会使用默认值Auto，此时只会当前的CUDA架构编译。&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;pre&gt;&lt;code&gt;$ nvidia-smi
+
+Sun Oct 24 20:28:01 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.28       Driver Version: 470.76       CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0  On |                  N/A |
+| 30%   35C    P8    16W / 350W |   1782MiB / 24576MiB |    ERR!      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html&quot;&gt;https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install paddlepaddle-gpu==2.1.3.post110 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
+&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">Enable GPU for PaddlePaddle.</summary></entry><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-07-11T12:23:11+08:00</published><updated>2021-07-11T12:23:11+08:00</updated><id>http://songzy12.github.io/2021/07/11/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html">&lt;p&gt;Enable TF 1.15 with RTX 3090.&lt;/p&gt;
+
+&lt;h2&gt;CUDA&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&quot;&gt;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations&quot;&gt;https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;Driver&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda/wsl&quot;&gt;https://developer.nvidia.com/cuda/wsl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Then restart your computer&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Verify&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
+./BlackScholes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Toolkit&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
+sudo ln -s libcusolver.so.10 libcusolver.so.11
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;TensorFlow 1.15.4&lt;/h2&gt;
+
+&lt;h3&gt;Nvidia TensorFlow&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/NVIDIA/tensorflow#install&quot;&gt;https://github.com/NVIDIA/tensorflow#install&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;python3 -m pip install nvidia-pyindex
+python3 -m pip install nvidia-tensorflow
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Verify&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available&quot;&gt;https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;import tensorflow as tf
+
+tf.config.list_physical_devices(&#39;GPU&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.nvidia.com/blog/accelerating-tensorflow-on-a100-gpus/&quot;&gt;https://developer.nvidia.com/blog/accelerating-tensorflow-on-a100-gpus/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Appendix&lt;/h2&gt;
+
+&lt;h3&gt;Tensorflow Tested Build from Source&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/install/source#gpu&quot;&gt;https://www.tensorflow.org/install/source#gpu&lt;/a&gt;&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt; Version               &lt;/th&gt;
+&lt;th&gt; Python version &lt;/th&gt;
+&lt;th&gt; Compiler  &lt;/th&gt;
+&lt;th&gt; Build tools  &lt;/th&gt;
+&lt;th&gt; cuDNN &lt;/th&gt;
+&lt;th&gt; CUDA &lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt; tensorflow-2.4.0      &lt;/td&gt;
+&lt;td&gt; 3.6-3.8        &lt;/td&gt;
+&lt;td&gt; GCC 7.3.1 &lt;/td&gt;
+&lt;td&gt; Bazel 3.1.0  &lt;/td&gt;
+&lt;td&gt; 8.0   &lt;/td&gt;
+&lt;td&gt; 11.0 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt; tensorflow_gpu-1.15.0 &lt;/td&gt;
+&lt;td&gt; 2.7、3.3-3.7   &lt;/td&gt;
+&lt;td&gt; GCC 7.3.1 &lt;/td&gt;
+&lt;td&gt; Bazel 0.26.1 &lt;/td&gt;
+&lt;td&gt; 7.4   &lt;/td&gt;
+&lt;td&gt; 10.0 &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+
+&lt;h3&gt;Remove Python 3.7&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt list --installed | grep python3.7
+sudo apt remove python3.7
+sudo apt autoremove
+&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">Enable TF 1.15 with RTX 3090.</summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T14:08:18+08:00</published><updated>2021-05-01T14:08:18+08:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Zsh Theme&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/ohmyzsh/ohmyzsh/wiki/Themes&quot;&gt;https://github.com/ohmyzsh/ohmyzsh/wiki/Themes&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;To set zsh theme:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export ZSH_THEME=robbyrussell
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To view all the avaliable zsh themes:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ls ~/.oh-my-zsh/themes/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;To view the config of a specific zsh theme:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vi ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Powerline Fonts&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/powerline/fonts&quot;&gt;https://github.com/powerline/fonts&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/c/Users/songzy/.local/share/fonts/ -&amp;gt; C:\Windows\Fonts
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;DejaVu Sans Mono for Powerline&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Monospace Fonts to Registry&lt;/h2&gt;
+
+&lt;p&gt;This will influence what fonts are avaliable in cmd properties menu.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/&quot;&gt;https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;CodePage&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://ss64.com/nt/chcp.html&quot;&gt;https://ss64.com/nt/chcp.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This will influence the behaviors of tmux, vim, cmd, powershell, etc.&lt;/p&gt;
+
+&lt;h3&gt;437&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/3988&quot;&gt;https://github.com/microsoft/WSL/issues/3988&lt;/a&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Open &lt;code&gt;regedit&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Find this. &lt;code&gt;HKEY_CURRENT_USER\Console\C:_Program Files_WindowsApps_CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2020.812.0_x64__79rhkp1fndgsc_ubuntu2004.exe&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;then, add CodePage (Type: DWORD, Value: 0x01b5).&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h3&gt;65001&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8&quot;&gt;https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Language settings&lt;/code&gt; -&gt; &lt;code&gt;Administrative language settings&lt;/code&gt; -&gt; &lt;code&gt;Change system locale...&lt;/code&gt; -&gt; &lt;code&gt;Beta: Use Unicode UTF-8 for worldwide language support&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/DejaVu_fonts&quot;&gt;https://en.wikipedia.org/wiki/DejaVu_fonts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Code_page_437&quot;&gt;https://en.wikipedia.org/wiki/Code_page_437&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><summary type="html">https://github.com/microsoft/WSL/issues/1517</summary></entry><entry><title type="html">Windows Battery Report</title><link href="http://songzy12.github.io/2021/03/20/battery.html" rel="alternate" type="text/html" title="Windows Battery Report" /><published>2021-03-20T16:04:37+08:00</published><updated>2021-03-20T16:04:37+08:00</updated><id>http://songzy12.github.io/2021/03/20/battery</id><content type="html" xml:base="http://songzy12.github.io/2021/03/20/battery.html">&lt;pre&gt;&lt;code&gt;powercfg /batteryreport
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;BATTERY 1   BATTERY 2
+NAME    01AV419 01AV423
+MANUFACTURER    SANYO   LGC
+SERIAL NUMBER   186 4024
+CHEMISTRY   LION    LiP
+DESIGN CAPACITY 24,020 mWh  23,940 mWh
+FULL CHARGE CAPACITY    12,540 mWh  9,410 mWh
+CYCLE COUNT 298 333
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;BATTERY 1
+NAME    01AV419
+MANUFACTURER    SANYO
+SERIAL NUMBER   186
+CHEMISTRY   LION
+DESIGN CAPACITY 24,020 mWh
+FULL CHARGE CAPACITY    13,010 mWh
+CYCLE COUNT 298
+&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">powercfg /batteryreport</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2020/12/19/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2020-12-19T14:08:14+08:00</published><updated>2020-12-19T14:08:14+08:00</updated><id>http://songzy12.github.io/2020/12/19/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2020/12/19/octopress-3-0.html">&lt;p&gt;This article shows the basic usage of Octopress 3.0.&lt;/p&gt;
+
+&lt;h2&gt;new post&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;octopress new post hello -D Ruby
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;build&lt;/h2&gt;
+
+&lt;p&gt;Here we set &lt;code&gt;JEKYLL_ENV=production&lt;/code&gt; to enable &lt;code&gt;google_analytics&lt;/code&gt; and &lt;code&gt;disqus&lt;/code&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export JEKYLL_ENV=production
+jekyll serve
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;deploy&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;jekyll build
+octopress deploy
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;source&lt;/h2&gt;
+
+&lt;p&gt;源码和网站是在同一个 repo 的不同 branch 底下的。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git add .
+git commit -m &quot;$(date)&quot;
+git push origin source
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Gemfile&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;source &quot;https://gems.ruby-china.com&quot;
+
+gem &#39;octopress&#39;, &#39;~&amp;gt; 3.0.0&#39;
+gem &quot;minima&quot;, &quot;~&amp;gt; 2.0&quot;
+
+group :jekyll_plugins do
+  gem &quot;jekyll-feed&quot;, &quot;~&amp;gt; 0.6&quot;
+end
+
+gem &#39;rdiscount&#39;, &#39;~&amp;gt; 2.0&#39;
+gem &#39;sinatra&#39;, &#39;~&amp;gt; 1.4.2&#39;
+gem &quot;tzinfo-data&quot;, platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem &quot;wdm&quot;, &quot;~&amp;gt; 0.1.0&quot; if Gem.win_platform?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;bundle install
+bundle clean --force
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;minima&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/jekyll/minima&quot;&gt;https://github.com/jekyll/minima&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;comments&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;disqus:
+  shortname: my_disqus_shortname
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;google_analytics&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;  google_analytics: UA-NNNNNNNN-N
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;excerpts&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;show_excerpts: true
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;layouts&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;ls $(bundle show minima)/_layouts
+ls $(bundle show minima)/_includes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;header&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;vi $(bundle show minima)/_includes/header.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4&gt;footer&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;vi $(bundle show minima)/_includes/footer.html
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;_config.yml&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;title:  Zhengyang Song&#39;s Blog
+author: Zhengyang Song
+email: songzy.thu@gmail.com
+description: &amp;gt;- # this means to ignore newlines until &quot;baseurl:&quot;
+  All those little bugs I have ever met.
+baseurl: &quot;&quot; # the subpath of your site, e.g. /blog
+url: &quot;http://songzy12.github.io&quot; # the base hostname &amp;amp; protocol for your site, e.g. http://example.com
+github_username:  songzy12
+
+# Default extension for new posts and pages
+post_ext: md
+page_ext: html
+
+# Default templates for posts and pages
+# Found in _templates/
+post_layout: post
+page_layout: page
+
+# Format titles with titlecase?
+titlecase: true
+
+# Change default template file (in _templates/)
+post_template: post
+page_template: page
+draft_template: draft
+
+# Build settings
+markdown: rdiscount
+rdiscount:
+  extensions:
+    - autolink
+    - footnotes
+    - smart
+theme: minima
+plugins:
+  - jekyll-feed
+&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">This article shows the basic usage of Octopress 3.0.</summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/12/13/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-12-13T16:29:08+08:00</published><updated>2020-12-13T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/12/13/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/12/13/workspace-setup.html">&lt;p&gt;This shows what we need to do when we move to a brand new Linux environment.&lt;/p&gt;
+
+&lt;h2&gt;wget proxy&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;vi ~/.wgetrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;http_proxy = http://localhost:1081
+https_proxy = http://localhost:1081
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;oh my zsh&lt;/h2&gt;
+
+&lt;p&gt;Project link: &lt;a href=&quot;https://github.com/ohmyzsh/ohmyzsh&quot;&gt;https://github.com/ohmyzsh/ohmyzsh&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Install script: &lt;a href=&quot;https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&quot;&gt;https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Download and run the script:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt install zsh
+
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sh install.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;tmux config&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;vi ~/.tmux.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;set -g default-shell /usr/bin/zsh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;apt source&lt;/h2&gt;
+
+&lt;p&gt;Project link: &lt;a href=&quot;https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/&quot;&gt;https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;vi /etc/apt/sources.list
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+
+# 预发布软件源，不建议启用
+# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;python&lt;/h2&gt;
+
+&lt;h3&gt;pip source&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo apt install python3-pip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://pip.pypa.io/en/stable/user_guide/#config-file&quot;&gt;https://pip.pypa.io/en/stable/user_guide/#config-file&lt;/a&gt;
+&lt;a href=&quot;https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4&quot;&gt;https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir ~/.pip
+
+echo &quot;[global]&quot; &amp;gt; ~/.pip/pip.conf
+echo &quot;  index-url = https://mirrors.aliyun.com/pypi/simple/&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
+echo &quot;[install]&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
+echo &quot;  trusted-host=mirrors.aliyun.com&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
+echo &quot;&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;jupyter notebook&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;jupyter notebook --generate-config
+vi ~/.jupyter/jupyter_notebook_config.py
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;c.NotebookApp.use_redirect_file = False
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;virtualenvwrapper&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://virtualenvwrapper.readthedocs.io/en/latest/install.html&quot;&gt;https://virtualenvwrapper.readthedocs.io/en/latest/install.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pip install virtualenvwrapper
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;# vi ~/.bashrc
+vi ~/.zshrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# source /usr/local/bin/virtualenvwrapper.sh
+source ~/.local/bin/virtualenvwrapper.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;git config&lt;/h2&gt;
+
+&lt;h3&gt;vim editor&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global core.editor &quot;vim&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;proxy&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://gist.github.com/evantoli/f8c23a37eb3558ab8765&quot;&gt;https://gist.github.com/evantoli/f8c23a37eb3558ab8765&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global http.proxy localhost:1081
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;user&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;git config --global user.email &quot;songzy_thu@163.com&quot;
+git config --global user.name &quot;Zhengyang Song&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;docker&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir -p /etc/docker
+
+sudo tee /etc/docker/daemon.json &amp;lt;&amp;lt;-&#39;EOF&#39;
+{
+  &quot;registry-mirrors&quot;: [&quot;http://hub-mirror.c.163.com&quot;]
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo service docker restart
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;docker info
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;nodejs&lt;/h2&gt;
+
+&lt;h3&gt;nvm&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/nvm-sh/nvm&quot;&gt;https://github.com/nvm-sh/nvm&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget -qO- 
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;nvm ls
+nvm ls-remote
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;nvm install 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;npm registry&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.aliyun.com/mirror/NPM&quot;&gt;https://developer.aliyun.com/mirror/NPM&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;npm config get registry
+npm config set registry https://registry.npm.taobao.org
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;yarn registry&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;yarn config get registry
+yarn config set registry https://registry.npm.taobao.org
+&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">This shows what we need to do when we move to a brand new Linux environment.</summary></entry><entry><title type="html">Dos Batch</title><link href="http://songzy12.github.io/2020/09/12/dos-batch.html" rel="alternate" type="text/html" title="Dos Batch" /><published>2020-09-12T23:09:46+08:00</published><updated>2020-09-12T23:09:46+08:00</updated><id>http://songzy12.github.io/2020/09/12/dos-batch</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/dos-batch.html">&lt;h2&gt;%~dp0&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;%0&lt;/code&gt;: the batch file itself&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;%1&lt;/code&gt;-&lt;code&gt;%9&lt;/code&gt;:  command line arguments&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;d&lt;/code&gt;: the drive letter&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;p&lt;/code&gt;: the path of the parameter&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;cls&lt;/h2&gt;
+
+&lt;p&gt;clean screen.&lt;/p&gt;
+
+&lt;h2&gt;findstr&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;type *.md | findstr &quot;&amp;lt;p&amp;gt;&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;mode&lt;/h2&gt;
+
+&lt;p&gt;Sets the number of lines and columns (characters/line) of the display.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mode con cols=100 lines=60
+&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">%~dp0</summary></entry><entry><title type="html">external GPU</title><link href="http://songzy12.github.io/2020/08/28/egpu.html" rel="alternate" type="text/html" title="external GPU" /><published>2020-08-28T23:06:37+08:00</published><updated>2020-08-28T23:06:37+08:00</updated><id>http://songzy12.github.io/2020/08/28/egpu</id><content type="html" xml:base="http://songzy12.github.io/2020/08/28/egpu.html">&lt;p&gt;Here we discuss how to use external GPU for ThinkPad T470.&lt;/p&gt;
+
+&lt;h2&gt;ThinkPad T470&lt;/h2&gt;
+
+&lt;p&gt;NVIDIA GeForce 940MX&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda-gpus&quot;&gt;https://developer.nvidia.com/cuda-gpus&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;External GPU Enclosure&lt;/h2&gt;
+
+&lt;p&gt;Laptops:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://egpu.io/best-laptops-external-gpu/&quot;&gt;https://egpu.io/best-laptops-external-gpu/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;Guide:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://egpu.io/best-egpu-buyers-guide/&quot;&gt;https://egpu.io/best-egpu-buyers-guide/&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;JD links:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://item.jd.com/100005298502.html&quot;&gt;https://item.jd.com/100005298502.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;GIGABYTE/AORUS Gaming Box:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;RX580&lt;/li&gt;
+&lt;li&gt;GTX1070&lt;/li&gt;
+&lt;li&gt;GTX1080&lt;/li&gt;
+&lt;li&gt;RTX2070&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;GPU&lt;/h2&gt;
+
+&lt;p&gt;GPU主要由两大厂商提供，即 AMD 和 NVIDIA（英伟达），用这两个公司的字母简称来称呼相应的显卡就是为A卡和N卡了。&lt;/p&gt;
+
+&lt;p&gt;注意这里的AMD也是CPU两大厂商之一。&lt;/p&gt;
+
+&lt;p&gt;G（入门级）&amp;lt; GT（性价级）&amp;lt; GTS（性能级）&amp;lt; GTX（旗舰级）&lt;/p&gt;
+
+&lt;p&gt;Ti： 字面意思是‘Titanium’的缩写，也就是那个太空金属 ‘钛’，在它出现的地方一般就是代表了nVidia的高端版本。&lt;/p&gt;
+
+&lt;p&gt;GeFore用于家庭娱乐，Quadro用于工作站，而Tesla系列用于服务器。&lt;/p&gt;
+
+&lt;p&gt;首先解釋一下前面數字的意思，以GTX980為例：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;從左邊數來第一個數字&quot;9&quot;為世代，即N卡技術的演進(最新10系列如:1080以10為一個單位)&lt;/li&gt;
+&lt;li&gt;從左邊數來第二個數字&quot;8&quot;為等級，1~3 低階，4~6 中階，7~9 高階&lt;/li&gt;
+&lt;li&gt;從左邊數來第三個數字&quot;0&quot;為加強版(5)或精簡版(0)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;以下是每家廠商會使用的綴詞：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GT(GeForce Technology):低階顯示卡會使用的前綴代號，玩玩網頁遊戲、英雄聯盟都還能應付，價格在1000~3000上下，例如:GT740&lt;/li&gt;
+&lt;li&gt;GTS(Giga Texel Shader):中低階顯示卡會使用的前綴代號，比GT系列效能好目前已經不使用，美好的回憶停留在GTS450&lt;/li&gt;
+&lt;li&gt;GTX(GT eXtreme):中、高階顯示卡會使用的前綴代號，高畫質遊戲(GTA5、BF1)、繪圖軟體(Autocad Solidwork)使用，價格3000UP。例如:GTX1080&lt;/li&gt;
+&lt;li&gt;RTX( Real-time Raytracing 實時光線追蹤):高階顯卡使用的前綴代號，NVIDIA取代GTX的新代號。例如:RTX2080&lt;/li&gt;
+&lt;li&gt;Ti(Titanium):效能比原先型號更好的版本代號，技嘉則會使用一個T來表示。例如:GTX750TI、技嘉(GV-N75TOC2-2GI)&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;p&gt;&lt;a href=&quot;https://mall.jd.com/index-1000000297.html&quot;&gt;https://mall.jd.com/index-1000000297.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;http://www.rethink.fun/index.php/2018/04/26/machine/&quot;&gt;http://www.rethink.fun/index.php/2018/04/26/machine/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/43063489&quot;&gt;https://zhuanlan.zhihu.com/p/43063489&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/61411536&quot;&gt;https://zhuanlan.zhihu.com/p/61411536&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/question/67965694&quot;&gt;https://www.zhihu.com/question/67965694&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><summary type="html">Here we discuss how to use external GPU for ThinkPad T470.</summary></entry></feed>

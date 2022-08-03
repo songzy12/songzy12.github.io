@@ -14,15 +14,18 @@
 
 <h3>Verify</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>./BlackScholes</div></div></pre></div></figure></p>
+<pre><code>cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
+./BlackScholes
+</code></pre>
 
 <h3>Toolkit</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo ln -s libcusolver.so.10 libcusolver.so.11</div></div></pre></div></figure></p>
+<pre><code>cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
+sudo ln -s libcusolver.so.10 libcusolver.so.11
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib</div></div></pre></div></figure></p>
+<pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib
+</code></pre>
 
 <h2>TensorFlow 1.15.4</h2>
 
@@ -30,15 +33,18 @@
 
 <p><a href="https://github.com/NVIDIA/tensorflow#install">https://github.com/NVIDIA/tensorflow#install</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>python3 -m pip install nvidia-pyindex
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>python3 -m pip install nvidia-tensorflow</div></div></pre></div></figure></p>
+<pre><code>python3 -m pip install nvidia-pyindex
+python3 -m pip install nvidia-tensorflow
+</code></pre>
 
 <h3>Verify</h3>
 
 <p><a href="https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available">https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available</a></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>import tensorflow as tf
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>tf.config.list_physical_devices(&lsquo;GPU&rsquo;)</div></div></pre></div></figure></p>
+<pre><code>import tensorflow as tf
+
+tf.config.list_physical_devices('GPU')
+</code></pre>
 
 <h2>Reference</h2>
 
@@ -87,6 +93,7 @@
 
 <h3>Remove Python 3.7</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt list &ndash;installed | grep python3.7
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt remove python3.7
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt autoremove</div></div></pre></div></figure></p>
+<pre><code>sudo apt list --installed | grep python3.7
+sudo apt remove python3.7
+sudo apt autoremove
+</code></pre>

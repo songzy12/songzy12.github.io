@@ -16,10 +16,11 @@ $$</p>
 
 <p>记 $S=1+2p+3p<sup>2</sup>+\dots+kp^{k-1}$, 可得 $S=1/q((1-p<sup>k</sup>)/q-kp<sup>k</sup>)$.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>  e
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>= q(1+2p+3p<sup>2</sup>+\dots+kp^&#x7b;k-1&#x7d;)+kp<sup>k</sup>+q(1+p+\dots+p^&#x7b;k-1&#x7d;)e
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>= q\cdot 1/q ((1-p<sup>k</sup>)/q-kp<sup>k</sup>) + kp<sup>k</sup> + q 1/q(1-p<sup>k</sup>) e
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>= (1-p<sup>k</sup>)/q + (1-p<sup>k</sup>) e</div></div></pre></div></figure></p>
+<pre><code>  e 
+= q(1+2p+3p^2+\dots+kp^{k-1})+kp^k+q(1+p+\dots+p^{k-1})e
+= q\cdot 1/q ((1-p^k)/q-kp^k) + kp^k + q 1/q(1-p^k) e
+= (1-p^k)/q + (1-p^k) e
+</code></pre>
 
 <p>从而</p>
 
@@ -33,26 +34,32 @@ $$</p>
 
 <h3>Solution 2</h3>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>X_k = (X<em>&#x7b;k-1&#x7d; + 1)\cdot p + (X</em>&#x7b;k-1&#x7d; + 1 + X_k)\cdot q
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>X_0 = 0 </div></div></pre></div></figure></p>
+<pre><code>X_k = (X_{k-1} + 1)\cdot p + (X_{k-1} + 1 + X_k)\cdot q
+X_0 = 0 
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>X_k = 1/p X_&#x7b;k-1&#x7d; + 1/p</div></div></pre></div></figure></p>
+<pre><code>X_k = 1/p X_{k-1} + 1/p
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>X_k = 1/q (1/p ^k - 1)</div></div></pre></div></figure></p>
+<pre><code>X_k = 1/q (1/p ^k - 1)
+</code></pre>
 
 <p>而递推式的由来在于</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>  Pr(X_k = n)
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>= Pr(X<em>&#x7b;k-1&#x7d; = n-1) p + \sum_m [ Pr(X</em>&#x7b;k-1&#x7d;=m) q Pr(X<em>&#x7b;k&#x7d;=n-m-1) ]
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>= p Pr(X</em>&#x7b;k-1&#x7d;+1 = n) + q \sum_m [ Pr(X<em>&#x7b;k-1&#x7d;=m) Pr(X</em>&#x7b;k&#x7d;+1=n-m) ] </div></div></pre></div></figure></p>
+<pre><code>  Pr(X_k = n) 
+= Pr(X_{k-1} = n-1) p + \sum_m [ Pr(X_{k-1}=m) q Pr(X_{k}=n-m-1) ]
+= p Pr(X_{k-1}+1 = n) + q \sum_m [ Pr(X_{k-1}=m) Pr(X_{k}+1=n-m) ] 
+</code></pre>
 
 <p>也就是</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>X_k = p (X<em>&#x7b;k-1&#x7d;+1) + q (X</em>&#x7b;k-1&#x7d;+X_&#x7b;k&#x7d;+1)</div></div></pre></div></figure></p>
+<pre><code>X_k = p (X_{k-1}+1) + q (X_{k-1}+X_{k}+1)
+</code></pre>
 
 <p>这是由于对于随机变量 <code>X, Y, Z</code>, 若 <code>Z=X+Y</code>，则</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>Pr(Z=n) = \sum_m [Pr(X=m) Pr(Y=n-m)]</div></div></pre></div></figure></p>
+<pre><code>Pr(Z=n) = \sum_m [Pr(X=m) Pr(Y=n-m)]
+</code></pre>
 
 <p>递推法可以使得我们顺便求出所有的 <code>X_k</code></p>
 
@@ -62,33 +69,39 @@ $$</p>
 
 <p>If <code>f(x)</code> is the generating function of the probability <code>p_n</code> of the ending after <code>n</code> tosses</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>f(x) = \sum_n p_n x<sup>n</sup></div></div></pre></div></figure></p>
+<pre><code>f(x) = \sum_n p_n x^n
+</code></pre>
 
 <p>Consider the following toss strings, probabilities, and terms</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>T                             q           qx
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>HT                              pq          pqx<sup>2</sup>
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>HHT                             p<sup>2q</sup>        p<sup>2qx</sup><sup>3</sup>
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>\underbrace&#x7b;H\dots H&#x7d;<em>&#x7b;k-1&#x7d;T    p^&#x7b;k-1&#x7d;q  p^&#x7b;k-1&#x7d;qx<sup>k</sup>
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>\underbrace&#x7b;H\dots H&#x7d;</em>k           p^&#x7b;k&#x7d;     p<sup>kx</sup><sup>k</sup></div></div></pre></div></figure></p>
+<pre><code>T                               q           qx
+HT                              pq          pqx^2
+HHT                             p^2q        p^2qx^3
+\underbrace{H\dots H}_{k-1}T    p^{k-1}q    p^{k-1}qx^k
+\underbrace{H\dots H}_k         p^{k}       p^kx^k
+</code></pre>
 
 <p>We get the generating function of the probability of ending after <code>n</code> tosses to be</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>f(x)
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>= \sum_m (\sum<em>&#x7b;t=1&#x7d;^k p^&#x7b;t-1&#x7d;qx<sup>t</sup>)<sup>m</sup> p<sup>kx</sup><sup>k</sup>
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>= p<sup>kx</sup><sup>k</sup> / (1-\sum</em>&#x7b;t=1&#x7d;^k p^&#x7b;t-1&#x7d;qx<sup>t</sup>)</div></div></pre></div></figure></p>
+<pre><code>f(x) 
+= \sum_m (\sum_{t=1}^k p^{t-1}qx^t)^m p^kx^k
+= p^kx^k / (1-\sum_{t=1}^k p^{t-1}qx^t)
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>f'(1) = \sum p_n n = </div></div></pre></div></figure></p>
+<pre><code>f'(1) = \sum p_n n = 
+</code></pre>
 
 <p>推广：首次投掷出 HTHHT</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>T     qx
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>HH      p<sup>2x</sup><sup>2</sup>
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>HTT     pq<sup>2x</sup><sup>3</sup>
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>HTHT    p<sup>2q</sup><sup>2x</sup><sup>4</sup>
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>HTHHH   p<sup>4qx</sup><sup>5</sup>
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>HTHHT   p<sup>3q</sup><sup>2x</sup><sup>5</sup></div></div></pre></div></figure></p>
+<pre><code>T       qx
+HH      p^2x^2
+HTT     pq^2x^3
+HTHT    p^2q^2x^4
+HTHHH   p^4qx^5
+HTHHT   p^3q^2x^5
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>f(x)
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>=\sum (qx+p<sup>2x</sup><sup>2</sup>+pq<sup>2x</sup><sup>3</sup>+p<sup>2q</sup><sup>2x</sup><sup>4</sup>+p<sup>4qx</sup><sup>5</sup>)<sup>m</sup> p<sup>3q</sup><sup>2x</sup><sup>5</sup>
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>=</div></div></pre></div></figure></p>
+<pre><code>f(x) 
+=\sum (qx+p^2x^2+pq^2x^3+p^2q^2x^4+p^4qx^5)^m p^3q^2x^5
+=
+</code></pre>

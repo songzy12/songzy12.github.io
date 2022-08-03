@@ -2,18 +2,22 @@
 
 <p><a href="https://github.com/hwdsl2/setup-ipsec-vpn">here</a>.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>wget <a href="https://git.io/vpnsetup">https://git.io/vpnsetup</a> -O vpnsetup.sh &amp;&amp; sudo sh vpnsetup.sh</div></div></pre></div></figure></p>
+<pre><code>wget https://git.io/vpnsetup -O vpnsetup.sh &amp;&amp; sudo sh vpnsetup.sh
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>NET_IFO=$&#x7b;VPN_IFACE:-&lsquo;ens3&rsquo;&#x7d;
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>NET_IFS=$(VPN_IFACE:-&lsquo;ens3&rsquo;)</div></div></pre></div></figure></p>
+<pre><code>NET_IFO=${VPN_IFACE:-'ens3'}
+NET_IFS=$(VPN_IFACE:-'ens3')
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>Server IP: 45.32.251.88
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>IPsec PSK: shadowsocks
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>Username: vpnuser
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>Password: shadowsocks</div></div></pre></div></figure></p>
+<pre><code>Server IP: 45.32.251.88
+IPsec PSK: shadowsocks
+Username: vpnuser
+Password: shadowsocks
+</code></pre>
 
 <blockquote><p>无法建立计算机与 VPN 服务器之间的网络连接，因为远程服务器未响应。</p></blockquote>
 
 <p><a href="https://github.com/hwdsl2/setup-ipsec-vpn/blob/master/docs/clients-zh.md">here</a>.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f</div></div></pre></div></figure></p>
+<pre><code>REG ADD HKLM\SYSTEM\CurrentControlSet\Services\PolicyAgent /v AssumeUDPEncapsulationContextOnSendRule /t REG_DWORD /d 0x2 /f
+</code></pre>

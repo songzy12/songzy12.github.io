@@ -4,37 +4,41 @@
 
 <p>simple.c</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>int main()
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    int a = 5;
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    int b = a + 6;
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>    return 0;
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
+<pre><code>int main()
+{
+    int a = 5;
+    int b = a + 6;
+    return 0;
+}
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>gcc -g -O0 simple.c -o simple
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>gdb simple</div></div></pre></div></figure></p>
+<pre><code>gcc -g -O0 simple.c -o simple
+gdb simple
+</code></pre>
 
 <p>Inside GDB, we’ll <code>break</code> on <code>main</code> and <code>run</code> until we get to the return statement. We put the number 2 after <code>next</code> to specify that we want to run <code>next</code> twice:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) break main
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) run
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) next 2</div></div></pre></div></figure></p>
+<pre><code>(gdb) break main
+(gdb) run
+(gdb) next 2
+</code></pre>
 
 <p>Now let’s use the <code>disassemble</code> command to show the assembly instructions for the current function. You can also pass a function name to <code>disassemble</code> to specify a different function to examine.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) disassemble
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>Dump of assembler code for function main:
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f50 &lt;main+0>:    push   %rbp
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f51 &lt;main+1>:    mov    %rsp,%rbp
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f54 &lt;main+4>:    mov    $0x0,%eax
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f59 &lt;main+9>:    movl   $0x0,-0x4(%rbp)
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f60 &lt;main+16>:   movl   $0x5,-0x8(%rbp)
-</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f67 &lt;main+23>:   mov    -0x8(%rbp),%ecx
-</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f6a &lt;main+26>:   add    $0x6,%ecx
-</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f70 &lt;main+32>:   mov    %ecx,-0xc(%rbp)
-</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f73 &lt;main+35>:   pop    %rbp
-</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f74 &lt;main+36>:   retq <br/>
-</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>End of assembler dump.</div></div></pre></div></figure></p>
+<pre><code>(gdb) disassemble
+Dump of assembler code for function main:
+0x0000000100000f50 &lt;main+0&gt;:    push   %rbp
+0x0000000100000f51 &lt;main+1&gt;:    mov    %rsp,%rbp
+0x0000000100000f54 &lt;main+4&gt;:    mov    $0x0,%eax
+0x0000000100000f59 &lt;main+9&gt;:    movl   $0x0,-0x4(%rbp)
+0x0000000100000f60 &lt;main+16&gt;:   movl   $0x5,-0x8(%rbp)
+0x0000000100000f67 &lt;main+23&gt;:   mov    -0x8(%rbp),%ecx
+0x0000000100000f6a &lt;main+26&gt;:   add    $0x6,%ecx
+0x0000000100000f70 &lt;main+32&gt;:   mov    %ecx,-0xc(%rbp)
+0x0000000100000f73 &lt;main+35&gt;:   pop    %rbp
+0x0000000100000f74 &lt;main+36&gt;:   retq   
+End of assembler dump.
+</code></pre>
 
 <p>In our example above, <code>%eax</code> and <code>%ecx</code> are <code>general purpose registers</code>, while <code>%rbp</code> and <code>%rsp</code> are <code>special purpose registers</code>. <code>%rbp</code> is the <code>base pointer</code>, which points to the base of the current stack frame, and <code>%rsp</code> is the <code>stack pointer</code>, which points to the top of the current stack frame. <code>%rbp</code> always has a higher value than <code>%rsp</code> because the stack starts at a high memory address and grows downwards.</p>
 
@@ -46,32 +50,38 @@
 
 <p>Instructions in AT&amp;T syntax are of the format <code>mnemonic source, destination</code>.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f50 &lt;main+0>:    push   %rbp
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f51 &lt;main+1>:    mov    %rsp,%rbp</div></div></pre></div></figure></p>
+<pre><code>0x0000000100000f50 &lt;main+0&gt;:    push   %rbp
+0x0000000100000f51 &lt;main+1&gt;:    mov    %rsp,%rbp
+</code></pre>
 
 <p>function prologue or preamble.</p>
 
 <p>First we push the old base pointer onto the stack to save it for later. Then we copy the value of the stack pointer to the base pointer. After this, <code>%rbp</code> points to the base of main’s stack frame.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f54 &lt;main+4>:    mov    $0x0,%eax</div></div></pre></div></figure></p>
+<pre><code>0x0000000100000f54 &lt;main+4&gt;:    mov    $0x0,%eax
+</code></pre>
 
 <p>The x86 calling convention dictates that a function’s return value is stored in <code>%eax</code>, so the above instruction sets us up to return 0 at the end of our function.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f59 &lt;main+9>:    movl   $0x0,-0x4(%rbp)</div></div></pre></div></figure></p>
+<pre><code>0x0000000100000f59 &lt;main+9&gt;:    movl   $0x0,-0x4(%rbp)
+</code></pre>
 
 <p>The parentheses let us know that this is a memory address. Here, <code>%rbp</code> is called the <em>base register</em>, and <code>-0x4</code> is the <em>displacement</em>.</p>
 
 <p>Because the stack grows downwards, subtracting 4 from the base of the current stack frame moves us into the current frame itself, where local variables are stored. This means that this instruction stores 0 at <code>%rbp - 4</code></p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f60 &lt;main+16>:   movl   $0x5,-0x8(%rbp)</div></div></pre></div></figure></p>
+<pre><code>0x0000000100000f60 &lt;main+16&gt;:   movl   $0x5,-0x8(%rbp)
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) x &amp;a
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>0x7fff5fbff768: 0x00000005
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) x $rbp - 8
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>0x7fff5fbff768: 0x00000005</div></div></pre></div></figure></p>
+<pre><code>(gdb) x &amp;a
+0x7fff5fbff768: 0x00000005
+(gdb) x $rbp - 8
+0x7fff5fbff768: 0x00000005
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f73 &lt;main+35>:   pop    %rbp
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>0x0000000100000f74 &lt;main+36>:   retq</div></div></pre></div></figure></p>
+<pre><code>0x0000000100000f73 &lt;main+35&gt;:   pop    %rbp
+0x0000000100000f74 &lt;main+36&gt;:   retq
+</code></pre>
 
 <p>function epilogue: We <code>pop</code> the old base pointer off the stack and store it back in <code>%rbp</code> and then <code>retq</code> jumps back to our return address, which is also stored in the stack frame.</p>
 
@@ -83,43 +93,49 @@
 
 <p>The <em>instruction pointer</em> is a register that stores the memory address of the next instruction. On x86_64, that register is <code>%rip</code>. We can access the instruction pointer using the <code>$rip</code> variable, or alternatively we can use the architecture independent <code>$pc</code>.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) x/i $pc
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>0x100000e94 &lt;natural_generator+4>:  movl   $0x1,-0x4(%rbp)</div></div></pre></div></figure></p>
+<pre><code>(gdb) x/i $pc
+0x100000e94 &lt;natural_generator+4&gt;:  movl   $0x1,-0x4(%rbp)
+</code></pre>
 
 <p><code>display</code> is like <code>x</code>, except it evaluates its expression every time our program stops:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) display/i $pc
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>1: x/i $pc  0x100000e94 &lt;natural_generator+4>:  movl   $0x1,-0x4(%rbp)</div></div></pre></div></figure></p>
+<pre><code>(gdb) display/i $pc
+1: x/i $pc  0x100000e94 &lt;natural_generator+4&gt;:  movl   $0x1,-0x4(%rbp)
+</code></pre>
 
 <p>Instead of <code>next</code>, which moves to the next source line, we’ll use <code>nexti</code>, which moves to the next assembly instruction.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) nexti
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>7           b += 1;
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>1: x/i $pc  mov   0x177(%rip),%eax # 0x100001018 &lt;natural_generator.b>
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) x $rbp - 0x4
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>0x7fff5fbff78c: 0x00000001
-</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) x &amp;a
-</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>0x7fff5fbff78c: 0x00000001</div></div></pre></div></figure></p>
+<pre><code>(gdb) nexti
+7           b += 1;
+1: x/i $pc  mov   0x177(%rip),%eax # 0x100001018 &lt;natural_generator.b&gt;
+(gdb) x $rbp - 0x4
+0x7fff5fbff78c: 0x00000001
+(gdb) x &amp;a
+0x7fff5fbff78c: 0x00000001
+</code></pre>
 
 <p>Instead, we have an instruction that loads <code>0x100001018</code>, located somewhere after the instruction pointer, into <code>%eax</code>. GDB gives us a helpful comment with the result of the memory operand calculation and a hint telling us that <code>natural_generator.b</code> is stored at this address.</p>
 
 <p>Even though the disassembly shows <code>%eax</code> as the destination, we print <code>$rax</code>, because GDB only sets up variables for full width registers.</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) nexti
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) p $rax
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>$3 = 4294967295
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) p/x $rax
-</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>$5 = 0xffffffff</div></div></pre></div></figure></p>
+<pre><code>(gdb) nexti
+(gdb) p $rax
+$3 = 4294967295
+(gdb) p/x $rax
+$5 = 0xffffffff
+</code></pre>
 
 <p>While variables have types that specify if they are signed or unsigned, registers don’t, so GDB is printing the value of <code>%rax</code> unsigned. Let’s try again, by casting <code>%rax</code> to a signed int:</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) p (int)$rax
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>$11 = -1</div></div></pre></div></figure></p>
+<pre><code>(gdb) p (int)$rax
+$11 = -1
+</code></pre>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) x/d 0x100001018
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>0x100001018 &lt;natural_generator.b>:  -1
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>(gdb) x/d &amp;b
-</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>0x100001018 &lt;natural_generator.b>:  -1</div></div></pre></div></figure></p>
+<pre><code>(gdb) x/d 0x100001018
+0x100001018 &lt;natural_generator.b&gt;:  -1
+(gdb) x/d &amp;b
+0x100001018 &lt;natural_generator.b&gt;:  -1
+</code></pre>
 
 <p>This is because the value for <code>b</code> is hardcoded in a different section of the sample executable, and it’s loaded into memory along with all the machine code by the operating system’s loader when the process is launched.</p>
 
@@ -139,4 +155,5 @@
 
 <h2>make</h2>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>CFLAGS=&ldquo;-g -O0&rdquo; make static</div></div></pre></div></figure></p>
+<pre><code>CFLAGS="-g -O0" make static
+</code></pre>

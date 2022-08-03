@@ -26,9 +26,10 @@
 
 <p>如果我们已经有手机的 root 权限，那我们可以直接在手机连接至计算机的情况下使用 <code>adb</code> 来将 <code>/data/data/com.tencent.mm/MicroMsg</code> 的某个 md5 子目录下的 <code>EnMicroMsg.db</code> 拷贝至计算机。</p>
 
-<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>adb devices
-</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>adb shell
-</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>adb pull /data/data/com.tencent.mm/MicroMsg/xxxx/EnMicroMsg.db .</div></div></pre></div></figure></p>
+<pre><code>adb devices
+adb shell
+adb pull /data/data/com.tencent.mm/MicroMsg/xxxx/EnMicroMsg.db .
+</code></pre>
 
 <p>使用 <code>adb devices</code> 确认 <code>adb</code> 能够发现我们的手机，</p>
 
