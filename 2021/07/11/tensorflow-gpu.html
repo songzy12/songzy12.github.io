@@ -1,54 +1,4 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>TensorFlow GPU | Zhengyang Song&rsquo;s Secret Base</title>
-<meta name="generator" content="Jekyll v3.8.7" />
-<meta property="og:title" content="TensorFlow GPU" />
-<meta name="author" content="Zhengyang Song" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Enable TF 1.15 with RTX 3090." />
-<meta property="og:description" content="Enable TF 1.15 with RTX 3090." />
-<link rel="canonical" href="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" />
-<meta property="og:url" content="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" />
-<meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-07-11T12:23:11+08:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="TensorFlow GPU" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2021-07-11T12:23:11+08:00","datePublished":"2021-07-11T12:23:11+08:00","description":"Enable TF 1.15 with RTX 3090.","headline":"TensorFlow GPU","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2021/07/11/tensorflow-gpu.html"},"url":"http://songzy12.github.io/2021/07/11/tensorflow-gpu.html"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /></head>
-<body><header class="site-header" role="banner">
-
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Zhengyang Song&#39;s Secret Base</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">TensorFlow GPU</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="2021-07-11T12:23:11+08:00" itemprop="datePublished">Jul 11, 2021
-      </time></p>
-  </header>
-
-  <div class="post-content e-content" itemprop="articleBody">
-    <p>Enable TF 1.15 with RTX 3090.</p>
+<p>Enable TF 1.15 with RTX 3090.</p>
 
 <h2>CUDA</h2>
 
@@ -64,18 +14,15 @@
 
 <h3>Verify</h3>
 
-<pre><code>cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
-./BlackScholes
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>./BlackScholes</div></div></pre></div></figure></p>
 
 <h3>Toolkit</h3>
 
-<pre><code>cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
-sudo ln -s libcusolver.so.10 libcusolver.so.11
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo ln -s libcusolver.so.10 libcusolver.so.11</div></div></pre></div></figure></p>
 
-<pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib</div></div></pre></div></figure></p>
 
 <h2>TensorFlow 1.15.4</h2>
 
@@ -83,18 +30,15 @@ sudo ln -s libcusolver.so.10 libcusolver.so.11
 
 <p><a href="https://github.com/NVIDIA/tensorflow#install">https://github.com/NVIDIA/tensorflow#install</a></p>
 
-<pre><code>python3 -m pip install nvidia-pyindex
-python3 -m pip install nvidia-tensorflow
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>python3 -m pip install nvidia-pyindex
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>python3 -m pip install nvidia-tensorflow</div></div></pre></div></figure></p>
 
 <h3>Verify</h3>
 
 <p><a href="https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available">https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available</a></p>
 
-<pre><code>import tensorflow as tf
-
-tf.config.list_physical_devices('GPU')
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>import tensorflow as tf
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>tf.config.list_physical_devices(&lsquo;GPU&rsquo;)</div></div></pre></div></figure></p>
 
 <h2>Reference</h2>
 
@@ -143,39 +87,6 @@ tf.config.list_physical_devices('GPU')
 
 <h3>Remove Python 3.7</h3>
 
-<pre><code>sudo apt list --installed | grep python3.7
-sudo apt remove python3.7
-sudo apt autoremove
-</code></pre>
-
-  </div><a class="u-url" href="/2021/07/11/tensorflow-gpu.html" hidden></a>
-</article>
-
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">Zhengyang Song&#39;s Secret Base</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Zhengyang Song</li><li><a class="u-email" href="mailto:songzy_thu@163.com">songzy_thu@163.com</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>All those little bugs I have ever met.</p>
-      </div>
-    </div>
-
-  </div>
-
-</footer>
-</body>
-
-</html>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt list &ndash;installed | grep python3.7
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt remove python3.7
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo apt autoremove</div></div></pre></div></figure></p>

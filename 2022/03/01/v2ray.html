@@ -1,54 +1,4 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>V2Ray | Zhengyang Song&rsquo;s Secret Base</title>
-<meta name="generator" content="Jekyll v3.8.7" />
-<meta property="og:title" content="V2Ray" />
-<meta name="author" content="Zhengyang Song" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="This article shows how to install and enabel V2Ray proxy." />
-<meta property="og:description" content="This article shows how to install and enabel V2Ray proxy." />
-<link rel="canonical" href="http://songzy12.github.io/2022/03/01/v2ray.html" />
-<meta property="og:url" content="http://songzy12.github.io/2022/03/01/v2ray.html" />
-<meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-03-01T20:12:09+08:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="V2Ray" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2022-03-01T20:12:09+08:00","datePublished":"2022-03-01T20:12:09+08:00","description":"This article shows how to install and enabel V2Ray proxy.","headline":"V2Ray","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2022/03/01/v2ray.html"},"url":"http://songzy12.github.io/2022/03/01/v2ray.html"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /></head>
-<body><header class="site-header" role="banner">
-
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Zhengyang Song&#39;s Secret Base</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">V2Ray</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="2022-03-01T20:12:09+08:00" itemprop="datePublished">Mar 1, 2022
-      </time></p>
-  </header>
-
-  <div class="post-content e-content" itemprop="articleBody">
-    <p>This article shows how to install and enabel V2Ray proxy.</p>
+<p>This article shows how to install and enabel V2Ray proxy.</p>
 
 <h2>github</h2>
 
@@ -61,294 +11,242 @@
 
 <h2>v2fly</h2>
 
-<pre><code>// 安裝執行檔和 .dat 資料檔
-bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
-
-// 只更新 .dat 資料檔
-bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>// 安裝執行檔和 .dat 資料檔
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>bash &lt;(curl -L <a href="https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh">https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh</a>)
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>// 只更新 .dat 資料檔
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>bash &lt;(curl -L <a href="https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh">https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh</a>)</div></div></pre></div></figure></p>
 
 <h2>ufw</h2>
 
-<pre><code>sudo ufw allow http
-sudo ufw allow 80
-sudo ufw allow https
-sudo ufw allow 443
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo ufw allow http
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo ufw allow 80
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo ufw allow https
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo ufw allow 443</div></div></pre></div></figure></p>
 
 <h2>start</h2>
 
-<pre><code>sudo service v2ray status
-sudo service v2ray start
-sudo service v2ray stop
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo service v2ray status
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo service v2ray start
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo service v2ray stop</div></div></pre></div></figure></p>
 
 <h3>vmess aead</h3>
 
-<pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json</div></div></pre></div></figure></p>
 
 <h2>config</h2>
 
-<pre><code>sudo vi /usr/local/etc/v2ray/config.json
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>sudo vi /usr/local/etc/v2ray/config.json</div></div></pre></div></figure></p>
 
 <h3>client</h3>
 
-<pre><code>{
-  "inbound": {
-    "port": 1080,
-    "listen": "127.0.0.1",
-    "protocol": "socks",
-    "settings": {
-      "auth": "noauth",
-      "udp": true,
-      "ip": "127.0.0.1",
-      "clients": null
-    },
-    "streamSettings": null
-  },
-  "outbound": {
-    "tag": "agentout",
-    "protocol": "vmess",
-    "settings": {
-      "vnext": [
-        {
-          "address": "songzy.cc",
-          "port": 443,
-          "users": [
-            {
-              "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
-              "alterId": 0,
-              "email": "t@t.tt",
-              "security": "aes-128-gcm"
-            }
-          ]
-        }
-      ],
-      "servers": null
-    },
-    "streamSettings": {
-      "network": "ws",
-      "security": "tls",
-      "tlsSettings": {
-        "allowInsecure": true,
-        "serverName": null
-      },
-      "tcpSettings": null,
-      "kcpSettings": null,
-      "wsSettings": {
-        "connectionReuse": true,
-        "path": "/",
-        "headers": null
-      },
-      "httpSettings": null
-    },
-    "mux": {
-      "enabled": true
-    }
-  },
-  "inboundDetour": null,
-  "outboundDetour": [
-    {
-      "protocol": "freedom",
-      "settings": {
-        "response": null
-      },
-      "tag": "direct"
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {
-        "response": {
-          "type": "http"
-        }
-      },
-      "tag": "blockout"
-    }
-  ],
-  "dns": {
-    "servers": [
-      "8.8.8.8",
-      "8.8.4.4",
-      "localhost"
-    ]
-  }
-}
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>  &ldquo;inbound&rdquo;: &#x7b;
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;port&rdquo;: 1080,
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;listen&rdquo;: &ldquo;127.0.0.1&rdquo;,
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;protocol&rdquo;: &ldquo;socks&rdquo;,
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;settings&rdquo;: &#x7b;
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;auth&rdquo;: &ldquo;noauth&rdquo;,
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;udp&rdquo;: true,
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;ip&rdquo;: &ldquo;127.0.0.1&rdquo;,
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;clients&rdquo;: null
+</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;,
+</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;streamSettings&rdquo;: null
+</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>  &#x7d;,
+</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>  &ldquo;outbound&rdquo;: &#x7b;
+</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;tag&rdquo;: &ldquo;agentout&rdquo;,
+</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;protocol&rdquo;: &ldquo;vmess&rdquo;,
+</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;settings&rdquo;: &#x7b;
+</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;vnext&rdquo;: [
+</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7b;
+</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>          &ldquo;address&rdquo;: &ldquo;songzy.cc&rdquo;,
+</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>          &ldquo;port&rdquo;: 443,
+</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>          &ldquo;users&rdquo;: [
+</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7b;
+</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>              &ldquo;id&rdquo;: &ldquo;899cbb8a-fad2-45bd-8608-8483956d641c&rdquo;,
+</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>              &ldquo;alterId&rdquo;: 0,
+</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'>              &ldquo;email&rdquo;: &ldquo;<a href="&#109;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#116;&#x40;&#x74;&#46;&#x74;&#x74;">&#116;&#x40;&#116;&#x2e;&#116;&#x74;</a>&rdquo;,
+</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'>              &ldquo;security&rdquo;: &ldquo;aes-128-gcm&rdquo;
+</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7d;
+</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'>          ]
+</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
+</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'>      ],
+</div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;servers&rdquo;: null
+</div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;,
+</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;streamSettings&rdquo;: &#x7b;
+</div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;network&rdquo;: &ldquo;ws&rdquo;,
+</div></div><div data-line='36' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;security&rdquo;: &ldquo;tls&rdquo;,
+</div></div><div data-line='37' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;tlsSettings&rdquo;: &#x7b;
+</div></div><div data-line='38' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;allowInsecure&rdquo;: true,
+</div></div><div data-line='39' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;serverName&rdquo;: null
+</div></div><div data-line='40' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7d;,
+</div></div><div data-line='41' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;tcpSettings&rdquo;: null,
+</div></div><div data-line='42' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;kcpSettings&rdquo;: null,
+</div></div><div data-line='43' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;wsSettings&rdquo;: &#x7b;
+</div></div><div data-line='44' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;connectionReuse&rdquo;: true,
+</div></div><div data-line='45' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;path&rdquo;: &ldquo;/&rdquo;,
+</div></div><div data-line='46' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;headers&rdquo;: null
+</div></div><div data-line='47' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7d;,
+</div></div><div data-line='48' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;httpSettings&rdquo;: null
+</div></div><div data-line='49' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;,
+</div></div><div data-line='50' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;mux&rdquo;: &#x7b;
+</div></div><div data-line='51' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;enabled&rdquo;: true
+</div></div><div data-line='52' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
+</div></div><div data-line='53' class='code-highlight-row numbered'><div class='code-highlight-line'>  &#x7d;,
+</div></div><div data-line='54' class='code-highlight-row numbered'><div class='code-highlight-line'>  &ldquo;inboundDetour&rdquo;: null,
+</div></div><div data-line='55' class='code-highlight-row numbered'><div class='code-highlight-line'>  &ldquo;outboundDetour&rdquo;: [
+</div></div><div data-line='56' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7b;
+</div></div><div data-line='57' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;protocol&rdquo;: &ldquo;freedom&rdquo;,
+</div></div><div data-line='58' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;settings&rdquo;: &#x7b;
+</div></div><div data-line='59' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;response&rdquo;: null
+</div></div><div data-line='60' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7d;,
+</div></div><div data-line='61' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;tag&rdquo;: &ldquo;direct&rdquo;
+</div></div><div data-line='62' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;,
+</div></div><div data-line='63' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7b;
+</div></div><div data-line='64' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;protocol&rdquo;: &ldquo;blackhole&rdquo;,
+</div></div><div data-line='65' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;settings&rdquo;: &#x7b;
+</div></div><div data-line='66' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;response&rdquo;: &#x7b;
+</div></div><div data-line='67' class='code-highlight-row numbered'><div class='code-highlight-line'>          &ldquo;type&rdquo;: &ldquo;http&rdquo;
+</div></div><div data-line='68' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
+</div></div><div data-line='69' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7d;,
+</div></div><div data-line='70' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;tag&rdquo;: &ldquo;blockout&rdquo;
+</div></div><div data-line='71' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
+</div></div><div data-line='72' class='code-highlight-row numbered'><div class='code-highlight-line'>  ],
+</div></div><div data-line='73' class='code-highlight-row numbered'><div class='code-highlight-line'>  &ldquo;dns&rdquo;: &#x7b;
+</div></div><div data-line='74' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;servers&rdquo;: [
+</div></div><div data-line='75' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;8.8.8.8&rdquo;,
+</div></div><div data-line='76' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;8.8.4.4&rdquo;,
+</div></div><div data-line='77' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;localhost&rdquo;
+</div></div><div data-line='78' class='code-highlight-row numbered'><div class='code-highlight-line'>    ]
+</div></div><div data-line='79' class='code-highlight-row numbered'><div class='code-highlight-line'>  &#x7d;
+</div></div><div data-line='80' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
 
 <h3>server</h3>
 
-<pre><code>{
-  "inbounds": [
-    {
-      "port": 443,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
-            "level": 1,
-            "alterId": 0
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
-              "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
-            }
-          ]
-        }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    }
-  ]
-}
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7b;
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>  &ldquo;inbounds&rdquo;: [
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7b;
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;port&rdquo;: 443,
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;protocol&rdquo;: &ldquo;vmess&rdquo;,
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;settings&rdquo;: &#x7b;
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;clients&rdquo;: [
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>          &#x7b;
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>            &ldquo;id&rdquo;: &ldquo;899cbb8a-fad2-45bd-8608-8483956d641c&rdquo;,
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>            &ldquo;level&rdquo;: 1,
+</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>            &ldquo;alterId&rdquo;: 0
+</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>          &#x7d;
+</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>        ]
+</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7d;,
+</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;streamSettings&rdquo;: &#x7b;
+</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;network&rdquo;: &ldquo;ws&rdquo;,
+</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;security&rdquo;: &ldquo;tls&rdquo;,
+</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;tlsSettings&rdquo;: &#x7b;
+</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>          &ldquo;certificates&rdquo;: [
+</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7b;
+</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>              &ldquo;certificateFile&rdquo;: &ldquo;/usr/local/etc/v2ray/songzy.cc.cer&rdquo;,
+</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>              &ldquo;keyFile&rdquo;: &ldquo;/usr/local/etc/v2ray/songzy.cc.key&rdquo;
+</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>            &#x7d;
+</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>          ]
+</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>        &#x7d;
+</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7d;
+</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
+</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'>  ],
+</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'>  &ldquo;outbounds&rdquo;: [
+</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7b;
+</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;protocol&rdquo;: &ldquo;freedom&rdquo;,
+</div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;settings&rdquo;: &#x7b;&#x7d;
+</div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;,
+</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7b;
+</div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;protocol&rdquo;: &ldquo;blackhole&rdquo;,
+</div></div><div data-line='36' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;settings&rdquo;: &#x7b;&#x7d;,
+</div></div><div data-line='37' class='code-highlight-row numbered'><div class='code-highlight-line'>      &ldquo;tag&rdquo;: &ldquo;blocked&rdquo;
+</div></div><div data-line='38' class='code-highlight-row numbered'><div class='code-highlight-line'>    &#x7d;
+</div></div><div data-line='39' class='code-highlight-row numbered'><div class='code-highlight-line'>  ]
+</div></div><div data-line='40' class='code-highlight-row numbered'><div class='code-highlight-line'>&#x7d;</div></div></pre></div></figure></p>
 
 <p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
 
 <h2>log</h2>
 
-<pre><code>  "log": {
-    "loglevel": "warning",
-    "access": "/var/log/v2ray/access.log",
-    "error": "/var/log/v2ray/error.log"
-  }
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>  &ldquo;log&rdquo;: &#x7b;
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;loglevel&rdquo;: &ldquo;warning&rdquo;,
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;access&rdquo;: &ldquo;/var/log/v2ray/access.log&rdquo;,
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;error&rdquo;: &ldquo;/var/log/v2ray/error.log&rdquo;
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>  &#x7d;</div></div></pre></div></figure></p>
 
 <h2>routing rules</h2>
 
-<pre><code>  "routing": {
-    "domainStrategy": "IPOnDemand",
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api"
-      },
-      {
-        "type": "field",
-        "outboundTag": "proxy",
-        "domain": [
-          "udp",
-          "tcp"
-        ]
-      },
-      {
-        "type": "field",
-        "outboundTag": "direct",
-        "domain": [
-          "geosite:cn"
-        ]
-      },
-      {
-        "type": "field",
-        "outboundTag": "block",
-        "domain": [
-          "geosite:category-ads-all"
-        ]
-      }
-    ]
-  }
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>  &ldquo;routing&rdquo;: &#x7b;
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;domainStrategy&rdquo;: &ldquo;IPOnDemand&rdquo;,
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>    &ldquo;rules&rdquo;: [
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7b;
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;type&rdquo;: &ldquo;field&rdquo;,
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;inboundTag&rdquo;: [
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>          &ldquo;api&rdquo;
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>        ],
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;outboundTag&rdquo;: &ldquo;api&rdquo;
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7d;,
+</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7b;
+</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;type&rdquo;: &ldquo;field&rdquo;,
+</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;outboundTag&rdquo;: &ldquo;proxy&rdquo;,
+</div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;domain&rdquo;: [
+</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>          &ldquo;udp&rdquo;,
+</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>          &ldquo;tcp&rdquo;
+</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>        ]
+</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7d;,
+</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7b;
+</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;type&rdquo;: &ldquo;field&rdquo;,
+</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;outboundTag&rdquo;: &ldquo;direct&rdquo;,
+</div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;domain&rdquo;: [
+</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>          &ldquo;geosite:cn&rdquo;
+</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>        ]
+</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7d;,
+</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7b;
+</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;type&rdquo;: &ldquo;field&rdquo;,
+</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;outboundTag&rdquo;: &ldquo;block&rdquo;,
+</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'>        &ldquo;domain&rdquo;: [
+</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>          &ldquo;geosite:category-ads-all&rdquo;
+</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'>        ]
+</div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>      &#x7d;
+</div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>    ]
+</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'>  &#x7d;</div></div></pre></div></figure></p>
 
 <h2>tls (acme.sh)</h2>
 
 <h3>install</h3>
 
-<pre><code>$ apt install socat
-$ curl https://get.acme.sh | sh
-$ source ~/.bashrc 
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>$ apt install socat
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>$ curl <a href="https://get.acme.sh">https://get.acme.sh</a> | sh
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>$ source ~/.bashrc </div></div></pre></div></figure></p>
 
 <h3>register</h3>
 
-<pre><code>acme.sh --register-account -m songzy_thu@163.com
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>acme.sh &ndash;register-account -m <a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#115;&#111;&#110;&#x67;&#x7a;&#121;&#x5f;&#x74;&#x68;&#117;&#64;&#x31;&#54;&#x33;&#46;&#x63;&#111;&#x6d;">&#x73;&#x6f;&#x6e;&#103;&#x7a;&#121;&#x5f;&#x74;&#x68;&#x75;&#x40;&#49;&#x36;&#x33;&#46;&#x63;&#111;&#x6d;</a></div></div></pre></div></figure></p>
 
 <h3>issue &amp; installcert</h3>
 
-<pre><code>$ acme.sh --issue -d songzy.cc --standalone -k ec-256 --debug
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>$ acme.sh &ndash;issue -d songzy.cc &ndash;standalone -k ec-256 &ndash;debug
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>[Tue Nov 30 01:44:27 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>[Tue Nov 30 01:44:27 PM UTC 2021] Your cert key is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.key
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>[Tue Nov 30 01:44:27 PM UTC 2021] The intermediate CA cert is in  /root/.acme.sh/songzy.cc_ecc/ca.cer
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>[Tue Nov 30 01:44:27 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>[Tue Nov 30 01:44:27 PM UTC 2021] _on_issue_success</div></div></pre></div></figure></p>
 
-[Tue Nov 30 01:44:27 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
-[Tue Nov 30 01:44:27 PM UTC 2021] Your cert key is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.key
-[Tue Nov 30 01:44:27 PM UTC 2021] The intermediate CA cert is in  /root/.acme.sh/songzy.cc_ecc/ca.cer
-[Tue Nov 30 01:44:27 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
-[Tue Nov 30 01:44:27 PM UTC 2021] _on_issue_success
-</code></pre>
-
-<pre><code>$ acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v2ray/songzy.cc.cer --keypath /usr/local/etc/v2ray/songzy.cc.key --ecc
-
-[Tue Nov 30 01:47:43 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
-[Tue Nov 30 01:47:43 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>$ acme.sh &ndash;installcert -d songzy.cc &ndash;fullchainpath /usr/local/etc/v2ray/songzy.cc.cer &ndash;keypath /usr/local/etc/v2ray/songzy.cc.key &ndash;ecc
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>[Tue Nov 30 01:47:43 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>[Tue Nov 30 01:47:43 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer</div></div></pre></div></figure></p>
 
 <h3>renew</h3>
 
-<pre><code>$ acme.sh --renew -d songzy.cc --force --ecc --debug
-
-
-[Tue Nov 30 01:46:38 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
-[Tue Nov 30 01:46:38 PM UTC 2021] Your cert key is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.key
-[Tue Nov 30 01:46:38 PM UTC 2021] The intermediate CA cert is in  /root/.acme.sh/songzy.cc_ecc/ca.cer
-[Tue Nov 30 01:46:38 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
-[Tue Nov 30 01:46:38 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
-[Tue Nov 30 01:46:38 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>$ acme.sh &ndash;renew -d songzy.cc &ndash;force &ndash;ecc &ndash;debug
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>[Tue Nov 30 01:46:38 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>[Tue Nov 30 01:46:38 PM UTC 2021] Your cert key is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.key
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>[Tue Nov 30 01:46:38 PM UTC 2021] The intermediate CA cert is in  /root/.acme.sh/songzy.cc_ecc/ca.cer
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>[Tue Nov 30 01:46:38 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>[Tue Nov 30 01:46:38 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>[Tue Nov 30 01:46:38 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer</div></div></pre></div></figure></p>
 
 <h2>http_proxy</h2>
 
-<pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
-export http_proxy=http://$windows_host:10809
-export https_proxy=http://$windows_host:10809
-</code></pre>
-
-  </div><a class="u-url" href="/2022/03/01/v2ray.html" hidden></a>
-</article>
-
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">Zhengyang Song&#39;s Secret Base</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Zhengyang Song</li><li><a class="u-email" href="mailto:songzy_thu@163.com">songzy_thu@163.com</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>All those little bugs I have ever met.</p>
-      </div>
-    </div>
-
-  </div>
-
-</footer>
-</body>
-
-</html>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>windows_host=<code>cat /etc/resolv.conf|grep nameserver|awk '&amp;#x7b;print $2&amp;#x7d;'</code>
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>export http_proxy=<a href="http://$windows_host:10809">http://$windows_host:10809</a>
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>export https_proxy=<a href="http://$windows_host:10809">http://$windows_host:10809</a></div></div></pre></div></figure></p>

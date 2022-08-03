@@ -1,140 +1,73 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Vim | Zhengyang Song&rsquo;s Secret Base</title>
-<meta name="generator" content="Jekyll v3.8.7" />
-<meta property="og:title" content="Vim" />
-<meta name="author" content="Zhengyang Song" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content=".vimrc" />
-<meta property="og:description" content=".vimrc" />
-<link rel="canonical" href="http://songzy12.github.io/2020/07/13/vim.html" />
-<meta property="og:url" content="http://songzy12.github.io/2020/07/13/vim.html" />
-<meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-07-13T21:18:08+08:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Vim" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2020-07-13T21:18:08+08:00","datePublished":"2020-07-13T21:18:08+08:00","description":".vimrc","headline":"Vim","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2020/07/13/vim.html"},"url":"http://songzy12.github.io/2020/07/13/vim.html"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /></head>
-<body><header class="site-header" role="banner">
+<h2>.vimrc</h2>
 
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Zhengyang Song&#39;s Secret Base</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Vim</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="2020-07-13T21:18:08+08:00" itemprop="datePublished">Jul 13, 2020
-      </time></p>
-  </header>
-
-  <div class="post-content e-content" itemprop="articleBody">
-    <h2>.vimrc</h2>
-
-<pre><code>set ignorecase 
-set hlsearch
-set encoding=utf-8
-set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
-set termencoding=utf-8
-set encoding=utf-8
-set cursorline
-set autoindent
-set smartindent
-set scrolloff=4
-set showmatch
-set number
-
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-set expandtab
-set fileformat=unix
-
-colorscheme desert
-
-set nocompatible              " required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-
-" Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
-Plugin 'Chiel92/vim-autoformat'
-nnoremap &lt;F6&gt; :Autoformat&lt;CR&gt;
-let g:autoformat_autoindent = 0
-let g:autoformat_retab = 0
-let g:autoformat_remove_trailing_spaces = 0
-
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>set ignorecase
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>set hlsearch
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>set encoding=utf-8
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>set termencoding=utf-8
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'>set encoding=utf-8
+</div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'>set cursorline
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'>set autoindent
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'>set smartindent
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'>set scrolloff=4
+</div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'>set showmatch
+</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'>set number
+</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'>set tabstop=4
+</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'>set softtabstop=4
+</div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>set shiftwidth=4
+</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>set expandtab
+</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'>set fileformat=unix
+</div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'>colorscheme desert
+</div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>set nocompatible              &ldquo; required
+</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>filetype off                  &rdquo; required
+</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>&ldquo; set the runtime path to include Vundle and initialize
+</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'>set rtp+=~/.vim/bundle/Vundle.vim
+</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'>call vundle#begin()
+</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'>&rdquo; alternatively, pass a path where Vundle should install plugins
+</div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>&ldquo;call vundle#begin(&lsquo;~/some/path/here&rsquo;)
+</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'>&rdquo; let Vundle manage Vundle, required
+</div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>Plugin &lsquo;gmarik/Vundle.vim&rsquo;
+</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'>&ldquo; Add all your plugins here (note older versions of Vundle used Bundle instead of Plugin)
+</div></div><div data-line='36' class='code-highlight-row numbered'><div class='code-highlight-line'>Plugin &lsquo;Chiel92/vim-autoformat&rsquo;
+</div></div><div data-line='37' class='code-highlight-row numbered'><div class='code-highlight-line'>nnoremap &lt;F6> :Autoformat&lt;CR>
+</div></div><div data-line='38' class='code-highlight-row numbered'><div class='code-highlight-line'>let g:autoformat_autoindent = 0
+</div></div><div data-line='39' class='code-highlight-row numbered'><div class='code-highlight-line'>let g:autoformat_retab = 0
+</div></div><div data-line='40' class='code-highlight-row numbered'><div class='code-highlight-line'>let g:autoformat_remove_trailing_spaces = 0
+</div></div><div data-line='41' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='42' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='43' class='code-highlight-row numbered'><div class='code-highlight-line'>&rdquo; All of your Plugins must be added before the following line
+</div></div><div data-line='44' class='code-highlight-row numbered'><div class='code-highlight-line'>call vundle#end()            &ldquo; required
+</div></div><div data-line='45' class='code-highlight-row numbered'><div class='code-highlight-line'>filetype plugin indent on    &rdquo; required</div></div></pre></div></figure></p>
 
 <h2>vundle</h2>
 
 <p><a href="https://github.com/VundleVim/Vundle.vim">https://github.com/VundleVim/Vundle.vim</a></p>
 
-<pre><code>git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim 
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>git clone <a href="https://github.com/VundleVim/Vundle.vim.git">https://github.com/VundleVim/Vundle.vim.git</a> ~/.vim/bundle/Vundle.vim </div></div></pre></div></figure></p>
 
 <p>Put this in your <code>.vimrc</code>.</p>
 
-<pre><code>Plugin 'Chiel92/vim-autoformat'
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>Plugin &lsquo;Chiel92/vim-autoformat&rsquo;</div></div></pre></div></figure></p>
 
 <p>Then restart vim and run <code>:PluginInstall</code>.</p>
 
 <p>注意这里 autoformat 要对 Python 起作用的话还要安装 autopep8:</p>
 
-<pre><code>pip install autopep8
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>pip install autopep8</div></div></pre></div></figure></p>
 
 <h2>syntax</h2>
 
-<pre><code>cd /usr/share/vim/vim74/syntax 
-vi python.vim
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>cd /usr/share/vim/vim74/syntax
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>vi python.vim</div></div></pre></div></figure></p>
 
-<pre><code>syn keyword pythonTodo      FIXME NOTE NOTES TODO XXX contained
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>syn keyword pythonTodo      FIXME NOTE NOTES TODO XXX contained</div></div></pre></div></figure></p>
 
-<pre><code>$ ls ~/.vim/
-ftdetect  ftplugin  indent  syntax
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>$ ls ~/.vim/
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>ftdetect  ftplugin  indent  syntax</div></div></pre></div></figure></p>
 
 <h2>color</h2>
 
-<pre><code>ls /usr/share/vim/vim74/colors/
-vi ~/.vimrc
-color default
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>ls /usr/share/vim/vim74/colors/
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>vi ~/.vimrc
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>color default</div></div></pre></div></figure></p>
 
 <h2>|</h2>
 
@@ -142,21 +75,18 @@ color default
 
 <h2>d</h2>
 
-<pre><code>dG 删除直到工作缓存区结尾的内容
-d1G 删除直到工作缓存区开始的内容
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>dG 删除直到工作缓存区结尾的内容
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>d1G 删除直到工作缓存区开始的内容</div></div></pre></div></figure></p>
 
 <p>删除第9行到第200行的内容(先用200G转到第200行) ，使用</p>
 
-<pre><code>:9,.d
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>:9,.d</div></div></pre></div></figure></p>
 
 <h2>e</h2>
 
 <p>重新加载</p>
 
-<pre><code>:e
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>:e</div></div></pre></div></figure></p>
 
 <h2>J</h2>
 
@@ -164,29 +94,24 @@ d1G 删除直到工作缓存区开始的内容
 
 <p>In command mode:</p>
 
-<pre><code>[range]j[lines]
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>[range]j[lines]</div></div></pre></div></figure></p>
 
 <p>here you want to do the whole buffer:</p>
 
-<pre><code>%j
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>%j</div></div></pre></div></figure></p>
 
 <p>If you just wanted to do 10 lines from the current cursor position:</p>
 
-<pre><code>j10
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>j10</div></div></pre></div></figure></p>
 
 <p>If you dont want to replace the new lines with spaces use ! after j.</p>
 
-<pre><code>%j!
-j!10
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>%j!
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>j!10</div></div></pre></div></figure></p>
 
 <p>And for the uberfancy:</p>
 
-<pre><code>5j20
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>5j20</div></div></pre></div></figure></p>
 
 <p>Would go to line 5, and join the next 20 lines.</p>
 
@@ -196,19 +121,16 @@ j!10
 <code>set expandtab</code>: insert spaces for tabs.
 <code>ret</code>: replace tab</p>
 
-<pre><code>set expandtab
-:%ret! 4
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>set expandtab
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>:%ret! 4</div></div></pre></div></figure></p>
 
 <h2>s</h2>
 
-<pre><code>:%s/源字符串/目的字符串/g
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>:%s/源字符串/目的字符串/g</div></div></pre></div></figure></p>
 
 <p>Add a string(<code>*</code>) to the end of each line in Vim:</p>
 
-<pre><code>:%s/$/\*/g
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>:%s/$/*/g</div></div></pre></div></figure></p>
 
 <h2>set</h2>
 
@@ -217,38 +139,32 @@ j!10
 </ul>
 
 
-<pre><code>set nu
-set nonu
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>set nu
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>set nonu</div></div></pre></div></figure></p>
 
 <ul>
 <li>paste</li>
 </ul>
 
 
-<pre><code>set paste
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>set paste</div></div></pre></div></figure></p>
 
 <ul>
 <li>invlist</li>
 </ul>
 
 
-<pre><code>set invlist
-set nolist
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>set invlist
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>set nolist</div></div></pre></div></figure></p>
 
 <h2>shell</h2>
 
-<pre><code>ctrl+z 
-fg
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>ctrl+z
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>fg</div></div></pre></div></figure></p>
 
-<pre><code>:!vim --version
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>:!vim &ndash;version</div></div></pre></div></figure></p>
 
-<pre><code>:shell
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>:shell</div></div></pre></div></figure></p>
 
 <h2>undo, redo</h2>
 
@@ -260,40 +176,7 @@ fg
 
 <h2>vsp</h2>
 
-<pre><code>vim -On file1 file2 # 分屏启动Vim
-:vsp filename # 分屏
-Ctrl+w r # 滚动分屏
-Ctrl+w = # 分屏宽度
-</code></pre>
-
-  </div><a class="u-url" href="/2020/07/13/vim.html" hidden></a>
-</article>
-
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">Zhengyang Song&#39;s Secret Base</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Zhengyang Song</li><li><a class="u-email" href="mailto:songzy_thu@163.com">songzy_thu@163.com</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>All those little bugs I have ever met.</p>
-      </div>
-    </div>
-
-  </div>
-
-</footer>
-</body>
-
-</html>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'>vim -On file1 file2 # 分屏启动Vim
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'>:vsp filename # 分屏
+</div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>Ctrl+w r # 滚动分屏
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>Ctrl+w = # 分屏宽度</div></div></pre></div></figure></p>

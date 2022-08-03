@@ -1,54 +1,4 @@
-<!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Segment Tree | Zhengyang Song&rsquo;s Secret Base</title>
-<meta name="generator" content="Jekyll v3.8.7" />
-<meta property="og:title" content="Segment Tree" />
-<meta name="author" content="Zhengyang Song" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Representation of Segment trees:" />
-<meta property="og:description" content="Representation of Segment trees:" />
-<link rel="canonical" href="http://songzy12.github.io/2019/10/07/segment-tree.html" />
-<meta property="og:url" content="http://songzy12.github.io/2019/10/07/segment-tree.html" />
-<meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2019-10-07T17:14:21+08:00" />
-<meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Segment Tree" />
-<script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2019-10-07T17:14:21+08:00","datePublished":"2019-10-07T17:14:21+08:00","description":"Representation of Segment trees:","headline":"Segment Tree","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2019/10/07/segment-tree.html"},"url":"http://songzy12.github.io/2019/10/07/segment-tree.html"}</script>
-<!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /></head>
-<body><header class="site-header" role="banner">
-
-  <div class="wrapper"><a class="site-title" rel="author" href="/">Zhengyang Song&#39;s Secret Base</a><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
-      </nav></div>
-</header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Segment Tree</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="2019-10-07T17:14:21+08:00" itemprop="datePublished">Oct 7, 2019
-      </time></p>
-  </header>
-
-  <div class="post-content e-content" itemprop="articleBody">
-    <p>Representation of Segment trees:</p>
+<p>Representation of Segment trees:</p>
 
 <ol>
 <li><p>Leaf Nodes are the elements of the input array.</p></li>
@@ -80,142 +30,110 @@
 
 <p><a href="https://codeforces.com/contest/1208/problem/d">https://codeforces.com/contest/1208/problem/d</a></p>
 
-<pre><code># https://codeforces.com/contest/1208/problem/D
-
-from sys import stdin, stdout
-input = stdin.readline
-# print = stdout.write
-
-# 1. the right most 0 is the index of current minimum value
-# 2. we abstract the current value for all the elements to the right
-# 3. Then we can do recusion
-
-# To find the last index with value zero,
-# we can use segment tree to get range minimum query with lazy propagation.
-
-# https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/
-
-n = int(input())
-array = list(map(int, input().split()))
-
-MAX = n * n
-
-
-class Node:
-    def __init__(self, val, index, s, e):
-        self.lazy = 0
-        # for leaf node, store the value of array
-        # for internal node, store the value of interval
-        self.val = val
-        self.index = index
-
-        self.s = s
-        self.e = e
-
-        self.left = None
-        self.right = None
-
-
-class SegmentTree:
-    def __init__(self, array):
-        self.root = self.build(array)
-
-    def build(self, array):
-        def _build(array, s, e):
-            if s == e:
-                cur = Node(array[s], s, s, e)
-                return cur
-            mid = (s + e) // 2
-            left = _build(array, s, mid)
-            right = _build(array, mid + 1, e)
-
-            if left.val &lt; right.val:
-                cur = Node(left.val, left.index, s, e)
-            else:
-                cur = Node(right.val, right.index, s, e)
-
-            cur.left = left
-            cur.right = right
-            return cur
-
-        root = _build(array, 0, len(array) - 1)
-        return root
-
-    def modify(self, s, e, diff):
-        # add diff to all the array elements from s to e (inclusive)
-        def _modify(cur, s, e, diff):
-            if cur.s &gt; e or cur.e &lt; s:
-                return cur.val, cur.index
-            if cur.s == cur.e:
-                cur.val += diff
-                return cur.val, cur.index
-
-            # note here [s, mid] is wrong because that 
-            # [s, mid] may be larger than [s, e]
-
-            left_val, left_index = _modify(cur.left, s, e, diff)
-            right_val, right_index = _modify(cur.right, s, e, diff)
-
-            if left_val &lt; right_val:
-                cur.val = left_val
-                cur.index = left_index
-            else:
-                cur.val = right_val
-                cur.index = right_index
-            return cur.val, cur.index
-        _modify(self.root, s, e, diff)
-
-    def query(self, s, e):
-        # return the index of the minimum of array from s to e (inclusive)
-        def _query(cur, s, e):
-            if cur.s &gt; e or cur.e &lt; s:
-                return MAX, -1
-            if cur.s == s and cur.e == e:
-                return cur.val, cur.index
-
-            mid = (cur.s + cur.e) // 2
-
-            left_val, left_index = _query(cur.left, s, mid)
-            right_val, right_index = _query(cur.right, mid+1, e)
-
-            if left_val &lt; right_val:
-                return left_val, left_index
-            else:
-                return right_val, right_index
-
-        val, index = _query(self.root, s, e)
-        return val, index
-
-
-def debug(tree):
-    l = [tree.root]
-    while l:
-        next_l = []
-        for node in l:
-            print("(%d, %d): %d, %d\t" %
-                  (node.s, node.e, node.val, node.index), end="")
-            if node.left:
-                next_l.append(node.left)
-            if node.right:
-                next_l.append(node.right)
-        print()
-        l = next_l
-
-
-tree = SegmentTree(array)
-
-result = [0 for i in range(n)]
-cur = 1
-while cur &lt;= n:
-    val, index = tree.query(0, n - 1)
-    if index &lt; n - 1:
-        tree.modify(index + 1, n - 1, -cur)
-    tree.modify(index, index, MAX)
-
-    result[index] = cur
-    cur += 1
-print(" ".join(map(str, result)))
-</code></pre>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'># <a href="https://codeforces.com/contest/1208/problem/D">https://codeforces.com/contest/1208/problem/D</a>
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>from sys import stdin, stdout
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>input = stdin.readline
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'># print = stdout.write
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'># 1. the right most 0 is the index of current minimum value
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'># 2. we abstract the current value for all the elements to the right
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'># 3. Then we can do recusion
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'># To find the last index with value zero,
+</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'># we can use segment tree to get range minimum query with lazy propagation.
+</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'># <a href="https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/">https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/</a>
+</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>n = int(input())
+</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>array = list(map(int, input().split()))
+</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>MAX = n * n
+</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>class Node:
+</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>    def <strong>init</strong>(self, val, index, s, e):
+</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.lazy = 0
+</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>        # for leaf node, store the value of array
+</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'>        # for internal node, store the value of interval
+</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.val = val
+</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.index = index
+</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.s = s
+</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.e = e
+</div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.left = None
+</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.right = None
+</div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='36' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='37' class='code-highlight-row numbered'><div class='code-highlight-line'>class SegmentTree:
+</div></div><div data-line='38' class='code-highlight-row numbered'><div class='code-highlight-line'>    def <strong>init</strong>(self, array):
+</div></div><div data-line='39' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.root = self.build(array)
+</div></div><div data-line='40' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='41' class='code-highlight-row numbered'><div class='code-highlight-line'>    def build(self, array):
+</div></div><div data-line='42' class='code-highlight-row numbered'><div class='code-highlight-line'>        def <em>build(array, s, e):
+</div></div><div data-line='43' class='code-highlight-row numbered'><div class='code-highlight-line'>            if s == e:
+</div></div><div data-line='44' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur = Node(array[s], s, s, e)
+</div></div><div data-line='45' class='code-highlight-row numbered'><div class='code-highlight-line'>                return cur
+</div></div><div data-line='46' class='code-highlight-row numbered'><div class='code-highlight-line'>            mid = (s + e) // 2
+</div></div><div data-line='47' class='code-highlight-row numbered'><div class='code-highlight-line'>            left = </em>build(array, s, mid)
+</div></div><div data-line='48' class='code-highlight-row numbered'><div class='code-highlight-line'>            right = <em>build(array, mid + 1, e)
+</div></div><div data-line='49' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='50' class='code-highlight-row numbered'><div class='code-highlight-line'>            if left.val &lt; right.val:
+</div></div><div data-line='51' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur = Node(left.val, left.index, s, e)
+</div></div><div data-line='52' class='code-highlight-row numbered'><div class='code-highlight-line'>            else:
+</div></div><div data-line='53' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur = Node(right.val, right.index, s, e)
+</div></div><div data-line='54' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='55' class='code-highlight-row numbered'><div class='code-highlight-line'>            cur.left = left
+</div></div><div data-line='56' class='code-highlight-row numbered'><div class='code-highlight-line'>            cur.right = right
+</div></div><div data-line='57' class='code-highlight-row numbered'><div class='code-highlight-line'>            return cur
+</div></div><div data-line='58' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='59' class='code-highlight-row numbered'><div class='code-highlight-line'>        root = </em>build(array, 0, len(array) - 1)
+</div></div><div data-line='60' class='code-highlight-row numbered'><div class='code-highlight-line'>        return root
+</div></div><div data-line='61' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='62' class='code-highlight-row numbered'><div class='code-highlight-line'>    def modify(self, s, e, diff):
+</div></div><div data-line='63' class='code-highlight-row numbered'><div class='code-highlight-line'>        # add diff to all the array elements from s to e (inclusive)
+</div></div><div data-line='64' class='code-highlight-row numbered'><div class='code-highlight-line'>        def <em>modify(cur, s, e, diff):
+</div></div><div data-line='65' class='code-highlight-row numbered'><div class='code-highlight-line'>            if cur.s > e or cur.e &lt; s:
+</div></div><div data-line='66' class='code-highlight-row numbered'><div class='code-highlight-line'>                return cur.val, cur.index
+</div></div><div data-line='67' class='code-highlight-row numbered'><div class='code-highlight-line'>            if cur.s == cur.e:
+</div></div><div data-line='68' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur.val += diff
+</div></div><div data-line='69' class='code-highlight-row numbered'><div class='code-highlight-line'>                return cur.val, cur.index
+</div></div><div data-line='70' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='71' class='code-highlight-row numbered'><div class='code-highlight-line'>            # note here [s, mid] is wrong because that
+</div></div><div data-line='72' class='code-highlight-row numbered'><div class='code-highlight-line'>            # [s, mid] may be larger than [s, e]
+</div></div><div data-line='73' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='74' class='code-highlight-row numbered'><div class='code-highlight-line'>            left_val, left_index = </em>modify(cur.left, s, e, diff)
+</div></div><div data-line='75' class='code-highlight-row numbered'><div class='code-highlight-line'>            right_val, right_index = <em>modify(cur.right, s, e, diff)
+</div></div><div data-line='76' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='77' class='code-highlight-row numbered'><div class='code-highlight-line'>            if left_val &lt; right_val:
+</div></div><div data-line='78' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur.val = left_val
+</div></div><div data-line='79' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur.index = left_index
+</div></div><div data-line='80' class='code-highlight-row numbered'><div class='code-highlight-line'>            else:
+</div></div><div data-line='81' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur.val = right_val
+</div></div><div data-line='82' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur.index = right_index
+</div></div><div data-line='83' class='code-highlight-row numbered'><div class='code-highlight-line'>            return cur.val, cur.index
+</div></div><div data-line='84' class='code-highlight-row numbered'><div class='code-highlight-line'>        </em>modify(self.root, s, e, diff)
+</div></div><div data-line='85' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='86' class='code-highlight-row numbered'><div class='code-highlight-line'>    def query(self, s, e):
+</div></div><div data-line='87' class='code-highlight-row numbered'><div class='code-highlight-line'>        # return the index of the minimum of array from s to e (inclusive)
+</div></div><div data-line='88' class='code-highlight-row numbered'><div class='code-highlight-line'>        def <em>query(cur, s, e):
+</div></div><div data-line='89' class='code-highlight-row numbered'><div class='code-highlight-line'>            if cur.s > e or cur.e &lt; s:
+</div></div><div data-line='90' class='code-highlight-row numbered'><div class='code-highlight-line'>                return MAX, -1
+</div></div><div data-line='91' class='code-highlight-row numbered'><div class='code-highlight-line'>            if cur.s == s and cur.e == e:
+</div></div><div data-line='92' class='code-highlight-row numbered'><div class='code-highlight-line'>                return cur.val, cur.index
+</div></div><div data-line='93' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='94' class='code-highlight-row numbered'><div class='code-highlight-line'>            mid = (cur.s + cur.e) // 2
+</div></div><div data-line='95' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='96' class='code-highlight-row numbered'><div class='code-highlight-line'>            left_val, left_index = </em>query(cur.left, s, mid)
+</div></div><div data-line='97' class='code-highlight-row numbered'><div class='code-highlight-line'>            right_val, right_index = <em>query(cur.right, mid+1, e)
+</div></div><div data-line='98' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='99' class='code-highlight-row numbered'><div class='code-highlight-line'>            if left_val &lt; right_val:
+</div></div><div data-line='100' class='code-highlight-row numbered'><div class='code-highlight-line'>                return left_val, left_index
+</div></div><div data-line='101' class='code-highlight-row numbered'><div class='code-highlight-line'>            else:
+</div></div><div data-line='102' class='code-highlight-row numbered'><div class='code-highlight-line'>                return right_val, right_index
+</div></div><div data-line='103' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='104' class='code-highlight-row numbered'><div class='code-highlight-line'>        val, index = </em>query(self.root, s, e)
+</div></div><div data-line='105' class='code-highlight-row numbered'><div class='code-highlight-line'>        return val, index
+</div></div><div data-line='106' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='107' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='108' class='code-highlight-row numbered'><div class='code-highlight-line'>def debug(tree):
+</div></div><div data-line='109' class='code-highlight-row numbered'><div class='code-highlight-line'>    l = [tree.root]
+</div></div><div data-line='110' class='code-highlight-row numbered'><div class='code-highlight-line'>    while l:
+</div></div><div data-line='111' class='code-highlight-row numbered'><div class='code-highlight-line'>        next_l = []
+</div></div><div data-line='112' class='code-highlight-row numbered'><div class='code-highlight-line'>        for node in l:
+</div></div><div data-line='113' class='code-highlight-row numbered'><div class='code-highlight-line'>            print(&ldquo;(%d, %d): %d, %d\t&rdquo; %
+</div></div><div data-line='114' class='code-highlight-row numbered'><div class='code-highlight-line'>                  (node.s, node.e, node.val, node.index), end=&ldquo;&rdquo;)
+</div></div><div data-line='115' class='code-highlight-row numbered'><div class='code-highlight-line'>            if node.left:
+</div></div><div data-line='116' class='code-highlight-row numbered'><div class='code-highlight-line'>                next_l.append(node.left)
+</div></div><div data-line='117' class='code-highlight-row numbered'><div class='code-highlight-line'>            if node.right:
+</div></div><div data-line='118' class='code-highlight-row numbered'><div class='code-highlight-line'>                next_l.append(node.right)
+</div></div><div data-line='119' class='code-highlight-row numbered'><div class='code-highlight-line'>        print()
+</div></div><div data-line='120' class='code-highlight-row numbered'><div class='code-highlight-line'>        l = next_l
+</div></div><div data-line='121' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='122' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='123' class='code-highlight-row numbered'><div class='code-highlight-line'>tree = SegmentTree(array)
+</div></div><div data-line='124' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='125' class='code-highlight-row numbered'><div class='code-highlight-line'>result = [0 for i in range(n)]
+</div></div><div data-line='126' class='code-highlight-row numbered'><div class='code-highlight-line'>cur = 1
+</div></div><div data-line='127' class='code-highlight-row numbered'><div class='code-highlight-line'>while cur &lt;= n:
+</div></div><div data-line='128' class='code-highlight-row numbered'><div class='code-highlight-line'>    val, index = tree.query(0, n - 1)
+</div></div><div data-line='129' class='code-highlight-row numbered'><div class='code-highlight-line'>    if index &lt; n - 1:
+</div></div><div data-line='130' class='code-highlight-row numbered'><div class='code-highlight-line'>        tree.modify(index + 1, n - 1, -cur)
+</div></div><div data-line='131' class='code-highlight-row numbered'><div class='code-highlight-line'>    tree.modify(index, index, MAX)
+</div></div><div data-line='132' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='133' class='code-highlight-row numbered'><div class='code-highlight-line'>    result[index] = cur
+</div></div><div data-line='134' class='code-highlight-row numbered'><div class='code-highlight-line'>    cur += 1
+</div></div><div data-line='135' class='code-highlight-row numbered'><div class='code-highlight-line'>print(&ldquo; &rdquo;.join(map(str, result)))</div></div></pre></div></figure></p>
 
 <h2>Lazy Propagation</h2>
 
@@ -240,195 +158,129 @@ For example add 10 to all values at indexes from 2 to 7 in array.</p>
 
 <h3>Example</h3>
 
-<pre><code># https://codeforces.com/contest/1208/problem/D
-
-from sys import stdin, stdout
-input = stdin.readline
-print = stdout.write
-
-# 1. the right most 0 is the index of current minimum value
-# 2. we abstract the current value for all the elements to the right
-# 3. Then we can do recusion
-
-# To find the last index with value zero,
-# we can use segment tree to get range minimum query with lazy propagation.
-
-# https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/
-
-n = int(input())
-array = list(map(int, input().split()))
-
-MAX = n * n
-
-
-class Node:
-    def __init__(self, val, index, s, e):
-        self.lazy = 0
-        # for leaf node, store the value of array
-        # for internal node, store the value of interval
-        self.val = val
-        self.index = index
-
-        self.s = s
-        self.e = e
-
-        self.left = None
-        self.right = None
-
-
-class SegmentTree:
-    def __init__(self, array):
-        self.root = self.build(array)
-
-    def build(self, array):
-        def _build(array, s, e):
-            if s == e:
-                cur = Node(array[s], s, s, e)
-                return cur
-            mid = (s + e) // 2
-            left = _build(array, s, mid)
-            right = _build(array, mid + 1, e)
-
-            if left.val &lt; right.val:
-                cur = Node(left.val, left.index, s, e)
-            else:
-                cur = Node(right.val, right.index, s, e)
-
-            cur.left = left
-            cur.right = right
-            return cur
-
-        root = _build(array, 0, len(array) - 1)
-        return root
-
-    def modify(self, s, e, diff):
-        # add diff to all the array elements from s to e (inclusive)
-        def _modify(cur, s, e, diff):
-            # print("cur: [%d, %d], midify: [%d, %d], diff: %d" %
-            #       (cur.s, cur.e, s, e, diff))
-            if cur.s &gt; e or cur.e &lt; s:
-                return cur.val + cur.lazy, cur.index
-
-            if cur.s == s and cur.e == e:
-                cur.lazy += diff
-                return cur.val + cur.lazy, cur.index
-
-            mid = (cur.s + cur.e) // 2
-
-            # note here cur.lazy will affect [cur.s, cur.e]
-            # while diff will only affect [s, e]
-            _modify(cur.left, cur.s, mid, cur.lazy)
-            _modify(cur.right, mid + 1, cur.e, cur.lazy)
-            cur.lazy = 0
-
-            if s - 1 &lt; mid &lt; e:                
-                left_val, left_index = _modify(
-                    cur.left, s, mid, diff)
-                right_val, right_index = _modify(
-                    cur.right, mid + 1, e, diff)
-            else:
-                left_val, left_index = _modify(
-                    cur.left, s, e, diff)
-                right_val, right_index = _modify(
-                    cur.right, s, e, diff)
-
-            if left_val &lt; right_val:
-                cur.val = left_val
-                cur.index = left_index
-            else:
-                cur.val = right_val
-                cur.index = right_index
-            return cur.val, cur.index
-        _modify(self.root, s, e, diff)
-
-    def query(self, s, e):
-        # return the index of the minimum of array from s to e (inclusive)
-        def _query(cur, s, e):
-            if cur.s &gt; e or cur.e &lt; s:
-                return cur.val + cur.lazy, cur.index
-            if cur.s == s and cur.e == e:
-                return cur.val + cur.lazy, cur.index
-
-            mid = (cur.s + cur.e) // 2
-            if s - 1 &lt; mid &lt; e:
-                left_val, left_index = _query(
-                    cur.left, s, mid)
-                right_val, right_index = _query(
-                    cur.right, mid + 1, e)
-            else:
-                left_val, left_index = _query(
-                    cur.left, s, e)
-                right_val, right_index = _query(
-                    cur.right, s, e)
-
-            if left_val &lt; right_val:
-                return left_val + cur.lazy, left_index
-            else:
-                return right_val + cur.lazy, right_index
-
-        val, index = _query(self.root, s, e)
-        return val, index
-
-
-def debug(tree):
-    l = [tree.root]
-    while l:
-        next_l = []
-        for node in l:
-            print("[%d, %d]: %d+%d of %d" % (node.s, node.e, node.val, node.lazy, node.index), end=" | ")
-            if node.left:
-                next_l.append(node.left)
-            if node.right:
-                next_l.append(node.right)
-        print()
-        l = next_l
-
-
-tree = SegmentTree(array)
-
-result = [0 for i in range(n)]
-cur = 1
-while cur &lt;= n:
-    val, index = tree.query(0, n - 1)
-    if index &lt; n - 1:
-        tree.modify(index + 1, n - 1, -cur)
-    tree.modify(index, index, MAX)
-
-    # debug(tree)
-
-    result[index] = cur
-    cur += 1
-print(" ".join(map(str, result)))
-</code></pre>
-
-  </div><a class="u-url" href="/2019/10/07/segment-tree.html" hidden></a>
-</article>
-
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
-
-  <div class="wrapper">
-
-    <h2 class="footer-heading">Zhengyang Song&#39;s Secret Base</h2>
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name">Zhengyang Song</li><li><a class="u-email" href="mailto:songzy_thu@163.com">songzy_thu@163.com</a></li></ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>All those little bugs I have ever met.</p>
-      </div>
-    </div>
-
-  </div>
-
-</footer>
-</body>
-
-</html>
+<p><figure class='code-highlight-figure'><div class='code-highlight'><pre class='code-highlight-pre'><div data-line='1' class='code-highlight-row numbered'><div class='code-highlight-line'># <a href="https://codeforces.com/contest/1208/problem/D">https://codeforces.com/contest/1208/problem/D</a>
+</div></div><div data-line='2' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='3' class='code-highlight-row numbered'><div class='code-highlight-line'>from sys import stdin, stdout
+</div></div><div data-line='4' class='code-highlight-row numbered'><div class='code-highlight-line'>input = stdin.readline
+</div></div><div data-line='5' class='code-highlight-row numbered'><div class='code-highlight-line'>print = stdout.write
+</div></div><div data-line='6' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='7' class='code-highlight-row numbered'><div class='code-highlight-line'># 1. the right most 0 is the index of current minimum value
+</div></div><div data-line='8' class='code-highlight-row numbered'><div class='code-highlight-line'># 2. we abstract the current value for all the elements to the right
+</div></div><div data-line='9' class='code-highlight-row numbered'><div class='code-highlight-line'># 3. Then we can do recusion
+</div></div><div data-line='10' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='11' class='code-highlight-row numbered'><div class='code-highlight-line'># To find the last index with value zero,
+</div></div><div data-line='12' class='code-highlight-row numbered'><div class='code-highlight-line'># we can use segment tree to get range minimum query with lazy propagation.
+</div></div><div data-line='13' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='14' class='code-highlight-row numbered'><div class='code-highlight-line'># <a href="https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/">https://www.geeksforgeeks.org/lazy-propagation-in-segment-tree-set-2/</a>
+</div></div><div data-line='15' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='16' class='code-highlight-row numbered'><div class='code-highlight-line'>n = int(input())
+</div></div><div data-line='17' class='code-highlight-row numbered'><div class='code-highlight-line'>array = list(map(int, input().split()))
+</div></div><div data-line='18' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='19' class='code-highlight-row numbered'><div class='code-highlight-line'>MAX = n * n
+</div></div><div data-line='20' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='21' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='22' class='code-highlight-row numbered'><div class='code-highlight-line'>class Node:
+</div></div><div data-line='23' class='code-highlight-row numbered'><div class='code-highlight-line'>    def <strong>init</strong>(self, val, index, s, e):
+</div></div><div data-line='24' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.lazy = 0
+</div></div><div data-line='25' class='code-highlight-row numbered'><div class='code-highlight-line'>        # for leaf node, store the value of array
+</div></div><div data-line='26' class='code-highlight-row numbered'><div class='code-highlight-line'>        # for internal node, store the value of interval
+</div></div><div data-line='27' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.val = val
+</div></div><div data-line='28' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.index = index
+</div></div><div data-line='29' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='30' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.s = s
+</div></div><div data-line='31' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.e = e
+</div></div><div data-line='32' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='33' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.left = None
+</div></div><div data-line='34' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.right = None
+</div></div><div data-line='35' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='36' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='37' class='code-highlight-row numbered'><div class='code-highlight-line'>class SegmentTree:
+</div></div><div data-line='38' class='code-highlight-row numbered'><div class='code-highlight-line'>    def <strong>init</strong>(self, array):
+</div></div><div data-line='39' class='code-highlight-row numbered'><div class='code-highlight-line'>        self.root = self.build(array)
+</div></div><div data-line='40' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='41' class='code-highlight-row numbered'><div class='code-highlight-line'>    def build(self, array):
+</div></div><div data-line='42' class='code-highlight-row numbered'><div class='code-highlight-line'>        def <em>build(array, s, e):
+</div></div><div data-line='43' class='code-highlight-row numbered'><div class='code-highlight-line'>            if s == e:
+</div></div><div data-line='44' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur = Node(array[s], s, s, e)
+</div></div><div data-line='45' class='code-highlight-row numbered'><div class='code-highlight-line'>                return cur
+</div></div><div data-line='46' class='code-highlight-row numbered'><div class='code-highlight-line'>            mid = (s + e) // 2
+</div></div><div data-line='47' class='code-highlight-row numbered'><div class='code-highlight-line'>            left = </em>build(array, s, mid)
+</div></div><div data-line='48' class='code-highlight-row numbered'><div class='code-highlight-line'>            right = <em>build(array, mid + 1, e)
+</div></div><div data-line='49' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='50' class='code-highlight-row numbered'><div class='code-highlight-line'>            if left.val &lt; right.val:
+</div></div><div data-line='51' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur = Node(left.val, left.index, s, e)
+</div></div><div data-line='52' class='code-highlight-row numbered'><div class='code-highlight-line'>            else:
+</div></div><div data-line='53' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur = Node(right.val, right.index, s, e)
+</div></div><div data-line='54' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='55' class='code-highlight-row numbered'><div class='code-highlight-line'>            cur.left = left
+</div></div><div data-line='56' class='code-highlight-row numbered'><div class='code-highlight-line'>            cur.right = right
+</div></div><div data-line='57' class='code-highlight-row numbered'><div class='code-highlight-line'>            return cur
+</div></div><div data-line='58' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='59' class='code-highlight-row numbered'><div class='code-highlight-line'>        root = </em>build(array, 0, len(array) - 1)
+</div></div><div data-line='60' class='code-highlight-row numbered'><div class='code-highlight-line'>        return root
+</div></div><div data-line='61' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='62' class='code-highlight-row numbered'><div class='code-highlight-line'>    def modify(self, s, e, diff):
+</div></div><div data-line='63' class='code-highlight-row numbered'><div class='code-highlight-line'>        # add diff to all the array elements from s to e (inclusive)
+</div></div><div data-line='64' class='code-highlight-row numbered'><div class='code-highlight-line'>        def <em>modify(cur, s, e, diff):
+</div></div><div data-line='65' class='code-highlight-row numbered'><div class='code-highlight-line'>            # print(&ldquo;cur: [%d, %d], midify: [%d, %d], diff: %d&rdquo; %
+</div></div><div data-line='66' class='code-highlight-row numbered'><div class='code-highlight-line'>            #       (cur.s, cur.e, s, e, diff))
+</div></div><div data-line='67' class='code-highlight-row numbered'><div class='code-highlight-line'>            if cur.s > e or cur.e &lt; s:
+</div></div><div data-line='68' class='code-highlight-row numbered'><div class='code-highlight-line'>                return cur.val + cur.lazy, cur.index
+</div></div><div data-line='69' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='70' class='code-highlight-row numbered'><div class='code-highlight-line'>            if cur.s == s and cur.e == e:
+</div></div><div data-line='71' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur.lazy += diff
+</div></div><div data-line='72' class='code-highlight-row numbered'><div class='code-highlight-line'>                return cur.val + cur.lazy, cur.index
+</div></div><div data-line='73' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='74' class='code-highlight-row numbered'><div class='code-highlight-line'>            mid = (cur.s + cur.e) // 2
+</div></div><div data-line='75' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='76' class='code-highlight-row numbered'><div class='code-highlight-line'>            # note here cur.lazy will affect [cur.s, cur.e]
+</div></div><div data-line='77' class='code-highlight-row numbered'><div class='code-highlight-line'>            # while diff will only affect [s, e]
+</div></div><div data-line='78' class='code-highlight-row numbered'><div class='code-highlight-line'>            </em>modify(cur.left, cur.s, mid, cur.lazy)
+</div></div><div data-line='79' class='code-highlight-row numbered'><div class='code-highlight-line'>            <em>modify(cur.right, mid + 1, cur.e, cur.lazy)
+</div></div><div data-line='80' class='code-highlight-row numbered'><div class='code-highlight-line'>            cur.lazy = 0
+</div></div><div data-line='81' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='82' class='code-highlight-row numbered'><div class='code-highlight-line'>            if s - 1 &lt; mid &lt; e:              <br/>
+</div></div><div data-line='83' class='code-highlight-row numbered'><div class='code-highlight-line'>                left_val, left_index = </em>modify(
+</div></div><div data-line='84' class='code-highlight-row numbered'><div class='code-highlight-line'>                    cur.left, s, mid, diff)
+</div></div><div data-line='85' class='code-highlight-row numbered'><div class='code-highlight-line'>                right_val, right_index = <em>modify(
+</div></div><div data-line='86' class='code-highlight-row numbered'><div class='code-highlight-line'>                    cur.right, mid + 1, e, diff)
+</div></div><div data-line='87' class='code-highlight-row numbered'><div class='code-highlight-line'>            else:
+</div></div><div data-line='88' class='code-highlight-row numbered'><div class='code-highlight-line'>                left_val, left_index = </em>modify(
+</div></div><div data-line='89' class='code-highlight-row numbered'><div class='code-highlight-line'>                    cur.left, s, e, diff)
+</div></div><div data-line='90' class='code-highlight-row numbered'><div class='code-highlight-line'>                right_val, right_index = <em>modify(
+</div></div><div data-line='91' class='code-highlight-row numbered'><div class='code-highlight-line'>                    cur.right, s, e, diff)
+</div></div><div data-line='92' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='93' class='code-highlight-row numbered'><div class='code-highlight-line'>            if left_val &lt; right_val:
+</div></div><div data-line='94' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur.val = left_val
+</div></div><div data-line='95' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur.index = left_index
+</div></div><div data-line='96' class='code-highlight-row numbered'><div class='code-highlight-line'>            else:
+</div></div><div data-line='97' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur.val = right_val
+</div></div><div data-line='98' class='code-highlight-row numbered'><div class='code-highlight-line'>                cur.index = right_index
+</div></div><div data-line='99' class='code-highlight-row numbered'><div class='code-highlight-line'>            return cur.val, cur.index
+</div></div><div data-line='100' class='code-highlight-row numbered'><div class='code-highlight-line'>        </em>modify(self.root, s, e, diff)
+</div></div><div data-line='101' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='102' class='code-highlight-row numbered'><div class='code-highlight-line'>    def query(self, s, e):
+</div></div><div data-line='103' class='code-highlight-row numbered'><div class='code-highlight-line'>        # return the index of the minimum of array from s to e (inclusive)
+</div></div><div data-line='104' class='code-highlight-row numbered'><div class='code-highlight-line'>        def <em>query(cur, s, e):
+</div></div><div data-line='105' class='code-highlight-row numbered'><div class='code-highlight-line'>            if cur.s > e or cur.e &lt; s:
+</div></div><div data-line='106' class='code-highlight-row numbered'><div class='code-highlight-line'>                return cur.val + cur.lazy, cur.index
+</div></div><div data-line='107' class='code-highlight-row numbered'><div class='code-highlight-line'>            if cur.s == s and cur.e == e:
+</div></div><div data-line='108' class='code-highlight-row numbered'><div class='code-highlight-line'>                return cur.val + cur.lazy, cur.index
+</div></div><div data-line='109' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='110' class='code-highlight-row numbered'><div class='code-highlight-line'>            mid = (cur.s + cur.e) // 2
+</div></div><div data-line='111' class='code-highlight-row numbered'><div class='code-highlight-line'>            if s - 1 &lt; mid &lt; e:
+</div></div><div data-line='112' class='code-highlight-row numbered'><div class='code-highlight-line'>                left_val, left_index = </em>query(
+</div></div><div data-line='113' class='code-highlight-row numbered'><div class='code-highlight-line'>                    cur.left, s, mid)
+</div></div><div data-line='114' class='code-highlight-row numbered'><div class='code-highlight-line'>                right_val, right_index = <em>query(
+</div></div><div data-line='115' class='code-highlight-row numbered'><div class='code-highlight-line'>                    cur.right, mid + 1, e)
+</div></div><div data-line='116' class='code-highlight-row numbered'><div class='code-highlight-line'>            else:
+</div></div><div data-line='117' class='code-highlight-row numbered'><div class='code-highlight-line'>                left_val, left_index = </em>query(
+</div></div><div data-line='118' class='code-highlight-row numbered'><div class='code-highlight-line'>                    cur.left, s, e)
+</div></div><div data-line='119' class='code-highlight-row numbered'><div class='code-highlight-line'>                right_val, right_index = <em>query(
+</div></div><div data-line='120' class='code-highlight-row numbered'><div class='code-highlight-line'>                    cur.right, s, e)
+</div></div><div data-line='121' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='122' class='code-highlight-row numbered'><div class='code-highlight-line'>            if left_val &lt; right_val:
+</div></div><div data-line='123' class='code-highlight-row numbered'><div class='code-highlight-line'>                return left_val + cur.lazy, left_index
+</div></div><div data-line='124' class='code-highlight-row numbered'><div class='code-highlight-line'>            else:
+</div></div><div data-line='125' class='code-highlight-row numbered'><div class='code-highlight-line'>                return right_val + cur.lazy, right_index
+</div></div><div data-line='126' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='127' class='code-highlight-row numbered'><div class='code-highlight-line'>        val, index = </em>query(self.root, s, e)
+</div></div><div data-line='128' class='code-highlight-row numbered'><div class='code-highlight-line'>        return val, index
+</div></div><div data-line='129' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='130' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='131' class='code-highlight-row numbered'><div class='code-highlight-line'>def debug(tree):
+</div></div><div data-line='132' class='code-highlight-row numbered'><div class='code-highlight-line'>    l = [tree.root]
+</div></div><div data-line='133' class='code-highlight-row numbered'><div class='code-highlight-line'>    while l:
+</div></div><div data-line='134' class='code-highlight-row numbered'><div class='code-highlight-line'>        next_l = []
+</div></div><div data-line='135' class='code-highlight-row numbered'><div class='code-highlight-line'>        for node in l:
+</div></div><div data-line='136' class='code-highlight-row numbered'><div class='code-highlight-line'>            print(&ldquo;[%d, %d]: %d+%d of %d&rdquo; % (node.s, node.e, node.val, node.lazy, node.index), end=&ldquo; | &rdquo;)
+</div></div><div data-line='137' class='code-highlight-row numbered'><div class='code-highlight-line'>            if node.left:
+</div></div><div data-line='138' class='code-highlight-row numbered'><div class='code-highlight-line'>                next_l.append(node.left)
+</div></div><div data-line='139' class='code-highlight-row numbered'><div class='code-highlight-line'>            if node.right:
+</div></div><div data-line='140' class='code-highlight-row numbered'><div class='code-highlight-line'>                next_l.append(node.right)
+</div></div><div data-line='141' class='code-highlight-row numbered'><div class='code-highlight-line'>        print()
+</div></div><div data-line='142' class='code-highlight-row numbered'><div class='code-highlight-line'>        l = next_l
+</div></div><div data-line='143' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='144' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='145' class='code-highlight-row numbered'><div class='code-highlight-line'>tree = SegmentTree(array)
+</div></div><div data-line='146' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='147' class='code-highlight-row numbered'><div class='code-highlight-line'>result = [0 for i in range(n)]
+</div></div><div data-line='148' class='code-highlight-row numbered'><div class='code-highlight-line'>cur = 1
+</div></div><div data-line='149' class='code-highlight-row numbered'><div class='code-highlight-line'>while cur &lt;= n:
+</div></div><div data-line='150' class='code-highlight-row numbered'><div class='code-highlight-line'>    val, index = tree.query(0, n - 1)
+</div></div><div data-line='151' class='code-highlight-row numbered'><div class='code-highlight-line'>    if index &lt; n - 1:
+</div></div><div data-line='152' class='code-highlight-row numbered'><div class='code-highlight-line'>        tree.modify(index + 1, n - 1, -cur)
+</div></div><div data-line='153' class='code-highlight-row numbered'><div class='code-highlight-line'>    tree.modify(index, index, MAX)
+</div></div><div data-line='154' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='155' class='code-highlight-row numbered'><div class='code-highlight-line'>    # debug(tree)
+</div></div><div data-line='156' class='code-highlight-row numbered'><div class='code-highlight-line'> </div></div><div data-line='157' class='code-highlight-row numbered'><div class='code-highlight-line'>    result[index] = cur
+</div></div><div data-line='158' class='code-highlight-row numbered'><div class='code-highlight-line'>    cur += 1
+</div></div><div data-line='159' class='code-highlight-row numbered'><div class='code-highlight-line'>print(&ldquo; &rdquo;.join(map(str, result)))</div></div></pre></div></figure></p>
