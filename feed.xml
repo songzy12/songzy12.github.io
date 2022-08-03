@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://songzy12.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="2.5.3">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-08-04T00:40:45+08:00</updated><id>http://songzy12.github.io/</id><title type="html">Zhengyang Song&#39;s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/03/01/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-03-01T20:12:09+08:00</published><updated>2022-03-01T20:12:09+08:00</updated><id>http://songzy12.github.io/2022/03/01/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/03/01/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://songzy12.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-08-04T01:15:28+08:00</updated><id>http://songzy12.github.io/</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/03/01/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-03-01T20:12:09+08:00</published><updated>2022-03-01T20:12:09+08:00</updated><id>http://songzy12.github.io/2022/03/01/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/03/01/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
 
 &lt;h2&gt;github&lt;/h2&gt;
 
@@ -266,10 +266,10 @@ $ source ~/.bashrc
 
 &lt;h2&gt;http_proxy&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;windows_host=`cat /etc/resolv.conf|grep nameserver|awk &#39;{print $2}&#39;`
+&lt;pre&gt;&lt;code&gt;windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 export http_proxy=http://$windows_host:10809
 export https_proxy=http://$windows_host:10809
-&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">This article shows how to install and enabel V2Ray proxy.</summary></entry><entry><title type="html">SSH</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="SSH" /><published>2022-01-13T20:46:54+08:00</published><updated>2022-01-13T20:46:54+08:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html">&lt;p&gt;How to config SSH of tencent cloud.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to install and enabel V2Ray proxy.</summary></entry><entry><title type="html">SSH</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="SSH" /><published>2022-01-13T20:46:54+08:00</published><updated>2022-01-13T20:46:54+08:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html">&lt;p&gt;How to config SSH of tencent cloud.&lt;/p&gt;
 
 &lt;h2&gt;Config Files for Client &amp;amp; Server&lt;/h2&gt;
 
@@ -304,7 +304,7 @@ GSSAPIAuthentication no
 
 &lt;p&gt;可能原因：IO 高导致硬盘 %util 达到100%。&lt;/p&gt;
 
-&lt;p&gt;处理步骤：查看 IO 高是否合理，且需评估是否减少 IO 读写或者置换更高性能的硬盘。&lt;/p&gt;&lt;/blockquote&gt;</content><summary type="html">How to config SSH of tencent cloud.</summary></entry><entry><title type="html">Paddle GPU</title><link href="http://songzy12.github.io/2021/10/21/paddle-gpu.html" rel="alternate" type="text/html" title="Paddle GPU" /><published>2021-10-21T15:43:08+08:00</published><updated>2021-10-21T15:43:08+08:00</updated><id>http://songzy12.github.io/2021/10/21/paddle-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/10/21/paddle-gpu.html">&lt;p&gt;Enable GPU for PaddlePaddle.&lt;/p&gt;
+&lt;p&gt;处理步骤：查看 IO 高是否合理，且需评估是否减少 IO 读写或者置换更高性能的硬盘。&lt;/p&gt;&lt;/blockquote&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">How to config SSH of tencent cloud.</summary></entry><entry><title type="html">Paddle GPU</title><link href="http://songzy12.github.io/2021/10/21/paddle-gpu.html" rel="alternate" type="text/html" title="Paddle GPU" /><published>2021-10-21T15:43:08+08:00</published><updated>2021-10-21T15:43:08+08:00</updated><id>http://songzy12.github.io/2021/10/21/paddle-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/10/21/paddle-gpu.html">&lt;p&gt;Enable GPU for PaddlePaddle.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;W1024 17:30:14.785153  6727 device_context.cc:404] Please NOTE: device: 0, GPU Compute Capability: 8.6, Driver API Version: 11.4, Runtime API Version: 10.2
 W1024 17:30:14.788581  6727 device_context.cc:422] device: 0, cuDNN Version: 8.1.
@@ -366,7 +366,7 @@ Sun Oct 24 20:28:01 2021
 &lt;p&gt;&lt;a href=&quot;https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html&quot;&gt;https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;pip install paddlepaddle-gpu==2.1.3.post110 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
-&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">Enable GPU for PaddlePaddle.</summary></entry><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-07-11T12:23:11+08:00</published><updated>2021-07-11T12:23:11+08:00</updated><id>http://songzy12.github.io/2021/07/11/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html">&lt;p&gt;Enable TF 1.15 with RTX 3090.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable GPU for PaddlePaddle.</summary></entry><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-07-11T12:23:11+08:00</published><updated>2021-07-11T12:23:11+08:00</updated><id>http://songzy12.github.io/2021/07/11/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html">&lt;p&gt;Enable TF 1.15 with RTX 3090.&lt;/p&gt;
 
 &lt;h2&gt;CUDA&lt;/h2&gt;
 
@@ -411,7 +411,7 @@ python3 -m pip install nvidia-tensorflow
 
 &lt;pre&gt;&lt;code&gt;import tensorflow as tf
 
-tf.config.list_physical_devices(&#39;GPU&#39;)
+tf.config.list_physical_devices('GPU')
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2&gt;Reference&lt;/h2&gt;
@@ -464,7 +464,7 @@ tf.config.list_physical_devices(&#39;GPU&#39;)
 &lt;pre&gt;&lt;code&gt;sudo apt list --installed | grep python3.7
 sudo apt remove python3.7
 sudo apt autoremove
-&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">Enable TF 1.15 with RTX 3090.</summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T14:08:18+08:00</published><updated>2021-05-01T14:08:18+08:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable TF 1.15 with RTX 3090.</summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T14:08:18+08:00</published><updated>2021-05-01T14:08:18+08:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Zsh Theme&lt;/h2&gt;
 
@@ -531,7 +531,7 @@ sudo apt autoremove
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/DejaVu_fonts&quot;&gt;https://en.wikipedia.org/wiki/DejaVu_fonts&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Code_page_437&quot;&gt;https://en.wikipedia.org/wiki/Code_page_437&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><summary type="html">https://github.com/microsoft/WSL/issues/1517</summary></entry><entry><title type="html">Windows Battery Report</title><link href="http://songzy12.github.io/2021/03/20/battery.html" rel="alternate" type="text/html" title="Windows Battery Report" /><published>2021-03-20T16:04:37+08:00</published><updated>2021-03-20T16:04:37+08:00</updated><id>http://songzy12.github.io/2021/03/20/battery</id><content type="html" xml:base="http://songzy12.github.io/2021/03/20/battery.html">&lt;pre&gt;&lt;code&gt;powercfg /batteryreport
+&lt;/ul&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/microsoft/WSL/issues/1517</summary></entry><entry><title type="html">Windows Battery Report</title><link href="http://songzy12.github.io/2021/03/20/battery.html" rel="alternate" type="text/html" title="Windows Battery Report" /><published>2021-03-20T16:04:37+08:00</published><updated>2021-03-20T16:04:37+08:00</updated><id>http://songzy12.github.io/2021/03/20/battery</id><content type="html" xml:base="http://songzy12.github.io/2021/03/20/battery.html">&lt;pre&gt;&lt;code&gt;powercfg /batteryreport
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;BATTERY 1   BATTERY 2
@@ -552,7 +552,7 @@ CHEMISTRY   LION
 DESIGN CAPACITY 24,020 mWh
 FULL CHARGE CAPACITY    13,010 mWh
 CYCLE COUNT 298
-&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">powercfg /batteryreport</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2020/12/19/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2020-12-19T14:08:14+08:00</published><updated>2020-12-19T14:08:14+08:00</updated><id>http://songzy12.github.io/2020/12/19/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2020/12/19/octopress-3-0.html">&lt;p&gt;This article shows the basic usage of Octopress 3.0.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">powercfg /batteryreport</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2020/12/19/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2020-12-19T14:08:14+08:00</published><updated>2020-12-19T14:08:14+08:00</updated><id>http://songzy12.github.io/2020/12/19/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2020/12/19/octopress-3-0.html">&lt;p&gt;This article shows the basic usage of Octopress 3.0.&lt;/p&gt;
 
 &lt;h2&gt;new post&lt;/h2&gt;
 
@@ -586,21 +586,24 @@ git push origin source
 
 &lt;pre&gt;&lt;code&gt;source &quot;https://gems.ruby-china.com&quot;
 
-gem &#39;octopress&#39;, &#39;~&amp;gt; 3.0.0&#39;
+gem 'octopress', '~&amp;gt; 3.0.0'
+gem &quot;jekyll&quot;, &quot;~&amp;gt; 3.8.4&quot;
 gem &quot;minima&quot;, &quot;~&amp;gt; 2.0&quot;
 
 group :jekyll_plugins do
   gem &quot;jekyll-feed&quot;, &quot;~&amp;gt; 0.6&quot;
 end
 
-gem &#39;rdiscount&#39;, &#39;~&amp;gt; 2.0&#39;
-gem &#39;sinatra&#39;, &#39;~&amp;gt; 1.4.2&#39;
+gem 'rdiscount', '~&amp;gt; 2.0'
+gem 'sinatra', '~&amp;gt; 1.4.2'
 gem &quot;tzinfo-data&quot;, platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem &quot;wdm&quot;, &quot;~&amp;gt; 0.1.0&quot; if Gem.win_platform?
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;pre&gt;&lt;code&gt;bundle install
 bundle clean --force
+
+bundle update --bundler
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2&gt;minima&lt;/h2&gt;
@@ -641,7 +644,7 @@ ls $(bundle show minima)/_includes
 
 &lt;h2&gt;_config.yml&lt;/h2&gt;
 
-&lt;pre&gt;&lt;code&gt;title:  Zhengyang Song&#39;s Blog
+&lt;pre&gt;&lt;code&gt;title:  Zhengyang Song's Blog
 author: Zhengyang Song
 email: songzy.thu@gmail.com
 description: &amp;gt;- # this means to ignore newlines until &quot;baseurl:&quot;
@@ -677,7 +680,7 @@ rdiscount:
 theme: minima
 plugins:
   - jekyll-feed
-&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">This article shows the basic usage of Octopress 3.0.</summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/12/13/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-12-13T16:29:08+08:00</published><updated>2020-12-13T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/12/13/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/12/13/workspace-setup.html">&lt;p&gt;This shows what we need to do when we move to a brand new Linux environment.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows the basic usage of Octopress 3.0.</summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/12/13/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-12-13T16:29:08+08:00</published><updated>2020-12-13T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/12/13/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/12/13/workspace-setup.html">&lt;p&gt;This shows what we need to do when we move to a brand new Linux environment.&lt;/p&gt;
 
 &lt;h2&gt;wget proxy&lt;/h2&gt;
 
@@ -805,7 +808,7 @@ git config --global user.name &quot;Zhengyang Song&quot;
 
 &lt;pre&gt;&lt;code&gt;mkdir -p /etc/docker
 
-sudo tee /etc/docker/daemon.json &amp;lt;&amp;lt;-&#39;EOF&#39;
+sudo tee /etc/docker/daemon.json &amp;lt;&amp;lt;-'EOF'
 {
   &quot;registry-mirrors&quot;: [&quot;http://hub-mirror.c.163.com&quot;]
 }
@@ -846,7 +849,7 @@ npm config set registry https://registry.npm.taobao.org
 
 &lt;pre&gt;&lt;code&gt;yarn config get registry
 yarn config set registry https://registry.npm.taobao.org
-&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">This shows what we need to do when we move to a brand new Linux environment.</summary></entry><entry><title type="html">Dos Batch</title><link href="http://songzy12.github.io/2020/09/12/dos-batch.html" rel="alternate" type="text/html" title="Dos Batch" /><published>2020-09-12T23:09:46+08:00</published><updated>2020-09-12T23:09:46+08:00</updated><id>http://songzy12.github.io/2020/09/12/dos-batch</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/dos-batch.html">&lt;h2&gt;%~dp0&lt;/h2&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This shows what we need to do when we move to a brand new Linux environment.</summary></entry><entry><title type="html">Dos Batch</title><link href="http://songzy12.github.io/2020/09/12/dos-batch.html" rel="alternate" type="text/html" title="Dos Batch" /><published>2020-09-12T23:09:46+08:00</published><updated>2020-09-12T23:09:46+08:00</updated><id>http://songzy12.github.io/2020/09/12/dos-batch</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/dos-batch.html">&lt;h2&gt;%~dp0&lt;/h2&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;%0&lt;/code&gt;: the batch file itself&lt;/li&gt;
@@ -870,7 +873,7 @@ yarn config set registry https://registry.npm.taobao.org
 &lt;p&gt;Sets the number of lines and columns (characters/line) of the display.&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;mode con cols=100 lines=60
-&lt;/code&gt;&lt;/pre&gt;</content><summary type="html">%~dp0</summary></entry><entry><title type="html">external GPU</title><link href="http://songzy12.github.io/2020/08/28/egpu.html" rel="alternate" type="text/html" title="external GPU" /><published>2020-08-28T23:06:37+08:00</published><updated>2020-08-28T23:06:37+08:00</updated><id>http://songzy12.github.io/2020/08/28/egpu</id><content type="html" xml:base="http://songzy12.github.io/2020/08/28/egpu.html">&lt;p&gt;Here we discuss how to use external GPU for ThinkPad T470.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">%~dp0</summary></entry><entry><title type="html">external GPU</title><link href="http://songzy12.github.io/2020/08/28/egpu.html" rel="alternate" type="text/html" title="external GPU" /><published>2020-08-28T23:06:37+08:00</published><updated>2020-08-28T23:06:37+08:00</updated><id>http://songzy12.github.io/2020/08/28/egpu</id><content type="html" xml:base="http://songzy12.github.io/2020/08/28/egpu.html">&lt;p&gt;Here we discuss how to use external GPU for ThinkPad T470.&lt;/p&gt;
 
 &lt;h2&gt;ThinkPad T470&lt;/h2&gt;
 
@@ -955,4 +958,4 @@ yarn config set registry https://registry.npm.taobao.org
 &lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/43063489&quot;&gt;https://zhuanlan.zhihu.com/p/43063489&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://zhuanlan.zhihu.com/p/61411536&quot;&gt;https://zhuanlan.zhihu.com/p/61411536&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href=&quot;https://www.zhihu.com/question/67965694&quot;&gt;https://www.zhihu.com/question/67965694&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><summary type="html">Here we discuss how to use external GPU for ThinkPad T470.</summary></entry></feed>
+&lt;/ul&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Here we discuss how to use external GPU for ThinkPad T470.</summary></entry></feed>
