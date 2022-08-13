@@ -11,10 +11,12 @@ permalink: /about/
 
 ## Work
 
-### __Google Beijing__ (2019 Q3 ~ now)
+### __Google Beijing__ (2019Q3 ~ now)
 
-* Wikipedia Article Classifier (2021 Q2 ~ 2022 Q4)
-* Wikipedia Crawler (2019 Q3 ~ 2021 Q1)
+* i18n (2022Q4 ~ now)
+* DataZ (2019Q3 ~ 2022Q3)
+  * Wikipedia Article Classifier (2021Q2 ~ 2022Q3)
+  * Wikipedia Crawler (2019Q3 ~ 2021Q1)
 
 ## Intern
 
