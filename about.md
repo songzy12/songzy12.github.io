@@ -6,8 +6,8 @@ permalink: /about/
 
 ## Education
 
-* Master (Sept 2016 ~ July 2019): Tsinghua University, IIIS, Computer Science and Technology
-* Bachelor (Spet 2012 ~ July 2016): Tsinghua University, __Yao Class__, Computer Science and Technology
+* Master (2016 ~ 2019): Tsinghua University, IIIS, Computer Science and Technology
+* Bachelor (2012 ~ 2016): Tsinghua University, __Yao Class__, Computer Science and Technology
 
 ## Work
 
