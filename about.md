@@ -26,7 +26,7 @@ permalink: /about/
 * Four types of features are used: article, user, context, and combined features.
 * The AUC is about 0.89 on our dataset, higher than FM model by 0.05.
 
-### Ever (2018 Spring ~ 2019 Spring)
+### Ever (2018 Spring ~ 2018 Winter)
 
 * Backend APIs of the WeChat mini-program "EverParty":
   * Image CAPTCHA, SMS Code, Activity List, Activity Detail
