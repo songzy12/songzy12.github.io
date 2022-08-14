@@ -15,8 +15,8 @@ permalink: /about/
 
 * i18n (2022Q4 ~ now)
 * DataZ (2019Q3 ~ 2022Q3)
-  * Wikipedia Article Classifier (2021Q2 ~ 2022Q3)
-  * Wikipedia Crawler (2019Q3 ~ 2021Q1)
+  * Wikipedia Article Classifier
+  * Wikipedia Crawler
 
 ## Intern
 
@@ -55,7 +55,7 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 
 ## Misc
 
-* CCF CSP: Point 370/500 (Top 2.09%), 2015 Autumn
+* CCF CSP: Score 370/500 (Top 2.09%), 2015 Autumn
   
 ## Social
 
