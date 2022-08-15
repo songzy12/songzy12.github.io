@@ -11,7 +11,7 @@ permalink: /about/
 
 ## Work
 
-### __Google Beijing__ (2019Q3 ~ now)
+### __Google__ Beijing (2019Q3 ~ now)
 
 * i18n (2022Q4 ~ now)
 * DataZ (2019Q3 ~ 2022Q3)
@@ -20,26 +20,26 @@ permalink: /about/
 
 ## Intern
 
-### __Microsoft STCA__ (2018 Summer)
+### __Microsoft__ STCA (2018 Summer)
 
 * We apply the Wide & Deep model to the CTR prediction task using TensorFlow.
 * Four types of features are used: article, user, context, and combined features.
 * The AUC is about 0.89 on our dataset, higher than FM model by 0.05.
 
-### Ever (2018 Spring ~ 2018 Winter)
+### [XuetangX](http://www.xuetangx.com) (2016 Autumn ~ 2019 Spring)
+
+* The web crawler to collect candidate question-answer data from community QA websites.
+* The question classifier to classify the user query into one of the predefined categories. We use SVM model together with n-gram TF-IDF features. The F1 score is 0.77 on our test dataset.
+* The question matcher to match the user query to one of our predefined questions. We run experiments with the MatchZoo toolkit, the precision of the best model is about 0.84.
+
+### [Ever](http://everchain.site/#/) (2018 Spring ~ 2018 Winter)
 
 * Backend APIs of the WeChat mini-program "EverParty":
   * Image CAPTCHA, SMS Code, Activity List, Activity Detail
 * The user recommendation algorithm for the Android App "Ever".
 
-### XuetangX (2016 Autumn ~ 2019 Spring)
-
-* The web spider to collect candidate question-answer data from community QA website.
-* The question classification module to classify the user query into one of the predefined categories. We use SVM model together with n-gram TF-IDF features. The F1 score is 0.77 on our test dataset.
-* The question matching module to match the user query to one of our predefined questions. We run experiments with the MatchZoo toolkit, the precision of the best model is about 0.84.
-* The system is running online on <http://www.xuetangx.com>.
-
 ## Research
+
 Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 
 * __Song, Z.__, Tang, J., Liu, T. X., Zheng, W., Wu, L., Feng, W., & Zhang, J. (2021). XiaoMu: an AI-driven assistant for MOOCs. Science China Information Sciences, 64(6), 1-3.
@@ -48,14 +48,11 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 * __Song, Z.__, Jia, Y., & Xu, W. (2018, July). Exploring business models and dynamic pricing frameworks for SPOC services. In Asia-Pacific Web (APWeb) and Web-Age Information Management (WAIM) Joint International Conference on Web and Big Data (pp. 306-317). Springer, Cham.
 * Jia, Y., __Song, Z.__, Bai, X., & Xu, W. (2017, March). Towards economic models for MOOC pricing strategy design. In International Conference on Database Systems for Advanced Applications (pp. 387-398). Springer, Cham.
 
-## Scholarship
-
-* Tsinghua Xuetang Scholarship, 2012~2016
-* National Encouragement Scholarship, 2012~2013
-
 ## Misc
 
 * CCF CSP: Score 370/500 (Top 2.09%), 2015 Autumn
+* Tsinghua Xuetang Scholarship, 2012~2016
+* National Encouragement Scholarship, 2012~2013
   
 ## Social
 
