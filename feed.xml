@@ -1,273 +1,273 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://songzy12.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-08-14T12:53:10+08:00</updated><id>http://songzy12.github.io/</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL2</title><link href="http://songzy12.github.io/2022/08/13/wsl2.html" rel="alternate" type="text/html" title="WSL2" /><published>2022-08-13T16:11:48+08:00</published><updated>2022-08-13T16:11:48+08:00</updated><id>http://songzy12.github.io/2022/08/13/wsl2</id><content type="html" xml:base="http://songzy12.github.io/2022/08/13/wsl2.html">&lt;p&gt;Compact WSL2 vdisk to free up disk space.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-08-15T07:21:57+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL2</title><link href="http://songzy12.github.io/2022/08/13/wsl2.html" rel="alternate" type="text/html" title="WSL2" /><published>2022-08-13T08:11:48+00:00</published><updated>2022-08-13T08:11:48+00:00</updated><id>http://songzy12.github.io/2022/08/13/wsl2</id><content type="html" xml:base="http://songzy12.github.io/2022/08/13/wsl2.html"><![CDATA[<p>Compact WSL2 vdisk to free up disk space.</p>
 
-&lt;pre&gt;&lt;code&gt;wsl --shutdown
+<pre><code>wsl --shutdown
 diskpart
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;DISKPART&amp;gt; select vdisk file=&quot;C:\Users\songzy\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc\LocalState\ext4.vhdx&quot;
+<pre><code>DISKPART&gt; select vdisk file="C:\Users\songzy\AppData\Local\Packages\CanonicalGroupLimited.Ubuntu20.04onWindows_79rhkp1fndgsc\LocalState\ext4.vhdx"
 
-# DISKPART&amp;gt; detach vdisk
-# DISKPART&amp;gt; attach vdisk readonly
+# DISKPART&gt; detach vdisk
+# DISKPART&gt; attach vdisk readonly
 
-DISKPART&amp;gt; compact vdisk
+DISKPART&gt; compact vdisk
 
-DISKPART&amp;gt;  detach vdisk
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Compact WSL2 vdisk to free up disk space.</summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/03/01/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-03-01T20:12:09+08:00</published><updated>2022-03-01T20:12:09+08:00</updated><id>http://songzy12.github.io/2022/03/01/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/03/01/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
+DISKPART&gt;  detach vdisk
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Compact WSL2 vdisk to free up disk space.]]></summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/03/01/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-03-01T12:12:09+00:00</published><updated>2022-03-01T12:12:09+00:00</updated><id>http://songzy12.github.io/2022/03/01/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/03/01/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
 
-&lt;h2&gt;github&lt;/h2&gt;
+<h2>github</h2>
 
-&lt;ul&gt;
-&lt;li&gt;core: &lt;a href=&quot;https://github.com/v2ray/v2ray-core/releases&quot;&gt;https://github.com/v2ray/v2ray-core/releases&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;v2fly: &lt;a href=&quot;https://github.com/v2fly/fhs-install-v2ray&quot;&gt;https://github.com/v2fly/fhs-install-v2ray&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;v2rayN: &lt;a href=&quot;https://github.com/2dust/v2rayN/releases&quot;&gt;https://github.com/2dust/v2rayN/releases&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>core: <a href="https://github.com/v2ray/v2ray-core/releases">https://github.com/v2ray/v2ray-core/releases</a></li>
+<li>v2fly: <a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></li>
+<li>v2rayN: <a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></li>
+</ul>
 
 
-&lt;h2&gt;v2fly&lt;/h2&gt;
+<h2>v2fly</h2>
 
-&lt;pre&gt;&lt;code&gt;// 安裝執行檔和 .dat 資料檔
-bash &amp;lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+<pre><code>// 安裝執行檔和 .dat 資料檔
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
 
 // 只更新 .dat 資料檔
-bash &amp;lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
-&lt;/code&gt;&lt;/pre&gt;
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+</code></pre>
 
-&lt;h2&gt;ufw&lt;/h2&gt;
+<h2>ufw</h2>
 
-&lt;pre&gt;&lt;code&gt;sudo ufw allow http
+<pre><code>sudo ufw allow http
 sudo ufw allow 80
 sudo ufw allow https
 sudo ufw allow 443
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;start&lt;/h2&gt;
+<h2>start</h2>
 
-&lt;pre&gt;&lt;code&gt;sudo service v2ray status
+<pre><code>sudo service v2ray status
 sudo service v2ray start
 sudo service v2ray stop
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3&gt;vmess aead&lt;/h3&gt;
+<h3>vmess aead</h3>
 
-&lt;pre&gt;&lt;code&gt;env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray -config /usr/local/etc/v2ray/config.json
+</code></pre>
 
-&lt;h2&gt;config&lt;/h2&gt;
+<h2>config</h2>
 
-&lt;pre&gt;&lt;code&gt;sudo vi /usr/local/etc/v2ray/config.json
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>sudo vi /usr/local/etc/v2ray/config.json
+</code></pre>
 
-&lt;h3&gt;client&lt;/h3&gt;
+<h3>client</h3>
 
-&lt;pre&gt;&lt;code&gt;{
-  &quot;inbound&quot;: {
-    &quot;port&quot;: 1080,
-    &quot;listen&quot;: &quot;127.0.0.1&quot;,
-    &quot;protocol&quot;: &quot;socks&quot;,
-    &quot;settings&quot;: {
-      &quot;auth&quot;: &quot;noauth&quot;,
-      &quot;udp&quot;: true,
-      &quot;ip&quot;: &quot;127.0.0.1&quot;,
-      &quot;clients&quot;: null
+<pre><code>{
+  "inbound": {
+    "port": 1080,
+    "listen": "127.0.0.1",
+    "protocol": "socks",
+    "settings": {
+      "auth": "noauth",
+      "udp": true,
+      "ip": "127.0.0.1",
+      "clients": null
     },
-    &quot;streamSettings&quot;: null
+    "streamSettings": null
   },
-  &quot;outbound&quot;: {
-    &quot;tag&quot;: &quot;agentout&quot;,
-    &quot;protocol&quot;: &quot;vmess&quot;,
-    &quot;settings&quot;: {
-      &quot;vnext&quot;: [
+  "outbound": {
+    "tag": "agentout",
+    "protocol": "vmess",
+    "settings": {
+      "vnext": [
         {
-          &quot;address&quot;: &quot;songzy.cc&quot;,
-          &quot;port&quot;: 443,
-          &quot;users&quot;: [
+          "address": "songzy.cc",
+          "port": 443,
+          "users": [
             {
-              &quot;id&quot;: &quot;899cbb8a-fad2-45bd-8608-8483956d641c&quot;,
-              &quot;alterId&quot;: 0,
-              &quot;email&quot;: &quot;t@t.tt&quot;,
-              &quot;security&quot;: &quot;aes-128-gcm&quot;
+              "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
+              "alterId": 0,
+              "email": "t@t.tt",
+              "security": "aes-128-gcm"
             }
           ]
         }
       ],
-      &quot;servers&quot;: null
+      "servers": null
     },
-    &quot;streamSettings&quot;: {
-      &quot;network&quot;: &quot;ws&quot;,
-      &quot;security&quot;: &quot;tls&quot;,
-      &quot;tlsSettings&quot;: {
-        &quot;allowInsecure&quot;: true,
-        &quot;serverName&quot;: null
+    "streamSettings": {
+      "network": "ws",
+      "security": "tls",
+      "tlsSettings": {
+        "allowInsecure": true,
+        "serverName": null
       },
-      &quot;tcpSettings&quot;: null,
-      &quot;kcpSettings&quot;: null,
-      &quot;wsSettings&quot;: {
-        &quot;connectionReuse&quot;: true,
-        &quot;path&quot;: &quot;/&quot;,
-        &quot;headers&quot;: null
+      "tcpSettings": null,
+      "kcpSettings": null,
+      "wsSettings": {
+        "connectionReuse": true,
+        "path": "/",
+        "headers": null
       },
-      &quot;httpSettings&quot;: null
+      "httpSettings": null
     },
-    &quot;mux&quot;: {
-      &quot;enabled&quot;: true
+    "mux": {
+      "enabled": true
     }
   },
-  &quot;inboundDetour&quot;: null,
-  &quot;outboundDetour&quot;: [
+  "inboundDetour": null,
+  "outboundDetour": [
     {
-      &quot;protocol&quot;: &quot;freedom&quot;,
-      &quot;settings&quot;: {
-        &quot;response&quot;: null
+      "protocol": "freedom",
+      "settings": {
+        "response": null
       },
-      &quot;tag&quot;: &quot;direct&quot;
+      "tag": "direct"
     },
     {
-      &quot;protocol&quot;: &quot;blackhole&quot;,
-      &quot;settings&quot;: {
-        &quot;response&quot;: {
-          &quot;type&quot;: &quot;http&quot;
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
         }
       },
-      &quot;tag&quot;: &quot;blockout&quot;
+      "tag": "blockout"
     }
   ],
-  &quot;dns&quot;: {
-    &quot;servers&quot;: [
-      &quot;8.8.8.8&quot;,
-      &quot;8.8.4.4&quot;,
-      &quot;localhost&quot;
+  "dns": {
+    "servers": [
+      "8.8.8.8",
+      "8.8.4.4",
+      "localhost"
     ]
   }
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3&gt;server&lt;/h3&gt;
+<h3>server</h3>
 
-&lt;pre&gt;&lt;code&gt;{
-  &quot;inbounds&quot;: [
+<pre><code>{
+  "inbounds": [
     {
-      &quot;port&quot;: 443,
-      &quot;protocol&quot;: &quot;vmess&quot;,
-      &quot;settings&quot;: {
-        &quot;clients&quot;: [
+      "port": 443,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
           {
-            &quot;id&quot;: &quot;899cbb8a-fad2-45bd-8608-8483956d641c&quot;,
-            &quot;level&quot;: 1,
-            &quot;alterId&quot;: 0
+            "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
+            "level": 1,
+            "alterId": 0
           }
         ]
       },
-      &quot;streamSettings&quot;: {
-        &quot;network&quot;: &quot;ws&quot;,
-        &quot;security&quot;: &quot;tls&quot;,
-        &quot;tlsSettings&quot;: {
-          &quot;certificates&quot;: [
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "certificates": [
             {
-              &quot;certificateFile&quot;: &quot;/usr/local/etc/v2ray/songzy.cc.cer&quot;,
-              &quot;keyFile&quot;: &quot;/usr/local/etc/v2ray/songzy.cc.key&quot;
+              "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
+              "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
             }
           ]
         }
       }
     }
   ],
-  &quot;outbounds&quot;: [
+  "outbounds": [
     {
-      &quot;protocol&quot;: &quot;freedom&quot;,
-      &quot;settings&quot;: {}
+      "protocol": "freedom",
+      "settings": {}
     },
     {
-      &quot;protocol&quot;: &quot;blackhole&quot;,
-      &quot;settings&quot;: {},
-      &quot;tag&quot;: &quot;blocked&quot;
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
     }
   ]
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;Note: remember to set the value &lt;code&gt;inbounds.settings.clients.id&lt;/code&gt; correctly.&lt;/p&gt;
+<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
 
-&lt;h2&gt;log&lt;/h2&gt;
+<h2>log</h2>
 
-&lt;pre&gt;&lt;code&gt;  &quot;log&quot;: {
-    &quot;loglevel&quot;: &quot;warning&quot;,
-    &quot;access&quot;: &quot;/var/log/v2ray/access.log&quot;,
-    &quot;error&quot;: &quot;/var/log/v2ray/error.log&quot;
+<pre><code>  "log": {
+    "loglevel": "warning",
+    "access": "/var/log/v2ray/access.log",
+    "error": "/var/log/v2ray/error.log"
   }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;routing rules&lt;/h2&gt;
+<h2>routing rules</h2>
 
-&lt;pre&gt;&lt;code&gt;  &quot;routing&quot;: {
-    &quot;domainStrategy&quot;: &quot;IPOnDemand&quot;,
-    &quot;rules&quot;: [
+<pre><code>  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
       {
-        &quot;type&quot;: &quot;field&quot;,
-        &quot;inboundTag&quot;: [
-          &quot;api&quot;
+        "type": "field",
+        "inboundTag": [
+          "api"
         ],
-        &quot;outboundTag&quot;: &quot;api&quot;
+        "outboundTag": "api"
       },
       {
-        &quot;type&quot;: &quot;field&quot;,
-        &quot;outboundTag&quot;: &quot;proxy&quot;,
-        &quot;domain&quot;: [
-          &quot;udp&quot;,
-          &quot;tcp&quot;
+        "type": "field",
+        "outboundTag": "proxy",
+        "domain": [
+          "udp",
+          "tcp"
         ]
       },
       {
-        &quot;type&quot;: &quot;field&quot;,
-        &quot;outboundTag&quot;: &quot;direct&quot;,
-        &quot;domain&quot;: [
-          &quot;geosite:cn&quot;
+        "type": "field",
+        "outboundTag": "direct",
+        "domain": [
+          "geosite:cn"
         ]
       },
       {
-        &quot;type&quot;: &quot;field&quot;,
-        &quot;outboundTag&quot;: &quot;block&quot;,
-        &quot;domain&quot;: [
-          &quot;geosite:category-ads-all&quot;
+        "type": "field",
+        "outboundTag": "block",
+        "domain": [
+          "geosite:category-ads-all"
         ]
       }
     ]
   }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;tls (acme.sh)&lt;/h2&gt;
+<h2>tls (acme.sh)</h2>
 
-&lt;h3&gt;install&lt;/h3&gt;
+<h3>install</h3>
 
-&lt;pre&gt;&lt;code&gt;$ apt install socat
+<pre><code>$ apt install socat
 $ curl https://get.acme.sh | sh
 $ source ~/.bashrc 
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3&gt;register&lt;/h3&gt;
+<h3>register</h3>
 
-&lt;pre&gt;&lt;code&gt;acme.sh --register-account -m songzy_thu@163.com
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>acme.sh --register-account -m songzy_thu@163.com
+</code></pre>
 
-&lt;h3&gt;issue &amp;amp; installcert&lt;/h3&gt;
+<h3>issue &amp; installcert</h3>
 
-&lt;pre&gt;&lt;code&gt;$ acme.sh --issue -d songzy.cc --standalone -k ec-256 --debug
+<pre><code>$ acme.sh --issue -d songzy.cc --standalone -k ec-256 --debug
 
 [Tue Nov 30 01:44:27 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
 [Tue Nov 30 01:44:27 PM UTC 2021] Your cert key is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.key
 [Tue Nov 30 01:44:27 PM UTC 2021] The intermediate CA cert is in  /root/.acme.sh/songzy.cc_ecc/ca.cer
 [Tue Nov 30 01:44:27 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
 [Tue Nov 30 01:44:27 PM UTC 2021] _on_issue_success
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;$ acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v2ray/songzy.cc.cer --keypath /usr/local/etc/v2ray/songzy.cc.key --ecc
+<pre><code>$ acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v2ray/songzy.cc.cer --keypath /usr/local/etc/v2ray/songzy.cc.key --ecc
 
 [Tue Nov 30 01:47:43 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
 [Tue Nov 30 01:47:43 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3&gt;renew&lt;/h3&gt;
+<h3>renew</h3>
 
-&lt;pre&gt;&lt;code&gt;$ acme.sh --renew -d songzy.cc --force --ecc --debug
+<pre><code>$ acme.sh --renew -d songzy.cc --force --ecc --debug
 
 
 [Tue Nov 30 01:46:38 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
@@ -276,84 +276,84 @@ $ source ~/.bashrc
 [Tue Nov 30 01:46:38 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
 [Tue Nov 30 01:46:38 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
 [Tue Nov 30 01:46:38 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;http_proxy&lt;/h2&gt;
+<h2>http_proxy</h2>
 
-&lt;pre&gt;&lt;code&gt;windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
+<pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 export http_proxy=http://$windows_host:10809
 export https_proxy=http://$windows_host:10809
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to install and enabel V2Ray proxy.</summary></entry><entry><title type="html">SSH</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="SSH" /><published>2022-01-13T20:46:54+08:00</published><updated>2022-01-13T20:46:54+08:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html">&lt;p&gt;How to config SSH of tencent cloud.&lt;/p&gt;
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This article shows how to install and enabel V2Ray proxy.]]></summary></entry><entry><title type="html">SSH</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="SSH" /><published>2022-01-13T12:46:54+00:00</published><updated>2022-01-13T12:46:54+00:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html"><![CDATA[<p>How to config SSH of tencent cloud.</p>
 
-&lt;h2&gt;Config Files for Client &amp;amp; Server&lt;/h2&gt;
+<h2>Config Files for Client &amp; Server</h2>
 
-&lt;p&gt;For OpenSSH, the SSH client user configuration file is named &lt;strong&gt;config&lt;/strong&gt;, and the SSH client system-wide configuration file is named &lt;strong&gt;ssh_config&lt;/strong&gt;. The files reside at the following locations:&lt;/p&gt;
+<p>For OpenSSH, the SSH client user configuration file is named <strong>config</strong>, and the SSH client system-wide configuration file is named <strong>ssh_config</strong>. The files reside at the following locations:</p>
 
-&lt;ul&gt;
-&lt;li&gt;User configuration file location: &lt;code&gt;$HOME/.ssh/config&lt;/code&gt;&lt;/li&gt;
-&lt;li&gt;System-wide configuration file default location: &lt;code&gt;/etc/ssh/ssh_config&lt;/code&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>User configuration file location: <code>$HOME/.ssh/config</code></li>
+<li>System-wide configuration file default location: <code>/etc/ssh/ssh_config</code></li>
+</ul>
 
 
-&lt;p&gt;An SSH client obtains its configurations from &lt;strong&gt;the ssh command-line options&lt;/strong&gt;, &lt;strong&gt;the user configuration file&lt;/strong&gt;, and &lt;strong&gt;the system-wide configuration file&lt;/strong&gt;, in that order. For each parameter, the SSH client uses the first obtained value for that parameter.&lt;/p&gt;
+<p>An SSH client obtains its configurations from <strong>the ssh command-line options</strong>, <strong>the user configuration file</strong>, and <strong>the system-wide configuration file</strong>, in that order. For each parameter, the SSH client uses the first obtained value for that parameter.</p>
 
-&lt;p&gt;The SSH server has its own set of configuration files, including the SSH server system-wide configuration file named &lt;strong&gt;sshd_config&lt;/strong&gt;. By default, these files reside in the &lt;code&gt;/etc/ssh&lt;/code&gt; directory on the remote host.&lt;/p&gt;
+<p>The SSH server has its own set of configuration files, including the SSH server system-wide configuration file named <strong>sshd_config</strong>. By default, these files reside in the <code>/etc/ssh</code> directory on the remote host.</p>
 
-&lt;h2&gt;GSSAPIAuthentication&lt;/h2&gt;
+<h2>GSSAPIAuthentication</h2>
 
-&lt;pre&gt;&lt;code&gt;sudo vi /etc/ssh/ssh_config
+<pre><code>sudo vi /etc/ssh/ssh_config
 
 GSSAPIAuthentication no
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;IO util&lt;/h2&gt;
+<h2>IO util</h2>
 
-&lt;blockquote&gt;&lt;p&gt;该实例云硬盘「disk-12z41atd」的io_util已达100%，请关注磁盘业务情况。可参考文档：点击查看&lt;/p&gt;&lt;/blockquote&gt;
+<blockquote><p>该实例云硬盘「disk-12z41atd」的io_util已达100%，请关注磁盘业务情况。可参考文档：点击查看</p></blockquote>
 
-&lt;p&gt;&lt;a href=&quot;https://cloud.tencent.com/document/product/213/57337#.E7.A1.AC.E7.9B.98-.25util-.E9.AB.98&quot;&gt;https://cloud.tencent.com/document/product/213/57337#.E7.A1.AC.E7.9B.98-.25util-.E9.AB.98&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://cloud.tencent.com/document/product/213/57337#.E7.A1.AC.E7.9B.98-.25util-.E9.AB.98">https://cloud.tencent.com/document/product/213/57337#.E7.A1.AC.E7.9B.98-.25util-.E9.AB.98</a></p>
 
-&lt;blockquote&gt;&lt;p&gt;硬盘 %util 高&lt;/p&gt;
+<blockquote><p>硬盘 %util 高</p>
 
-&lt;p&gt;故障现象：实例卡顿，使用 SSH 或 VNC 登录慢或无响应。&lt;/p&gt;
+<p>故障现象：实例卡顿，使用 SSH 或 VNC 登录慢或无响应。</p>
 
-&lt;p&gt;可能原因：IO 高导致硬盘 %util 达到100%。&lt;/p&gt;
+<p>可能原因：IO 高导致硬盘 %util 达到100%。</p>
 
-&lt;p&gt;处理步骤：查看 IO 高是否合理，且需评估是否减少 IO 读写或者置换更高性能的硬盘。&lt;/p&gt;&lt;/blockquote&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">How to config SSH of tencent cloud.</summary></entry><entry><title type="html">Paddle GPU</title><link href="http://songzy12.github.io/2021/10/21/paddle-gpu.html" rel="alternate" type="text/html" title="Paddle GPU" /><published>2021-10-21T15:43:08+08:00</published><updated>2021-10-21T15:43:08+08:00</updated><id>http://songzy12.github.io/2021/10/21/paddle-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/10/21/paddle-gpu.html">&lt;p&gt;Enable GPU for PaddlePaddle.&lt;/p&gt;
+<p>处理步骤：查看 IO 高是否合理，且需评估是否减少 IO 读写或者置换更高性能的硬盘。</p></blockquote>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to config SSH of tencent cloud.]]></summary></entry><entry><title type="html">Paddle GPU</title><link href="http://songzy12.github.io/2021/10/21/paddle-gpu.html" rel="alternate" type="text/html" title="Paddle GPU" /><published>2021-10-21T07:43:08+00:00</published><updated>2021-10-21T07:43:08+00:00</updated><id>http://songzy12.github.io/2021/10/21/paddle-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/10/21/paddle-gpu.html"><![CDATA[<p>Enable GPU for PaddlePaddle.</p>
 
-&lt;pre&gt;&lt;code&gt;W1024 17:30:14.785153  6727 device_context.cc:404] Please NOTE: device: 0, GPU Compute Capability: 8.6, Driver API Version: 11.4, Runtime API Version: 10.2
+<pre><code>W1024 17:30:14.785153  6727 device_context.cc:404] Please NOTE: device: 0, GPU Compute Capability: 8.6, Driver API Version: 11.4, Runtime API Version: 10.2
 W1024 17:30:14.788581  6727 device_context.cc:422] device: 0, cuDNN Version: 8.1.
 Traceback (most recent call last):
-  File &quot;train.py&quot;, line 63, in &amp;lt;module&amp;gt;
+  File "train.py", line 63, in &lt;module&gt;
     model = FastText(vocab_size, num_classes, args.emb_dim)
-  File &quot;/home/songzy/fastText-paddle/model.py&quot;, line 21, in __init__
+  File "/home/songzy/fastText-paddle/model.py", line 21, in __init__
     self.embedder = nn.Embedding(vocab_size, emb_dim)
-  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/nn/layer/common.py&quot;, line 1343, in __init__
+  File "/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/nn/layer/common.py", line 1343, in __init__
     self.weight = self.create_parameter(
-  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/dygraph/layers.py&quot;, line 411, in create_parameter
+  File "/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/dygraph/layers.py", line 411, in create_parameter
     return self._helper.create_parameter(temp_attr, shape, dtype, is_bias,
-  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/layer_helper_base.py&quot;, line 369, in create_parameter
+  File "/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/layer_helper_base.py", line 369, in create_parameter
     return self.main_program.global_block().create_parameter(
-  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/framework.py&quot;, line 2920, in create_parameter
+  File "/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/framework.py", line 2920, in create_parameter
     initializer(param, self)
-  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/initializer.py&quot;, line 561, in __call__
+  File "/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/initializer.py", line 561, in __call__
     op = block.append_op(
-  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/framework.py&quot;, line 2946, in append_op
+  File "/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/framework.py", line 2946, in append_op
     _dygraph_tracer().trace_op(type,
-  File &quot;/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/dygraph/tracer.py&quot;, line 43, in trace_op
+  File "/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/dygraph/tracer.py", line 43, in trace_op
     self.trace(type, inputs, outputs, attrs,
 SystemError: (Fatal) Operator uniform_random raises an thrust::system::system_error exception.
 The exception content is
 :parallel_for failed: cudaErrorNoKernelImageForDevice: no kernel image is available for execution on the device. (at /paddle/paddle/fluid/imperative/tracer.cc:192)
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;$ python
-&amp;gt;&amp;gt;&amp;gt; import paddle
-&amp;gt;&amp;gt;&amp;gt; paddle.utils.run_check() 
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>$ python
+&gt;&gt;&gt; import paddle
+&gt;&gt;&gt; paddle.utils.run_check() 
+</code></pre>
 
-&lt;blockquote&gt;&lt;p&gt;这种情况一般出现在编译和运行在不同架构的显卡上，且cmake时未指定运行时需要的CUDA架构。可以在cmake时加上 -DCUDA_ARCH_NAME=All（或者特定的架构如Turing、Volta、Pascal等），否则会使用默认值Auto，此时只会当前的CUDA架构编译。&lt;/p&gt;&lt;/blockquote&gt;
+<blockquote><p>这种情况一般出现在编译和运行在不同架构的显卡上，且cmake时未指定运行时需要的CUDA架构。可以在cmake时加上 -DCUDA_ARCH_NAME=All（或者特定的架构如Turing、Volta、Pascal等），否则会使用默认值Auto，此时只会当前的CUDA架构编译。</p></blockquote>
 
-&lt;pre&gt;&lt;code&gt;$ nvidia-smi
+<pre><code>$ nvidia-smi
 
 Sun Oct 24 20:28:01 2021       
 +-----------------------------------------------------------------------------+
@@ -375,180 +375,180 @@ Sun Oct 24 20:28:01 2021
 |=============================================================================|
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;&lt;a href=&quot;https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html&quot;&gt;https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html">https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html</a></p>
 
-&lt;pre&gt;&lt;code&gt;pip install paddlepaddle-gpu==2.1.3.post110 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable GPU for PaddlePaddle.</summary></entry><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-07-11T12:23:11+08:00</published><updated>2021-07-11T12:23:11+08:00</updated><id>http://songzy12.github.io/2021/07/11/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html">&lt;p&gt;Enable TF 1.15 with RTX 3090.&lt;/p&gt;
+<pre><code>pip install paddlepaddle-gpu==2.1.3.post110 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU for PaddlePaddle.]]></summary></entry><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-07-11T04:23:11+00:00</published><updated>2021-07-11T04:23:11+00:00</updated><id>http://songzy12.github.io/2021/07/11/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html"><![CDATA[<p>Enable TF 1.15 with RTX 3090.</p>
 
-&lt;h2&gt;CUDA&lt;/h2&gt;
+<h2>CUDA</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&quot;&gt;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html">https://docs.nvidia.com/cuda/wsl-user-guide/index.html</a></p>
 
-&lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations&quot;&gt;https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations">https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations</a></p>
 
-&lt;h3&gt;Driver&lt;/h3&gt;
+<h3>Driver</h3>
 
-&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda/wsl&quot;&gt;https://developer.nvidia.com/cuda/wsl&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://developer.nvidia.com/cuda/wsl">https://developer.nvidia.com/cuda/wsl</a></p>
 
-&lt;p&gt;&lt;strong&gt;Then restart your computer&lt;/strong&gt;.&lt;/p&gt;
+<p><strong>Then restart your computer</strong>.</p>
 
-&lt;h3&gt;Verify&lt;/h3&gt;
+<h3>Verify</h3>
 
-&lt;pre&gt;&lt;code&gt;cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
+<pre><code>cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
 ./BlackScholes
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3&gt;Toolkit&lt;/h3&gt;
+<h3>Toolkit</h3>
 
-&lt;pre&gt;&lt;code&gt;cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
+<pre><code>cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
 sudo ln -s libcusolver.so.10 libcusolver.so.11
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib
+</code></pre>
 
-&lt;h2&gt;TensorFlow 1.15.4&lt;/h2&gt;
+<h2>TensorFlow 1.15.4</h2>
 
-&lt;h3&gt;Nvidia TensorFlow&lt;/h3&gt;
+<h3>Nvidia TensorFlow</h3>
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/NVIDIA/tensorflow#install&quot;&gt;https://github.com/NVIDIA/tensorflow#install&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://github.com/NVIDIA/tensorflow#install">https://github.com/NVIDIA/tensorflow#install</a></p>
 
-&lt;pre&gt;&lt;code&gt;python3 -m pip install nvidia-pyindex
+<pre><code>python3 -m pip install nvidia-pyindex
 python3 -m pip install nvidia-tensorflow
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3&gt;Verify&lt;/h3&gt;
+<h3>Verify</h3>
 
-&lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available&quot;&gt;https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available">https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available</a></p>
 
-&lt;pre&gt;&lt;code&gt;import tensorflow as tf
+<pre><code>import tensorflow as tf
 
 tf.config.list_physical_devices('GPU')
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;Reference&lt;/h2&gt;
+<h2>Reference</h2>
 
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://developer.nvidia.com/blog/accelerating-tensorflow-on-a100-gpus/&quot;&gt;https://developer.nvidia.com/blog/accelerating-tensorflow-on-a100-gpus/&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;Appendix&lt;/h2&gt;
-
-&lt;h3&gt;Tensorflow Tested Build from Source&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/install/source#gpu&quot;&gt;https://www.tensorflow.org/install/source#gpu&lt;/a&gt;&lt;/p&gt;
-
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt; Version               &lt;/th&gt;
-&lt;th&gt; Python version &lt;/th&gt;
-&lt;th&gt; Compiler  &lt;/th&gt;
-&lt;th&gt; Build tools  &lt;/th&gt;
-&lt;th&gt; cuDNN &lt;/th&gt;
-&lt;th&gt; CUDA &lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt; tensorflow-2.4.0      &lt;/td&gt;
-&lt;td&gt; 3.6-3.8        &lt;/td&gt;
-&lt;td&gt; GCC 7.3.1 &lt;/td&gt;
-&lt;td&gt; Bazel 3.1.0  &lt;/td&gt;
-&lt;td&gt; 8.0   &lt;/td&gt;
-&lt;td&gt; 11.0 &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt; tensorflow_gpu-1.15.0 &lt;/td&gt;
-&lt;td&gt; 2.7、3.3-3.7   &lt;/td&gt;
-&lt;td&gt; GCC 7.3.1 &lt;/td&gt;
-&lt;td&gt; Bazel 0.26.1 &lt;/td&gt;
-&lt;td&gt; 7.4   &lt;/td&gt;
-&lt;td&gt; 10.0 &lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
+<ul>
+<li><a href="https://developer.nvidia.com/blog/accelerating-tensorflow-on-a100-gpus/">https://developer.nvidia.com/blog/accelerating-tensorflow-on-a100-gpus/</a></li>
+</ul>
 
 
-&lt;h3&gt;Remove Python 3.7&lt;/h3&gt;
+<h2>Appendix</h2>
 
-&lt;pre&gt;&lt;code&gt;sudo apt list --installed | grep python3.7
+<h3>Tensorflow Tested Build from Source</h3>
+
+<p><a href="https://www.tensorflow.org/install/source#gpu">https://www.tensorflow.org/install/source#gpu</a></p>
+
+<table>
+<thead>
+<tr>
+<th> Version               </th>
+<th> Python version </th>
+<th> Compiler  </th>
+<th> Build tools  </th>
+<th> cuDNN </th>
+<th> CUDA </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td> tensorflow-2.4.0      </td>
+<td> 3.6-3.8        </td>
+<td> GCC 7.3.1 </td>
+<td> Bazel 3.1.0  </td>
+<td> 8.0   </td>
+<td> 11.0 </td>
+</tr>
+<tr>
+<td> tensorflow_gpu-1.15.0 </td>
+<td> 2.7、3.3-3.7   </td>
+<td> GCC 7.3.1 </td>
+<td> Bazel 0.26.1 </td>
+<td> 7.4   </td>
+<td> 10.0 </td>
+</tr>
+</tbody>
+</table>
+
+
+<h3>Remove Python 3.7</h3>
+
+<pre><code>sudo apt list --installed | grep python3.7
 sudo apt remove python3.7
 sudo apt autoremove
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable TF 1.15 with RTX 3090.</summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T14:08:18+08:00</published><updated>2021-05-01T14:08:18+08:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable TF 1.15 with RTX 3090.]]></summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T06:08:18+00:00</published><updated>2021-05-01T06:08:18+00:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html"><![CDATA[<p><a href="https://github.com/microsoft/WSL/issues/1517">https://github.com/microsoft/WSL/issues/1517</a></p>
 
-&lt;h2&gt;Zsh Theme&lt;/h2&gt;
+<h2>Zsh Theme</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/ohmyzsh/ohmyzsh/wiki/Themes&quot;&gt;https://github.com/ohmyzsh/ohmyzsh/wiki/Themes&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
 
-&lt;p&gt;To set zsh theme:&lt;/p&gt;
+<p>To set zsh theme:</p>
 
-&lt;pre&gt;&lt;code&gt;export ZSH_THEME=robbyrussell
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>export ZSH_THEME=robbyrussell
+</code></pre>
 
-&lt;p&gt;To view all the avaliable zsh themes:&lt;/p&gt;
+<p>To view all the avaliable zsh themes:</p>
 
-&lt;pre&gt;&lt;code&gt;ls ~/.oh-my-zsh/themes/
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>ls ~/.oh-my-zsh/themes/
+</code></pre>
 
-&lt;p&gt;To view the config of a specific zsh theme:&lt;/p&gt;
+<p>To view the config of a specific zsh theme:</p>
 
-&lt;pre&gt;&lt;code&gt;vi ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>vi ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
+</code></pre>
 
-&lt;h2&gt;Powerline Fonts&lt;/h2&gt;
+<h2>Powerline Fonts</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/powerline/fonts&quot;&gt;https://github.com/powerline/fonts&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></p>
 
-&lt;pre&gt;&lt;code&gt;/c/Users/songzy/.local/share/fonts/ -&amp;gt; C:\Windows\Fonts
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>/c/Users/songzy/.local/share/fonts/ -&gt; C:\Windows\Fonts
+</code></pre>
 
-&lt;p&gt;&lt;code&gt;DejaVu Sans Mono for Powerline&lt;/code&gt;.&lt;/p&gt;
+<p><code>DejaVu Sans Mono for Powerline</code>.</p>
 
-&lt;h2&gt;Monospace Fonts to Registry&lt;/h2&gt;
+<h2>Monospace Fonts to Registry</h2>
 
-&lt;p&gt;This will influence what fonts are avaliable in cmd properties menu.&lt;/p&gt;
+<p>This will influence what fonts are avaliable in cmd properties menu.</p>
 
-&lt;p&gt;&lt;a href=&quot;https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/&quot;&gt;https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/">https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/</a></p>
 
-&lt;pre&gt;&lt;code&gt;HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont
+</code></pre>
 
-&lt;h2&gt;CodePage&lt;/h2&gt;
+<h2>CodePage</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://ss64.com/nt/chcp.html&quot;&gt;https://ss64.com/nt/chcp.html&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://ss64.com/nt/chcp.html">https://ss64.com/nt/chcp.html</a></p>
 
-&lt;p&gt;This will influence the behaviors of tmux, vim, cmd, powershell, etc.&lt;/p&gt;
+<p>This will influence the behaviors of tmux, vim, cmd, powershell, etc.</p>
 
-&lt;h3&gt;437&lt;/h3&gt;
+<h3>437</h3>
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/3988&quot;&gt;https://github.com/microsoft/WSL/issues/3988&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://github.com/microsoft/WSL/issues/3988">https://github.com/microsoft/WSL/issues/3988</a></p>
 
-&lt;ol&gt;
-&lt;li&gt;Open &lt;code&gt;regedit&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;Find this. &lt;code&gt;HKEY_CURRENT_USER\Console\C:_Program Files_WindowsApps_CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2020.812.0_x64__79rhkp1fndgsc_ubuntu2004.exe&lt;/code&gt;.&lt;/li&gt;
-&lt;li&gt;then, add CodePage (Type: DWORD, Value: 0x01b5).&lt;/li&gt;
-&lt;/ol&gt;
+<ol>
+<li>Open <code>regedit</code>.</li>
+<li>Find this. <code>HKEY_CURRENT_USER\Console\C:_Program Files_WindowsApps_CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2020.812.0_x64__79rhkp1fndgsc_ubuntu2004.exe</code>.</li>
+<li>then, add CodePage (Type: DWORD, Value: 0x01b5).</li>
+</ol>
 
 
-&lt;h3&gt;65001&lt;/h3&gt;
+<h3>65001</h3>
 
-&lt;p&gt;&lt;a href=&quot;https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8&quot;&gt;https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8">https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8</a></p>
 
-&lt;p&gt;&lt;code&gt;Language settings&lt;/code&gt; -&gt; &lt;code&gt;Administrative language settings&lt;/code&gt; -&gt; &lt;code&gt;Change system locale...&lt;/code&gt; -&gt; &lt;code&gt;Beta: Use Unicode UTF-8 for worldwide language support&lt;/code&gt;.&lt;/p&gt;
+<p><code>Language settings</code> -> <code>Administrative language settings</code> -> <code>Change system locale...</code> -> <code>Beta: Use Unicode UTF-8 for worldwide language support</code>.</p>
 
-&lt;h2&gt;Reference&lt;/h2&gt;
+<h2>Reference</h2>
 
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/DejaVu_fonts&quot;&gt;https://en.wikipedia.org/wiki/DejaVu_fonts&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Code_page_437&quot;&gt;https://en.wikipedia.org/wiki/Code_page_437&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://github.com/microsoft/WSL/issues/1517</summary></entry><entry><title type="html">Windows Battery Report</title><link href="http://songzy12.github.io/2021/03/20/battery.html" rel="alternate" type="text/html" title="Windows Battery Report" /><published>2021-03-20T16:04:37+08:00</published><updated>2021-03-20T16:04:37+08:00</updated><id>http://songzy12.github.io/2021/03/20/battery</id><content type="html" xml:base="http://songzy12.github.io/2021/03/20/battery.html">&lt;pre&gt;&lt;code&gt;powercfg /batteryreport
-&lt;/code&gt;&lt;/pre&gt;
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/DejaVu_fonts">https://en.wikipedia.org/wiki/DejaVu_fonts</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Code_page_437">https://en.wikipedia.org/wiki/Code_page_437</a></li>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/microsoft/WSL/issues/1517]]></summary></entry><entry><title type="html">Windows Battery Report</title><link href="http://songzy12.github.io/2021/03/20/battery.html" rel="alternate" type="text/html" title="Windows Battery Report" /><published>2021-03-20T08:04:37+00:00</published><updated>2021-03-20T08:04:37+00:00</updated><id>http://songzy12.github.io/2021/03/20/battery</id><content type="html" xml:base="http://songzy12.github.io/2021/03/20/battery.html"><![CDATA[<pre><code>powercfg /batteryreport
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;BATTERY 1   BATTERY 2
+<pre><code>BATTERY 1   BATTERY 2
 NAME    01AV419 01AV423
 MANUFACTURER    SANYO   LGC
 SERIAL NUMBER   186 4024
@@ -556,9 +556,9 @@ CHEMISTRY   LION    LiP
 DESIGN CAPACITY 24,020 mWh  23,940 mWh
 FULL CHARGE CAPACITY    12,540 mWh  9,410 mWh
 CYCLE COUNT 298 333
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;BATTERY 1
+<pre><code>BATTERY 1
 NAME    01AV419
 MANUFACTURER    SANYO
 SERIAL NUMBER   186
@@ -566,105 +566,111 @@ CHEMISTRY   LION
 DESIGN CAPACITY 24,020 mWh
 FULL CHARGE CAPACITY    13,010 mWh
 CYCLE COUNT 298
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">powercfg /batteryreport</summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2020/12/19/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2020-12-19T14:08:14+08:00</published><updated>2020-12-19T14:08:14+08:00</updated><id>http://songzy12.github.io/2020/12/19/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2020/12/19/octopress-3-0.html">&lt;p&gt;This article shows the basic usage of Octopress 3.0.&lt;/p&gt;
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[powercfg /batteryreport]]></summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2020/12/19/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2020-12-19T06:08:14+00:00</published><updated>2020-12-19T06:08:14+00:00</updated><id>http://songzy12.github.io/2020/12/19/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2020/12/19/octopress-3-0.html"><![CDATA[<p>This article shows the basic usage of Octopress 3.0.</p>
 
-&lt;h2&gt;new post&lt;/h2&gt;
+<h2>new post</h2>
 
-&lt;pre&gt;&lt;code&gt;octopress new post hello -D Ruby
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>octopress new post hello -D Ruby
+</code></pre>
 
-&lt;h2&gt;build&lt;/h2&gt;
+<h2>build</h2>
 
-&lt;p&gt;Here we set &lt;code&gt;JEKYLL_ENV=production&lt;/code&gt; to enable &lt;code&gt;google_analytics&lt;/code&gt; and &lt;code&gt;disqus&lt;/code&gt;.&lt;/p&gt;
+<p>Here we set <code>JEKYLL_ENV=production</code> to enable <code>google_analytics</code> and <code>disqus</code>.</p>
 
-&lt;pre&gt;&lt;code&gt;export JEKYLL_ENV=production
+<pre><code>export JEKYLL_ENV=production
 jekyll serve
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;deploy&lt;/h2&gt;
+<h2>deploy</h2>
 
-&lt;pre&gt;&lt;code&gt;jekyll build
+<pre><code>jekyll build
 octopress deploy
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;source&lt;/h2&gt;
+<h2>source</h2>
 
-&lt;p&gt;源码和网站是在同一个 repo 的不同 branch 底下的。&lt;/p&gt;
+<p>源码和网站是在同一个 repo 的不同 branch 底下的。</p>
 
-&lt;pre&gt;&lt;code&gt;git add .
-git commit -m &quot;$(date)&quot;
+<pre><code>git add .
+git commit -m "$(date)"
 git push origin source
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;Gemfile&lt;/h2&gt;
+<h2>rvm</h2>
 
-&lt;pre&gt;&lt;code&gt;source &quot;https://gems.ruby-china.com&quot;
+<pre><code>rvm install 2.7
+rvm use 2.7
+</code></pre>
 
-gem 'octopress', '~&amp;gt; 3.0.0'
-gem &quot;jekyll&quot;, &quot;~&amp;gt; 3.8.4&quot;
-gem &quot;minima&quot;, &quot;~&amp;gt; 2.0&quot;
+<h2>Gemfile</h2>
+
+<pre><code>source "https://gems.ruby-china.com"
+
+gem 'octopress', '~&gt; 3.0.0'
+gem "jekyll", "~&gt; 3.8.4"
+gem "minima", "~&gt; 2.0"
 
 group :jekyll_plugins do
-  gem &quot;jekyll-feed&quot;, &quot;~&amp;gt; 0.6&quot;
+  gem "jekyll-feed", "~&gt; 0.6"
 end
 
-gem 'rdiscount', '~&amp;gt; 2.0'
-gem 'sinatra', '~&amp;gt; 1.4.2'
-gem &quot;tzinfo-data&quot;, platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-gem &quot;wdm&quot;, &quot;~&amp;gt; 0.1.0&quot; if Gem.win_platform?
-&lt;/code&gt;&lt;/pre&gt;
+gem 'rdiscount', '~&gt; 2.0'
+gem 'sinatra', '~&gt; 1.4.2'
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "wdm", "~&gt; 0.1.0" if Gem.win_platform?
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;bundle install
+<pre><code>bundle install
 bundle clean --force
 
 bundle update --bundler
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;minima&lt;/h2&gt;
+<h2>minima</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/jekyll/minima&quot;&gt;https://github.com/jekyll/minima&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://github.com/jekyll/minima">https://github.com/jekyll/minima</a></p>
 
-&lt;h3&gt;comments&lt;/h3&gt;
+<h3>comments</h3>
 
-&lt;pre&gt;&lt;code&gt;disqus:
+<pre><code>disqus:
   shortname: my_disqus_shortname
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3&gt;google_analytics&lt;/h3&gt;
+<h3>google_analytics</h3>
 
-&lt;pre&gt;&lt;code&gt;  google_analytics: UA-NNNNNNNN-N
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>  google_analytics: UA-NNNNNNNN-N
+</code></pre>
 
-&lt;h3&gt;excerpts&lt;/h3&gt;
+<h3>excerpts</h3>
 
-&lt;pre&gt;&lt;code&gt;show_excerpts: true
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>show_excerpts: true
+</code></pre>
 
-&lt;h3&gt;layouts&lt;/h3&gt;
+<h3>layouts</h3>
 
-&lt;pre&gt;&lt;code&gt;ls $(bundle show minima)/_layouts
+<pre><code>ls $(bundle show minima)/_layouts
 ls $(bundle show minima)/_includes
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h4&gt;header&lt;/h4&gt;
+<h4>header</h4>
 
-&lt;pre&gt;&lt;code&gt;vi $(bundle show minima)/_includes/header.html
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>vi $(bundle show minima)/_includes/header.html
+</code></pre>
 
-&lt;h4&gt;footer&lt;/h4&gt;
+<h4>footer</h4>
 
-&lt;pre&gt;&lt;code&gt;vi $(bundle show minima)/_includes/footer.html
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>vi $(bundle show minima)/_includes/footer.html
+</code></pre>
 
-&lt;h2&gt;_config.yml&lt;/h2&gt;
+<h2>_config.yml</h2>
 
-&lt;pre&gt;&lt;code&gt;title:  Zhengyang Song's Blog
+<pre><code>title:  Zhengyang Song's Blog
 author: Zhengyang Song
 email: songzy.thu@gmail.com
-description: &amp;gt;- # this means to ignore newlines until &quot;baseurl:&quot;
+description: &gt;- # this means to ignore newlines until "baseurl:"
   All those little bugs I have ever met.
-baseurl: &quot;&quot; # the subpath of your site, e.g. /blog
-url: &quot;http://songzy12.github.io&quot; # the base hostname &amp;amp; protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://songzy12.github.io" # the base hostname &amp; protocol for your site, e.g. http://example.com
 github_username:  songzy12
 
 # Default extension for new posts and pages
@@ -694,47 +700,47 @@ rdiscount:
 theme: minima
 plugins:
   - jekyll-feed
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows the basic usage of Octopress 3.0.</summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/12/13/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-12-13T16:29:08+08:00</published><updated>2020-12-13T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/12/13/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/12/13/workspace-setup.html">&lt;p&gt;This shows what we need to do when we move to a brand new Linux environment.&lt;/p&gt;
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This article shows the basic usage of Octopress 3.0.]]></summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/12/13/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-12-13T08:29:08+00:00</published><updated>2020-12-13T08:29:08+00:00</updated><id>http://songzy12.github.io/2020/12/13/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/12/13/workspace-setup.html"><![CDATA[<p>This shows what we need to do when we move to a brand new Linux environment.</p>
 
-&lt;h2&gt;wget proxy&lt;/h2&gt;
+<h2>wget proxy</h2>
 
-&lt;pre&gt;&lt;code&gt;vi ~/.wgetrc
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>vi ~/.wgetrc
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;http_proxy = http://localhost:1081
+<pre><code>http_proxy = http://localhost:1081
 https_proxy = http://localhost:1081
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;oh my zsh&lt;/h2&gt;
+<h2>oh my zsh</h2>
 
-&lt;p&gt;Project link: &lt;a href=&quot;https://github.com/ohmyzsh/ohmyzsh&quot;&gt;https://github.com/ohmyzsh/ohmyzsh&lt;/a&gt;&lt;/p&gt;
+<p>Project link: <a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
 
-&lt;p&gt;Install script: &lt;a href=&quot;https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&quot;&gt;https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&lt;/a&gt;&lt;/p&gt;
+<p>Install script: <a href="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh">https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh</a></p>
 
-&lt;p&gt;Download and run the script:&lt;/p&gt;
+<p>Download and run the script:</p>
 
-&lt;pre&gt;&lt;code&gt;sudo apt install zsh
+<pre><code>sudo apt install zsh
 
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sh install.sh
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;tmux config&lt;/h2&gt;
+<h2>tmux config</h2>
 
-&lt;pre&gt;&lt;code&gt;vi ~/.tmux.conf
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>vi ~/.tmux.conf
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;set -g default-shell /usr/bin/zsh
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>set -g default-shell /usr/bin/zsh
+</code></pre>
 
-&lt;h2&gt;apt source&lt;/h2&gt;
+<h2>apt source</h2>
 
-&lt;p&gt;Project link: &lt;a href=&quot;https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/&quot;&gt;https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/&lt;/a&gt;&lt;/p&gt;
+<p>Project link: <a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
 
-&lt;pre&gt;&lt;code&gt;vi /etc/apt/sources.list
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>vi /etc/apt/sources.list
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
+<pre><code># 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
@@ -747,144 +753,144 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted 
 # 预发布软件源，不建议启用
 # deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;python&lt;/h2&gt;
+<h2>python</h2>
 
-&lt;h3&gt;pip source&lt;/h3&gt;
+<h3>pip source</h3>
 
-&lt;pre&gt;&lt;code&gt;sudo apt install python3-pip
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>sudo apt install python3-pip
+</code></pre>
 
-&lt;p&gt;&lt;a href=&quot;https://pip.pypa.io/en/stable/user_guide/#config-file&quot;&gt;https://pip.pypa.io/en/stable/user_guide/#config-file&lt;/a&gt;
-&lt;a href=&quot;https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4&quot;&gt;https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://pip.pypa.io/en/stable/user_guide/#config-file">https://pip.pypa.io/en/stable/user_guide/#config-file</a>
+<a href="https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4">https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4</a></p>
 
-&lt;pre&gt;&lt;code&gt;mkdir ~/.pip
+<pre><code>mkdir ~/.pip
 
-echo &quot;[global]&quot; &amp;gt; ~/.pip/pip.conf
-echo &quot;  index-url = https://mirrors.aliyun.com/pypi/simple/&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
-echo &quot;[install]&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
-echo &quot;  trusted-host=mirrors.aliyun.com&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
-echo &quot;&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
-&lt;/code&gt;&lt;/pre&gt;
+echo "[global]" &gt; ~/.pip/pip.conf
+echo "  index-url = https://mirrors.aliyun.com/pypi/simple/" &gt;&gt; ~/.pip/pip.conf
+echo "[install]" &gt;&gt; ~/.pip/pip.conf
+echo "  trusted-host=mirrors.aliyun.com" &gt;&gt; ~/.pip/pip.conf
+echo "" &gt;&gt; ~/.pip/pip.conf
+</code></pre>
 
-&lt;h3&gt;jupyter notebook&lt;/h3&gt;
+<h3>jupyter notebook</h3>
 
-&lt;pre&gt;&lt;code&gt;jupyter notebook --generate-config
+<pre><code>jupyter notebook --generate-config
 vi ~/.jupyter/jupyter_notebook_config.py
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;c.NotebookApp.use_redirect_file = False
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>c.NotebookApp.use_redirect_file = False
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;pip install jupyter_contrib_nbextensions
+<pre><code>pip install jupyter_contrib_nbextensions
 jupyter contrib nbextension install --user
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3&gt;virtualenvwrapper&lt;/h3&gt;
+<h3>virtualenvwrapper</h3>
 
-&lt;p&gt;&lt;a href=&quot;https://virtualenvwrapper.readthedocs.io/en/latest/install.html&quot;&gt;https://virtualenvwrapper.readthedocs.io/en/latest/install.html&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html">https://virtualenvwrapper.readthedocs.io/en/latest/install.html</a></p>
 
-&lt;pre&gt;&lt;code&gt;pip install virtualenvwrapper
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>pip install virtualenvwrapper
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;# vi ~/.bashrc
+<pre><code># vi ~/.bashrc
 vi ~/.zshrc
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;export WORKON_HOME=$HOME/.virtualenvs
+<pre><code>export WORKON_HOME=$HOME/.virtualenvs
 export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 # source /usr/local/bin/virtualenvwrapper.sh
 source ~/.local/bin/virtualenvwrapper.sh
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;git config&lt;/h2&gt;
+<h2>git config</h2>
 
-&lt;h3&gt;vim editor&lt;/h3&gt;
+<h3>vim editor</h3>
 
-&lt;pre&gt;&lt;code&gt;git config --global core.editor &quot;vim&quot;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>git config --global core.editor "vim"
+</code></pre>
 
-&lt;h3&gt;proxy&lt;/h3&gt;
+<h3>proxy</h3>
 
-&lt;p&gt;&lt;a href=&quot;https://gist.github.com/evantoli/f8c23a37eb3558ab8765&quot;&gt;https://gist.github.com/evantoli/f8c23a37eb3558ab8765&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://gist.github.com/evantoli/f8c23a37eb3558ab8765">https://gist.github.com/evantoli/f8c23a37eb3558ab8765</a></p>
 
-&lt;pre&gt;&lt;code&gt;git config --global http.proxy localhost:1081
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>git config --global http.proxy localhost:1081
+</code></pre>
 
-&lt;h3&gt;user&lt;/h3&gt;
+<h3>user</h3>
 
-&lt;pre&gt;&lt;code&gt;git config --global user.email &quot;songzy_thu@163.com&quot;
-git config --global user.name &quot;Zhengyang Song&quot;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>git config --global user.email "songzy_thu@163.com"
+git config --global user.name "Zhengyang Song"
+</code></pre>
 
-&lt;h2&gt;docker&lt;/h2&gt;
+<h2>docker</h2>
 
-&lt;pre&gt;&lt;code&gt;mkdir -p /etc/docker
+<pre><code>mkdir -p /etc/docker
 
-sudo tee /etc/docker/daemon.json &amp;lt;&amp;lt;-'EOF'
+sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
 {
-  &quot;registry-mirrors&quot;: [&quot;http://hub-mirror.c.163.com&quot;]
+  "registry-mirrors": ["http://hub-mirror.c.163.com"]
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;sudo service docker restart
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>sudo service docker restart
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;docker info
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>docker info
+</code></pre>
 
-&lt;h2&gt;nodejs&lt;/h2&gt;
+<h2>nodejs</h2>
 
-&lt;h3&gt;nvm&lt;/h3&gt;
+<h3>nvm</h3>
 
-&lt;p&gt;&lt;a href=&quot;https://github.com/nvm-sh/nvm&quot;&gt;https://github.com/nvm-sh/nvm&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
 
-&lt;pre&gt;&lt;code&gt;wget -qO- 
+<pre><code>wget -qO- 
 https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;nvm ls
+<pre><code>nvm ls
 nvm ls-remote
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;nvm install 
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>nvm install 
+</code></pre>
 
-&lt;h3&gt;npm registry&lt;/h3&gt;
+<h3>npm registry</h3>
 
-&lt;p&gt;&lt;a href=&quot;https://developer.aliyun.com/mirror/NPM&quot;&gt;https://developer.aliyun.com/mirror/NPM&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://developer.aliyun.com/mirror/NPM">https://developer.aliyun.com/mirror/NPM</a></p>
 
-&lt;pre&gt;&lt;code&gt;npm config get registry
+<pre><code>npm config get registry
 npm config set registry https://registry.npm.taobao.org
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3&gt;yarn registry&lt;/h3&gt;
+<h3>yarn registry</h3>
 
-&lt;pre&gt;&lt;code&gt;yarn config get registry
+<pre><code>yarn config get registry
 yarn config set registry https://registry.npm.taobao.org
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This shows what we need to do when we move to a brand new Linux environment.</summary></entry><entry><title type="html">Dos Batch</title><link href="http://songzy12.github.io/2020/09/12/dos-batch.html" rel="alternate" type="text/html" title="Dos Batch" /><published>2020-09-12T23:09:46+08:00</published><updated>2020-09-12T23:09:46+08:00</updated><id>http://songzy12.github.io/2020/09/12/dos-batch</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/dos-batch.html">&lt;h2&gt;%~dp0&lt;/h2&gt;
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This shows what we need to do when we move to a brand new Linux environment.]]></summary></entry><entry><title type="html">Dos Batch</title><link href="http://songzy12.github.io/2020/09/12/dos-batch.html" rel="alternate" type="text/html" title="Dos Batch" /><published>2020-09-12T15:09:46+00:00</published><updated>2020-09-12T15:09:46+00:00</updated><id>http://songzy12.github.io/2020/09/12/dos-batch</id><content type="html" xml:base="http://songzy12.github.io/2020/09/12/dos-batch.html"><![CDATA[<h2>%~dp0</h2>
 
-&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;%0&lt;/code&gt;: the batch file itself&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;%1&lt;/code&gt;-&lt;code&gt;%9&lt;/code&gt;:  command line arguments&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;d&lt;/code&gt;: the drive letter&lt;/li&gt;
-&lt;li&gt;&lt;code&gt;p&lt;/code&gt;: the path of the parameter&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li><code>%0</code>: the batch file itself</li>
+<li><code>%1</code>-<code>%9</code>:  command line arguments</li>
+<li><code>d</code>: the drive letter</li>
+<li><code>p</code>: the path of the parameter</li>
+</ul>
 
 
-&lt;h2&gt;cls&lt;/h2&gt;
+<h2>cls</h2>
 
-&lt;p&gt;clean screen.&lt;/p&gt;
+<p>clean screen.</p>
 
-&lt;h2&gt;findstr&lt;/h2&gt;
+<h2>findstr</h2>
 
-&lt;pre&gt;&lt;code&gt;type *.md | findstr &quot;&amp;lt;p&amp;gt;&quot;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>type *.md | findstr "&lt;p&gt;"
+</code></pre>
 
-&lt;h2&gt;mode&lt;/h2&gt;
+<h2>mode</h2>
 
-&lt;p&gt;Sets the number of lines and columns (characters/line) of the display.&lt;/p&gt;
+<p>Sets the number of lines and columns (characters/line) of the display.</p>
 
-&lt;pre&gt;&lt;code&gt;mode con cols=100 lines=60
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">%~dp0</summary></entry></feed>
+<pre><code>mode con cols=100 lines=60
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[%~dp0]]></summary></entry></feed>
