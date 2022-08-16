@@ -13,8 +13,8 @@ permalink: /about/
 
 ### __Google__ Beijing (2019Q3 ~ now)
 
-* i18n (2022Q4 ~ now)
-* DataZ (2019Q3 ~ 2022Q3)
+* i18n (2022Q3 ~ now)
+* DataZ (2019Q3 ~ 2022Q2)
   * Wikipedia Article Classifier
   * Wikipedia Crawler
 
