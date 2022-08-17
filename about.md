@@ -50,7 +50,7 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 
 ## Misc
 
-* CCF CSP: Score 370/500 (Top 2.09%), 2015 Autumn
+* CCF CSP: Score 370/500 (Top 2.09%), Sept 2015
 * Tsinghua Xuetang Scholarship, 2012~2016
 * National Encouragement Scholarship, 2012~2013
   
