@@ -11,28 +11,28 @@ permalink: /about/
 
 ## Work
 
-### __Google__ Beijing (2019Q3 ~ now)
+### __Google__ Beijing (Jul 2019 ~ now)
 
-* i18n (2022Q3 ~ now)
-* DataZ (2019Q3 ~ 2022Q2)
+* i18n (Oct 2022  ~ now)
+* DataZ (Jul 2019 ~ Sept 2022)
   * Wikipedia Article Classifier
   * Wikipedia Crawler
 
 ## Intern
 
-### __Microsoft__ STCA (2018 Summer)
+### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
 
 * We apply the Wide & Deep model to the CTR prediction task using TensorFlow.
 * Four types of features are used: article, user, context, and combined features.
 * The AUC is about 0.89 on our dataset, higher than FM model by 0.05.
 
-### [XuetangX](http://www.xuetangx.com) (2016 Autumn ~ 2019 Spring)
+### [XuetangX](http://www.xuetangx.com) (Oct 2015 ~ Jun 2019)
 
 * The web crawler to collect candidate question-answer data from community QA websites.
 * The question classifier to classify the user query into one of the predefined categories. We use SVM model together with n-gram TF-IDF features. The F1 score is 0.77 on our test dataset.
 * The question matcher to match the user query to one of our predefined questions. We run experiments with the MatchZoo toolkit, the precision of the best model is about 0.84.
 
-### [Ever](http://everchain.site/#/) (2018 Spring ~ 2018 Winter)
+### [Ever](http://everchain.site/#/) (May 2018 ~ Jan 2019)
 
 * Backend APIs of the WeChat mini-program "EverParty":
   * Image CAPTCHA, SMS Code, Activity List, Activity Detail
