@@ -22,21 +22,23 @@ permalink: /about/
 
 ### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
 
-* We apply the Wide & Deep model to the CTR prediction task using TensorFlow.
-* Four types of features are used: article, user, context, and combined features.
-* The AUC is about 0.89 on our dataset, higher than FM model by 0.05.
+* Evaluate the Wide & Deep model to the news CTR prediction problem.
 
 ### [XuetangX](http://www.xuetangx.com) (Oct 2015 ~ Jun 2019)
 
-* The web crawler to collect candidate question-answer data from community QA websites.
-* The question classifier to classify the user query into one of the predefined categories. We use SVM model together with n-gram TF-IDF features. The F1 score is 0.77 on our test dataset.
-* The question matcher to match the user query to one of our predefined questions. We run experiments with the MatchZoo toolkit, the precision of the best model is about 0.84.
+* Web crawler to collect question-answer pairs from community QA sites.
+* Text classifier to classify the user questions to predefined classes. 
+* Text matcher to match the user questions to existing questions. 
 
 ### [Ever](http://everchain.site/#/) (May 2018 ~ Jan 2019)
 
 * Backend APIs of the WeChat mini-program "EverParty":
   * Image CAPTCHA, SMS Code, Activity List, Activity Detail
-* The user recommendation algorithm for the Android App "Ever".
+* Partner recommendation algorithm for the Android App "Ever".
+
+### [OxCoder](https://www.oxcoder.com/) (Jul 2015 ~ Sept 2015)
+
+* Automatic grading algorithm to assess the candidate's programming skills.
 
 ## Research
 
