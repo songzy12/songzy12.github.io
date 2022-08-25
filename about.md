@@ -40,6 +40,13 @@ permalink: /about/
 
 * Automatic grading algorithm to assess the candidate's programming skills.
 
+## Project
+
+### WeiboSpider
+
+- [WeiboSpider](https://github.com/dataabc/weiboSpider) is a library that aims to crawl the metadata and all the updates of specified weibo users.
+- I helped to refactor and modularize the code base and now am [one of two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md) as well as [top contributors](https://github.com/dataabc/weiboSpider/graphs/contributors) of this repo.
+
 ## Research
 
 Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
