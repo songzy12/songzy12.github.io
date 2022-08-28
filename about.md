@@ -44,8 +44,8 @@ permalink: /about/
 
 ### WeiboSpider
 
-- [WeiboSpider](https://github.com/dataabc/weiboSpider) is a library that aims to crawl the metadata and all the updates of specified weibo users.
-- I helped to refactor and modularize the code base and now am [one of two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md) as well as [top contributors](https://github.com/dataabc/weiboSpider/graphs/contributors) of this repo.
+- [WeiboSpider](https://github.com/dataabc/weiboSpider) is a library that aims to crawl the metadata and all the updates of specified weibo users, which has __6k stars__ (as of Aug 2022).
+- I helped to refactor and modularize the code base and now am [one of two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md) of the repo.
 
 ## Research
 
