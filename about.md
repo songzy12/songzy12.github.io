@@ -20,15 +20,15 @@ permalink: /about/
 
 ## Intern
 
-### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
-
-* Evaluate the Wide & Deep model to the news CTR prediction problem.
-
 ### [XuetangX](http://www.xuetangx.com) (Oct 2015 ~ Jun 2019)
 
 * Web crawler to collect question-answer pairs from community QA sites.
 * Text classifier to classify the user questions to predefined classes. 
 * Text matcher to match the user questions to existing questions. 
+
+### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
+
+* Evaluate the Wide & Deep model to the news CTR prediction problem.
 
 ### [Ever](http://everchain.site/#/) (May 2018 ~ Jan 2019)
 
