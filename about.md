@@ -44,18 +44,21 @@ permalink: /about/
 
 ### [WeiboSpider](https://github.com/dataabc/weiboSpider)
 
-- This is a library that crawls the metadata and all updates of specified weibo users. It has earned __6k stars__ as of Aug 2022.
+This is a library that crawls the metadata and all updates of specified weibo users. It has earned __6k stars__ as of Aug 2022.
+
 - I helped to refactor and modularize the code base and now am [one of two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md) of the repo.
 
 ### [LECP](https://github.com/songzy12/LECP)
 
-- This is a graphical demo to showcase the optimal algorithm for the "Largest Empty Convex Polygon" problem.
+This is a graphical demo to showcase the optimal algorithm for the "Largest Empty Convex Polygon" problem.
+
 - The problem is: given a set of points in the 2-dimensional space, find the empty convex polygon with most points. 
 - The heart of the algorithm is: use duality to get an angular sort of all points in time $O(n \log n)$ rather than $O(n^2 \log n)$.
 
 ### [EtherLend](https://github.com/Sun-Jc/EtherLend)
 
-- This is a DApp on Ethereum blockchain platform simulating the "ROSCA" protocal.
+This is a DApp on Ethereum blockchain platform simulating the "ROSCA" protocal.
+
 - We use the Truffle framework to implement the smart contract.
 - The node.js backend accepts request from the Android client, then interacts with the Blockchain client through web3.js API, then sends the response back to the Android client.
 
