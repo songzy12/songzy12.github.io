@@ -40,7 +40,13 @@ $ python
 >>> paddle.utils.run_check() 
 ```
 
-> 这种情况一般出现在编译和运行在不同架构的显卡上，且cmake时未指定运行时需要的CUDA架构。可以在cmake时加上 -DCUDA_ARCH_NAME=All（或者特定的架构如Turing、Volta、Pascal等），否则会使用默认值Auto，此时只会当前的CUDA架构编译。
+这种情况一般出现在编译和运行在不同架构的显卡上，且cmake时未指定运行时需要的CUDA架构。可以在cmake时加上 -DCUDA_ARCH_NAME=All（或者特定的架构如Turing、Volta、Pascal等），否则会使用默认值Auto，此时只会当前的CUDA架构编译。
+
+<https://stackoverflow.com/questions/9727688/how-to-get-the-cuda-version>
+
+```
+$ nvcc --version
+```
 
 ```
 $ nvidia-smi
@@ -66,6 +72,8 @@ Sun Oct 24 20:28:01 2021
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
 ```
+
+NOTE: `nvidia-smi` only indicates highest CUDA version the installed driver supports. It does not provide any information about which CUDA version is installed or even whether there is CUDA installed at all.
 
 <https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html>
 
