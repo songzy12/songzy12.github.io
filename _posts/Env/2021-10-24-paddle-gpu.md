@@ -48,33 +48,6 @@ $ python
 $ nvcc --version
 ```
 
-```
-$ nvidia-smi
-
-Sun Oct 24 20:28:01 2021       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 470.28       Driver Version: 470.76       CUDA Version: 11.4     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0  On |                  N/A |
-| 30%   35C    P8    16W / 350W |   1782MiB / 24576MiB |    ERR!      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-                                                                               
-+-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
-|=============================================================================|
-|  No running processes found                                                 |
-+-----------------------------------------------------------------------------+
-```
-
-NOTE: `nvidia-smi` only indicates highest CUDA version the installed driver supports. It does not provide any information about which CUDA version is installed or even whether there is CUDA installed at all.
-
 <https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html>
 
 ```
