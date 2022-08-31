@@ -23,17 +23,6 @@ cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
 ./BlackScholes
 ```
 
-#### Env Var
-
-```
-cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
-sudo ln -s libcusolver.so.10 libcusolver.so.11
-```
-
-```
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib
-```
-
 ### Toolkit
 
 <https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local>
@@ -46,6 +35,17 @@ sudo dpkg -i cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
 sudo cp /var/cuda-repo-wsl-ubuntu-11-7-local/cuda-*-keyring.gpg /usr/share/keyrings/
 sudo apt-get update
 sudo apt-get -y install cuda
+```
+
+#### Env Var
+
+```
+cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
+sudo ln -s libcusolver.so.10 libcusolver.so.11
+```
+
+```
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib
 ```
 
 ## TensorFlow 1.15.4
