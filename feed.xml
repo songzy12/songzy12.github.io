@@ -1,4 +1,118 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://songzy12.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-08-31T19:17:47+08:00</updated><id>http://songzy12.github.io/</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">T470 GPU</title><link href="http://songzy12.github.io/2022/08/31/t470-gpu.html" rel="alternate" type="text/html" title="T470 GPU" /><published>2022-08-31T13:11:25+08:00</published><updated>2022-08-31T13:11:25+08:00</updated><id>http://songzy12.github.io/2022/08/31/t470-gpu</id><content type="html" xml:base="http://songzy12.github.io/2022/08/31/t470-gpu.html">&lt;p&gt;Enable GPU on ThinkPad T470.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-08-31T22:46:00+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL2 GPU</title><link href="http://songzy12.github.io/2022/08/31/wsl2-gpu.html" rel="alternate" type="text/html" title="WSL2 GPU" /><published>2022-08-31T20:18:22+08:00</published><updated>2022-08-31T20:18:22+08:00</updated><id>http://songzy12.github.io/2022/08/31/wsl2-gpu</id><content type="html" xml:base="http://songzy12.github.io/2022/08/31/wsl2-gpu.html">&lt;p&gt;Enable GPU on OMEN, which runs Win11 and WSL2.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&quot;&gt;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2&gt;Driver&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda/wsl&quot;&gt;https://developer.nvidia.com/cuda/wsl&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Then restart your computer&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ nvidia-smi
+
+Sun Oct 24 20:28:01 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.28       Driver Version: 470.76       CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0  On |                  N/A |
+| 30%   35C    P8    16W / 350W |   1782MiB / 24576MiB |    ERR!      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;NOTE: &lt;code&gt;nvidia-smi&lt;/code&gt; only indicates highest CUDA version the installed driver supports. It does not provide any information about which CUDA version is installed or even whether there is CUDA installed at all.&lt;/p&gt;
+
+&lt;h3&gt;Verify&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
+./BlackScholes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Toolkit&lt;/h2&gt;
+
+&lt;blockquote&gt;&lt;p&gt;The latest NVIDIA Windows GPU Driver will fully support WSL 2. With CUDA support in the driver, existing applications (compiled elsewhere on a Linux system for the same target GPU) can run unmodified within the WSL environment.&lt;/p&gt;
+
+&lt;p&gt;To compile new CUDA applications, a CUDA Toolkit for Linux x86 is needed. CUDA Toolkit support for WSL is still in preview stage as developer tools such as debugger and profilers are not available yet. However, CUDA application development is fully supported in the WSL2 environment, as a result, users should be able to compile new CUDA Linux applications with the latest CUDA Toolkit for x86 Linux.&lt;/p&gt;
+
+&lt;p&gt;Once a Windows NVIDIA GPU driver is installed on the system, CUDA becomes available within WSL 2. The CUDA driver installed on Windows host will be stubbed inside the WSL 2 as libcuda.so, therefore users must not install any NVIDIA GPU Linux driver within WSL 2. One has to be very careful here as the default CUDA Toolkit comes packaged with a driver, and it is easy to overwrite the WSL 2 NVIDIA driver with the default installation. We recommend developers to use a separate CUDA Toolkit for WSL 2 (Ubuntu) available here to avoid this overwriting. This WSL-Ubuntu CUDA toolkit installer will not overwrite the NVIDIA driver that was already mapped into the WSL 2 environment. To learn how to compile CUDA applications, please read the CUDA documentation for Linux.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;Distribution=WSL-Ubuntu&amp;amp;target_version=2.0&amp;amp;target_type=deb_local&quot;&gt;https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;Distribution=WSL-Ubuntu&amp;amp;target_version=2.0&amp;amp;target_type=deb_local&lt;/a&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
+sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/11.7.1/local_installers/cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
+sudo dpkg -i cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
+sudo cp /var/cuda-repo-wsl-ubuntu-11-7-local/cuda-*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get -y install cuda
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Env Var&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;export CUDA_HOME=&quot;/usr/local/cuda-11.0&quot;
+export LD_LIBRARY_PATH=&quot;/usr/local/cuda-11.0/lib64:$LD_LIBRARY_PATH&quot;
+export PATH=&quot;/usr/local/cuda-11.0/bin:$PATH&quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3&gt;Verify&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;nvcc -V
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2&gt;Reference&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://actruce.com/en/all-about-the-nvidia-driver-installation&quot;&gt;https://actruce.com/en/all-about-the-nvidia-driver-installation&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h2&gt;Appendix&lt;/h2&gt;
+
+&lt;h3&gt;Multiple CUDA Installed?&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;$ which nvcc
+/usr/bin/nvcc
+
+$ nvcc -V
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2019 NVIDIA Corporation
+Built on Sun_Jul_28_19:07:16_PDT_2019
+Cuda compilation tools, release 10.1, V10.1.243
+
+$ whereis cuda
+cuda: /usr/lib/cuda /usr/include/cuda.h
+
+$ cat /usr/lib/cuda/version.txt 
+CUDA Version 10.1.243
+
+$ ls /usr/lib/cuda/bin 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;$ ls /usr/local | grep cuda
+cuda-11.0
+
+$ cat /usr/local/cuda-11.0/version.txt 
+CUDA Version 11.0.228
+
+$ /usr/local/cuda-11.0/bin/nvcc -V
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Wed_Jul_22_19:09:09_PDT_2020
+Cuda compilation tools, release 11.0, V11.0.221
+Build cuda_11.0_bu.TC445_37.28845127_0
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable GPU on OMEN, which runs Win11 and WSL2.</summary></entry><entry><title type="html">WSL GPU</title><link href="http://songzy12.github.io/2022/08/31/wsl-gpu.html" rel="alternate" type="text/html" title="WSL GPU" /><published>2022-08-31T13:11:25+08:00</published><updated>2022-08-31T13:11:25+08:00</updated><id>http://songzy12.github.io/2022/08/31/wsl-gpu</id><content type="html" xml:base="http://songzy12.github.io/2022/08/31/wsl-gpu.html">&lt;p&gt;Enable GPU on ThinkPad T470, which runs Win10 and WSL.&lt;/p&gt;
 
 &lt;h2&gt;Graphic Card&lt;/h2&gt;
 
@@ -18,7 +132,7 @@
 
 &lt;h2&gt;CUDA&lt;/h2&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda-downloads?target_os=Windows&amp;amp;target_arch=x86_64&amp;amp;target_version=10&amp;amp;target_type=exe_local&quot;&gt;https://developer.nvidia.com/cuda-downloads?target_os=Windows&amp;amp;target_arch=x86_64&amp;amp;target_version=10&amp;amp;target_type=exe_local&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable GPU on ThinkPad T470.</summary></entry><entry><title type="html">WSL2</title><link href="http://songzy12.github.io/2022/08/13/wsl2.html" rel="alternate" type="text/html" title="WSL2" /><published>2022-08-13T16:11:48+08:00</published><updated>2022-08-13T16:11:48+08:00</updated><id>http://songzy12.github.io/2022/08/13/wsl2</id><content type="html" xml:base="http://songzy12.github.io/2022/08/13/wsl2.html">&lt;p&gt;WSL2 vdisk management.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda-downloads?target_os=Windows&amp;amp;target_arch=x86_64&amp;amp;target_version=10&amp;amp;target_type=exe_local&quot;&gt;https://developer.nvidia.com/cuda-downloads?target_os=Windows&amp;amp;target_arch=x86_64&amp;amp;target_version=10&amp;amp;target_type=exe_local&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable GPU on ThinkPad T470, which runs Win10 and WSL.</summary></entry><entry><title type="html">WSL2 vDisk</title><link href="http://songzy12.github.io/2022/08/13/wsl2-vDisk.html" rel="alternate" type="text/html" title="WSL2 vDisk" /><published>2022-08-13T16:11:48+08:00</published><updated>2022-08-13T16:11:48+08:00</updated><id>http://songzy12.github.io/2022/08/13/wsl2-vDisk</id><content type="html" xml:base="http://songzy12.github.io/2022/08/13/wsl2-vDisk.html">&lt;p&gt;WSL2 vdisk management.&lt;/p&gt;
 
 &lt;blockquote&gt;&lt;p&gt;WSL 2 uses a Virtual Hard Disk (VHD) to store your Linux files. In WSL 2, a VHD is represented on your Windows hard drive as a .vhdx file.
 The WSL 2 VHD uses the ext4 file system. This VHD automatically resizes to meet your storage needs and has an initial maximum size of 256GB.&lt;/p&gt;&lt;/blockquote&gt;
@@ -436,78 +550,12 @@ The exception content is
 &lt;pre&gt;&lt;code&gt;$ nvcc --version
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;pre&gt;&lt;code&gt;$ nvidia-smi
-
-Sun Oct 24 20:28:01 2021       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 470.28       Driver Version: 470.76       CUDA Version: 11.4     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0  On |                  N/A |
-| 30%   35C    P8    16W / 350W |   1782MiB / 24576MiB |    ERR!      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-
-+-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
-|=============================================================================|
-|  No running processes found                                                 |
-+-----------------------------------------------------------------------------+
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;NOTE: &lt;code&gt;nvidia-smi&lt;/code&gt; only indicates highest CUDA version the installed driver supports. It does not provide any information about which CUDA version is installed or even whether there is CUDA installed at all.&lt;/p&gt;
-
 &lt;p&gt;&lt;a href=&quot;https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html&quot;&gt;https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html&lt;/a&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code&gt;pip install paddlepaddle-gpu==2.1.3.post110 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable GPU for PaddlePaddle.</summary></entry><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-07-11T12:23:11+08:00</published><updated>2021-07-11T12:23:11+08:00</updated><id>http://songzy12.github.io/2021/07/11/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html">&lt;p&gt;Enable TF 1.15 with RTX 3090.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable GPU for PaddlePaddle.</summary></entry><entry><title type="html">TensorFlow 1.x GPU</title><link href="http://songzy12.github.io/2021/07/11/tensorflow-1-x-gpu.html" rel="alternate" type="text/html" title="TensorFlow 1.x GPU" /><published>2021-07-11T12:23:11+08:00</published><updated>2021-07-11T12:23:11+08:00</updated><id>http://songzy12.github.io/2021/07/11/tensorflow-1-x-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/07/11/tensorflow-1-x-gpu.html">&lt;p&gt;Enable TF 1.x with RTX 3090.&lt;/p&gt;
 
-&lt;h2&gt;CUDA&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&quot;&gt;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;h3&gt;Driver&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda/wsl&quot;&gt;https://developer.nvidia.com/cuda/wsl&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;strong&gt;Then restart your computer&lt;/strong&gt;.&lt;/p&gt;
-
-&lt;h4&gt;Verify&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
-./BlackScholes
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;Toolkit&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;Distribution=WSL-Ubuntu&amp;amp;target_version=2.0&amp;amp;target_type=deb_local&quot;&gt;https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;Distribution=WSL-Ubuntu&amp;amp;target_version=2.0&amp;amp;target_type=deb_local&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
-sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
-wget https://developer.download.nvidia.com/compute/cuda/11.7.1/local_installers/cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
-sudo dpkg -i cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
-sudo cp /var/cuda-repo-wsl-ubuntu-11-7-local/cuda-*-keyring.gpg /usr/share/keyrings/
-sudo apt-get update
-sudo apt-get -y install cuda
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h4&gt;Env Var&lt;/h4&gt;
-
-&lt;pre&gt;&lt;code&gt;cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
-sudo ln -s libcusolver.so.10 libcusolver.so.11
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;TensorFlow 1.15.4&lt;/h2&gt;
-
-&lt;h3&gt;Nvidia TensorFlow&lt;/h3&gt;
+&lt;h2&gt;Nvidia TensorFlow&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/NVIDIA/tensorflow#install&quot;&gt;https://github.com/NVIDIA/tensorflow#install&lt;/a&gt;&lt;/p&gt;
 
@@ -515,7 +563,7 @@ sudo ln -s libcusolver.so.10 libcusolver.so.11
 python3 -m pip install nvidia-tensorflow
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h3&gt;Verify&lt;/h3&gt;
+&lt;h2&gt;Verify&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available&quot;&gt;https://www.tensorflow.org/api_docs/python/tf/test/is_gpu_available&lt;/a&gt;&lt;/p&gt;
 
@@ -528,7 +576,6 @@ tf.config.list_physical_devices('GPU')
 
 &lt;ul&gt;
 &lt;li&gt;&lt;a href=&quot;https://developer.nvidia.com/blog/accelerating-tensorflow-on-a100-gpus/&quot;&gt;https://developer.nvidia.com/blog/accelerating-tensorflow-on-a100-gpus/&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://actruce.com/en/all-about-the-nvidia-driver-installation&quot;&gt;https://actruce.com/en/all-about-the-nvidia-driver-installation&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -575,7 +622,7 @@ tf.config.list_physical_devices('GPU')
 &lt;pre&gt;&lt;code&gt;sudo apt list --installed | grep python3.7
 sudo apt remove python3.7
 sudo apt autoremove
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable TF 1.15 with RTX 3090.</summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T14:08:18+08:00</published><updated>2021-05-01T14:08:18+08:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable TF 1.x with RTX 3090.</summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T14:08:18+08:00</published><updated>2021-05-01T14:08:18+08:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html">&lt;p&gt;&lt;a href=&quot;https://github.com/microsoft/WSL/issues/1517&quot;&gt;https://github.com/microsoft/WSL/issues/1517&lt;/a&gt;&lt;/p&gt;
 
 &lt;h2&gt;Zsh Theme&lt;/h2&gt;
 
@@ -819,173 +866,4 @@ rdiscount:
 theme: minima
 plugins:
   - jekyll-feed
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows the basic usage of Octopress 3.0.</summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/12/13/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-12-13T16:29:08+08:00</published><updated>2020-12-13T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/12/13/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/12/13/workspace-setup.html">&lt;p&gt;This shows what we need to do when we move to a brand new Linux environment.&lt;/p&gt;
-
-&lt;h2&gt;wget proxy&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;vi ~/.wgetrc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;http_proxy = http://localhost:1081
-https_proxy = http://localhost:1081
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;oh my zsh&lt;/h2&gt;
-
-&lt;p&gt;Project link: &lt;a href=&quot;https://github.com/ohmyzsh/ohmyzsh&quot;&gt;https://github.com/ohmyzsh/ohmyzsh&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Install script: &lt;a href=&quot;https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&quot;&gt;https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh&lt;/a&gt;&lt;/p&gt;
-
-&lt;p&gt;Download and run the script:&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt install zsh
-
-wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-sh install.sh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;tmux config&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;vi ~/.tmux.conf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;set -g default-shell /usr/bin/zsh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;apt source&lt;/h2&gt;
-
-&lt;p&gt;Project link: &lt;a href=&quot;https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/&quot;&gt;https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;vi /etc/apt/sources.list
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
-deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
-
-# 预发布软件源，不建议启用
-# deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-proposed main restricted universe multiverse
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;python&lt;/h2&gt;
-
-&lt;h3&gt;pip source&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo apt install python3-pip
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://pip.pypa.io/en/stable/user_guide/#config-file&quot;&gt;https://pip.pypa.io/en/stable/user_guide/#config-file&lt;/a&gt;
-&lt;a href=&quot;https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4&quot;&gt;https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;mkdir ~/.pip
-
-echo &quot;[global]&quot; &amp;gt; ~/.pip/pip.conf
-echo &quot;  index-url = https://mirrors.aliyun.com/pypi/simple/&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
-echo &quot;[install]&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
-echo &quot;  trusted-host=mirrors.aliyun.com&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
-echo &quot;&quot; &amp;gt;&amp;gt; ~/.pip/pip.conf
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;jupyter notebook&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;jupyter notebook --generate-config
-vi ~/.jupyter/jupyter_notebook_config.py
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;c.NotebookApp.use_redirect_file = False
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;pip install jupyter_contrib_nbextensions
-jupyter contrib nbextension install --user
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;virtualenvwrapper&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://virtualenvwrapper.readthedocs.io/en/latest/install.html&quot;&gt;https://virtualenvwrapper.readthedocs.io/en/latest/install.html&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;pip install virtualenvwrapper
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;# vi ~/.bashrc
-vi ~/.zshrc
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-# source /usr/local/bin/virtualenvwrapper.sh
-source ~/.local/bin/virtualenvwrapper.sh
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;git config&lt;/h2&gt;
-
-&lt;h3&gt;vim editor&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;git config --global core.editor &quot;vim&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;proxy&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://gist.github.com/evantoli/f8c23a37eb3558ab8765&quot;&gt;https://gist.github.com/evantoli/f8c23a37eb3558ab8765&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;git config --global http.proxy localhost:1081
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;user&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;git config --global user.email &quot;songzy_thu@163.com&quot;
-git config --global user.name &quot;Zhengyang Song&quot;
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;docker&lt;/h2&gt;
-
-&lt;pre&gt;&lt;code&gt;mkdir -p /etc/docker
-
-sudo tee /etc/docker/daemon.json &amp;lt;&amp;lt;-'EOF'
-{
-  &quot;registry-mirrors&quot;: [&quot;http://hub-mirror.c.163.com&quot;]
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;sudo service docker restart
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;docker info
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h2&gt;nodejs&lt;/h2&gt;
-
-&lt;h3&gt;nvm&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://github.com/nvm-sh/nvm&quot;&gt;https://github.com/nvm-sh/nvm&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;wget -qO- 
-https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;nvm ls
-nvm ls-remote
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;pre&gt;&lt;code&gt;nvm install 
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;npm registry&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&quot;https://developer.aliyun.com/mirror/NPM&quot;&gt;https://developer.aliyun.com/mirror/NPM&lt;/a&gt;&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;npm config get registry
-npm config set registry https://registry.npm.taobao.org
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;h3&gt;yarn registry&lt;/h3&gt;
-
-&lt;pre&gt;&lt;code&gt;yarn config get registry
-yarn config set registry https://registry.npm.taobao.org
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This shows what we need to do when we move to a brand new Linux environment.</summary></entry></feed>
+&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows the basic usage of Octopress 3.0.</summary></entry></feed>
