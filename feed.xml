@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-08-31T22:46:00+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL2 GPU</title><link href="http://songzy12.github.io/2022/08/31/wsl2-gpu.html" rel="alternate" type="text/html" title="WSL2 GPU" /><published>2022-08-31T20:18:22+08:00</published><updated>2022-08-31T20:18:22+08:00</updated><id>http://songzy12.github.io/2022/08/31/wsl2-gpu</id><content type="html" xml:base="http://songzy12.github.io/2022/08/31/wsl2-gpu.html">&lt;p&gt;Enable GPU on OMEN, which runs Win11 and WSL2.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-08-31T22:57:28+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL2 GPU</title><link href="http://songzy12.github.io/2022/08/31/wsl2-gpu.html" rel="alternate" type="text/html" title="WSL2 GPU" /><published>2022-08-31T20:18:22+08:00</published><updated>2022-08-31T20:18:22+08:00</updated><id>http://songzy12.github.io/2022/08/31/wsl2-gpu</id><content type="html" xml:base="http://songzy12.github.io/2022/08/31/wsl2-gpu.html">&lt;p&gt;Enable GPU on OMEN, which runs Win11 and WSL2.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&quot;&gt;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&lt;/a&gt;&lt;/p&gt;
 
@@ -569,7 +569,10 @@ python3 -m pip install nvidia-tensorflow
 
 &lt;pre&gt;&lt;code&gt;import tensorflow as tf
 
-tf.config.list_physical_devices('GPU')
+tf.test.is_gpu_available()
+
+# For tf 2.x:
+# tf.config.list_physical_devices('GPU')
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;h2&gt;Reference&lt;/h2&gt;
