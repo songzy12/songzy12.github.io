@@ -14,11 +14,11 @@
 <meta property="og:url" content="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2021-07-11T04:23:11+00:00" />
+<meta property="article:published_time" content="2021-07-11T12:23:11+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="TensorFlow GPU" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2021-07-11T04:23:11+00:00","datePublished":"2021-07-11T04:23:11+00:00","description":"Enable TF 1.15 with RTX 3090.","headline":"TensorFlow GPU","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2021/07/11/tensorflow-gpu.html"},"url":"http://songzy12.github.io/2021/07/11/tensorflow-gpu.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2021-07-11T12:23:11+08:00","datePublished":"2021-07-11T12:23:11+08:00","description":"Enable TF 1.15 with RTX 3090.","headline":"TensorFlow GPU","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2021/07/11/tensorflow-gpu.html"},"url":"http://songzy12.github.io/2021/07/11/tensorflow-gpu.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -43,7 +43,7 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">TensorFlow GPU</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2021-07-11T04:23:11+00:00" itemprop="datePublished">Jul 11, 2021
+      <time class="dt-published" datetime="2021-07-11T12:23:11+08:00" itemprop="datePublished">Jul 11, 2021
       </time></p>
   </header>
 
@@ -54,27 +54,38 @@
 
 <p><a href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html">https://docs.nvidia.com/cuda/wsl-user-guide/index.html</a></p>
 
-<p><a href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations">https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations</a></p>
-
 <h3>Driver</h3>
 
 <p><a href="https://developer.nvidia.com/cuda/wsl">https://developer.nvidia.com/cuda/wsl</a></p>
 
 <p><strong>Then restart your computer</strong>.</p>
 
-<h3>Verify</h3>
+<h4>Verify</h4>
 
 <pre><code>cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
 ./BlackScholes
 </code></pre>
 
-<h3>Toolkit</h3>
+<h4>Env Var</h4>
 
 <pre><code>cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
 sudo ln -s libcusolver.so.10 libcusolver.so.11
 </code></pre>
 
 <pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib
+</code></pre>
+
+<h3>Toolkit</h3>
+
+<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=WSL-Ubuntu&amp;target_version=2.0&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=WSL-Ubuntu&amp;target_version=2.0&amp;target_type=deb_local</a></p>
+
+<pre><code>wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
+sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/11.7.1/local_installers/cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
+sudo dpkg -i cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
+sudo cp /var/cuda-repo-wsl-ubuntu-11-7-local/cuda-*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get -y install cuda
 </code></pre>
 
 <h2>TensorFlow 1.15.4</h2>

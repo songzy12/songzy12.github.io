@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-08-31T05:18:42+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">T470 GPU</title><link href="http://songzy12.github.io/2022/08/31/t470-gpu.html" rel="alternate" type="text/html" title="T470 GPU" /><published>2022-08-31T05:11:25+00:00</published><updated>2022-08-31T05:11:25+00:00</updated><id>http://songzy12.github.io/2022/08/31/t470-gpu</id><content type="html" xml:base="http://songzy12.github.io/2022/08/31/t470-gpu.html"><![CDATA[<p>Enable GPU on ThinkPad T470.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-08-31T15:15:34+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">T470 GPU</title><link href="http://songzy12.github.io/2022/08/31/t470-gpu.html" rel="alternate" type="text/html" title="T470 GPU" /><published>2022-08-31T13:11:25+08:00</published><updated>2022-08-31T13:11:25+08:00</updated><id>http://songzy12.github.io/2022/08/31/t470-gpu</id><content type="html" xml:base="http://songzy12.github.io/2022/08/31/t470-gpu.html"><![CDATA[<p>Enable GPU on ThinkPad T470.</p>
 
 <h2>Graphic Card</h2>
 
@@ -18,7 +18,7 @@
 
 <h2>CUDA</h2>
 
-<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Windows&amp;target_arch=x86_64&amp;target_version=10&amp;target_type=exe_local">https://developer.nvidia.com/cuda-downloads?target_os=Windows&amp;target_arch=x86_64&amp;target_version=10&amp;target_type=exe_local</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU on ThinkPad T470.]]></summary></entry><entry><title type="html">WSL2</title><link href="http://songzy12.github.io/2022/08/13/wsl2.html" rel="alternate" type="text/html" title="WSL2" /><published>2022-08-13T08:11:48+00:00</published><updated>2022-08-13T08:11:48+00:00</updated><id>http://songzy12.github.io/2022/08/13/wsl2</id><content type="html" xml:base="http://songzy12.github.io/2022/08/13/wsl2.html"><![CDATA[<p>WSL2 vdisk management.</p>
+<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Windows&amp;target_arch=x86_64&amp;target_version=10&amp;target_type=exe_local">https://developer.nvidia.com/cuda-downloads?target_os=Windows&amp;target_arch=x86_64&amp;target_version=10&amp;target_type=exe_local</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU on ThinkPad T470.]]></summary></entry><entry><title type="html">WSL2</title><link href="http://songzy12.github.io/2022/08/13/wsl2.html" rel="alternate" type="text/html" title="WSL2" /><published>2022-08-13T16:11:48+08:00</published><updated>2022-08-13T16:11:48+08:00</updated><id>http://songzy12.github.io/2022/08/13/wsl2</id><content type="html" xml:base="http://songzy12.github.io/2022/08/13/wsl2.html"><![CDATA[<p>WSL2 vdisk management.</p>
 
 <blockquote><p>WSL 2 uses a Virtual Hard Disk (VHD) to store your Linux files. In WSL 2, a VHD is represented on your Windows hard drive as a .vhdx file.
 The WSL 2 VHD uses the ext4 file system. This VHD automatically resizes to meet your storage needs and has an initial maximum size of 256GB.</p></blockquote>
@@ -90,7 +90,7 @@ DISKPART&gt; exit
 mount | grep ext4
 
 sudo resize2fs /dev/sdb &lt;sizeInMegabytes&gt;M
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[WSL2 vdisk management.]]></summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/03/01/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-03-01T12:12:09+00:00</published><updated>2022-03-01T12:12:09+00:00</updated><id>http://songzy12.github.io/2022/03/01/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/03/01/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[WSL2 vdisk management.]]></summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/03/01/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-03-01T20:12:09+08:00</published><updated>2022-03-01T20:12:09+08:00</updated><id>http://songzy12.github.io/2022/03/01/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/03/01/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
 
 <h2>github</h2>
 
@@ -361,7 +361,7 @@ $ source ~/.bashrc
 <pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 export http_proxy=http://$windows_host:10809
 export https_proxy=http://$windows_host:10809
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This article shows how to install and enabel V2Ray proxy.]]></summary></entry><entry><title type="html">SSH</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="SSH" /><published>2022-01-13T12:46:54+00:00</published><updated>2022-01-13T12:46:54+00:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html"><![CDATA[<p>How to config SSH of tencent cloud.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This article shows how to install and enabel V2Ray proxy.]]></summary></entry><entry><title type="html">SSH</title><link href="http://songzy12.github.io/2022/01/13/ssh.html" rel="alternate" type="text/html" title="SSH" /><published>2022-01-13T20:46:54+08:00</published><updated>2022-01-13T20:46:54+08:00</updated><id>http://songzy12.github.io/2022/01/13/ssh</id><content type="html" xml:base="http://songzy12.github.io/2022/01/13/ssh.html"><![CDATA[<p>How to config SSH of tencent cloud.</p>
 
 <h2>Config Files for Client &amp; Server</h2>
 
@@ -396,7 +396,7 @@ GSSAPIAuthentication no
 
 <p>可能原因：IO 高导致硬盘 %util 达到100%。</p>
 
-<p>处理步骤：查看 IO 高是否合理，且需评估是否减少 IO 读写或者置换更高性能的硬盘。</p></blockquote>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to config SSH of tencent cloud.]]></summary></entry><entry><title type="html">Paddle GPU</title><link href="http://songzy12.github.io/2021/10/21/paddle-gpu.html" rel="alternate" type="text/html" title="Paddle GPU" /><published>2021-10-21T07:43:08+00:00</published><updated>2021-10-21T07:43:08+00:00</updated><id>http://songzy12.github.io/2021/10/21/paddle-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/10/21/paddle-gpu.html"><![CDATA[<p>Enable GPU for PaddlePaddle.</p>
+<p>处理步骤：查看 IO 高是否合理，且需评估是否减少 IO 读写或者置换更高性能的硬盘。</p></blockquote>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to config SSH of tencent cloud.]]></summary></entry><entry><title type="html">Paddle GPU</title><link href="http://songzy12.github.io/2021/10/21/paddle-gpu.html" rel="alternate" type="text/html" title="Paddle GPU" /><published>2021-10-21T15:43:08+08:00</published><updated>2021-10-21T15:43:08+08:00</updated><id>http://songzy12.github.io/2021/10/21/paddle-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/10/21/paddle-gpu.html"><![CDATA[<p>Enable GPU for PaddlePaddle.</p>
 
 <pre><code>W1024 17:30:14.785153  6727 device_context.cc:404] Please NOTE: device: 0, GPU Compute Capability: 8.6, Driver API Version: 11.4, Runtime API Version: 10.2
 W1024 17:30:14.788581  6727 device_context.cc:422] device: 0, cuDNN Version: 8.1.
@@ -458,13 +458,11 @@ Sun Oct 24 20:28:01 2021
 <p><a href="https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html">https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html</a></p>
 
 <pre><code>pip install paddlepaddle-gpu==2.1.3.post110 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU for PaddlePaddle.]]></summary></entry><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-07-11T04:23:11+00:00</published><updated>2021-07-11T04:23:11+00:00</updated><id>http://songzy12.github.io/2021/07/11/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html"><![CDATA[<p>Enable TF 1.15 with RTX 3090.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU for PaddlePaddle.]]></summary></entry><entry><title type="html">TensorFlow GPU</title><link href="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html" rel="alternate" type="text/html" title="TensorFlow GPU" /><published>2021-07-11T12:23:11+08:00</published><updated>2021-07-11T12:23:11+08:00</updated><id>http://songzy12.github.io/2021/07/11/tensorflow-gpu</id><content type="html" xml:base="http://songzy12.github.io/2021/07/11/tensorflow-gpu.html"><![CDATA[<p>Enable TF 1.15 with RTX 3090.</p>
 
 <h2>CUDA</h2>
 
 <p><a href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html">https://docs.nvidia.com/cuda/wsl-user-guide/index.html</a></p>
-
-<p><a href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations">https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations</a></p>
 
 <h3>Driver</h3>
 
@@ -472,19 +470,32 @@ Sun Oct 24 20:28:01 2021
 
 <p><strong>Then restart your computer</strong>.</p>
 
-<h3>Verify</h3>
+<h4>Verify</h4>
 
 <pre><code>cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
 ./BlackScholes
 </code></pre>
 
-<h3>Toolkit</h3>
+<h4>Env Var</h4>
 
 <pre><code>cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
 sudo ln -s libcusolver.so.10 libcusolver.so.11
 </code></pre>
 
 <pre><code>export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib
+</code></pre>
+
+<h3>Toolkit</h3>
+
+<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=WSL-Ubuntu&amp;target_version=2.0&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=WSL-Ubuntu&amp;target_version=2.0&amp;target_type=deb_local</a></p>
+
+<pre><code>wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
+sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/11.7.1/local_installers/cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
+sudo dpkg -i cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
+sudo cp /var/cuda-repo-wsl-ubuntu-11-7-local/cuda-*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get -y install cuda
 </code></pre>
 
 <h2>TensorFlow 1.15.4</h2>
@@ -556,7 +567,7 @@ tf.config.list_physical_devices('GPU')
 <pre><code>sudo apt list --installed | grep python3.7
 sudo apt remove python3.7
 sudo apt autoremove
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable TF 1.15 with RTX 3090.]]></summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T06:08:18+00:00</published><updated>2021-05-01T06:08:18+00:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html"><![CDATA[<p><a href="https://github.com/microsoft/WSL/issues/1517">https://github.com/microsoft/WSL/issues/1517</a></p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable TF 1.15 with RTX 3090.]]></summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T14:08:18+08:00</published><updated>2021-05-01T14:08:18+08:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html"><![CDATA[<p><a href="https://github.com/microsoft/WSL/issues/1517">https://github.com/microsoft/WSL/issues/1517</a></p>
 
 <h2>Zsh Theme</h2>
 
@@ -623,7 +634,7 @@ sudo apt autoremove
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/DejaVu_fonts">https://en.wikipedia.org/wiki/DejaVu_fonts</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Code_page_437">https://en.wikipedia.org/wiki/Code_page_437</a></li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/microsoft/WSL/issues/1517]]></summary></entry><entry><title type="html">Windows Battery Report</title><link href="http://songzy12.github.io/2021/03/20/battery.html" rel="alternate" type="text/html" title="Windows Battery Report" /><published>2021-03-20T08:04:37+00:00</published><updated>2021-03-20T08:04:37+00:00</updated><id>http://songzy12.github.io/2021/03/20/battery</id><content type="html" xml:base="http://songzy12.github.io/2021/03/20/battery.html"><![CDATA[<pre><code>powercfg /batteryreport
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/microsoft/WSL/issues/1517]]></summary></entry><entry><title type="html">Windows Battery Report</title><link href="http://songzy12.github.io/2021/03/20/battery.html" rel="alternate" type="text/html" title="Windows Battery Report" /><published>2021-03-20T16:04:37+08:00</published><updated>2021-03-20T16:04:37+08:00</updated><id>http://songzy12.github.io/2021/03/20/battery</id><content type="html" xml:base="http://songzy12.github.io/2021/03/20/battery.html"><![CDATA[<pre><code>powercfg /batteryreport
 </code></pre>
 
 <pre><code>BATTERY 1   BATTERY 2
@@ -644,7 +655,7 @@ CHEMISTRY   LION
 DESIGN CAPACITY 24,020 mWh
 FULL CHARGE CAPACITY    13,010 mWh
 CYCLE COUNT 298
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[powercfg /batteryreport]]></summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2020/12/19/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2020-12-19T06:08:14+00:00</published><updated>2020-12-19T06:08:14+00:00</updated><id>http://songzy12.github.io/2020/12/19/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2020/12/19/octopress-3-0.html"><![CDATA[<p>This article shows the basic usage of Octopress 3.0.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[powercfg /batteryreport]]></summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2020/12/19/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2020-12-19T14:08:14+08:00</published><updated>2020-12-19T14:08:14+08:00</updated><id>http://songzy12.github.io/2020/12/19/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2020/12/19/octopress-3-0.html"><![CDATA[<p>This article shows the basic usage of Octopress 3.0.</p>
 
 <h2>new post</h2>
 
@@ -800,7 +811,7 @@ rdiscount:
 theme: minima
 plugins:
   - jekyll-feed
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This article shows the basic usage of Octopress 3.0.]]></summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/12/13/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-12-13T08:29:08+00:00</published><updated>2020-12-13T08:29:08+00:00</updated><id>http://songzy12.github.io/2020/12/13/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/12/13/workspace-setup.html"><![CDATA[<p>This shows what we need to do when we move to a brand new Linux environment.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This article shows the basic usage of Octopress 3.0.]]></summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2020/12/13/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2020-12-13T16:29:08+08:00</published><updated>2020-12-13T16:29:08+08:00</updated><id>http://songzy12.github.io/2020/12/13/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2020/12/13/workspace-setup.html"><![CDATA[<p>This shows what we need to do when we move to a brand new Linux environment.</p>
 
 <h2>wget proxy</h2>
 
