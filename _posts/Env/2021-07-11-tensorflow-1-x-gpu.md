@@ -4,7 +4,7 @@ title: "TensorFlow 1.x GPU"
 date: 2021-07-11T12:23:11+08:00
 ---
 
-Enable TF 1.x with RTX 3090.
+Enable TF 1.x GPU with RTX 3090.
 
 ## Nvidia TensorFlow
 
