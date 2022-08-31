@@ -10,22 +10,20 @@ Enable TF 1.15 with RTX 3090.
 
 <https://docs.nvidia.com/cuda/wsl-user-guide/index.html>
 
-<https://docs.nvidia.com/cuda/wsl-user-guide/index.html#known-limitations>
-
 ### Driver
 
 <https://developer.nvidia.com/cuda/wsl>
 
 **Then restart your computer**.
 
-### Verify
+#### Verify
 
 ```
 cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
 ./BlackScholes
 ```
 
-### Toolkit
+#### Env Var
 
 ```
 cd /usr/local/cuda-11.0/targets/x86_64-linux/lib
@@ -34,6 +32,20 @@ sudo ln -s libcusolver.so.10 libcusolver.so.11
 
 ```
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda-11.0/targets/x86_64-linux/lib
+```
+
+### Toolkit
+
+<https://developer.nvidia.com/cuda-downloads?target_os=Linux&target_arch=x86_64&Distribution=WSL-Ubuntu&target_version=2.0&target_type=deb_local>
+
+```
+wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
+sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/11.7.1/local_installers/cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
+sudo dpkg -i cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
+sudo cp /var/cuda-repo-wsl-ubuntu-11-7-local/cuda-*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get -y install cuda
 ```
 
 ## TensorFlow 1.15.4
