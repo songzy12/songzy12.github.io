@@ -13,8 +13,8 @@ permalink: /about/
 
 ### __Google__ Beijing (Jul 2019 ~ now)
 
-* i18n (Oct 2022  ~ now)
-* DataZ (Jul 2019 ~ Sept 2022)
+* Search - i18n (Oct 2022  ~ now)
+* Search - KE (Jul 2019 ~ Sept 2022)
   * Wikipedia Article Classifier
   * Wikipedia Crawler
 
