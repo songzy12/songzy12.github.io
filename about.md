@@ -25,6 +25,7 @@ permalink: /about/
 * Web crawler to collect question-answer pairs from community QA sites.
 * Text classifier to classify the user questions to predefined classes. 
 * Text matcher to match the user questions to existing questions. 
+* Demo: <https://www.xuetangx.com/learn/THU08091000384/THU08091000384/10322765>
 
 ### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
 
