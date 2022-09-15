@@ -4,11 +4,6 @@ title: About Me
 permalink: /about/
 ---
 
-## Education
-
-* Master (2016 ~ 2019): Tsinghua University, IIIS, Computer Science and Technology
-* Bachelor (2012 ~ 2016): Tsinghua University, __Yao Class__, Computer Science and Technology
-
 ## Work
 
 ### __Google__ Beijing (Jul 2019 ~ now)
@@ -18,7 +13,18 @@ permalink: /about/
   * Wikipedia Article Classifier
   * Wikipedia Crawler
 
+---
+
+## Education
+
+* Master (2016 ~ 2019): Tsinghua University, IIIS, Computer Science and Technology
+* Bachelor (2012 ~ 2016): Tsinghua University, __Yao Class__, Computer Science and Technology
+
 ## Intern
+
+### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
+
+* Evaluate the Wide & Deep model to the news CTR prediction problem.
 
 ### [XuetangX](http://www.xuetangx.com) (Oct 2015 ~ Jun 2019)
 
@@ -26,10 +32,6 @@ permalink: /about/
 * Text classifier to classify the user questions to predefined classes. 
 * Text matcher to match the user questions to existing questions. 
 * Demo: <https://www.xuetangx.com/learn/THU08091000384/THU08091000384/10322765>
-
-### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
-
-* Evaluate the Wide & Deep model to the news CTR prediction problem.
 
 ### [Ever](http://everchain.site/#/) (May 2018 ~ Jan 2019)
 
@@ -70,6 +72,8 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 * CCF CSP: Score 370/500 (Top 2.09%), Sept 2015
 * Tsinghua Xuetang Scholarship, 2012~2016
 * National Encouragement Scholarship, 2012~2013
+
+---
   
 ## Social
 
