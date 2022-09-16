@@ -67,7 +67,7 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 * Zhang, H., Sun, M., Wang, X., __Song, Z.__, Tang, J., & Sun, J. (2017, April). Smart jump: Automated navigation suggestion for videos in moocs. In Proceedings of the 26th international conference on world wide web companion (pp. 331-339).
 * Jia, Y., __Song, Z.__, Bai, X., & Xu, W. (2017, March). Towards economic models for MOOC pricing strategy design. In International Conference on Database Systems for Advanced Applications (pp. 387-398). Springer, Cham.
 
-## Misc
+## Awards
 
 * CCF CSP: Score 370/500 (Top 2.09%), Sept 2015
 * Tsinghua Xuetang Scholarship, 2012~2016
