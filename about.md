@@ -13,6 +13,20 @@ permalink: /about/
   * Wikipedia Article Classifier
   * Wikipedia Crawler
 
+## Project
+
+### [WeiboSpider](https://github.com/dataabc/weiboSpider)
+
+This is a library that crawls useful info of specified weibo users, which has earned __6k stars__ as of Aug 2022. I helped to refactor and modularize the code base and now am [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
+
+### [LECP](https://github.com/songzy12/LECP)
+
+This is a demo to showcase the optimal algorithm for the "Largest Empty Convex Polygon" problem. The problem is: given a set of points in the 2-dimensional space, find the empty convex polygon with most points. The heart of the algorithm is: use duality to get an angular sort of all points in time $O(n \log n)$ rather than $O(n^2 \log n)$.
+
+### [EtherLend](https://github.com/Sun-Jc/EtherLend)
+
+This is a DApp on Ethereum blockchain platform simulating the "ROSCA" protocal. We use the Truffle framework to implement the smart contract. The node.js backend accepts request from the Android client, interacts with the Blockchain client through web3.js API, then sends the response back to the Android client.
+
 ---
 
 ## Education
@@ -42,20 +56,6 @@ permalink: /about/
 ### [OxCoder](https://www.oxcoder.com/) (Jul 2015 ~ Sept 2015)
 
 * Automatic grading algorithm to assess the candidate's programming skills.
-
-## Project
-
-### [WeiboSpider](https://github.com/dataabc/weiboSpider)
-
-This is a library that crawls useful info of specified weibo users, which has earned __6k stars__ as of Aug 2022. I helped to refactor and modularize the code base and now am [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
-
-### [LECP](https://github.com/songzy12/LECP)
-
-This is a demo to showcase the optimal algorithm for the "Largest Empty Convex Polygon" problem. The problem is: given a set of points in the 2-dimensional space, find the empty convex polygon with most points. The heart of the algorithm is: use duality to get an angular sort of all points in time $O(n \log n)$ rather than $O(n^2 \log n)$.
-
-### [EtherLend](https://github.com/Sun-Jc/EtherLend)
-
-This is a DApp on Ethereum blockchain platform simulating the "ROSCA" protocal. We use the Truffle framework to implement the smart contract. The node.js backend accepts request from the Android client, interacts with the Blockchain client through web3.js API, then sends the response back to the Android client.
 
 ## Research
 
