@@ -4,7 +4,7 @@ title: About Me
 permalink: /about/
 ---
 
-## Work Experience
+## Work
 
 ### __Google__ Beijing (Jul 2019 ~ now)
 
@@ -12,6 +12,31 @@ permalink: /about/
 * Search - KE (Jul 2019 ~ Sept 2022)
   * Wikipedia Article Classifier
   * Wikipedia Crawler
+
+## Internship
+
+### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
+
+* Evaluate the Wide & Deep model to the news CTR prediction problem.
+
+### [XuetangX](http://www.xuetangx.com) (Oct 2015 ~ Jun 2019)
+
+* Web crawler to collect question-answer pairs from community QA sites.
+* Text classifier to classify the user questions to predefined classes. 
+* Text matcher to match the user questions to existing questions. 
+* Demo: <https://www.xuetangx.com/learn/THU08091000384/THU08091000384/10322765>
+
+### [Ever](http://everchain.site/#/) (May 2018 ~ Jan 2019)
+
+* Backend APIs of the WeChat mini-program "EverParty":
+  * Image CAPTCHA, SMS Code, Activity List, Activity Detail
+* Partner recommendation algorithm for the Android App "Ever".
+
+### [OxCoder](https://www.oxcoder.com/) (Jul 2015 ~ Sept 2015)
+
+* Automatic grading algorithm to assess the candidate's programming skills.
+
+---
 
 ## Project
 
@@ -40,29 +65,6 @@ This is a DApp on Ethereum blockchain platform simulating the "ROSCA" protocal. 
 
 * Master (2016 ~ 2019): Tsinghua University, IIIS, Computer Science and Technology
 * Bachelor (2012 ~ 2016): Tsinghua University, __Yao Class__, Computer Science and Technology
-
-## Internship
-
-### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
-
-* Evaluate the Wide & Deep model to the news CTR prediction problem.
-
-### [XuetangX](http://www.xuetangx.com) (Oct 2015 ~ Jun 2019)
-
-* Web crawler to collect question-answer pairs from community QA sites.
-* Text classifier to classify the user questions to predefined classes. 
-* Text matcher to match the user questions to existing questions. 
-* Demo: <https://www.xuetangx.com/learn/THU08091000384/THU08091000384/10322765>
-
-### [Ever](http://everchain.site/#/) (May 2018 ~ Jan 2019)
-
-* Backend APIs of the WeChat mini-program "EverParty":
-  * Image CAPTCHA, SMS Code, Activity List, Activity Detail
-* Partner recommendation algorithm for the Android App "Ever".
-
-### [OxCoder](https://www.oxcoder.com/) (Jul 2015 ~ Sept 2015)
-
-* Automatic grading algorithm to assess the candidate's programming skills.
 
 ## Publication
 
