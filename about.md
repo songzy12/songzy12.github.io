@@ -23,7 +23,7 @@ permalink: /about/
 * Text matcher to match the user questions to existing questions. 
 * Demo: <https://www.xuetangx.com/learn/THU08091000384/THU08091000384/10322765>
 
-### [Ever](http://everchain.site/#/) (May 2018 ~ Jan 2019)
+### [Ever](http://everchain.site/#/) (May 2018 ~ Dec 2018)
 
 * Backend APIs of the WeChat mini-program "EverParty":
   * Image CAPTCHA, SMS Code, Activity List, Activity Detail
