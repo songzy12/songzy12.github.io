@@ -8,17 +8,13 @@ permalink: /about/
 
 ### __Google__ Beijing (Jul 2019 ~ now)
 
-* Search - i18n - TC (Oct 2022  ~ now)
+* Search - i18n - TC (Jan 2023  ~ now)
   * TransConsole
 * Search - KE - Wiki (Jul 2019 ~ Dec 2022)
   * WikiCrawler
   * WpCat
 
 ## Internship
-
-### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
-
-* Evaluate the Wide & Deep model to the news CTR prediction problem.
 
 ### [XuetangX](http://www.xuetangx.com) (Oct 2015 ~ Jun 2019)
 
@@ -32,6 +28,10 @@ permalink: /about/
 * Backend APIs of the WeChat mini-program "EverParty":
   * Image CAPTCHA, SMS Code, Activity List, Activity Detail
 * Partner recommendation algorithm for the Android App "Ever".
+
+### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
+
+* Evaluate the Wide & Deep model to the news CTR prediction problem.
 
 ### [OxCoder](https://www.oxcoder.com/) (Jul 2015 ~ Sept 2015)
 
