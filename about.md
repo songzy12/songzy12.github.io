@@ -8,7 +8,7 @@ permalink: /about/
 
 ### __Google__ Beijing (Jul 2019 ~ now)
 
-* Search - i18n - TC (Jan 2023  ~ now)
+* Search - i18n - TC (Oct 2022  ~ now)
   * TransConsole
 * Search - KE - Wiki (Jul 2019 ~ Dec 2022)
   * WikiCrawler
