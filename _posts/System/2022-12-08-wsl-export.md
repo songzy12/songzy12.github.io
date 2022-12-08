@@ -26,3 +26,9 @@ WSL-SetDefaultUser Ubuntu-20.04 songzy
 
 Remove-Item Function:WSL-SetDefaultUser
 ```
+
+Or simply:
+
+```
+ubuntu2004 config --default-user songzy
+```
