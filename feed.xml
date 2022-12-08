@@ -1,4 +1,16 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-12-08T02:32:48+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/10/03/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-10-03T12:12:09+00:00</published><updated>2022-10-03T12:12:09+00:00</updated><id>http://songzy12.github.io/2022/10/03/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/10/03/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-12-08T14:13:42+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL Export/Import</title><link href="http://songzy12.github.io/2022/12/08/wsl-export.html" rel="alternate" type="text/html" title="WSL Export/Import" /><published>2022-12-08T14:11:00+00:00</published><updated>2022-12-08T14:11:00+00:00</updated><id>http://songzy12.github.io/2022/12/08/wsl-export</id><content type="html" xml:base="http://songzy12.github.io/2022/12/08/wsl-export.html"><![CDATA[<p>WSL2 export and import.</p>
+
+<pre><code>PS C:\Users\songzy&gt; wsl --list
+Windows Subsystem for Linux Distributions:
+Ubuntu-20.04 (Default)
+
+PS C:\Users\songzy&gt; wsl --export Ubuntu-20.04 D:/Ubuntu-20.04.tar
+
+PS C:\Users\songzy&gt; wsl --unregister Ubuntu-20.04
+Unregistering...
+
+PS C:\Users\songzy&gt; wsl --import Ubuntu-20.04 D:/Ubuntu-20.04/ D:/Ubuntu-20.04.tar
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[WSL2 export and import.]]></summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/10/03/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-10-03T12:12:09+00:00</published><updated>2022-10-03T12:12:09+00:00</updated><id>http://songzy12.github.io/2022/10/03/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/10/03/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
 
 <h2>github</h2>
 
@@ -707,25 +719,4 @@ sudo apt autoremove
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/DejaVu_fonts">https://en.wikipedia.org/wiki/DejaVu_fonts</a></li>
 <li><a href="https://en.wikipedia.org/wiki/Code_page_437">https://en.wikipedia.org/wiki/Code_page_437</a></li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/microsoft/WSL/issues/1517]]></summary></entry><entry><title type="html">Windows Battery Report</title><link href="http://songzy12.github.io/2021/03/20/battery.html" rel="alternate" type="text/html" title="Windows Battery Report" /><published>2021-03-20T08:04:37+00:00</published><updated>2021-03-20T08:04:37+00:00</updated><id>http://songzy12.github.io/2021/03/20/battery</id><content type="html" xml:base="http://songzy12.github.io/2021/03/20/battery.html"><![CDATA[<pre><code>powercfg /batteryreport
-</code></pre>
-
-<pre><code>BATTERY 1   BATTERY 2
-NAME    01AV419 01AV423
-MANUFACTURER    SANYO   LGC
-SERIAL NUMBER   186 4024
-CHEMISTRY   LION    LiP
-DESIGN CAPACITY 24,020 mWh  23,940 mWh
-FULL CHARGE CAPACITY    12,540 mWh  9,410 mWh
-CYCLE COUNT 298 333
-</code></pre>
-
-<pre><code>BATTERY 1
-NAME    01AV419
-MANUFACTURER    SANYO
-SERIAL NUMBER   186
-CHEMISTRY   LION
-DESIGN CAPACITY 24,020 mWh
-FULL CHARGE CAPACITY    13,010 mWh
-CYCLE COUNT 298
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[powercfg /batteryreport]]></summary></entry></feed>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/microsoft/WSL/issues/1517]]></summary></entry></feed>
