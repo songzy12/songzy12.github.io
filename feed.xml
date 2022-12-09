@@ -1,4 +1,181 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-12-08T14:31:43+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL Export/Import</title><link href="http://songzy12.github.io/2022/12/08/wsl-export.html" rel="alternate" type="text/html" title="WSL Export/Import" /><published>2022-12-08T14:11:00+00:00</published><updated>2022-12-08T14:11:00+00:00</updated><id>http://songzy12.github.io/2022/12/08/wsl-export</id><content type="html" xml:base="http://songzy12.github.io/2022/12/08/wsl-export.html"><![CDATA[<p>WSL2 export and import.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-12-09T06:09:39+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Env Var</title><link href="http://songzy12.github.io/2022/12/09/env-var.html" rel="alternate" type="text/html" title="Env Var" /><published>2022-12-09T06:02:27+00:00</published><updated>2022-12-09T06:02:27+00:00</updated><id>http://songzy12.github.io/2022/12/09/env-var</id><content type="html" xml:base="http://songzy12.github.io/2022/12/09/env-var.html"><![CDATA[<p>Envrionment Variables.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Environment_variable#Windows">https://en.wikipedia.org/wiki/Environment_variable#Windows</a></p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center;"> Variable </th>
+<th style="text-align:center;"> Locale specific </th>
+<th style="text-align:center;"> Windows XP (CMD) </th>
+<th style="text-align:center;"> Windows Vista and later (CMD) </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;"> %ALLUSERSPROFILE% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> C:\Documents and Settings\All Users </td>
+<td style="text-align:center;"> C:\ProgramData </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %APPDATA% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> C:\Documents and Settings{username}\Application Data </td>
+<td style="text-align:center;"> C:\Users{username}\AppData\Roaming </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %CommonProgramFiles% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> C:\Program Files\Common Files </td>
+<td style="text-align:center;"> C:\Program Files\Common Files </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %CommonProgramFiles(x86)% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> C:\Program Files (x86)\Common Files (only in 64-bit version) </td>
+<td style="text-align:center;"> C:\Program Files (x86)\Common Files (only in 64-bit version) </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %CommonProgramW6432% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %CommonProgramW6432% (not supported, not replaced by any value) </td>
+<td style="text-align:center;"> C:\Program Files\Common Files (only in 64-bit version) </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %COMPUTERNAME% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> {computername} </td>
+<td style="text-align:center;"> {computername} </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %ComSpec% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> C:\Windows\System32\cmd.exe </td>
+<td style="text-align:center;"> C:\Windows\System32\cmd.exe </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %HOMEDRIVE% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> C: </td>
+<td style="text-align:center;"> C: </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %HOMEPATH% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> \Documents and Settings{username} </td>
+<td style="text-align:center;"> \Users{username} </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %LOCALAPPDATA% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %LOCALAPPDATA% (not supported, not replaced by any value) </td>
+<td style="text-align:center;"> C:\Users{username}\AppData\Local </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %LOGONSERVER% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> \{domain_logon_server} </td>
+<td style="text-align:center;"> \{domain_logon_server} </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %PATH% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;{plus program paths} </td>
+<td style="text-align:center;"> C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;{plus program paths} </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %PATHEXT% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.WSF;.WSH </td>
+<td style="text-align:center;"> .com;.exe;.bat;.cmd;.vbs;.vbe;.js;.jse;.wsf;.wsh;.msc </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %ProgramData% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %ProgramData% (not supported, not replaced by any value) </td>
+<td style="text-align:center;"> %SystemDrive%\ProgramData </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %ProgramFiles% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %SystemDrive%\Program Files </td>
+<td style="text-align:center;"> %SystemDrive%\Program Files </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %ProgramFiles(x86)% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %SystemDrive%\Program Files (x86) (only in 64-bit version) </td>
+<td style="text-align:center;"> %SystemDrive%\Program Files (x86) (only in 64-bit version) </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %ProgramW6432% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %ProgramW6432% (not supported, not replaced by any value) </td>
+<td style="text-align:center;"> %SystemDrive%\Program Files (only in 64-bit version) </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %PROMPT% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> Code for current command prompt format, usually $P$G </td>
+<td style="text-align:center;"> Code for current command prompt format, usually $P$G </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %PSModulePath% </td>
+<td style="text-align:center;">  </td>
+<td style="text-align:center;"> %PSModulePath% (not supported, not replaced by any value) </td>
+<td style="text-align:center;"> %SystemRoot%\system32\WindowsPowerShell\v1.0\Modules\ </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %PUBLIC% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %PUBLIC% (not supported, not replaced by any value) </td>
+<td style="text-align:center;"> %SystemDrive%\Users\Public </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %SystemDrive% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> C: </td>
+<td style="text-align:center;"> C: </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %SystemRoot% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> The Windows directory, usually C:\Windows, formerly C:\WINNT </td>
+<td style="text-align:center;"> %SystemDrive%\Windows </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %TEMP% and %TMP% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %SystemDrive%\Documents and Settings{username}\Local Settings\Temp </td>
+<td style="text-align:center;"> %SystemRoot%\TEMP (for system environment variables %TMP% and %TEMP%), %USERPROFILE%\AppData\Local\Temp (for user environment variables %TMP% and %TEMP%) </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %USERDOMAIN% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> {userdomain} </td>
+<td style="text-align:center;"> {userdomain} </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %USERNAME% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> {username} </td>
+<td style="text-align:center;"> {username} </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %USERPROFILE% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %SystemDrive%\Documents and Settings{username} </td>
+<td style="text-align:center;"> %SystemDrive%\Users{username} </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %windir% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> %SystemDrive%\WINDOWS </td>
+<td style="text-align:center;"> %SystemDrive%\Windows </td>
+</tr>
+</tbody>
+</table>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Envrionment Variables.]]></summary></entry><entry><title type="html">WSL Export/Import</title><link href="http://songzy12.github.io/2022/12/08/wsl-export.html" rel="alternate" type="text/html" title="WSL Export/Import" /><published>2022-12-08T14:11:00+00:00</published><updated>2022-12-08T14:11:00+00:00</updated><id>http://songzy12.github.io/2022/12/08/wsl-export</id><content type="html" xml:base="http://songzy12.github.io/2022/12/08/wsl-export.html"><![CDATA[<p>WSL2 export and import.</p>
 
 <pre><code>PS C:\Users\songzy&gt; wsl --list
 Windows Subsystem for Linux Distributions:
@@ -664,71 +841,4 @@ tf.test.is_gpu_available()
 <pre><code>sudo apt list --installed | grep python3.7
 sudo apt remove python3.7
 sudo apt autoremove
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable TF 1.x GPU with RTX 3090.]]></summary></entry><entry><title type="html">WSL Font</title><link href="http://songzy12.github.io/2021/05/01/wsl-font.html" rel="alternate" type="text/html" title="WSL Font" /><published>2021-05-01T06:08:18+00:00</published><updated>2021-05-01T06:08:18+00:00</updated><id>http://songzy12.github.io/2021/05/01/wsl-font</id><content type="html" xml:base="http://songzy12.github.io/2021/05/01/wsl-font.html"><![CDATA[<p><a href="https://github.com/microsoft/WSL/issues/1517">https://github.com/microsoft/WSL/issues/1517</a></p>
-
-<h2>Zsh Theme</h2>
-
-<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
-
-<p>To set zsh theme:</p>
-
-<pre><code>export ZSH_THEME=robbyrussell
-</code></pre>
-
-<p>To view all the avaliable zsh themes:</p>
-
-<pre><code>ls ~/.oh-my-zsh/themes/
-</code></pre>
-
-<p>To view the config of a specific zsh theme:</p>
-
-<pre><code>vi ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
-</code></pre>
-
-<h2>Powerline Fonts</h2>
-
-<p><a href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></p>
-
-<pre><code>/c/Users/songzy/.local/share/fonts/ -&gt; C:\Windows\Fonts
-</code></pre>
-
-<p><code>DejaVu Sans Mono for Powerline</code>.</p>
-
-<h2>Monospace Fonts to Registry</h2>
-
-<p>This will influence what fonts are avaliable in cmd properties menu.</p>
-
-<p><a href="https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/">https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/</a></p>
-
-<pre><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont
-</code></pre>
-
-<h2>CodePage</h2>
-
-<p><a href="https://ss64.com/nt/chcp.html">https://ss64.com/nt/chcp.html</a></p>
-
-<p>This will influence the behaviors of tmux, vim, cmd, powershell, etc.</p>
-
-<h3>437</h3>
-
-<p><a href="https://github.com/microsoft/WSL/issues/3988">https://github.com/microsoft/WSL/issues/3988</a></p>
-
-<ol>
-<li>Open <code>regedit</code>.</li>
-<li>Find this. <code>HKEY_CURRENT_USER\Console\C:_Program Files_WindowsApps_CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2020.812.0_x64__79rhkp1fndgsc_ubuntu2004.exe</code>.</li>
-<li>then, add CodePage (Type: DWORD, Value: 0x01b5).</li>
-</ol>
-
-
-<h3>65001</h3>
-
-<p><a href="https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8">https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8</a></p>
-
-<p><code>Language settings</code> -> <code>Administrative language settings</code> -> <code>Change system locale...</code> -> <code>Beta: Use Unicode UTF-8 for worldwide language support</code>.</p>
-
-<h2>Reference</h2>
-
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/DejaVu_fonts">https://en.wikipedia.org/wiki/DejaVu_fonts</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Code_page_437">https://en.wikipedia.org/wiki/Code_page_437</a></li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/microsoft/WSL/issues/1517]]></summary></entry></feed>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable TF 1.x GPU with RTX 3090.]]></summary></entry></feed>
