@@ -8,8 +8,8 @@
 <meta property="og:title" content="WSL Font" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="https://github.com/microsoft/WSL/issues/1517" />
-<meta property="og:description" content="https://github.com/microsoft/WSL/issues/1517" />
+<meta name="description" content="Font related issues I came across when using Windows terminals." />
+<meta property="og:description" content="Font related issues I came across when using Windows terminals." />
 <link rel="canonical" href="http://songzy12.github.io/2021/05/01/wsl-font.html" />
 <meta property="og:url" content="http://songzy12.github.io/2021/05/01/wsl-font.html" />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="WSL Font" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2021-05-01T06:08:18+00:00","datePublished":"2021-05-01T06:08:18+00:00","description":"https://github.com/microsoft/WSL/issues/1517","headline":"WSL Font","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2021/05/01/wsl-font.html"},"url":"http://songzy12.github.io/2021/05/01/wsl-font.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2021-05-01T06:08:18+00:00","datePublished":"2021-05-01T06:08:18+00:00","description":"Font related issues I came across when using Windows terminals.","headline":"WSL Font","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2021/05/01/wsl-font.html"},"url":"http://songzy12.github.io/2021/05/01/wsl-font.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -48,9 +48,13 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p><a href="https://github.com/microsoft/WSL/issues/1517">https://github.com/microsoft/WSL/issues/1517</a></p>
+    <p>Font related issues I came across when using Windows terminals.</p>
 
-<h2>Zsh Theme</h2>
+<h2>oh-my-zsh icons not shown correctly</h2>
+
+<p><a href="https://github.com/microsoft/WSL/issues/1517">https://github.com/microsoft/WSL/issues/1517</a></p>
+
+<h3>oh-my-zsh Themes</h3>
 
 <p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
 
@@ -69,7 +73,7 @@
 <pre><code>vi ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
 </code></pre>
 
-<h2>Powerline Fonts</h2>
+<h3>Powerline Fonts</h3>
 
 <p><a href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></p>
 
@@ -78,24 +82,26 @@
 
 <p><code>DejaVu Sans Mono for Powerline</code>.</p>
 
-<h2>Monospace Fonts to Registry</h2>
+<h3>Monospace Fonts to Registry</h3>
 
-<p>This will influence what fonts are avaliable in cmd properties menu.</p>
+<p>This will affect what fonts are avaliable in cmd properties menu.</p>
 
 <p><a href="https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/">https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/</a></p>
 
 <pre><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont
 </code></pre>
 
-<h2>CodePage</h2>
+<h2>Entering tmux will reset fonts</h2>
+
+<p><a href="https://github.com/microsoft/WSL/issues/3988">https://github.com/microsoft/WSL/issues/3988</a></p>
+
+<h3>CodePage</h3>
 
 <p><a href="https://ss64.com/nt/chcp.html">https://ss64.com/nt/chcp.html</a></p>
 
 <p>This will influence the behaviors of tmux, vim, cmd, powershell, etc.</p>
 
-<h3>437</h3>
-
-<p><a href="https://github.com/microsoft/WSL/issues/3988">https://github.com/microsoft/WSL/issues/3988</a></p>
+<h4>437</h4>
 
 <ol>
 <li>Open <code>regedit</code>.</li>
@@ -104,11 +110,15 @@
 </ol>
 
 
-<h3>65001</h3>
+<h4>65001</h4>
 
 <p><a href="https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8">https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8</a></p>
 
 <p><code>Language settings</code> -> <code>Administrative language settings</code> -> <code>Change system locale...</code> -> <code>Beta: Use Unicode UTF-8 for worldwide language support</code>.</p>
+
+<h2>PowerShell reset font to <code>raster</code> instead of using <code>consolas</code></h2>
+
+<p><a href="https://github.com/microsoft/terminal/issues/280">https://github.com/microsoft/terminal/issues/280</a></p>
 
 <h2>Reference</h2>
 
