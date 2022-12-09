@@ -1,10 +1,10 @@
 ---
 layout: post
-title: "WSL Font"
+title: "Terminal Font"
 date: 2021-05-01T14:08:18+08:00
 ---
 
-Font related issues I came across when using Windows terminals.
+Font/color related issues I came across when using terminals.
 
 ## oh-my-zsh icons not shown correctly
 
@@ -52,7 +52,7 @@ This will affect what fonts are avaliable in cmd properties menu.
 HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont
 ```
 
-## Entering tmux will reset fonts
+## tmux reset font
 
 <https://github.com/microsoft/WSL/issues/3988>
 
@@ -74,7 +74,9 @@ This will influence the behaviors of tmux, vim, cmd, powershell, etc.
 
 `Language settings` -> `Administrative language settings` -> `Change system locale...` -> `Beta: Use Unicode UTF-8 for worldwide language support`.
 
-## PowerShell reset font to `raster` instead of using `consolas`
+## PowerShell reset font
+
+PowerShell reset font to `raster` instead of using `consolas` as configured.
 
 <https://github.com/microsoft/terminal/issues/280>
 

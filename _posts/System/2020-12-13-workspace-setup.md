@@ -40,6 +40,7 @@ vi ~/.tmux.conf
 
 ```
 set -g default-shell /usr/bin/zsh
+set -g default-terminal "xterm-256color"
 ```
 
 ## apt source
