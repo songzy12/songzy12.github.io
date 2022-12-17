@@ -3,22 +3,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>WSL Export/Import | Zhengyang Song&rsquo;s Secret Base</title>
+<title>世界名画：华丽的大师 | Zhengyang Song&rsquo;s Secret Base</title>
 <meta name="generator" content="Jekyll v3.8.7" />
-<meta property="og:title" content="WSL Export/Import" />
+<meta property="og:title" content="世界名画：华丽的大师" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="WSL2 export and import." />
-<meta property="og:description" content="WSL2 export and import." />
-<link rel="canonical" href="http://songzy12.github.io/2022/12/08/wsl-export.html" />
-<meta property="og:url" content="http://songzy12.github.io/2022/12/08/wsl-export.html" />
+<meta name="description" content="https://www.bilibili.com/video/BV1ex411n7nG" />
+<meta property="og:description" content="https://www.bilibili.com/video/BV1ex411n7nG" />
+<link rel="canonical" href="http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB.html" />
+<meta property="og:url" content="http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB.html" />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2022-12-08T22:11:00+08:00" />
+<meta property="article:published_time" content="2022-12-17T17:54:00+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="WSL Export/Import" />
+<meta property="twitter:title" content="世界名画：华丽的大师" />
 <script type="application/ld+json">
-{"@type":"BlogPosting","url":"http://songzy12.github.io/2022/12/08/wsl-export.html","headline":"WSL Export/Import","dateModified":"2022-12-08T22:11:00+08:00","datePublished":"2022-12-08T22:11:00+08:00","author":{"@type":"Person","name":"Zhengyang Song"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2022/12/08/wsl-export.html"},"description":"WSL2 export and import.","@context":"https://schema.org"}</script>
+{"@type":"BlogPosting","url":"http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB.html","headline":"世界名画：华丽的大师","dateModified":"2022-12-17T17:54:00+08:00","datePublished":"2022-12-17T17:54:00+08:00","author":{"@type":"Person","name":"Zhengyang Song"},"mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB.html"},"description":"https://www.bilibili.com/video/BV1ex411n7nG","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -41,44 +41,16 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">WSL Export/Import</h1>
+    <h1 class="post-title p-name" itemprop="name headline">世界名画：华丽的大师</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2022-12-08T22:11:00+08:00" itemprop="datePublished">Dec 8, 2022
+      <time class="dt-published" datetime="2022-12-17T17:54:00+08:00" itemprop="datePublished">Dec 17, 2022
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>WSL2 export and import.</p>
+    <p><a href="https://www.bilibili.com/video/BV1ex411n7nG">https://www.bilibili.com/video/BV1ex411n7nG</a></p>
 
-<pre><code>PS C:\Users\songzy&gt; wsl --list
-Windows Subsystem for Linux Distributions:
-Ubuntu-20.04 (Default)
-
-PS C:\Users\songzy&gt; wsl --export Ubuntu-20.04 D:/Ubuntu-20.04.tar
-
-PS C:\Users\songzy&gt; wsl --unregister Ubuntu-20.04
-Unregistering...
-
-PS C:\Users\songzy&gt; wsl --import Ubuntu-20.04 D:/Ubuntu-20.04/ D:/Ubuntu-20.04.tar
-</code></pre>
-
-<h2>Config Default User</h2>
-
-<p>Method 1:</p>
-
-<pre><code>Function WSL-SetDefaultUser ($distro, $user) { Get-ItemProperty Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss\*\ DistributionName | Where-Object -Property DistributionName -eq $distro | Set-ItemProperty -Name DefaultUid -Value ((wsl -d $distro -u $user -e id -u) | Out-String); };
-
-WSL-SetDefaultUser Ubuntu-20.04 songzy
-
-Remove-Item Function:WSL-SetDefaultUser
-</code></pre>
-
-<p>Method 2:</p>
-
-<pre><code>ubuntu2004 config --default-user songzy
-</code></pre>
-
-  </div><a class="u-url" href="/2022/12/08/wsl-export.html" hidden></a>
+  </div><a class="u-url" href="/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB.html" hidden></a>
 </article>
 
       </div>
