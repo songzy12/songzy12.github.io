@@ -147,6 +147,14 @@ git config --global user.email "songzy_thu@163.com"
 git config --global user.name "Zhengyang Song"
 ```
 
+### ssh
+
+```
+Host github.com
+  Hostname ssh.github.com
+  Port 443
+```
+
 ## docker
 
 ```
