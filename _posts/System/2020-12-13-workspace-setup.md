@@ -126,7 +126,7 @@ source ~/.local/bin/virtualenvwrapper.sh
 
 ## git config
 
-### vim editor
+### editor
 
 ```
 git config --global core.editor "vim"
@@ -147,7 +147,11 @@ git config --global user.email "songzy_thu@163.com"
 git config --global user.name "Zhengyang Song"
 ```
 
-### ssh
+### ssh https
+
+```
+vi ~/.ssh/config
+```
 
 ```
 Host github.com
