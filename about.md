@@ -39,21 +39,6 @@ permalink: /about/
 
 ---
 
-## Project
-
-### [WeiboSpider](https://github.com/dataabc/weiboSpider)
-
-This is a library that crawls useful info of specified weibo users, which has earned __6k stars__ as of Aug 2022. I helped to refactor and modularize the code base and now am [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
-  
-## Social
-
-* GitHub: <https://github.com/songzy12>
-* Kaggle: <https://www.kaggle.com/songzy12>
-* CodeForces: <http://codeforces.com/profile/songzy12>
-* TopCoder: <https://www.topcoder.com/members/songzy12>
-
----
-
 ## Education
 
 * Master (2016 ~ 2019): Tsinghua University, IIIS, Computer Science and Technology
@@ -69,8 +54,17 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 * Zhang, H., Sun, M., Wang, X., __Song, Z.__, Tang, J., & Sun, J. (2017, April). Smart jump: Automated navigation suggestion for videos in moocs. In Proceedings of the 26th international conference on world wide web companion (pp. 331-339).
 * Jia, Y., __Song, Z.__, Bai, X., & Xu, W. (2017, March). Towards economic models for MOOC pricing strategy design. In International Conference on Database Systems for Advanced Applications (pp. 387-398). Springer, Cham.
 
-## Award
+---
 
-* CCF CSP: Score 370/500 (Top 2.09%), Sept 2015
-* Tsinghua Xuetang Scholarship, 2012~2016
-* National Encouragement Scholarship, 2012~2013
+## Project
+
+### [WeiboSpider](https://github.com/dataabc/weiboSpider)
+
+This is a library that crawls useful info of specified weibo users, which has earned __6k stars__ as of Aug 2022. I helped to refactor and modularize the code base and now am [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
+  
+## Social
+
+* GitHub: <https://github.com/songzy12>
+* Kaggle: <https://www.kaggle.com/songzy12>
+* CodeForces: <http://codeforces.com/profile/songzy12>
+* TopCoder: <https://www.topcoder.com/members/songzy12>
