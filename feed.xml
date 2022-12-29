@@ -1,616 +1,616 @@
-<?xml version="1.0" encoding="utf-8"?><?xml-stylesheet type="text/xml" href="http://songzy12.github.io/feed.xslt.xml"?><feed xmlns="http://www.w3.org/2005/Atom"><generator uri="http://jekyllrb.com" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-12-18T14:26:38+08:00</updated><id>http://songzy12.github.io/</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">乐理</title><link href="http://songzy12.github.io/2022/12/17/%E4%B9%90%E7%90%86.html" rel="alternate" type="text/html" title="乐理" /><published>2022-12-17T20:57:00+08:00</published><updated>2022-12-17T20:57:00+08:00</updated><id>http://songzy12.github.io/2022/12/17/乐理</id><content type="html" xml:base="http://songzy12.github.io/2022/12/17/%E4%B9%90%E7%90%86.html">&lt;h2&gt;唱名&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2022-12-29T08:37:47+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">乐理</title><link href="http://songzy12.github.io/2022/12/17/%E4%B9%90%E7%90%86.html" rel="alternate" type="text/html" title="乐理" /><published>2022-12-17T12:57:00+00:00</published><updated>2022-12-17T12:57:00+00:00</updated><id>http://songzy12.github.io/2022/12/17/%E4%B9%90%E7%90%86</id><content type="html" xml:base="http://songzy12.github.io/2022/12/17/%E4%B9%90%E7%90%86.html"><![CDATA[<h2>唱名</h2>
 
-&lt;p&gt;在英语国家通常是do（doh）、re、mi、fa、sol（so）、la、ti/si。&lt;/p&gt;
+<p>在英语国家通常是do（doh）、re、mi、fa、sol（so）、la、ti/si。</p>
 
-&lt;ul&gt;
-&lt;li&gt;首调唱名法：将当前调的主音唱成do。&lt;/li&gt;
-&lt;li&gt;固定唱名法：将do、re、mi、fa、sol、la、si与C、D、E、F、G、A、B 一一对应。&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h2&gt;音名&lt;/h2&gt;
-
-&lt;p&gt;音名就是音高的名称，即C、D、E、F、G、A、B。&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;音名和音高的关系是绝对的；每高或低八度音高的音名是一样。&lt;/li&gt;
-&lt;li&gt;唱名和音高的关系是相对的；而唱名就算是不同的音高，也可以一样。&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>首调唱名法：将当前调的主音唱成do。</li>
+<li>固定唱名法：将do、re、mi、fa、sol、la、si与C、D、E、F、G、A、B 一一对应。</li>
+</ul>
 
 
-&lt;p&gt;需要区别不同八度的音高时，则会在音名后加上数字，&lt;/p&gt;
+<h2>音名</h2>
 
-&lt;ul&gt;
-&lt;li&gt;中央C是c1，高八度是c2，低八度是c。&lt;/li&gt;
-&lt;/ul&gt;
+<p>音名就是音高的名称，即C、D、E、F、G、A、B。</p>
 
-
-&lt;h2&gt;音高&lt;/h2&gt;
-
-&lt;p&gt;人类对音高的感受与基频成对数性的：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;对人耳而言，&quot;A220&quot;到&quot;A440&quot;之间的差距跟&quot;A440&quot;到A880&quot;之间相同。&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>音名和音高的关系是绝对的；每高或低八度音高的音名是一样。</li>
+<li>唱名和音高的关系是相对的；而唱名就算是不同的音高，也可以一样。</li>
+</ul>
 
 
-&lt;p&gt;中央区的A音符发出的频率为440Hz（表示成&quot;A440&quot;），通常被当作“标准音高”。&lt;/p&gt;
+<p>需要区别不同八度的音高时，则会在音名后加上数字，</p>
 
-&lt;p&gt;&amp;ldquo;A4&quot;或&quot;A440&quot;都用来表示中央C上的A音符。&lt;/p&gt;
-
-&lt;p&gt;$p = 69 + 12 * \log_2{\frac{f}{440}}$&lt;/p&gt;
-
-&lt;p&gt;每一个八度大小都是12，半音（在钢琴上相邻的两个键所拥有的音程）之间则相差1，&lt;/p&gt;
-
-&lt;p&gt;至于&quot;A440&quot;的号码则指定为69。&lt;/p&gt;
-
-&lt;h2&gt;十二平均律&lt;/h2&gt;
-
-&lt;p&gt;声音来源于物体的振动，音调由振动的频率决定。&lt;/p&gt;
-
-&lt;p&gt;十二平均律，是一种音乐的定律方法，将一个八度平均分成十二等份，是最主要的调音法。&lt;/p&gt;
-
-&lt;p&gt;音高八度音指的是频率加倍（即二倍频率）。&lt;/p&gt;
-
-&lt;p&gt;每等分称为半音。&lt;/p&gt;
-
-&lt;p&gt;八度音的频率分为十二项的等比数列，也就是每个音的频率为前一个音的 $\sqrt{12}{2}$。&lt;/p&gt;
-
-&lt;h2&gt;八度&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src=&quot;/img/%E5%85%AB%E5%BA%A6%E7%A9%BA%E9%97%B4.jpg&quot; alt=&quot;八度空间&quot; /&gt;&lt;/p&gt;
-
-&lt;h2&gt;音阶&lt;/h2&gt;
-
-&lt;p&gt;音程模式：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;大调音阶：全-全-半-全-全-全-半，1 2 3 4 5 6 7 1&lt;/li&gt;
-&lt;li&gt;小调音阶：全-半-全-全-半-全-全，6 7 1 2 3 4 5 6&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>中央C是c1，高八度是c2，低八度是c。</li>
+</ul>
 
 
-&lt;p&gt;验证一下：2+2+1+2+2+2+1=12&lt;/p&gt;
+<h2>音高</h2>
 
-&lt;p&gt;主音：音阶中的第一个音，并且所采用的音程模式从这个音开始。&lt;/p&gt;
+<p>人类对音高的感受与基频成对数性的：</p>
 
-&lt;p&gt;通常，一个音阶的名称由它的音程模式和主音决定：&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;例如，所谓C大调指的是用大调音阶的音程模式，并以C音（Do）为主音。&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>对人耳而言，"A220"到"A440"之间的差距跟"A440"到A880"之间相同。</li>
+</ul>
 
 
-&lt;p&gt;&lt;img src=&quot;/img/%E9%9F%B3%E7%A8%8B.jpg&quot; alt=&quot;音程&quot; /&gt;&lt;/p&gt;
+<p>中央区的A音符发出的频率为440Hz（表示成"A440"），通常被当作“标准音高”。</p>
 
-&lt;h2&gt;谱号&lt;/h2&gt;
+<p>&ldquo;A4"或"A440"都用来表示中央C上的A音符。</p>
 
-&lt;p&gt;&lt;img src=&quot;/img/%E8%B0%B1%E5%8F%B7.jpg&quot; alt=&quot;谱号&quot; /&gt;&lt;/p&gt;
+<p>$p = 69 + 12 * \log_2{\frac{f}{440}}$</p>
 
-&lt;h2&gt;参考链接&lt;/h2&gt;
+<p>每一个八度大小都是12，半音（在钢琴上相邻的两个键所拥有的音程）之间则相差1，</p>
 
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%8D%81%E4%BA%8C%E5%B9%B3%E5%9D%87%E5%BE%8B&quot;&gt;https://zh.wikipedia.org/wiki/%E5%8D%81%E4%BA%8C%E5%B9%B3%E5%9D%87%E5%BE%8B&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E5%94%B1%E5%90%8D&quot;&gt;https://zh.wikipedia.org/wiki/%E5%94%B1%E5%90%8D&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E9%9F%B3%E5%90%8D&quot;&gt;https://zh.wikipedia.org/wiki/%E9%9F%B3%E5%90%8D&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E9%9F%B3%E9%AB%98&quot;&gt;https://zh.wikipedia.org/wiki/%E9%9F%B3%E9%AB%98&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%AD%9C%E8%99%9F&quot;&gt;https://zh.wikipedia.org/wiki/%E8%AD%9C%E8%99%9F&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">唱名</summary></entry><entry><title type="html">钢琴</title><link href="http://songzy12.github.io/2022/12/17/%E9%92%A2%E7%90%B4.html" rel="alternate" type="text/html" title="钢琴" /><published>2022-12-17T20:47:00+08:00</published><updated>2022-12-17T20:47:00+08:00</updated><id>http://songzy12.github.io/2022/12/17/钢琴</id><content type="html" xml:base="http://songzy12.github.io/2022/12/17/%E9%92%A2%E7%90%B4.html">&lt;p&gt;&lt;img src=&quot;/img/%E9%92%A2%E7%90%B4%E9%9F%B3%E9%98%B6.jpg&quot; alt=&quot;钢琴音阶&quot; /&gt;&lt;/p&gt;
+<p>至于"A440"的号码则指定为69。</p>
 
-&lt;p&gt;标准的钢琴一共有88个按键。&lt;/p&gt;
+<h2>十二平均律</h2>
 
-&lt;p&gt;我们为了区分不同八度的单音，用大小写以及角标来进行进一步区分：$A_2$ ~ $c&lt;sup&gt;5&lt;/sup&gt;$。&lt;/p&gt;
+<p>声音来源于物体的振动，音调由振动的频率决定。</p>
 
-&lt;ul&gt;
-&lt;li&gt;大字二组：$A_2$ ~$B_2$&lt;/li&gt;
-&lt;li&gt;大字一组：$C_1$ ~ $B_1$&lt;/li&gt;
-&lt;li&gt;大字组：C ~ B&lt;/li&gt;
-&lt;li&gt;小字组：c ~ b&lt;/li&gt;
-&lt;li&gt;小字一组：$c&lt;sup&gt;1&lt;/sup&gt;$ ~ $b&lt;sup&gt;1&lt;/sup&gt;$&lt;/li&gt;
-&lt;li&gt;小字二组&lt;/li&gt;
-&lt;li&gt;小字三组&lt;/li&gt;
-&lt;li&gt;小字四组&lt;/li&gt;
-&lt;li&gt;小字五组：$c&lt;sup&gt;5&lt;/sup&gt;$&lt;/li&gt;
-&lt;/ul&gt;
+<p>十二平均律，是一种音乐的定律方法，将一个八度平均分成十二等份，是最主要的调音法。</p>
 
+<p>音高八度音指的是频率加倍（即二倍频率）。</p>
 
-&lt;p&gt;88 = 2+7*7+1&lt;/p&gt;
+<p>每等分称为半音。</p>
 
-&lt;p&gt;其中&lt;/p&gt;
+<p>八度音的频率分为十二项的等比数列，也就是每个音的频率为前一个音的 $\sqrt{12}{2}$。</p>
 
-&lt;ul&gt;
-&lt;li&gt;$a&lt;sup&gt;1&lt;/sup&gt;$ 是标定频率音，标定频率为 440Hz.&lt;/li&gt;
-&lt;li&gt;$c&lt;sup&gt;1&lt;/sup&gt;$ 由于在钢琴中位置的特殊性，称为 中央C.&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhengyang Song</name></author><summary type="html"></summary></entry><entry><title type="html">吉他</title><link href="http://songzy12.github.io/2022/12/17/%E5%90%89%E4%BB%96.html" rel="alternate" type="text/html" title="吉他" /><published>2022-12-17T18:44:00+08:00</published><updated>2022-12-17T18:44:00+08:00</updated><id>http://songzy12.github.io/2022/12/17/吉他</id><content type="html" xml:base="http://songzy12.github.io/2022/12/17/%E5%90%89%E4%BB%96.html">&lt;p&gt;&lt;img src=&quot;/img/%E5%90%89%E4%BB%96%E9%9F%B3%E9%98%B6.png&quot; alt=&quot;吉他音阶&quot; /&gt;&lt;/p&gt;
+<h2>八度</h2>
 
-&lt;p&gt;相邻品线到下弦枕的距离： $\sqrt{12}{2}$.&lt;/p&gt;
+<p><img src="/img/%E5%85%AB%E5%BA%A6%E7%A9%BA%E9%97%B4.jpg" alt="八度空间" /></p>
 
-&lt;p&gt;空弦音高&lt;/p&gt;
+<h2>音阶</h2>
 
-&lt;ul&gt;
-&lt;li&gt;E2、A2、D3、G3、B3、E4&lt;/li&gt;
-&lt;li&gt;Every Amateur Does Guitar By Ear.&lt;/li&gt;
-&lt;/ul&gt;
+<p>音程模式：</p>
+
+<ul>
+<li>大调音阶：全-全-半-全-全-全-半，1 2 3 4 5 6 7 1</li>
+<li>小调音阶：全-半-全-全-半-全-全，6 7 1 2 3 4 5 6</li>
+</ul>
 
 
-&lt;p&gt;调音&lt;/p&gt;
+<p>验证一下：2+2+1+2+2+2+1=12</p>
 
-&lt;ul&gt;
-&lt;li&gt;E弦五品=A弦空弦&lt;/li&gt;
-&lt;li&gt;A弦五品=D弦空弦&lt;/li&gt;
-&lt;li&gt;D弦五品=G弦空弦&lt;/li&gt;
-&lt;li&gt;G弦四品=B弦空弦&lt;/li&gt;
-&lt;li&gt;B弦五品=E弦空弦&lt;/li&gt;
-&lt;/ul&gt;
+<p>主音：音阶中的第一个音，并且所采用的音程模式从这个音开始。</p>
+
+<p>通常，一个音阶的名称由它的音程模式和主音决定：</p>
+
+<ul>
+<li>例如，所谓C大调指的是用大调音阶的音程模式，并以C音（Do）为主音。</li>
+</ul>
 
 
-&lt;p&gt;弦振动所发出的频率：&lt;/p&gt;
+<p><img src="/img/%E9%9F%B3%E7%A8%8B.jpg" alt="音程" /></p>
 
-&lt;ul&gt;
-&lt;li&gt;与它的长度成反比&lt;/li&gt;
-&lt;li&gt;与单位长度质量的平方根成反比&lt;/li&gt;
-&lt;li&gt;与张力的平方根成正比&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>Zhengyang Song</name></author><summary type="html"></summary></entry><entry><title type="html">世界名画：华丽的大师</title><link href="http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB.html" rel="alternate" type="text/html" title="世界名画：华丽的大师" /><published>2022-12-17T17:54:00+08:00</published><updated>2022-12-17T17:54:00+08:00</updated><id>http://songzy12.github.io/2022/12/17/世界名画</id><content type="html" xml:base="http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB.html">&lt;p&gt;&lt;a href=&quot;https://www.bilibili.com/video/BV1ex411n7nG&quot;&gt;https://www.bilibili.com/video/BV1ex411n7nG&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">https://www.bilibili.com/video/BV1ex411n7nG</summary></entry><entry><title type="html">Env Var</title><link href="http://songzy12.github.io/2022/12/09/env-var.html" rel="alternate" type="text/html" title="Env Var" /><published>2022-12-09T14:02:27+08:00</published><updated>2022-12-09T14:02:27+08:00</updated><id>http://songzy12.github.io/2022/12/09/env-var</id><content type="html" xml:base="http://songzy12.github.io/2022/12/09/env-var.html">&lt;p&gt;Envrionment Variables.&lt;/p&gt;
+<h2>谱号</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Environment_variable#Windows&quot;&gt;https://en.wikipedia.org/wiki/Environment_variable#Windows&lt;/a&gt;&lt;/p&gt;
+<p><img src="/img/%E8%B0%B1%E5%8F%B7.jpg" alt="谱号" /></p>
 
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th style=&quot;text-align:center;&quot;&gt; Variable &lt;/th&gt;
-&lt;th style=&quot;text-align:center;&quot;&gt; Locale specific &lt;/th&gt;
-&lt;th style=&quot;text-align:center;&quot;&gt; Windows XP (CMD) &lt;/th&gt;
-&lt;th style=&quot;text-align:center;&quot;&gt; Windows Vista and later (CMD) &lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %ALLUSERSPROFILE% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C:\Documents and Settings\All Users &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C:\ProgramData &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %APPDATA% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C:\Documents and Settings{username}\Application Data &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C:\Users{username}\AppData\Roaming &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %CommonProgramFiles% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C:\Program Files\Common Files &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C:\Program Files\Common Files &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %CommonProgramFiles(x86)% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C:\Program Files (x86)\Common Files (only in 64-bit version) &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C:\Program Files (x86)\Common Files (only in 64-bit version) &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %CommonProgramW6432% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %CommonProgramW6432% (not supported, not replaced by any value) &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C:\Program Files\Common Files (only in 64-bit version) &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %COMPUTERNAME% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; No &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; {computername} &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; {computername} &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %ComSpec% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; No &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C:\Windows\System32\cmd.exe &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C:\Windows\System32\cmd.exe &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %HOMEDRIVE% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; No &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C: &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C: &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %HOMEPATH% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; \Documents and Settings{username} &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; \Users{username} &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %LOCALAPPDATA% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %LOCALAPPDATA% (not supported, not replaced by any value) &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C:\Users{username}\AppData\Local &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %LOGONSERVER% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; No &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; \{domain_logon_server} &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; \{domain_logon_server} &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %PATH% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;{plus program paths} &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;{plus program paths} &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %PATHEXT% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; No &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.WSF;.WSH &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; .com;.exe;.bat;.cmd;.vbs;.vbe;.js;.jse;.wsf;.wsh;.msc &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %ProgramData% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %ProgramData% (not supported, not replaced by any value) &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemDrive%\ProgramData &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %ProgramFiles% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemDrive%\Program Files &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemDrive%\Program Files &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %ProgramFiles(x86)% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemDrive%\Program Files (x86) (only in 64-bit version) &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemDrive%\Program Files (x86) (only in 64-bit version) &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %ProgramW6432% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %ProgramW6432% (not supported, not replaced by any value) &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemDrive%\Program Files (only in 64-bit version) &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %PROMPT% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; No &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Code for current command prompt format, usually $P$G &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Code for current command prompt format, usually $P$G &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %PSModulePath% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt;  &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %PSModulePath% (not supported, not replaced by any value) &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemRoot%\system32\WindowsPowerShell\v1.0\Modules\ &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %PUBLIC% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %PUBLIC% (not supported, not replaced by any value) &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemDrive%\Users\Public &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemDrive% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; No &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C: &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; C: &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemRoot% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; No &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; The Windows directory, usually C:\Windows, formerly C:\WINNT &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemDrive%\Windows &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %TEMP% and %TMP% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemDrive%\Documents and Settings{username}\Local Settings\Temp &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemRoot%\TEMP (for system environment variables %TMP% and %TEMP%), %USERPROFILE%\AppData\Local\Temp (for user environment variables %TMP% and %TEMP%) &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %USERDOMAIN% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; No &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; {userdomain} &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; {userdomain} &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %USERNAME% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; No &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; {username} &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; {username} &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %USERPROFILE% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; Yes &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemDrive%\Documents and Settings{username} &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemDrive%\Users{username} &lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %windir% &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; No &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemDrive%\WINDOWS &lt;/td&gt;
-&lt;td style=&quot;text-align:center;&quot;&gt; %SystemDrive%\Windows &lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Envrionment Variables.</summary></entry><entry><title type="html">WSL Export/Import</title><link href="http://songzy12.github.io/2022/12/08/wsl-export.html" rel="alternate" type="text/html" title="WSL Export/Import" /><published>2022-12-08T22:11:00+08:00</published><updated>2022-12-08T22:11:00+08:00</updated><id>http://songzy12.github.io/2022/12/08/wsl-export</id><content type="html" xml:base="http://songzy12.github.io/2022/12/08/wsl-export.html">&lt;p&gt;WSL2 export and import.&lt;/p&gt;
+<h2>参考链接</h2>
 
-&lt;pre&gt;&lt;code&gt;PS C:\Users\songzy&amp;gt; wsl --list
+<ul>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%8D%81%E4%BA%8C%E5%B9%B3%E5%9D%87%E5%BE%8B">https://zh.wikipedia.org/wiki/%E5%8D%81%E4%BA%8C%E5%B9%B3%E5%9D%87%E5%BE%8B</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E5%94%B1%E5%90%8D">https://zh.wikipedia.org/wiki/%E5%94%B1%E5%90%8D</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E9%9F%B3%E5%90%8D">https://zh.wikipedia.org/wiki/%E9%9F%B3%E5%90%8D</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E9%9F%B3%E9%AB%98">https://zh.wikipedia.org/wiki/%E9%9F%B3%E9%AB%98</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E8%AD%9C%E8%99%9F">https://zh.wikipedia.org/wiki/%E8%AD%9C%E8%99%9F</a></li>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[唱名]]></summary></entry><entry><title type="html">钢琴</title><link href="http://songzy12.github.io/2022/12/17/%E9%92%A2%E7%90%B4.html" rel="alternate" type="text/html" title="钢琴" /><published>2022-12-17T12:47:00+00:00</published><updated>2022-12-17T12:47:00+00:00</updated><id>http://songzy12.github.io/2022/12/17/%E9%92%A2%E7%90%B4</id><content type="html" xml:base="http://songzy12.github.io/2022/12/17/%E9%92%A2%E7%90%B4.html"><![CDATA[<p><img src="/img/%E9%92%A2%E7%90%B4%E9%9F%B3%E9%98%B6.jpg" alt="钢琴音阶" /></p>
+
+<p>标准的钢琴一共有88个按键。</p>
+
+<p>我们为了区分不同八度的单音，用大小写以及角标来进行进一步区分：$A_2$ ~ $c<sup>5</sup>$。</p>
+
+<ul>
+<li>大字二组：$A_2$ ~$B_2$</li>
+<li>大字一组：$C_1$ ~ $B_1$</li>
+<li>大字组：C ~ B</li>
+<li>小字组：c ~ b</li>
+<li>小字一组：$c<sup>1</sup>$ ~ $b<sup>1</sup>$</li>
+<li>小字二组</li>
+<li>小字三组</li>
+<li>小字四组</li>
+<li>小字五组：$c<sup>5</sup>$</li>
+</ul>
+
+
+<p>88 = 2+7*7+1</p>
+
+<p>其中</p>
+
+<ul>
+<li>$a<sup>1</sup>$ 是标定频率音，标定频率为 440Hz.</li>
+<li>$c<sup>1</sup>$ 由于在钢琴中位置的特殊性，称为 中央C.</li>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">吉他</title><link href="http://songzy12.github.io/2022/12/17/%E5%90%89%E4%BB%96.html" rel="alternate" type="text/html" title="吉他" /><published>2022-12-17T10:44:00+00:00</published><updated>2022-12-17T10:44:00+00:00</updated><id>http://songzy12.github.io/2022/12/17/%E5%90%89%E4%BB%96</id><content type="html" xml:base="http://songzy12.github.io/2022/12/17/%E5%90%89%E4%BB%96.html"><![CDATA[<p><img src="/img/%E5%90%89%E4%BB%96%E9%9F%B3%E9%98%B6.png" alt="吉他音阶" /></p>
+
+<p>相邻品线到下弦枕的距离： $\sqrt{12}{2}$.</p>
+
+<p>空弦音高</p>
+
+<ul>
+<li>E2、A2、D3、G3、B3、E4</li>
+<li>Every Amateur Does Guitar By Ear.</li>
+</ul>
+
+
+<p>调音</p>
+
+<ul>
+<li>E弦五品=A弦空弦</li>
+<li>A弦五品=D弦空弦</li>
+<li>D弦五品=G弦空弦</li>
+<li>G弦四品=B弦空弦</li>
+<li>B弦五品=E弦空弦</li>
+</ul>
+
+
+<p>弦振动所发出的频率：</p>
+
+<ul>
+<li>与它的长度成反比</li>
+<li>与单位长度质量的平方根成反比</li>
+<li>与张力的平方根成正比</li>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">世界名画：华丽的大师</title><link href="http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB.html" rel="alternate" type="text/html" title="世界名画：华丽的大师" /><published>2022-12-17T09:54:00+00:00</published><updated>2022-12-17T09:54:00+00:00</updated><id>http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB</id><content type="html" xml:base="http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB.html"><![CDATA[<p><a href="https://www.bilibili.com/video/BV1ex411n7nG">https://www.bilibili.com/video/BV1ex411n7nG</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://www.bilibili.com/video/BV1ex411n7nG]]></summary></entry><entry><title type="html">Env Var</title><link href="http://songzy12.github.io/2022/12/09/env-var.html" rel="alternate" type="text/html" title="Env Var" /><published>2022-12-09T06:02:27+00:00</published><updated>2022-12-09T06:02:27+00:00</updated><id>http://songzy12.github.io/2022/12/09/env-var</id><content type="html" xml:base="http://songzy12.github.io/2022/12/09/env-var.html"><![CDATA[<p>Envrionment Variables.</p>
+
+<p><a href="https://en.wikipedia.org/wiki/Environment_variable#Windows">https://en.wikipedia.org/wiki/Environment_variable#Windows</a></p>
+
+<table>
+<thead>
+<tr>
+<th style="text-align:center;"> Variable </th>
+<th style="text-align:center;"> Locale specific </th>
+<th style="text-align:center;"> Windows XP (CMD) </th>
+<th style="text-align:center;"> Windows Vista and later (CMD) </th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center;"> %ALLUSERSPROFILE% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> C:\Documents and Settings\All Users </td>
+<td style="text-align:center;"> C:\ProgramData </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %APPDATA% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> C:\Documents and Settings{username}\Application Data </td>
+<td style="text-align:center;"> C:\Users{username}\AppData\Roaming </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %CommonProgramFiles% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> C:\Program Files\Common Files </td>
+<td style="text-align:center;"> C:\Program Files\Common Files </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %CommonProgramFiles(x86)% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> C:\Program Files (x86)\Common Files (only in 64-bit version) </td>
+<td style="text-align:center;"> C:\Program Files (x86)\Common Files (only in 64-bit version) </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %CommonProgramW6432% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %CommonProgramW6432% (not supported, not replaced by any value) </td>
+<td style="text-align:center;"> C:\Program Files\Common Files (only in 64-bit version) </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %COMPUTERNAME% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> {computername} </td>
+<td style="text-align:center;"> {computername} </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %ComSpec% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> C:\Windows\System32\cmd.exe </td>
+<td style="text-align:center;"> C:\Windows\System32\cmd.exe </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %HOMEDRIVE% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> C: </td>
+<td style="text-align:center;"> C: </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %HOMEPATH% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> \Documents and Settings{username} </td>
+<td style="text-align:center;"> \Users{username} </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %LOCALAPPDATA% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %LOCALAPPDATA% (not supported, not replaced by any value) </td>
+<td style="text-align:center;"> C:\Users{username}\AppData\Local </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %LOGONSERVER% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> \{domain_logon_server} </td>
+<td style="text-align:center;"> \{domain_logon_server} </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %PATH% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;{plus program paths} </td>
+<td style="text-align:center;"> C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;{plus program paths} </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %PATHEXT% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.WSF;.WSH </td>
+<td style="text-align:center;"> .com;.exe;.bat;.cmd;.vbs;.vbe;.js;.jse;.wsf;.wsh;.msc </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %ProgramData% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %ProgramData% (not supported, not replaced by any value) </td>
+<td style="text-align:center;"> %SystemDrive%\ProgramData </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %ProgramFiles% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %SystemDrive%\Program Files </td>
+<td style="text-align:center;"> %SystemDrive%\Program Files </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %ProgramFiles(x86)% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %SystemDrive%\Program Files (x86) (only in 64-bit version) </td>
+<td style="text-align:center;"> %SystemDrive%\Program Files (x86) (only in 64-bit version) </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %ProgramW6432% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %ProgramW6432% (not supported, not replaced by any value) </td>
+<td style="text-align:center;"> %SystemDrive%\Program Files (only in 64-bit version) </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %PROMPT% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> Code for current command prompt format, usually $P$G </td>
+<td style="text-align:center;"> Code for current command prompt format, usually $P$G </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %PSModulePath% </td>
+<td style="text-align:center;">  </td>
+<td style="text-align:center;"> %PSModulePath% (not supported, not replaced by any value) </td>
+<td style="text-align:center;"> %SystemRoot%\system32\WindowsPowerShell\v1.0\Modules\ </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %PUBLIC% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %PUBLIC% (not supported, not replaced by any value) </td>
+<td style="text-align:center;"> %SystemDrive%\Users\Public </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %SystemDrive% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> C: </td>
+<td style="text-align:center;"> C: </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %SystemRoot% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> The Windows directory, usually C:\Windows, formerly C:\WINNT </td>
+<td style="text-align:center;"> %SystemDrive%\Windows </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %TEMP% and %TMP% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %SystemDrive%\Documents and Settings{username}\Local Settings\Temp </td>
+<td style="text-align:center;"> %SystemRoot%\TEMP (for system environment variables %TMP% and %TEMP%), %USERPROFILE%\AppData\Local\Temp (for user environment variables %TMP% and %TEMP%) </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %USERDOMAIN% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> {userdomain} </td>
+<td style="text-align:center;"> {userdomain} </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %USERNAME% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> {username} </td>
+<td style="text-align:center;"> {username} </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %USERPROFILE% </td>
+<td style="text-align:center;"> Yes </td>
+<td style="text-align:center;"> %SystemDrive%\Documents and Settings{username} </td>
+<td style="text-align:center;"> %SystemDrive%\Users{username} </td>
+</tr>
+<tr>
+<td style="text-align:center;"> %windir% </td>
+<td style="text-align:center;"> No </td>
+<td style="text-align:center;"> %SystemDrive%\WINDOWS </td>
+<td style="text-align:center;"> %SystemDrive%\Windows </td>
+</tr>
+</tbody>
+</table>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Envrionment Variables.]]></summary></entry><entry><title type="html">WSL Export/Import</title><link href="http://songzy12.github.io/2022/12/08/wsl-export.html" rel="alternate" type="text/html" title="WSL Export/Import" /><published>2022-12-08T14:11:00+00:00</published><updated>2022-12-08T14:11:00+00:00</updated><id>http://songzy12.github.io/2022/12/08/wsl-export</id><content type="html" xml:base="http://songzy12.github.io/2022/12/08/wsl-export.html"><![CDATA[<p>WSL2 export and import.</p>
+
+<pre><code>PS C:\Users\songzy&gt; wsl --list
 Windows Subsystem for Linux Distributions:
 Ubuntu-20.04 (Default)
 
-PS C:\Users\songzy&amp;gt; wsl --export Ubuntu-20.04 D:/Ubuntu-20.04.tar
+PS C:\Users\songzy&gt; wsl --export Ubuntu-20.04 D:/Ubuntu-20.04.tar
 
-PS C:\Users\songzy&amp;gt; wsl --unregister Ubuntu-20.04
+PS C:\Users\songzy&gt; wsl --unregister Ubuntu-20.04
 Unregistering...
 
-PS C:\Users\songzy&amp;gt; wsl --import Ubuntu-20.04 D:/Ubuntu-20.04/ D:/Ubuntu-20.04.tar
-&lt;/code&gt;&lt;/pre&gt;
+PS C:\Users\songzy&gt; wsl --import Ubuntu-20.04 D:/Ubuntu-20.04/ D:/Ubuntu-20.04.tar
+</code></pre>
 
-&lt;h2&gt;Config Default User&lt;/h2&gt;
+<h2>Config Default User</h2>
 
-&lt;p&gt;Method 1:&lt;/p&gt;
+<p>Method 1:</p>
 
-&lt;pre&gt;&lt;code&gt;Function WSL-SetDefaultUser ($distro, $user) { Get-ItemProperty Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss\*\ DistributionName | Where-Object -Property DistributionName -eq $distro | Set-ItemProperty -Name DefaultUid -Value ((wsl -d $distro -u $user -e id -u) | Out-String); };
+<pre><code>Function WSL-SetDefaultUser ($distro, $user) { Get-ItemProperty Registry::HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Lxss\*\ DistributionName | Where-Object -Property DistributionName -eq $distro | Set-ItemProperty -Name DefaultUid -Value ((wsl -d $distro -u $user -e id -u) | Out-String); };
 
 WSL-SetDefaultUser Ubuntu-20.04 songzy
 
 Remove-Item Function:WSL-SetDefaultUser
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;Method 2:&lt;/p&gt;
+<p>Method 2:</p>
 
-&lt;pre&gt;&lt;code&gt;ubuntu2004 config --default-user songzy
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">WSL2 export and import.</summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/10/03/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-10-03T20:12:09+08:00</published><updated>2022-10-03T20:12:09+08:00</updated><id>http://songzy12.github.io/2022/10/03/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/10/03/v2ray.html">&lt;p&gt;This article shows how to install and enabel V2Ray proxy.&lt;/p&gt;
+<pre><code>ubuntu2004 config --default-user songzy
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[WSL2 export and import.]]></summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2022/10/03/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2022-10-03T12:12:09+00:00</published><updated>2022-10-03T12:12:09+00:00</updated><id>http://songzy12.github.io/2022/10/03/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2022/10/03/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
 
-&lt;h2&gt;github&lt;/h2&gt;
+<h2>github</h2>
 
-&lt;ul&gt;
-&lt;li&gt;core: &lt;a href=&quot;https://github.com/v2ray/v2ray-core/releases&quot;&gt;https://github.com/v2ray/v2ray-core/releases&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;v2fly: &lt;a href=&quot;https://github.com/v2fly/fhs-install-v2ray&quot;&gt;https://github.com/v2fly/fhs-install-v2ray&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;v2rayN: &lt;a href=&quot;https://github.com/2dust/v2rayN/releases&quot;&gt;https://github.com/2dust/v2rayN/releases&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li>core: <a href="https://github.com/v2ray/v2ray-core/releases">https://github.com/v2ray/v2ray-core/releases</a></li>
+<li>v2fly: <a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></li>
+<li>v2rayN: <a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></li>
+</ul>
 
 
-&lt;h2&gt;v2fly&lt;/h2&gt;
+<h2>v2fly</h2>
 
-&lt;pre&gt;&lt;code&gt;// 安裝執行檔和 .dat 資料檔
-bash &amp;lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+<pre><code>// 安裝執行檔和 .dat 資料檔
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
 
 // 只更新 .dat 資料檔
-bash &amp;lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
-&lt;/code&gt;&lt;/pre&gt;
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+</code></pre>
 
-&lt;h2&gt;ufw&lt;/h2&gt;
+<h2>ufw</h2>
 
-&lt;pre&gt;&lt;code&gt;sudo ufw allow http
+<pre><code>sudo ufw allow http
 sudo ufw allow 80
 sudo ufw allow https
 sudo ufw allow 443
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;start&lt;/h2&gt;
+<h2>start</h2>
 
-&lt;pre&gt;&lt;code&gt;sudo service v2ray status
+<pre><code>sudo service v2ray status
 sudo service v2ray start
 sudo service v2ray stop
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3&gt;vmess aead&lt;/h3&gt;
+<h3>vmess aead</h3>
 
-&lt;pre&gt;&lt;code&gt;env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray run -config /usr/local/etc/v2ray/config.json
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray run -config /usr/local/etc/v2ray/config.json
+</code></pre>
 
-&lt;h2&gt;config&lt;/h2&gt;
+<h2>config</h2>
 
-&lt;pre&gt;&lt;code&gt;sudo vi /usr/local/etc/v2ray/config.json
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>sudo vi /usr/local/etc/v2ray/config.json
+</code></pre>
 
-&lt;h3&gt;client&lt;/h3&gt;
+<h3>client</h3>
 
-&lt;pre&gt;&lt;code&gt;{
-  &quot;inbound&quot;: {
-    &quot;port&quot;: 1080,
-    &quot;listen&quot;: &quot;127.0.0.1&quot;,
-    &quot;protocol&quot;: &quot;socks&quot;,
-    &quot;settings&quot;: {
-      &quot;auth&quot;: &quot;noauth&quot;,
-      &quot;udp&quot;: true,
-      &quot;ip&quot;: &quot;127.0.0.1&quot;,
-      &quot;clients&quot;: null
+<pre><code>{
+  "inbound": {
+    "port": 1080,
+    "listen": "127.0.0.1",
+    "protocol": "socks",
+    "settings": {
+      "auth": "noauth",
+      "udp": true,
+      "ip": "127.0.0.1",
+      "clients": null
     },
-    &quot;streamSettings&quot;: null
+    "streamSettings": null
   },
-  &quot;outbound&quot;: {
-    &quot;tag&quot;: &quot;agentout&quot;,
-    &quot;protocol&quot;: &quot;vmess&quot;,
-    &quot;settings&quot;: {
-      &quot;vnext&quot;: [
+  "outbound": {
+    "tag": "agentout",
+    "protocol": "vmess",
+    "settings": {
+      "vnext": [
         {
-          &quot;address&quot;: &quot;songzy.cc&quot;,
-          &quot;port&quot;: 443,
-          &quot;users&quot;: [
+          "address": "songzy.cc",
+          "port": 443,
+          "users": [
             {
-              &quot;id&quot;: &quot;899cbb8a-fad2-45bd-8608-8483956d641c&quot;,
-              &quot;alterId&quot;: 0,
-              &quot;email&quot;: &quot;t@t.tt&quot;,
-              &quot;security&quot;: &quot;aes-128-gcm&quot;
+              "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
+              "alterId": 0,
+              "email": "t@t.tt",
+              "security": "aes-128-gcm"
             }
           ]
         }
       ],
-      &quot;servers&quot;: null
+      "servers": null
     },
-    &quot;streamSettings&quot;: {
-      &quot;network&quot;: &quot;ws&quot;,
-      &quot;security&quot;: &quot;tls&quot;,
-      &quot;tlsSettings&quot;: {
-        &quot;allowInsecure&quot;: true,
-        &quot;serverName&quot;: null
+    "streamSettings": {
+      "network": "ws",
+      "security": "tls",
+      "tlsSettings": {
+        "allowInsecure": true,
+        "serverName": null
       },
-      &quot;tcpSettings&quot;: null,
-      &quot;kcpSettings&quot;: null,
-      &quot;wsSettings&quot;: {
-        &quot;connectionReuse&quot;: true,
-        &quot;path&quot;: &quot;/&quot;,
-        &quot;headers&quot;: null
+      "tcpSettings": null,
+      "kcpSettings": null,
+      "wsSettings": {
+        "connectionReuse": true,
+        "path": "/",
+        "headers": null
       },
-      &quot;httpSettings&quot;: null
+      "httpSettings": null
     },
-    &quot;mux&quot;: {
-      &quot;enabled&quot;: true
+    "mux": {
+      "enabled": true
     }
   },
-  &quot;inboundDetour&quot;: null,
-  &quot;outboundDetour&quot;: [
+  "inboundDetour": null,
+  "outboundDetour": [
     {
-      &quot;protocol&quot;: &quot;freedom&quot;,
-      &quot;settings&quot;: {
-        &quot;response&quot;: null
+      "protocol": "freedom",
+      "settings": {
+        "response": null
       },
-      &quot;tag&quot;: &quot;direct&quot;
+      "tag": "direct"
     },
     {
-      &quot;protocol&quot;: &quot;blackhole&quot;,
-      &quot;settings&quot;: {
-        &quot;response&quot;: {
-          &quot;type&quot;: &quot;http&quot;
+      "protocol": "blackhole",
+      "settings": {
+        "response": {
+          "type": "http"
         }
       },
-      &quot;tag&quot;: &quot;blockout&quot;
+      "tag": "blockout"
     }
   ],
-  &quot;dns&quot;: {
-    &quot;servers&quot;: [
-      &quot;8.8.8.8&quot;,
-      &quot;8.8.4.4&quot;,
-      &quot;localhost&quot;
+  "dns": {
+    "servers": [
+      "8.8.8.8",
+      "8.8.4.4",
+      "localhost"
     ]
   }
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3&gt;server&lt;/h3&gt;
+<h3>server</h3>
 
-&lt;pre&gt;&lt;code&gt;{
-  &quot;inbounds&quot;: [
+<pre><code>{
+  "inbounds": [
     {
-      &quot;port&quot;: 443,
-      &quot;protocol&quot;: &quot;vmess&quot;,
-      &quot;settings&quot;: {
-        &quot;clients&quot;: [
+      "port": 443,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
           {
-            &quot;id&quot;: &quot;899cbb8a-fad2-45bd-8608-8483956d641c&quot;,
-            &quot;level&quot;: 1,
-            &quot;alterId&quot;: 0
+            "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
+            "level": 1,
+            "alterId": 0
           }
         ]
       },
-      &quot;streamSettings&quot;: {
-        &quot;network&quot;: &quot;ws&quot;,
-        &quot;security&quot;: &quot;tls&quot;,
-        &quot;tlsSettings&quot;: {
-          &quot;certificates&quot;: [
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "certificates": [
             {
-              &quot;certificateFile&quot;: &quot;/usr/local/etc/v2ray/songzy.cc.cer&quot;,
-              &quot;keyFile&quot;: &quot;/usr/local/etc/v2ray/songzy.cc.key&quot;
+              "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
+              "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
             }
           ]
         }
       }
     }
   ],
-  &quot;outbounds&quot;: [
+  "outbounds": [
     {
-      &quot;protocol&quot;: &quot;freedom&quot;,
-      &quot;settings&quot;: {}
+      "protocol": "freedom",
+      "settings": {}
     },
     {
-      &quot;protocol&quot;: &quot;blackhole&quot;,
-      &quot;settings&quot;: {},
-      &quot;tag&quot;: &quot;blocked&quot;
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
     }
   ]
 }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;Note: remember to set the value &lt;code&gt;inbounds.settings.clients.id&lt;/code&gt; correctly.&lt;/p&gt;
+<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
 
-&lt;h2&gt;log&lt;/h2&gt;
+<h2>log</h2>
 
-&lt;pre&gt;&lt;code&gt;  &quot;log&quot;: {
-    &quot;loglevel&quot;: &quot;warning&quot;,
-    &quot;access&quot;: &quot;/var/log/v2ray/access.log&quot;,
-    &quot;error&quot;: &quot;/var/log/v2ray/error.log&quot;
+<pre><code>  "log": {
+    "loglevel": "warning",
+    "access": "/var/log/v2ray/access.log",
+    "error": "/var/log/v2ray/error.log"
   }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;routing rules&lt;/h2&gt;
+<h2>routing rules</h2>
 
-&lt;pre&gt;&lt;code&gt;  &quot;routing&quot;: {
-    &quot;domainStrategy&quot;: &quot;IPOnDemand&quot;,
-    &quot;rules&quot;: [
+<pre><code>  "routing": {
+    "domainStrategy": "IPOnDemand",
+    "rules": [
       {
-        &quot;type&quot;: &quot;field&quot;,
-        &quot;inboundTag&quot;: [
-          &quot;api&quot;
+        "type": "field",
+        "inboundTag": [
+          "api"
         ],
-        &quot;outboundTag&quot;: &quot;api&quot;
+        "outboundTag": "api"
       },
       {
-        &quot;type&quot;: &quot;field&quot;,
-        &quot;outboundTag&quot;: &quot;proxy&quot;,
-        &quot;domain&quot;: [
-          &quot;udp&quot;,
-          &quot;tcp&quot;
+        "type": "field",
+        "outboundTag": "proxy",
+        "domain": [
+          "udp",
+          "tcp"
         ]
       },
       {
-        &quot;type&quot;: &quot;field&quot;,
-        &quot;outboundTag&quot;: &quot;direct&quot;,
-        &quot;domain&quot;: [
-          &quot;geosite:cn&quot;
+        "type": "field",
+        "outboundTag": "direct",
+        "domain": [
+          "geosite:cn"
         ]
       },
       {
-        &quot;type&quot;: &quot;field&quot;,
-        &quot;outboundTag&quot;: &quot;block&quot;,
-        &quot;domain&quot;: [
-          &quot;geosite:category-ads-all&quot;
+        "type": "field",
+        "outboundTag": "block",
+        "domain": [
+          "geosite:category-ads-all"
         ]
       }
     ]
   }
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;tls (acme.sh)&lt;/h2&gt;
+<h2>tls (acme.sh)</h2>
 
-&lt;h3&gt;install&lt;/h3&gt;
+<h3>install</h3>
 
-&lt;pre&gt;&lt;code&gt;$ apt install socat
+<pre><code>$ apt install socat
 $ curl https://get.acme.sh | sh
 $ source ~/.bashrc 
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3&gt;register&lt;/h3&gt;
+<h3>register</h3>
 
-&lt;pre&gt;&lt;code&gt;acme.sh --register-account -m songzy_thu@163.com
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>acme.sh --register-account -m songzy_thu@163.com
+</code></pre>
 
-&lt;h3&gt;issue &amp;amp; installcert&lt;/h3&gt;
+<h3>issue &amp; installcert</h3>
 
-&lt;pre&gt;&lt;code&gt;$ acme.sh --issue -d songzy.cc --standalone -k ec-256 --debug
+<pre><code>$ acme.sh --issue -d songzy.cc --standalone -k ec-256 --debug
 
 [Tue Nov 30 01:44:27 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
 [Tue Nov 30 01:44:27 PM UTC 2021] Your cert key is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.key
 [Tue Nov 30 01:44:27 PM UTC 2021] The intermediate CA cert is in  /root/.acme.sh/songzy.cc_ecc/ca.cer
 [Tue Nov 30 01:44:27 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
 [Tue Nov 30 01:44:27 PM UTC 2021] _on_issue_success
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;$ acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v2ray/songzy.cc.cer --keypath /usr/local/etc/v2ray/songzy.cc.key --ecc
+<pre><code>$ acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v2ray/songzy.cc.cer --keypath /usr/local/etc/v2ray/songzy.cc.key --ecc
 
 [Tue Nov 30 01:47:43 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
 [Tue Nov 30 01:47:43 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3&gt;renew&lt;/h3&gt;
+<h3>renew</h3>
 
-&lt;pre&gt;&lt;code&gt;$ acme.sh --renew -d songzy.cc --force --ecc --debug
+<pre><code>$ acme.sh --renew -d songzy.cc --force --ecc --debug
 
 
 [Tue Nov 30 01:46:38 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
@@ -619,39 +619,39 @@ $ source ~/.bashrc
 [Tue Nov 30 01:46:38 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
 [Tue Nov 30 01:46:38 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
 [Tue Nov 30 01:46:38 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;http_proxy&lt;/h2&gt;
+<h2>http_proxy</h2>
 
-&lt;pre&gt;&lt;code&gt;windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
+<pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 export http_proxy=http://$windows_host:10809
 export https_proxy=http://$windows_host:10809
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">This article shows how to install and enabel V2Ray proxy.</summary></entry><entry><title type="html">PyTorch GPU</title><link href="http://songzy12.github.io/2022/08/31/pytorch-gpu.html" rel="alternate" type="text/html" title="PyTorch GPU" /><published>2022-08-31T23:01:43+08:00</published><updated>2022-08-31T23:01:43+08:00</updated><id>http://songzy12.github.io/2022/08/31/pytorch-gpu</id><content type="html" xml:base="http://songzy12.github.io/2022/08/31/pytorch-gpu.html">&lt;p&gt;Enable GPU for PyTorch.&lt;/p&gt;
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This article shows how to install and enabel V2Ray proxy.]]></summary></entry><entry><title type="html">PyTorch GPU</title><link href="http://songzy12.github.io/2022/08/31/pytorch-gpu.html" rel="alternate" type="text/html" title="PyTorch GPU" /><published>2022-08-31T15:01:43+00:00</published><updated>2022-08-31T15:01:43+00:00</updated><id>http://songzy12.github.io/2022/08/31/pytorch-gpu</id><content type="html" xml:base="http://songzy12.github.io/2022/08/31/pytorch-gpu.html"><![CDATA[<p>Enable GPU for PyTorch.</p>
 
-&lt;h2&gt;Verify&lt;/h2&gt;
+<h2>Verify</h2>
 
-&lt;pre&gt;&lt;code&gt;&amp;gt;&amp;gt;&amp;gt; import torch
-&amp;gt;&amp;gt;&amp;gt; torch.cuda.is_available()
+<pre><code>&gt;&gt;&gt; import torch
+&gt;&gt;&gt; torch.cuda.is_available()
 True
-&amp;gt;&amp;gt;&amp;gt; torch.cuda.device_count()
+&gt;&gt;&gt; torch.cuda.device_count()
 1
-&amp;gt;&amp;gt;&amp;gt; torch.cuda.current_device()
+&gt;&gt;&gt; torch.cuda.current_device()
 0
-&amp;gt;&amp;gt;&amp;gt; torch.cuda.device(0)
-&amp;lt;torch.cuda.device object at 0x7f41013064f0&amp;gt;
-&amp;gt;&amp;gt;&amp;gt; torch.cuda.get_device_name(0)
+&gt;&gt;&gt; torch.cuda.device(0)
+&lt;torch.cuda.device object at 0x7f41013064f0&gt;
+&gt;&gt;&gt; torch.cuda.get_device_name(0)
 'NVIDIA GeForce RTX 3090'
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable GPU for PyTorch.</summary></entry><entry><title type="html">OMEN GPU</title><link href="http://songzy12.github.io/2022/08/31/omen-gpu.html" rel="alternate" type="text/html" title="OMEN GPU" /><published>2022-08-31T20:18:22+08:00</published><updated>2022-08-31T20:18:22+08:00</updated><id>http://songzy12.github.io/2022/08/31/omen-gpu</id><content type="html" xml:base="http://songzy12.github.io/2022/08/31/omen-gpu.html">&lt;p&gt;Enable GPU on OMEN, which runs Win11 and WSL2.&lt;/p&gt;
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU for PyTorch.]]></summary></entry><entry><title type="html">OMEN GPU</title><link href="http://songzy12.github.io/2022/08/31/omen-gpu.html" rel="alternate" type="text/html" title="OMEN GPU" /><published>2022-08-31T12:18:22+00:00</published><updated>2022-08-31T12:18:22+00:00</updated><id>http://songzy12.github.io/2022/08/31/omen-gpu</id><content type="html" xml:base="http://songzy12.github.io/2022/08/31/omen-gpu.html"><![CDATA[<p>Enable GPU on OMEN, which runs Win11 and WSL2.</p>
 
-&lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&quot;&gt;https://docs.nvidia.com/cuda/wsl-user-guide/index.html&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html">https://docs.nvidia.com/cuda/wsl-user-guide/index.html</a></p>
 
-&lt;h2&gt;Driver&lt;/h2&gt;
+<h2>Driver</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda/wsl&quot;&gt;https://developer.nvidia.com/cuda/wsl&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://developer.nvidia.com/cuda/wsl">https://developer.nvidia.com/cuda/wsl</a></p>
 
-&lt;p&gt;&lt;strong&gt;Then restart your computer&lt;/strong&gt;.&lt;/p&gt;
+<p><strong>Then restart your computer</strong>.</p>
 
-&lt;pre&gt;&lt;code&gt;$ nvidia-smi
+<pre><code>$ nvidia-smi
 
 Sun Oct 24 20:28:01 2021       
 +-----------------------------------------------------------------------------+
@@ -673,59 +673,59 @@ Sun Oct 24 20:28:01 2021
 |=============================================================================|
 |  No running processes found                                                 |
 +-----------------------------------------------------------------------------+
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;p&gt;NOTE: &lt;code&gt;nvidia-smi&lt;/code&gt; only indicates highest CUDA version the installed driver supports. It does not provide any information about which CUDA version is installed or even whether there is CUDA installed at all.&lt;/p&gt;
+<p>NOTE: <code>nvidia-smi</code> only indicates highest CUDA version the installed driver supports. It does not provide any information about which CUDA version is installed or even whether there is CUDA installed at all.</p>
 
-&lt;h3&gt;Verify&lt;/h3&gt;
+<h3>Verify</h3>
 
-&lt;pre&gt;&lt;code&gt;cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
+<pre><code>cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
 ./BlackScholes
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h2&gt;Toolkit&lt;/h2&gt;
+<h2>Toolkit</h2>
 
-&lt;blockquote&gt;&lt;p&gt;The latest NVIDIA Windows GPU Driver will fully support WSL 2. With CUDA support in the driver, existing applications (compiled elsewhere on a Linux system for the same target GPU) can run unmodified within the WSL environment.&lt;/p&gt;
+<blockquote><p>The latest NVIDIA Windows GPU Driver will fully support WSL 2. With CUDA support in the driver, existing applications (compiled elsewhere on a Linux system for the same target GPU) can run unmodified within the WSL environment.</p>
 
-&lt;p&gt;To compile new CUDA applications, a CUDA Toolkit for Linux x86 is needed. CUDA Toolkit support for WSL is still in preview stage as developer tools such as debugger and profilers are not available yet. However, CUDA application development is fully supported in the WSL2 environment, as a result, users should be able to compile new CUDA Linux applications with the latest CUDA Toolkit for x86 Linux.&lt;/p&gt;
+<p>To compile new CUDA applications, a CUDA Toolkit for Linux x86 is needed. CUDA Toolkit support for WSL is still in preview stage as developer tools such as debugger and profilers are not available yet. However, CUDA application development is fully supported in the WSL2 environment, as a result, users should be able to compile new CUDA Linux applications with the latest CUDA Toolkit for x86 Linux.</p>
 
-&lt;p&gt;Once a Windows NVIDIA GPU driver is installed on the system, CUDA becomes available within WSL 2. The CUDA driver installed on Windows host will be stubbed inside the WSL 2 as libcuda.so, therefore users must not install any NVIDIA GPU Linux driver within WSL 2. One has to be very careful here as the default CUDA Toolkit comes packaged with a driver, and it is easy to overwrite the WSL 2 NVIDIA driver with the default installation. We recommend developers to use a separate CUDA Toolkit for WSL 2 (Ubuntu) available here to avoid this overwriting. This WSL-Ubuntu CUDA toolkit installer will not overwrite the NVIDIA driver that was already mapped into the WSL 2 environment. To learn how to compile CUDA applications, please read the CUDA documentation for Linux.&lt;/p&gt;&lt;/blockquote&gt;
+<p>Once a Windows NVIDIA GPU driver is installed on the system, CUDA becomes available within WSL 2. The CUDA driver installed on Windows host will be stubbed inside the WSL 2 as libcuda.so, therefore users must not install any NVIDIA GPU Linux driver within WSL 2. One has to be very careful here as the default CUDA Toolkit comes packaged with a driver, and it is easy to overwrite the WSL 2 NVIDIA driver with the default installation. We recommend developers to use a separate CUDA Toolkit for WSL 2 (Ubuntu) available here to avoid this overwriting. This WSL-Ubuntu CUDA toolkit installer will not overwrite the NVIDIA driver that was already mapped into the WSL 2 environment. To learn how to compile CUDA applications, please read the CUDA documentation for Linux.</p></blockquote>
 
-&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;Distribution=WSL-Ubuntu&amp;amp;target_version=2.0&amp;amp;target_type=deb_local&quot;&gt;https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;amp;target_arch=x86_64&amp;amp;Distribution=WSL-Ubuntu&amp;amp;target_version=2.0&amp;amp;target_type=deb_local&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=WSL-Ubuntu&amp;target_version=2.0&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=WSL-Ubuntu&amp;target_version=2.0&amp;target_type=deb_local</a></p>
 
-&lt;pre&gt;&lt;code&gt;wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
+<pre><code>wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
 sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
 wget https://developer.download.nvidia.com/compute/cuda/11.7.1/local_installers/cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
 sudo dpkg -i cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
 sudo cp /var/cuda-repo-wsl-ubuntu-11-7-local/cuda-*-keyring.gpg /usr/share/keyrings/
 sudo apt-get update
 sudo apt-get -y install cuda
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;h3&gt;Env Var&lt;/h3&gt;
+<h3>Env Var</h3>
 
-&lt;pre&gt;&lt;code&gt;export CUDA_HOME=&quot;/usr/local/cuda-11.0&quot;
-export LD_LIBRARY_PATH=&quot;/usr/local/cuda-11.0/lib64:$LD_LIBRARY_PATH&quot;
-export PATH=&quot;/usr/local/cuda-11.0/bin:$PATH&quot;
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>export CUDA_HOME="/usr/local/cuda-11.0"
+export LD_LIBRARY_PATH="/usr/local/cuda-11.0/lib64:$LD_LIBRARY_PATH"
+export PATH="/usr/local/cuda-11.0/bin:$PATH"
+</code></pre>
 
-&lt;h3&gt;Verify&lt;/h3&gt;
+<h3>Verify</h3>
 
-&lt;pre&gt;&lt;code&gt;nvcc -V
-&lt;/code&gt;&lt;/pre&gt;
+<pre><code>nvcc -V
+</code></pre>
 
-&lt;h2&gt;Reference&lt;/h2&gt;
+<h2>Reference</h2>
 
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&quot;https://actruce.com/en/all-about-the-nvidia-driver-installation&quot;&gt;https://actruce.com/en/all-about-the-nvidia-driver-installation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
+<ul>
+<li><a href="https://actruce.com/en/all-about-the-nvidia-driver-installation">https://actruce.com/en/all-about-the-nvidia-driver-installation</a></li>
+</ul>
 
 
-&lt;h2&gt;Appendix&lt;/h2&gt;
+<h2>Appendix</h2>
 
-&lt;h3&gt;Multiple CUDA Installed?&lt;/h3&gt;
+<h3>Multiple CUDA Installed?</h3>
 
-&lt;pre&gt;&lt;code&gt;$ which nvcc
+<pre><code>$ which nvcc
 /usr/bin/nvcc
 
 $ nvcc -V
@@ -741,9 +741,9 @@ $ cat /usr/lib/cuda/version.txt
 CUDA Version 10.1.243
 
 $ ls /usr/lib/cuda/bin 
-&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
 
-&lt;pre&gt;&lt;code&gt;$ ls /usr/local | grep cuda
+<pre><code>$ ls /usr/local | grep cuda
 cuda-11.0
 
 $ cat /usr/local/cuda-11.0/version.txt 
@@ -755,24 +755,24 @@ Copyright (c) 2005-2020 NVIDIA Corporation
 Built on Wed_Jul_22_19:09:09_PDT_2020
 Cuda compilation tools, release 11.0, V11.0.221
 Build cuda_11.0_bu.TC445_37.28845127_0
-&lt;/code&gt;&lt;/pre&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable GPU on OMEN, which runs Win11 and WSL2.</summary></entry><entry><title type="html">T470 GPU</title><link href="http://songzy12.github.io/2022/08/31/t470-gpu.html" rel="alternate" type="text/html" title="T470 GPU" /><published>2022-08-31T13:11:25+08:00</published><updated>2022-08-31T13:11:25+08:00</updated><id>http://songzy12.github.io/2022/08/31/t470-gpu</id><content type="html" xml:base="http://songzy12.github.io/2022/08/31/t470-gpu.html">&lt;p&gt;Enable GPU on ThinkPad T470, which runs Win10 and WSL2(?).&lt;/p&gt;
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU on OMEN, which runs Win11 and WSL2.]]></summary></entry><entry><title type="html">T470 GPU</title><link href="http://songzy12.github.io/2022/08/31/t470-gpu.html" rel="alternate" type="text/html" title="T470 GPU" /><published>2022-08-31T05:11:25+00:00</published><updated>2022-08-31T05:11:25+00:00</updated><id>http://songzy12.github.io/2022/08/31/t470-gpu</id><content type="html" xml:base="http://songzy12.github.io/2022/08/31/t470-gpu.html"><![CDATA[<p>Enable GPU on ThinkPad T470, which runs Win10 and WSL2(?).</p>
 
-&lt;h2&gt;Graphic Card&lt;/h2&gt;
+<h2>Graphic Card</h2>
 
-&lt;p&gt;T470 =&gt; GeForce 940MX.&lt;/p&gt;
+<p>T470 => GeForce 940MX.</p>
 
-&lt;p&gt;The Nvidia GeForce 940MX is a mid-range laptop graphics card with DirectX 12 support (FL 11_0). It has been announced in the first quarter of 2016 and is the refresh of the GeForce 940M. Compared to the older card, the new one is based on the same chip but now supports faster GDDR5.&lt;/p&gt;
+<p>The Nvidia GeForce 940MX is a mid-range laptop graphics card with DirectX 12 support (FL 11_0). It has been announced in the first quarter of 2016 and is the refresh of the GeForce 940M. Compared to the older card, the new one is based on the same chip but now supports faster GDDR5.</p>
 
-&lt;p&gt;&lt;a href=&quot;https://www.nvidia.com/en-us/geforce/gaming-laptops/geforce-940mx/&quot;&gt;https://www.nvidia.com/en-us/geforce/gaming-laptops/geforce-940mx/&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://www.nvidia.com/en-us/geforce/gaming-laptops/geforce-940mx/">https://www.nvidia.com/en-us/geforce/gaming-laptops/geforce-940mx/</a></p>
 
-&lt;h3&gt;Compute Capability&lt;/h3&gt;
+<h3>Compute Capability</h3>
 
-&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda-gpus&quot;&gt;https://developer.nvidia.com/cuda-gpus&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://developer.nvidia.com/cuda-gpus">https://developer.nvidia.com/cuda-gpus</a></p>
 
-&lt;p&gt;GeForce 940M    5.0&lt;/p&gt;
+<p>GeForce 940M    5.0</p>
 
-&lt;p&gt;&lt;a href=&quot;https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities&quot;&gt;https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities&lt;/a&gt;&lt;/p&gt;
+<p><a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities">https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities</a></p>
 
-&lt;h2&gt;CUDA&lt;/h2&gt;
+<h2>CUDA</h2>
 
-&lt;p&gt;&lt;a href=&quot;https://developer.nvidia.com/cuda-downloads?target_os=Windows&amp;amp;target_arch=x86_64&amp;amp;target_version=10&amp;amp;target_type=exe_local&quot;&gt;https://developer.nvidia.com/cuda-downloads?target_os=Windows&amp;amp;target_arch=x86_64&amp;amp;target_version=10&amp;amp;target_type=exe_local&lt;/a&gt;&lt;/p&gt;</content><author><name>Zhengyang Song</name></author><summary type="html">Enable GPU on ThinkPad T470, which runs Win10 and WSL2(?).</summary></entry></feed>
+<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Windows&amp;target_arch=x86_64&amp;target_version=10&amp;target_type=exe_local">https://developer.nvidia.com/cuda-downloads?target_os=Windows&amp;target_arch=x86_64&amp;target_version=10&amp;target_type=exe_local</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU on ThinkPad T470, which runs Win10 and WSL2(?).]]></summary></entry></feed>
