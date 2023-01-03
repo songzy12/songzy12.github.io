@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-01-03T04:27:45+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Wear OS</title><link href="http://songzy12.github.io/2023/01/02/wear-os.html" rel="alternate" type="text/html" title="Wear OS" /><published>2023-01-02T13:06:00+00:00</published><updated>2023-01-02T13:06:00+00:00</updated><id>http://songzy12.github.io/2023/01/02/wear-os</id><content type="html" xml:base="http://songzy12.github.io/2023/01/02/wear-os.html"><![CDATA[<p>Google Pixel Watch app will crash on Honor 20 Pro with HarmonyOS 2.0.0.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-01-03T07:29:25+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Wear OS</title><link href="http://songzy12.github.io/2023/01/02/wear-os.html" rel="alternate" type="text/html" title="Wear OS" /><published>2023-01-02T13:06:00+00:00</published><updated>2023-01-02T13:06:00+00:00</updated><id>http://songzy12.github.io/2023/01/02/wear-os</id><content type="html" xml:base="http://songzy12.github.io/2023/01/02/wear-os.html"><![CDATA[<p>Google Pixel Watch app will crash on Honor 20 Pro with HarmonyOS 2.0.0.</p>
 
 <h2>Logcat</h2>
 
@@ -77,15 +77,17 @@ iOS phones are not currently supported.</p></blockquote>
 
 <p><a href="https://support.google.com/googlepixelwatch/thread/183791114/google-pixel-watch-app-crashes-when-setting-up-device?hl=en">https://support.google.com/googlepixelwatch/thread/183791114/google-pixel-watch-app-crashes-when-setting-up-device?hl=en</a></p>
 
-<blockquote><p>The pixel watch app crashes whenever I click &ldquo;continue&rdquo; (and also &ldquo;Pair with emulator&rdquo; option in the menu) on the setup page.
-For more context, I&rsquo;m using a Huawei P30 Pro running Harmony OS 2.0.0.268, which should be equivalent to Android 10.</p></blockquote>
+<blockquote><p>The pixel watch app crashes whenever I click &ldquo;continue&rdquo; (and also &ldquo;Pair with emulator&rdquo; option in the menu) on the setup page.</p>
 
-<p>&ldquo;com.google.android.wearable.app.cn&rdquo;:
-<a href="https://developer.android.com/training/wearables/creating-app-china">https://developer.android.com/training/wearables/creating-app-china</a></p>
+<p>For more context, I&rsquo;m using a Huawei P30 Pro running Harmony OS 2.0.0.268, which should be equivalent to Android 10.</p></blockquote>
 
-<h2>Solution</h2>
+<p><a href="https://support.google.com/wearos/answer/9266307">https://support.google.com/wearos/answer/9266307</a></p>
 
-<p>Download &ldquo;Wear OS by Google China&rdquo; instead.</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Google Pixel Watch app will crash on Honor 20 Pro with HarmonyOS 2.0.0.]]></summary></entry><entry><title type="html">乐理</title><link href="http://songzy12.github.io/2022/12/17/%E4%B9%90%E7%90%86.html" rel="alternate" type="text/html" title="乐理" /><published>2022-12-17T12:57:00+00:00</published><updated>2022-12-17T12:57:00+00:00</updated><id>http://songzy12.github.io/2022/12/17/%E4%B9%90%E7%90%86</id><content type="html" xml:base="http://songzy12.github.io/2022/12/17/%E4%B9%90%E7%90%86.html"><![CDATA[<h2>唱名</h2>
+<blockquote><p>Watches that run Wear OS 3 are not compatible with the Wear OS app.</p></blockquote>
+
+<p><a href="https://developer.android.com/training/wearables/creating-app-china">https://developer.android.com/training/wearables/creating-app-china</a></p>
+
+<blockquote><p>com.google.android.wearable.app.cn</p></blockquote>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Google Pixel Watch app will crash on Honor 20 Pro with HarmonyOS 2.0.0.]]></summary></entry><entry><title type="html">乐理</title><link href="http://songzy12.github.io/2022/12/17/%E4%B9%90%E7%90%86.html" rel="alternate" type="text/html" title="乐理" /><published>2022-12-17T12:57:00+00:00</published><updated>2022-12-17T12:57:00+00:00</updated><id>http://songzy12.github.io/2022/12/17/%E4%B9%90%E7%90%86</id><content type="html" xml:base="http://songzy12.github.io/2022/12/17/%E4%B9%90%E7%90%86.html"><![CDATA[<h2>唱名</h2>
 
 <p>在英语国家通常是do（doh）、re、mi、fa、sol（so）、la、ti/si。</p>
 
