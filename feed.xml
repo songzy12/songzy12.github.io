@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-02-26T04:20:04+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Core</title><link href="http://songzy12.github.io/2023/02/25/v2ray-core.html" rel="alternate" type="text/html" title="V2Ray Core" /><published>2023-02-25T16:09:22+00:00</published><updated>2023-02-25T16:09:22+00:00</updated><id>http://songzy12.github.io/2023/02/25/v2ray-core</id><content type="html" xml:base="http://songzy12.github.io/2023/02/25/v2ray-core.html"><![CDATA[<p>Source code walk through of the &ldquo;v2ray-core&rdquo; project.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-02-26T05:29:55+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Core</title><link href="http://songzy12.github.io/2023/02/25/v2ray-core.html" rel="alternate" type="text/html" title="V2Ray Core" /><published>2023-02-25T16:09:22+00:00</published><updated>2023-02-25T16:09:22+00:00</updated><id>http://songzy12.github.io/2023/02/25/v2ray-core</id><content type="html" xml:base="http://songzy12.github.io/2023/02/25/v2ray-core.html"><![CDATA[<p>Source code walk through of the &ldquo;v2ray-core&rdquo; project.</p>
 
 <p>main/main.go</p>
 
@@ -49,7 +49,55 @@ func (s *Instance) Start() error {
 
 <h3>InBound</h3>
 
-<p>features/inbound/inbound.go</p>
+<p>features/inbound/inbound.go
+app/proxyman/inbound/inbound.go</p>
+
+<pre><code>func init() {
+        return NewHandler(ctx, config.(*core.InboundHandlerConfig))
+
+func NewHandler(ctx context.Context, config *core.InboundHandlerConfig) (inbound.Handler, error) {
+    if allocStrategy == nil || allocStrategy.Type == proxyman.AllocationStrategy_Always {
+        return NewAlwaysOnInboundHandler(ctx, tag, receiverSettings, proxySettings)
+</code></pre>
+
+<p>app/proxyman/inbound/always.go</p>
+
+<pre><code>func NewAlwaysOnInboundHandler(ctx context.Context, tag string, receiverConfig *proxyman.ReceiverConfig, proxyConfig interface{}) (*AlwaysOnInboundHandler, error) {
+    p, ok := rawProxy.(proxy.Inbound)
+
+    h := &amp;AlwaysOnInboundHandler{
+        proxy: p,
+        mux:   mux.NewServer(ctx),
+        tag:   tag,
+    }
+    nl := p.Network()
+    pr := receiverConfig.PortRange
+
+    if pr != nil {
+        for port := pr.From; port &lt;= pr.To; port++ {
+            if net.HasNetwork(nl, net.Network_TCP) {
+                newError("creating stream worker on ", address, ":", port).AtDebug().WriteToLog()
+
+                worker := &amp;tcpWorker{
+                    address:         address,
+                    port:            net.Port(port),
+                    proxy:           p,
+                    stream:          mss,
+                    recvOrigDest:    receiverConfig.ReceiveOriginalDestination,
+                    tag:             tag,
+                    dispatcher:      h.mux,
+                    sniffingConfig:  receiverConfig.GetEffectiveSniffingSettings(),
+                    uplinkCounter:   uplinkCounter,
+                    downlinkCounter: downlinkCounter,
+                    ctx:             ctx,
+                }
+                h.workers = append(h.workers, worker)
+</code></pre>
+
+<p>app/proxyman/inbound/worker.go</p>
+
+<pre><code>func (w *tcpWorker) callback(conn internet.Connection) {
+</code></pre>
 
 <h3>OutBound</h3>
 
