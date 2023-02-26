@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-02-26T05:29:55+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Core</title><link href="http://songzy12.github.io/2023/02/25/v2ray-core.html" rel="alternate" type="text/html" title="V2Ray Core" /><published>2023-02-25T16:09:22+00:00</published><updated>2023-02-25T16:09:22+00:00</updated><id>http://songzy12.github.io/2023/02/25/v2ray-core</id><content type="html" xml:base="http://songzy12.github.io/2023/02/25/v2ray-core.html"><![CDATA[<p>Source code walk through of the &ldquo;v2ray-core&rdquo; project.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-02-26T08:37:15+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Core</title><link href="http://songzy12.github.io/2023/02/25/v2ray-core.html" rel="alternate" type="text/html" title="V2Ray Core" /><published>2023-02-25T16:09:22+00:00</published><updated>2023-02-25T16:09:22+00:00</updated><id>http://songzy12.github.io/2023/02/25/v2ray-core</id><content type="html" xml:base="http://songzy12.github.io/2023/02/25/v2ray-core.html"><![CDATA[<h2>Code</h2>
 
 <p>main/main.go</p>
 
@@ -105,7 +105,32 @@ func NewHandler(ctx context.Context, config *core.InboundHandlerConfig) (inbound
 
 <h3>Dispatcher</h3>
 
-<p>features/routing/dispatcher.go</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Source code walk through of the &ldquo;v2ray-core&rdquo; project.]]></summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2023/02/15/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2023-02-15T12:12:09+00:00</published><updated>2023-02-15T12:12:09+00:00</updated><id>http://songzy12.github.io/2023/02/15/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2023/02/15/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
+<p>features/routing/dispatcher.go</p>
+
+<h2>Run</h2>
+
+<pre><code>CONFIG=config.json
+go run main/main.go run -config $CONFIG
+</code></pre>
+
+<h2>Misc</h2>
+
+<h3>Windows Firewall</h3>
+
+<p>Inbound Rules.</p>
+
+<h3>WSL IP</h3>
+
+<pre><code>&gt; hostname -I
+172.27.239.47
+</code></pre>
+
+<h3>WSL Port Forwarding</h3>
+
+<pre><code>&gt; netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=8080 connectaddress=172.27.239.47
+&gt; netsh interface portproxy show all
+&gt; netsh interface portproxy delete v4tov4 listenport=8080 listenaddress=0.0.0.0
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Code]]></summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2023/02/15/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2023-02-15T12:12:09+00:00</published><updated>2023-02-15T12:12:09+00:00</updated><id>http://songzy12.github.io/2023/02/15/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2023/02/15/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
 
 <h2>github</h2>
 

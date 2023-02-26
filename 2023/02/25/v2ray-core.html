@@ -8,8 +8,8 @@
 <meta property="og:title" content="V2Ray Core" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Source code walk through of the &ldquo;v2ray-core&rdquo; project." />
-<meta property="og:description" content="Source code walk through of the &ldquo;v2ray-core&rdquo; project." />
+<meta name="description" content="Code" />
+<meta property="og:description" content="Code" />
 <link rel="canonical" href="http://songzy12.github.io/2023/02/25/v2ray-core.html" />
 <meta property="og:url" content="http://songzy12.github.io/2023/02/25/v2ray-core.html" />
 <meta property="og:site_name" content="Zhengyang Song&rsquo;s Secret Base" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="V2Ray Core" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2023-02-25T16:09:22+00:00","datePublished":"2023-02-25T16:09:22+00:00","description":"Source code walk through of the &ldquo;v2ray-core&rdquo; project.","headline":"V2Ray Core","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2023/02/25/v2ray-core.html"},"url":"http://songzy12.github.io/2023/02/25/v2ray-core.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2023-02-25T16:09:22+00:00","datePublished":"2023-02-25T16:09:22+00:00","description":"Code","headline":"V2Ray Core","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2023/02/25/v2ray-core.html"},"url":"http://songzy12.github.io/2023/02/25/v2ray-core.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Zhengyang Song's Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -48,7 +48,7 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Source code walk through of the &ldquo;v2ray-core&rdquo; project.</p>
+    <h2>Code</h2>
 
 <p>main/main.go</p>
 
@@ -156,6 +156,31 @@ func NewHandler(ctx context.Context, config *core.InboundHandlerConfig) (inbound
 <h3>Dispatcher</h3>
 
 <p>features/routing/dispatcher.go</p>
+
+<h2>Run</h2>
+
+<pre><code>CONFIG=config.json
+go run main/main.go run -config $CONFIG
+</code></pre>
+
+<h2>Misc</h2>
+
+<h3>Windows Firewall</h3>
+
+<p>Inbound Rules.</p>
+
+<h3>WSL IP</h3>
+
+<pre><code>&gt; hostname -I
+172.27.239.47
+</code></pre>
+
+<h3>WSL Port Forwarding</h3>
+
+<pre><code>&gt; netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=8080 connectaddress=172.27.239.47
+&gt; netsh interface portproxy show all
+&gt; netsh interface portproxy delete v4tov4 listenport=8080 listenaddress=0.0.0.0
+</code></pre>
 
   </div><a class="u-url" href="/2023/02/25/v2ray-core.html" hidden></a>
 </article>
