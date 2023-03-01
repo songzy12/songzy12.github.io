@@ -1,138 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-02-26T13:53:29+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Core</title><link href="http://songzy12.github.io/2023/02/25/v2ray-core.html" rel="alternate" type="text/html" title="V2Ray Core" /><published>2023-02-25T16:09:22+00:00</published><updated>2023-02-25T16:09:22+00:00</updated><id>http://songzy12.github.io/2023/02/25/v2ray-core</id><content type="html" xml:base="http://songzy12.github.io/2023/02/25/v2ray-core.html"><![CDATA[<p><a href="https://github.com/v2fly/v2ray-core">https://github.com/v2fly/v2ray-core</a></p>
-
-<h2>Code</h2>
-
-<p>main/main.go</p>
-
-<pre><code>func main() {
-    base.RegisterCommand(commands.CmdRun)
-    base.RegisterCommand(commands.CmdVersion)
-    base.RegisterCommand(commands.CmdTest)
-
-    base.Execute()
-</code></pre>
-
-<p>main/commands/base/execute.go</p>
-
-<pre><code>    cmdName := args[0] // for error messages
-
-    for bigCmd := RootCommand; ; {
-        for _, cmd := range bigCmd.Commands {
-            cmd.Run(cmd, args)
-</code></pre>
-
-<p>main/commands/run.go</p>
-
-<pre><code>func executeRun(cmd *base.Command, args []string) {
-    server, err := startV2Ray()
-    if err := server.Start(); err != nil {
-
-func startV2Ray() (core.Server, error) {
-    server, err := core.New(config)
-</code></pre>
-
-<p>v2ray.go</p>
-
-<pre><code>// To ensure V2Ray instance works properly, the config must contain one Dispatcher, one InboundHandlerManager and one OutboundHandlerManager.
-// Other features are optional.
-func New(config *Config) (*Instance, error) {
-    done, err := initInstanceWithConfig(config, server)
-
-func initInstanceWithConfig(config *Config, server *Instance) (bool, error) {
-    for _, appSettings := range config.App {
-        obj, err := CreateObjectWithEnvironment(server, settings, appEnv)
-        if feature, ok := obj.(features.Feature); ok {
-            if err := server.AddFeature(feature); err != nil {
-
-func (s *Instance) Start() error {
-    for _, f := range s.features {
-        if err := f.Start(); err != nil {
-</code></pre>
-
-<h3>InBound</h3>
-
-<p>features/inbound/inbound.go
-app/proxyman/inbound/inbound.go</p>
-
-<pre><code>func init() {
-        return NewHandler(ctx, config.(*core.InboundHandlerConfig))
-
-func NewHandler(ctx context.Context, config *core.InboundHandlerConfig) (inbound.Handler, error) {
-    if allocStrategy == nil || allocStrategy.Type == proxyman.AllocationStrategy_Always {
-        return NewAlwaysOnInboundHandler(ctx, tag, receiverSettings, proxySettings)
-</code></pre>
-
-<p>app/proxyman/inbound/always.go</p>
-
-<pre><code>func NewAlwaysOnInboundHandler(ctx context.Context, tag string, receiverConfig *proxyman.ReceiverConfig, proxyConfig interface{}) (*AlwaysOnInboundHandler, error) {
-    p, ok := rawProxy.(proxy.Inbound)
-
-    h := &amp;AlwaysOnInboundHandler{
-        proxy: p,
-        mux:   mux.NewServer(ctx),
-        tag:   tag,
-    }
-    nl := p.Network()
-    pr := receiverConfig.PortRange
-
-    if pr != nil {
-        for port := pr.From; port &lt;= pr.To; port++ {
-            if net.HasNetwork(nl, net.Network_TCP) {
-                newError("creating stream worker on ", address, ":", port).AtDebug().WriteToLog()
-
-                worker := &amp;tcpWorker{
-                    address:         address,
-                    port:            net.Port(port),
-                    proxy:           p,
-                    stream:          mss,
-                    recvOrigDest:    receiverConfig.ReceiveOriginalDestination,
-                    tag:             tag,
-                    dispatcher:      h.mux,
-                    sniffingConfig:  receiverConfig.GetEffectiveSniffingSettings(),
-                    uplinkCounter:   uplinkCounter,
-                    downlinkCounter: downlinkCounter,
-                    ctx:             ctx,
-                }
-                h.workers = append(h.workers, worker)
-</code></pre>
-
-<p>app/proxyman/inbound/worker.go</p>
-
-<pre><code>func (w *tcpWorker) callback(conn internet.Connection) {
-</code></pre>
-
-<h3>OutBound</h3>
-
-<p>features/outbound/outbound.go</p>
-
-<h3>Dispatcher</h3>
-
-<p>features/routing/dispatcher.go</p>
-
-<h2>Run</h2>
-
-<pre><code>CONFIG=config.json
-go run main/main.go run -config $CONFIG
-</code></pre>
-
-<h2>Misc</h2>
-
-<h3>Windows Firewall</h3>
-
-<p>Inbound Rules.</p>
-
-<h3>WSL IP</h3>
-
-<pre><code>&gt; hostname -I
-172.27.239.47
-</code></pre>
-
-<h3>WSL Port Forwarding</h3>
-
-<pre><code>&gt; netsh interface portproxy add v4tov4 listenport=8080 listenaddress=0.0.0.0 connectport=8080 connectaddress=172.27.239.47
-&gt; netsh interface portproxy show all
-&gt; netsh interface portproxy delete v4tov4 listenport=8080 listenaddress=0.0.0.0
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/v2fly/v2ray-core]]></summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2023/02/15/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2023-02-15T12:12:09+00:00</published><updated>2023-02-15T12:12:09+00:00</updated><id>http://songzy12.github.io/2023/02/15/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2023/02/15/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-03-01T13:38:02+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2023/02/15/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2023-02-15T12:12:09+00:00</published><updated>2023-02-15T12:12:09+00:00</updated><id>http://songzy12.github.io/2023/02/15/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2023/02/15/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
 
 <h2>github</h2>
 
@@ -943,4 +809,118 @@ True
 &lt;torch.cuda.device object at 0x7f41013064f0&gt;
 &gt;&gt;&gt; torch.cuda.get_device_name(0)
 'NVIDIA GeForce RTX 3090'
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU for PyTorch.]]></summary></entry></feed>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU for PyTorch.]]></summary></entry><entry><title type="html">OMEN GPU</title><link href="http://songzy12.github.io/2022/08/31/omen-gpu.html" rel="alternate" type="text/html" title="OMEN GPU" /><published>2022-08-31T12:18:22+00:00</published><updated>2022-08-31T12:18:22+00:00</updated><id>http://songzy12.github.io/2022/08/31/omen-gpu</id><content type="html" xml:base="http://songzy12.github.io/2022/08/31/omen-gpu.html"><![CDATA[<p>Enable GPU on OMEN, which runs Win11 and WSL2.</p>
+
+<p><a href="https://docs.nvidia.com/cuda/wsl-user-guide/index.html">https://docs.nvidia.com/cuda/wsl-user-guide/index.html</a></p>
+
+<h2>Driver</h2>
+
+<p><a href="https://developer.nvidia.com/cuda/wsl">https://developer.nvidia.com/cuda/wsl</a></p>
+
+<p><strong>Then restart your computer</strong>.</p>
+
+<pre><code>$ nvidia-smi
+
+Sun Oct 24 20:28:01 2021       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 470.28       Driver Version: 470.76       CUDA Version: 11.4     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0  On |                  N/A |
+| 30%   35C    P8    16W / 350W |   1782MiB / 24576MiB |    ERR!      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+</code></pre>
+
+<p>NOTE: <code>nvidia-smi</code> only indicates highest CUDA version the installed driver supports. It does not provide any information about which CUDA version is installed or even whether there is CUDA installed at all.</p>
+
+<h3>Verify</h3>
+
+<pre><code>cd /usr/local/cuda-11.0/samples/4_Finance/BlackScholes
+./BlackScholes
+</code></pre>
+
+<h2>Toolkit</h2>
+
+<blockquote><p>The latest NVIDIA Windows GPU Driver will fully support WSL 2. With CUDA support in the driver, existing applications (compiled elsewhere on a Linux system for the same target GPU) can run unmodified within the WSL environment.</p>
+
+<p>To compile new CUDA applications, a CUDA Toolkit for Linux x86 is needed. CUDA Toolkit support for WSL is still in preview stage as developer tools such as debugger and profilers are not available yet. However, CUDA application development is fully supported in the WSL2 environment, as a result, users should be able to compile new CUDA Linux applications with the latest CUDA Toolkit for x86 Linux.</p>
+
+<p>Once a Windows NVIDIA GPU driver is installed on the system, CUDA becomes available within WSL 2. The CUDA driver installed on Windows host will be stubbed inside the WSL 2 as libcuda.so, therefore users must not install any NVIDIA GPU Linux driver within WSL 2. One has to be very careful here as the default CUDA Toolkit comes packaged with a driver, and it is easy to overwrite the WSL 2 NVIDIA driver with the default installation. We recommend developers to use a separate CUDA Toolkit for WSL 2 (Ubuntu) available here to avoid this overwriting. This WSL-Ubuntu CUDA toolkit installer will not overwrite the NVIDIA driver that was already mapped into the WSL 2 environment. To learn how to compile CUDA applications, please read the CUDA documentation for Linux.</p></blockquote>
+
+<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=WSL-Ubuntu&amp;target_version=2.0&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=WSL-Ubuntu&amp;target_version=2.0&amp;target_type=deb_local</a></p>
+
+<pre><code>wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-wsl-ubuntu.pin
+sudo mv cuda-wsl-ubuntu.pin /etc/apt/preferences.d/cuda-repository-pin-600
+wget https://developer.download.nvidia.com/compute/cuda/11.7.1/local_installers/cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
+sudo dpkg -i cuda-repo-wsl-ubuntu-11-7-local_11.7.1-1_amd64.deb
+sudo cp /var/cuda-repo-wsl-ubuntu-11-7-local/cuda-*-keyring.gpg /usr/share/keyrings/
+sudo apt-get update
+sudo apt-get -y install cuda
+</code></pre>
+
+<h3>Env Var</h3>
+
+<pre><code>export CUDA_HOME="/usr/local/cuda-11.0"
+export LD_LIBRARY_PATH="/usr/local/cuda-11.0/lib64:$LD_LIBRARY_PATH"
+export PATH="/usr/local/cuda-11.0/bin:$PATH"
+</code></pre>
+
+<h3>Verify</h3>
+
+<pre><code>nvcc -V
+</code></pre>
+
+<h2>Reference</h2>
+
+<ul>
+<li><a href="https://actruce.com/en/all-about-the-nvidia-driver-installation">https://actruce.com/en/all-about-the-nvidia-driver-installation</a></li>
+</ul>
+
+
+<h2>Appendix</h2>
+
+<h3>Multiple CUDA Installed?</h3>
+
+<pre><code>$ which nvcc
+/usr/bin/nvcc
+
+$ nvcc -V
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2019 NVIDIA Corporation
+Built on Sun_Jul_28_19:07:16_PDT_2019
+Cuda compilation tools, release 10.1, V10.1.243
+
+$ whereis cuda
+cuda: /usr/lib/cuda /usr/include/cuda.h
+
+$ cat /usr/lib/cuda/version.txt 
+CUDA Version 10.1.243
+
+$ ls /usr/lib/cuda/bin 
+</code></pre>
+
+<pre><code>$ ls /usr/local | grep cuda
+cuda-11.0
+
+$ cat /usr/local/cuda-11.0/version.txt 
+CUDA Version 11.0.228
+
+$ /usr/local/cuda-11.0/bin/nvcc -V
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2020 NVIDIA Corporation
+Built on Wed_Jul_22_19:09:09_PDT_2020
+Cuda compilation tools, release 11.0, V11.0.221
+Build cuda_11.0_bu.TC445_37.28845127_0
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU on OMEN, which runs Win11 and WSL2.]]></summary></entry></feed>
