@@ -8,11 +8,22 @@ permalink: /about/
 
 ### __Google__ Beijing (Jul 2019 ~ now)
 
-* Search - i18n - TC (Jan 2023  ~ now)
-  * TransConsole
-* Search - KE - Wiki (Jul 2019 ~ Dec 2022)
-  * WikiCrawler
-  * WpCat
+* Search - i18n - l10n - TC (Jan 2023  ~ now)
+* Search - KE - KIDS - Wiki (Jul 2019 ~ Dec 2022)
+  * WikiCrawler, WpCat
+
+## Project
+
+### [WeiboSpider](https://github.com/dataabc/weiboSpider)
+
+This is a library that crawls useful info of specified weibo users, which has earned __6k stars__ as of Aug 2022. I helped to refactor and modularize the code base and now am [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
+
+---
+
+## Education
+
+* Master (2016 ~ 2019): Tsinghua University, IIIS, Computer Science and Technology
+* Bachelor (2012 ~ 2016): Tsinghua University, __Yao Class__, Computer Science and Technology
 
 ## Internship
 
@@ -37,13 +48,6 @@ permalink: /about/
 
 * Automatic grading algorithm to assess the candidate's programming skills.
 
----
-
-## Education
-
-* Master (2016 ~ 2019): Tsinghua University, IIIS, Computer Science and Technology
-* Bachelor (2012 ~ 2016): Tsinghua University, __Yao Class__, Computer Science and Technology
-
 ## Publication
 
 Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
@@ -55,12 +59,6 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 * Jia, Y., __Song, Z.__, Bai, X., & Xu, W. (2017, March). Towards economic models for MOOC pricing strategy design. In International Conference on Database Systems for Advanced Applications (pp. 387-398). Springer, Cham.
 
 ---
-
-## Project
-
-### [WeiboSpider](https://github.com/dataabc/weiboSpider)
-
-This is a library that crawls useful info of specified weibo users, which has earned __6k stars__ as of Aug 2022. I helped to refactor and modularize the code base and now am [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
   
 ## Social
 
