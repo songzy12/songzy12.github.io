@@ -1,7 +1,12 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-03-19T11:38:32+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">CPU</title><link href="http://songzy12.github.io/2023/03/16/cpu.html" rel="alternate" type="text/html" title="CPU" /><published>2023-03-16T03:41:00+00:00</published><updated>2023-03-16T03:41:00+00:00</updated><id>http://songzy12.github.io/2023/03/16/cpu</id><content type="html" xml:base="http://songzy12.github.io/2023/03/16/cpu.html"><![CDATA[<p>ThinkPad T470 (1FCD)</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-03-21T04:59:02+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Zhengyang Song’s Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">CPU</title><link href="http://songzy12.github.io/2023/03/16/cpu.html" rel="alternate" type="text/html" title="CPU" /><published>2023-03-16T03:41:00+00:00</published><updated>2023-03-16T03:41:00+00:00</updated><id>http://songzy12.github.io/2023/03/16/cpu</id><content type="html" xml:base="http://songzy12.github.io/2023/03/16/cpu.html"><![CDATA[<p>ThinkPad T470 (1FCD)</p>
 
 <ul>
-<li>CPU: Intel Core i5-7200U @ 2.5GHz</li>
+<li>CPU: Intel Core i5-7200U @ 2.5GHz
+
+<ul>
+<li>2016'Q4</li>
+</ul>
+</li>
 <li>GPU: NVIDIA GeForce 940MX 2G</li>
 <li>RAM: 20G (4G+16G)</li>
 <li>Disk: 128G SSD + 500G HDD</li>
@@ -11,7 +16,12 @@
 <p>ThinkPad E15 (3XCD)</p>
 
 <ul>
-<li>CPU: Intel Core i5-10210U @ 1.6GHz</li>
+<li>CPU: Intel Core i5-10210U @ 1.6GHz
+
+<ul>
+<li>2019'Q3</li>
+</ul>
+</li>
 <li>GPU: AMD RX640 2G</li>
 <li>RAM: 8G</li>
 <li>Disk: 256G SSD + 1T HDD</li>
@@ -21,13 +31,15 @@
 <p>Lenovo G475AX</p>
 
 <ul>
-<li>CPU: AMD E-300 @ 1.3GHz</li>
+<li>CPU: AMD E-300 @ 1.3GHz
+
+<ul>
+<li>2011'Q3</li>
+</ul>
+</li>
 <li>RAM: 4G</li>
 <li>Disk: 128G SSD + 500G HDD</li>
-</ul>
-
-
-<p><a href="https://www.cpu-monkey.com/en/compare_cpu-amd_e_300-vs-intel_core_i5_10210u">https://www.cpu-monkey.com/en/compare_cpu-amd_e_300-vs-intel_core_i5_10210u</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[ThinkPad T470 (1FCD)]]></summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2023/02/15/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2023-02-15T12:12:09+00:00</published><updated>2023-02-15T12:12:09+00:00</updated><id>http://songzy12.github.io/2023/02/15/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2023/02/15/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[ThinkPad T470 (1FCD)]]></summary></entry><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2023/02/15/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2023-02-15T12:12:09+00:00</published><updated>2023-02-15T12:12:09+00:00</updated><id>http://songzy12.github.io/2023/02/15/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2023/02/15/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
 
 <h2>github</h2>
 
