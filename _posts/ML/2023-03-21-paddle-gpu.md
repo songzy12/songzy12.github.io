@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Paddle GPU"
-date: 2021-10-21T15:43:08+08:00
+date: 2023-03-21T15:43:08+08:00
 ---
 
 Enable GPU for PaddlePaddle.

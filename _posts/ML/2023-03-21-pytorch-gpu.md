@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "PyTorch GPU"
-date: 2022-08-31T23:01:43+08:00
+date: 2023-03-21T23:01:43+08:00
 ---
 
 Enable GPU for PyTorch.
