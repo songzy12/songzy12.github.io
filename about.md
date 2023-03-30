@@ -12,20 +12,11 @@ permalink: /about/
 * Search - KE - KIDS - Wiki (Jul 2019 ~ Dec 2022)
   * WikiCrawler, WpCat
 
-## Project
-
-### [WeiboSpider](https://github.com/dataabc/weiboSpider)
-
-This is a library that crawls useful info of specified weibo users, which has earned __6k stars__ as of Aug 2022. I helped to refactor and modularize the code base and now am [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
-
----
-
-## Education
-
-* Master (2016 ~ 2019): Tsinghua University, IIIS, Computer Science and Technology
-* Bachelor (2012 ~ 2016): Tsinghua University, __Yao Class__, Computer Science and Technology
-
 ## Internship
+
+### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
+
+* Evaluate the Wide & Deep model to the news CTR prediction problem.
 
 ### [XuetangX](http://www.xuetangx.com) (Oct 2015 ~ Jun 2019)
 
@@ -40,13 +31,14 @@ This is a library that crawls useful info of specified weibo users, which has ea
   * Image CAPTCHA, SMS Code, Activity List, Activity Detail
 * Partner recommendation algorithm for the Android App "Ever".
 
-### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
-
-* Evaluate the Wide & Deep model to the news CTR prediction problem.
-
 ### [OxCoder](https://www.oxcoder.com/) (Jul 2015 ~ Sept 2015)
 
 * Automatic grading algorithm to assess the candidate's programming skills.
+
+## Education
+
+* Master (2016 ~ 2019): Tsinghua University, IIIS, Computer Science and Technology
+* Bachelor (2012 ~ 2016): Tsinghua University, __Yao Class__, Computer Science and Technology
 
 ## Publication
 
@@ -58,7 +50,11 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 * Zhang, H., Sun, M., Wang, X., __Song, Z.__, Tang, J., & Sun, J. (2017, April). Smart jump: Automated navigation suggestion for videos in moocs. In Proceedings of the 26th international conference on world wide web companion (pp. 331-339).
 * Jia, Y., __Song, Z.__, Bai, X., & Xu, W. (2017, March). Towards economic models for MOOC pricing strategy design. In International Conference on Database Systems for Advanced Applications (pp. 387-398). Springer, Cham.
 
----
+## Project
+
+### [WeiboSpider](https://github.com/dataabc/weiboSpider)
+
+This is a library that crawls useful info of specified weibo users, which has earned __6k stars__ as of Aug 2022. I helped to refactor and modularize the code base and now am [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
   
 ## Social
 
