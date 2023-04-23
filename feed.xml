@@ -1,4 +1,199 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-04-23T05:20:09+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">PyTorch GPU</title><link href="http://songzy12.github.io/2023/03/21/pytorch-gpu.html" rel="alternate" type="text/html" title="PyTorch GPU" /><published>2023-03-21T07:23:18+00:00</published><updated>2023-03-21T07:23:18+00:00</updated><id>http://songzy12.github.io/2023/03/21/pytorch-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/03/21/pytorch-gpu.html"><![CDATA[<p>Enable GPU for PyTorch.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-04-23T06:01:38+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2023/04/22/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2023-04-22T08:29:08+00:00</published><updated>2023-04-22T08:29:08+00:00</updated><id>http://songzy12.github.io/2023/04/22/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2023/04/22/workspace-setup.html"><![CDATA[<p>This shows what we need to do when we move to a brand new Linux environment.</p>
+
+<h2>wget</h2>
+
+<pre><code>vi ~/.wgetrc
+</code></pre>
+
+<pre><code>http_proxy = http://localhost:1081
+https_proxy = http://localhost:1081
+</code></pre>
+
+<h2>zsh</h2>
+
+<p>Project link: <a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
+
+<p>Install script: <a href="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh">https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh</a></p>
+
+<p>Download and run the script:</p>
+
+<pre><code>sudo apt install zsh
+
+wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+sh install.sh
+</code></pre>
+
+<h2>tmux</h2>
+
+<pre><code>vi ~/.tmux.conf
+</code></pre>
+
+<pre><code>set -g default-shell /usr/bin/zsh
+set -g default-terminal "xterm-256color"
+</code></pre>
+
+<h2>apt</h2>
+
+<p>Project link: <a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
+
+<pre><code>sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+</code></pre>
+
+<h2>git</h2>
+
+<h3>editor</h3>
+
+<pre><code>git config --global core.editor "vim"
+</code></pre>
+
+<h3>proxy</h3>
+
+<p><a href="https://gist.github.com/evantoli/f8c23a37eb3558ab8765">https://gist.github.com/evantoli/f8c23a37eb3558ab8765</a></p>
+
+<pre><code>git config --global http.proxy localhost:1081
+</code></pre>
+
+<h3>user</h3>
+
+<pre><code>git config --global user.email "songzy_thu@163.com"
+git config --global user.name "Zhengyang Song"
+</code></pre>
+
+<h3>ssh https</h3>
+
+<pre><code>vi ~/.ssh/config
+</code></pre>
+
+<pre><code>Host github.com
+  Hostname ssh.github.com
+  Port 443
+</code></pre>
+
+<h2>python</h2>
+
+<h3>pip source</h3>
+
+<pre><code>sudo apt install python3-pip
+</code></pre>
+
+<p><a href="https://pip.pypa.io/en/stable/user_guide/#config-file">https://pip.pypa.io/en/stable/user_guide/#config-file</a>
+<a href="https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4">https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4</a></p>
+
+<pre><code>mkdir ~/.pip
+
+echo "[global]" &gt; ~/.pip/pip.conf
+echo "  index-url = https://mirrors.aliyun.com/pypi/simple/" &gt;&gt; ~/.pip/pip.conf
+echo "[install]" &gt;&gt; ~/.pip/pip.conf
+echo "  trusted-host=mirrors.aliyun.com" &gt;&gt; ~/.pip/pip.conf
+echo "" &gt;&gt; ~/.pip/pip.conf
+</code></pre>
+
+<h3>jupyter notebook</h3>
+
+<pre><code>jupyter notebook --generate-config
+vi ~/.jupyter/jupyter_notebook_config.py
+</code></pre>
+
+<pre><code>c.NotebookApp.use_redirect_file = False
+</code></pre>
+
+<pre><code>pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+</code></pre>
+
+<h3>virtualenvwrapper</h3>
+
+<p><a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html">https://virtualenvwrapper.readthedocs.io/en/latest/install.html</a></p>
+
+<pre><code>pip install virtualenvwrapper
+</code></pre>
+
+<pre><code># vi ~/.bashrc
+vi ~/.zshrc
+</code></pre>
+
+<pre><code>export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# source /usr/local/bin/virtualenvwrapper.sh
+source ~/.local/bin/virtualenvwrapper.sh
+</code></pre>
+
+<h2>nodejs</h2>
+
+<h3>nvm</h3>
+
+<p><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
+
+<pre><code>wget -qO- 
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+</code></pre>
+
+<pre><code>nvm ls
+nvm ls-remote
+</code></pre>
+
+<pre><code>nvm install 
+</code></pre>
+
+<h3>npm registry</h3>
+
+<p><a href="https://developer.aliyun.com/mirror/NPM">https://developer.aliyun.com/mirror/NPM</a></p>
+
+<pre><code>npm config get registry
+npm config set registry https://registry.npm.taobao.org
+</code></pre>
+
+<h3>yarn registry</h3>
+
+<pre><code>yarn config get registry
+yarn config set registry https://registry.npm.taobao.org
+</code></pre>
+
+<h2>docker</h2>
+
+<pre><code>mkdir -p /etc/docker
+
+sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
+{
+  "registry-mirrors": ["http://hub-mirror.c.163.com"]
+}
+</code></pre>
+
+<pre><code>sudo service docker restart
+</code></pre>
+
+<pre><code>docker info
+</code></pre>
+
+<h2>vscode</h2>
+
+<p><code>settings.json</code></p>
+
+<pre><code>{
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.inlineSuggest.enabled": true,
+    "workbench.colorTheme": "Default Light+ Experimental",
+    "window.commandCenter": true,
+    "outline.showVariables": false,
+    "scm.defaultViewMode": "tree",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.fontFamily": "'MesloLGS NF', monospace",
+    "notebook.markup.fontSize": 14,
+    "git.autofetch": true,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": true
+    },
+    "markdown.preview.doubleClickToSwitchToEditor": false,
+    "python.formatting.provider": "yapf",
+    "remote.SSH.remotePlatform": {
+        "songzy.cool": "linux"
+    },
+}
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This shows what we need to do when we move to a brand new Linux environment.]]></summary></entry><entry><title type="html">PyTorch GPU</title><link href="http://songzy12.github.io/2023/03/21/pytorch-gpu.html" rel="alternate" type="text/html" title="PyTorch GPU" /><published>2023-03-21T07:23:18+00:00</published><updated>2023-03-21T07:23:18+00:00</updated><id>http://songzy12.github.io/2023/03/21/pytorch-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/03/21/pytorch-gpu.html"><![CDATA[<p>Enable GPU for PyTorch.</p>
 
 <h2>Verify</h2>
 
@@ -692,181 +887,4 @@ iOS phones are not currently supported.</p></blockquote>
 <li>与它的长度成反比</li>
 <li>与单位长度质量的平方根成反比</li>
 <li>与张力的平方根成正比</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">世界名画：华丽的大师</title><link href="http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB.html" rel="alternate" type="text/html" title="世界名画：华丽的大师" /><published>2022-12-17T09:54:00+00:00</published><updated>2022-12-17T09:54:00+00:00</updated><id>http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB</id><content type="html" xml:base="http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB.html"><![CDATA[<p><a href="https://www.bilibili.com/video/BV1ex411n7nG">https://www.bilibili.com/video/BV1ex411n7nG</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://www.bilibili.com/video/BV1ex411n7nG]]></summary></entry><entry><title type="html">Env Var</title><link href="http://songzy12.github.io/2022/12/09/env-var.html" rel="alternate" type="text/html" title="Env Var" /><published>2022-12-09T06:02:27+00:00</published><updated>2022-12-09T06:02:27+00:00</updated><id>http://songzy12.github.io/2022/12/09/env-var</id><content type="html" xml:base="http://songzy12.github.io/2022/12/09/env-var.html"><![CDATA[<p>Envrionment Variables.</p>
-
-<p><a href="https://en.wikipedia.org/wiki/Environment_variable#Windows">https://en.wikipedia.org/wiki/Environment_variable#Windows</a></p>
-
-<table>
-<thead>
-<tr>
-<th style="text-align:center;"> Variable </th>
-<th style="text-align:center;"> Locale specific </th>
-<th style="text-align:center;"> Windows XP (CMD) </th>
-<th style="text-align:center;"> Windows Vista and later (CMD) </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center;"> %ALLUSERSPROFILE% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> C:\Documents and Settings\All Users </td>
-<td style="text-align:center;"> C:\ProgramData </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %APPDATA% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> C:\Documents and Settings{username}\Application Data </td>
-<td style="text-align:center;"> C:\Users{username}\AppData\Roaming </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %CommonProgramFiles% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> C:\Program Files\Common Files </td>
-<td style="text-align:center;"> C:\Program Files\Common Files </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %CommonProgramFiles(x86)% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> C:\Program Files (x86)\Common Files (only in 64-bit version) </td>
-<td style="text-align:center;"> C:\Program Files (x86)\Common Files (only in 64-bit version) </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %CommonProgramW6432% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> %CommonProgramW6432% (not supported, not replaced by any value) </td>
-<td style="text-align:center;"> C:\Program Files\Common Files (only in 64-bit version) </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %COMPUTERNAME% </td>
-<td style="text-align:center;"> No </td>
-<td style="text-align:center;"> {computername} </td>
-<td style="text-align:center;"> {computername} </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %ComSpec% </td>
-<td style="text-align:center;"> No </td>
-<td style="text-align:center;"> C:\Windows\System32\cmd.exe </td>
-<td style="text-align:center;"> C:\Windows\System32\cmd.exe </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %HOMEDRIVE% </td>
-<td style="text-align:center;"> No </td>
-<td style="text-align:center;"> C: </td>
-<td style="text-align:center;"> C: </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %HOMEPATH% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> \Documents and Settings{username} </td>
-<td style="text-align:center;"> \Users{username} </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %LOCALAPPDATA% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> %LOCALAPPDATA% (not supported, not replaced by any value) </td>
-<td style="text-align:center;"> C:\Users{username}\AppData\Local </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %LOGONSERVER% </td>
-<td style="text-align:center;"> No </td>
-<td style="text-align:center;"> \{domain_logon_server} </td>
-<td style="text-align:center;"> \{domain_logon_server} </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %PATH% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;{plus program paths} </td>
-<td style="text-align:center;"> C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;{plus program paths} </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %PATHEXT% </td>
-<td style="text-align:center;"> No </td>
-<td style="text-align:center;"> .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.WSF;.WSH </td>
-<td style="text-align:center;"> .com;.exe;.bat;.cmd;.vbs;.vbe;.js;.jse;.wsf;.wsh;.msc </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %ProgramData% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> %ProgramData% (not supported, not replaced by any value) </td>
-<td style="text-align:center;"> %SystemDrive%\ProgramData </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %ProgramFiles% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> %SystemDrive%\Program Files </td>
-<td style="text-align:center;"> %SystemDrive%\Program Files </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %ProgramFiles(x86)% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> %SystemDrive%\Program Files (x86) (only in 64-bit version) </td>
-<td style="text-align:center;"> %SystemDrive%\Program Files (x86) (only in 64-bit version) </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %ProgramW6432% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> %ProgramW6432% (not supported, not replaced by any value) </td>
-<td style="text-align:center;"> %SystemDrive%\Program Files (only in 64-bit version) </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %PROMPT% </td>
-<td style="text-align:center;"> No </td>
-<td style="text-align:center;"> Code for current command prompt format, usually $P$G </td>
-<td style="text-align:center;"> Code for current command prompt format, usually $P$G </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %PSModulePath% </td>
-<td style="text-align:center;">  </td>
-<td style="text-align:center;"> %PSModulePath% (not supported, not replaced by any value) </td>
-<td style="text-align:center;"> %SystemRoot%\system32\WindowsPowerShell\v1.0\Modules\ </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %PUBLIC% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> %PUBLIC% (not supported, not replaced by any value) </td>
-<td style="text-align:center;"> %SystemDrive%\Users\Public </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %SystemDrive% </td>
-<td style="text-align:center;"> No </td>
-<td style="text-align:center;"> C: </td>
-<td style="text-align:center;"> C: </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %SystemRoot% </td>
-<td style="text-align:center;"> No </td>
-<td style="text-align:center;"> The Windows directory, usually C:\Windows, formerly C:\WINNT </td>
-<td style="text-align:center;"> %SystemDrive%\Windows </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %TEMP% and %TMP% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> %SystemDrive%\Documents and Settings{username}\Local Settings\Temp </td>
-<td style="text-align:center;"> %SystemRoot%\TEMP (for system environment variables %TMP% and %TEMP%), %USERPROFILE%\AppData\Local\Temp (for user environment variables %TMP% and %TEMP%) </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %USERDOMAIN% </td>
-<td style="text-align:center;"> No </td>
-<td style="text-align:center;"> {userdomain} </td>
-<td style="text-align:center;"> {userdomain} </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %USERNAME% </td>
-<td style="text-align:center;"> No </td>
-<td style="text-align:center;"> {username} </td>
-<td style="text-align:center;"> {username} </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %USERPROFILE% </td>
-<td style="text-align:center;"> Yes </td>
-<td style="text-align:center;"> %SystemDrive%\Documents and Settings{username} </td>
-<td style="text-align:center;"> %SystemDrive%\Users{username} </td>
-</tr>
-<tr>
-<td style="text-align:center;"> %windir% </td>
-<td style="text-align:center;"> No </td>
-<td style="text-align:center;"> %SystemDrive%\WINDOWS </td>
-<td style="text-align:center;"> %SystemDrive%\Windows </td>
-</tr>
-</tbody>
-</table>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Envrionment Variables.]]></summary></entry></feed>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">世界名画：华丽的大师</title><link href="http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB.html" rel="alternate" type="text/html" title="世界名画：华丽的大师" /><published>2022-12-17T09:54:00+00:00</published><updated>2022-12-17T09:54:00+00:00</updated><id>http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB</id><content type="html" xml:base="http://songzy12.github.io/2022/12/17/%E4%B8%96%E7%95%8C%E5%90%8D%E7%94%BB.html"><![CDATA[<p><a href="https://www.bilibili.com/video/BV1ex411n7nG">https://www.bilibili.com/video/BV1ex411n7nG</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://www.bilibili.com/video/BV1ex411n7nG]]></summary></entry></feed>
