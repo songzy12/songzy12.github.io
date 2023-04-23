@@ -206,21 +206,17 @@ docker info
 ```
 {
     "diffEditor.ignoreTrimWhitespace": false,
+    "editor.fontFamily": "Consolas",
     "editor.inlineSuggest.enabled": true,
     "workbench.colorTheme": "Default Light+ Experimental",
     "window.commandCenter": true,
     "outline.showVariables": false,
     "scm.defaultViewMode": "tree",
     "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.fontFamily": "'MesloLGS NF', monospace",
+    "terminal.integrated.fontFamily": "MesloLGS NF",
     "notebook.markup.fontSize": 14,
     "git.autofetch": true,
-    "github.copilot.enable": {
-        "*": true,
-        "yaml": false,
-        "plaintext": false,
-        "markdown": true
-    },
+    "git.autoStash": true,
     "markdown.preview.doubleClickToSwitchToEditor": false,
     "python.formatting.provider": "yapf",
     "remote.SSH.remotePlatform": {
