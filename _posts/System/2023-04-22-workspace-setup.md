@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Workspace Setup"
-date: 2020-12-13T16:29:08+08:00
+date: 2023-04-22T16:29:08+08:00
 ---
 
 This shows what we need to do when we move to a brand new Linux environment.
 
-## wget proxy
+## wget
 
 ```
 vi ~/.wgetrc
@@ -17,7 +17,7 @@ http_proxy = http://localhost:1081
 https_proxy = http://localhost:1081
 ```
 
-## oh my zsh
+## zsh
 
 Project link: <https://github.com/ohmyzsh/ohmyzsh>
 
@@ -32,7 +32,7 @@ wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sh install.sh
 ```
 
-## tmux config
+## tmux
 
 ```
 vi ~/.tmux.conf
@@ -43,13 +43,48 @@ set -g default-shell /usr/bin/zsh
 set -g default-terminal "xterm-256color"
 ```
 
-## apt source
+## apt
 
 Project link: <https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/>
 
 ```
 sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
 sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+```
+
+## git
+
+### editor
+
+```
+git config --global core.editor "vim"
+```
+
+### proxy 
+
+<https://gist.github.com/evantoli/f8c23a37eb3558ab8765>
+
+```
+git config --global http.proxy localhost:1081
+```
+
+### user 
+
+```
+git config --global user.email "songzy_thu@163.com"
+git config --global user.name "Zhengyang Song"
+```
+
+### ssh https
+
+```
+vi ~/.ssh/config
+```
+
+```
+Host github.com
+  Hostname ssh.github.com
+  Port 443
 ```
 
 ## python 
@@ -109,60 +144,6 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 source ~/.local/bin/virtualenvwrapper.sh
 ```
 
-## git config
-
-### editor
-
-```
-git config --global core.editor "vim"
-```
-
-### proxy 
-
-<https://gist.github.com/evantoli/f8c23a37eb3558ab8765>
-
-```
-git config --global http.proxy localhost:1081
-```
-
-### user 
-
-```
-git config --global user.email "songzy_thu@163.com"
-git config --global user.name "Zhengyang Song"
-```
-
-### ssh https
-
-```
-vi ~/.ssh/config
-```
-
-```
-Host github.com
-  Hostname ssh.github.com
-  Port 443
-```
-
-## docker
-
-```
-mkdir -p /etc/docker
-
-sudo tee /etc/docker/daemon.json <<-'EOF'
-{
-  "registry-mirrors": ["http://hub-mirror.c.163.com"]
-}
-```
-
-```
-sudo service docker restart
-```
-
-```
-docker info
-```
-
 ## nodejs
 
 ### nvm
@@ -197,4 +178,53 @@ npm config set registry https://registry.npm.taobao.org
 ```
 yarn config get registry
 yarn config set registry https://registry.npm.taobao.org
+```
+
+## docker
+
+```
+mkdir -p /etc/docker
+
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["http://hub-mirror.c.163.com"]
+}
+```
+
+```
+sudo service docker restart
+```
+
+```
+docker info
+```
+
+## vscode
+
+`settings.json`
+
+```
+{
+    "diffEditor.ignoreTrimWhitespace": false,
+    "editor.inlineSuggest.enabled": true,
+    "workbench.colorTheme": "Default Light+ Experimental",
+    "window.commandCenter": true,
+    "outline.showVariables": false,
+    "scm.defaultViewMode": "tree",
+    "terminal.integrated.defaultProfile.osx": "zsh",
+    "terminal.integrated.fontFamily": "'MesloLGS NF', monospace",
+    "notebook.markup.fontSize": 14,
+    "git.autofetch": true,
+    "github.copilot.enable": {
+        "*": true,
+        "yaml": false,
+        "plaintext": false,
+        "markdown": true
+    },
+    "markdown.preview.doubleClickToSwitchToEditor": false,
+    "python.formatting.provider": "yapf",
+    "remote.SSH.remotePlatform": {
+        "songzy.cool": "linux"
+    },
+}
 ```
