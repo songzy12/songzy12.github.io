@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-04-26T13:59:19+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2023/04/22/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2023-04-22T08:29:08+00:00</published><updated>2023-04-22T08:29:08+00:00</updated><id>http://songzy12.github.io/2023/04/22/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2023/04/22/workspace-setup.html"><![CDATA[<p>This shows what we need to do when we move to a brand new Linux environment.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-04-27T06:04:08+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2023/04/22/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2023-04-22T08:29:08+00:00</published><updated>2023-04-22T08:29:08+00:00</updated><id>http://songzy12.github.io/2023/04/22/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2023/04/22/workspace-setup.html"><![CDATA[<p>This shows what we need to do when we move to a brand new Linux environment.</p>
 
 <h2>wget</h2>
 
@@ -191,11 +191,11 @@ sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
 }
 </code></pre>
 
-<p><a href="https://github.com/Microsoft/vscode/blob/1.15.1/src/vs/editor/common/config/editorOptions.ts#L2058-L2060">Default fonts</a>:</p>
+<p><a href="https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:">https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:</a></p>
 
 <pre><code>const DEFAULT_WINDOWS_FONT_FAMILY = 'Consolas, \'Courier New\', monospace';
 const DEFAULT_MAC_FONT_FAMILY = 'Menlo, Monaco, \'Courier New\', monospace';
-const DEFAULT_LINUX_FONT_FAMILY = '\'Droid Sans Mono\', \'Courier New\', monospace, \'Droid Sans Fallback\'';
+const DEFAULT_LINUX_FONT_FAMILY = '\'Droid Sans Mono\', \'monospace\', monospace';
 </code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This shows what we need to do when we move to a brand new Linux environment.]]></summary></entry><entry><title type="html">PyTorch GPU</title><link href="http://songzy12.github.io/2023/03/21/pytorch-gpu.html" rel="alternate" type="text/html" title="PyTorch GPU" /><published>2023-03-21T07:23:18+00:00</published><updated>2023-03-21T07:23:18+00:00</updated><id>http://songzy12.github.io/2023/03/21/pytorch-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/03/21/pytorch-gpu.html"><![CDATA[<p>Enable GPU for PyTorch.</p>
 
 <h2>Verify</h2>
