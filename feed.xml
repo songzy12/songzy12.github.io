@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-04-27T06:04:08+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2023/04/22/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2023-04-22T08:29:08+00:00</published><updated>2023-04-22T08:29:08+00:00</updated><id>http://songzy12.github.io/2023/04/22/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2023/04/22/workspace-setup.html"><![CDATA[<p>This shows what we need to do when we move to a brand new Linux environment.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-04-27T06:05:06+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2023/04/22/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2023-04-22T08:29:08+00:00</published><updated>2023-04-22T08:29:08+00:00</updated><id>http://songzy12.github.io/2023/04/22/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2023/04/22/workspace-setup.html"><![CDATA[<p>This shows what we need to do when we move to a brand new Linux environment.</p>
 
 <h2>wget</h2>
 
@@ -172,7 +172,6 @@ sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
 
 <pre><code>{
     "diffEditor.ignoreTrimWhitespace": false,
-    "editor.fontFamily": "Consolas",
     "editor.inlineSuggest.enabled": true,
     "workbench.colorTheme": "Default Light+ Experimental",
     "window.commandCenter": true,
