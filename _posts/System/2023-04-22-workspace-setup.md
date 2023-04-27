@@ -206,7 +206,6 @@ docker info
 ```
 {
     "diffEditor.ignoreTrimWhitespace": false,
-    "editor.fontFamily": "Consolas",
     "editor.inlineSuggest.enabled": true,
     "workbench.colorTheme": "Default Light+ Experimental",
     "window.commandCenter": true,
