@@ -225,10 +225,10 @@ docker info
 }
 ```
 
-[Default fonts](https://github.com/Microsoft/vscode/blob/1.15.1/src/vs/editor/common/config/editorOptions.ts#L2058-L2060):
+https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:
 
 ```
 const DEFAULT_WINDOWS_FONT_FAMILY = 'Consolas, \'Courier New\', monospace';
 const DEFAULT_MAC_FONT_FAMILY = 'Menlo, Monaco, \'Courier New\', monospace';
-const DEFAULT_LINUX_FONT_FAMILY = '\'Droid Sans Mono\', \'Courier New\', monospace, \'Droid Sans Fallback\'';
+const DEFAULT_LINUX_FONT_FAMILY = '\'Droid Sans Mono\', \'monospace\', monospace';
 ```
