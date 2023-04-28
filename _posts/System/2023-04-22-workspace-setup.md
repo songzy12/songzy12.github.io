@@ -207,6 +207,7 @@ docker info
 {
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.inlineSuggest.enabled": true,
+    "editor.suggest.preview": true,
     "workbench.colorTheme": "Default Light+ Experimental",
     "window.commandCenter": true,
     "outline.showVariables": false,
