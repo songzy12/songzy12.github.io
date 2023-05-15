@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-05-14T05:13:02+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Vscode</title><link href="http://songzy12.github.io/2023/04/28/vscode.html" rel="alternate" type="text/html" title="Vscode" /><published>2023-04-28T02:50:13+00:00</published><updated>2023-04-28T02:50:13+00:00</updated><id>http://songzy12.github.io/2023/04/28/vscode</id><content type="html" xml:base="http://songzy12.github.io/2023/04/28/vscode.html"><![CDATA[<h2>Font</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-05-15T05:14:08+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Vscode</title><link href="http://songzy12.github.io/2023/04/28/vscode.html" rel="alternate" type="text/html" title="Vscode" /><published>2023-04-28T02:50:13+00:00</published><updated>2023-04-28T02:50:13+00:00</updated><id>http://songzy12.github.io/2023/04/28/vscode</id><content type="html" xml:base="http://songzy12.github.io/2023/04/28/vscode.html"><![CDATA[<h2>Font</h2>
 
 <p><a href="https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:">https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:</a></p>
 
@@ -260,7 +260,6 @@ sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
     "diffEditor.ignoreTrimWhitespace": false,
     "editor.inlineSuggest.enabled": true,
     "editor.suggest.preview": true,
-    "workbench.colorTheme": "Default Light+ Experimental",
     "window.commandCenter": true,
     "outline.showVariables": false,
     "scm.defaultViewMode": "tree",
