@@ -8,32 +8,26 @@ permalink: /about/
 
 ### __Google__ Beijing (Jul 2019 ~ now)
 
-* Search - i18n - l10n - TC (Jan 2023  ~ now)
+SWE
+
+* Core - i18n - l10n - TC (Jan 2023  ~ now)
 * Search - KE - KIDS - Wiki (Jul 2019 ~ Dec 2022)
   * WikiCrawler, WpCat
 
-## Internship
-
 ### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
+
+R&D Intern:
 
 * Evaluate the Wide & Deep model to the news CTR prediction problem.
 
 ### [XuetangX](http://www.xuetangx.com) (Oct 2015 ~ Jun 2019)
 
-* Web crawler to collect question-answer pairs from community QA sites.
-* Text classifier to classify the user questions to predefined classes. 
-* Text matcher to match the user questions to existing questions. 
+R&D Intern:
+
+* Crawler to collect question-answer pairs from community QA sites.
+* Text classifier to classify user questions to predefined categories. 
+* Text matcher to match the user questions to FAQs. 
 * Demo: <https://www.xuetangx.com/learn/THU08091000384/THU08091000384/10322765>
-
-### [Ever](http://everchain.site/#/) (May 2018 ~ Dec 2018)
-
-* Backend APIs of the WeChat mini-program "EverParty":
-  * Image CAPTCHA, SMS Code, Activity List, Activity Detail
-* Partner recommendation algorithm for the Android App "Ever".
-
-### [OxCoder](https://www.oxcoder.com/) (Jul 2015 ~ Sept 2015)
-
-* Automatic grading algorithm to assess the candidate's programming skills.
 
 ## Education
 
