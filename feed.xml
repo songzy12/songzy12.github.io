@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-05-31T03:01:39+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Vscode</title><link href="http://songzy12.github.io/2023/04/28/vscode.html" rel="alternate" type="text/html" title="Vscode" /><published>2023-04-28T02:50:13+00:00</published><updated>2023-04-28T02:50:13+00:00</updated><id>http://songzy12.github.io/2023/04/28/vscode</id><content type="html" xml:base="http://songzy12.github.io/2023/04/28/vscode.html"><![CDATA[<h2>Font</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-06-03T05:43:14+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Vscode</title><link href="http://songzy12.github.io/2023/04/28/vscode.html" rel="alternate" type="text/html" title="Vscode" /><published>2023-04-28T02:50:13+00:00</published><updated>2023-04-28T02:50:13+00:00</updated><id>http://songzy12.github.io/2023/04/28/vscode</id><content type="html" xml:base="http://songzy12.github.io/2023/04/28/vscode.html"><![CDATA[<h2>Font</h2>
 
 <p><a href="https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:">https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:</a></p>
 
@@ -86,13 +86,51 @@ const DEFAULT_LINUX_FONT_FAMILY = '\'Droid Sans Mono\', \'monospace\', monospace
 </tbody>
 </table>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Font]]></summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2023/04/22/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2023-04-22T08:29:08+00:00</published><updated>2023-04-22T08:29:08+00:00</updated><id>http://songzy12.github.io/2023/04/22/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2023/04/22/workspace-setup.html"><![CDATA[<p>This shows what we need to do when we move to a brand new Linux environment.</p>
 
+<h2>apt</h2>
+
+<p>Project link: <a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
+
+<pre><code>sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+</code></pre>
+
 <h2>wget</h2>
 
 <pre><code>vi ~/.wgetrc
 </code></pre>
 
-<pre><code>http_proxy = http://localhost:1081
-https_proxy = http://localhost:1081
+<pre><code>http_proxy=http://localhost:10809
+https_proxy=http://localhost:10809
+</code></pre>
+
+<h2>git</h2>
+
+<h3>editor</h3>
+
+<pre><code>git config --global core.editor "vim"
+</code></pre>
+
+<h3>proxy</h3>
+
+<p><a href="https://gist.github.com/evantoli/f8c23a37eb3558ab8765">https://gist.github.com/evantoli/f8c23a37eb3558ab8765</a></p>
+
+<pre><code>git config --global http.proxy localhost:10809
+</code></pre>
+
+<h3>user</h3>
+
+<pre><code>git config --global user.email "songzy_thu@163.com"
+git config --global user.name "Zhengyang Song"
+</code></pre>
+
+<h3>ssh https</h3>
+
+<pre><code>vi ~/.ssh/config
+</code></pre>
+
+<pre><code>Host github.com
+  Hostname ssh.github.com
+  Port 443
 </code></pre>
 
 <h2>zsh</h2>
@@ -116,44 +154,6 @@ sh install.sh
 
 <pre><code>set -g default-shell /usr/bin/zsh
 set -g default-terminal "xterm-256color"
-</code></pre>
-
-<h2>apt</h2>
-
-<p>Project link: <a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
-
-<pre><code>sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-</code></pre>
-
-<h2>git</h2>
-
-<h3>editor</h3>
-
-<pre><code>git config --global core.editor "vim"
-</code></pre>
-
-<h3>proxy</h3>
-
-<p><a href="https://gist.github.com/evantoli/f8c23a37eb3558ab8765">https://gist.github.com/evantoli/f8c23a37eb3558ab8765</a></p>
-
-<pre><code>git config --global http.proxy localhost:1081
-</code></pre>
-
-<h3>user</h3>
-
-<pre><code>git config --global user.email "songzy_thu@163.com"
-git config --global user.name "Zhengyang Song"
-</code></pre>
-
-<h3>ssh https</h3>
-
-<pre><code>vi ~/.ssh/config
-</code></pre>
-
-<pre><code>Host github.com
-  Hostname ssh.github.com
-  Port 443
 </code></pre>
 
 <h2>python</h2>
@@ -270,6 +270,7 @@ sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
     "git.autoStash": true,
     "markdown.preview.doubleClickToSwitchToEditor": false,
     "python.formatting.provider": "yapf",
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4 }",
     "remote.SSH.remotePlatform": {
         "songzy.cool": "linux"
     },
