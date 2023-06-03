@@ -6,6 +6,15 @@ date: 2023-04-22T16:29:08+08:00
 
 This shows what we need to do when we move to a brand new Linux environment.
 
+## apt
+
+Project link: <https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/>
+
+```
+sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+```
+
 ## wget
 
 ```
@@ -13,8 +22,43 @@ vi ~/.wgetrc
 ```
 
 ```
-http_proxy = http://localhost:1081
-https_proxy = http://localhost:1081
+http_proxy=http://localhost:10809
+https_proxy=http://localhost:10809
+```
+
+## git
+
+### editor
+
+```
+git config --global core.editor "vim"
+```
+
+### proxy 
+
+<https://gist.github.com/evantoli/f8c23a37eb3558ab8765>
+
+```
+git config --global http.proxy localhost:10809
+```
+
+### user 
+
+```
+git config --global user.email "songzy_thu@163.com"
+git config --global user.name "Zhengyang Song"
+```
+
+### ssh https
+
+```
+vi ~/.ssh/config
+```
+
+```
+Host github.com
+  Hostname ssh.github.com
+  Port 443
 ```
 
 ## zsh
@@ -41,50 +85,6 @@ vi ~/.tmux.conf
 ```
 set -g default-shell /usr/bin/zsh
 set -g default-terminal "xterm-256color"
-```
-
-## apt
-
-Project link: <https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/>
-
-```
-sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-```
-
-## git
-
-### editor
-
-```
-git config --global core.editor "vim"
-```
-
-### proxy 
-
-<https://gist.github.com/evantoli/f8c23a37eb3558ab8765>
-
-```
-git config --global http.proxy localhost:1081
-```
-
-### user 
-
-```
-git config --global user.email "songzy_thu@163.com"
-git config --global user.name "Zhengyang Song"
-```
-
-### ssh https
-
-```
-vi ~/.ssh/config
-```
-
-```
-Host github.com
-  Hostname ssh.github.com
-  Port 443
 ```
 
 ## python 
@@ -218,6 +218,7 @@ docker info
     "git.autoStash": true,
     "markdown.preview.doubleClickToSwitchToEditor": false,
     "python.formatting.provider": "yapf",
+    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4 }",
     "remote.SSH.remotePlatform": {
         "songzy.cool": "linux"
     },
