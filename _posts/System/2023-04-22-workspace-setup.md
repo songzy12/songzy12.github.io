@@ -63,16 +63,15 @@ Host github.com
 
 ## zsh
 
-Project link: <https://github.com/ohmyzsh/ohmyzsh>
-
-Install script: <https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh>
-
-Download and run the script:
-
 ```
 sudo apt install zsh
+```
 
+<https://github.com/ohmyzsh/ohmyzsh>
+
+```
 wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+
 sh install.sh
 ```
 
