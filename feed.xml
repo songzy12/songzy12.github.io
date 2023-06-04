@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-06-04T03:59:09+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">ChatGPT</title><link href="http://songzy12.github.io/2023/06/04/chatgpt.html" rel="alternate" type="text/html" title="ChatGPT" /><published>2023-06-04T03:43:46+00:00</published><updated>2023-06-04T03:43:46+00:00</updated><id>http://songzy12.github.io/2023/06/04/chatgpt</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/chatgpt.html"><![CDATA[<p>大陆如何注册使用 ChatGPT，并将其升级到 Plus.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-06-04T04:02:06+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">ChatGPT</title><link href="http://songzy12.github.io/2023/06/04/chatgpt.html" rel="alternate" type="text/html" title="ChatGPT" /><published>2023-06-04T03:43:46+00:00</published><updated>2023-06-04T03:43:46+00:00</updated><id>http://songzy12.github.io/2023/06/04/chatgpt</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/chatgpt.html"><![CDATA[<p>大陆如何注册使用 ChatGPT，并将其升级到 Plus.</p>
 
 <p>访问 <a href="https://chat.openai.com/%EF%BC%9A">https://chat.openai.com/%EF%BC%9A</a>
 1. 首先需要翻墙，其次要用不那么著名的vps提供商。
@@ -24,12 +24,19 @@
      - 下载 ChatGPT
        - 要求 iOS 版本 >16.1：也就是 iPad Air 2 不行的意思
    - 美区 Apple ID 需要绑定美区 Paypal
-   - 美区 Paypal 可以绑定国内银行发行的 visa,AE 卡</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[大陆如何注册使用 ChatGPT，并将其升级到 Plus.]]></summary></entry><entry><title type="html">VPS</title><link href="http://songzy12.github.io/2023/06/04/vps.html" rel="alternate" type="text/html" title="VPS" /><published>2023-06-04T03:26:52+00:00</published><updated>2023-06-04T03:26:52+00:00</updated><id>http://songzy12.github.io/2023/06/04/vps</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/vps.html"><![CDATA[<p>VPS
-- Vultr
-- DigitalOcean</p>
+   - 美区 Paypal 可以绑定国内银行发行的 visa,AE 卡</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[大陆如何注册使用 ChatGPT，并将其升级到 Plus.]]></summary></entry><entry><title type="html">VPS</title><link href="http://songzy12.github.io/2023/06/04/vps.html" rel="alternate" type="text/html" title="VPS" /><published>2023-06-04T03:26:52+00:00</published><updated>2023-06-04T03:26:52+00:00</updated><id>http://songzy12.github.io/2023/06/04/vps</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/vps.html"><![CDATA[<p>VPS</p>
 
-<p>Domain Name
-- NameCheap</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[VPS - Vultr - DigitalOcean]]></summary></entry><entry><title type="html">Vscode</title><link href="http://songzy12.github.io/2023/04/28/vscode.html" rel="alternate" type="text/html" title="Vscode" /><published>2023-04-28T02:50:13+00:00</published><updated>2023-04-28T02:50:13+00:00</updated><id>http://songzy12.github.io/2023/04/28/vscode</id><content type="html" xml:base="http://songzy12.github.io/2023/04/28/vscode.html"><![CDATA[<h2>Font</h2>
+<ul>
+<li>Vultr</li>
+<li>DigitalOcean</li>
+</ul>
+
+
+<p>Domain Name</p>
+
+<ul>
+<li>NameCheap</li>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[VPS]]></summary></entry><entry><title type="html">Vscode</title><link href="http://songzy12.github.io/2023/04/28/vscode.html" rel="alternate" type="text/html" title="Vscode" /><published>2023-04-28T02:50:13+00:00</published><updated>2023-04-28T02:50:13+00:00</updated><id>http://songzy12.github.io/2023/04/28/vscode</id><content type="html" xml:base="http://songzy12.github.io/2023/04/28/vscode.html"><![CDATA[<h2>Font</h2>
 
 <p><a href="https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:">https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:</a></p>
 
