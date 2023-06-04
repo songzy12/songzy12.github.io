@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-06-03T05:52:10+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Vscode</title><link href="http://songzy12.github.io/2023/04/28/vscode.html" rel="alternate" type="text/html" title="Vscode" /><published>2023-04-28T02:50:13+00:00</published><updated>2023-04-28T02:50:13+00:00</updated><id>http://songzy12.github.io/2023/04/28/vscode</id><content type="html" xml:base="http://songzy12.github.io/2023/04/28/vscode.html"><![CDATA[<h2>Font</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-06-04T03:43:03+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">VPS</title><link href="http://songzy12.github.io/2023/06/04/vps.html" rel="alternate" type="text/html" title="VPS" /><published>2023-06-04T03:26:52+00:00</published><updated>2023-06-04T03:26:52+00:00</updated><id>http://songzy12.github.io/2023/06/04/vps</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/vps.html"><![CDATA[<p>VPS
+- Vultr
+- DigitalOcean</p>
+
+<p>Domain Name
+- NameCheap</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[VPS - Vultr - DigitalOcean]]></summary></entry><entry><title type="html">Vscode</title><link href="http://songzy12.github.io/2023/04/28/vscode.html" rel="alternate" type="text/html" title="Vscode" /><published>2023-04-28T02:50:13+00:00</published><updated>2023-04-28T02:50:13+00:00</updated><id>http://songzy12.github.io/2023/04/28/vscode</id><content type="html" xml:base="http://songzy12.github.io/2023/04/28/vscode.html"><![CDATA[<h2>Font</h2>
 
 <p><a href="https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:">https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:</a></p>
 
@@ -938,33 +943,4 @@ iOS phones are not currently supported.</p></blockquote>
 <ul>
 <li>$a<sup>1</sup>$ 是标定频率音，标定频率为 440Hz.</li>
 <li>$c<sup>1</sup>$ 由于在钢琴中位置的特殊性，称为 中央C.</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[]]></summary></entry><entry><title type="html">吉他</title><link href="http://songzy12.github.io/2022/12/17/%E5%90%89%E4%BB%96.html" rel="alternate" type="text/html" title="吉他" /><published>2022-12-17T10:44:00+00:00</published><updated>2022-12-17T10:44:00+00:00</updated><id>http://songzy12.github.io/2022/12/17/%E5%90%89%E4%BB%96</id><content type="html" xml:base="http://songzy12.github.io/2022/12/17/%E5%90%89%E4%BB%96.html"><![CDATA[<p><img src="/img/%E5%90%89%E4%BB%96%E9%9F%B3%E9%98%B6.png" alt="吉他音阶" /></p>
-
-<p>相邻品线到下弦枕的距离： $\sqrt{12}{2}$.</p>
-
-<p>空弦音高</p>
-
-<ul>
-<li>E2、A2、D3、G3、B3、E4</li>
-<li>Every Amateur Does Guitar By Ear.</li>
-</ul>
-
-
-<p>调音</p>
-
-<ul>
-<li>E弦五品=A弦空弦</li>
-<li>A弦五品=D弦空弦</li>
-<li>D弦五品=G弦空弦</li>
-<li>G弦四品=B弦空弦</li>
-<li>B弦五品=E弦空弦</li>
-</ul>
-
-
-<p>弦振动所发出的频率：</p>
-
-<ul>
-<li>与它的长度成反比</li>
-<li>与单位长度质量的平方根成反比</li>
-<li>与张力的平方根成正比</li>
 </ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[]]></summary></entry></feed>
