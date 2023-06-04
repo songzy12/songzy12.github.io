@@ -1,30 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-06-04T04:02:06+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">ChatGPT</title><link href="http://songzy12.github.io/2023/06/04/chatgpt.html" rel="alternate" type="text/html" title="ChatGPT" /><published>2023-06-04T03:43:46+00:00</published><updated>2023-06-04T03:43:46+00:00</updated><id>http://songzy12.github.io/2023/06/04/chatgpt</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/chatgpt.html"><![CDATA[<p>大陆如何注册使用 ChatGPT，并将其升级到 Plus.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-06-04T04:02:25+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">ChatGPT</title><link href="http://songzy12.github.io/2023/06/04/chatgpt.html" rel="alternate" type="text/html" title="ChatGPT" /><published>2023-06-04T03:43:46+00:00</published><updated>2023-06-04T03:43:46+00:00</updated><id>http://songzy12.github.io/2023/06/04/chatgpt</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/chatgpt.html"><![CDATA[<p>大陆如何注册使用 ChatGPT，并将其升级到 Plus.</p>
 
-<p>访问 <a href="https://chat.openai.com/%EF%BC%9A">https://chat.openai.com/%EF%BC%9A</a>
-1. 首先需要翻墙，其次要用不那么著名的vps提供商。
-   - 随机试了两个 vultr 的日本区和美区的ip都提示 blocked
-   - 据说 bandwagon 也会 blocked
-   - 解决法案：使用了 digitalocean 的美区机器成功访问</p>
+<p>访问 <a href="https://chat.openai.com/%EF%BC%9A">https://chat.openai.com/%EF%BC%9A</a></p>
 
-<p>注册：
-1. 使用了 Gmail 邮箱
-2. 国外手机号收验证码
-   - 据说 Google Voice 提供的虚拟手机号是不行的
-   - 解决法案：使用了 sms activate 成功收到了验证码
-     - 可以支付宝充值2美元
-     - 使用了印度尼西亚区的号码</p>
+<ol>
+<li>首先需要翻墙，其次要用不那么著名的vps提供商。
 
-<p>升级 Plus：
-1. 国内银行发行的 visa, AE 似乎都不行
-   - 测试了中国银行的 visa 和招商银行的 AE 都提示 denied
-2. 解决方案：下载 ChatGPT 的 iOS App 使用 Apple Pay 充值
-   - iOS 设备也需要翻墙，并在设置中修改所在地区为美国
-   - 需要美区的 Apple ID
-     - 下载 Shadowrocket 用于翻墙
-     - 下载 ChatGPT
-       - 要求 iOS 版本 >16.1：也就是 iPad Air 2 不行的意思
-   - 美区 Apple ID 需要绑定美区 Paypal
-   - 美区 Paypal 可以绑定国内银行发行的 visa,AE 卡</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[大陆如何注册使用 ChatGPT，并将其升级到 Plus.]]></summary></entry><entry><title type="html">VPS</title><link href="http://songzy12.github.io/2023/06/04/vps.html" rel="alternate" type="text/html" title="VPS" /><published>2023-06-04T03:26:52+00:00</published><updated>2023-06-04T03:26:52+00:00</updated><id>http://songzy12.github.io/2023/06/04/vps</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/vps.html"><![CDATA[<p>VPS</p>
+<ul>
+<li>随机试了两个 vultr 的日本区和美区的ip都提示 blocked</li>
+<li>据说 bandwagon 也会 blocked</li>
+<li>解决法案：使用了 digitalocean 的美区机器成功访问</li>
+</ul>
+</li>
+</ol>
+
+
+<p>注册：</p>
+
+<ol>
+<li>使用了 Gmail 邮箱</li>
+<li>国外手机号收验证码
+
+<ul>
+<li>据说 Google Voice 提供的虚拟手机号是不行的</li>
+<li>解决法案：使用了 sms activate 成功收到了验证码
+
+<ul>
+<li>可以支付宝充值2美元</li>
+<li>使用了印度尼西亚区的号码</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+
+
+<p>升级 Plus：</p>
+
+<ol>
+<li>国内银行发行的 visa, AE 似乎都不行
+
+<ul>
+<li>测试了中国银行的 visa 和招商银行的 AE 都提示 denied</li>
+</ul>
+</li>
+<li>解决方案：下载 ChatGPT 的 iOS App 使用 Apple Pay 充值
+
+<ul>
+<li>iOS 设备也需要翻墙，并在设置中修改所在地区为美国</li>
+<li>需要美区的 Apple ID
+
+<ul>
+<li>下载 Shadowrocket 用于翻墙</li>
+<li>下载 ChatGPT
+
+<ul>
+<li>要求 iOS 版本 >16.1：也就是 iPad Air 2 不行的意思</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>美区 Apple ID 需要绑定美区 Paypal</li>
+<li>美区 Paypal 可以绑定国内银行发行的 visa,AE 卡</li>
+</ul>
+</li>
+</ol>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[大陆如何注册使用 ChatGPT，并将其升级到 Plus.]]></summary></entry><entry><title type="html">VPS</title><link href="http://songzy12.github.io/2023/06/04/vps.html" rel="alternate" type="text/html" title="VPS" /><published>2023-06-04T03:26:52+00:00</published><updated>2023-06-04T03:26:52+00:00</updated><id>http://songzy12.github.io/2023/06/04/vps</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/vps.html"><![CDATA[<p>VPS</p>
 
 <ul>
 <li>Vultr</li>
