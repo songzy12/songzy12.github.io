@@ -10,8 +10,8 @@ permalink: /about/
 
 SWE
 
-* Core - i18n - l10n - TC (Jan 2023  ~ now)
-* Search - KE - KIDS - Wiki (Jul 2019 ~ Dec 2022)
+* Core - i18n - TC (Jan 2023  ~ now)
+* Search - KE - Wiki (Jul 2019 ~ Dec 2022)
   * WikiCrawler, WpCat
 
 ### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
