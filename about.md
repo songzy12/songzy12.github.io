@@ -55,5 +55,3 @@ This is a library that crawls useful info of specified weibo users, which has ea
 * GitHub: <https://github.com/songzy12>
 * Kaggle: <https://www.kaggle.com/songzy12>
 * CodeForces: <http://codeforces.com/profile/songzy12>
-* HackerRank: <https://www.hackerrank.com/songzy12>
-* TopCoder: <https://www.topcoder.com/members/songzy12>
