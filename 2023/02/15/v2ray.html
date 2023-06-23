@@ -83,6 +83,12 @@ sudo service v2ray start
 sudo service v2ray stop
 </code></pre>
 
+<pre><code>sudo systemctl enable v2ray
+sudo systemctl start v2ray
+sudo systemctl status v2ray
+sudo systemctl stop v2ray
+</code></pre>
+
 <h3>vmess aead</h3>
 
 <pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray run -config /usr/local/etc/v2ray/config.json
