@@ -133,6 +133,10 @@ jupyter contrib nbextension install --user
 
 ### virtualenvwrapper
 
+```
+sudo apt install virtualenv
+```
+
 <https://virtualenvwrapper.readthedocs.io/en/latest/install.html>
 
 ```
