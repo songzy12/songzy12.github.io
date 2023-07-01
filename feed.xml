@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-06-27T13:25:33+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2023/06/22/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2023-06-22T12:12:09+00:00</published><updated>2023-06-22T12:12:09+00:00</updated><id>http://songzy12.github.io/2023/06/22/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2023/06/22/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-07-01T09:32:48+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2023/06/22/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2023-06-22T12:12:09+00:00</published><updated>2023-06-22T12:12:09+00:00</updated><id>http://songzy12.github.io/2023/06/22/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2023/06/22/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
 
 <h2>github</h2>
 
@@ -703,6 +703,8 @@ sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
 
 <pre><code>{
     "diffEditor.ignoreTrimWhitespace": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "modifications",
     "editor.inlineSuggest.enabled": true,
     "editor.suggest.preview": true,
     "window.commandCenter": true,
