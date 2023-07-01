@@ -217,6 +217,8 @@ docker info
 ```
 {
     "diffEditor.ignoreTrimWhitespace": false,
+    "editor.formatOnSave": true,
+    "editor.formatOnSaveMode": "modifications",
     "editor.inlineSuggest.enabled": true,
     "editor.suggest.preview": true,
     "window.commandCenter": true,
