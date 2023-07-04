@@ -357,11 +357,14 @@ sudo systemctl stop v2ray
 
 <h2>tls (acme.sh)</h2>
 
+<pre><code>DOMAIN_NAME=songzy.cc
+</code></pre>
+
 <h3>install</h3>
 
-<pre><code>$ apt install socat
-$ curl https://get.acme.sh | sh
-$ source ~/.bashrc 
+<pre><code>apt install socat
+curl https://get.acme.sh | sh
+source ~/.bashrc 
 </code></pre>
 
 <h3>register</h3>
@@ -371,32 +374,15 @@ $ source ~/.bashrc
 
 <h3>issue &amp; installcert</h3>
 
-<pre><code>$ acme.sh --issue -d songzy.cc --standalone -k ec-256 --debug
-
-[Tue Nov 30 01:44:27 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
-[Tue Nov 30 01:44:27 PM UTC 2021] Your cert key is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.key
-[Tue Nov 30 01:44:27 PM UTC 2021] The intermediate CA cert is in  /root/.acme.sh/songzy.cc_ecc/ca.cer
-[Tue Nov 30 01:44:27 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
-[Tue Nov 30 01:44:27 PM UTC 2021] _on_issue_success
+<pre><code>acme.sh --issue -d $DOMAIN_NAME --standalone -k ec-256 --debug
 </code></pre>
 
-<pre><code>$ acme.sh --installcert -d songzy.cc --fullchainpath /usr/local/etc/v2ray/songzy.cc.cer --keypath /usr/local/etc/v2ray/songzy.cc.key --ecc
-
-[Tue Nov 30 01:47:43 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
-[Tue Nov 30 01:47:43 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
+<pre><code>acme.sh --installcert -d $DOMAIN_NAME --fullchainpath /usr/local/etc/v2ray/$DOMAIN_NAME.cer --keypath /usr/local/etc/v2ray/$DOMAIN_NAME.key --ecc
 </code></pre>
 
 <h3>renew</h3>
 
-<pre><code>$ acme.sh --renew -d songzy.cc --force --ecc --debug
-
-
-[Tue Nov 30 01:46:38 PM UTC 2021] Your cert is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.cer
-[Tue Nov 30 01:46:38 PM UTC 2021] Your cert key is in  /root/.acme.sh/songzy.cc_ecc/songzy.cc.key
-[Tue Nov 30 01:46:38 PM UTC 2021] The intermediate CA cert is in  /root/.acme.sh/songzy.cc_ecc/ca.cer
-[Tue Nov 30 01:46:38 PM UTC 2021] And the full chain certs is there:  /root/.acme.sh/songzy.cc_ecc/fullchain.cer
-[Tue Nov 30 01:46:38 PM UTC 2021] Installing key to:/usr/local/etc/v2ray/songzy.cc.key
-[Tue Nov 30 01:46:38 PM UTC 2021] Installing full chain to:/usr/local/etc/v2ray/songzy.cc.cer
+<pre><code>acme.sh --renew -d $DOMAIN_NAME --force --ecc --debug
 </code></pre>
 
 <h2>http_proxy</h2>
