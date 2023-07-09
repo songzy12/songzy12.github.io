@@ -99,6 +99,52 @@ sudo systemctl stop v2ray
 <pre><code>sudo vi /usr/local/etc/v2ray/config.json
 </code></pre>
 
+<h3>server</h3>
+
+<pre><code>{
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
+            "level": 1,
+            "alterId": 0
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "certificates": [
+            {
+              "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
+              "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ]
+}
+</code></pre>
+
+<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
+
 <h3>client</h3>
 
 <pre><code>{
@@ -262,51 +308,35 @@ sudo systemctl stop v2ray
 }
 </code></pre>
 
-<h3>server</h3>
+<h2>tls (acme.sh)</h2>
 
-<pre><code>{
-  "inbounds": [
-    {
-      "port": 443,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
-            "level": 1,
-            "alterId": 0
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
-              "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
-            }
-          ]
-        }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    }
-  ]
-}
+<pre><code>DOMAIN_NAME=songzy.cc
 </code></pre>
 
-<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
+<h3>install</h3>
+
+<pre><code>apt install socat
+curl https://get.acme.sh | sh
+source ~/.bashrc 
+</code></pre>
+
+<h3>register</h3>
+
+<pre><code>acme.sh --register-account -m songzy_thu@163.com
+</code></pre>
+
+<h3>issue &amp; installcert</h3>
+
+<pre><code>acme.sh --issue -d $DOMAIN_NAME --standalone -k ec-256 --debug
+</code></pre>
+
+<pre><code>acme.sh --installcert -d $DOMAIN_NAME --fullchainpath /usr/local/etc/v2ray/$DOMAIN_NAME.cer --keypath /usr/local/etc/v2ray/$DOMAIN_NAME.key --ecc
+</code></pre>
+
+<h3>renew</h3>
+
+<pre><code>acme.sh --renew -d $DOMAIN_NAME --force --ecc --debug
+</code></pre>
 
 <h2>log</h2>
 
@@ -317,7 +347,9 @@ sudo systemctl stop v2ray
   }
 </code></pre>
 
-<h2>routing rules</h2>
+<h2>routing</h2>
+
+<p><code>config.json</code></p>
 
 <pre><code>  "routing": {
     "domainStrategy": "IPOnDemand",
@@ -355,41 +387,144 @@ sudo systemctl stop v2ray
   }
 </code></pre>
 
-<h2>tls (acme.sh)</h2>
+<p><code>guiNConfig.json</code></p>
 
-<pre><code>DOMAIN_NAME=songzy.cc
-</code></pre>
-
-<h3>install</h3>
-
-<pre><code>apt install socat
-curl https://get.acme.sh | sh
-source ~/.bashrc 
-</code></pre>
-
-<h3>register</h3>
-
-<pre><code>acme.sh --register-account -m songzy_thu@163.com
-</code></pre>
-
-<h3>issue &amp; installcert</h3>
-
-<pre><code>acme.sh --issue -d $DOMAIN_NAME --standalone -k ec-256 --debug
-</code></pre>
-
-<pre><code>acme.sh --installcert -d $DOMAIN_NAME --fullchainpath /usr/local/etc/v2ray/$DOMAIN_NAME.cer --keypath /usr/local/etc/v2ray/$DOMAIN_NAME.key --ecc
-</code></pre>
-
-<h3>renew</h3>
-
-<pre><code>acme.sh --renew -d $DOMAIN_NAME --force --ecc --debug
-</code></pre>
-
-<h2>http_proxy</h2>
-
-<pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
-export http_proxy=http://$windows_host:10809
-export https_proxy=http://$windows_host:10809
+<pre><code>  "routings": [
+    {
+      "remarks": "仅大陆直连",
+      "url": "",
+      "rules": [
+        {
+          "type": null,
+          "port": null,
+          "inboundTag": null,
+          "outboundTag": "block",
+          "ip": null,
+          "domain": [
+            "geosite:category-ads-all"
+          ],
+          "protocol": null,
+          "enabled": true
+        },
+        {
+          "type": null,
+          "port": null,
+          "inboundTag": null,
+          "outboundTag": "direct",
+          "ip": null,
+          "domain": [
+            "geosite:cn"
+          ],
+          "protocol": null,
+          "enabled": true
+        },
+        {
+          "type": null,
+          "port": null,
+          "inboundTag": null,
+          "outboundTag": "direct",
+          "ip": [
+            "geoip:private",
+            "geoip:cn"
+          ],
+          "domain": null,
+          "protocol": null,
+          "enabled": true
+        },
+        {
+          "type": null,
+          "port": "0-65535",
+          "inboundTag": null,
+          "outboundTag": "proxy",
+          "ip": null,
+          "domain": null,
+          "protocol": null,
+          "enabled": true
+        }
+      ],
+      "enabled": true,
+      "locked": false,
+      "customIcon": ""
+    },
+    {
+      "remarks": "仅防火墙代理",
+      "url": "",
+      "rules": [
+        {
+          "type": null,
+          "port": null,
+          "inboundTag": null,
+          "outboundTag": "direct",
+          "ip": null,
+          "domain": null,
+          "protocol": [
+            "bittorrent"
+          ],
+          "enabled": true
+        },
+        {
+          "type": null,
+          "port": null,
+          "inboundTag": null,
+          "outboundTag": "block",
+          "ip": null,
+          "domain": [
+            "geosite:category-ads-all"
+          ],
+          "protocol": null,
+          "enabled": true
+        },
+        {
+          "type": null,
+          "port": null,
+          "inboundTag": null,
+          "outboundTag": "proxy",
+          "ip": [
+            "geoip:telegram"
+          ],
+          "domain": [
+            "geosite:gfw",
+            "geosite:greatfire",
+            "geosite:tld-!cn"
+          ],
+          "protocol": null,
+          "enabled": true
+        },
+        {
+          "type": null,
+          "port": "0-65535",
+          "inboundTag": null,
+          "outboundTag": "direct",
+          "ip": null,
+          "domain": null,
+          "protocol": null,
+          "enabled": true
+        }
+      ],
+      "enabled": true,
+      "locked": false,
+      "customIcon": ""
+    },
+    {
+      "remarks": "全局代理",
+      "url": "",
+      "rules": [
+        {
+          "type": null,
+          "port": "0-65535",
+          "inboundTag": null,
+          "outboundTag": "proxy",
+          "ip": null,
+          "domain": null,
+          "protocol": null,
+          "enabled": true
+        }
+      ],
+      "enabled": true,
+      "locked": false,
+      "customIcon": ""
+    }
+  ]
 </code></pre>
 
 <h2>ip check</h2>
