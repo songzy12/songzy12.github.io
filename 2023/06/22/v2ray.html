@@ -506,6 +506,23 @@ source ~/.bashrc
   ]
 </code></pre>
 
+<h3>domain strategy</h3>
+
+<p><a href="https://www.v2ray.com/en/configuration/routing.html">https://www.v2ray.com/en/configuration/routing.html</a></p>
+
+<ul>
+<li>&ldquo;AsIs&rdquo;: Only use domain for routing. Default value.</li>
+<li>&ldquo;IPIfNonMatch&rdquo;: When no rule matches current domain, V2Ray resolves it into IP addresses (A or AAAA records) and try all rules again.
+
+<ul>
+<li>If a domain has multiple IP addresses, V2Ray tries all of them.</li>
+<li>The resolved IPs are only used for routing decisions, the traffic is still sent to original domain address.</li>
+</ul>
+</li>
+<li>&ldquo;IPOnDemand&rdquo;: As long as there is a IP-based rule, V2Ray resolves the domain into IP immediately.</li>
+</ul>
+
+
 <h2>ip check</h2>
 
 <p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>
