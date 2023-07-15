@@ -1,101 +1,855 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-07-10T00:03:08+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray</title><link href="http://songzy12.github.io/2023/06/22/v2ray.html" rel="alternate" type="text/html" title="V2Ray" /><published>2023-06-22T12:12:09+00:00</published><updated>2023-06-22T12:12:09+00:00</updated><id>http://songzy12.github.io/2023/06/22/v2ray</id><content type="html" xml:base="http://songzy12.github.io/2023/06/22/v2ray.html"><![CDATA[<p>This article shows how to install and enabel V2Ray proxy.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-07-15T04:30:13+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Client Windows</title><link href="http://songzy12.github.io/2023/07/15/v2ray-client-windows.html" rel="alternate" type="text/html" title="V2Ray Client Windows" /><published>2023-07-15T04:23:45+00:00</published><updated>2023-07-15T04:23:45+00:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-client-windows</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-client-windows.html"><![CDATA[<h2>routing</h2>
 
-<h2>github</h2>
+<h3>config.json</h3>
+
+<pre><code>  "routing": {
+    "domainStrategy": "IPIfNonMatch",
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "api"
+        ],
+        "outboundTag": "api"
+      },
+      {
+        "type": "field",
+        "outboundTag": "proxy",
+        "domain": [
+          "udp",
+          "tcp"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "block",
+        "domain": [
+          "geosite:category-ads-all"
+        ]
+      },
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "domain": [
+          "geosite:cn"
+        ]
+      }
+    ]
+  }
+</code></pre>
+
+<p><a href="https://www.v2ray.com/en/configuration/routing.html">Domain strategy</a>:</p>
 
 <ul>
-<li>core: <a href="https://github.com/v2ray/v2ray-core/releases">https://github.com/v2ray/v2ray-core/releases</a></li>
-<li>v2fly: <a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></li>
-<li>v2rayN: <a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></li>
+<li>&ldquo;AsIs&rdquo;: Only use domain for routing. Default value.</li>
+<li>&ldquo;IPIfNonMatch&rdquo;: When no rule matches current domain, V2Ray resolves it into IP addresses (A or AAAA records) and try all rules again.
+
+<ul>
+<li>If a domain has multiple IP addresses, V2Ray tries all of them.</li>
+<li>The resolved IPs are only used for routing decisions, the traffic is still sent to original domain address.</li>
+</ul>
+</li>
+<li>&ldquo;IPOnDemand&rdquo;: As long as there is a IP-based rule, V2Ray resolves the domain into IP immediately.</li>
 </ul>
 
 
-<h2>v2fly</h2>
+<h3>guiNConfig.json</h3>
 
-<pre><code>// 安裝執行檔和 .dat 資料檔
-bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+<pre><code>  "routings": [
+    {
+      "remarks": "仅大陆直连",
+      "url": "",
+      "rules": [
+        {
+          "type": null,
+          "port": null,
+          "inboundTag": null,
+          "outboundTag": "block",
+          "ip": null,
+          "domain": [
+            "geosite:category-ads-all"
+          ],
+          "protocol": null,
+          "enabled": true
+        },
+        {
+          "type": null,
+          "port": null,
+          "inboundTag": null,
+          "outboundTag": "direct",
+          "ip": null,
+          "domain": [
+            "geosite:cn"
+          ],
+          "protocol": null,
+          "enabled": true
+        },
+        {
+          "type": null,
+          "port": null,
+          "inboundTag": null,
+          "outboundTag": "direct",
+          "ip": [
+            "geoip:private",
+            "geoip:cn"
+          ],
+          "domain": null,
+          "protocol": null,
+          "enabled": true
+        },
+        {
+          "type": null,
+          "port": "0-65535",
+          "inboundTag": null,
+          "outboundTag": "proxy",
+          "ip": null,
+          "domain": null,
+          "protocol": null,
+          "enabled": true
+        }
+      ],
+      "enabled": true,
+      "locked": false,
+      "customIcon": ""
+    },
+    {
+      "remarks": "仅防火墙代理",
+      "url": "",
+      "rules": [
+        {
+          "type": null,
+          "port": null,
+          "inboundTag": null,
+          "outboundTag": "direct",
+          "ip": null,
+          "domain": null,
+          "protocol": [
+            "bittorrent"
+          ],
+          "enabled": true
+        },
+        {
+          "type": null,
+          "port": null,
+          "inboundTag": null,
+          "outboundTag": "block",
+          "ip": null,
+          "domain": [
+            "geosite:category-ads-all"
+          ],
+          "protocol": null,
+          "enabled": true
+        },
+        {
+          "type": null,
+          "port": null,
+          "inboundTag": null,
+          "outboundTag": "proxy",
+          "ip": [
+            "geoip:telegram"
+          ],
+          "domain": [
+            "geosite:gfw",
+            "geosite:greatfire",
+            "geosite:tld-!cn"
+          ],
+          "protocol": null,
+          "enabled": true
+        },
+        {
+          "type": null,
+          "port": "0-65535",
+          "inboundTag": null,
+          "outboundTag": "direct",
+          "ip": null,
+          "domain": null,
+          "protocol": null,
+          "enabled": true
+        }
+      ],
+      "enabled": true,
+      "locked": false,
+      "customIcon": ""
+    },
+    {
+      "remarks": "全局代理",
+      "url": "",
+      "rules": [
+        {
+          "type": null,
+          "port": "0-65535",
+          "inboundTag": null,
+          "outboundTag": "proxy",
+          "ip": null,
+          "domain": null,
+          "protocol": null,
+          "enabled": true
+        }
+      ],
+      "enabled": true,
+      "locked": false,
+      "customIcon": ""
+    }
+  ]
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[routing]]></summary></entry><entry><title type="html">V2Ray Client Ubuntu</title><link href="http://songzy12.github.io/2023/07/15/v2ray-client-ubuntu.html" rel="alternate" type="text/html" title="V2Ray Client Ubuntu" /><published>2023-07-15T04:12:25+00:00</published><updated>2023-07-15T04:12:25+00:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-client-ubuntu</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-client-ubuntu.html"><![CDATA[<h2>Install</h2>
 
-// 只更新 .dat 資料檔
-bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+<pre><code>bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
 </code></pre>
 
-<h2>ufw</h2>
-
-<pre><code>sudo ufw allow http
-sudo ufw allow 80
-sudo ufw allow https
-sudo ufw allow 443
-</code></pre>
-
-<h2>start</h2>
-
-<pre><code>sudo service v2ray status
-sudo service v2ray start
-sudo service v2ray stop
-</code></pre>
-
-<pre><code>sudo systemctl enable v2ray
-sudo systemctl start v2ray
-sudo systemctl status v2ray
-sudo systemctl stop v2ray
-</code></pre>
-
-<h3>vmess aead</h3>
-
-<pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray run -config /usr/local/etc/v2ray/config.json
-</code></pre>
-
-<h2>config</h2>
+<h2>Config</h2>
 
 <pre><code>sudo vi /usr/local/etc/v2ray/config.json
 </code></pre>
 
-<h3>server</h3>
+<h2>Run</h2>
 
-<pre><code>{
-  "inbounds": [
-    {
-      "port": 443,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
-            "level": 1,
-            "alterId": 0
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
-              "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
-            }
-          ]
-        }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    }
-  ]
-}
+<pre><code>sudo systemctl enable v2ray
+sudo systemctl start v2ray
+sudo systemctl status v2ray
 </code></pre>
 
-<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
+<h2>Appendix</h2>
 
-<h3>client</h3>
+<h3>install-release.sh</h3>
+
+<pre><code>#!/usr/bin/env bash
+# shellcheck disable=SC2268
+
+# The files installed by the script conform to the Filesystem Hierarchy Standard:
+# https://wiki.linuxfoundation.org/lsb/fhs
+
+# The URL of the script project is:
+# https://github.com/v2fly/fhs-install-v2ray
+
+# The URL of the script is:
+# https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
+
+# If the script executes incorrectly, go to:
+# https://github.com/v2fly/fhs-install-v2ray/issues
+
+# You can set this variable whatever you want in shell session right before running this script by issuing:
+# export DAT_PATH='/usr/local/share/v2ray'
+DAT_PATH=${DAT_PATH:-/usr/local/share/v2ray}
+
+# You can set this variable whatever you want in shell session right before running this script by issuing:
+# export JSON_PATH='/usr/local/etc/v2ray'
+JSON_PATH=${JSON_PATH:-/usr/local/etc/v2ray}
+
+# Set this variable only if you are starting v2ray with multiple configuration files:
+# export JSONS_PATH='/usr/local/etc/v2ray'
+
+# Set this variable only if you want this script to check all the systemd unit file:
+# export check_all_service_files='yes'
+
+curl() {
+  $(type -P curl) -L -q --retry 5 --retry-delay 10 --retry-max-time 60 "$@"
+}
+
+systemd_cat_config() {
+  if systemd-analyze --help | grep -qw 'cat-config'; then
+    systemd-analyze --no-pager cat-config "$@"
+    echo
+  else
+    echo "${aoi}~~~~~~~~~~~~~~~~"
+    cat "$@" "$1".d/*
+    echo "${aoi}~~~~~~~~~~~~~~~~"
+    echo "${red}warning: ${green}The systemd version on the current operating system is too low."
+    echo "${red}warning: ${green}Please consider to upgrade the systemd or the operating system.${reset}"
+    echo
+  fi
+}
+
+check_if_running_as_root() {
+  # If you want to run as another user, please modify $UID to be owned by this user
+  if [[ "$UID" -ne '0' ]]; then
+    echo "WARNING: The user currently executing this script is not root. You may encounter the insufficient privilege error."
+    read -r -p "Are you sure you want to continue? [y/n] " cont_without_been_root
+    if [[ x"${cont_without_been_root:0:1}" = x'y' ]]; then
+      echo "Continuing the installation with current user..."
+    else
+      echo "Not running with root, exiting..."
+      exit 1
+    fi
+  fi
+}
+
+identify_the_operating_system_and_architecture() {
+  if [[ "$(uname)" == 'Linux' ]]; then
+    case "$(uname -m)" in
+      'i386' | 'i686')
+        MACHINE='32'
+        ;;
+      'amd64' | 'x86_64')
+        MACHINE='64'
+        ;;
+      'armv5tel')
+        MACHINE='arm32-v5'
+        ;;
+      'armv6l')
+        MACHINE='arm32-v6'
+        grep Features /proc/cpuinfo | grep -qw 'vfp' || MACHINE='arm32-v5'
+        ;;
+      'armv7' | 'armv7l')
+        MACHINE='arm32-v7a'
+        grep Features /proc/cpuinfo | grep -qw 'vfp' || MACHINE='arm32-v5'
+        ;;
+      'armv8' | 'aarch64')
+        MACHINE='arm64-v8a'
+        ;;
+      'mips')
+        MACHINE='mips32'
+        ;;
+      'mipsle')
+        MACHINE='mips32le'
+        ;;
+      'mips64')
+        MACHINE='mips64'
+        ;;
+      'mips64le')
+        MACHINE='mips64le'
+        ;;
+      'ppc64')
+        MACHINE='ppc64'
+        ;;
+      'ppc64le')
+        MACHINE='ppc64le'
+        ;;
+      'riscv64')
+        MACHINE='riscv64'
+        ;;
+      's390x')
+        MACHINE='s390x'
+        ;;
+      *)
+        echo "error: The architecture is not supported."
+        exit 1
+        ;;
+    esac
+    if [[ ! -f '/etc/os-release' ]]; then
+      echo "error: Don't use outdated Linux distributions."
+      exit 1
+    fi
+    # Do not combine this judgment condition with the following judgment condition.
+    ## Be aware of Linux distribution like Gentoo, which kernel supports switch between Systemd and OpenRC.
+    ### Refer: https://github.com/v2fly/fhs-install-v2ray/issues/84#issuecomment-688574989
+    if [[ -f /.dockerenv ]] || grep -q 'docker\|lxc' /proc/1/cgroup &amp;&amp; [[ "$(type -P systemctl)" ]]; then
+      true
+    elif [[ -d /run/systemd/system ]] || grep -q systemd &lt;(ls -l /sbin/init); then
+      true
+    else
+      echo "error: Only Linux distributions using systemd are supported."
+      exit 1
+    fi
+    if [[ "$(type -P apt)" ]]; then
+      PACKAGE_MANAGEMENT_INSTALL='apt -y --no-install-recommends install'
+      PACKAGE_MANAGEMENT_REMOVE='apt purge'
+      package_provide_tput='ncurses-bin'
+    elif [[ "$(type -P dnf)" ]]; then
+      PACKAGE_MANAGEMENT_INSTALL='dnf -y install'
+      PACKAGE_MANAGEMENT_REMOVE='dnf remove'
+      package_provide_tput='ncurses'
+    elif [[ "$(type -P yum)" ]]; then
+      PACKAGE_MANAGEMENT_INSTALL='yum -y install'
+      PACKAGE_MANAGEMENT_REMOVE='yum remove'
+      package_provide_tput='ncurses'
+    elif [[ "$(type -P zypper)" ]]; then
+      PACKAGE_MANAGEMENT_INSTALL='zypper install -y --no-recommends'
+      PACKAGE_MANAGEMENT_REMOVE='zypper remove'
+      package_provide_tput='ncurses-utils'
+    elif [[ "$(type -P pacman)" ]]; then
+      PACKAGE_MANAGEMENT_INSTALL='pacman -Syu --noconfirm'
+      PACKAGE_MANAGEMENT_REMOVE='pacman -Rsn'
+      package_provide_tput='ncurses'
+    else
+      echo "error: The script does not support the package manager in this operating system."
+      exit 1
+    fi
+  else
+    echo "error: This operating system is not supported."
+    exit 1
+  fi
+}
+
+## Demo function for processing parameters
+judgment_parameters() {
+  while [[ "$#" -gt '0' ]]; do
+    case "$1" in
+      '--remove')
+        if [[ "$#" -gt '1' ]]; then
+          echo 'error: Please enter the correct parameters.'
+          exit 1
+        fi
+        REMOVE='1'
+        ;;
+      '--version')
+        VERSION="${2:?error: Please specify the correct version.}"
+        break
+        ;;
+      '-c' | '--check')
+        CHECK='1'
+        break
+        ;;
+      '-f' | '--force')
+        FORCE='1'
+        break
+        ;;
+      '-h' | '--help')
+        HELP='1'
+        break
+        ;;
+      '-l' | '--local')
+        LOCAL_INSTALL='1'
+        LOCAL_FILE="${2:?error: Please specify the correct local file.}"
+        break
+        ;;
+      '-p' | '--proxy')
+        if [[ -z "${2:?error: Please specify the proxy server address.}" ]]; then
+          exit 1
+        fi
+        PROXY="$2"
+        shift
+        ;;
+      *)
+        echo "$0: unknown option -- -"
+        exit 1
+        ;;
+    esac
+    shift
+  done
+}
+
+install_software() {
+  package_name="$1"
+  file_to_detect="$2"
+  type -P "$file_to_detect" &gt; /dev/null 2&gt;&amp;1 &amp;&amp; return
+  if ${PACKAGE_MANAGEMENT_INSTALL} "$package_name"; then
+    echo "info: $package_name is installed."
+  else
+    echo "error: Installation of $package_name failed, please check your network."
+    exit 1
+  fi
+}
+
+get_current_version() {
+  if /usr/local/bin/v2ray -version &gt; /dev/null 2&gt;&amp;1; then
+    VERSION="$(/usr/local/bin/v2ray -version | awk 'NR==1 {print $2}')"
+  else
+    VERSION="$(/usr/local/bin/v2ray version | awk 'NR==1 {print $2}')"
+  fi
+  CURRENT_VERSION="v${VERSION#v}"
+}
+
+get_version() {
+  # 0: Install or update V2Ray.
+  # 1: Installed or no new version of V2Ray.
+  # 2: Install the specified version of V2Ray.
+  if [[ -n "$VERSION" ]]; then
+    RELEASE_VERSION="v${VERSION#v}"
+    return 2
+  fi
+  # Determine the version number for V2Ray installed from a local file
+  if [[ -f '/usr/local/bin/v2ray' ]]; then
+    get_current_version
+    if [[ "$LOCAL_INSTALL" -eq '1' ]]; then
+      RELEASE_VERSION="$CURRENT_VERSION"
+      return
+    fi
+  fi
+  # Get V2Ray release version number
+  TMP_FILE="$(mktemp)"
+  if ! curl -x "${PROXY}" -sS -i -H "Accept: application/vnd.github.v3+json" -o "$TMP_FILE" 'https://api.github.com/repos/v2fly/v2ray-core/releases/latest'; then
+    "rm" "$TMP_FILE"
+    echo 'error: Failed to get release list, please check your network.'
+    exit 1
+  fi
+  HTTP_STATUS_CODE=$(awk 'NR==1 {print $2}' "$TMP_FILE")
+  if [[ $HTTP_STATUS_CODE -lt 200 ]] || [[ $HTTP_STATUS_CODE -gt 299 ]]; then
+    "rm" "$TMP_FILE"
+    echo "error: Failed to get release list, GitHub API response code: $HTTP_STATUS_CODE"
+    exit 1
+  fi
+  RELEASE_LATEST="$(sed 'y/,/\n/' "$TMP_FILE" | grep 'tag_name' | awk -F '"' '{print $4}')"
+  "rm" "$TMP_FILE"
+  RELEASE_VERSION="v${RELEASE_LATEST#v}"
+  # Compare V2Ray version numbers
+  if [[ "$RELEASE_VERSION" != "$CURRENT_VERSION" ]]; then
+    RELEASE_VERSIONSION_NUMBER="${RELEASE_VERSION#v}"
+    RELEASE_MAJOR_VERSION_NUMBER="${RELEASE_VERSIONSION_NUMBER%%.*}"
+    RELEASE_MINOR_VERSION_NUMBER="$(echo "$RELEASE_VERSIONSION_NUMBER" | awk -F '.' '{print $2}')"
+    RELEASE_MINIMUM_VERSION_NUMBER="${RELEASE_VERSIONSION_NUMBER##*.}"
+    # shellcheck disable=SC2001
+    CURRENT_VERSION_NUMBER="$(echo "${CURRENT_VERSION#v}" | sed 's/-.*//')"
+    CURRENT_MAJOR_VERSION_NUMBER="${CURRENT_VERSION_NUMBER%%.*}"
+    CURRENT_MINOR_VERSION_NUMBER="$(echo "$CURRENT_VERSION_NUMBER" | awk -F '.' '{print $2}')"
+    CURRENT_MINIMUM_VERSION_NUMBER="${CURRENT_VERSION_NUMBER##*.}"
+    if [[ "$RELEASE_MAJOR_VERSION_NUMBER" -gt "$CURRENT_MAJOR_VERSION_NUMBER" ]]; then
+      return 0
+    elif [[ "$RELEASE_MAJOR_VERSION_NUMBER" -eq "$CURRENT_MAJOR_VERSION_NUMBER" ]]; then
+      if [[ "$RELEASE_MINOR_VERSION_NUMBER" -gt "$CURRENT_MINOR_VERSION_NUMBER" ]]; then
+        return 0
+      elif [[ "$RELEASE_MINOR_VERSION_NUMBER" -eq "$CURRENT_MINOR_VERSION_NUMBER" ]]; then
+        if [[ "$RELEASE_MINIMUM_VERSION_NUMBER" -gt "$CURRENT_MINIMUM_VERSION_NUMBER" ]]; then
+          return 0
+        else
+          return 1
+        fi
+      else
+        return 1
+      fi
+    else
+      return 1
+    fi
+  elif [[ "$RELEASE_VERSION" == "$CURRENT_VERSION" ]]; then
+    return 1
+  fi
+}
+
+download_v2ray() {
+  DOWNLOAD_LINK="https://github.com/v2fly/v2ray-core/releases/download/$RELEASE_VERSION/v2ray-linux-$MACHINE.zip"
+  echo "Downloading V2Ray archive: $DOWNLOAD_LINK"
+  if ! curl -x "${PROXY}" -R -H 'Cache-Control: no-cache' -o "$ZIP_FILE" "$DOWNLOAD_LINK"; then
+    echo 'error: Download failed! Please check your network or try again.'
+    return 1
+  fi
+  echo "Downloading verification file for V2Ray archive: $DOWNLOAD_LINK.dgst"
+  if ! curl -x "${PROXY}" -sSR -H 'Cache-Control: no-cache' -o "$ZIP_FILE.dgst" "$DOWNLOAD_LINK.dgst"; then
+    echo 'error: Download failed! Please check your network or try again.'
+    return 1
+  fi
+  if [[ "$(cat "$ZIP_FILE".dgst)" == 'Not Found' ]]; then
+    echo 'error: This version does not support verification. Please replace with another version.'
+    return 1
+  fi
+
+  # Verification of V2Ray archive
+  CHECKSUM=$(awk -F '= ' '/256=/ {print $2}' &lt; "${ZIP_FILE}.dgst")
+  LOCALSUM=$(sha256sum "$ZIP_FILE" | awk '{printf $1}')
+  if [[ "$CHECKSUM" != "$LOCALSUM" ]]; then
+    echo 'error: SHA256 check failed! Please check your network or try again.'
+    return 1
+  fi
+}
+
+decompression() {
+  if ! unzip -q "$1" -d "$TMP_DIRECTORY"; then
+    echo 'error: V2Ray decompression failed.'
+    "rm" -r "$TMP_DIRECTORY"
+    echo "removed: $TMP_DIRECTORY"
+    exit 1
+  fi
+  echo "info: Extract the V2Ray package to $TMP_DIRECTORY and prepare it for installation."
+}
+
+install_file() {
+  NAME="$1"
+  if [[ "$NAME" == 'v2ray' ]] || [[ "$NAME" == 'v2ctl' ]]; then
+    install -m 755 "${TMP_DIRECTORY}/$NAME" "/usr/local/bin/$NAME"
+  elif [[ "$NAME" == 'geoip.dat' ]] || [[ "$NAME" == 'geosite.dat' ]]; then
+    install -m 644 "${TMP_DIRECTORY}/$NAME" "${DAT_PATH}/$NAME"
+  fi
+}
+
+install_v2ray() {
+  # Install V2Ray binary to /usr/local/bin/ and $DAT_PATH
+  install_file v2ray
+  if [[ -f "${TMP_DIRECTORY}/v2ctl" ]]; then
+    install_file v2ctl
+  else
+    if [[ -f '/usr/local/bin/v2ctl' ]]; then
+      rm '/usr/local/bin/v2ctl'
+    fi
+  fi
+  install -d "$DAT_PATH"
+  # If the file exists, geoip.dat and geosite.dat will not be installed or updated
+  if [[ ! -f "${DAT_PATH}/.undat" ]]; then
+    install_file geoip.dat
+    install_file geosite.dat
+  fi
+
+  # Install V2Ray configuration file to $JSON_PATH
+  # shellcheck disable=SC2153
+  if [[ -z "$JSONS_PATH" ]] &amp;&amp; [[ ! -d "$JSON_PATH" ]]; then
+    install -d "$JSON_PATH"
+    echo "{}" &gt; "${JSON_PATH}/config.json"
+    CONFIG_NEW='1'
+  fi
+
+  # Install V2Ray configuration file to $JSONS_PATH
+  if [[ -n "$JSONS_PATH" ]] &amp;&amp; [[ ! -d "$JSONS_PATH" ]]; then
+    install -d "$JSONS_PATH"
+    for BASE in 00_log 01_api 02_dns 03_routing 04_policy 05_inbounds 06_outbounds 07_transport 08_stats 09_reverse; do
+      echo '{}' &gt; "${JSONS_PATH}/${BASE}.json"
+    done
+    CONFDIR='1'
+  fi
+
+  # Used to store V2Ray log files
+  if [[ ! -d '/var/log/v2ray/' ]]; then
+    if id nobody | grep -qw 'nogroup'; then
+      install -d -m 700 -o nobody -g nogroup /var/log/v2ray/
+      install -m 600 -o nobody -g nogroup /dev/null /var/log/v2ray/access.log
+      install -m 600 -o nobody -g nogroup /dev/null /var/log/v2ray/error.log
+    else
+      install -d -m 700 -o nobody -g nobody /var/log/v2ray/
+      install -m 600 -o nobody -g nobody /dev/null /var/log/v2ray/access.log
+      install -m 600 -o nobody -g nobody /dev/null /var/log/v2ray/error.log
+    fi
+    LOG='1'
+  fi
+}
+
+install_startup_service_file() {
+  get_current_version
+  if [[ "$(echo "${CURRENT_VERSION#v}" | sed 's/-.*//' | awk -F'.' '{print $1}')" -gt "4" ]]; then
+    START_COMMAND="/usr/local/bin/v2ray run"
+  else
+    START_COMMAND="/usr/local/bin/v2ray"
+  fi
+  install -m 644 "${TMP_DIRECTORY}/systemd/system/v2ray.service" /etc/systemd/system/v2ray.service
+  install -m 644 "${TMP_DIRECTORY}/systemd/system/v2ray@.service" /etc/systemd/system/v2ray@.service
+  mkdir -p '/etc/systemd/system/v2ray.service.d'
+  mkdir -p '/etc/systemd/system/v2ray@.service.d/'
+  if [[ -n "$JSONS_PATH" ]]; then
+    "rm" -f '/etc/systemd/system/v2ray.service.d/10-donot_touch_single_conf.conf' \
+      '/etc/systemd/system/v2ray@.service.d/10-donot_touch_single_conf.conf'
+    echo "# In case you have a good reason to do so, duplicate this file in the same directory and make your customizes there.
+# Or all changes you made will be lost!  # Refer: https://www.freedesktop.org/software/systemd/man/systemd.unit.html
+[Service]
+ExecStart=
+ExecStart=${START_COMMAND} -confdir $JSONS_PATH" |
+      tee '/etc/systemd/system/v2ray.service.d/10-donot_touch_multi_conf.conf' &gt; '/etc/systemd/system/v2ray@.service.d/10-donot_touch_multi_conf.conf'
+  else
+    "rm" -f '/etc/systemd/system/v2ray.service.d/10-donot_touch_multi_conf.conf' \
+      '/etc/systemd/system/v2ray@.service.d/10-donot_touch_multi_conf.conf'
+    echo "# In case you have a good reason to do so, duplicate this file in the same directory and make your customizes there.
+# Or all changes you made will be lost!  # Refer: https://www.freedesktop.org/software/systemd/man/systemd.unit.html
+[Service]
+ExecStart=
+ExecStart=${START_COMMAND} -config ${JSON_PATH}/config.json" &gt; '/etc/systemd/system/v2ray.service.d/10-donot_touch_single_conf.conf'
+    echo "# In case you have a good reason to do so, duplicate this file in the same directory and make your customizes there.
+# Or all changes you made will be lost!  # Refer: https://www.freedesktop.org/software/systemd/man/systemd.unit.html
+[Service]
+ExecStart=
+ExecStart=${START_COMMAND} -config ${JSON_PATH}/%i.json" &gt; '/etc/systemd/system/v2ray@.service.d/10-donot_touch_single_conf.conf'
+  fi
+  echo "info: Systemd service files have been installed successfully!"
+  echo "${red}warning: ${green}The following are the actual parameters for the v2ray service startup."
+  echo "${red}warning: ${green}Please make sure the configuration file path is correctly set.${reset}"
+  systemd_cat_config /etc/systemd/system/v2ray.service
+  # shellcheck disable=SC2154
+  if [[ x"${check_all_service_files:0:1}" = x'y' ]]; then
+    echo
+    echo
+    systemd_cat_config /etc/systemd/system/v2ray@.service
+  fi
+  systemctl daemon-reload
+  SYSTEMD='1'
+}
+
+start_v2ray() {
+  if [[ -f '/etc/systemd/system/v2ray.service' ]]; then
+    if systemctl start "${V2RAY_CUSTOMIZE:-v2ray}"; then
+      echo 'info: Start the V2Ray service.'
+    else
+      echo 'error: Failed to start V2Ray service.'
+      exit 1
+    fi
+  fi
+}
+
+stop_v2ray() {
+  V2RAY_CUSTOMIZE="$(systemctl list-units | grep 'v2ray@' | awk -F ' ' '{print $1}')"
+  if [[ -z "$V2RAY_CUSTOMIZE" ]]; then
+    local v2ray_daemon_to_stop='v2ray.service'
+  else
+    local v2ray_daemon_to_stop="$V2RAY_CUSTOMIZE"
+  fi
+  if ! systemctl stop "$v2ray_daemon_to_stop"; then
+    echo 'error: Stopping the V2Ray service failed.'
+    exit 1
+  fi
+  echo 'info: Stop the V2Ray service.'
+}
+
+check_update() {
+  if [[ -f '/etc/systemd/system/v2ray.service' ]]; then
+    get_version
+    local get_ver_exit_code=$?
+    if [[ "$get_ver_exit_code" -eq '0' ]]; then
+      echo "info: Found the latest release of V2Ray $RELEASE_VERSION . (Current release: $CURRENT_VERSION)"
+    elif [[ "$get_ver_exit_code" -eq '1' ]]; then
+      echo "info: No new version. The current version of V2Ray is $CURRENT_VERSION ."
+    fi
+    exit 0
+  else
+    echo 'error: V2Ray is not installed.'
+    exit 1
+  fi
+}
+
+remove_v2ray() {
+  if systemctl list-unit-files | grep -qw 'v2ray'; then
+    if [[ -n "$(pidof v2ray)" ]]; then
+      stop_v2ray
+    fi
+    if ! ("rm" -r '/usr/local/bin/v2ray' \
+      "$DAT_PATH" \
+      '/etc/systemd/system/v2ray.service' \
+      '/etc/systemd/system/v2ray@.service' \
+      '/etc/systemd/system/v2ray.service.d' \
+      '/etc/systemd/system/v2ray@.service.d'); then
+      echo 'error: Failed to remove V2Ray.'
+      exit 1
+    else
+      echo 'removed: /usr/local/bin/v2ray'
+      if [[ -f '/usr/local/bin/v2ctl' ]]; then
+        rm '/usr/local/bin/v2ctl'
+        echo 'removed: /usr/local/bin/v2ctl'
+      fi
+      echo "removed: $DAT_PATH"
+      echo 'removed: /etc/systemd/system/v2ray.service'
+      echo 'removed: /etc/systemd/system/v2ray@.service'
+      echo 'removed: /etc/systemd/system/v2ray.service.d'
+      echo 'removed: /etc/systemd/system/v2ray@.service.d'
+      echo 'Please execute the command: systemctl disable v2ray'
+      echo "You may need to execute a command to remove dependent software: $PACKAGE_MANAGEMENT_REMOVE curl unzip"
+      echo 'info: V2Ray has been removed.'
+      echo 'info: If necessary, manually delete the configuration and log files.'
+      if [[ -n "$JSONS_PATH" ]]; then
+        echo "info: e.g., $JSONS_PATH and /var/log/v2ray/ ..."
+      else
+        echo "info: e.g., $JSON_PATH and /var/log/v2ray/ ..."
+      fi
+      exit 0
+    fi
+  else
+    echo 'error: V2Ray is not installed.'
+    exit 1
+  fi
+}
+
+# Explanation of parameters in the script
+show_help() {
+  echo "usage: $0 [--remove | --version number | -c | -f | -h | -l | -p]"
+  echo '  [-p address] [--version number | -c | -f]'
+  echo '  --remove        Remove V2Ray'
+  echo '  --version       Install the specified version of V2Ray, e.g., --version v4.18.0'
+  echo '  -c, --check     Check if V2Ray can be updated'
+  echo '  -f, --force     Force installation of the latest version of V2Ray'
+  echo '  -h, --help      Show help'
+  echo '  -l, --local     Install V2Ray from a local file'
+  echo '  -p, --proxy     Download through a proxy server, e.g., -p http://127.0.0.1:8118 or -p socks5://127.0.0.1:1080'
+  exit 0
+}
+
+main() {
+  check_if_running_as_root
+  identify_the_operating_system_and_architecture
+  judgment_parameters "$@"
+
+  install_software "$package_provide_tput" 'tput'
+  red=$(tput setaf 1)
+  green=$(tput setaf 2)
+  aoi=$(tput setaf 6)
+  reset=$(tput sgr0)
+
+  # Parameter information
+  [[ "$HELP" -eq '1' ]] &amp;&amp; show_help
+  [[ "$CHECK" -eq '1' ]] &amp;&amp; check_update
+  [[ "$REMOVE" -eq '1' ]] &amp;&amp; remove_v2ray
+
+  # Two very important variables
+  TMP_DIRECTORY="$(mktemp -d)"
+  ZIP_FILE="${TMP_DIRECTORY}/v2ray-linux-$MACHINE.zip"
+
+  # Install V2Ray from a local file, but still need to make sure the network is available
+  if [[ "$LOCAL_INSTALL" -eq '1' ]]; then
+    echo 'warn: Install V2Ray from a local file, but still need to make sure the network is available.'
+    echo -n 'warn: Please make sure the file is valid because we cannot confirm it. (Press any key) ...'
+    read -r
+    install_software 'unzip' 'unzip'
+    decompression "$LOCAL_FILE"
+  else
+    # Normal way
+    install_software 'curl' 'curl'
+    get_version
+    NUMBER="$?"
+    if [[ "$NUMBER" -eq '0' ]] || [[ "$FORCE" -eq '1' ]] || [[ "$NUMBER" -eq 2 ]]; then
+      echo "info: Installing V2Ray $RELEASE_VERSION for $(uname -m)"
+      download_v2ray
+      if [[ "$?" -eq '1' ]]; then
+        "rm" -r "$TMP_DIRECTORY"
+        echo "removed: $TMP_DIRECTORY"
+        exit 1
+      fi
+      install_software 'unzip' 'unzip'
+      decompression "$ZIP_FILE"
+    elif [[ "$NUMBER" -eq '1' ]]; then
+      echo "info: No new version. The current version of V2Ray is $CURRENT_VERSION ."
+      exit 0
+    fi
+  fi
+
+  # Determine if V2Ray is running
+  if systemctl list-unit-files | grep -qw 'v2ray'; then
+    if [[ -n "$(pidof v2ray)" ]]; then
+      stop_v2ray
+      V2RAY_RUNNING='1'
+    fi
+  fi
+  install_v2ray
+  install_startup_service_file
+  echo 'installed: /usr/local/bin/v2ray'
+  if [[ -f '/usr/local/bin/v2ctl' ]]; then
+    echo 'installed: /usr/local/bin/v2ctl'
+  fi
+  # If the file exists, the content output of installing or updating geoip.dat and geosite.dat will not be displayed
+  if [[ ! -f "${DAT_PATH}/.undat" ]]; then
+    echo "installed: ${DAT_PATH}/geoip.dat"
+    echo "installed: ${DAT_PATH}/geosite.dat"
+  fi
+  if [[ "$CONFIG_NEW" -eq '1' ]]; then
+    echo "installed: ${JSON_PATH}/config.json"
+  fi
+  if [[ "$CONFDIR" -eq '1' ]]; then
+    echo "installed: ${JSON_PATH}/00_log.json"
+    echo "installed: ${JSON_PATH}/01_api.json"
+    echo "installed: ${JSON_PATH}/02_dns.json"
+    echo "installed: ${JSON_PATH}/03_routing.json"
+    echo "installed: ${JSON_PATH}/04_policy.json"
+    echo "installed: ${JSON_PATH}/05_inbounds.json"
+    echo "installed: ${JSON_PATH}/06_outbounds.json"
+    echo "installed: ${JSON_PATH}/07_transport.json"
+    echo "installed: ${JSON_PATH}/08_stats.json"
+    echo "installed: ${JSON_PATH}/09_reverse.json"
+  fi
+  if [[ "$LOG" -eq '1' ]]; then
+    echo 'installed: /var/log/v2ray/'
+    echo 'installed: /var/log/v2ray/access.log'
+    echo 'installed: /var/log/v2ray/error.log'
+  fi
+  if [[ "$SYSTEMD" -eq '1' ]]; then
+    echo 'installed: /etc/systemd/system/v2ray.service'
+    echo 'installed: /etc/systemd/system/v2ray@.service'
+  fi
+  "rm" -r "$TMP_DIRECTORY"
+  echo "removed: $TMP_DIRECTORY"
+  if [[ "$LOCAL_INSTALL" -eq '1' ]]; then
+    get_version
+  fi
+  echo "info: V2Ray $RELEASE_VERSION is installed."
+  echo "You may need to execute a command to remove dependent software: $PACKAGE_MANAGEMENT_REMOVE curl unzip"
+  if [[ "$V2RAY_RUNNING" -eq '1' ]]; then
+    start_v2ray
+  else
+    echo 'Please execute the command: systemctl enable v2ray; systemctl start v2ray'
+  fi
+}
+
+main "$@"
+</code></pre>
+
+<h3>config.json</h3>
 
 <pre><code>{
   "log": {
@@ -237,6 +991,103 @@ sudo systemctl stop v2ray
 }
 </code></pre>
 
+<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Install]]></summary></entry><entry><title type="html">V2Ray Server</title><link href="http://songzy12.github.io/2023/06/22/v2ray-server.html" rel="alternate" type="text/html" title="V2Ray Server" /><published>2023-06-22T12:12:09+00:00</published><updated>2023-06-22T12:12:09+00:00</updated><id>http://songzy12.github.io/2023/06/22/v2ray-server</id><content type="html" xml:base="http://songzy12.github.io/2023/06/22/v2ray-server.html"><![CDATA[<p>This article notes how to install and enabel V2Ray service on your VPS.</p>
+
+<h2>github</h2>
+
+<ul>
+<li>core: <a href="https://github.com/v2ray/v2ray-core/releases">https://github.com/v2ray/v2ray-core/releases</a></li>
+<li>v2fly: <a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></li>
+<li>v2rayN: <a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></li>
+</ul>
+
+
+<h2>v2fly</h2>
+
+<pre><code>// 安裝執行檔和 .dat 資料檔
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+
+// 只更新 .dat 資料檔
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+</code></pre>
+
+<h2>ufw</h2>
+
+<pre><code>sudo ufw allow http
+sudo ufw allow 80
+sudo ufw allow https
+sudo ufw allow 443
+</code></pre>
+
+<h2>start</h2>
+
+<pre><code>sudo service v2ray status
+sudo service v2ray start
+sudo service v2ray stop
+</code></pre>
+
+<pre><code>sudo systemctl enable v2ray
+sudo systemctl start v2ray
+sudo systemctl status v2ray
+sudo systemctl stop v2ray
+</code></pre>
+
+<h3>vmess aead</h3>
+
+<pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray run -config /usr/local/etc/v2ray/config.json
+</code></pre>
+
+<h2>config</h2>
+
+<pre><code>sudo vi /usr/local/etc/v2ray/config.json
+</code></pre>
+
+<h3>server</h3>
+
+<pre><code>{
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
+            "level": 1,
+            "alterId": 0
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "certificates": [
+            {
+              "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
+              "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ]
+}
+</code></pre>
+
+<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
+
 <h2>tls (acme.sh)</h2>
 
 <pre><code>DOMAIN_NAME=songzy.cc
@@ -276,206 +1127,9 @@ source ~/.bashrc
   }
 </code></pre>
 
-<h2>routing</h2>
-
-<p><code>config.json</code></p>
-
-<pre><code>  "routing": {
-    "domainStrategy": "IPOnDemand",
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api"
-      },
-      {
-        "type": "field",
-        "outboundTag": "proxy",
-        "domain": [
-          "udp",
-          "tcp"
-        ]
-      },
-      {
-        "type": "field",
-        "outboundTag": "direct",
-        "domain": [
-          "geosite:cn"
-        ]
-      },
-      {
-        "type": "field",
-        "outboundTag": "block",
-        "domain": [
-          "geosite:category-ads-all"
-        ]
-      }
-    ]
-  }
-</code></pre>
-
-<p><code>guiNConfig.json</code></p>
-
-<pre><code>  "routings": [
-    {
-      "remarks": "仅大陆直连",
-      "url": "",
-      "rules": [
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "block",
-          "ip": null,
-          "domain": [
-            "geosite:category-ads-all"
-          ],
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "direct",
-          "ip": null,
-          "domain": [
-            "geosite:cn"
-          ],
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "direct",
-          "ip": [
-            "geoip:private",
-            "geoip:cn"
-          ],
-          "domain": null,
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": "0-65535",
-          "inboundTag": null,
-          "outboundTag": "proxy",
-          "ip": null,
-          "domain": null,
-          "protocol": null,
-          "enabled": true
-        }
-      ],
-      "enabled": true,
-      "locked": false,
-      "customIcon": ""
-    },
-    {
-      "remarks": "仅防火墙代理",
-      "url": "",
-      "rules": [
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "direct",
-          "ip": null,
-          "domain": null,
-          "protocol": [
-            "bittorrent"
-          ],
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "block",
-          "ip": null,
-          "domain": [
-            "geosite:category-ads-all"
-          ],
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "proxy",
-          "ip": [
-            "geoip:telegram"
-          ],
-          "domain": [
-            "geosite:gfw",
-            "geosite:greatfire",
-            "geosite:tld-!cn"
-          ],
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": "0-65535",
-          "inboundTag": null,
-          "outboundTag": "direct",
-          "ip": null,
-          "domain": null,
-          "protocol": null,
-          "enabled": true
-        }
-      ],
-      "enabled": true,
-      "locked": false,
-      "customIcon": ""
-    },
-    {
-      "remarks": "全局代理",
-      "url": "",
-      "rules": [
-        {
-          "type": null,
-          "port": "0-65535",
-          "inboundTag": null,
-          "outboundTag": "proxy",
-          "ip": null,
-          "domain": null,
-          "protocol": null,
-          "enabled": true
-        }
-      ],
-      "enabled": true,
-      "locked": false,
-      "customIcon": ""
-    }
-  ]
-</code></pre>
-
-<h3>domain strategy</h3>
-
-<p><a href="https://www.v2ray.com/en/configuration/routing.html">https://www.v2ray.com/en/configuration/routing.html</a></p>
-
-<ul>
-<li>&ldquo;AsIs&rdquo;: Only use domain for routing. Default value.</li>
-<li>&ldquo;IPIfNonMatch&rdquo;: When no rule matches current domain, V2Ray resolves it into IP addresses (A or AAAA records) and try all rules again.
-
-<ul>
-<li>If a domain has multiple IP addresses, V2Ray tries all of them.</li>
-<li>The resolved IPs are only used for routing decisions, the traffic is still sent to original domain address.</li>
-</ul>
-</li>
-<li>&ldquo;IPOnDemand&rdquo;: As long as there is a IP-based rule, V2Ray resolves the domain into IP immediately.</li>
-</ul>
-
-
 <h2>ip check</h2>
 
-<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This article shows how to install and enabel V2Ray proxy.]]></summary></entry><entry><title type="html">ChatGPT</title><link href="http://songzy12.github.io/2023/06/04/chatgpt.html" rel="alternate" type="text/html" title="ChatGPT" /><published>2023-06-04T03:43:46+00:00</published><updated>2023-06-04T03:43:46+00:00</updated><id>http://songzy12.github.io/2023/06/04/chatgpt</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/chatgpt.html"><![CDATA[<p>大陆如何注册使用 ChatGPT，并将其升级到 Plus.</p>
+<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This article notes how to install and enabel V2Ray service on your VPS.]]></summary></entry><entry><title type="html">ChatGPT</title><link href="http://songzy12.github.io/2023/06/04/chatgpt.html" rel="alternate" type="text/html" title="ChatGPT" /><published>2023-06-04T03:43:46+00:00</published><updated>2023-06-04T03:43:46+00:00</updated><id>http://songzy12.github.io/2023/06/04/chatgpt</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/chatgpt.html"><![CDATA[<p>大陆如何注册使用 ChatGPT，并将其升级到 Plus.</p>
 
 <p>访问 <a href="https://chat.openai.com/%EF%BC%9A">https://chat.openai.com/%EF%BC%9A</a></p>
 
@@ -943,190 +1597,4 @@ The exception content is
 </li>
 <li>RAM: 4G</li>
 <li>Disk: 128G SSD + 500G HDD</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[ThinkPad T470 (1FCD)]]></summary></entry><entry><title type="html">Wear OS</title><link href="http://songzy12.github.io/2023/01/02/wear-os.html" rel="alternate" type="text/html" title="Wear OS" /><published>2023-01-02T13:06:00+00:00</published><updated>2023-01-02T13:06:00+00:00</updated><id>http://songzy12.github.io/2023/01/02/wear-os</id><content type="html" xml:base="http://songzy12.github.io/2023/01/02/wear-os.html"><![CDATA[<p>Google Pixel Watch app will crash on Honor 20 Pro with HarmonyOS 2.0.0.</p>
-
-<h2>Logcat</h2>
-
-<pre><code>2023-01-02 21:40:49.866 16383-16383/? E/PrivacyConsentApi: Exception while registering consent listener
-    equ: 17: API: Wearable.API is not available on this device. Connection failed with: epo{statusCode=API_UNAVAILABLE, resolution=null, message=null}
-        at erk.d(PG:1)
-        at ese.s(PG:7)
-        at ese.f(PG:2)
-        at ese.j(PG:21)
-        at ese.i(PG:1)
-        at androidx.wear.ambient.AmbientModeSupport$AmbientController.b(PG:1)
-        at etr.a(PG:1)
-        at etl.d(PG:6)
-        at etm.handleMessage(PG:38)
-        at android.os.Handler.dispatchMessage(Handler.java:110)
-        at exp.b(PG:1)
-        at exp.dispatchMessage(PG:1)
-        at android.os.Looper.loop(Looper.java:219)
-        at android.os.HandlerThread.run(HandlerThread.java:67)
-</code></pre>
-
-<pre><code>2023-01-02 21:03:20.439 1568-2418/? E/ActivityTaskManager: START {hwFlg=0x10 cmp=com.google.android.wearable.app.cn/com.google.android.gms.wearable.consent.TermsOfServiceActivity (has extras)} result: -92
-2023-01-02 21:03:20.441 14409-14409/? E/AndroidRuntime: FATAL EXCEPTION: main
-    Process: com.google.android.apps.wear.companion, PID: 14409
-    java.lang.RuntimeException: Unable to start activity ComponentInfo{com.google.android.apps.wear.companion/com.google.android.libraries.wear.companion.invisibleactivity.impl.InvisibleActivity}: android.content.ActivityNotFoundException: Unable to find explicit activity class {com.google.android.wearable.app.cn/com.google.android.gms.wearable.consent.TermsOfServiceActivity}; have you declared this activity in your AndroidManifest.xml?
-        at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:4060)
-        at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:4247)
-        at android.app.servertransaction.LaunchActivityItem.execute(LaunchActivityItem.java:91)
-        at android.app.servertransaction.TransactionExecutor.executeCallbacks(TransactionExecutor.java:149)
-        at android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java:103)
-        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2613)
-        at android.os.Handler.dispatchMessage(Handler.java:110)
-        at android.os.Looper.loop(Looper.java:219)
-        at android.app.ActivityThread.main(ActivityThread.java:8668)
-        at java.lang.reflect.Method.invoke(Native Method)
-        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:513)
-        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1109)
-     Caused by: android.content.ActivityNotFoundException: Unable to find explicit activity class {com.google.android.wearable.app.cn/com.google.android.gms.wearable.consent.TermsOfServiceActivity}; have you declared this activity in your AndroidManifest.xml?
-        at android.app.Instrumentation.checkStartActivityResult(Instrumentation.java:2118)
-        at android.app.Instrumentation.execStartActivity(Instrumentation.java:1746)
-        at android.app.Activity.startActivityForResult(Activity.java:5412)
-        at vp.b(PG:1)
-        at androidx.activity.result.ActivityResultRegistry.f(PG:13)
-        at qz.b(PG:4)
-        at hwu.b(PG:1)
-        at jcn.a(PG:39)
-        at hwv.a(PG:7)
-        at com.google.android.libraries.wear.companion.invisibleactivity.impl.InvisibleActivity.onCreate(PG:11)
-        at android.app.Activity.performCreate(Activity.java:8214)
-        at android.app.Activity.performCreate(Activity.java:8202)
-        at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1320)
-        at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:4033)
-        at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:4247) 
-        at android.app.servertransaction.LaunchActivityItem.execute(LaunchActivityItem.java:91) 
-        at android.app.servertransaction.TransactionExecutor.executeCallbacks(TransactionExecutor.java:149) 
-        at android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java:103) 
-        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2613) 
-        at android.os.Handler.dispatchMessage(Handler.java:110) 
-        at android.os.Looper.loop(Looper.java:219) 
-        at android.app.ActivityThread.main(ActivityThread.java:8668) 
-        at java.lang.reflect.Method.invoke(Native Method) 
-        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:513) 
-        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1109) 
-</code></pre>
-
-<h2>Debug</h2>
-
-<p><a href="https://support.google.com/googlepixelwatch/answer/12652073?hl=en">https://support.google.com/googlepixelwatch/answer/12652073?hl=en</a></p>
-
-<blockquote><p>To connect Google Pixel Watch, you need an Android phone running Android OS version 8.0 or higher.
-iOS phones are not currently supported.</p></blockquote>
-
-<p><a href="https://www.androidauthority.com/harmony-os-2-android-1231446/">https://www.androidauthority.com/harmony-os-2-android-1231446/</a></p>
-
-<blockquote><p>Huawei’s HarmonyOS 2.0 may be based on Android 10.</p></blockquote>
-
-<p><a href="https://support.google.com/googlepixelwatch/thread/183791114/google-pixel-watch-app-crashes-when-setting-up-device?hl=en">https://support.google.com/googlepixelwatch/thread/183791114/google-pixel-watch-app-crashes-when-setting-up-device?hl=en</a></p>
-
-<blockquote><p>The pixel watch app crashes whenever I click &ldquo;continue&rdquo; (and also &ldquo;Pair with emulator&rdquo; option in the menu) on the setup page.</p>
-
-<p>For more context, I&rsquo;m using a Huawei P30 Pro running Harmony OS 2.0.0.268, which should be equivalent to Android 10.</p></blockquote>
-
-<p><a href="https://support.google.com/wearos/answer/9266307">https://support.google.com/wearos/answer/9266307</a></p>
-
-<blockquote><p>Watches that run Wear OS 3 are not compatible with the Wear OS app.</p></blockquote>
-
-<p><a href="https://developer.android.com/training/wearables/creating-app-china">https://developer.android.com/training/wearables/creating-app-china</a></p>
-
-<blockquote><p>com.google.android.wearable.app.cn</p></blockquote>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Google Pixel Watch app will crash on Honor 20 Pro with HarmonyOS 2.0.0.]]></summary></entry><entry><title type="html">乐理</title><link href="http://songzy12.github.io/2022/12/17/%E4%B9%90%E7%90%86.html" rel="alternate" type="text/html" title="乐理" /><published>2022-12-17T12:57:00+00:00</published><updated>2022-12-17T12:57:00+00:00</updated><id>http://songzy12.github.io/2022/12/17/%E4%B9%90%E7%90%86</id><content type="html" xml:base="http://songzy12.github.io/2022/12/17/%E4%B9%90%E7%90%86.html"><![CDATA[<h2>唱名</h2>
-
-<p>在英语国家通常是do（doh）、re、mi、fa、sol（so）、la、ti/si。</p>
-
-<ul>
-<li>首调唱名法：将当前调的主音唱成do。</li>
-<li>固定唱名法：将do、re、mi、fa、sol、la、si与C、D、E、F、G、A、B 一一对应。</li>
-</ul>
-
-
-<h2>音名</h2>
-
-<p>音名就是音高的名称，即C、D、E、F、G、A、B。</p>
-
-<ul>
-<li>音名和音高的关系是绝对的；每高或低八度音高的音名是一样。</li>
-<li>唱名和音高的关系是相对的；而唱名就算是不同的音高，也可以一样。</li>
-</ul>
-
-
-<p>需要区别不同八度的音高时，则会在音名后加上数字，</p>
-
-<ul>
-<li>中央C是c1，高八度是c2，低八度是c。</li>
-</ul>
-
-
-<h2>音高</h2>
-
-<p>人类对音高的感受与基频成对数性的：</p>
-
-<ul>
-<li>对人耳而言，"A220"到"A440"之间的差距跟"A440"到A880"之间相同。</li>
-</ul>
-
-
-<p>中央区的A音符发出的频率为440Hz（表示成"A440"），通常被当作“标准音高”。</p>
-
-<p>&ldquo;A4"或"A440"都用来表示中央C上的A音符。</p>
-
-<p>$p = 69 + 12 * \log_2{\frac{f}{440}}$</p>
-
-<p>每一个八度大小都是12，半音（在钢琴上相邻的两个键所拥有的音程）之间则相差1，</p>
-
-<p>至于"A440"的号码则指定为69。</p>
-
-<h2>十二平均律</h2>
-
-<p>声音来源于物体的振动，音调由振动的频率决定。</p>
-
-<p>十二平均律，是一种音乐的定律方法，将一个八度平均分成十二等份，是最主要的调音法。</p>
-
-<p>音高八度音指的是频率加倍（即二倍频率）。</p>
-
-<p>每等分称为半音。</p>
-
-<p>八度音的频率分为十二项的等比数列，也就是每个音的频率为前一个音的 $\sqrt{12}{2}$。</p>
-
-<h2>八度</h2>
-
-<p><img src="/img/%E5%85%AB%E5%BA%A6%E7%A9%BA%E9%97%B4.jpg" alt="八度空间" /></p>
-
-<h2>音阶</h2>
-
-<p>音程模式：</p>
-
-<ul>
-<li>大调音阶：全-全-半-全-全-全-半，1 2 3 4 5 6 7 1</li>
-<li>小调音阶：全-半-全-全-半-全-全，6 7 1 2 3 4 5 6</li>
-</ul>
-
-
-<p>验证一下：2+2+1+2+2+2+1=12</p>
-
-<p>主音：音阶中的第一个音，并且所采用的音程模式从这个音开始。</p>
-
-<p>通常，一个音阶的名称由它的音程模式和主音决定：</p>
-
-<ul>
-<li>例如，所谓C大调指的是用大调音阶的音程模式，并以C音（Do）为主音。</li>
-</ul>
-
-
-<p><img src="/img/%E9%9F%B3%E7%A8%8B.jpg" alt="音程" /></p>
-
-<h2>谱号</h2>
-
-<p><img src="/img/%E8%B0%B1%E5%8F%B7.jpg" alt="谱号" /></p>
-
-<h2>参考链接</h2>
-
-<ul>
-<li><a href="https://zh.wikipedia.org/wiki/%E5%8D%81%E4%BA%8C%E5%B9%B3%E5%9D%87%E5%BE%8B">https://zh.wikipedia.org/wiki/%E5%8D%81%E4%BA%8C%E5%B9%B3%E5%9D%87%E5%BE%8B</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E5%94%B1%E5%90%8D">https://zh.wikipedia.org/wiki/%E5%94%B1%E5%90%8D</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E9%9F%B3%E5%90%8D">https://zh.wikipedia.org/wiki/%E9%9F%B3%E5%90%8D</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E9%9F%B3%E9%AB%98">https://zh.wikipedia.org/wiki/%E9%9F%B3%E9%AB%98</a></li>
-<li><a href="https://zh.wikipedia.org/wiki/%E8%AD%9C%E8%99%9F">https://zh.wikipedia.org/wiki/%E8%AD%9C%E8%99%9F</a></li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[唱名]]></summary></entry></feed>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[ThinkPad T470 (1FCD)]]></summary></entry></feed>
