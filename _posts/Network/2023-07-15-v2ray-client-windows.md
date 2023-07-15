@@ -4,6 +4,8 @@ title: "V2Ray Client Windows"
 date: 2023-07-15T04:23:45+00:00
 ---
 
+<https://github.com/2dust/v2rayN/releases>
+
 ## routing
 
 ### config.json

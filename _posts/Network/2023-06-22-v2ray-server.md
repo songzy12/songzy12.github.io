@@ -4,13 +4,7 @@ title: "V2Ray Server"
 date: 2023-06-22T20:12:09+08:00
 ---
 
-This article notes how to install and enabel V2Ray service on your VPS.
-
-## github
-
-- core: <https://github.com/v2ray/v2ray-core/releases>
-- v2fly: <https://github.com/v2fly/fhs-install-v2ray>
-- v2rayN: <https://github.com/2dust/v2rayN/releases>
+<https://github.com/v2fly/fhs-install-v2ray>
 
 ## v2fly
 
