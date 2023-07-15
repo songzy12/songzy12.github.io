@@ -1,4 +1,14 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-07-15T05:43:30+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Client Windows</title><link href="http://songzy12.github.io/2023/07/15/v2ray-client-windows.html" rel="alternate" type="text/html" title="V2Ray Client Windows" /><published>2023-07-15T04:23:45+00:00</published><updated>2023-07-15T04:23:45+00:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-client-windows</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-client-windows.html"><![CDATA[<p><a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-07-15T14:02:34+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Guest VM Network</title><link href="http://songzy12.github.io/2023/07/15/guest-vm-network.html" rel="alternate" type="text/html" title="Guest VM Network" /><published>2023-07-15T13:52:26+00:00</published><updated>2023-07-15T13:52:26+00:00</updated><id>http://songzy12.github.io/2023/07/15/guest-vm-network</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/guest-vm-network.html"><![CDATA[<h2>WSL HTTP/HTTPS Proxy</h2>
+
+<pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
+export http_proxy=http://$windows_host:10809
+export https_proxy=http://$windows_host:10809
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[WSL HTTP/HTTPS Proxy]]></summary></entry><entry><title type="html">Input Method</title><link href="http://songzy12.github.io/2023/07/15/input-method.html" rel="alternate" type="text/html" title="Input Method" /><published>2023-07-15T13:50:14+00:00</published><updated>2023-07-15T13:50:14+00:00</updated><id>http://songzy12.github.io/2023/07/15/input-method</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/input-method.html"><![CDATA[<h2>ibus</h2>
+
+<pre><code>sudo apt-get install ibus-pinyin
+</code></pre>
+
+<h2>fcitx5</h2>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[ibus]]></summary></entry><entry><title type="html">V2Ray Client Windows</title><link href="http://songzy12.github.io/2023/07/15/v2ray-client-windows.html" rel="alternate" type="text/html" title="V2Ray Client Windows" /><published>2023-07-15T04:23:45+00:00</published><updated>2023-07-15T04:23:45+00:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-client-windows</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-client-windows.html"><![CDATA[<p><a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></p>
 
 <h2>routing</h2>
 
@@ -1496,13 +1506,6 @@ sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
 </code></pre>
 
 <pre><code>docker info
-</code></pre>
-
-<h2>windows_host</h2>
-
-<pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
-export http_proxy=http://$windows_host:10809
-export https_proxy=http://$windows_host:10809
 </code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This shows what we need to do when we move to a brand new Linux environment.]]></summary></entry><entry><title type="html">PyTorch GPU</title><link href="http://songzy12.github.io/2023/03/21/pytorch-gpu.html" rel="alternate" type="text/html" title="PyTorch GPU" /><published>2023-03-21T07:23:18+00:00</published><updated>2023-03-21T07:23:18+00:00</updated><id>http://songzy12.github.io/2023/03/21/pytorch-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/03/21/pytorch-gpu.html"><![CDATA[<p>Enable GPU for PyTorch.</p>
 
 <h2>Verify</h2>
@@ -1518,88 +1521,4 @@ True
 &lt;torch.cuda.device object at 0x7f41013064f0&gt;
 &gt;&gt;&gt; torch.cuda.get_device_name(0)
 'NVIDIA GeForce RTX 3090'
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU for PyTorch.]]></summary></entry><entry><title type="html">Paddle GPU</title><link href="http://songzy12.github.io/2023/03/21/paddle-gpu.html" rel="alternate" type="text/html" title="Paddle GPU" /><published>2023-03-21T07:23:08+00:00</published><updated>2023-03-21T07:23:08+00:00</updated><id>http://songzy12.github.io/2023/03/21/paddle-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/03/21/paddle-gpu.html"><![CDATA[<p>Enable GPU for PaddlePaddle.</p>
-
-<pre><code>W1024 17:30:14.785153  6727 device_context.cc:404] Please NOTE: device: 0, GPU Compute Capability: 8.6, Driver API Version: 11.4, Runtime API Version: 10.2
-W1024 17:30:14.788581  6727 device_context.cc:422] device: 0, cuDNN Version: 8.1.
-Traceback (most recent call last):
-  File "train.py", line 63, in &lt;module&gt;
-    model = FastText(vocab_size, num_classes, args.emb_dim)
-  File "/home/songzy/fastText-paddle/model.py", line 21, in __init__
-    self.embedder = nn.Embedding(vocab_size, emb_dim)
-  File "/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/nn/layer/common.py", line 1343, in __init__
-    self.weight = self.create_parameter(
-  File "/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/dygraph/layers.py", line 411, in create_parameter
-    return self._helper.create_parameter(temp_attr, shape, dtype, is_bias,
-  File "/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/layer_helper_base.py", line 369, in create_parameter
-    return self.main_program.global_block().create_parameter(
-  File "/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/framework.py", line 2920, in create_parameter
-    initializer(param, self)
-  File "/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/initializer.py", line 561, in __call__
-    op = block.append_op(
-  File "/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/framework.py", line 2946, in append_op
-    _dygraph_tracer().trace_op(type,
-  File "/home/songzy/.virtualenvs/paddle/lib/python3.8/site-packages/paddle/fluid/dygraph/tracer.py", line 43, in trace_op
-    self.trace(type, inputs, outputs, attrs,
-SystemError: (Fatal) Operator uniform_random raises an thrust::system::system_error exception.
-The exception content is
-:parallel_for failed: cudaErrorNoKernelImageForDevice: no kernel image is available for execution on the device. (at /paddle/paddle/fluid/imperative/tracer.cc:192)
-</code></pre>
-
-<pre><code>$ python
-&gt;&gt;&gt; import paddle
-&gt;&gt;&gt; paddle.utils.run_check() 
-</code></pre>
-
-<p>这种情况一般出现在编译和运行在不同架构的显卡上，且cmake时未指定运行时需要的CUDA架构。可以在cmake时加上 -DCUDA_ARCH_NAME=All（或者特定的架构如Turing、Volta、Pascal等），否则会使用默认值Auto，此时只会当前的CUDA架构编译。</p>
-
-<p><a href="https://stackoverflow.com/questions/9727688/how-to-get-the-cuda-version">https://stackoverflow.com/questions/9727688/how-to-get-the-cuda-version</a></p>
-
-<pre><code>$ nvcc --version
-</code></pre>
-
-<p><a href="https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html">https://www.paddlepaddle.org.cn/install/quick?docurl=/documentation/docs/zh/install/pip/linux-pip.html</a></p>
-
-<pre><code>pip install paddlepaddle-gpu==2.1.3.post110 -f https://www.paddlepaddle.org.cn/whl/linux/mkl/avx/stable.html
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU for PaddlePaddle.]]></summary></entry><entry><title type="html">CPU</title><link href="http://songzy12.github.io/2023/03/16/cpu.html" rel="alternate" type="text/html" title="CPU" /><published>2023-03-16T03:41:00+00:00</published><updated>2023-03-16T03:41:00+00:00</updated><id>http://songzy12.github.io/2023/03/16/cpu</id><content type="html" xml:base="http://songzy12.github.io/2023/03/16/cpu.html"><![CDATA[<p>ThinkPad T470 (1FCD)</p>
-
-<ul>
-<li>CPU: Intel Core i5-7200U @ 2.5GHz
-
-<ul>
-<li>2016'Q4</li>
-</ul>
-</li>
-<li>GPU: NVIDIA GeForce 940MX 2G</li>
-<li>RAM: 20G (4G+16G)</li>
-<li>Disk: 128G SSD + 500G HDD</li>
-</ul>
-
-
-<p>ThinkPad E15 (3XCD)</p>
-
-<ul>
-<li>CPU: Intel Core i5-10210U @ 1.6GHz
-
-<ul>
-<li>2019'Q3</li>
-</ul>
-</li>
-<li>GPU: AMD RX640 2G</li>
-<li>RAM: 8G</li>
-<li>Disk: 256G SSD + 1T HDD</li>
-</ul>
-
-
-<p>Lenovo G475AX</p>
-
-<ul>
-<li>CPU: AMD E-300 @ 1.3GHz
-
-<ul>
-<li>2011'Q3</li>
-</ul>
-</li>
-<li>RAM: 4G</li>
-<li>Disk: 128G SSD + 500G HDD</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[ThinkPad T470 (1FCD)]]></summary></entry></feed>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU for PyTorch.]]></summary></entry></feed>

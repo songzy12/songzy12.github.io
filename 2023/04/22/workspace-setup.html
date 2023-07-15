@@ -224,13 +224,6 @@ sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
 <pre><code>docker info
 </code></pre>
 
-<h2>windows_host</h2>
-
-<pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
-export http_proxy=http://$windows_host:10809
-export https_proxy=http://$windows_host:10809
-</code></pre>
-
   </div><a class="u-url" href="/2023/04/22/workspace-setup.html" hidden></a>
 </article>
 
