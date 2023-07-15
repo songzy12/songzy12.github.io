@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-07-15T04:30:13+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Client Windows</title><link href="http://songzy12.github.io/2023/07/15/v2ray-client-windows.html" rel="alternate" type="text/html" title="V2Ray Client Windows" /><published>2023-07-15T04:23:45+00:00</published><updated>2023-07-15T04:23:45+00:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-client-windows</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-client-windows.html"><![CDATA[<h2>routing</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-07-15T04:49:11+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Client Windows</title><link href="http://songzy12.github.io/2023/07/15/v2ray-client-windows.html" rel="alternate" type="text/html" title="V2Ray Client Windows" /><published>2023-07-15T04:23:45+00:00</published><updated>2023-07-15T04:23:45+00:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-client-windows</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-client-windows.html"><![CDATA[<p><a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></p>
+
+<h2>routing</h2>
 
 <h3>config.json</h3>
 
@@ -191,7 +193,9 @@
       "customIcon": ""
     }
   ]
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[routing]]></summary></entry><entry><title type="html">V2Ray Client Ubuntu</title><link href="http://songzy12.github.io/2023/07/15/v2ray-client-ubuntu.html" rel="alternate" type="text/html" title="V2Ray Client Ubuntu" /><published>2023-07-15T04:12:25+00:00</published><updated>2023-07-15T04:12:25+00:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-client-ubuntu</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-client-ubuntu.html"><![CDATA[<h2>Install</h2>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/2dust/v2rayN/releases]]></summary></entry><entry><title type="html">V2Ray Client Ubuntu</title><link href="http://songzy12.github.io/2023/07/15/v2ray-client-ubuntu.html" rel="alternate" type="text/html" title="V2Ray Client Ubuntu" /><published>2023-07-15T04:12:25+00:00</published><updated>2023-07-15T04:12:25+00:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-client-ubuntu</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-client-ubuntu.html"><![CDATA[<p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
+
+<h2>Install</h2>
 
 <pre><code>bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
 </code></pre>
@@ -991,16 +995,7 @@ main "$@"
 }
 </code></pre>
 
-<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Install]]></summary></entry><entry><title type="html">V2Ray Server</title><link href="http://songzy12.github.io/2023/06/22/v2ray-server.html" rel="alternate" type="text/html" title="V2Ray Server" /><published>2023-06-22T12:12:09+00:00</published><updated>2023-06-22T12:12:09+00:00</updated><id>http://songzy12.github.io/2023/06/22/v2ray-server</id><content type="html" xml:base="http://songzy12.github.io/2023/06/22/v2ray-server.html"><![CDATA[<p>This article notes how to install and enabel V2Ray service on your VPS.</p>
-
-<h2>github</h2>
-
-<ul>
-<li>core: <a href="https://github.com/v2ray/v2ray-core/releases">https://github.com/v2ray/v2ray-core/releases</a></li>
-<li>v2fly: <a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></li>
-<li>v2rayN: <a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></li>
-</ul>
-
+<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/v2fly/fhs-install-v2ray]]></summary></entry><entry><title type="html">V2Ray Server</title><link href="http://songzy12.github.io/2023/06/22/v2ray-server.html" rel="alternate" type="text/html" title="V2Ray Server" /><published>2023-06-22T12:12:09+00:00</published><updated>2023-06-22T12:12:09+00:00</updated><id>http://songzy12.github.io/2023/06/22/v2ray-server</id><content type="html" xml:base="http://songzy12.github.io/2023/06/22/v2ray-server.html"><![CDATA[<p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
 
 <h2>v2fly</h2>
 
@@ -1129,7 +1124,7 @@ source ~/.bashrc
 
 <h2>ip check</h2>
 
-<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This article notes how to install and enabel V2Ray service on your VPS.]]></summary></entry><entry><title type="html">ChatGPT</title><link href="http://songzy12.github.io/2023/06/04/chatgpt.html" rel="alternate" type="text/html" title="ChatGPT" /><published>2023-06-04T03:43:46+00:00</published><updated>2023-06-04T03:43:46+00:00</updated><id>http://songzy12.github.io/2023/06/04/chatgpt</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/chatgpt.html"><![CDATA[<p>大陆如何注册使用 ChatGPT，并将其升级到 Plus.</p>
+<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/v2fly/fhs-install-v2ray]]></summary></entry><entry><title type="html">ChatGPT</title><link href="http://songzy12.github.io/2023/06/04/chatgpt.html" rel="alternate" type="text/html" title="ChatGPT" /><published>2023-06-04T03:43:46+00:00</published><updated>2023-06-04T03:43:46+00:00</updated><id>http://songzy12.github.io/2023/06/04/chatgpt</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/chatgpt.html"><![CDATA[<p>大陆如何注册使用 ChatGPT，并将其升级到 Plus.</p>
 
 <p>访问 <a href="https://chat.openai.com/%EF%BC%9A">https://chat.openai.com/%EF%BC%9A</a></p>
 
