@@ -209,11 +209,3 @@ sudo service docker restart
 ```
 docker info
 ```
-
-## windows_host
-
-```
-windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
-export http_proxy=http://$windows_host:10809
-export https_proxy=http://$windows_host:10809
-```
