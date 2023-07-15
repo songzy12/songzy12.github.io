@@ -19,29 +19,39 @@ date: 2023-07-15T04:23:45+00:00
         "inboundTag": [
           "api"
         ],
-        "outboundTag": "api"
-      },
-      {
-        "type": "field",
-        "outboundTag": "proxy",
-        "domain": [
-          "udp",
-          "tcp"
-        ]
+        "outboundTag": "api",
+        "enabled": true
       },
       {
         "type": "field",
         "outboundTag": "block",
         "domain": [
           "geosite:category-ads-all"
-        ]
+        ],
+        "enabled": true
       },
       {
         "type": "field",
         "outboundTag": "direct",
         "domain": [
           "geosite:cn"
-        ]
+        ],
+        "enabled": true
+      },
+      {
+        "type": "field",
+        "outboundTag": "direct",
+        "ip": [
+          "geoip:private",
+          "geoip:cn"
+        ],
+        "enabled": true
+      },
+      {
+        "type": "field",
+        "port": "0-65535",
+        "outboundTag": "proxy",
+        "enabled": true
       }
     ]
   }
