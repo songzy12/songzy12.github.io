@@ -20,30 +20,7 @@ bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/
 
 ```
 sudo ufw allow http
-sudo ufw allow 80
 sudo ufw allow https
-sudo ufw allow 443
-```
-
-## start
-
-```
-sudo service v2ray status
-sudo service v2ray start
-sudo service v2ray stop
-```
-
-```
-sudo systemctl enable v2ray
-sudo systemctl start v2ray
-sudo systemctl status v2ray
-sudo systemctl stop v2ray
-```
-
-### vmess aead
-
-```
-env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray run -config /usr/local/etc/v2ray/config.json
 ```
 
 ## config
@@ -93,7 +70,12 @@ sudo vi /usr/local/etc/v2ray/config.json
       "settings": {},
       "tag": "blocked"
     }
-  ]
+  ],  
+  "log": {
+    "loglevel": "warning",
+    "access": "/var/log/v2ray/access.log",
+    "error": "/var/log/v2ray/error.log"
+  }
 }
 ```
 
@@ -135,14 +117,25 @@ acme.sh --installcert -d $DOMAIN_NAME --fullchainpath /usr/local/etc/v2ray/$DOMA
 acme.sh --renew -d $DOMAIN_NAME --force --ecc --debug
 ```
 
-## log
+## start
 
 ```
-  "log": {
-    "loglevel": "warning",
-    "access": "/var/log/v2ray/access.log",
-    "error": "/var/log/v2ray/error.log"
-  }
+sudo service v2ray status
+sudo service v2ray start
+sudo service v2ray stop
+```
+
+```
+sudo systemctl enable v2ray
+sudo systemctl start v2ray
+sudo systemctl status v2ray
+sudo systemctl stop v2ray
+```
+
+### vmess aead
+
+```
+env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray run -config /usr/local/etc/v2ray/config.json
 ```
 
 ## ip check
