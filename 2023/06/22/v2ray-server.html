@@ -61,13 +61,13 @@ bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/mast
 
 <h2>ufw</h2>
 
-<pre><code>sudo ufw allow http
-sudo ufw allow https
+<pre><code>ufw allow http
+ufw allow https
 </code></pre>
 
 <h2>config</h2>
 
-<pre><code>sudo vi /usr/local/etc/v2ray/config.json
+<pre><code>vi /usr/local/etc/v2ray/config.json
 </code></pre>
 
 <h3>server</h3>
@@ -110,12 +110,7 @@ sudo ufw allow https
       "settings": {},
       "tag": "blocked"
     }
-  ],  
-  "log": {
-    "loglevel": "warning",
-    "access": "/var/log/v2ray/access.log",
-    "error": "/var/log/v2ray/error.log"
-  }
+  ]
 }
 </code></pre>
 
@@ -149,19 +144,6 @@ source ~/.bashrc
 <h3>renew</h3>
 
 <pre><code>acme.sh --renew -d $DOMAIN_NAME --force --ecc --debug
-</code></pre>
-
-<h2>start</h2>
-
-<pre><code>sudo service v2ray status
-sudo service v2ray start
-sudo service v2ray stop
-</code></pre>
-
-<pre><code>sudo systemctl enable v2ray
-sudo systemctl start v2ray
-sudo systemctl status v2ray
-sudo systemctl stop v2ray
 </code></pre>
 
 <h3>vmess aead</h3>

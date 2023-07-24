@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-07-24T07:06:32+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Guest VM Network</title><link href="http://songzy12.github.io/2023/07/15/guest-vm-network.html" rel="alternate" type="text/html" title="Guest VM Network" /><published>2023-07-15T13:52:26+00:00</published><updated>2023-07-15T13:52:26+00:00</updated><id>http://songzy12.github.io/2023/07/15/guest-vm-network</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/guest-vm-network.html"><![CDATA[<h2>WSL HTTP/HTTPS Proxy</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-07-24T07:22:31+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Guest VM Network</title><link href="http://songzy12.github.io/2023/07/15/guest-vm-network.html" rel="alternate" type="text/html" title="Guest VM Network" /><published>2023-07-15T13:52:26+00:00</published><updated>2023-07-15T13:52:26+00:00</updated><id>http://songzy12.github.io/2023/07/15/guest-vm-network</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/guest-vm-network.html"><![CDATA[<h2>WSL HTTP/HTTPS Proxy</h2>
 
 <pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 export http_proxy=http://$windows_host:10809
@@ -227,9 +227,18 @@ export https_proxy=http://$windows_host:10809
 
 <h2>Run</h2>
 
-<pre><code>sudo systemctl enable v2ray
+<pre><code>sudo systemctl status v2ray
+
 sudo systemctl start v2ray
-sudo systemctl status v2ray
+sudo systemctl stop v2ray
+
+sudo systemctl enable v2ray
+</code></pre>
+
+<pre><code>sudo service v2ray status
+
+sudo service v2ray start
+sudo service v2ray stop
 </code></pre>
 
 <h2>Appendix</h2>
@@ -1028,13 +1037,13 @@ bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/mast
 
 <h2>ufw</h2>
 
-<pre><code>sudo ufw allow http
-sudo ufw allow https
+<pre><code>ufw allow http
+ufw allow https
 </code></pre>
 
 <h2>config</h2>
 
-<pre><code>sudo vi /usr/local/etc/v2ray/config.json
+<pre><code>vi /usr/local/etc/v2ray/config.json
 </code></pre>
 
 <h3>server</h3>
@@ -1077,12 +1086,7 @@ sudo ufw allow https
       "settings": {},
       "tag": "blocked"
     }
-  ],  
-  "log": {
-    "loglevel": "warning",
-    "access": "/var/log/v2ray/access.log",
-    "error": "/var/log/v2ray/error.log"
-  }
+  ]
 }
 </code></pre>
 
@@ -1116,19 +1120,6 @@ source ~/.bashrc
 <h3>renew</h3>
 
 <pre><code>acme.sh --renew -d $DOMAIN_NAME --force --ecc --debug
-</code></pre>
-
-<h2>start</h2>
-
-<pre><code>sudo service v2ray status
-sudo service v2ray start
-sudo service v2ray stop
-</code></pre>
-
-<pre><code>sudo systemctl enable v2ray
-sudo systemctl start v2ray
-sudo systemctl status v2ray
-sudo systemctl stop v2ray
 </code></pre>
 
 <h3>vmess aead</h3>
