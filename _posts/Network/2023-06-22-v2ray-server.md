@@ -19,14 +19,14 @@ bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/
 ## ufw
 
 ```
-sudo ufw allow http
-sudo ufw allow https
+ufw allow http
+ufw allow https
 ```
 
 ## config
 
 ```
-sudo vi /usr/local/etc/v2ray/config.json
+vi /usr/local/etc/v2ray/config.json
 ```
 
 ### server
@@ -70,12 +70,7 @@ sudo vi /usr/local/etc/v2ray/config.json
       "settings": {},
       "tag": "blocked"
     }
-  ],  
-  "log": {
-    "loglevel": "warning",
-    "access": "/var/log/v2ray/access.log",
-    "error": "/var/log/v2ray/error.log"
-  }
+  ]
 }
 ```
 
@@ -115,21 +110,6 @@ acme.sh --installcert -d $DOMAIN_NAME --fullchainpath /usr/local/etc/v2ray/$DOMA
 
 ```
 acme.sh --renew -d $DOMAIN_NAME --force --ecc --debug
-```
-
-## start
-
-```
-sudo service v2ray status
-sudo service v2ray start
-sudo service v2ray stop
-```
-
-```
-sudo systemctl enable v2ray
-sudo systemctl start v2ray
-sudo systemctl status v2ray
-sudo systemctl stop v2ray
 ```
 
 ### vmess aead

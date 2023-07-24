@@ -21,9 +21,19 @@ sudo vi /usr/local/etc/v2ray/config.json
 ## Run
 
 ```
-sudo systemctl enable v2ray
-sudo systemctl start v2ray
 sudo systemctl status v2ray
+
+sudo systemctl start v2ray
+sudo systemctl stop v2ray
+
+sudo systemctl enable v2ray
+```
+
+```
+sudo service v2ray status
+
+sudo service v2ray start
+sudo service v2ray stop
 ```
 
 ## Appendix
