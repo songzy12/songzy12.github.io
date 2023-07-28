@@ -48,12 +48,10 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 
 ### [WeiboSpider](https://github.com/dataabc/weiboSpider)
 
-This is a library that crawls useful info of specified weibo users, which has earned __6k stars__ as of Aug 2022. I helped to refactor and modularize the code base and now am [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
+This is a tool that crawls useful content of specified weibo users, which has earned __7k stars__ as of Jul 2023. I helped to refactor the code base and have been acting as [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
   
 ## Social
 
 * GitHub: <https://github.com/songzy12>
 * Kaggle: <https://www.kaggle.com/songzy12>
-* TopCoder: <https://www.topcoder.com/members/songzy12>
 * CodeForces: <http://codeforces.com/profile/songzy12>
-* HackerRank: <https://www.hackerrank.com/songzy12>
