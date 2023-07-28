@@ -6,33 +6,9 @@ date: 2021-05-01T14:08:18+08:00
 
 Font/color related issues I came across when using terminals.
 
-## oh-my-zsh icons not shown correctly
+## Powerline Fonts
 
 <https://github.com/microsoft/WSL/issues/1517>
-
-### oh-my-zsh Themes
-
-<https://github.com/ohmyzsh/ohmyzsh/wiki/Themes>
-
-To set zsh theme:
-
-```
-export ZSH_THEME=robbyrussell
-```
-
-To view all the avaliable zsh themes:
-
-```
-ls ~/.oh-my-zsh/themes/
-```
-
-To view the config of a specific zsh theme:
-
-```
-vi ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
-```
-
-### Powerline Fonts
 
 <https://github.com/powerline/fonts>
 
@@ -42,7 +18,7 @@ vi ~/.oh-my-zsh/themes/robbyrussell.zsh-theme
 
 `DejaVu Sans Mono for Powerline`.
 
-### Monospace Fonts to Registry
+## Add Fonts to Registry
 
 This will affect what fonts are avaliable in cmd properties menu.
 
