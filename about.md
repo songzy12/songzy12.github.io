@@ -51,7 +51,7 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 
 This is a tool that crawls useful content of specified weibo users, which has earned __7k stars__ as of Jul 2023. I helped to refactor the code base and have been acting as [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
   
-## Social
+## Social Link
 
 * GitHub: <https://github.com/songzy12>
 * Kaggle: <https://www.kaggle.com/songzy12>
