@@ -4,6 +4,11 @@ title: About Me
 permalink: /about/
 ---
 
+## Education
+
+* Master (2016 ~ 2019): Tsinghua University, IIIS, Computer Science and Technology
+* Bachelor (2012 ~ 2016): Tsinghua University, __Yao Class__, Computer Science and Technology
+
 ## Work
 
 ### __Google__ Beijing (Jul 2019 ~ now)
@@ -30,17 +35,6 @@ R&D Intern
 * Text matcher to match answers from FAQ dataset to user questions. 
 * Demo: <https://www.xuetangx.com/learn/THU08091000384/THU08091000384/10322765>
 
-## Hobby Project
-
-### [WeiboSpider](https://github.com/dataabc/weiboSpider)
-
-This is a tool that crawls useful content of specified weibo users, which has earned __7k stars__ as of Jul 2023. I helped to refactor the code base and have been acting as [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
-
-## Education
-
-* Master (2016 ~ 2019): Tsinghua University, IIIS, Computer Science and Technology
-* Bachelor (2012 ~ 2016): Tsinghua University, __Yao Class__, Computer Science and Technology
-
 ## Publication
 
 Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
@@ -50,6 +44,12 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 * Li, C., __Song, Z.__, & Tang, J. (2018, June). User tagging in moocs through network embedding. In 2018 IEEE Third International Conference on Data Science in Cyberspace (DSC) (pp. 235-241). IEEE.
 * Zhang, H., Sun, M., Wang, X., __Song, Z.__, Tang, J., & Sun, J. (2017, April). Smart jump: Automated navigation suggestion for videos in moocs. In Proceedings of the 26th international conference on world wide web companion (pp. 331-339).
 * Jia, Y., __Song, Z.__, Bai, X., & Xu, W. (2017, March). Towards economic models for MOOC pricing strategy design. In International Conference on Database Systems for Advanced Applications (pp. 387-398). Springer, Cham.
+
+## Hobby Project
+
+### [WeiboSpider](https://github.com/dataabc/weiboSpider)
+
+This is a tool that crawls useful content of specified weibo users, which has earned __7k stars__ as of Jul 2023. I helped to refactor the code base and have been acting as [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
   
 ## Social
 
