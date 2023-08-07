@@ -1,344 +1,54 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-08-07T02:08:41+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Ubuntu Server</title><link href="http://songzy12.github.io/2023/08/07/v2ray-ubunt-server.html" rel="alternate" type="text/html" title="V2Ray Ubuntu Server" /><published>2023-08-07T02:08:09+00:00</published><updated>2023-08-07T02:08:09+00:00</updated><id>http://songzy12.github.io/2023/08/07/v2ray-ubunt-server</id><content type="html" xml:base="http://songzy12.github.io/2023/08/07/v2ray-ubunt-server.html"><![CDATA[<p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>V2Ray Client Ubuntu | Secret Base</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="V2Ray Client Ubuntu" />
+<meta name="author" content="Zhengyang Song" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="https://github.com/v2fly/fhs-install-v2ray" />
+<meta property="og:description" content="https://github.com/v2fly/fhs-install-v2ray" />
+<link rel="canonical" href="http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client.html" />
+<meta property="og:url" content="http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client.html" />
+<meta property="og:site_name" content="Secret Base" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-07-15T04:12:25+00:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="V2Ray Client Ubuntu" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2023-07-15T04:12:25+00:00","datePublished":"2023-07-15T04:12:25+00:00","description":"https://github.com/v2fly/fhs-install-v2ray","headline":"V2Ray Client Ubuntu","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client.html"},"url":"http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
+<body><header class="site-header" role="banner">
 
-<h2>v2fly</h2>
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Secret Base</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
 
-<pre><code>// 安裝執行檔和 .dat 資料檔
-bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
-// 只更新 .dat 資料檔
-bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
-</code></pre>
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">V2Ray Client Ubuntu</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-07-15T04:12:25+00:00" itemprop="datePublished">Jul 15, 2023
+      </time></p>
+  </header>
 
-<h2>ufw</h2>
-
-<pre><code>ufw allow http
-ufw allow https
-</code></pre>
-
-<h2>config</h2>
-
-<pre><code>vi /usr/local/etc/v2ray/config.json
-</code></pre>
-
-<h3>server</h3>
-
-<pre><code>{
-  "inbounds": [
-    {
-      "port": 443,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
-            "level": 1,
-            "alterId": 0
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
-              "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
-            }
-          ]
-        }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    }
-  ]
-}
-</code></pre>
-
-<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
-
-<h2>tls (acme.sh)</h2>
-
-<pre><code>DOMAIN_NAME=songzy.cc
-</code></pre>
-
-<h3>install</h3>
-
-<pre><code>apt install socat
-curl https://get.acme.sh | sh
-source ~/.bashrc 
-</code></pre>
-
-<h3>register</h3>
-
-<pre><code>acme.sh --register-account -m songzy_thu@163.com
-</code></pre>
-
-<h3>issue &amp; installcert</h3>
-
-<pre><code>acme.sh --issue -d $DOMAIN_NAME --standalone -k ec-256 --debug
-</code></pre>
-
-<pre><code>acme.sh --installcert -d $DOMAIN_NAME --fullchainpath /usr/local/etc/v2ray/$DOMAIN_NAME.cer --keypath /usr/local/etc/v2ray/$DOMAIN_NAME.key --ecc
-</code></pre>
-
-<h3>renew</h3>
-
-<pre><code>acme.sh --renew -d $DOMAIN_NAME --force --ecc --debug
-</code></pre>
-
-<h3>vmess aead</h3>
-
-<pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray run -config /usr/local/etc/v2ray/config.json
-</code></pre>
-
-<h2>ip check</h2>
-
-<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/v2fly/fhs-install-v2ray]]></summary></entry><entry><title type="html">ZSH Themes</title><link href="http://songzy12.github.io/2023/07/28/zsh-themes.html" rel="alternate" type="text/html" title="ZSH Themes" /><published>2023-07-28T04:07:43+00:00</published><updated>2023-07-28T04:07:43+00:00</updated><id>http://songzy12.github.io/2023/07/28/zsh-themes</id><content type="html" xml:base="http://songzy12.github.io/2023/07/28/zsh-themes.html"><![CDATA[<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
-
-<p>To view all avaliable zsh themes:</p>
-
-<pre><code>ls $ZSH/themes/
-</code></pre>
-
-<p>To set zsh theme:</p>
-
-<pre><code>export ZSH_THEME=random
-</code></pre>
-
-<p>To view the current selected random theme:</p>
-
-<pre><code>echo $RANDOM_THEME
-</code></pre>
-
-<p>To view the config of a specific zsh theme:</p>
-
-<pre><code>vi $ZSH/themes/robbyrussell.zsh-theme
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/ohmyzsh/ohmyzsh/wiki/Themes]]></summary></entry><entry><title type="html">Guest VM Network</title><link href="http://songzy12.github.io/2023/07/15/guest-vm-network.html" rel="alternate" type="text/html" title="Guest VM Network" /><published>2023-07-15T13:52:26+00:00</published><updated>2023-07-15T13:52:26+00:00</updated><id>http://songzy12.github.io/2023/07/15/guest-vm-network</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/guest-vm-network.html"><![CDATA[<h2>WSL HTTP/HTTPS Proxy</h2>
-
-<pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
-export http_proxy=http://$windows_host:10809
-export https_proxy=http://$windows_host:10809
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[WSL HTTP/HTTPS Proxy]]></summary></entry><entry><title type="html">Input Method</title><link href="http://songzy12.github.io/2023/07/15/input-method.html" rel="alternate" type="text/html" title="Input Method" /><published>2023-07-15T13:50:14+00:00</published><updated>2023-07-15T13:50:14+00:00</updated><id>http://songzy12.github.io/2023/07/15/input-method</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/input-method.html"><![CDATA[<h2>ibus</h2>
-
-<pre><code>sudo apt-get install ibus-pinyin
-</code></pre>
-
-<h2>fcitx5</h2>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[ibus]]></summary></entry><entry><title type="html">V2Ray Client Windows</title><link href="http://songzy12.github.io/2023/07/15/v2ray-windows-client.html" rel="alternate" type="text/html" title="V2Ray Client Windows" /><published>2023-07-15T04:23:45+00:00</published><updated>2023-07-15T04:23:45+00:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-windows-client</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-windows-client.html"><![CDATA[<p><a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></p>
-
-<h2>routing</h2>
-
-<h3>config.json</h3>
-
-<pre><code>  "routing": {
-    "domainStrategy": "IPIfNonMatch",
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api",
-        "enabled": true
-      },
-      {
-        "type": "field",
-        "outboundTag": "block",
-        "domain": [
-          "geosite:category-ads-all"
-        ],
-        "enabled": true
-      },
-      {
-        "type": "field",
-        "outboundTag": "direct",
-        "domain": [
-          "geosite:cn"
-        ],
-        "enabled": true
-      },
-      {
-        "type": "field",
-        "outboundTag": "direct",
-        "ip": [
-          "geoip:private",
-          "geoip:cn"
-        ],
-        "enabled": true
-      },
-      {
-        "type": "field",
-        "port": "0-65535",
-        "outboundTag": "proxy",
-        "enabled": true
-      }
-    ]
-  }
-</code></pre>
-
-<p><a href="https://www.v2ray.com/en/configuration/routing.html">Domain strategy</a>:</p>
-
-<ul>
-<li>&ldquo;AsIs&rdquo;: Only use domain for routing. Default value.</li>
-<li>&ldquo;IPIfNonMatch&rdquo;: When no rule matches current domain, V2Ray resolves it into IP addresses (A or AAAA records) and try all rules again.
-
-<ul>
-<li>If a domain has multiple IP addresses, V2Ray tries all of them.</li>
-<li>The resolved IPs are only used for routing decisions, the traffic is still sent to original domain address.</li>
-</ul>
-</li>
-<li>&ldquo;IPOnDemand&rdquo;: As long as there is a IP-based rule, V2Ray resolves the domain into IP immediately.</li>
-</ul>
-
-
-<h3>guiNConfig.json</h3>
-
-<pre><code>  "routings": [
-    {
-      "remarks": "仅大陆直连",
-      "url": "",
-      "rules": [
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "block",
-          "ip": null,
-          "domain": [
-            "geosite:category-ads-all"
-          ],
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "direct",
-          "ip": null,
-          "domain": [
-            "geosite:cn"
-          ],
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "direct",
-          "ip": [
-            "geoip:private",
-            "geoip:cn"
-          ],
-          "domain": null,
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": "0-65535",
-          "inboundTag": null,
-          "outboundTag": "proxy",
-          "ip": null,
-          "domain": null,
-          "protocol": null,
-          "enabled": true
-        }
-      ],
-      "enabled": true,
-      "locked": false,
-      "customIcon": ""
-    },
-    {
-      "remarks": "仅防火墙代理",
-      "url": "",
-      "rules": [
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "direct",
-          "ip": null,
-          "domain": null,
-          "protocol": [
-            "bittorrent"
-          ],
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "block",
-          "ip": null,
-          "domain": [
-            "geosite:category-ads-all"
-          ],
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "proxy",
-          "ip": [
-            "geoip:telegram"
-          ],
-          "domain": [
-            "geosite:gfw",
-            "geosite:greatfire",
-            "geosite:tld-!cn"
-          ],
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": "0-65535",
-          "inboundTag": null,
-          "outboundTag": "direct",
-          "ip": null,
-          "domain": null,
-          "protocol": null,
-          "enabled": true
-        }
-      ],
-      "enabled": true,
-      "locked": false,
-      "customIcon": ""
-    },
-    {
-      "remarks": "全局代理",
-      "url": "",
-      "rules": [
-        {
-          "type": null,
-          "port": "0-65535",
-          "inboundTag": null,
-          "outboundTag": "proxy",
-          "ip": null,
-          "domain": null,
-          "protocol": null,
-          "enabled": true
-        }
-      ],
-      "enabled": true,
-      "locked": false,
-      "customIcon": ""
-    }
-  ]
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/2dust/v2rayN/releases]]></summary></entry><entry><title type="html">V2Ray Client Ubuntu</title><link href="http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client.html" rel="alternate" type="text/html" title="V2Ray Client Ubuntu" /><published>2023-07-15T04:12:25+00:00</published><updated>2023-07-15T04:12:25+00:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client.html"><![CDATA[<p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
 
 <h2>Install</h2>
 
@@ -1149,366 +859,36 @@ main "$@"
 }
 </code></pre>
 
-<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/v2fly/fhs-install-v2ray]]></summary></entry><entry><title type="html">ChatGPT</title><link href="http://songzy12.github.io/2023/06/04/chatgpt.html" rel="alternate" type="text/html" title="ChatGPT" /><published>2023-06-04T03:43:46+00:00</published><updated>2023-06-04T03:43:46+00:00</updated><id>http://songzy12.github.io/2023/06/04/chatgpt</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/chatgpt.html"><![CDATA[<p>大陆如何注册使用 ChatGPT，并将其升级到 Plus.</p>
+<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
 
-<p>访问 <a href="https://chat.openai.com/%EF%BC%9A">https://chat.openai.com/%EF%BC%9A</a></p>
+  </div><a class="u-url" href="/2023/07/15/v2ray-ubuntu-client.html" hidden></a>
+</article>
 
-<ol>
-<li>首先需要翻墙，其次要用不那么著名的vps提供商。
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
 
-<ul>
-<li>随机试了两个 vultr 的日本区和美区的ip都提示 blocked</li>
-<li>据说 bandwagon 也会 blocked</li>
-<li>解决法案：使用了 digitalocean 的美区机器成功访问</li>
-</ul>
-</li>
-</ol>
+  <div class="wrapper">
 
+    <h2 class="footer-heading">Secret Base</h2>
 
-<p>注册：</p>
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song</li><li><a class="u-email" href="mailto:songzy_thu@163.com">songzy_thu@163.com</a></li></ul>
+      </div>
 
-<ol>
-<li>使用了 Gmail 邮箱</li>
-<li>国外手机号收验证码
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
 
-<ul>
-<li>据说 Google Voice 提供的虚拟手机号是不行的</li>
-<li>解决法案：使用了 sms activate 成功收到了验证码
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
 
-<ul>
-<li>可以支付宝充值2美元</li>
-<li>使用了印度尼西亚区的号码</li>
-</ul>
-</li>
-</ul>
-</li>
-</ol>
+  </div>
 
+</footer>
+</body>
 
-<p>升级 Plus：</p>
-
-<ol>
-<li>国内银行发行的 visa, AE 似乎都不行
-
-<ul>
-<li>测试了中国银行的 visa 和招商银行的 AE 都提示 denied</li>
-</ul>
-</li>
-<li>解决方案：下载 ChatGPT 的 iOS App 使用 Apple Pay 充值
-
-<ul>
-<li>iOS 设备也需要翻墙，并在设置中修改所在地区为美国</li>
-<li>需要美区的 Apple ID
-
-<ul>
-<li>下载 Shadowrocket 用于翻墙</li>
-<li>下载 ChatGPT
-
-<ul>
-<li>要求 iOS 版本 >16.1：也就是 iPad Air 2 不行的意思</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>美区 Apple ID 需要绑定美区 Paypal</li>
-<li>美区 Paypal 可以绑定国内银行发行的 visa,AE 卡</li>
-</ul>
-</li>
-</ol>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[大陆如何注册使用 ChatGPT，并将其升级到 Plus.]]></summary></entry><entry><title type="html">VPS</title><link href="http://songzy12.github.io/2023/06/04/vps.html" rel="alternate" type="text/html" title="VPS" /><published>2023-06-04T03:26:52+00:00</published><updated>2023-06-04T03:26:52+00:00</updated><id>http://songzy12.github.io/2023/06/04/vps</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/vps.html"><![CDATA[<p>VPS</p>
-
-<ul>
-<li>Vultr</li>
-<li>DigitalOcean</li>
-</ul>
-
-
-<p>Domain Name</p>
-
-<ul>
-<li>NameCheap</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[VPS]]></summary></entry><entry><title type="html">Vscode</title><link href="http://songzy12.github.io/2023/04/28/vscode.html" rel="alternate" type="text/html" title="Vscode" /><published>2023-04-28T02:50:13+00:00</published><updated>2023-04-28T02:50:13+00:00</updated><id>http://songzy12.github.io/2023/04/28/vscode</id><content type="html" xml:base="http://songzy12.github.io/2023/04/28/vscode.html"><![CDATA[<h2>Settings</h2>
-
-<pre><code>{
-    "diffEditor.ignoreTrimWhitespace": false,
-    "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "modifications",
-    "editor.inlineSuggest.enabled": true,
-    "editor.suggest.preview": true,
-    "window.commandCenter": true,
-    "outline.showVariables": false,
-    "scm.defaultViewMode": "tree",
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.fontFamily": "MesloLGS NF",
-    "notebook.markup.fontSize": 14,
-    "git.autofetch": true,
-    "git.autoStash": true,
-    "markdown.preview.doubleClickToSwitchToEditor": false,
-    "python.formatting.provider": "yapf",
-    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4 }",
-    "remote.SSH.remotePlatform": {
-        "songzy.cool": "linux"
-    },
-}
-</code></pre>
-
-<h2>Font</h2>
-
-<p><a href="https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:">https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:</a></p>
-
-<pre><code>const DEFAULT_WINDOWS_FONT_FAMILY = 'Consolas, \'Courier New\', monospace';
-const DEFAULT_MAC_FONT_FAMILY = 'Menlo, Monaco, \'Courier New\', monospace';
-const DEFAULT_LINUX_FONT_FAMILY = '\'Droid Sans Mono\', \'monospace\', monospace';
-</code></pre>
-
-<p>How to check the current font being used:</p>
-
-<p>&ldquo;Toggle Developer Tools&rdquo; and then search &ldquo;font-family&rdquo; under the &ldquo;Elements&rdquo; tab.</p>
-
-<h3>Monospace</h3>
-
-<p><a href="https://en.wikipedia.org/wiki/List_of_typefaces#Monospace">https://en.wikipedia.org/wiki/List_of_typefaces#Monospace</a></p>
-
-<table>
-<thead>
-<tr>
-<th> Font           </th>
-<th> Date Released </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> Arial          </td>
-<td> 1982          </td>
-</tr>
-<tr>
-<td> Courier        </td>
-<td> 1995          </td>
-</tr>
-<tr>
-<td> Trebuchet      </td>
-<td> 1996          </td>
-</tr>
-<tr>
-<td> Menlo          </td>
-<td> 1997          </td>
-</tr>
-<tr>
-<td> Bitstream Vera </td>
-<td> 2001          </td>
-</tr>
-<tr>
-<td> DejaVu         </td>
-<td> 2004          </td>
-</tr>
-<tr>
-<td> Monaco         </td>
-<td> 2004          </td>
-</tr>
-<tr>
-<td> Consolas       </td>
-<td> 2007          </td>
-</tr>
-<tr>
-<td> Droid          </td>
-<td> 2008          </td>
-</tr>
-<tr>
-<td> Roboto         </td>
-<td> 2011          </td>
-</tr>
-<tr>
-<td> Monospace      </td>
-<td> 2012          </td>
-</tr>
-<tr>
-<td> Noto           </td>
-<td> 2013          </td>
-</tr>
-<tr>
-<td> Fira           </td>
-<td> 2013          </td>
-</tr>
-<tr>
-<td> Cascadia       </td>
-<td> 2019          </td>
-</tr>
-<tr>
-<td> JetBrains Mono </td>
-<td> 2020          </td>
-</tr>
-</tbody>
-</table>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Settings]]></summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2023/04/22/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2023-04-22T08:29:08+00:00</published><updated>2023-04-22T08:29:08+00:00</updated><id>http://songzy12.github.io/2023/04/22/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2023/04/22/workspace-setup.html"><![CDATA[<p>This shows what we need to do when we move to a brand new Linux environment.</p>
-
-<h2>apt</h2>
-
-<p>Project link: <a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
-
-<pre><code>sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-</code></pre>
-
-<h2>wget</h2>
-
-<pre><code>vi ~/.wgetrc
-</code></pre>
-
-<pre><code>http_proxy=http://localhost:10809
-https_proxy=http://localhost:10809
-</code></pre>
-
-<h2>git</h2>
-
-<h3>editor</h3>
-
-<pre><code>git config --global core.editor "vim"
-</code></pre>
-
-<h3>proxy</h3>
-
-<p><a href="https://gist.github.com/evantoli/f8c23a37eb3558ab8765">https://gist.github.com/evantoli/f8c23a37eb3558ab8765</a></p>
-
-<pre><code>git config --global http.proxy localhost:10809
-</code></pre>
-
-<h3>user</h3>
-
-<pre><code>git config --global user.email "songzy_thu@163.com"
-git config --global user.name "Zhengyang Song"
-</code></pre>
-
-<h3>ssh https</h3>
-
-<pre><code>vi ~/.ssh/config
-</code></pre>
-
-<pre><code>Host github.com
-  Hostname ssh.github.com
-  Port 443
-</code></pre>
-
-<h2>zsh</h2>
-
-<pre><code>sudo apt install zsh
-</code></pre>
-
-<p><a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
-
-<pre><code>wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-
-sh install.sh
-</code></pre>
-
-<p><a href="https://github.com/romkatv/powerlevel10k">https://github.com/romkatv/powerlevel10k</a></p>
-
-<pre><code>git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-</code></pre>
-
-<p>Set <code>ZSH_THEME="powerlevel10k/powerlevel10k"</code> in <code>~/.zshrc</code>.</p>
-
-<h2>tmux</h2>
-
-<pre><code>vi ~/.tmux.conf
-</code></pre>
-
-<pre><code>set -g default-shell /usr/bin/zsh
-set -g default-terminal "xterm-256color"
-</code></pre>
-
-<h2>python</h2>
-
-<h3>pip source</h3>
-
-<pre><code>sudo apt install python3-pip
-</code></pre>
-
-<p><a href="https://pip.pypa.io/en/stable/user_guide/#config-file">https://pip.pypa.io/en/stable/user_guide/#config-file</a>
-<a href="https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4">https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4</a></p>
-
-<pre><code>mkdir ~/.pip
-
-echo "[global]" &gt; ~/.pip/pip.conf
-echo "  index-url = https://mirrors.aliyun.com/pypi/simple/" &gt;&gt; ~/.pip/pip.conf
-echo "[install]" &gt;&gt; ~/.pip/pip.conf
-echo "  trusted-host=mirrors.aliyun.com" &gt;&gt; ~/.pip/pip.conf
-echo "" &gt;&gt; ~/.pip/pip.conf
-</code></pre>
-
-<h3>jupyter notebook</h3>
-
-<pre><code>jupyter notebook --generate-config
-vi ~/.jupyter/jupyter_notebook_config.py
-</code></pre>
-
-<pre><code>c.NotebookApp.use_redirect_file = False
-</code></pre>
-
-<pre><code>pip install jupyter_contrib_nbextensions
-jupyter contrib nbextension install --user
-</code></pre>
-
-<h3>virtualenvwrapper</h3>
-
-<pre><code>sudo apt install virtualenv
-</code></pre>
-
-<p><a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html">https://virtualenvwrapper.readthedocs.io/en/latest/install.html</a></p>
-
-<pre><code>pip install virtualenvwrapper
-</code></pre>
-
-<pre><code># vi ~/.bashrc
-vi ~/.zshrc
-</code></pre>
-
-<pre><code>export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-# source /usr/local/bin/virtualenvwrapper.sh
-source ~/.local/bin/virtualenvwrapper.sh
-</code></pre>
-
-<h2>nodejs</h2>
-
-<h3>nvm</h3>
-
-<p><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
-
-<pre><code>wget -qO- 
-https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-</code></pre>
-
-<pre><code>nvm ls
-nvm ls-remote
-</code></pre>
-
-<pre><code>nvm install 
-</code></pre>
-
-<h3>npm registry</h3>
-
-<p><a href="https://developer.aliyun.com/mirror/NPM">https://developer.aliyun.com/mirror/NPM</a></p>
-
-<pre><code>npm config get registry
-npm config set registry https://registry.npm.taobao.org
-</code></pre>
-
-<h3>yarn registry</h3>
-
-<pre><code>yarn config get registry
-yarn config set registry https://registry.npm.taobao.org
-</code></pre>
-
-<h2>docker</h2>
-
-<pre><code>mkdir -p /etc/docker
-
-sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
-{
-  "registry-mirrors": ["http://hub-mirror.c.163.com"]
-}
-</code></pre>
-
-<pre><code>sudo service docker restart
-</code></pre>
-
-<pre><code>docker info
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This shows what we need to do when we move to a brand new Linux environment.]]></summary></entry></feed>
+</html>
