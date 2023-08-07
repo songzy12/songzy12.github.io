@@ -8,8 +8,8 @@
 <meta property="og:title" content="T470 GPU" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Enable GPU on ThinkPad T470, which runs Win10 and WSL2(?)." />
-<meta property="og:description" content="Enable GPU on ThinkPad T470, which runs Win10 and WSL2(?)." />
+<meta name="description" content="Enable GPU on ThinkPad T470, which runs Kali." />
+<meta property="og:description" content="Enable GPU on ThinkPad T470, which runs Kali." />
 <link rel="canonical" href="http://songzy12.github.io/2022/08/31/t470-gpu.html" />
 <meta property="og:url" content="http://songzy12.github.io/2022/08/31/t470-gpu.html" />
 <meta property="og:site_name" content="Secret Base" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="T470 GPU" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2022-08-31T05:11:25+00:00","datePublished":"2022-08-31T05:11:25+00:00","description":"Enable GPU on ThinkPad T470, which runs Win10 and WSL2(?).","headline":"T470 GPU","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2022/08/31/t470-gpu.html"},"url":"http://songzy12.github.io/2022/08/31/t470-gpu.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2022-08-31T05:11:25+00:00","datePublished":"2022-08-31T05:11:25+00:00","description":"Enable GPU on ThinkPad T470, which runs Kali.","headline":"T470 GPU","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2022/08/31/t470-gpu.html"},"url":"http://songzy12.github.io/2022/08/31/t470-gpu.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -48,11 +48,31 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Enable GPU on ThinkPad T470, which runs Win10 and WSL2(?).</p>
+    <p>Enable GPU on ThinkPad T470, which runs Kali.</p>
 
 <h2>Graphic Card</h2>
 
-<p>T470 => GeForce 940MX.</p>
+<pre><code class="">┌──(songzy㉿songzy-ThinkPad-T470)-[~/ToolKit]
+└─$ lspci              
+00:00.0 Host bridge: Intel Corporation Xeon E3-1200 v6/7th Gen Core Processor Host Bridge/DRAM Registers (rev 02)
+00:02.0 VGA compatible controller: Intel Corporation HD Graphics 620 (rev 02)
+00:14.0 USB controller: Intel Corporation Sunrise Point-LP USB 3.0 xHCI Controller (rev 21)
+00:14.2 Signal processing controller: Intel Corporation Sunrise Point-LP Thermal subsystem (rev 21)
+00:16.0 Communication controller: Intel Corporation Sunrise Point-LP CSME HECI #1 (rev 21)
+00:17.0 SATA controller: Intel Corporation Sunrise Point-LP SATA Controller [AHCI mode] (rev 21)
+00:1c.0 PCI bridge: Intel Corporation Sunrise Point-LP PCI Express Root Port #1 (rev f1)
+00:1c.6 PCI bridge: Intel Corporation Sunrise Point-LP PCI Express Root Port #7 (rev f1)
+00:1d.0 PCI bridge: Intel Corporation Sunrise Point-LP PCI Express Root Port #9 (rev f1)
+00:1f.0 ISA bridge: Intel Corporation Sunrise Point-LP LPC Controller (rev 21)
+00:1f.2 Memory controller: Intel Corporation Sunrise Point-LP PMC (rev 21)
+00:1f.3 Audio device: Intel Corporation Sunrise Point-LP HD Audio (rev 21)
+00:1f.4 SMBus: Intel Corporation Sunrise Point-LP SMBus (rev 21)
+00:1f.6 Ethernet controller: Intel Corporation Ethernet Connection (4) I219-V (rev 21)
+02:00.0 3D controller: NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
+04:00.0 Network controller: Intel Corporation Wireless 8265 / 8275 (rev 78)
+</code></pre>
+
+<p>GeForce 940MX.</p>
 
 <p>The Nvidia GeForce 940MX is a mid-range laptop graphics card with DirectX 12 support (FL 11_0). It has been announced in the first quarter of 2016 and is the refresh of the GeForce 940M. Compared to the older card, the new one is based on the same chip but now supports faster GDDR5.</p>
 
