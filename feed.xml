@@ -1,4 +1,105 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-08-07T15:09:58+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Ubuntu Server</title><link href="http://songzy12.github.io/2023/08/07/v2ray-ubunt-server.html" rel="alternate" type="text/html" title="V2Ray Ubuntu Server" /><published>2023-08-07T02:08:09+00:00</published><updated>2023-08-07T02:08:09+00:00</updated><id>http://songzy12.github.io/2023/08/07/v2ray-ubunt-server</id><content type="html" xml:base="http://songzy12.github.io/2023/08/07/v2ray-ubunt-server.html"><![CDATA[<p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-08-08T02:06:46+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">T470 GPU</title><link href="http://songzy12.github.io/2023/08/07/t470-gpu.html" rel="alternate" type="text/html" title="T470 GPU" /><published>2023-08-07T23:02:25+00:00</published><updated>2023-08-07T23:02:25+00:00</updated><id>http://songzy12.github.io/2023/08/07/t470-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/08/07/t470-gpu.html"><![CDATA[<p>Enable GPU on ThinkPad T470, which runs Kali.</p>
+
+<p><a href="https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/">https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/</a></p>
+
+<h2>Graphic Card</h2>
+
+<pre><code class="">$ lspci              
+00:00.0 Host bridge: Intel Corporation Xeon E3-1200 v6/7th Gen Core Processor Host Bridge/DRAM Registers (rev 02)
+00:02.0 VGA compatible controller: Intel Corporation HD Graphics 620 (rev 02)
+00:14.0 USB controller: Intel Corporation Sunrise Point-LP USB 3.0 xHCI Controller (rev 21)
+00:14.2 Signal processing controller: Intel Corporation Sunrise Point-LP Thermal subsystem (rev 21)
+00:16.0 Communication controller: Intel Corporation Sunrise Point-LP CSME HECI #1 (rev 21)
+00:17.0 SATA controller: Intel Corporation Sunrise Point-LP SATA Controller [AHCI mode] (rev 21)
+00:1c.0 PCI bridge: Intel Corporation Sunrise Point-LP PCI Express Root Port #1 (rev f1)
+00:1c.6 PCI bridge: Intel Corporation Sunrise Point-LP PCI Express Root Port #7 (rev f1)
+00:1d.0 PCI bridge: Intel Corporation Sunrise Point-LP PCI Express Root Port #9 (rev f1)
+00:1f.0 ISA bridge: Intel Corporation Sunrise Point-LP LPC Controller (rev 21)
+00:1f.2 Memory controller: Intel Corporation Sunrise Point-LP PMC (rev 21)
+00:1f.3 Audio device: Intel Corporation Sunrise Point-LP HD Audio (rev 21)
+00:1f.4 SMBus: Intel Corporation Sunrise Point-LP SMBus (rev 21)
+00:1f.6 Ethernet controller: Intel Corporation Ethernet Connection (4) I219-V (rev 21)
+02:00.0 3D controller: NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
+04:00.0 Network controller: Intel Corporation Wireless 8265 / 8275 (rev 78)
+</code></pre>
+
+<pre><code>$ lspci -s 02:00.0 -v
+
+02:00.0 3D controller: NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
+    Subsystem: Lenovo GM108M [GeForce 940MX]
+    Flags: bus master, fast devsel, latency 0, IRQ 133, IOMMU group 9
+    Memory at ec000000 (32-bit, non-prefetchable) [size=16M]
+    Memory at 90000000 (64-bit, prefetchable) [size=256M]
+    Memory at a0000000 (64-bit, prefetchable) [size=32M]
+    I/O ports at d000 [size=128]
+    Expansion ROM at &lt;ignored&gt; [disabled]
+    Capabilities: &lt;access denied&gt;
+    Kernel driver in use: nouveau
+    Kernel modules: nouveau
+</code></pre>
+
+<p>GeForce 940MX.</p>
+
+<p>The Nvidia GeForce 940MX is a mid-range laptop graphics card with DirectX 12 support (FL 11_0). It has been announced in the first quarter of 2016 and is the refresh of the GeForce 940M. Compared to the older card, the new one is based on the same chip but now supports faster GDDR5.</p>
+
+<p><a href="https://www.nvidia.com/en-us/geforce/gaming-laptops/geforce-940mx/">https://www.nvidia.com/en-us/geforce/gaming-laptops/geforce-940mx/</a></p>
+
+<h3>Compute Capability</h3>
+
+<p><a href="https://developer.nvidia.com/cuda-gpus">https://developer.nvidia.com/cuda-gpus</a></p>
+
+<p>GeForce 940M    5.0</p>
+
+<p><a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities">https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities</a></p>
+
+<h2>Driver &amp; Toolkit</h2>
+
+<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local</a></p>
+
+<pre><code>$ sudo apt install -y nvidia-driver nvidia-cuda-toolkit
+
+$ sudo reboot -f
+</code></pre>
+
+<h3>Verify</h3>
+
+<pre><code>$ lspci -s 02:00.0 -v
+
+02:00.0 3D controller: NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
+    Subsystem: Lenovo GM108M [GeForce 940MX]
+    Flags: bus master, fast devsel, latency 0, IRQ 132, IOMMU group 9
+    Memory at ec000000 (32-bit, non-prefetchable) [size=16M]
+    Memory at 90000000 (64-bit, prefetchable) [size=256M]
+    Memory at a0000000 (64-bit, prefetchable) [size=32M]
+    I/O ports at d000 [size=128]
+    Capabilities: &lt;access denied&gt;
+    Kernel driver in use: nvidia
+    Kernel modules: nvidia
+</code></pre>
+
+<pre><code>$ nvidia-smi
+
+Mon Aug  7 23:06:26 2023       
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  Off  | 00000000:02:00.0 Off |                  N/A |
+| N/A   45C    P8    N/A /  N/A |      4MiB /  2048MiB |      0%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|    0   N/A  N/A      2036      G   /usr/lib/xorg/Xorg                  2MiB |
++-----------------------------------------------------------------------------+
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU on ThinkPad T470, which runs Kali.]]></summary></entry><entry><title type="html">V2Ray Ubuntu Server</title><link href="http://songzy12.github.io/2023/08/07/v2ray-ubunt-server.html" rel="alternate" type="text/html" title="V2Ray Ubuntu Server" /><published>2023-08-07T02:08:09+00:00</published><updated>2023-08-07T02:08:09+00:00</updated><id>http://songzy12.github.io/2023/08/07/v2ray-ubunt-server</id><content type="html" xml:base="http://songzy12.github.io/2023/08/07/v2ray-ubunt-server.html"><![CDATA[<p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
 
 <h2>v2fly</h2>
 
@@ -1337,178 +1438,4 @@ const DEFAULT_LINUX_FONT_FAMILY = '\'Droid Sans Mono\', \'monospace\', monospace
 <td> 2020          </td>
 </tr>
 </tbody>
-</table>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Settings]]></summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2023/04/22/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2023-04-22T08:29:08+00:00</published><updated>2023-04-22T08:29:08+00:00</updated><id>http://songzy12.github.io/2023/04/22/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2023/04/22/workspace-setup.html"><![CDATA[<p>This shows what we need to do when we move to a brand new Linux environment.</p>
-
-<h2>apt</h2>
-
-<p>Project link: <a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
-
-<pre><code>sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-</code></pre>
-
-<h2>wget</h2>
-
-<pre><code>vi ~/.wgetrc
-</code></pre>
-
-<pre><code>http_proxy=http://localhost:10809
-https_proxy=http://localhost:10809
-</code></pre>
-
-<h2>git</h2>
-
-<h3>editor</h3>
-
-<pre><code>git config --global core.editor "vim"
-</code></pre>
-
-<h3>proxy</h3>
-
-<p><a href="https://gist.github.com/evantoli/f8c23a37eb3558ab8765">https://gist.github.com/evantoli/f8c23a37eb3558ab8765</a></p>
-
-<pre><code>git config --global http.proxy localhost:10809
-</code></pre>
-
-<h3>user</h3>
-
-<pre><code>git config --global user.email "songzy_thu@163.com"
-git config --global user.name "Zhengyang Song"
-</code></pre>
-
-<h3>ssh https</h3>
-
-<pre><code>vi ~/.ssh/config
-</code></pre>
-
-<pre><code>Host github.com
-  Hostname ssh.github.com
-  Port 443
-</code></pre>
-
-<h2>zsh</h2>
-
-<pre><code>sudo apt install zsh
-</code></pre>
-
-<p><a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
-
-<pre><code>wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-
-sh install.sh
-</code></pre>
-
-<p><a href="https://github.com/romkatv/powerlevel10k">https://github.com/romkatv/powerlevel10k</a></p>
-
-<pre><code>git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-</code></pre>
-
-<p>Set <code>ZSH_THEME="powerlevel10k/powerlevel10k"</code> in <code>~/.zshrc</code>.</p>
-
-<h2>tmux</h2>
-
-<pre><code>vi ~/.tmux.conf
-</code></pre>
-
-<pre><code>set -g default-shell /usr/bin/zsh
-set -g default-terminal "xterm-256color"
-</code></pre>
-
-<h2>python</h2>
-
-<h3>pip source</h3>
-
-<pre><code>sudo apt install python3-pip
-</code></pre>
-
-<p><a href="https://pip.pypa.io/en/stable/user_guide/#config-file">https://pip.pypa.io/en/stable/user_guide/#config-file</a>
-<a href="https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4">https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4</a></p>
-
-<pre><code>mkdir ~/.pip
-
-echo "[global]" &gt; ~/.pip/pip.conf
-echo "  index-url = https://mirrors.aliyun.com/pypi/simple/" &gt;&gt; ~/.pip/pip.conf
-echo "[install]" &gt;&gt; ~/.pip/pip.conf
-echo "  trusted-host=mirrors.aliyun.com" &gt;&gt; ~/.pip/pip.conf
-echo "" &gt;&gt; ~/.pip/pip.conf
-</code></pre>
-
-<h3>jupyter notebook</h3>
-
-<pre><code>jupyter notebook --generate-config
-vi ~/.jupyter/jupyter_notebook_config.py
-</code></pre>
-
-<pre><code>c.NotebookApp.use_redirect_file = False
-</code></pre>
-
-<pre><code>pip install jupyter_contrib_nbextensions
-jupyter contrib nbextension install --user
-</code></pre>
-
-<h3>virtualenvwrapper</h3>
-
-<pre><code>sudo apt install virtualenv
-</code></pre>
-
-<p><a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html">https://virtualenvwrapper.readthedocs.io/en/latest/install.html</a></p>
-
-<pre><code>pip install virtualenvwrapper
-</code></pre>
-
-<pre><code># vi ~/.bashrc
-vi ~/.zshrc
-</code></pre>
-
-<pre><code>export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-# source /usr/local/bin/virtualenvwrapper.sh
-source ~/.local/bin/virtualenvwrapper.sh
-</code></pre>
-
-<h2>nodejs</h2>
-
-<h3>nvm</h3>
-
-<p><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
-
-<pre><code>wget -qO- 
-https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
-</code></pre>
-
-<pre><code>nvm ls
-nvm ls-remote
-</code></pre>
-
-<pre><code>nvm install 
-</code></pre>
-
-<h3>npm registry</h3>
-
-<p><a href="https://developer.aliyun.com/mirror/NPM">https://developer.aliyun.com/mirror/NPM</a></p>
-
-<pre><code>npm config get registry
-npm config set registry https://registry.npm.taobao.org
-</code></pre>
-
-<h3>yarn registry</h3>
-
-<pre><code>yarn config get registry
-yarn config set registry https://registry.npm.taobao.org
-</code></pre>
-
-<h2>docker</h2>
-
-<pre><code>mkdir -p /etc/docker
-
-sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
-{
-  "registry-mirrors": ["http://hub-mirror.c.163.com"]
-}
-</code></pre>
-
-<pre><code>sudo service docker restart
-</code></pre>
-
-<pre><code>docker info
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This shows what we need to do when we move to a brand new Linux environment.]]></summary></entry></feed>
+</table>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Settings]]></summary></entry></feed>
