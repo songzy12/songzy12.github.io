@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "V2Ray Client Windows"
+title: "V2Ray Windows Client"
 date: 2023-07-15T04:23:45+00:00
 ---
 
