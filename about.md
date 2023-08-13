@@ -19,6 +19,8 @@ SWE
 * Search - KE - Wiki (Jul 2019 ~ Dec 2022)
   * WikiCrawler, WpCat
 
+## Intern
+
 ### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
 
 R&D Intern
@@ -45,14 +47,14 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 * Zhang, H., Sun, M., Wang, X., __Song, Z.__, Tang, J., & Sun, J. (2017, April). Smart jump: Automated navigation suggestion for videos in moocs. In Proceedings of the 26th international conference on world wide web companion (pp. 331-339).
 * Jia, Y., __Song, Z.__, Bai, X., & Xu, W. (2017, March). Towards economic models for MOOC pricing strategy design. In International Conference on Database Systems for Advanced Applications (pp. 387-398). Springer, Cham.
 
-## Hobby Project
+## Project
 
 ### [WeiboSpider](https://github.com/dataabc/weiboSpider)
 
 This is a tool that crawls useful content of specified weibo users, which has earned __7k stars__ as of Jul 2023. I helped to refactor the code base and have been acting as [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
   
-## Social Link
+## Link
 
 * GitHub: <https://github.com/songzy12>
-* Kaggle: <https://www.kaggle.com/songzy12>
 * CodeForces: <http://codeforces.com/profile/songzy12>
+* Kaggle: <https://www.kaggle.com/songzy12>
