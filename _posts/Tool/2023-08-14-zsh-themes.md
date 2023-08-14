@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "ZSH Themes"
-date: 2023-07-28T04:07:43+00:00
+date: 2023-08-14T04:07:43+00:00
 ---
 
 <https://github.com/ohmyzsh/ohmyzsh/wiki/Themes>
@@ -15,7 +15,9 @@ ls $ZSH/themes/
 To set zsh theme:
 
 ```
-export ZSH_THEME=random
+ZSH_THEME=random
+
+ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "candy" "risto" )
 ```
 
 To view the current selected random theme:
