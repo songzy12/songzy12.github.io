@@ -1,4 +1,26 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-08-13T13:56:55+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">T470 GPU</title><link href="http://songzy12.github.io/2023/08/07/t470-gpu.html" rel="alternate" type="text/html" title="T470 GPU" /><published>2023-08-07T23:02:25+00:00</published><updated>2023-08-07T23:02:25+00:00</updated><id>http://songzy12.github.io/2023/08/07/t470-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/08/07/t470-gpu.html"><![CDATA[<p>Enable GPU on ThinkPad T470, which runs Kali.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-08-14T16:42:16+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">ZSH Themes</title><link href="http://songzy12.github.io/2023/08/14/zsh-themes.html" rel="alternate" type="text/html" title="ZSH Themes" /><published>2023-08-14T04:07:43+00:00</published><updated>2023-08-14T04:07:43+00:00</updated><id>http://songzy12.github.io/2023/08/14/zsh-themes</id><content type="html" xml:base="http://songzy12.github.io/2023/08/14/zsh-themes.html"><![CDATA[<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
+
+<p>To view all avaliable zsh themes:</p>
+
+<pre><code>ls $ZSH/themes/
+</code></pre>
+
+<p>To set zsh theme:</p>
+
+<pre><code>ZSH_THEME=random
+
+ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "candy" "risto" )
+</code></pre>
+
+<p>To view the current selected random theme:</p>
+
+<pre><code>echo $RANDOM_THEME
+</code></pre>
+
+<p>To view the config of a specific zsh theme:</p>
+
+<pre><code>vi $ZSH/themes/robbyrussell.zsh-theme
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/ohmyzsh/ohmyzsh/wiki/Themes]]></summary></entry><entry><title type="html">T470 GPU</title><link href="http://songzy12.github.io/2023/08/07/t470-gpu.html" rel="alternate" type="text/html" title="T470 GPU" /><published>2023-08-07T23:02:25+00:00</published><updated>2023-08-07T23:02:25+00:00</updated><id>http://songzy12.github.io/2023/08/07/t470-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/08/07/t470-gpu.html"><![CDATA[<p>Enable GPU on ThinkPad T470, which runs Kali.</p>
 
 <p><a href="https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/">https://www.kali.org/docs/general-use/install-nvidia-drivers-on-kali-linux/</a></p>
 
@@ -204,27 +226,7 @@ source ~/.bashrc
 
 <h2>ip check</h2>
 
-<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/v2fly/fhs-install-v2ray]]></summary></entry><entry><title type="html">ZSH Themes</title><link href="http://songzy12.github.io/2023/07/28/zsh-themes.html" rel="alternate" type="text/html" title="ZSH Themes" /><published>2023-07-28T04:07:43+00:00</published><updated>2023-07-28T04:07:43+00:00</updated><id>http://songzy12.github.io/2023/07/28/zsh-themes</id><content type="html" xml:base="http://songzy12.github.io/2023/07/28/zsh-themes.html"><![CDATA[<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
-
-<p>To view all avaliable zsh themes:</p>
-
-<pre><code>ls $ZSH/themes/
-</code></pre>
-
-<p>To set zsh theme:</p>
-
-<pre><code>export ZSH_THEME=random
-</code></pre>
-
-<p>To view the current selected random theme:</p>
-
-<pre><code>echo $RANDOM_THEME
-</code></pre>
-
-<p>To view the config of a specific zsh theme:</p>
-
-<pre><code>vi $ZSH/themes/robbyrussell.zsh-theme
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/ohmyzsh/ohmyzsh/wiki/Themes]]></summary></entry><entry><title type="html">Guest VM Network</title><link href="http://songzy12.github.io/2023/07/15/guest-vm-network.html" rel="alternate" type="text/html" title="Guest VM Network" /><published>2023-07-15T13:52:26+00:00</published><updated>2023-07-15T13:52:26+00:00</updated><id>http://songzy12.github.io/2023/07/15/guest-vm-network</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/guest-vm-network.html"><![CDATA[<h2>WSL HTTP/HTTPS Proxy</h2>
+<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/v2fly/fhs-install-v2ray]]></summary></entry><entry><title type="html">Guest VM Network</title><link href="http://songzy12.github.io/2023/07/15/guest-vm-network.html" rel="alternate" type="text/html" title="Guest VM Network" /><published>2023-07-15T13:52:26+00:00</published><updated>2023-07-15T13:52:26+00:00</updated><id>http://songzy12.github.io/2023/07/15/guest-vm-network</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/guest-vm-network.html"><![CDATA[<h2>WSL HTTP/HTTPS Proxy</h2>
 
 <pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 export http_proxy=http://$windows_host:10809
