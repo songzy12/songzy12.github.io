@@ -17,7 +17,7 @@ To set zsh theme:
 ```
 ZSH_THEME=random
 
-ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "candy" "risto" )
+ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "risto" "candy" )
 ```
 
 To view the current selected random theme:
