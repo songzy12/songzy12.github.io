@@ -6,8 +6,12 @@ date: 2023-07-15T13:50:14+00:00
 
 ## ibus
 
-```
-sudo apt-get install ibus-pinyin
-```
-
 ## fcitx5
+
+```
+sudo apt remove ibus
+
+sudo apt install fcitx-pinyin
+
+reboot
+```
