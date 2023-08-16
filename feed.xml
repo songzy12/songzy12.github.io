@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-08-14T16:48:56+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">ZSH Themes</title><link href="http://songzy12.github.io/2023/08/14/zsh-themes.html" rel="alternate" type="text/html" title="ZSH Themes" /><published>2023-08-14T04:07:43+00:00</published><updated>2023-08-14T04:07:43+00:00</updated><id>http://songzy12.github.io/2023/08/14/zsh-themes</id><content type="html" xml:base="http://songzy12.github.io/2023/08/14/zsh-themes.html"><![CDATA[<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-08-16T15:18:04+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">ZSH Themes</title><link href="http://songzy12.github.io/2023/08/14/zsh-themes.html" rel="alternate" type="text/html" title="ZSH Themes" /><published>2023-08-14T04:07:43+00:00</published><updated>2023-08-14T04:07:43+00:00</updated><id>http://songzy12.github.io/2023/08/14/zsh-themes</id><content type="html" xml:base="http://songzy12.github.io/2023/08/14/zsh-themes.html"><![CDATA[<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
 
 <p>To view all avaliable zsh themes:</p>
 
@@ -233,10 +233,14 @@ export http_proxy=http://$windows_host:10809
 export https_proxy=http://$windows_host:10809
 </code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[WSL HTTP/HTTPS Proxy]]></summary></entry><entry><title type="html">Input Method</title><link href="http://songzy12.github.io/2023/07/15/input-method.html" rel="alternate" type="text/html" title="Input Method" /><published>2023-07-15T13:50:14+00:00</published><updated>2023-07-15T13:50:14+00:00</updated><id>http://songzy12.github.io/2023/07/15/input-method</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/input-method.html"><![CDATA[<h2>ibus</h2>
 
-<pre><code>sudo apt-get install ibus-pinyin
-</code></pre>
+<h2>fcitx5</h2>
 
-<h2>fcitx5</h2>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[ibus]]></summary></entry><entry><title type="html">V2Ray Windows Client</title><link href="http://songzy12.github.io/2023/07/15/v2ray-windows-client.html" rel="alternate" type="text/html" title="V2Ray Windows Client" /><published>2023-07-15T04:23:45+00:00</published><updated>2023-07-15T04:23:45+00:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-windows-client</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-windows-client.html"><![CDATA[<p><a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></p>
+<pre><code>sudo apt remove ibus
+
+sudo apt install fcitx-pinyin
+
+reboot
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[ibus]]></summary></entry><entry><title type="html">V2Ray Windows Client</title><link href="http://songzy12.github.io/2023/07/15/v2ray-windows-client.html" rel="alternate" type="text/html" title="V2Ray Windows Client" /><published>2023-07-15T04:23:45+00:00</published><updated>2023-07-15T04:23:45+00:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-windows-client</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-windows-client.html"><![CDATA[<p><a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></p>
 
 <h2>routing</h2>
 
