@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-08-21T03:50:12+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">ZSH Themes</title><link href="http://songzy12.github.io/2023/08/14/zsh-themes.html" rel="alternate" type="text/html" title="ZSH Themes" /><published>2023-08-14T04:07:43+00:00</published><updated>2023-08-14T04:07:43+00:00</updated><id>http://songzy12.github.io/2023/08/14/zsh-themes</id><content type="html" xml:base="http://songzy12.github.io/2023/08/14/zsh-themes.html"><![CDATA[<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-08-21T04:02:05+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Desktop Environment</title><link href="http://songzy12.github.io/2023/08/21/desktop-environment.html" rel="alternate" type="text/html" title="Desktop Environment" /><published>2023-08-21T03:55:11+00:00</published><updated>2023-08-21T03:55:11+00:00</updated><id>http://songzy12.github.io/2023/08/21/desktop-environment</id><content type="html" xml:base="http://songzy12.github.io/2023/08/21/desktop-environment.html"><![CDATA[<h2>GNOME</h2>
+
+<h2>KDE</h2>
+
+<h2>XFCE</h2>
+
+<h2>Window Manager</h2>
+
+<p>X11/X.org => Wayland</p>
+
+<h2>Display Manager / Login Manager</h2>
+
+<ul>
+<li>GNOME &lt;=> GDM</li>
+<li>KDE &lt;=> SDDM</li>
+<li>XFCE &lt;=> LightDM</li>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[GNOME]]></summary></entry><entry><title type="html">ZSH Themes</title><link href="http://songzy12.github.io/2023/08/14/zsh-themes.html" rel="alternate" type="text/html" title="ZSH Themes" /><published>2023-08-14T04:07:43+00:00</published><updated>2023-08-14T04:07:43+00:00</updated><id>http://songzy12.github.io/2023/08/14/zsh-themes</id><content type="html" xml:base="http://songzy12.github.io/2023/08/14/zsh-themes.html"><![CDATA[<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
 
 <p>To view all avaliable zsh themes:</p>
 
@@ -1325,9 +1341,4 @@ main "$@"
 
 <ul>
 <li>NameCheap</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Domain Name Register]]></summary></entry><entry><title type="html">VPS</title><link href="http://songzy12.github.io/2023/06/04/vps.html" rel="alternate" type="text/html" title="VPS" /><published>2023-06-04T03:26:52+00:00</published><updated>2023-06-04T03:26:52+00:00</updated><id>http://songzy12.github.io/2023/06/04/vps</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/vps.html"><![CDATA[<p>VPS Provider</p>
-
-<ul>
-<li>Vultr</li>
-<li>DigitalOcean</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[VPS Provider]]></summary></entry></feed>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Domain Name Register]]></summary></entry></feed>
