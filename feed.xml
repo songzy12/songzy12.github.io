@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-08-16T15:18:04+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">ZSH Themes</title><link href="http://songzy12.github.io/2023/08/14/zsh-themes.html" rel="alternate" type="text/html" title="ZSH Themes" /><published>2023-08-14T04:07:43+00:00</published><updated>2023-08-14T04:07:43+00:00</updated><id>http://songzy12.github.io/2023/08/14/zsh-themes</id><content type="html" xml:base="http://songzy12.github.io/2023/08/14/zsh-themes.html"><![CDATA[<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-08-21T03:50:12+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">ZSH Themes</title><link href="http://songzy12.github.io/2023/08/14/zsh-themes.html" rel="alternate" type="text/html" title="ZSH Themes" /><published>2023-08-14T04:07:43+00:00</published><updated>2023-08-14T04:07:43+00:00</updated><id>http://songzy12.github.io/2023/08/14/zsh-themes</id><content type="html" xml:base="http://songzy12.github.io/2023/08/14/zsh-themes.html"><![CDATA[<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
 
 <p>To view all avaliable zsh themes:</p>
 
@@ -1321,127 +1321,13 @@ main "$@"
 <li>美区 Paypal 可以绑定国内银行发行的 visa,AE 卡</li>
 </ul>
 </li>
-</ol>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[大陆如何注册使用 ChatGPT，并将其升级到 Plus.]]></summary></entry><entry><title type="html">VPS</title><link href="http://songzy12.github.io/2023/06/04/vps.html" rel="alternate" type="text/html" title="VPS" /><published>2023-06-04T03:26:52+00:00</published><updated>2023-06-04T03:26:52+00:00</updated><id>http://songzy12.github.io/2023/06/04/vps</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/vps.html"><![CDATA[<p>VPS</p>
+</ol>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[大陆如何注册使用 ChatGPT，并将其升级到 Plus.]]></summary></entry><entry><title type="html">Domain Name</title><link href="http://songzy12.github.io/2023/06/04/domain-name.html" rel="alternate" type="text/html" title="Domain Name" /><published>2023-06-04T03:26:52+00:00</published><updated>2023-06-04T03:26:52+00:00</updated><id>http://songzy12.github.io/2023/06/04/domain-name</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/domain-name.html"><![CDATA[<p>Domain Name Register</p>
+
+<ul>
+<li>NameCheap</li>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Domain Name Register]]></summary></entry><entry><title type="html">VPS</title><link href="http://songzy12.github.io/2023/06/04/vps.html" rel="alternate" type="text/html" title="VPS" /><published>2023-06-04T03:26:52+00:00</published><updated>2023-06-04T03:26:52+00:00</updated><id>http://songzy12.github.io/2023/06/04/vps</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/vps.html"><![CDATA[<p>VPS Provider</p>
 
 <ul>
 <li>Vultr</li>
 <li>DigitalOcean</li>
-</ul>
-
-
-<p>Domain Name</p>
-
-<ul>
-<li>NameCheap</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[VPS]]></summary></entry><entry><title type="html">Vscode</title><link href="http://songzy12.github.io/2023/04/28/vscode.html" rel="alternate" type="text/html" title="Vscode" /><published>2023-04-28T02:50:13+00:00</published><updated>2023-04-28T02:50:13+00:00</updated><id>http://songzy12.github.io/2023/04/28/vscode</id><content type="html" xml:base="http://songzy12.github.io/2023/04/28/vscode.html"><![CDATA[<h2>Settings</h2>
-
-<pre><code>{
-    "diffEditor.ignoreTrimWhitespace": false,
-    "editor.formatOnSave": true,
-    "editor.formatOnSaveMode": "modifications",
-    "editor.inlineSuggest.enabled": true,
-    "editor.suggest.preview": true,
-    "window.commandCenter": true,
-    "outline.showVariables": false,
-    "scm.defaultViewMode": "tree",
-    "terminal.integrated.defaultProfile.osx": "zsh",
-    "terminal.integrated.fontFamily": "MesloLGS NF",
-    "notebook.markup.fontSize": 14,
-    "git.autofetch": true,
-    "git.autoStash": true,
-    "markdown.preview.doubleClickToSwitchToEditor": false,
-    "python.formatting.provider": "yapf",
-    "C_Cpp.clang_format_fallbackStyle": "{ BasedOnStyle: Google, IndentWidth: 4 }",
-    "remote.SSH.remotePlatform": {
-        "songzy.cool": "linux"
-    },
-}
-</code></pre>
-
-<h2>Font</h2>
-
-<p><a href="https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:">https://github.com/microsoft/vscode/blob/main/src/vs/editor/common/config/editorOptions.ts:</a></p>
-
-<pre><code>const DEFAULT_WINDOWS_FONT_FAMILY = 'Consolas, \'Courier New\', monospace';
-const DEFAULT_MAC_FONT_FAMILY = 'Menlo, Monaco, \'Courier New\', monospace';
-const DEFAULT_LINUX_FONT_FAMILY = '\'Droid Sans Mono\', \'monospace\', monospace';
-</code></pre>
-
-<p>How to check the current font being used:</p>
-
-<p>&ldquo;Toggle Developer Tools&rdquo; and then search &ldquo;font-family&rdquo; under the &ldquo;Elements&rdquo; tab.</p>
-
-<h3>Monospace</h3>
-
-<p><a href="https://en.wikipedia.org/wiki/List_of_typefaces#Monospace">https://en.wikipedia.org/wiki/List_of_typefaces#Monospace</a></p>
-
-<table>
-<thead>
-<tr>
-<th> Font           </th>
-<th> Date Released </th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td> Arial          </td>
-<td> 1982          </td>
-</tr>
-<tr>
-<td> Courier        </td>
-<td> 1995          </td>
-</tr>
-<tr>
-<td> Trebuchet      </td>
-<td> 1996          </td>
-</tr>
-<tr>
-<td> Menlo          </td>
-<td> 1997          </td>
-</tr>
-<tr>
-<td> Bitstream Vera </td>
-<td> 2001          </td>
-</tr>
-<tr>
-<td> DejaVu         </td>
-<td> 2004          </td>
-</tr>
-<tr>
-<td> Monaco         </td>
-<td> 2004          </td>
-</tr>
-<tr>
-<td> Consolas       </td>
-<td> 2007          </td>
-</tr>
-<tr>
-<td> Droid          </td>
-<td> 2008          </td>
-</tr>
-<tr>
-<td> Roboto         </td>
-<td> 2011          </td>
-</tr>
-<tr>
-<td> Monospace      </td>
-<td> 2012          </td>
-</tr>
-<tr>
-<td> Noto           </td>
-<td> 2013          </td>
-</tr>
-<tr>
-<td> Fira           </td>
-<td> 2013          </td>
-</tr>
-<tr>
-<td> Cascadia       </td>
-<td> 2019          </td>
-</tr>
-<tr>
-<td> JetBrains Mono </td>
-<td> 2020          </td>
-</tr>
-</tbody>
-</table>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Settings]]></summary></entry></feed>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[VPS Provider]]></summary></entry></feed>

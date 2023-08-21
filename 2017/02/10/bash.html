@@ -8,8 +8,8 @@
 <meta property="og:title" content="bash" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="terminal" />
-<meta property="og:description" content="terminal" />
+<meta name="description" content="source" />
+<meta property="og:description" content="source" />
 <link rel="canonical" href="http://songzy12.github.io/2017/02/10/bash.html" />
 <meta property="og:url" content="http://songzy12.github.io/2017/02/10/bash.html" />
 <meta property="og:site_name" content="Secret Base" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="bash" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2017-02-10T07:29:38+00:00","datePublished":"2017-02-10T07:29:38+00:00","description":"terminal","headline":"bash","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/02/10/bash.html"},"url":"http://songzy12.github.io/2017/02/10/bash.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2017-02-10T07:29:38+00:00","datePublished":"2017-02-10T07:29:38+00:00","description":"source","headline":"bash","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/02/10/bash.html"},"url":"http://songzy12.github.io/2017/02/10/bash.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -48,22 +48,7 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <h2>terminal</h2>
-
-<pre><code>ctrl+u
-ctrl+k
-</code></pre>
-
-<h2>locale</h2>
-
-<pre><code>vi ~/.bashrc
-</code></pre>
-
-<pre><code>export LC_ALL="en_US.UTF-8"
-export LANG="en_US.UTF-8"
-</code></pre>
-
-<h2>source</h2>
+    <h2>source</h2>
 
 <p>It executes the content of the file in the current shell.</p>
 
@@ -244,7 +229,7 @@ $ echo "$v"
 
 <pre><code>#!/bin/sh
 echo "${BASH_SOURCE[0]}"
-echo "${BASH_SOURCE]}"
+echo "${BASH_SOURCE}"
 echo "$( dirname "${BASH_SOURCE[0]}" )"
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &amp;&amp; pwd )"
 echo $DIR
@@ -257,6 +242,23 @@ echo $DIR
 </code></pre>
 
 <p><code>DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &amp;&amp; pwd )"</code> 得到shell脚本文件所在完整路径（绝对路径）及文件名（无论<code>source</code>,<code>sh</code>,<code>.</code>三种调用方式），且不改变shell的当前目录。</p>
+
+<h2>man</h2>
+
+<pre><code>man 2 stat
+</code></pre>
+
+<p>The number corresponds to what section of the manual that page is from. The man page for man itself (man man) explains it and lists the standard ones:</p>
+
+<pre><code>    1      User Commands
+    2      System Calls
+    3      C Library Functions
+    4      Devices and Special Files
+    5      File Formats and Conventions
+    6      Games et. al.
+    7      Miscellanea
+    8      System Administration tools and Daemons
+</code></pre>
 
   </div><a class="u-url" href="/2017/02/10/bash.html" hidden></a>
 </article>
