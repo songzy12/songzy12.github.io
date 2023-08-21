@@ -1,11 +1,10 @@
 ---
 layout: post
-title: "VPS"
+title: "Domain Name"
 date: 2023-06-04T03:26:52+00:00
 
 ---
 
-VPS Provider
+Domain Name Register
 
-- Vultr
-- DigitalOcean
+- NameCheap
