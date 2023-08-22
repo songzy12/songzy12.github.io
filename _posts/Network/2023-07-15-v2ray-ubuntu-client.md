@@ -9,7 +9,19 @@ date: 2023-07-15T04:12:25+00:00
 ## Install
 
 ```
-bash <(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+wget https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
+
+chmod +x install-release.sh
+
+sudo ./install-release.sh
+```
+
+### mirror download + local install
+
+https://sourceforge.net/projects/v2fly-project-v.mirror/files/v5.5.0/v2ray-linux-64.zip/download
+
+```
+sudo ./install-release.sh --local ~/Downloads/v2ray-linux-64.zip
 ```
 
 ## Config
