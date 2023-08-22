@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-08-21T04:02:05+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Desktop Environment</title><link href="http://songzy12.github.io/2023/08/21/desktop-environment.html" rel="alternate" type="text/html" title="Desktop Environment" /><published>2023-08-21T03:55:11+00:00</published><updated>2023-08-21T03:55:11+00:00</updated><id>http://songzy12.github.io/2023/08/21/desktop-environment</id><content type="html" xml:base="http://songzy12.github.io/2023/08/21/desktop-environment.html"><![CDATA[<h2>GNOME</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2023-08-22T13:35:19+00:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Desktop Environment</title><link href="http://songzy12.github.io/2023/08/21/desktop-environment.html" rel="alternate" type="text/html" title="Desktop Environment" /><published>2023-08-21T03:55:11+00:00</published><updated>2023-08-21T03:55:11+00:00</updated><id>http://songzy12.github.io/2023/08/21/desktop-environment</id><content type="html" xml:base="http://songzy12.github.io/2023/08/21/desktop-environment.html"><![CDATA[<h2>GNOME</h2>
 
 <h2>KDE</h2>
 
@@ -465,7 +465,18 @@ reboot
 
 <h2>Install</h2>
 
-<pre><code>bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+<pre><code>wget https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
+
+chmod +x install-release.sh
+
+sudo ./install-release.sh
+</code></pre>
+
+<h3>mirror download + local install</h3>
+
+<p><a href="https://sourceforge.net/projects/v2fly-project-v.mirror/files/v5.5.0/v2ray-linux-64.zip/download">https://sourceforge.net/projects/v2fly-project-v.mirror/files/v5.5.0/v2ray-linux-64.zip/download</a></p>
+
+<pre><code>sudo ./install-release.sh --local ~/Downloads/v2ray-linux-64.zip
 </code></pre>
 
 <h2>Config</h2>

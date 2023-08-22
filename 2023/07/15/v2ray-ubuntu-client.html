@@ -52,7 +52,18 @@
 
 <h2>Install</h2>
 
-<pre><code>bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+<pre><code>wget https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh
+
+chmod +x install-release.sh
+
+sudo ./install-release.sh
+</code></pre>
+
+<h3>mirror download + local install</h3>
+
+<p><a href="https://sourceforge.net/projects/v2fly-project-v.mirror/files/v5.5.0/v2ray-linux-64.zip/download">https://sourceforge.net/projects/v2fly-project-v.mirror/files/v5.5.0/v2ray-linux-64.zip/download</a></p>
+
+<pre><code>sudo ./install-release.sh --local ~/Downloads/v2ray-linux-64.zip
 </code></pre>
 
 <h2>Config</h2>
