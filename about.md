@@ -56,6 +56,7 @@ This is a tool that crawls useful content of specified weibo users, which has ea
 ## Link
 
 * <https://github.com/songzy12>
+* <https://kaggle.com/songzy12>
 * <https://hackerrank.com/songzy12>
 * <https://codeforces.com/profile/songzy12>
-* <https://kaggle.com/songzy12>
+* <https://profiles.topcoder.com/songzy12>
