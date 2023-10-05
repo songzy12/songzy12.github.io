@@ -224,6 +224,32 @@ sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
 <pre><code>docker info
 </code></pre>
 
+<h2>brew</h2>
+
+<pre><code># 查看 brew.git 当前源
+$ cd "$(brew --repo)" &amp;&amp; git remote -v
+origin    https://github.com/Homebrew/brew.git (fetch)
+origin    https://github.com/Homebrew/brew.git (push)
+
+# 查看 homebrew-core.git 当前源
+$ cd "$(brew --repo homebrew/core)" &amp;&amp; git remote -v
+origin    https://github.com/Homebrew/homebrew-core.git (fetch)
+origin    https://github.com/Homebrew/homebrew-core.git (push)
+</code></pre>
+
+<pre><code># 替换各个源
+$ git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+$ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+$ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
+
+# zsh 替换 brew bintray 镜像
+$ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' &gt;&gt; ~/.zshrc
+$ source ~/.zshrc
+
+# 刷新源
+$ brew update
+</code></pre>
+
   </div><a class="u-url" href="/2023/04/22/workspace-setup.html" hidden></a>
 </article>
 
