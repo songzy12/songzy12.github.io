@@ -4,11 +4,6 @@ title: About Me
 permalink: /about/
 ---
 
-## Education
-
-* Master (2016 ~ 2019): Tsinghua University, IIIS, Computer Science and Technology
-* Bachelor (2012 ~ 2016): Tsinghua University, __Yao Class__, Computer Science and Technology
-
 ## Work
 
 ### __Google__ Beijing (Jul 2019 ~ now)
@@ -16,6 +11,7 @@ permalink: /about/
 SWE
 
 * Core - i18n - TC (Jan 2023  ~ now)
+  * Extraction, Dump, Translate
 * Search - KE - Wiki (Jul 2019 ~ Dec 2022)
   * WikiCrawler, WpCat
 
@@ -25,7 +21,7 @@ SWE
 
 R&D Intern
 
-* Evaluate the Wide & Deep model to the news CTR prediction problem.
+* Evaluate the Wide & Deep model for the Bing News CTR prediction problem.
 
 ### [XuetangX](http://www.xuetangx.com) (Oct 2015 ~ Jun 2019)
 
@@ -33,9 +29,14 @@ R&D Intern
 
 * Crawler to collect question-answer pairs from community QA sites.
 * Tool with web UI to label the collected QA pairs.
-* Text classifier to classify user questions to predefined categories. 
-* Text matcher to match answers from FAQ dataset to user questions. 
+* Question classifier to classify user questions into predefined categories. 
+* Answer retriever to fetch answers from FAQ dataset to answer user questions. 
 * Demo: <https://www.xuetangx.com/learn/THU08091000384/THU08091000384/10322765>
+
+## Education
+
+* Master (2016 ~ 2019): Tsinghua University, IIIS, Computer Science and Technology
+* Bachelor (2012 ~ 2016): Tsinghua University, __Yao Class__, Computer Science and Technology
 
 ## Publication
 
