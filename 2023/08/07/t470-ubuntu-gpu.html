@@ -50,8 +50,6 @@
   <div class="post-content e-content" itemprop="articleBody">
     <p>Enable GPU on ThinkPad T470, which runs Kubuntu.</p>
 
-<p><a href="https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html">https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html</a></p>
-
 <h2>Graphic Card</h2>
 
 <pre><code class="">$ lspci              
@@ -102,13 +100,23 @@
 
 <p><a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities">https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities</a></p>
 
-<h2>Driver &amp; Toolkit</h2>
+<h2>Driver</h2>
 
-<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local</a></p>
+<p><a href="https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html">https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html</a></p>
 
-<pre><code>$ sudo apt install -y nvidia-driver nvidia-cuda-toolkit
+<pre><code>sudo apt-get install linux-headers-$(uname -r)
+</code></pre>
 
-$ sudo reboot -f
+<pre><code>distribution=$(. /etc/os-release;echo $ID$VERSION_ID | sed -e 's/\.//g')
+
+wget https://developer.download.nvidia.com/compute/cuda/repos/$distribution/x86_64/cuda-keyring_1.0-1_all.deb
+
+sudo dpkg -i cuda-keyring_1.0-1_all.deb
+</code></pre>
+
+<pre><code>sudo apt-get update
+
+sudo apt-get -y install cuda-drivers
 </code></pre>
 
 <h3>Verify</h3>
@@ -150,6 +158,10 @@ Mon Aug  7 23:06:26 2023
 |    0   N/A  N/A      2036      G   /usr/lib/xorg/Xorg                  2MiB |
 +-----------------------------------------------------------------------------+
 </code></pre>
+
+<h2>Toolkit</h2>
+
+<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local</a></p>
 
   </div><a class="u-url" href="/2023/08/07/t470-ubuntu-gpu.html" hidden></a>
 </article>
