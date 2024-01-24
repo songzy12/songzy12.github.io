@@ -14,11 +14,11 @@
 <meta property="og:url" content="http://songzy12.github.io/2016/08/13/gdb.html" />
 <meta property="og:site_name" content="Secret Base" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-08-13T05:38:01+00:00" />
+<meta property="article:published_time" content="2016-08-13T14:38:01+09:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="gdb" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2016-08-13T05:38:01+00:00","datePublished":"2016-08-13T05:38:01+00:00","description":"https://www.recurse.com/blog/7-understanding-c-by-learning-assembly.","headline":"gdb","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/08/13/gdb.html"},"url":"http://songzy12.github.io/2016/08/13/gdb.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2016-08-13T14:38:01+09:00","datePublished":"2016-08-13T14:38:01+09:00","description":"https://www.recurse.com/blog/7-understanding-c-by-learning-assembly.","headline":"gdb","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/08/13/gdb.html"},"url":"http://songzy12.github.io/2016/08/13/gdb.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -43,7 +43,7 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">gdb</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2016-08-13T05:38:01+00:00" itemprop="datePublished">Aug 13, 2016
+      <time class="dt-published" datetime="2016-08-13T14:38:01+09:00" itemprop="datePublished">Aug 13, 2016
       </time></p>
   </header>
 
@@ -61,6 +61,8 @@
     return 0;
 }
 </code></pre>
+
+
 
 <pre><code>gcc -g -O0 simple.c -o simple
 gdb simple
@@ -123,11 +125,15 @@ End of assembler dump.
 <pre><code>0x0000000100000f60 &lt;main+16&gt;:   movl   $0x5,-0x8(%rbp)
 </code></pre>
 
+
+
 <pre><code>(gdb) x &amp;a
 0x7fff5fbff768: 0x00000005
 (gdb) x $rbp - 8
 0x7fff5fbff768: 0x00000005
 </code></pre>
+
+
 
 <pre><code>0x0000000100000f73 &lt;main+35&gt;:   pop    %rbp
 0x0000000100000f74 &lt;main+36&gt;:   retq
@@ -180,6 +186,8 @@ $5 = 0xffffffff
 <pre><code>(gdb) p (int)$rax
 $11 = -1
 </code></pre>
+
+
 
 <pre><code>(gdb) x/d 0x100001018
 0x100001018 &lt;natural_generator.b&gt;:  -1

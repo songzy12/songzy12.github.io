@@ -14,11 +14,11 @@
 <meta property="og:url" content="http://songzy12.github.io/2017/06/23/apt.html" />
 <meta property="og:site_name" content="Secret Base" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2017-06-23T06:38:26+00:00" />
+<meta property="article:published_time" content="2017-06-23T15:38:26+09:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="apt" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2017-06-23T06:38:26+00:00","datePublished":"2017-06-23T06:38:26+00:00","description":"lsb_release","headline":"apt","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/06/23/apt.html"},"url":"http://songzy12.github.io/2017/06/23/apt.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2017-06-23T15:38:26+09:00","datePublished":"2017-06-23T15:38:26+09:00","description":"lsb_release","headline":"apt","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/06/23/apt.html"},"url":"http://songzy12.github.io/2017/06/23/apt.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -43,7 +43,7 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">apt</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2017-06-23T06:38:26+00:00" itemprop="datePublished">Jun 23, 2017
+      <time class="dt-published" datetime="2017-06-23T15:38:26+09:00" itemprop="datePublished">Jun 23, 2017
       </time></p>
   </header>
 
@@ -65,6 +65,8 @@ sudo rm /var/cache/apt/archives/lock
 sudo rm /var/lib/dpkg/lock
 </code></pre>
 
+
+
 <pre><code>Reading package lists... Error!
 E: Encountered a section with no Package: header
 E: Problem with MergeList /var/lib/apt/lists/cn.archive.ubuntu.com_ubuntu_dists_xenial-backports_main_binary-amd64_Packages
@@ -79,6 +81,8 @@ sudo apt-get update
 <pre><code>sudo apt-get update
 sudo apt upgrade
 </code></pre>
+
+
 
 <pre><code>2 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 29 not fully installed or removed.
@@ -98,6 +102,8 @@ sudo apt upgrade
 <pre><code>29 not fully installed or removed.
 </code></pre>
 
+
+
 <pre><code>sudo apt install -f
 </code></pre>
 
@@ -106,14 +112,22 @@ sudo apt upgrade
 <pre><code>sudo dpkg -C 
 </code></pre>
 
+
+
 <pre><code>The following packages have been unpacked but not yet configured.
 </code></pre>
+
+
 
 <pre><code>sudo dpkg --configure -a
 </code></pre>
 
+
+
 <pre><code>dpkg-query: package 'ibus-table' is not installed
 </code></pre>
+
+
 
 <pre><code>sudo apt install ibus-table
 </code></pre>

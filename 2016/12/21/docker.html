@@ -14,11 +14,11 @@
 <meta property="og:url" content="http://songzy12.github.io/2016/12/21/docker.html" />
 <meta property="og:site_name" content="Secret Base" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2016-12-21T06:10:56+00:00" />
+<meta property="article:published_time" content="2016-12-21T15:10:56+09:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="docker" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2016-12-21T06:10:56+00:00","datePublished":"2016-12-21T06:10:56+00:00","description":"sudo docker build -t tc-informix . sudo docker run -it --name iif_developer_edition --privileged -p 9088:9088 -p 9089:9089 -p 27017:27017 -p 27018:27018 -p 27883:27883 -e LICENSE=accept tc-informix","headline":"docker","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/12/21/docker.html"},"url":"http://songzy12.github.io/2016/12/21/docker.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2016-12-21T15:10:56+09:00","datePublished":"2016-12-21T15:10:56+09:00","description":"sudo docker build -t tc-informix . sudo docker run -it --name iif_developer_edition --privileged -p 9088:9088 -p 9089:9089 -p 27017:27017 -p 27018:27018 -p 27883:27883 -e LICENSE=accept tc-informix","headline":"docker","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/12/21/docker.html"},"url":"http://songzy12.github.io/2016/12/21/docker.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -43,7 +43,7 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">docker</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2016-12-21T06:10:56+00:00" itemprop="datePublished">Dec 21, 2016
+      <time class="dt-published" datetime="2016-12-21T15:10:56+09:00" itemprop="datePublished">Dec 21, 2016
       </time></p>
   </header>
 
@@ -86,6 +86,8 @@ sudo docker start d457395b35e2
 docker exec -it d457395b35e2 bash
 </code></pre>
 
+
+
 <pre><code>sudo docker attach nostalgic_hypatia
 </code></pre>
 
@@ -100,6 +102,8 @@ docker exec -it d457395b35e2 bash
 
 <pre><code>touch Dockerfile
 </code></pre>
+
+
 
 <pre><code>FROM nginx
 RUN echo '&lt;h1&gt;Hello, Docker!&lt;/h1&gt;' &gt; /usr/share/nginx/html/index.html
@@ -129,6 +133,8 @@ sudo docker run hello-world
 <pre><code>Cannot connect to the Docker daemon. Is the docker daemon running on this host?
 </code></pre>
 
+
+
 <pre><code>sudo service docker start
 sudo docker build -t tc-cache .
 </code></pre>
@@ -147,9 +153,13 @@ sudo docker run --name webserver -d -p 80:80 nginx
 sudo docker exec -it webserver bash
 </code></pre>
 
+
+
 <pre><code>echo '&lt;h1&gt;Hello, Docker!&lt;/h1&gt;' &gt; /usr/share/nginx/html/index.html
 exit
 </code></pre>
+
+
 
 <pre><code>sudo docker diff webserver
 sudo docker commit \

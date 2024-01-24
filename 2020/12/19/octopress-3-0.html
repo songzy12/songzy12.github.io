@@ -14,11 +14,11 @@
 <meta property="og:url" content="http://songzy12.github.io/2020/12/19/octopress-3-0.html" />
 <meta property="og:site_name" content="Secret Base" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-12-19T06:08:14+00:00" />
+<meta property="article:published_time" content="2020-12-19T15:08:14+09:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Octopress 3.0" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2020-12-19T06:08:14+00:00","datePublished":"2020-12-19T06:08:14+00:00","description":"This article shows the basic usage of Octopress 3.0.","headline":"Octopress 3.0","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2020/12/19/octopress-3-0.html"},"url":"http://songzy12.github.io/2020/12/19/octopress-3-0.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2020-12-19T15:08:14+09:00","datePublished":"2020-12-19T15:08:14+09:00","description":"This article shows the basic usage of Octopress 3.0.","headline":"Octopress 3.0","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2020/12/19/octopress-3-0.html"},"url":"http://songzy12.github.io/2020/12/19/octopress-3-0.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -43,7 +43,7 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">Octopress 3.0</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2020-12-19T06:08:14+00:00" itemprop="datePublished">Dec 19, 2020
+      <time class="dt-published" datetime="2020-12-19T15:08:14+09:00" itemprop="datePublished">Dec 19, 2020
       </time></p>
   </header>
 
@@ -52,7 +52,7 @@
 
 <h2>new post</h2>
 
-<pre><code>octopress new post hello -D Ruby
+<pre><code>bundle exec octopress new post hello -D Ruby
 </code></pre>
 
 <h2>build</h2>
@@ -60,13 +60,13 @@
 <p>Here we set <code>JEKYLL_ENV=production</code> to enable <code>google_analytics</code> and <code>disqus</code>.</p>
 
 <pre><code>export JEKYLL_ENV=production
-jekyll serve
+bundle exec jekyll serve
 </code></pre>
 
 <h2>deploy</h2>
 
-<pre><code>jekyll build
-octopress deploy
+<pre><code>bundle exec jekyll build
+bundle exec octopress deploy
 </code></pre>
 
 <p>在 <code>_config.yml</code>(<a href="https://jekyllrb.com/docs/configuration/default/">default</a>) 中配置了 <code>jekyll build</code> 时将静态文件生成到哪里：</p>
@@ -102,7 +102,7 @@ git push origin source
 
 <h2>rvm</h2>
 
-<pre><code>rvm install 2.7
+<pre><code>rvm install 2.7 --with-openssl-dir=$(brew --prefix openssl@1.1)/lib
 rvm use 2.7
 </code></pre>
 
@@ -123,6 +123,10 @@ gem 'sinatra', '~&gt; 1.4.2'
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "wdm", "~&gt; 0.1.0" if Gem.win_platform?
 </code></pre>
+
+<h2>Bundler</h2>
+
+<p><a href="https://bundler.io/guides/getting_started.html">https://bundler.io/guides/getting_started.html</a></p>
 
 <pre><code>bundle install
 bundle clean --force
@@ -206,6 +210,8 @@ rdiscount:
 theme: minima
 plugins:
   - jekyll-feed
+
+exclude: gems
 </code></pre>
 
   </div><a class="u-url" href="/2020/12/19/octopress-3-0.html" hidden></a>
