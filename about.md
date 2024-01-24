@@ -11,11 +11,12 @@ permalink: /about/
 SWE
 
 * Core - i18n - TC (Jan 2023  ~ now)
-  * Extraction, Dump, Translate
+  * Extraction
+  * Dump 
+  * Translation Request
 * Search - KE - Wiki (Jul 2019 ~ Dec 2022)
-  * WikiCrawler, WpCat
-
-## Intern
+  * WikiCrawler
+  * WpCat
 
 ### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
 
@@ -23,7 +24,7 @@ R&D Intern
 
 * Evaluate the Wide & Deep model for the Bing News CTR prediction problem.
 
-### [XuetangX](http://www.xuetangx.com) (Oct 2015 ~ Jun 2019)
+### XuetangX (Oct 2015 ~ Jun 2019)
 
 R&D Intern
 
@@ -50,14 +51,13 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 
 ## Project
 
-### [WeiboSpider](https://github.com/dataabc/weiboSpider)
+### weiboSpider
 
-This is a tool that crawls useful content of specified weibo users, which has earned __7k stars__ as of Jul 2023. I helped to refactor the code base and have been acting as [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
+* https://github.com/dataabc/weiboSpider
+* This is a tool that crawls useful content of specified weibo users, which has earned __7k stars__ as of Jul 2023. I helped to refactor the code base and have been acting as [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
   
 ## Link
 
 * <https://github.com/songzy12>
 * <https://kaggle.com/songzy12>
-* <https://hackerrank.com/songzy12>
 * <https://codeforces.com/profile/songzy12>
-* <https://profiles.topcoder.com/songzy12>
