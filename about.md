@@ -43,9 +43,9 @@ R&D Intern
 
 Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 
-* __Song, Z.__, Tang, J., Liu, T. X., Zheng, W., Wu, L., Feng, W., & Zhang, J. (2021). XiaoMu: an AI-driven assistant for MOOCs. Science China Information Sciences, 64(6), 1-3.
-* Li, C., __Song, Z.__, & Tang, J. (2018, June). User tagging in moocs through network embedding. In 2018 IEEE Third International Conference on Data Science in Cyberspace (DSC) (pp. 235-241). IEEE.
-* Zhang, H., Sun, M., Wang, X., __Song, Z.__, Tang, J., & Sun, J. (2017, April). Smart jump: Automated navigation suggestion for videos in moocs. In Proceedings of the 26th international conference on world wide web companion (pp. 331-339).
+* __Song, Z.__, Tang, J., Liu, T. X., Zheng, W., Wu, L., Feng, W., & Zhang, J. (2021). __XiaoMu: an AI-driven assistant for MOOCs__. Science China Information Sciences, 64(6), 1-3.
+* Li, C., __Song, Z.__, & Tang, J. (2018, June). __User tagging in moocs through network embedding__. In 2018 IEEE Third International Conference on Data Science in Cyberspace (DSC) (pp. 235-241). IEEE.
+* Zhang, H., Sun, M., Wang, X., __Song, Z.__, Tang, J., & Sun, J. (2017, April). __Smart jump: Automated navigation suggestion for videos in moocs__. In Proceedings of the 26th international conference on world wide web companion (pp. 331-339).
 
 ## Project
 
