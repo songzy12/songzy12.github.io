@@ -5,3 +5,9 @@ _site
 .jekyll-metadata
 .deploy
 Gemfile.lock
+
+bin/
+cache/
+extensions/
+gems/
+specifications/
