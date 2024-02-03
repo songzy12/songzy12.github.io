@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "V2Ray Ubuntu Server"
-date: 2023-08-07T10:08:09+08:00
+date: 2024-02-03T10:08:09+08:00
 ---
 
 <https://github.com/v2fly/fhs-install-v2ray>
