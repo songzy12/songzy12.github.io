@@ -1,4 +1,286 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-01-24T21:16:20+09:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Desktop Environment</title><link href="http://songzy12.github.io/2023/08/21/desktop-environment.html" rel="alternate" type="text/html" title="Desktop Environment" /><published>2023-08-21T12:55:11+09:00</published><updated>2023-08-21T12:55:11+09:00</updated><id>http://songzy12.github.io/2023/08/21/desktop-environment</id><content type="html" xml:base="http://songzy12.github.io/2023/08/21/desktop-environment.html"><![CDATA[<h2>GNOME</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-02-03T22:56:25+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2024/02/03/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2024-02-03T14:08:14+08:00</published><updated>2024-02-03T14:08:14+08:00</updated><id>http://songzy12.github.io/2024/02/03/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/octopress-3-0.html"><![CDATA[<p>This article shows the basic usage of Octopress 3.0.</p>
+
+<h2>Install</h2>
+
+<h3>rvm</h3>
+
+<pre><code>rvm install 2.7 --with-openssl-dir=$(brew --prefix openssl@1.1)/lib
+rvm use 2.7
+</code></pre>
+
+<h3>Gemfile</h3>
+
+<pre><code>source "https://gems.ruby-china.com"
+
+gem "jekyll", "~&gt; 3.8.4"
+gem 'octopress', '~&gt; 3.0.0'
+gem "minima", "~&gt; 2.0"
+
+group :jekyll_plugins do
+  gem "jekyll-feed", "~&gt; 0.6"
+end
+
+gem 'rdiscount', '~&gt; 2.0'
+gem 'sinatra', '~&gt; 1.4.2'
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "wdm", "~&gt; 0.1.0" if Gem.win_platform?
+</code></pre>
+
+<h3>Bundler</h3>
+
+<p><a href="https://bundler.io/guides/getting_started.html">https://bundler.io/guides/getting_started.html</a></p>
+
+<pre><code>bundle install
+bundle clean --force
+
+bundle update --bundler
+</code></pre>
+
+<h2>Usage</h2>
+
+<h3>new post</h3>
+
+<pre><code>bundle exec octopress new post hello -D Ruby
+</code></pre>
+
+<h3>build</h3>
+
+<p>Here we set <code>JEKYLL_ENV=production</code> to enable <code>google_analytics</code> and <code>disqus</code>.</p>
+
+<pre><code>export JEKYLL_ENV=production
+bundle exec jekyll serve
+</code></pre>
+
+<h3>deploy</h3>
+
+<pre><code>bundle exec jekyll build
+bundle exec octopress deploy
+</code></pre>
+
+<p>在 <code>_config.yml</code>(<a href="https://jekyllrb.com/docs/configuration/default/">default</a>) 中配置了 <code>jekyll build</code> 时将静态文件生成到哪里：</p>
+
+<pre><code>source              : .
+destination         : ./_site
+</code></pre>
+
+<p>在 <code>_deploy.yml</code> 中配置了 <code>octopress deploy</code> 时将存放在哪里的静态文件发布到哪里：</p>
+
+<pre><code>site_dir: _site                           # Location of your static site files.
+
+# Note on git_branch:
+# If using GitHub project pages, set the branch to 'gh-pages'.
+# For GitHub user/organization pages or Heroku, set the branch to 'master'.
+#
+git_branch: master                        # Git branch where static site files are commited
+</code></pre>
+
+<p>在 <a href="https://github.com/songzy12/songzy12.github.io/settings/pages">GitHub Pages Settings</a> 里配置了 GitHub 用于网页渲染的静态文件来源：</p>
+
+<pre><code>Your GitHub Pages site is currently being built from the master branch. Learn more.
+</code></pre>
+
+<h3>source</h3>
+
+<p>源码和网站是在同一个 repo 的不同 branch 底下的。</p>
+
+<pre><code>git add .
+git commit -m "$(date)"
+git push origin source
+</code></pre>
+
+<h2>Theme</h2>
+
+<p><a href="https://jekyllrb.com/docs/themes/">https://jekyllrb.com/docs/themes/</a></p>
+
+<p><a href="https://github.com/jekyll/minima">https://github.com/jekyll/minima</a></p>
+
+<h3>layouts</h3>
+
+<pre><code>ls $(bundle show minima)/_layouts
+ls $(bundle show minima)/_includes
+</code></pre>
+
+<h4>header</h4>
+
+<pre><code>vi $(bundle show minima)/_includes/header.html
+</code></pre>
+
+<h4>footer</h4>
+
+<pre><code>vi $(bundle show minima)/_includes/footer.html
+</code></pre>
+
+<h2>Extension</h2>
+
+<h3>disqus</h3>
+
+<pre><code>disqus:
+  shortname: my_disqus_shortname
+</code></pre>
+
+<h3>google_analytics</h3>
+
+<pre><code>google_analytics: UA-NNNNNNNN-N
+</code></pre>
+
+<h2>Config</h2>
+
+<p><code>_config.yml</code></p>
+
+<pre><code>title:  Secret Base
+author: Zhengyang Song
+email: songzy.thu@gmail.com
+description: &gt;- # this means to ignore newlines until "baseurl:"
+  All those little bugs I have ever met.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://songzy12.github.io" # the base hostname &amp; protocol for your site, e.g. http://example.com
+github_username:  songzy12
+
+# Default extension for new posts and pages
+post_ext: md
+page_ext: html
+
+# Default templates for posts and pages
+# Found in _templates/
+post_layout: post
+page_layout: page
+
+# Format titles with titlecase?
+titlecase: true
+
+# Change default template file (in _templates/)
+post_template: post
+page_template: page
+draft_template: draft
+
+# Build settings
+markdown: rdiscount
+rdiscount:
+  extensions:
+    - autolink
+    - footnotes
+    - smart
+theme: minima
+plugins:
+  - jekyll-feed
+
+header_pages:
+  - about.md
+
+show_excerpts: true
+
+google_analytics: UA-147981013-1
+
+disqus:
+  shortname: songzy12-github-io
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This article shows the basic usage of Octopress 3.0.]]></summary></entry><entry><title type="html">V2Ray Ubuntu Server</title><link href="http://songzy12.github.io/2024/02/03/v2ray-ubunt-server.html" rel="alternate" type="text/html" title="V2Ray Ubuntu Server" /><published>2024-02-03T10:08:09+08:00</published><updated>2024-02-03T10:08:09+08:00</updated><id>http://songzy12.github.io/2024/02/03/v2ray-ubunt-server</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/v2ray-ubunt-server.html"><![CDATA[<p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
+
+<h2>v2fly</h2>
+
+<pre><code>// 安裝執行檔和 .dat 資料檔
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+
+// 只更新 .dat 資料檔
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+</code></pre>
+
+<h2>ufw</h2>
+
+<pre><code>ufw allow http
+ufw allow https
+</code></pre>
+
+<h2>config</h2>
+
+<pre><code>vi /usr/local/etc/v2ray/config.json
+</code></pre>
+
+<h3>server</h3>
+
+<pre><code>{
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
+            "level": 1,
+            "alterId": 0
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "certificates": [
+            {
+              "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
+              "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ]
+}
+</code></pre>
+
+<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
+
+<h2>tls (acme.sh)</h2>
+
+<pre><code>DOMAIN_NAME=songzy.cc
+</code></pre>
+
+<h3>install</h3>
+
+<pre><code>apt install socat
+curl https://get.acme.sh | sh
+source ~/.bashrc 
+</code></pre>
+
+<h3>register</h3>
+
+<pre><code>acme.sh --register-account -m songzy_thu@163.com
+</code></pre>
+
+<h3>issue &amp; installcert</h3>
+
+<pre><code>acme.sh --issue -d $DOMAIN_NAME --standalone -k ec-256 --debug
+</code></pre>
+
+
+
+<pre><code>acme.sh --installcert -d $DOMAIN_NAME --fullchainpath /usr/local/etc/v2ray/$DOMAIN_NAME.cer --keypath /usr/local/etc/v2ray/$DOMAIN_NAME.key --ecc
+</code></pre>
+
+<h3>renew</h3>
+
+<pre><code>acme.sh --renew -d $DOMAIN_NAME --force --ecc --debug
+</code></pre>
+
+<h3>vmess aead</h3>
+
+<pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray run -config /usr/local/etc/v2ray/config.json
+</code></pre>
+
+<h2>ip check</h2>
+
+<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/v2fly/fhs-install-v2ray]]></summary></entry><entry><title type="html">Desktop Environment</title><link href="http://songzy12.github.io/2023/08/21/desktop-environment.html" rel="alternate" type="text/html" title="Desktop Environment" /><published>2023-08-21T11:55:11+08:00</published><updated>2023-08-21T11:55:11+08:00</updated><id>http://songzy12.github.io/2023/08/21/desktop-environment</id><content type="html" xml:base="http://songzy12.github.io/2023/08/21/desktop-environment.html"><![CDATA[<h2>GNOME</h2>
 
 <h2>KDE</h2>
 
@@ -14,7 +296,7 @@
 <li>GNOME &lt;=> GDM</li>
 <li>KDE &lt;=> SDDM</li>
 <li>XFCE &lt;=> LightDM</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[GNOME]]></summary></entry><entry><title type="html">ZSH Themes</title><link href="http://songzy12.github.io/2023/08/14/zsh-themes.html" rel="alternate" type="text/html" title="ZSH Themes" /><published>2023-08-14T13:07:43+09:00</published><updated>2023-08-14T13:07:43+09:00</updated><id>http://songzy12.github.io/2023/08/14/zsh-themes</id><content type="html" xml:base="http://songzy12.github.io/2023/08/14/zsh-themes.html"><![CDATA[<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[GNOME]]></summary></entry><entry><title type="html">ZSH Themes</title><link href="http://songzy12.github.io/2023/08/14/zsh-themes.html" rel="alternate" type="text/html" title="ZSH Themes" /><published>2023-08-14T12:07:43+08:00</published><updated>2023-08-14T12:07:43+08:00</updated><id>http://songzy12.github.io/2023/08/14/zsh-themes</id><content type="html" xml:base="http://songzy12.github.io/2023/08/14/zsh-themes.html"><![CDATA[<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
 
 <p>To view all avaliable zsh themes:</p>
 
@@ -36,7 +318,7 @@ ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "risto" "candy" )
 <p>To view the config of a specific zsh theme:</p>
 
 <pre><code>vi $ZSH/themes/robbyrussell.zsh-theme
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/ohmyzsh/ohmyzsh/wiki/Themes]]></summary></entry><entry><title type="html">T470 Ubuntu GPU</title><link href="http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu.html" rel="alternate" type="text/html" title="T470 Ubuntu GPU" /><published>2023-08-08T08:02:25+09:00</published><updated>2023-08-08T08:02:25+09:00</updated><id>http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu.html"><![CDATA[<p>Enable GPU on ThinkPad T470, which runs Kubuntu.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/ohmyzsh/ohmyzsh/wiki/Themes]]></summary></entry><entry><title type="html">T470 Ubuntu GPU</title><link href="http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu.html" rel="alternate" type="text/html" title="T470 Ubuntu GPU" /><published>2023-08-08T07:02:25+08:00</published><updated>2023-08-08T07:02:25+08:00</updated><id>http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu.html"><![CDATA[<p>Enable GPU on ThinkPad T470, which runs Kubuntu.</p>
 
 <h2>Graphic Card</h2>
 
@@ -157,119 +439,12 @@ Mon Aug  7 23:06:26 2023
 
 <h2>Toolkit</h2>
 
-<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU on ThinkPad T470, which runs Kubuntu.]]></summary></entry><entry><title type="html">V2Ray Ubuntu Server</title><link href="http://songzy12.github.io/2023/08/07/v2ray-ubunt-server.html" rel="alternate" type="text/html" title="V2Ray Ubuntu Server" /><published>2023-08-07T11:08:09+09:00</published><updated>2023-08-07T11:08:09+09:00</updated><id>http://songzy12.github.io/2023/08/07/v2ray-ubunt-server</id><content type="html" xml:base="http://songzy12.github.io/2023/08/07/v2ray-ubunt-server.html"><![CDATA[<p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
-
-<h2>v2fly</h2>
-
-<pre><code>// 安裝執行檔和 .dat 資料檔
-bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
-
-// 只更新 .dat 資料檔
-bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
-</code></pre>
-
-<h2>ufw</h2>
-
-<pre><code>ufw allow http
-ufw allow https
-</code></pre>
-
-<h2>config</h2>
-
-<pre><code>vi /usr/local/etc/v2ray/config.json
-</code></pre>
-
-<h3>server</h3>
-
-<pre><code>{
-  "inbounds": [
-    {
-      "port": 443,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
-            "level": 1,
-            "alterId": 0
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
-              "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
-            }
-          ]
-        }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    }
-  ]
-}
-</code></pre>
-
-<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
-
-<h2>tls (acme.sh)</h2>
-
-<pre><code>DOMAIN_NAME=songzy.cc
-</code></pre>
-
-<h3>install</h3>
-
-<pre><code>apt install socat
-curl https://get.acme.sh | sh
-source ~/.bashrc 
-</code></pre>
-
-<h3>register</h3>
-
-<pre><code>acme.sh --register-account -m songzy_thu@163.com
-</code></pre>
-
-<h3>issue &amp; installcert</h3>
-
-<pre><code>acme.sh --issue -d $DOMAIN_NAME --standalone -k ec-256 --debug
-</code></pre>
-
-
-
-<pre><code>acme.sh --installcert -d $DOMAIN_NAME --fullchainpath /usr/local/etc/v2ray/$DOMAIN_NAME.cer --keypath /usr/local/etc/v2ray/$DOMAIN_NAME.key --ecc
-</code></pre>
-
-<h3>renew</h3>
-
-<pre><code>acme.sh --renew -d $DOMAIN_NAME --force --ecc --debug
-</code></pre>
-
-<h3>vmess aead</h3>
-
-<pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray run -config /usr/local/etc/v2ray/config.json
-</code></pre>
-
-<h2>ip check</h2>
-
-<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/v2fly/fhs-install-v2ray]]></summary></entry><entry><title type="html">Guest VM Network</title><link href="http://songzy12.github.io/2023/07/15/guest-vm-network.html" rel="alternate" type="text/html" title="Guest VM Network" /><published>2023-07-15T22:52:26+09:00</published><updated>2023-07-15T22:52:26+09:00</updated><id>http://songzy12.github.io/2023/07/15/guest-vm-network</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/guest-vm-network.html"><![CDATA[<h2>WSL HTTP/HTTPS Proxy</h2>
+<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU on ThinkPad T470, which runs Kubuntu.]]></summary></entry><entry><title type="html">Guest VM Network</title><link href="http://songzy12.github.io/2023/07/15/guest-vm-network.html" rel="alternate" type="text/html" title="Guest VM Network" /><published>2023-07-15T21:52:26+08:00</published><updated>2023-07-15T21:52:26+08:00</updated><id>http://songzy12.github.io/2023/07/15/guest-vm-network</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/guest-vm-network.html"><![CDATA[<h2>WSL HTTP/HTTPS Proxy</h2>
 
 <pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 export http_proxy=http://$windows_host:10809
 export https_proxy=http://$windows_host:10809
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[WSL HTTP/HTTPS Proxy]]></summary></entry><entry><title type="html">Input Method</title><link href="http://songzy12.github.io/2023/07/15/input-method.html" rel="alternate" type="text/html" title="Input Method" /><published>2023-07-15T22:50:14+09:00</published><updated>2023-07-15T22:50:14+09:00</updated><id>http://songzy12.github.io/2023/07/15/input-method</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/input-method.html"><![CDATA[<h2>ibus</h2>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[WSL HTTP/HTTPS Proxy]]></summary></entry><entry><title type="html">Input Method</title><link href="http://songzy12.github.io/2023/07/15/input-method.html" rel="alternate" type="text/html" title="Input Method" /><published>2023-07-15T21:50:14+08:00</published><updated>2023-07-15T21:50:14+08:00</updated><id>http://songzy12.github.io/2023/07/15/input-method</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/input-method.html"><![CDATA[<h2>ibus</h2>
 
 <h2>fcitx5</h2>
 
@@ -278,7 +453,7 @@ export https_proxy=http://$windows_host:10809
 sudo apt install fcitx-pinyin
 
 reboot
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[ibus]]></summary></entry><entry><title type="html">V2Ray Windows Client</title><link href="http://songzy12.github.io/2023/07/15/v2ray-windows-client.html" rel="alternate" type="text/html" title="V2Ray Windows Client" /><published>2023-07-15T13:23:45+09:00</published><updated>2023-07-15T13:23:45+09:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-windows-client</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-windows-client.html"><![CDATA[<p><a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[ibus]]></summary></entry><entry><title type="html">V2Ray Windows Client</title><link href="http://songzy12.github.io/2023/07/15/v2ray-windows-client.html" rel="alternate" type="text/html" title="V2Ray Windows Client" /><published>2023-07-15T12:23:45+08:00</published><updated>2023-07-15T12:23:45+08:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-windows-client</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-windows-client.html"><![CDATA[<p><a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></p>
 
 <h2>routing</h2>
 
@@ -483,7 +658,7 @@ reboot
       "customIcon": ""
     }
   ]
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/2dust/v2rayN/releases]]></summary></entry><entry><title type="html">V2Ray Ubuntu Client</title><link href="http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client.html" rel="alternate" type="text/html" title="V2Ray Ubuntu Client" /><published>2023-07-15T13:12:25+09:00</published><updated>2023-07-15T13:12:25+09:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client.html"><![CDATA[<p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/2dust/v2rayN/releases]]></summary></entry><entry><title type="html">V2Ray Ubuntu Client</title><link href="http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client.html" rel="alternate" type="text/html" title="V2Ray Ubuntu Client" /><published>2023-07-15T12:12:25+08:00</published><updated>2023-07-15T12:12:25+08:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client.html"><![CDATA[<p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
 
 <h2>Install</h2>
 
@@ -1307,7 +1482,7 @@ main "$@"
 }
 </code></pre>
 
-<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/v2fly/fhs-install-v2ray]]></summary></entry><entry><title type="html">ChatGPT</title><link href="http://songzy12.github.io/2023/06/04/chatgpt.html" rel="alternate" type="text/html" title="ChatGPT" /><published>2023-06-04T12:43:46+09:00</published><updated>2023-06-04T12:43:46+09:00</updated><id>http://songzy12.github.io/2023/06/04/chatgpt</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/chatgpt.html"><![CDATA[<p>大陆如何注册使用 ChatGPT，并将其升级到 Plus.</p>
+<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/v2fly/fhs-install-v2ray]]></summary></entry><entry><title type="html">ChatGPT</title><link href="http://songzy12.github.io/2023/06/04/chatgpt.html" rel="alternate" type="text/html" title="ChatGPT" /><published>2023-06-04T11:43:46+08:00</published><updated>2023-06-04T11:43:46+08:00</updated><id>http://songzy12.github.io/2023/06/04/chatgpt</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/chatgpt.html"><![CDATA[<p>大陆如何注册使用 ChatGPT，并将其升级到 Plus.</p>
 
 <p>访问 <a href="https://chat.openai.com/%EF%BC%9A">https://chat.openai.com/%EF%BC%9A</a></p>
 
@@ -1372,9 +1547,4 @@ main "$@"
 <li>美区 Paypal 可以绑定国内银行发行的 visa,AE 卡</li>
 </ul>
 </li>
-</ol>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[大陆如何注册使用 ChatGPT，并将其升级到 Plus.]]></summary></entry><entry><title type="html">VPS</title><link href="http://songzy12.github.io/2023/06/04/vps.html" rel="alternate" type="text/html" title="VPS" /><published>2023-06-04T12:26:52+09:00</published><updated>2023-06-04T12:26:52+09:00</updated><id>http://songzy12.github.io/2023/06/04/vps</id><content type="html" xml:base="http://songzy12.github.io/2023/06/04/vps.html"><![CDATA[<p>VPS Provider</p>
-
-<ul>
-<li>Vultr</li>
-<li>DigitalOcean</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[VPS Provider]]></summary></entry></feed>
+</ol>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[大陆如何注册使用 ChatGPT，并将其升级到 Plus.]]></summary></entry></feed>
