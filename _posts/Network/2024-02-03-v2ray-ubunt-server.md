@@ -4,6 +4,8 @@ title: "V2Ray Ubuntu Server"
 date: 2024-02-03T10:08:09+08:00
 ---
 
+Configure V2ray server on Ubuntu.
+
 <https://github.com/v2fly/fhs-install-v2ray>
 
 ## v2fly

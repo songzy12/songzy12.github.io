@@ -4,6 +4,8 @@ title: "V2Ray Ubuntu Client"
 date: 2023-07-15T04:12:25+00:00
 ---
 
+Configure V2ray client on Ubuntu.
+
 <https://github.com/v2fly/fhs-install-v2ray>
 
 ## Install

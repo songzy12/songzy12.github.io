@@ -4,8 +4,6 @@ title: "Segment Tree"
 date: 2019-10-07T17:14:21+08:00
 ---
 
-
-
 Representation of Segment trees:
 
 1. Leaf Nodes are the elements of the input array.

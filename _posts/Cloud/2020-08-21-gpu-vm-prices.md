@@ -4,7 +4,7 @@ title: "GPU Virtual Machines Prices"
 date: 2020-08-21T21:08:10+08:00
 ---
 
-Just want compare the prices of GPU VMs.
+A SxS comparison of GPU VM prices.
 
 ## Tencent Cloud
 

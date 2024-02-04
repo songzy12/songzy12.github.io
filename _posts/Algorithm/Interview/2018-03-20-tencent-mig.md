@@ -9,6 +9,8 @@ description:
 
 ---
 
+腾讯 MIG 校招面试分享。
+
 ## Round 1
 
 * LECP

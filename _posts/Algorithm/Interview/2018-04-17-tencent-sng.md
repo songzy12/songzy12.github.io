@@ -9,6 +9,8 @@ description:
 
 ---
 
+腾讯 SNG 校招面试分享。
+
 * 项目中的有趣点或难点
 * xgboost 和 lr 的优缺点
 * C++ 虚函数的实现

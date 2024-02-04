@@ -4,6 +4,8 @@ title: "V2Ray Windows Client"
 date: 2023-07-15T04:23:45+00:00
 ---
 
+Configure V2ray client on Windows.
+
 <https://github.com/2dust/v2rayN/releases>
 
 ## routing
