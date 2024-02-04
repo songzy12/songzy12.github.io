@@ -8,8 +8,8 @@
 <meta property="og:title" content="Octopress 3.0" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="This article shows the basic usage of Octopress 3.0." />
-<meta property="og:description" content="This article shows the basic usage of Octopress 3.0." />
+<meta name="description" content="The basic usage of Octopress 3.0" />
+<meta property="og:description" content="The basic usage of Octopress 3.0" />
 <link rel="canonical" href="http://songzy12.github.io/2024/02/03/octopress-3-0.html" />
 <meta property="og:url" content="http://songzy12.github.io/2024/02/03/octopress-3-0.html" />
 <meta property="og:site_name" content="Secret Base" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Octopress 3.0" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2024-02-03T14:08:14+08:00","datePublished":"2024-02-03T14:08:14+08:00","description":"This article shows the basic usage of Octopress 3.0.","headline":"Octopress 3.0","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2024/02/03/octopress-3-0.html"},"url":"http://songzy12.github.io/2024/02/03/octopress-3-0.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2024-02-03T14:08:14+08:00","datePublished":"2024-02-03T14:08:14+08:00","description":"The basic usage of Octopress 3.0","headline":"Octopress 3.0","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2024/02/03/octopress-3-0.html"},"url":"http://songzy12.github.io/2024/02/03/octopress-3-0.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -48,20 +48,26 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>This article shows the basic usage of Octopress 3.0.</p>
+    <p>The basic usage of Octopress 3.0</p>
 
 <h2>Install</h2>
 
-<h3>rvm</h3>
+<h3>rbenv</h3>
 
-<pre><code>rvm list
-rvm install 2.7 --with-openssl-dir=$(brew --prefix openssl@1.1)/lib
-rvm use 2.7
+<pre><code>sudo apt install rbenv
 </code></pre>
 
 
 
-<pre><code>rvm use system
+<pre><code>git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+rbenv install 2.7.1
+</code></pre>
+
+
+
+<pre><code>rbenv versions
+rbenv local 2.7.1
+rbenv local --unset
 </code></pre>
 
 <h3>Gemfile</h3>
