@@ -57,6 +57,5 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 ## Link
 
 * <https://github.com/songzy12>
-* <https://hackerrank.com/songzy12>
 * <https://kaggle.com/songzy12>
 * <https://codeforces.com/profile/songzy12>
