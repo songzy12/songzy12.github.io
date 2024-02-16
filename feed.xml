@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-02-11T10:30:20+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2024/02/03/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2024-02-03T16:29:08+08:00</published><updated>2024-02-03T16:29:08+08:00</updated><id>http://songzy12.github.io/2024/02/03/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/workspace-setup.html"><![CDATA[<p>This shows what we need to do when we move to a brand new Linux environment.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-02-16T17:00:29+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2024/02/03/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2024-02-03T16:29:08+08:00</published><updated>2024-02-03T16:29:08+08:00</updated><id>http://songzy12.github.io/2024/02/03/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/workspace-setup.html"><![CDATA[<p>This shows what we need to do when we move to a brand new Linux environment.</p>
 
 <h2>apt</h2>
 
@@ -242,6 +242,13 @@ rbenv install 2.7.1
 <pre><code>rbenv versions
 rbenv local 2.7.1
 rbenv local --unset
+</code></pre>
+
+<h3>rvm</h3>
+
+<pre><code>rvm list
+rvm install 2.7 --with-openssl-dir=$(brew --prefix openssl@1.1)/lib
+rvm use 2.7
 </code></pre>
 
 <h3>Gemfile</h3>
