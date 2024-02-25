@@ -8,8 +8,8 @@
 <meta property="og:title" content="docker" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="sudo docker build -t tc-informix . sudo docker run -it --name iif_developer_edition --privileged -p 9088:9088 -p 9089:9089 -p 27017:27017 -p 27018:27018 -p 27883:27883 -e LICENSE=accept tc-informix" />
-<meta property="og:description" content="sudo docker build -t tc-informix . sudo docker run -it --name iif_developer_edition --privileged -p 9088:9088 -p 9089:9089 -p 27017:27017 -p 27018:27018 -p 27883:27883 -e LICENSE=accept tc-informix" />
+<meta name="description" content="Basic usage of docker." />
+<meta property="og:description" content="Basic usage of docker." />
 <link rel="canonical" href="http://songzy12.github.io/2016/12/21/docker.html" />
 <meta property="og:url" content="http://songzy12.github.io/2016/12/21/docker.html" />
 <meta property="og:site_name" content="Secret Base" />
@@ -18,7 +18,7 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="docker" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2016-12-21T14:10:56+08:00","datePublished":"2016-12-21T14:10:56+08:00","description":"sudo docker build -t tc-informix . sudo docker run -it --name iif_developer_edition --privileged -p 9088:9088 -p 9089:9089 -p 27017:27017 -p 27018:27018 -p 27883:27883 -e LICENSE=accept tc-informix","headline":"docker","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/12/21/docker.html"},"url":"http://songzy12.github.io/2016/12/21/docker.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2016-12-21T14:10:56+08:00","datePublished":"2016-12-21T14:10:56+08:00","description":"Basic usage of docker.","headline":"docker","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/12/21/docker.html"},"url":"http://songzy12.github.io/2016/12/21/docker.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -48,7 +48,9 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <pre><code>sudo docker build -t tc-informix .
+    <p>Basic usage of docker.</p>
+
+<pre><code>sudo docker build -t tc-informix .
 sudo docker run -it --name iif_developer_edition --privileged -p 9088:9088 -p 9089:9089 -p 27017:27017 -p 27018:27018 -p 27883:27883 -e LICENSE=accept tc-informix
 </code></pre>
 

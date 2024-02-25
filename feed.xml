@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-02-25T11:50:51+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2024/02/03/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2024-02-03T16:29:08+08:00</published><updated>2024-02-03T16:29:08+08:00</updated><id>http://songzy12.github.io/2024/02/03/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/workspace-setup.html"><![CDATA[<p>This shows what we need to do when we move to a brand new Linux environment.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-02-25T12:37:08+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2024/02/03/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2024-02-03T16:29:08+08:00</published><updated>2024-02-03T16:29:08+08:00</updated><id>http://songzy12.github.io/2024/02/03/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/workspace-setup.html"><![CDATA[<p>Steps to set up my personal workspace.</p>
 
 <h2>apt</h2>
 
@@ -222,7 +222,7 @@ $ source ~/.zshrc
 
 # 刷新源
 $ brew update
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[This shows what we need to do when we move to a brand new Linux environment.]]></summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2024/02/03/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2024-02-03T14:08:14+08:00</published><updated>2024-02-03T14:08:14+08:00</updated><id>http://songzy12.github.io/2024/02/03/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/octopress-3-0.html"><![CDATA[<p>The basic usage of Octopress 3.0</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Steps to set up my personal workspace.]]></summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2024/02/03/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2024-02-03T14:08:14+08:00</published><updated>2024-02-03T14:08:14+08:00</updated><id>http://songzy12.github.io/2024/02/03/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/octopress-3-0.html"><![CDATA[<p>Basic usage of Octopress.</p>
 
 <h2>Install</h2>
 
@@ -416,7 +416,7 @@ google_analytics: UA-147981013-1
 
 disqus:
   shortname: songzy12-github-io
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[The basic usage of Octopress 3.0]]></summary></entry><entry><title type="html">V2Ray Ubuntu Server</title><link href="http://songzy12.github.io/2024/02/03/v2ray-ubunt-server.html" rel="alternate" type="text/html" title="V2Ray Ubuntu Server" /><published>2024-02-03T10:08:09+08:00</published><updated>2024-02-03T10:08:09+08:00</updated><id>http://songzy12.github.io/2024/02/03/v2ray-ubunt-server</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/v2ray-ubunt-server.html"><![CDATA[<p>Configure V2ray server on Ubuntu.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of Octopress.]]></summary></entry><entry><title type="html">V2Ray Ubuntu Server</title><link href="http://songzy12.github.io/2024/02/03/v2ray-ubunt-server.html" rel="alternate" type="text/html" title="V2Ray Ubuntu Server" /><published>2024-02-03T10:08:09+08:00</published><updated>2024-02-03T10:08:09+08:00</updated><id>http://songzy12.github.io/2024/02/03/v2ray-ubunt-server</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/v2ray-ubunt-server.html"><![CDATA[<p>How to set up v2ray server on Ubuntu.</p>
 
 <p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
 
@@ -525,7 +525,9 @@ source ~/.bashrc
 
 <h2>ip check</h2>
 
-<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Configure V2ray server on Ubuntu.]]></summary></entry><entry><title type="html">Desktop Environment</title><link href="http://songzy12.github.io/2023/08/21/desktop-environment.html" rel="alternate" type="text/html" title="Desktop Environment" /><published>2023-08-21T11:55:11+08:00</published><updated>2023-08-21T11:55:11+08:00</updated><id>http://songzy12.github.io/2023/08/21/desktop-environment</id><content type="html" xml:base="http://songzy12.github.io/2023/08/21/desktop-environment.html"><![CDATA[<h2>GNOME</h2>
+<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to set up v2ray server on Ubuntu.]]></summary></entry><entry><title type="html">Desktop Environment</title><link href="http://songzy12.github.io/2023/08/21/desktop-environment.html" rel="alternate" type="text/html" title="Desktop Environment" /><published>2023-08-21T11:55:11+08:00</published><updated>2023-08-21T11:55:11+08:00</updated><id>http://songzy12.github.io/2023/08/21/desktop-environment</id><content type="html" xml:base="http://songzy12.github.io/2023/08/21/desktop-environment.html"><![CDATA[<p>Basic knowledge about desktop environments.</p>
+
+<h2>GNOME</h2>
 
 <h2>KDE</h2>
 
@@ -541,7 +543,9 @@ source ~/.bashrc
 <li>GNOME &lt;=> GDM</li>
 <li>KDE &lt;=> SDDM</li>
 <li>XFCE &lt;=> LightDM</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[GNOME]]></summary></entry><entry><title type="html">ZSH</title><link href="http://songzy12.github.io/2023/08/14/zsh.html" rel="alternate" type="text/html" title="ZSH" /><published>2023-08-14T12:07:43+08:00</published><updated>2023-08-14T12:07:43+08:00</updated><id>http://songzy12.github.io/2023/08/14/zsh</id><content type="html" xml:base="http://songzy12.github.io/2023/08/14/zsh.html"><![CDATA[<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic knowledge about desktop environments.]]></summary></entry><entry><title type="html">ZSH</title><link href="http://songzy12.github.io/2023/08/14/zsh.html" rel="alternate" type="text/html" title="ZSH" /><published>2023-08-14T12:07:43+08:00</published><updated>2023-08-14T12:07:43+08:00</updated><id>http://songzy12.github.io/2023/08/14/zsh</id><content type="html" xml:base="http://songzy12.github.io/2023/08/14/zsh.html"><![CDATA[<p>Basic usage of zsh.</p>
+
+<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
 
 <p>To view all avaliable zsh themes:</p>
 
@@ -563,7 +567,7 @@ ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "risto" "candy" )
 <p>To view the config of a specific zsh theme:</p>
 
 <pre><code>vi $ZSH/themes/robbyrussell.zsh-theme
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[https://github.com/ohmyzsh/ohmyzsh/wiki/Themes]]></summary></entry><entry><title type="html">T470 Ubuntu GPU</title><link href="http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu.html" rel="alternate" type="text/html" title="T470 Ubuntu GPU" /><published>2023-08-08T07:02:25+08:00</published><updated>2023-08-08T07:02:25+08:00</updated><id>http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu.html"><![CDATA[<p>Enable GPU on ThinkPad T470, which runs Kubuntu.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of zsh.]]></summary></entry><entry><title type="html">T470 Ubuntu GPU</title><link href="http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu.html" rel="alternate" type="text/html" title="T470 Ubuntu GPU" /><published>2023-08-08T07:02:25+08:00</published><updated>2023-08-08T07:02:25+08:00</updated><id>http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu.html"><![CDATA[<p>Enable GPU on ThinkPad T470, which runs Kubuntu.</p>
 
 <h2>Graphic Card</h2>
 
@@ -684,12 +688,14 @@ Mon Aug  7 23:06:26 2023
 
 <h2>Toolkit</h2>
 
-<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU on ThinkPad T470, which runs Kubuntu.]]></summary></entry><entry><title type="html">Guest VM Network</title><link href="http://songzy12.github.io/2023/07/15/guest-vm-network.html" rel="alternate" type="text/html" title="Guest VM Network" /><published>2023-07-15T21:52:26+08:00</published><updated>2023-07-15T21:52:26+08:00</updated><id>http://songzy12.github.io/2023/07/15/guest-vm-network</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/guest-vm-network.html"><![CDATA[<p>WSL HTTP/HTTPS Proxy</p>
+<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU on ThinkPad T470, which runs Kubuntu.]]></summary></entry><entry><title type="html">Guest VM Network</title><link href="http://songzy12.github.io/2023/07/15/guest-vm-network.html" rel="alternate" type="text/html" title="Guest VM Network" /><published>2023-07-15T21:52:26+08:00</published><updated>2023-07-15T21:52:26+08:00</updated><id>http://songzy12.github.io/2023/07/15/guest-vm-network</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/guest-vm-network.html"><![CDATA[<p>Set up http/https Proxy on WSL.</p>
 
 <pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 export http_proxy=http://$windows_host:10809
 export https_proxy=http://$windows_host:10809
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[WSL HTTP/HTTPS Proxy]]></summary></entry><entry><title type="html">Input Method</title><link href="http://songzy12.github.io/2023/07/15/input-method.html" rel="alternate" type="text/html" title="Input Method" /><published>2023-07-15T21:50:14+08:00</published><updated>2023-07-15T21:50:14+08:00</updated><id>http://songzy12.github.io/2023/07/15/input-method</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/input-method.html"><![CDATA[<h2>ibus</h2>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up http/https Proxy on WSL.]]></summary></entry><entry><title type="html">Input Method</title><link href="http://songzy12.github.io/2023/07/15/input-method.html" rel="alternate" type="text/html" title="Input Method" /><published>2023-07-15T21:50:14+08:00</published><updated>2023-07-15T21:50:14+08:00</updated><id>http://songzy12.github.io/2023/07/15/input-method</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/input-method.html"><![CDATA[<p>Set up Chinese input method on ubuntu.</p>
+
+<h2>ibus</h2>
 
 <h2>fcitx5</h2>
 
@@ -698,7 +704,7 @@ export https_proxy=http://$windows_host:10809
 sudo apt install fcitx-pinyin
 
 reboot
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[ibus]]></summary></entry><entry><title type="html">V2Ray Windows Client</title><link href="http://songzy12.github.io/2023/07/15/v2ray-windows-client.html" rel="alternate" type="text/html" title="V2Ray Windows Client" /><published>2023-07-15T12:23:45+08:00</published><updated>2023-07-15T12:23:45+08:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-windows-client</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-windows-client.html"><![CDATA[<p>Configure V2ray client on Windows.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up Chinese input method on ubuntu.]]></summary></entry><entry><title type="html">V2Ray Windows Client</title><link href="http://songzy12.github.io/2023/07/15/v2ray-windows-client.html" rel="alternate" type="text/html" title="V2Ray Windows Client" /><published>2023-07-15T12:23:45+08:00</published><updated>2023-07-15T12:23:45+08:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-windows-client</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-windows-client.html"><![CDATA[<p>Set up v2ray client on Windows.</p>
 
 <p><a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></p>
 
@@ -905,7 +911,7 @@ reboot
       "customIcon": ""
     }
   ]
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Configure V2ray client on Windows.]]></summary></entry><entry><title type="html">V2Ray Ubuntu Client</title><link href="http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client.html" rel="alternate" type="text/html" title="V2Ray Ubuntu Client" /><published>2023-07-15T12:12:25+08:00</published><updated>2023-07-15T12:12:25+08:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client.html"><![CDATA[<p>Configure V2ray client on Ubuntu.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up v2ray client on Windows.]]></summary></entry><entry><title type="html">V2Ray Ubuntu Client</title><link href="http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client.html" rel="alternate" type="text/html" title="V2Ray Ubuntu Client" /><published>2023-07-15T12:12:25+08:00</published><updated>2023-07-15T12:12:25+08:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-ubuntu-client.html"><![CDATA[<p>Set up v2ray client on Ubuntu.</p>
 
 <p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
 
@@ -1731,4 +1737,4 @@ main "$@"
 }
 </code></pre>
 
-<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Configure V2ray client on Ubuntu.]]></summary></entry></feed>
+<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up v2ray client on Ubuntu.]]></summary></entry></feed>
