@@ -4,7 +4,7 @@ title: "Terminal Font"
 date: 2021-05-01T14:08:18+08:00
 ---
 
-Font/color related issues I came across when using terminals.
+Fixing font/color issue I came across when using Windows terminal.
 
 ## Powerline Fonts
 

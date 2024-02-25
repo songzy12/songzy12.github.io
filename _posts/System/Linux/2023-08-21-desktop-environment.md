@@ -4,6 +4,8 @@ title: "Desktop Environment"
 date: 2023-08-21T03:55:11+00:00
 ---
 
+Basic knowledge about desktop environments.
+
 ## GNOME
 
 ## KDE

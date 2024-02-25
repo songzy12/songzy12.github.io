@@ -4,7 +4,7 @@ title: "Workspace Setup"
 date: 2024-02-03T16:29:08+08:00
 ---
 
-This shows what we need to do when we move to a brand new Linux environment.
+Steps to set up my personal workspace.
 
 ## apt
 
