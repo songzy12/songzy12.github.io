@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "V2Ray Ubuntu Client"
+title: "V2Ray Client - Ubuntu"
 date: 2023-07-15T04:12:25+00:00
 ---
 

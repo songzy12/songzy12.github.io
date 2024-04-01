@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "V2Ray Ubuntu Server"
+title: "V2Ray Server - Ubuntu"
 date: 2024-02-03T10:08:09+08:00
 ---
 

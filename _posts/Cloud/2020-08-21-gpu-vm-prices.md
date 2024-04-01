@@ -6,6 +6,10 @@ date: 2020-08-21T21:08:10+08:00
 
 A SxS comparison of GPU VM prices.
 
+## Aliyun
+
+<https://www.aliyun.com/product/ecs>
+
 ## Tencent Cloud
 
 <https://buy.cloud.tencent.com/cvm?tab=custom&step=1&devPayMode=monthly&regionId=8&zoneId=800003&instanceType=SA2.SMALL1&platform=Ubuntu&systemDiskType=CLOUD_PREMIUM&systemDiskSize=50&bandwidthType=BANDWIDTH_PREPAID&bandwidth=1&hpcClusterId=null>
@@ -27,19 +31,18 @@ A SxS comparison of GPU VM prices.
 - NVIDIA Tesla P4   ￥2894.00
 - NVIDIA Tesla K40  ￥3164.00
 
-## Huawei Cloud
+## Amazon AWS
 
-<https://www.huaweicloud.com/product/ecs.html>
+## Microsoft Azure 
 
-- GPU型号 Nvidia T4 单GPU显存 16G   ￥3,514.79/月
-- GPU型号 Nvidia V100 单GPU显存 16G ￥7,889.80/月
-- GPU型号 Nvidia M60 单GPU显存 8G   ￥3,527.70/月
-- GPU型号 Nvidia P100 单GPU显存 16G ￥5,277.70/月
-- GPU型号 Nvidia P4 单GPU显存 8G    ￥3,193.90/月
+<https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#n-series>
 
-## Aliyun
-
-<https://www.aliyun.com/product/ecs>
+- 1X K80	~$657/month
+- 1X P100	~$1,511.10/month
+- 1X V100	~$2,233.80/month
+- 1X T4	~$383.98/month
+- 1X M60	~$797.1600/month
+- 1X P40	~$1,511.10/month
 
 ## Google Cloud
 
@@ -52,14 +55,3 @@ NVIDIA K80、P100、P4、T4 及 V100 GPU
 - NVIDIA® Tesla® V100	1 个 GPU	16 GB HBM2	$1267.28 per GPU
 - NVIDIA® Tesla® P100	1 个 GPU	16 GB HBM2	$746.06 per GPU
 - NVIDIA® Tesla® K80	1 个 GPU	12 GB GDDR5	$229.95 per GPU
-
-## Microsoft Azure 
-
-<https://azure.microsoft.com/en-us/pricing/details/virtual-machines/linux/#n-series>
-
-- 1X K80	~$657/month
-- 1X P100	~$1,511.10/month
-- 1X V100	~$2,233.80/month
-- 1X T4	~$383.98/month
-- 1X M60	~$797.1600/month
-- 1X P40	~$1,511.10/month
