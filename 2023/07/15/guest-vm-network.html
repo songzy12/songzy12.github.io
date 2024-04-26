@@ -8,19 +8,19 @@
 <meta property="og:title" content="Guest VM Network" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Set up http/https Proxy on WSL." />
-<meta property="og:description" content="Set up http/https Proxy on WSL." />
-<link rel="canonical" href="http://songzy12.github.io/2023/07/15/guest-vm-network.html" />
-<meta property="og:url" content="http://songzy12.github.io/2023/07/15/guest-vm-network.html" />
+<meta name="description" content="Set up http/https proxy on WSL." />
+<meta property="og:description" content="Set up http/https proxy on WSL." />
+<link rel="canonical" href="http://localhost:4000/2023/07/15/guest-vm-network.html" />
+<meta property="og:url" content="http://localhost:4000/2023/07/15/guest-vm-network.html" />
 <meta property="og:site_name" content="Secret Base" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2023-07-15T21:52:26+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Guest VM Network" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2023-07-15T21:52:26+08:00","datePublished":"2023-07-15T21:52:26+08:00","description":"Set up http/https Proxy on WSL.","headline":"Guest VM Network","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2023/07/15/guest-vm-network.html"},"url":"http://songzy12.github.io/2023/07/15/guest-vm-network.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2023-07-15T21:52:26+08:00","datePublished":"2023-07-15T21:52:26+08:00","description":"Set up http/https proxy on WSL.","headline":"Guest VM Network","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2023/07/15/guest-vm-network.html"},"url":"http://localhost:4000/2023/07/15/guest-vm-network.html"}</script>
 <!-- End Jekyll SEO tag -->
-<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Secret Base" /></head>
 <body><header class="site-header" role="banner">
 
   <div class="wrapper"><a class="site-title" rel="author" href="/">Secret Base</a><nav class="site-nav">
@@ -48,12 +48,16 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Set up http/https Proxy on WSL.</p>
+    <p>Set up http/https proxy on WSL.</p>
 
 <pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
-export http_proxy=http://$windows_host:10809
-export https_proxy=http://$windows_host:10809
+export http_proxy=http://$windows_host:10811
+export https_proxy=http://$windows_host:10811
+export HTTP_PROXY=http://$windows_host:10811
+export HTTPS_PROXY=http://$windows_host:10811
 </code></pre>
+
+<p>Remember to check your vpn client port configuration.</p>
 
   </div><a class="u-url" href="/2023/07/15/guest-vm-network.html" hidden></a>
 </article>
