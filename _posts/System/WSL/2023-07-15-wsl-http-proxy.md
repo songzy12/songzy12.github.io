@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Guest VM Network"
+title: "WSL HTTP Proxy"
 date: 2023-07-15T13:52:26+00:00
 ---
 
@@ -15,4 +15,3 @@ export HTTPS_PROXY=http://$windows_host:10811
 ```
 
 Remember to check your vpn client port configuration.
-

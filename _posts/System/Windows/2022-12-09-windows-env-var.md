@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Env Var"
+title: "Windows Env Var"
 date: 2022-12-09T14:02:27+08:00
 ---
 

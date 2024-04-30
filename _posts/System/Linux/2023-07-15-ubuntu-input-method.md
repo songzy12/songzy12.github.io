@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Input Method"
+title: "Ubuntu Input Method"
 date: 2023-07-15T13:50:14+00:00
 ---
 
