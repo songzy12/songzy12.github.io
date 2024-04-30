@@ -37,7 +37,7 @@ GEM
       listen (~> 3.0)
     kramdown (1.17.0)
     liquid (4.0.4)
-    listen (3.9.0)
+    listen (3.8.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     mercenary (0.3.6)
@@ -61,7 +61,7 @@ GEM
       jekyll (>= 2.0)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
-    public_suffix (5.0.5)
+    public_suffix (5.0.4)
     rack (1.6.13)
     rack-protection (1.5.5)
       rack
@@ -85,7 +85,7 @@ GEM
     titlecase (0.1.1)
 
 PLATFORMS
-  x86_64-linux
+  ruby
 
 DEPENDENCIES
   jekyll (~> 3.8.4)
@@ -97,4 +97,4 @@ DEPENDENCIES
   tzinfo-data
 
 BUNDLED WITH
-   2.2.16
+   2.1.4
