@@ -11,9 +11,8 @@ permalink: /about/
 SWE
 
 * Core - i18n - TC (Jan 2023  ~ now)
-  * Extraction
-  * Dump 
-  * Translation Request
+  * Message Extraction
+  * Translation Dump 
 * Search - KE - Wiki (Jul 2019 ~ Dec 2022)
   * WikiCrawler
   * WpCat
