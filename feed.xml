@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-05-20T08:08:53+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Laptop Collection</title><link href="http://songzy12.github.io/2024/04/12/laptop.html" rel="alternate" type="text/html" title="Laptop Collection" /><published>2024-04-12T14:41:00+08:00</published><updated>2024-04-12T14:41:00+08:00</updated><id>http://songzy12.github.io/2024/04/12/laptop</id><content type="html" xml:base="http://songzy12.github.io/2024/04/12/laptop.html"><![CDATA[<p>A collection of my personal laptop devices.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-06-15T16:31:59+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Laptop Collection</title><link href="http://songzy12.github.io/2024/04/12/laptop.html" rel="alternate" type="text/html" title="Laptop Collection" /><published>2024-04-12T14:41:00+08:00</published><updated>2024-04-12T14:41:00+08:00</updated><id>http://songzy12.github.io/2024/04/12/laptop</id><content type="html" xml:base="http://songzy12.github.io/2024/04/12/laptop.html"><![CDATA[<p>A collection of my personal laptop devices.</p>
 
 <h2>OMEN 9 Slim (2023)</h2>
 
@@ -21,22 +21,6 @@
 </ul>
 </li>
 <li>RAM: 16G</li>
-<li>Disk: 512G SSD</li>
-</ul>
-
-
-<h2>MacBook Pro 15" 2018</h2>
-
-<ul>
-<li>CPU: Intel Core i7-8750H</li>
-<li>GPU:
-
-<ul>
-<li>Radeon Pro 555X 4G</li>
-<li>Intel UHD Graphics 630</li>
-</ul>
-</li>
-<li>RAM: 32G</li>
 <li>Disk: 512G SSD</li>
 </ul>
 
@@ -750,9 +734,10 @@ Mon Aug  7 23:06:26 2023
 
 <h2>Toolkit</h2>
 
-<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU on ThinkPad T470, which runs Kubuntu.]]></summary></entry><entry><title type="html">WSL HTTP Proxy</title><link href="http://songzy12.github.io/2023/07/15/wsl-http-proxy.html" rel="alternate" type="text/html" title="WSL HTTP Proxy" /><published>2023-07-15T21:52:26+08:00</published><updated>2023-07-15T21:52:26+08:00</updated><id>http://songzy12.github.io/2023/07/15/wsl-http-proxy</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/wsl-http-proxy.html"><![CDATA[<p>Set up http/https proxy on WSL.</p>
+<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU on ThinkPad T470, which runs Kubuntu.]]></summary></entry><entry><title type="html">HTTP Proxy</title><link href="http://songzy12.github.io/2023/07/15/http-proxy.html" rel="alternate" type="text/html" title="HTTP Proxy" /><published>2023-07-15T21:52:26+08:00</published><updated>2023-07-15T21:52:26+08:00</updated><id>http://songzy12.github.io/2023/07/15/http-proxy</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/http-proxy.html"><![CDATA[<p>Set up http/https proxy on WSL.</p>
 
 <pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
+
 export http_proxy=http://$windows_host:10811
 export https_proxy=http://$windows_host:10811
 export HTTP_PROXY=http://$windows_host:10811

@@ -12,3 +12,6 @@ gem 'rdiscount', '~> 2.0'
 gem 'sinatra', '~> 1.4.2'
 gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
+
+# Fix for mismatched deps: https://github.com/ffi/ffi/issues/1103
+gem "ffi", "< 1.17.0"
