@@ -51,7 +51,7 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 ### weiboSpider
 
 * https://github.com/dataabc/weiboSpider
-* This is a tool that crawls useful content of specified weibo users, which has earned __7k stars__ as of Jul 2023. I helped to refactor the code base and have been acting as [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
+* This is a tool that helps to crawl interesting user generated content from weibo.com, which has earned __8k stars__ as of Jun 2024. I volunteered to [refactor the code base](https://github.com/dataabc/weiboSpider/graphs/contributors) and have been acting as [one of the two maintainers](https://github.com/dataabc/weiboSpider/blob/master/docs/contributors.md).
   
 ## Link
 
