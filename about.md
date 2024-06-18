@@ -17,13 +17,13 @@ SWE
   * WikiCrawler
   * WpCat
 
-### __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
+### Intern: __Microsoft__ STCA (Jul 2018 ~ Sept 2018)
 
 R&D Intern
 
 * Evaluate the Wide & Deep model for the Bing News CTR prediction problem.
 
-### XuetangX (Oct 2015 ~ Jun 2019)
+### Intern: XuetangX (Oct 2015 ~ Jun 2019)
 
 R&D Intern
 
