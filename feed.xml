@@ -1,4 +1,119 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-06-18T09:53:37+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Laptop Collection</title><link href="http://songzy12.github.io/2024/04/12/laptop.html" rel="alternate" type="text/html" title="Laptop Collection" /><published>2024-04-12T14:41:00+08:00</published><updated>2024-04-12T14:41:00+08:00</updated><id>http://songzy12.github.io/2024/04/12/laptop</id><content type="html" xml:base="http://songzy12.github.io/2024/04/12/laptop.html"><![CDATA[<p>A collection of my personal laptop devices.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-06-30T00:08:52+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Cloudtop</title><link href="http://songzy12.github.io/2024/06/29/cloudtop.html" rel="alternate" type="text/html" title="Cloudtop" /><published>2024-06-29T11:26:52+08:00</published><updated>2024-06-29T11:26:52+08:00</updated><id>http://songzy12.github.io/2024/06/29/cloudtop</id><content type="html" xml:base="http://songzy12.github.io/2024/06/29/cloudtop.html"><![CDATA[<p>A collection of my personal cloudtop devices.</p>
+
+<ul>
+<li>songzy.cc: DigitalOcean + NameCheap (<s>Vultr + NameCheap + CloudFlare</s>)</li>
+<li>songzy.cool: DigitalOcean + NameCheap</li>
+<li>maomaosenlin.cc: Tencent Cloud</li>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[A collection of my personal cloudtop devices.]]></summary></entry><entry><title type="html">V2Ray Server - Ubuntu</title><link href="http://songzy12.github.io/2024/06/29/v2ray-server-ubunt.html" rel="alternate" type="text/html" title="V2Ray Server - Ubuntu" /><published>2024-06-29T10:08:09+08:00</published><updated>2024-06-29T10:08:09+08:00</updated><id>http://songzy12.github.io/2024/06/29/v2ray-server-ubunt</id><content type="html" xml:base="http://songzy12.github.io/2024/06/29/v2ray-server-ubunt.html"><![CDATA[<p>How to set up v2ray server on Ubuntu.</p>
+
+<p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
+
+<h2>v2fly</h2>
+
+<pre><code>// 安裝執行檔和 .dat 資料檔
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+
+// 只更新 .dat 資料檔
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+</code></pre>
+
+<h2>ufw</h2>
+
+<pre><code>ufw allow http
+ufw allow https
+</code></pre>
+
+<h2>config</h2>
+
+<pre><code>vi /usr/local/etc/v2ray/config.json
+</code></pre>
+
+<h3>server</h3>
+
+<pre><code>{
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
+            "level": 1,
+            "alterId": 0
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "certificates": [
+            {
+              "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
+              "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ]
+}
+</code></pre>
+
+<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
+
+<h2>tls (acme.sh)</h2>
+
+<pre><code>DOMAIN_NAME=songzy.cc
+</code></pre>
+
+<h3>install</h3>
+
+<pre><code>apt install socat
+curl https://get.acme.sh | sh
+source ~/.bashrc 
+</code></pre>
+
+<h3>register</h3>
+
+<pre><code>acme.sh --register-account -m songzy_thu@163.com
+</code></pre>
+
+<h3>issue &amp; installcert</h3>
+
+<pre><code>acme.sh --issue -d $DOMAIN_NAME --standalone -k ec-256 --debug
+</code></pre>
+
+
+
+<pre><code>acme.sh --installcert -d $DOMAIN_NAME --fullchainpath /usr/local/etc/v2ray/$DOMAIN_NAME.cer --keypath /usr/local/etc/v2ray/$DOMAIN_NAME.key --ecc
+</code></pre>
+
+<h3>renew</h3>
+
+<pre><code>acme.sh --renew -d $DOMAIN_NAME --force --ecc --debug
+</code></pre>
+
+<h3>vmess aead</h3>
+
+<pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray run -config /usr/local/etc/v2ray/config.json
+</code></pre>
+
+<h2>ip check</h2>
+
+<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to set up v2ray server on Ubuntu.]]></summary></entry><entry><title type="html">Laptop Collection</title><link href="http://songzy12.github.io/2024/04/12/laptop.html" rel="alternate" type="text/html" title="Laptop Collection" /><published>2024-04-12T14:41:00+08:00</published><updated>2024-04-12T14:41:00+08:00</updated><id>http://songzy12.github.io/2024/04/12/laptop</id><content type="html" xml:base="http://songzy12.github.io/2024/04/12/laptop.html"><![CDATA[<p>A collection of my personal laptop devices.</p>
 
 <h2>OMEN 9 Slim (2023)</h2>
 
@@ -455,116 +570,7 @@ google_analytics: UA-147981013-1
 
 disqus:
   shortname: songzy12-github-io
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of Octopress.]]></summary></entry><entry><title type="html">V2Ray Server - Ubuntu</title><link href="http://songzy12.github.io/2024/02/03/v2ray-server-ubunt.html" rel="alternate" type="text/html" title="V2Ray Server - Ubuntu" /><published>2024-02-03T10:08:09+08:00</published><updated>2024-02-03T10:08:09+08:00</updated><id>http://songzy12.github.io/2024/02/03/v2ray-server-ubunt</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/v2ray-server-ubunt.html"><![CDATA[<p>How to set up v2ray server on Ubuntu.</p>
-
-<p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
-
-<h2>v2fly</h2>
-
-<pre><code>// 安裝執行檔和 .dat 資料檔
-bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
-
-// 只更新 .dat 資料檔
-bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
-</code></pre>
-
-<h2>ufw</h2>
-
-<pre><code>ufw allow http
-ufw allow https
-</code></pre>
-
-<h2>config</h2>
-
-<pre><code>vi /usr/local/etc/v2ray/config.json
-</code></pre>
-
-<h3>server</h3>
-
-<pre><code>{
-  "inbounds": [
-    {
-      "port": 443,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
-            "level": 1,
-            "alterId": 0
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
-              "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
-            }
-          ]
-        }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    }
-  ]
-}
-</code></pre>
-
-<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
-
-<h2>tls (acme.sh)</h2>
-
-<pre><code>DOMAIN_NAME=songzy.cc
-</code></pre>
-
-<h3>install</h3>
-
-<pre><code>apt install socat
-curl https://get.acme.sh | sh
-source ~/.bashrc 
-</code></pre>
-
-<h3>register</h3>
-
-<pre><code>acme.sh --register-account -m songzy_thu@163.com
-</code></pre>
-
-<h3>issue &amp; installcert</h3>
-
-<pre><code>acme.sh --issue -d $DOMAIN_NAME --standalone -k ec-256 --debug
-</code></pre>
-
-
-
-<pre><code>acme.sh --installcert -d $DOMAIN_NAME --fullchainpath /usr/local/etc/v2ray/$DOMAIN_NAME.cer --keypath /usr/local/etc/v2ray/$DOMAIN_NAME.key --ecc
-</code></pre>
-
-<h3>renew</h3>
-
-<pre><code>acme.sh --renew -d $DOMAIN_NAME --force --ecc --debug
-</code></pre>
-
-<h3>vmess aead</h3>
-
-<pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray run -config /usr/local/etc/v2ray/config.json
-</code></pre>
-
-<h2>ip check</h2>
-
-<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to set up v2ray server on Ubuntu.]]></summary></entry><entry><title type="html">Desktop Environment</title><link href="http://songzy12.github.io/2023/08/21/desktop-environment.html" rel="alternate" type="text/html" title="Desktop Environment" /><published>2023-08-21T11:55:11+08:00</published><updated>2023-08-21T11:55:11+08:00</updated><id>http://songzy12.github.io/2023/08/21/desktop-environment</id><content type="html" xml:base="http://songzy12.github.io/2023/08/21/desktop-environment.html"><![CDATA[<p>Basic knowledge about desktop environments.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of Octopress.]]></summary></entry><entry><title type="html">Desktop Environment</title><link href="http://songzy12.github.io/2023/08/21/desktop-environment.html" rel="alternate" type="text/html" title="Desktop Environment" /><published>2023-08-21T11:55:11+08:00</published><updated>2023-08-21T11:55:11+08:00</updated><id>http://songzy12.github.io/2023/08/21/desktop-environment</id><content type="html" xml:base="http://songzy12.github.io/2023/08/21/desktop-environment.html"><![CDATA[<p>Basic knowledge about desktop environments.</p>
 
 <h2>GNOME</h2>
 
@@ -748,211 +754,4 @@ export HTTPS_PROXY=http://$windows_host:10811
 sudo apt install fcitx-pinyin
 
 reboot
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up Chinese input method on ubuntu.]]></summary></entry><entry><title type="html">V2Ray Client - Windows</title><link href="http://songzy12.github.io/2023/07/15/v2ray-client-windows.html" rel="alternate" type="text/html" title="V2Ray Client - Windows" /><published>2023-07-15T12:23:45+08:00</published><updated>2023-07-15T12:23:45+08:00</updated><id>http://songzy12.github.io/2023/07/15/v2ray-client-windows</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/v2ray-client-windows.html"><![CDATA[<p>Set up v2ray client on Windows.</p>
-
-<p><a href="https://github.com/2dust/v2rayN/releases">https://github.com/2dust/v2rayN/releases</a></p>
-
-<h2>routing</h2>
-
-<h3>config.json</h3>
-
-<pre><code>  "routing": {
-    "domainStrategy": "IPIfNonMatch",
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api",
-        "enabled": true
-      },
-      {
-        "type": "field",
-        "outboundTag": "block",
-        "domain": [
-          "geosite:category-ads-all"
-        ],
-        "enabled": true
-      },
-      {
-        "type": "field",
-        "outboundTag": "direct",
-        "domain": [
-          "geosite:cn"
-        ],
-        "enabled": true
-      },
-      {
-        "type": "field",
-        "outboundTag": "direct",
-        "ip": [
-          "geoip:private",
-          "geoip:cn"
-        ],
-        "enabled": true
-      },
-      {
-        "type": "field",
-        "port": "0-65535",
-        "outboundTag": "proxy",
-        "enabled": true
-      }
-    ]
-  }
-</code></pre>
-
-<p><a href="https://www.v2ray.com/en/configuration/routing.html">Domain strategy</a>:</p>
-
-<ul>
-<li>&ldquo;AsIs&rdquo;: Only use domain for routing. Default value.</li>
-<li>&ldquo;IPIfNonMatch&rdquo;: When no rule matches current domain, V2Ray resolves it into IP addresses (A or AAAA records) and try all rules again.
-
-<ul>
-<li>If a domain has multiple IP addresses, V2Ray tries all of them.</li>
-<li>The resolved IPs are only used for routing decisions, the traffic is still sent to original domain address.</li>
-</ul>
-</li>
-<li>&ldquo;IPOnDemand&rdquo;: As long as there is a IP-based rule, V2Ray resolves the domain into IP immediately.</li>
-</ul>
-
-
-<h3>guiNConfig.json</h3>
-
-<pre><code>  "routings": [
-    {
-      "remarks": "仅大陆直连",
-      "url": "",
-      "rules": [
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "block",
-          "ip": null,
-          "domain": [
-            "geosite:category-ads-all"
-          ],
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "direct",
-          "ip": null,
-          "domain": [
-            "geosite:cn"
-          ],
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "direct",
-          "ip": [
-            "geoip:private",
-            "geoip:cn"
-          ],
-          "domain": null,
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": "0-65535",
-          "inboundTag": null,
-          "outboundTag": "proxy",
-          "ip": null,
-          "domain": null,
-          "protocol": null,
-          "enabled": true
-        }
-      ],
-      "enabled": true,
-      "locked": false,
-      "customIcon": ""
-    },
-    {
-      "remarks": "仅防火墙代理",
-      "url": "",
-      "rules": [
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "direct",
-          "ip": null,
-          "domain": null,
-          "protocol": [
-            "bittorrent"
-          ],
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "block",
-          "ip": null,
-          "domain": [
-            "geosite:category-ads-all"
-          ],
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": null,
-          "inboundTag": null,
-          "outboundTag": "proxy",
-          "ip": [
-            "geoip:telegram"
-          ],
-          "domain": [
-            "geosite:gfw",
-            "geosite:greatfire",
-            "geosite:tld-!cn"
-          ],
-          "protocol": null,
-          "enabled": true
-        },
-        {
-          "type": null,
-          "port": "0-65535",
-          "inboundTag": null,
-          "outboundTag": "direct",
-          "ip": null,
-          "domain": null,
-          "protocol": null,
-          "enabled": true
-        }
-      ],
-      "enabled": true,
-      "locked": false,
-      "customIcon": ""
-    },
-    {
-      "remarks": "全局代理",
-      "url": "",
-      "rules": [
-        {
-          "type": null,
-          "port": "0-65535",
-          "inboundTag": null,
-          "outboundTag": "proxy",
-          "ip": null,
-          "domain": null,
-          "protocol": null,
-          "enabled": true
-        }
-      ],
-      "enabled": true,
-      "locked": false,
-      "customIcon": ""
-    }
-  ]
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up v2ray client on Windows.]]></summary></entry></feed>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up Chinese input method on ubuntu.]]></summary></entry></feed>
