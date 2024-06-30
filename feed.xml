@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-06-30T00:12:22+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Server - Ubuntu</title><link href="http://songzy12.github.io/2024/06/29/v2ray-server-ubunt.html" rel="alternate" type="text/html" title="V2Ray Server - Ubuntu" /><published>2024-06-29T10:08:09+08:00</published><updated>2024-06-29T10:08:09+08:00</updated><id>http://songzy12.github.io/2024/06/29/v2ray-server-ubunt</id><content type="html" xml:base="http://songzy12.github.io/2024/06/29/v2ray-server-ubunt.html"><![CDATA[<p>How to set up v2ray server on Ubuntu.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-06-30T22:29:36+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">GitBook</title><link href="http://songzy12.github.io/2024/06/30/gitbook.html" rel="alternate" type="text/html" title="GitBook" /><published>2024-06-30T22:26:18+08:00</published><updated>2024-06-30T22:26:18+08:00</updated><id>http://songzy12.github.io/2024/06/30/gitbook</id><content type="html" xml:base="http://songzy12.github.io/2024/06/30/gitbook.html"><![CDATA[<p>Basic usage of GitBook.</p>
+
+<h2>Install</h2>
+
+<pre><code>brew install nvm
+</code></pre>
+
+
+
+<pre><code>nvm install 12
+nvm use 12
+npm install graceful-fs@4.2.0 -g
+npm install gitbook-cli@2.1.2 -g
+</code></pre>
+
+<h2>Run</h2>
+
+<pre><code>gitbook init
+gitbook serve
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of GitBook.]]></summary></entry><entry><title type="html">V2Ray Server - Ubuntu</title><link href="http://songzy12.github.io/2024/06/29/v2ray-server-ubunt.html" rel="alternate" type="text/html" title="V2Ray Server - Ubuntu" /><published>2024-06-29T10:08:09+08:00</published><updated>2024-06-29T10:08:09+08:00</updated><id>http://songzy12.github.io/2024/06/29/v2ray-server-ubunt</id><content type="html" xml:base="http://songzy12.github.io/2024/06/29/v2ray-server-ubunt.html"><![CDATA[<p>How to set up v2ray server on Ubuntu.</p>
 
 <p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
 
@@ -743,15 +762,4 @@ export HTTP_PROXY=http://$windows_host:10811
 export HTTPS_PROXY=http://$windows_host:10811
 </code></pre>
 
-<p>Remember to check your vpn client port configuration.</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up http/https proxy on WSL.]]></summary></entry><entry><title type="html">Ubuntu Input Method</title><link href="http://songzy12.github.io/2023/07/15/ubuntu-input-method.html" rel="alternate" type="text/html" title="Ubuntu Input Method" /><published>2023-07-15T21:50:14+08:00</published><updated>2023-07-15T21:50:14+08:00</updated><id>http://songzy12.github.io/2023/07/15/ubuntu-input-method</id><content type="html" xml:base="http://songzy12.github.io/2023/07/15/ubuntu-input-method.html"><![CDATA[<p>Set up Chinese input method on ubuntu.</p>
-
-<h2>ibus</h2>
-
-<h2>fcitx5</h2>
-
-<pre><code>sudo apt remove ibus
-
-sudo apt install fcitx-pinyin
-
-reboot
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up Chinese input method on ubuntu.]]></summary></entry></feed>
+<p>Remember to check your vpn client port configuration.</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up http/https proxy on WSL.]]></summary></entry></feed>
