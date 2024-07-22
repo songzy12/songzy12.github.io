@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-07-17T20:49:19+09:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">GitBook</title><link href="http://songzy12.github.io/2024/07/17/gitbook.html" rel="alternate" type="text/html" title="GitBook" /><published>2024-07-17T20:25:18+09:00</published><updated>2024-07-17T20:25:18+09:00</updated><id>http://songzy12.github.io/2024/07/17/gitbook</id><content type="html" xml:base="http://songzy12.github.io/2024/07/17/gitbook.html"><![CDATA[<p>Basic usage of GitBook.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-07-22T23:19:04+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">GitBook</title><link href="http://songzy12.github.io/2024/07/17/gitbook.html" rel="alternate" type="text/html" title="GitBook" /><published>2024-07-17T19:25:18+08:00</published><updated>2024-07-17T19:25:18+08:00</updated><id>http://songzy12.github.io/2024/07/17/gitbook</id><content type="html" xml:base="http://songzy12.github.io/2024/07/17/gitbook.html"><![CDATA[<p>Basic usage of GitBook.</p>
 
 <h2>Install</h2>
 
@@ -21,7 +21,7 @@ npm install gitbook-cli@2.1.2 -g
 
 
 <pre><code>gitbook serve
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of GitBook.]]></summary></entry><entry><title type="html">V2Ray Server - Ubuntu</title><link href="http://songzy12.github.io/2024/07/17/v2ray-server-ubuntu.html" rel="alternate" type="text/html" title="V2Ray Server - Ubuntu" /><published>2024-07-17T11:08:09+09:00</published><updated>2024-07-17T11:08:09+09:00</updated><id>http://songzy12.github.io/2024/07/17/v2ray-server-ubuntu</id><content type="html" xml:base="http://songzy12.github.io/2024/07/17/v2ray-server-ubuntu.html"><![CDATA[<p>How to set up v2ray server on Ubuntu.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of GitBook.]]></summary></entry><entry><title type="html">V2Ray Server - Ubuntu</title><link href="http://songzy12.github.io/2024/07/17/v2ray-server-ubuntu.html" rel="alternate" type="text/html" title="V2Ray Server - Ubuntu" /><published>2024-07-17T10:08:09+08:00</published><updated>2024-07-17T10:08:09+08:00</updated><id>http://songzy12.github.io/2024/07/17/v2ray-server-ubuntu</id><content type="html" xml:base="http://songzy12.github.io/2024/07/17/v2ray-server-ubuntu.html"><![CDATA[<p>How to set up v2ray server on Ubuntu.</p>
 
 <p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
 
@@ -130,7 +130,7 @@ source ~/.bashrc
 
 <h2>ip check</h2>
 
-<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to set up v2ray server on Ubuntu.]]></summary></entry><entry><title type="html">GitHub Repo Index</title><link href="http://songzy12.github.io/2024/07/05/github-repo-index.html" rel="alternate" type="text/html" title="GitHub Repo Index" /><published>2024-07-05T20:32:45+09:00</published><updated>2024-07-05T20:32:45+09:00</updated><id>http://songzy12.github.io/2024/07/05/github-repo-index</id><content type="html" xml:base="http://songzy12.github.io/2024/07/05/github-repo-index.html"><![CDATA[<p>An index of my GitHub repositories.</p>
+<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to set up v2ray server on Ubuntu.]]></summary></entry><entry><title type="html">GitHub Repo Index</title><link href="http://songzy12.github.io/2024/07/05/github-repo-index.html" rel="alternate" type="text/html" title="GitHub Repo Index" /><published>2024-07-05T19:32:45+08:00</published><updated>2024-07-05T19:32:45+08:00</updated><id>http://songzy12.github.io/2024/07/05/github-repo-index</id><content type="html" xml:base="http://songzy12.github.io/2024/07/05/github-repo-index.html"><![CDATA[<p>An index of my GitHub repositories.</p>
 
 <ul>
 <li>Algorithm &amp; Data Structure
@@ -144,6 +144,7 @@ source ~/.bashrc
 <li>Math &amp; Optimization
 
 <ul>
+<li><a href="https://github.com/songzy12/IMO">https://github.com/songzy12/IMO</a></li>
 <li><a href="https://github.com/songzy12/yau-contest">https://github.com/songzy12/yau-contest</a></li>
 <li><a href="https://github.com/songzy12/alibaba-mathematics-competition">https://github.com/songzy12/alibaba-mathematics-competition</a></li>
 <li><a href="https://github.com/songzy12/ProjectEuler">https://github.com/songzy12/ProjectEuler</a></li>
@@ -163,14 +164,14 @@ source ~/.bashrc
 <ul>
 <li><a href="https://github.com/songzy12/CVE">https://github.com/songzy12/CVE</a></li>
 <li><a href="https://github.com/songzy12/AVD">https://github.com/songzy12/AVD</a></li>
-<li><a href="https://github.com/songzy12/defendtheweb">https://github.com/songzy12/defendtheweb</a></li>
+<li><a href="https://github.com/songzy12/defend_the_web">https://github.com/songzy12/defend_the_web</a></li>
 </ul>
 </li>
 <li>Web Crawler
 
 <ul>
 <li><a href="https://github.com/songzy12/weibo_crawler">https://github.com/songzy12/weibo_crawler</a></li>
-<li><a href="https://github.com/songzy12/bilibili-crawler">https://github.com/songzy12/bilibili-crawler</a></li>
+<li><a href="https://github.com/songzy12/bilibili_crawler">https://github.com/songzy12/bilibili_crawler</a></li>
 </ul>
 </li>
 <li>Game AI
@@ -206,7 +207,7 @@ source ~/.bashrc
 <li><a href="https://github.com/songzy12/AndroidRotationSensor">https://github.com/songzy12/AndroidRotationSensor</a></li>
 </ul>
 </li>
-<li>Chrome
+<li>Chrome Extenstion
 
 <ul>
 <li><a href="https://github.com/songzy12/SirsiDynixAssistant">https://github.com/songzy12/SirsiDynixAssistant</a></li>
@@ -242,7 +243,7 @@ source ~/.bashrc
 </li>
 </ul>
 </li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[An index of my GitHub repositories.]]></summary></entry><entry><title type="html">Laptop Collection</title><link href="http://songzy12.github.io/2024/06/28/laptop.html" rel="alternate" type="text/html" title="Laptop Collection" /><published>2024-06-28T15:41:00+09:00</published><updated>2024-06-28T15:41:00+09:00</updated><id>http://songzy12.github.io/2024/06/28/laptop</id><content type="html" xml:base="http://songzy12.github.io/2024/06/28/laptop.html"><![CDATA[<p>A collection of my personal laptop devices.</p>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[An index of my GitHub repositories.]]></summary></entry><entry><title type="html">Laptop Collection</title><link href="http://songzy12.github.io/2024/06/28/laptop.html" rel="alternate" type="text/html" title="Laptop Collection" /><published>2024-06-28T14:41:00+08:00</published><updated>2024-06-28T14:41:00+08:00</updated><id>http://songzy12.github.io/2024/06/28/laptop</id><content type="html" xml:base="http://songzy12.github.io/2024/06/28/laptop.html"><![CDATA[<p>A collection of my personal laptop devices.</p>
 
 <h2>OMEN 9 Slim (2023)</h2>
 
@@ -288,13 +289,13 @@ source ~/.bashrc
 <li>GPU: Intel HD Graphics 6000</li>
 <li>RAM: 8G</li>
 <li>Disk: 128G SSD</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[A collection of my personal laptop devices.]]></summary></entry><entry><title type="html">Cloudtop Collection</title><link href="http://songzy12.github.io/2024/06/28/cloudtop.html" rel="alternate" type="text/html" title="Cloudtop Collection" /><published>2024-06-28T12:26:52+09:00</published><updated>2024-06-28T12:26:52+09:00</updated><id>http://songzy12.github.io/2024/06/28/cloudtop</id><content type="html" xml:base="http://songzy12.github.io/2024/06/28/cloudtop.html"><![CDATA[<p>A collection of my personal cloudtop devices.</p>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[A collection of my personal laptop devices.]]></summary></entry><entry><title type="html">Cloudtop Collection</title><link href="http://songzy12.github.io/2024/06/28/cloudtop.html" rel="alternate" type="text/html" title="Cloudtop Collection" /><published>2024-06-28T11:26:52+08:00</published><updated>2024-06-28T11:26:52+08:00</updated><id>http://songzy12.github.io/2024/06/28/cloudtop</id><content type="html" xml:base="http://songzy12.github.io/2024/06/28/cloudtop.html"><![CDATA[<p>A collection of my personal cloudtop devices.</p>
 
 <ul>
 <li>songzy.cc: DigitalOcean + NameCheap (<s>Vultr + NameCheap + CloudFlare</s>)</li>
 <li>songzy.cool: DigitalOcean + NameCheap</li>
 <li>maomaosenlin.cc: Tencent Cloud</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[A collection of my personal cloudtop devices.]]></summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2024/02/03/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2024-02-03T17:29:08+09:00</published><updated>2024-02-03T17:29:08+09:00</updated><id>http://songzy12.github.io/2024/02/03/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/workspace-setup.html"><![CDATA[<p>Steps to set up my personal workspace.</p>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[A collection of my personal cloudtop devices.]]></summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2024/02/03/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2024-02-03T16:29:08+08:00</published><updated>2024-02-03T16:29:08+08:00</updated><id>http://songzy12.github.io/2024/02/03/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/workspace-setup.html"><![CDATA[<p>Steps to set up my personal workspace.</p>
 
 <h2>apt</h2>
 
@@ -518,7 +519,7 @@ $ source ~/.zshrc
 
 # 刷新源
 $ brew update
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Steps to set up my personal workspace.]]></summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2024/02/03/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2024-02-03T15:08:14+09:00</published><updated>2024-02-03T15:08:14+09:00</updated><id>http://songzy12.github.io/2024/02/03/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/octopress-3-0.html"><![CDATA[<p>Basic usage of Octopress.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Steps to set up my personal workspace.]]></summary></entry><entry><title type="html">Octopress 3.0</title><link href="http://songzy12.github.io/2024/02/03/octopress-3-0.html" rel="alternate" type="text/html" title="Octopress 3.0" /><published>2024-02-03T14:08:14+08:00</published><updated>2024-02-03T14:08:14+08:00</updated><id>http://songzy12.github.io/2024/02/03/octopress-3-0</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/octopress-3-0.html"><![CDATA[<p>Basic usage of Octopress.</p>
 
 <h2>Install</h2>
 
@@ -711,7 +712,7 @@ google_analytics: UA-147981013-1
 
 disqus:
   shortname: songzy12-github-io
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of Octopress.]]></summary></entry><entry><title type="html">Desktop Environment</title><link href="http://songzy12.github.io/2023/08/21/desktop-environment.html" rel="alternate" type="text/html" title="Desktop Environment" /><published>2023-08-21T12:55:11+09:00</published><updated>2023-08-21T12:55:11+09:00</updated><id>http://songzy12.github.io/2023/08/21/desktop-environment</id><content type="html" xml:base="http://songzy12.github.io/2023/08/21/desktop-environment.html"><![CDATA[<p>Basic knowledge about desktop environments.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of Octopress.]]></summary></entry><entry><title type="html">Desktop Environment</title><link href="http://songzy12.github.io/2023/08/21/desktop-environment.html" rel="alternate" type="text/html" title="Desktop Environment" /><published>2023-08-21T11:55:11+08:00</published><updated>2023-08-21T11:55:11+08:00</updated><id>http://songzy12.github.io/2023/08/21/desktop-environment</id><content type="html" xml:base="http://songzy12.github.io/2023/08/21/desktop-environment.html"><![CDATA[<p>Basic knowledge about desktop environments.</p>
 
 <h2>GNOME</h2>
 
@@ -729,7 +730,7 @@ disqus:
 <li>GNOME &lt;=> GDM</li>
 <li>KDE &lt;=> SDDM</li>
 <li>XFCE &lt;=> LightDM</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic knowledge about desktop environments.]]></summary></entry><entry><title type="html">ZSH</title><link href="http://songzy12.github.io/2023/08/14/zsh.html" rel="alternate" type="text/html" title="ZSH" /><published>2023-08-14T13:07:43+09:00</published><updated>2023-08-14T13:07:43+09:00</updated><id>http://songzy12.github.io/2023/08/14/zsh</id><content type="html" xml:base="http://songzy12.github.io/2023/08/14/zsh.html"><![CDATA[<p>Basic usage of zsh.</p>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic knowledge about desktop environments.]]></summary></entry><entry><title type="html">ZSH</title><link href="http://songzy12.github.io/2023/08/14/zsh.html" rel="alternate" type="text/html" title="ZSH" /><published>2023-08-14T12:07:43+08:00</published><updated>2023-08-14T12:07:43+08:00</updated><id>http://songzy12.github.io/2023/08/14/zsh</id><content type="html" xml:base="http://songzy12.github.io/2023/08/14/zsh.html"><![CDATA[<p>Basic usage of zsh.</p>
 
 <p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
 
@@ -753,7 +754,7 @@ ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "risto" "candy" )
 <p>To view the config of a specific zsh theme:</p>
 
 <pre><code>vi $ZSH/themes/robbyrussell.zsh-theme
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of zsh.]]></summary></entry><entry><title type="html">T470 Ubuntu GPU</title><link href="http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu.html" rel="alternate" type="text/html" title="T470 Ubuntu GPU" /><published>2023-08-08T08:02:25+09:00</published><updated>2023-08-08T08:02:25+09:00</updated><id>http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu.html"><![CDATA[<p>Enable GPU on ThinkPad T470, which runs Kubuntu.</p>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of zsh.]]></summary></entry><entry><title type="html">T470 Ubuntu GPU</title><link href="http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu.html" rel="alternate" type="text/html" title="T470 Ubuntu GPU" /><published>2023-08-08T07:02:25+08:00</published><updated>2023-08-08T07:02:25+08:00</updated><id>http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu.html"><![CDATA[<p>Enable GPU on ThinkPad T470, which runs Kubuntu.</p>
 
 <h2>Graphic Card</h2>
 
