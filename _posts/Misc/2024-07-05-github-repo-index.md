@@ -11,6 +11,7 @@ An index of my GitHub repositories.
   * https://github.com/songzy12/TopCoder-SRM
   * https://github.com/songzy12/CodeForces
 * Math & Optimization
+  * https://github.com/songzy12/IMO
   * https://github.com/songzy12/yau-contest
   * https://github.com/songzy12/alibaba-mathematics-competition
   * https://github.com/songzy12/ProjectEuler
@@ -22,10 +23,10 @@ An index of my GitHub repositories.
 * Security
   * https://github.com/songzy12/CVE
   * https://github.com/songzy12/AVD
-  * https://github.com/songzy12/defendtheweb  
+  * https://github.com/songzy12/defend_the_web  
 * Web Crawler
   * https://github.com/songzy12/weibo_crawler
-  * https://github.com/songzy12/bilibili-crawler
+  * https://github.com/songzy12/bilibili_crawler
 * Game AI
   * https://github.com/songzy12/RAIC
   * https://github.com/songzy12/Lux-AI
@@ -43,7 +44,7 @@ An index of my GitHub repositories.
   * (2019) https://github.com/songzy12/microsoft-malware-prediction
 * Android
   * https://github.com/songzy12/AndroidRotationSensor
-* Chrome
+* Chrome Extenstion
   * https://github.com/songzy12/SirsiDynixAssistant
 * Homework
   * https://github.com/songzy12/XiaoMu
