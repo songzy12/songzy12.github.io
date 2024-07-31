@@ -3,22 +3,22 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>HTTP Proxy | Secret Base</title>
+<title>WSL HTTP Proxy | Secret Base</title>
 <meta name="generator" content="Jekyll v3.8.7" />
-<meta property="og:title" content="HTTP Proxy" />
+<meta property="og:title" content="WSL HTTP Proxy" />
 <meta name="author" content="Zhengyang Song" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Set up http/https proxy on WSL." />
-<meta property="og:description" content="Set up http/https proxy on WSL." />
-<link rel="canonical" href="http://songzy12.github.io/2023/07/15/http-proxy.html" />
-<meta property="og:url" content="http://songzy12.github.io/2023/07/15/http-proxy.html" />
+<meta name="description" content="Set up http/https proxy inside WSL." />
+<meta property="og:description" content="Set up http/https proxy inside WSL." />
+<link rel="canonical" href="http://songzy12.github.io/2024/07/31/wsl-http-proxy.html" />
+<meta property="og:url" content="http://songzy12.github.io/2024/07/31/wsl-http-proxy.html" />
 <meta property="og:site_name" content="Secret Base" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2023-07-15T21:52:26+08:00" />
+<meta property="article:published_time" content="2024-07-31T21:52:26+08:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="HTTP Proxy" />
+<meta property="twitter:title" content="WSL HTTP Proxy" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2023-07-15T21:52:26+08:00","datePublished":"2023-07-15T21:52:26+08:00","description":"Set up http/https proxy on WSL.","headline":"HTTP Proxy","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2023/07/15/http-proxy.html"},"url":"http://songzy12.github.io/2023/07/15/http-proxy.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2024-07-31T21:52:26+08:00","datePublished":"2024-07-31T21:52:26+08:00","description":"Set up http/https proxy inside WSL.","headline":"WSL HTTP Proxy","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2024/07/31/wsl-http-proxy.html"},"url":"http://songzy12.github.io/2024/07/31/wsl-http-proxy.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -41,26 +41,54 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">HTTP Proxy</h1>
+    <h1 class="post-title p-name" itemprop="name headline">WSL HTTP Proxy</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2023-07-15T21:52:26+08:00" itemprop="datePublished">Jul 15, 2023
+      <time class="dt-published" datetime="2024-07-31T21:52:26+08:00" itemprop="datePublished">Jul 31, 2024
       </time></p>
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p>Set up http/https proxy on WSL.</p>
+    <p>Set up http/https proxy inside WSL.</p>
 
-<pre><code>windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
+<p><a href="https://learn.microsoft.com/en-us/windows/wsl/networking">https://learn.microsoft.com/en-us/windows/wsl/networking</a></p>
 
-export http_proxy=http://$windows_host:10811
-export https_proxy=http://$windows_host:10811
-export HTTP_PROXY=http://$windows_host:10811
-export HTTPS_PROXY=http://$windows_host:10811
+<h2>NAT</h2>
+
+<pre><code>WINDOWS_HOST=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
+PROXY_PORT=10809
+
+export http_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export https_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTP_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTPS_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
 </code></pre>
 
-<p>Remember to check your vpn client port configuration.</p>
+<p>Remember to check your vpn client monitored port configuration.</p>
 
-  </div><a class="u-url" href="/2023/07/15/http-proxy.html" hidden></a>
+<h2>Mirrored</h2>
+
+<p>In <code>C:\Users\songz\.wslconfig</code> of Windows host:</p>
+
+<pre><code>[experimental]
+autoMemoryReclaim=gradual  # gradual  | dropcache | disabled
+networkingMode=mirrored
+dnsTunneling=true
+firewall=true
+autoProxy=true
+</code></pre>
+
+<p>Then in WSL2:</p>
+
+<pre><code>WINDOWS_HOST=localhost
+PROXY_PORT=10809
+
+export http_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export https_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTP_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTPS_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+</code></pre>
+
+  </div><a class="u-url" href="/2024/07/31/wsl-http-proxy.html" hidden></a>
 </article>
 
       </div>

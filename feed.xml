@@ -1,4 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-07-26T19:22:29+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">GitBook</title><link href="http://songzy12.github.io/2024/07/17/gitbook.html" rel="alternate" type="text/html" title="GitBook" /><published>2024-07-17T19:25:18+08:00</published><updated>2024-07-17T19:25:18+08:00</updated><id>http://songzy12.github.io/2024/07/17/gitbook</id><content type="html" xml:base="http://songzy12.github.io/2024/07/17/gitbook.html"><![CDATA[<p>Basic usage of GitBook.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-08-01T00:09:46+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL HTTP Proxy</title><link href="http://songzy12.github.io/2024/07/31/wsl-http-proxy.html" rel="alternate" type="text/html" title="WSL HTTP Proxy" /><published>2024-07-31T21:52:26+08:00</published><updated>2024-07-31T21:52:26+08:00</updated><id>http://songzy12.github.io/2024/07/31/wsl-http-proxy</id><content type="html" xml:base="http://songzy12.github.io/2024/07/31/wsl-http-proxy.html"><![CDATA[<p>Set up http/https proxy inside WSL.</p>
+
+<p><a href="https://learn.microsoft.com/en-us/windows/wsl/networking">https://learn.microsoft.com/en-us/windows/wsl/networking</a></p>
+
+<h2>NAT</h2>
+
+<pre><code>WINDOWS_HOST=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
+PROXY_PORT=10809
+
+export http_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export https_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTP_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTPS_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+</code></pre>
+
+<p>Remember to check your vpn client monitored port configuration.</p>
+
+<h2>Mirrored</h2>
+
+<p>In <code>C:\Users\songz\.wslconfig</code> of Windows host:</p>
+
+<pre><code>[experimental]
+autoMemoryReclaim=gradual  # gradual  | dropcache | disabled
+networkingMode=mirrored
+dnsTunneling=true
+firewall=true
+autoProxy=true
+</code></pre>
+
+<p>Then in WSL2:</p>
+
+<pre><code>WINDOWS_HOST=localhost
+PROXY_PORT=10809
+
+export http_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export https_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTP_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTPS_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up http/https proxy inside WSL.]]></summary></entry><entry><title type="html">GitBook</title><link href="http://songzy12.github.io/2024/07/17/gitbook.html" rel="alternate" type="text/html" title="GitBook" /><published>2024-07-17T19:25:18+08:00</published><updated>2024-07-17T19:25:18+08:00</updated><id>http://songzy12.github.io/2024/07/17/gitbook</id><content type="html" xml:base="http://songzy12.github.io/2024/07/17/gitbook.html"><![CDATA[<p>Basic usage of GitBook.</p>
 
 <h2>Install</h2>
 
@@ -754,125 +792,4 @@ ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "risto" "candy" )
 <p>To view the config of a specific zsh theme:</p>
 
 <pre><code>vi $ZSH/themes/robbyrussell.zsh-theme
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of zsh.]]></summary></entry><entry><title type="html">T470 Ubuntu GPU</title><link href="http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu.html" rel="alternate" type="text/html" title="T470 Ubuntu GPU" /><published>2023-08-08T07:02:25+08:00</published><updated>2023-08-08T07:02:25+08:00</updated><id>http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu</id><content type="html" xml:base="http://songzy12.github.io/2023/08/08/t470-ubuntu-gpu.html"><![CDATA[<p>Enable GPU on ThinkPad T470, which runs Kubuntu.</p>
-
-<h2>Graphic Card</h2>
-
-<pre><code>$ lspci              
-00:00.0 Host bridge: Intel Corporation Xeon E3-1200 v6/7th Gen Core Processor Host Bridge/DRAM Registers (rev 02)
-00:02.0 VGA compatible controller: Intel Corporation HD Graphics 620 (rev 02)
-00:14.0 USB controller: Intel Corporation Sunrise Point-LP USB 3.0 xHCI Controller (rev 21)
-00:14.2 Signal processing controller: Intel Corporation Sunrise Point-LP Thermal subsystem (rev 21)
-00:16.0 Communication controller: Intel Corporation Sunrise Point-LP CSME HECI #1 (rev 21)
-00:17.0 SATA controller: Intel Corporation Sunrise Point-LP SATA Controller [AHCI mode] (rev 21)
-00:1c.0 PCI bridge: Intel Corporation Sunrise Point-LP PCI Express Root Port #1 (rev f1)
-00:1c.6 PCI bridge: Intel Corporation Sunrise Point-LP PCI Express Root Port #7 (rev f1)
-00:1d.0 PCI bridge: Intel Corporation Sunrise Point-LP PCI Express Root Port #9 (rev f1)
-00:1f.0 ISA bridge: Intel Corporation Sunrise Point-LP LPC Controller (rev 21)
-00:1f.2 Memory controller: Intel Corporation Sunrise Point-LP PMC (rev 21)
-00:1f.3 Audio device: Intel Corporation Sunrise Point-LP HD Audio (rev 21)
-00:1f.4 SMBus: Intel Corporation Sunrise Point-LP SMBus (rev 21)
-00:1f.6 Ethernet controller: Intel Corporation Ethernet Connection (4) I219-V (rev 21)
-02:00.0 3D controller: NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
-04:00.0 Network controller: Intel Corporation Wireless 8265 / 8275 (rev 78)
-</code></pre>
-
-
-
-<pre><code>$ lspci -s 02:00.0 -v
-
-02:00.0 3D controller: NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
-    Subsystem: Lenovo GM108M [GeForce 940MX]
-    Flags: bus master, fast devsel, latency 0, IRQ 133, IOMMU group 9
-    Memory at ec000000 (32-bit, non-prefetchable) [size=16M]
-    Memory at 90000000 (64-bit, prefetchable) [size=256M]
-    Memory at a0000000 (64-bit, prefetchable) [size=32M]
-    I/O ports at d000 [size=128]
-    Expansion ROM at &lt;ignored&gt; [disabled]
-    Capabilities: &lt;access denied&gt;
-    Kernel driver in use: nouveau
-    Kernel modules: nouveau
-</code></pre>
-
-<p>GeForce 940MX.</p>
-
-<p>The Nvidia GeForce 940MX is a mid-range laptop graphics card with DirectX 12 support (FL 11_0). It has been announced in the first quarter of 2016 and is the refresh of the GeForce 940M. Compared to the older card, the new one is based on the same chip but now supports faster GDDR5.</p>
-
-<p><a href="https://www.nvidia.com/en-us/geforce/gaming-laptops/geforce-940mx/">https://www.nvidia.com/en-us/geforce/gaming-laptops/geforce-940mx/</a></p>
-
-<h3>Compute Capability</h3>
-
-<p><a href="https://developer.nvidia.com/cuda-gpus">https://developer.nvidia.com/cuda-gpus</a></p>
-
-<p>GeForce 940M    5.0</p>
-
-<p><a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities">https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#compute-capabilities</a></p>
-
-<h2>Driver</h2>
-
-<p><a href="https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html">https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html</a></p>
-
-<pre><code>sudo apt-get install linux-headers-$(uname -r)
-</code></pre>
-
-
-
-<pre><code>distribution=$(. /etc/os-release;echo $ID$VERSION_ID | sed -e 's/\.//g')
-
-wget https://developer.download.nvidia.com/compute/cuda/repos/$distribution/x86_64/cuda-keyring_1.0-1_all.deb
-
-sudo dpkg -i cuda-keyring_1.0-1_all.deb
-</code></pre>
-
-
-
-<pre><code>sudo apt-get update
-
-sudo apt-get -y install cuda-drivers
-</code></pre>
-
-<h3>Verify</h3>
-
-<pre><code>$ lspci -s 02:00.0 -v
-
-02:00.0 3D controller: NVIDIA Corporation GM108M [GeForce 940MX] (rev a2)
-    Subsystem: Lenovo GM108M [GeForce 940MX]
-    Flags: bus master, fast devsel, latency 0, IRQ 132, IOMMU group 9
-    Memory at ec000000 (32-bit, non-prefetchable) [size=16M]
-    Memory at 90000000 (64-bit, prefetchable) [size=256M]
-    Memory at a0000000 (64-bit, prefetchable) [size=32M]
-    I/O ports at d000 [size=128]
-    Capabilities: &lt;access denied&gt;
-    Kernel driver in use: nvidia
-    Kernel modules: nvidia
-</code></pre>
-
-
-
-<pre><code>$ nvidia-smi
-
-Mon Aug  7 23:06:26 2023       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 525.125.06   Driver Version: 525.125.06   CUDA Version: 12.0     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  NVIDIA GeForce ...  Off  | 00000000:02:00.0 Off |                  N/A |
-| N/A   45C    P8    N/A /  N/A |      4MiB /  2048MiB |      0%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-
-+-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
-|=============================================================================|
-|    0   N/A  N/A      2036      G   /usr/lib/xorg/Xorg                  2MiB |
-+-----------------------------------------------------------------------------+
-</code></pre>
-
-<h2>Toolkit</h2>
-
-<p><a href="https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local">https://developer.nvidia.com/cuda-downloads?target_os=Linux&amp;target_arch=x86_64&amp;Distribution=Ubuntu&amp;target_version=22.04&amp;target_type=deb_local</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Enable GPU on ThinkPad T470, which runs Kubuntu.]]></summary></entry></feed>
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of zsh.]]></summary></entry></feed>
