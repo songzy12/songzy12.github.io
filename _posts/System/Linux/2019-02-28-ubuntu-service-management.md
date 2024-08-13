@@ -19,6 +19,7 @@ Service/Job management on Ubuntu.
 ```
 service ssh status
 service ssh restart
+
 netstat –nlp | grep 22
 ```
 
