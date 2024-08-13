@@ -1,4 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-08-01T00:09:46+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL HTTP Proxy</title><link href="http://songzy12.github.io/2024/07/31/wsl-http-proxy.html" rel="alternate" type="text/html" title="WSL HTTP Proxy" /><published>2024-07-31T21:52:26+08:00</published><updated>2024-07-31T21:52:26+08:00</updated><id>http://songzy12.github.io/2024/07/31/wsl-http-proxy</id><content type="html" xml:base="http://songzy12.github.io/2024/07/31/wsl-http-proxy.html"><![CDATA[<p>Set up http/https proxy inside WSL.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-08-13T22:36:42+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Client - Mac</title><link href="http://songzy12.github.io/2024/08/13/v2ray-client-mac.html" rel="alternate" type="text/html" title="V2Ray Client - Mac" /><published>2024-08-13T22:28:17+08:00</published><updated>2024-08-13T22:28:17+08:00</updated><id>http://songzy12.github.io/2024/08/13/v2ray-client-mac</id><content type="html" xml:base="http://songzy12.github.io/2024/08/13/v2ray-client-mac.html"><![CDATA[<p>How to resolve: &ldquo;V2rayU"将对你的电脑造成伤害</p>
+
+<p><a href="https://discussionschinese.apple.com/thread/254968153">https://discussionschinese.apple.com/thread/254968153</a></p>
+
+<p>证书过期问题导致的：</p>
+
+<p>第一步，执行
+<code>
+sudo codesign --force --deep --sign - /Applications/V2rayU.app
+</code></p>
+
+<p>第二步，在应用程序中找到V2rayU，右键，显示简介，勾选覆盖恶意软件保护</p>
+
+<p>第三步，打开软件</p>
+
+<p>第四步，执行
+<code>
+sudo codesign --force --deep --sign - ~/.V2rayU/V2rayUTool
+sudo codesign --force --deep --sign - ~/.V2rayU/v2ray-core/v2ray
+</code></p>
+
+<p>然后就能正常运行了。</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to resolve: &ldquo;V2rayU"将对你的电脑造成伤害]]></summary></entry><entry><title type="html">WSL HTTP Proxy</title><link href="http://songzy12.github.io/2024/07/31/wsl-http-proxy.html" rel="alternate" type="text/html" title="WSL HTTP Proxy" /><published>2024-07-31T21:52:26+08:00</published><updated>2024-07-31T21:52:26+08:00</updated><id>http://songzy12.github.io/2024/07/31/wsl-http-proxy</id><content type="html" xml:base="http://songzy12.github.io/2024/07/31/wsl-http-proxy.html"><![CDATA[<p>Set up http/https proxy inside WSL.</p>
 
 <p><a href="https://learn.microsoft.com/en-us/windows/wsl/networking">https://learn.microsoft.com/en-us/windows/wsl/networking</a></p>
 
@@ -768,28 +789,4 @@ disqus:
 <li>GNOME &lt;=> GDM</li>
 <li>KDE &lt;=> SDDM</li>
 <li>XFCE &lt;=> LightDM</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic knowledge about desktop environments.]]></summary></entry><entry><title type="html">ZSH</title><link href="http://songzy12.github.io/2023/08/14/zsh.html" rel="alternate" type="text/html" title="ZSH" /><published>2023-08-14T12:07:43+08:00</published><updated>2023-08-14T12:07:43+08:00</updated><id>http://songzy12.github.io/2023/08/14/zsh</id><content type="html" xml:base="http://songzy12.github.io/2023/08/14/zsh.html"><![CDATA[<p>Basic usage of zsh.</p>
-
-<p><a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">https://github.com/ohmyzsh/ohmyzsh/wiki/Themes</a></p>
-
-<p>To view all avaliable zsh themes:</p>
-
-<pre><code>ls $ZSH/themes/
-</code></pre>
-
-<p>To set zsh theme:</p>
-
-<pre><code>ZSH_THEME=random
-
-ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "risto" "candy" )
-</code></pre>
-
-<p>To view the current selected random theme:</p>
-
-<pre><code>echo $RANDOM_THEME
-</code></pre>
-
-<p>To view the config of a specific zsh theme:</p>
-
-<pre><code>vi $ZSH/themes/robbyrussell.zsh-theme
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of zsh.]]></summary></entry></feed>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic knowledge about desktop environments.]]></summary></entry></feed>
