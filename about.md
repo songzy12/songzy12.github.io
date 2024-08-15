@@ -10,11 +10,11 @@ permalink: /about/
 
 SWE
 
-* Core - Developer - Mobile Harness (Aug 2024  ~ now)
-* Core - i18n - TC (Jan 2023  ~ Aug 2024)
+* Core - Developer Service - Mobile Harness (Aug 2024  ~ now)
+* Core - Internationalization - TC (Jan 2023  ~ Jul 2024)
   * Message Extraction
   * Translation Dump 
-* Search - KE - Wiki (Jul 2019 ~ Dec 2022)
+* Search - Knowledge Engine - Wiki (Jul 2019 ~ Dec 2022)
   * WikiCrawler
   * WpCat
 
