@@ -18,6 +18,32 @@ sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn
 ## brew
 
 ```
+# 查看 brew.git 当前源
+$ cd "$(brew --repo)" && git remote -v
+origin    https://github.com/Homebrew/brew.git (fetch)
+origin    https://github.com/Homebrew/brew.git (push)
+
+# 查看 homebrew-core.git 当前源
+$ cd "$(brew --repo homebrew/core)" && git remote -v
+origin    https://github.com/Homebrew/homebrew-core.git (fetch)
+origin    https://github.com/Homebrew/homebrew-core.git (push)
+```
+
+```
+# 替换各个源
+$ git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+$ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+$ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
+
+# zsh 替换 brew bintray 镜像
+$ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' >> ~/.zshrc
+$ source ~/.zshrc
+
+# 刷新源
+$ brew update
+```
+
+```
 echo 'export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" #brew.idayer.com' >> ~/.zshrc
 ```
 
@@ -38,14 +64,6 @@ https_proxy=http://localhost:10809
 
 ```
 git config --global core.editor "vim"
-```
-
-### proxy 
-
-<https://gist.github.com/evantoli/f8c23a37eb3558ab8765>
-
-```
-git config --global http.proxy localhost:10809
 ```
 
 ### user 
@@ -197,6 +215,22 @@ yarn config get registry
 yarn config set registry https://registry.npm.taobao.org
 ```
 
+## ruby
+
+```
+# 添加镜像源并移除默认源
+gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
+# 列出已有源
+gem sources -l
+# 应该只有镜像源一个
+```
+
+### bundler
+
+```
+bundle config mirror.https://rubygems.org https://mirrors.tuna.tsinghua.edu.cn/rubygems
+```
+
 ## docker
 
 ```
@@ -214,32 +248,4 @@ sudo service docker restart
 
 ```
 docker info
-```
-
-## brew 
-
-```
-# 查看 brew.git 当前源
-$ cd "$(brew --repo)" && git remote -v
-origin    https://github.com/Homebrew/brew.git (fetch)
-origin    https://github.com/Homebrew/brew.git (push)
-
-# 查看 homebrew-core.git 当前源
-$ cd "$(brew --repo homebrew/core)" && git remote -v
-origin    https://github.com/Homebrew/homebrew-core.git (fetch)
-origin    https://github.com/Homebrew/homebrew-core.git (push)
-```
-
-```
-# 替换各个源
-$ git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
-$ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
-$ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
-
-# zsh 替换 brew bintray 镜像
-$ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' >> ~/.zshrc
-$ source ~/.zshrc
-
-# 刷新源
-$ brew update
 ```
