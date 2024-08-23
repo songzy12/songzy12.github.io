@@ -1,4 +1,50 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-08-15T19:34:01+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Client - Mac</title><link href="http://songzy12.github.io/2024/08/13/v2ray-client-mac.html" rel="alternate" type="text/html" title="V2Ray Client - Mac" /><published>2024-08-13T22:28:17+08:00</published><updated>2024-08-13T22:28:17+08:00</updated><id>http://songzy12.github.io/2024/08/13/v2ray-client-mac</id><content type="html" xml:base="http://songzy12.github.io/2024/08/13/v2ray-client-mac.html"><![CDATA[<p>How to resolve: &ldquo;V2rayU"将对你的电脑造成伤害</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-08-23T10:40:54+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Laptop Collection</title><link href="http://songzy12.github.io/2024/08/23/laptop.html" rel="alternate" type="text/html" title="Laptop Collection" /><published>2024-08-23T10:40:00+08:00</published><updated>2024-08-23T10:40:00+08:00</updated><id>http://songzy12.github.io/2024/08/23/laptop</id><content type="html" xml:base="http://songzy12.github.io/2024/08/23/laptop.html"><![CDATA[<p>A collection of my personal laptop devices.</p>
+
+<h2>OMEN 9 Slim (2023)</h2>
+
+<ul>
+<li>CPU: Intel Core i9-13900HX</li>
+<li>GPU: NVIDIA GeForce RTX 4060 8G</li>
+<li>RAM: 16G</li>
+<li>Disk: 1T SSD</li>
+</ul>
+
+
+<h2>MacBook Pro 14" 2021</h2>
+
+<ul>
+<li>Processor: M1 Pro
+
+<ul>
+<li>8-core CPU</li>
+<li>14-core GPU</li>
+</ul>
+</li>
+<li>RAM: 16G</li>
+<li>Disk: 512G SSD</li>
+</ul>
+
+
+<h2>ThinkPad T470 (2017)</h2>
+
+<ul>
+<li>CPU: Intel Core i5-7200U</li>
+<li>GPU: NVIDIA GeForce 940MX 2G</li>
+<li>RAM: 4G => 16G</li>
+<li>Disk: 128G SSD + 500G HDD</li>
+</ul>
+
+
+<h2>MacBook Air 13" 2015</h2>
+
+<p><a href="https://support.apple.com/en-us/111956">https://support.apple.com/en-us/111956</a></p>
+
+<ul>
+<li>CPU: Intel Core i5-5250U</li>
+<li>GPU: Intel HD Graphics 6000</li>
+<li>RAM: 8G</li>
+<li>Disk: 128G SSD</li>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[A collection of my personal laptop devices.]]></summary></entry><entry><title type="html">V2Ray Client - Mac</title><link href="http://songzy12.github.io/2024/08/13/v2ray-client-mac.html" rel="alternate" type="text/html" title="V2Ray Client - Mac" /><published>2024-08-13T22:28:17+08:00</published><updated>2024-08-13T22:28:17+08:00</updated><id>http://songzy12.github.io/2024/08/13/v2ray-client-mac</id><content type="html" xml:base="http://songzy12.github.io/2024/08/13/v2ray-client-mac.html"><![CDATA[<p>How to resolve: &ldquo;V2rayU"将对你的电脑造成伤害</p>
 
 <p><a href="https://discussionschinese.apple.com/thread/254968153">https://discussionschinese.apple.com/thread/254968153</a></p>
 
@@ -302,53 +348,7 @@ source ~/.bashrc
 </li>
 </ul>
 </li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[An index of my GitHub repositories.]]></summary></entry><entry><title type="html">Laptop Collection</title><link href="http://songzy12.github.io/2024/06/28/laptop.html" rel="alternate" type="text/html" title="Laptop Collection" /><published>2024-06-28T14:41:00+08:00</published><updated>2024-06-28T14:41:00+08:00</updated><id>http://songzy12.github.io/2024/06/28/laptop</id><content type="html" xml:base="http://songzy12.github.io/2024/06/28/laptop.html"><![CDATA[<p>A collection of my personal laptop devices.</p>
-
-<h2>OMEN 9 Slim (2023)</h2>
-
-<ul>
-<li>CPU: Intel Core i9-13900HX</li>
-<li>GPU: NVIDIA GeForce RTX 4060 8G</li>
-<li>RAM: 16G</li>
-<li>Disk: 1T SSD</li>
-</ul>
-
-
-<h2>MacBook Pro 14" 2021</h2>
-
-<ul>
-<li>Processor: M1 Pro
-
-<ul>
-<li>8-core CPU</li>
-<li>14-core GPU</li>
-</ul>
-</li>
-<li>RAM: 16G</li>
-<li>Disk: 512G SSD</li>
-</ul>
-
-
-<h2>ThinkPad T470 (2017)</h2>
-
-<ul>
-<li>CPU: Intel Core i5-7200U</li>
-<li>GPU: NVIDIA GeForce 940MX 2G</li>
-<li>RAM: 4G => 16G</li>
-<li>Disk: 128G SSD + 500G HDD</li>
-</ul>
-
-
-<h2>MacBook Air 13" 2015</h2>
-
-<p><a href="https://support.apple.com/en-us/111956">https://support.apple.com/en-us/111956</a></p>
-
-<ul>
-<li>CPU: Intel Core i5-5250U</li>
-<li>GPU: Intel HD Graphics 6000</li>
-<li>RAM: 8G</li>
-<li>Disk: 128G SSD</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[A collection of my personal laptop devices.]]></summary></entry><entry><title type="html">Cloudtop Collection</title><link href="http://songzy12.github.io/2024/06/28/cloudtop.html" rel="alternate" type="text/html" title="Cloudtop Collection" /><published>2024-06-28T11:26:52+08:00</published><updated>2024-06-28T11:26:52+08:00</updated><id>http://songzy12.github.io/2024/06/28/cloudtop</id><content type="html" xml:base="http://songzy12.github.io/2024/06/28/cloudtop.html"><![CDATA[<p>A collection of my personal cloudtop devices.</p>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[An index of my GitHub repositories.]]></summary></entry><entry><title type="html">Cloudtop Collection</title><link href="http://songzy12.github.io/2024/06/28/cloudtop.html" rel="alternate" type="text/html" title="Cloudtop Collection" /><published>2024-06-28T11:26:52+08:00</published><updated>2024-06-28T11:26:52+08:00</updated><id>http://songzy12.github.io/2024/06/28/cloudtop</id><content type="html" xml:base="http://songzy12.github.io/2024/06/28/cloudtop.html"><![CDATA[<p>A collection of my personal cloudtop devices.</p>
 
 <ul>
 <li>songzy.cc: DigitalOcean + NameCheap (<s>Vultr + NameCheap + CloudFlare</s>)</li>
