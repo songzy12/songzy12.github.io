@@ -4,7 +4,7 @@ title: "Code Server"
 date: 2024-09-13T21:56:16+08:00
 ---
 
-How to install and use Code Server: <https://github.com/coder/code-server>
+How to install and use [Code Server](https://github.com/coder/code-server).
 
 ## Install
 
