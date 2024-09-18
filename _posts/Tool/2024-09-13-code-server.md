@@ -24,6 +24,8 @@ sudo systemctl enable --now code-server@$USER
 # Now visit http://127.0.0.1:8080. Your password is in ~/.config/code-server/config.yaml
 ```
 
+## SSH Port Forwarding
+
 https://coder.com/docs/code-server/guide#port-forwarding-via-ssh
 
 ```
@@ -35,8 +37,9 @@ sed -i.bak 's/auth: password/auth: none/' ~/.config/code-server/config.yaml
 sudo service code-server@$USER status
 ```
 
-## Local Machine
+### Local Machine
 
 ```
+set -x
 ssh -N -L 8080:127.0.0.1:8080 songzy@maomaosenlin.cc
 ```
