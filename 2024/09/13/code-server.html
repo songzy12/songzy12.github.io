@@ -69,6 +69,8 @@ curl -fOL https://github.com/coder/code-server/releases/download/v$VERSION/code-
 # Now visit http://127.0.0.1:8080. Your password is in ~/.config/code-server/config.yaml
 </code></pre>
 
+<h2>SSH Port Forwarding</h2>
+
 <p><a href="https://coder.com/docs/code-server/guide#port-forwarding-via-ssh">https://coder.com/docs/code-server/guide#port-forwarding-via-ssh</a></p>
 
 <pre><code># Replaces "auth: password" with "auth: none" in the code-server config.
@@ -80,9 +82,10 @@ sed -i.bak 's/auth: password/auth: none/' ~/.config/code-server/config.yaml
 <pre><code>sudo service code-server@$USER status
 </code></pre>
 
-<h2>Local Machine</h2>
+<h3>Local Machine</h3>
 
-<pre><code>ssh -N -L 8080:127.0.0.1:8080 songzy@maomaosenlin.cc
+<pre><code>set -x
+ssh -N -L 8080:127.0.0.1:8080 songzy@maomaosenlin.cc
 </code></pre>
 
   </div><a class="u-url" href="/2024/09/13/code-server.html" hidden></a>

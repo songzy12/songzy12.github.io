@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-09-14T08:40:19+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Code Server</title><link href="http://songzy12.github.io/2024/09/13/code-server.html" rel="alternate" type="text/html" title="Code Server" /><published>2024-09-13T21:56:16+08:00</published><updated>2024-09-13T21:56:16+08:00</updated><id>http://songzy12.github.io/2024/09/13/code-server</id><content type="html" xml:base="http://songzy12.github.io/2024/09/13/code-server.html"><![CDATA[<p>How to install and use <a href="https://github.com/coder/code-server">Code Server</a>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-09-18T08:09:50+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Code Server</title><link href="http://songzy12.github.io/2024/09/13/code-server.html" rel="alternate" type="text/html" title="Code Server" /><published>2024-09-13T21:56:16+08:00</published><updated>2024-09-13T21:56:16+08:00</updated><id>http://songzy12.github.io/2024/09/13/code-server</id><content type="html" xml:base="http://songzy12.github.io/2024/09/13/code-server.html"><![CDATA[<p>How to install and use <a href="https://github.com/coder/code-server">Code Server</a>.</p>
 
 <h2>Install</h2>
 
@@ -19,6 +19,8 @@ curl -fOL https://github.com/coder/code-server/releases/download/v$VERSION/code-
 # Now visit http://127.0.0.1:8080. Your password is in ~/.config/code-server/config.yaml
 </code></pre>
 
+<h2>SSH Port Forwarding</h2>
+
 <p><a href="https://coder.com/docs/code-server/guide#port-forwarding-via-ssh">https://coder.com/docs/code-server/guide#port-forwarding-via-ssh</a></p>
 
 <pre><code># Replaces "auth: password" with "auth: none" in the code-server config.
@@ -30,9 +32,10 @@ sed -i.bak 's/auth: password/auth: none/' ~/.config/code-server/config.yaml
 <pre><code>sudo service code-server@$USER status
 </code></pre>
 
-<h2>Local Machine</h2>
+<h3>Local Machine</h3>
 
-<pre><code>ssh -N -L 8080:127.0.0.1:8080 songzy@maomaosenlin.cc
+<pre><code>set -x
+ssh -N -L 8080:127.0.0.1:8080 songzy@maomaosenlin.cc
 </code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to install and use Code Server.]]></summary></entry><entry><title type="html">Laptop Collection</title><link href="http://songzy12.github.io/2024/08/23/laptop.html" rel="alternate" type="text/html" title="Laptop Collection" /><published>2024-08-23T10:40:00+08:00</published><updated>2024-08-23T10:40:00+08:00</updated><id>http://songzy12.github.io/2024/08/23/laptop</id><content type="html" xml:base="http://songzy12.github.io/2024/08/23/laptop.html"><![CDATA[<p>A collection of my personal laptop devices.</p>
 
 <h2>OMEN 9 Slim (2023)</h2>
