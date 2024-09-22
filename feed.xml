@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-09-18T08:09:50+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Code Server</title><link href="http://songzy12.github.io/2024/09/13/code-server.html" rel="alternate" type="text/html" title="Code Server" /><published>2024-09-13T21:56:16+08:00</published><updated>2024-09-13T21:56:16+08:00</updated><id>http://songzy12.github.io/2024/09/13/code-server</id><content type="html" xml:base="http://songzy12.github.io/2024/09/13/code-server.html"><![CDATA[<p>How to install and use <a href="https://github.com/coder/code-server">Code Server</a>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-09-22T13:46:40+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Code Server</title><link href="http://songzy12.github.io/2024/09/13/code-server.html" rel="alternate" type="text/html" title="Code Server" /><published>2024-09-13T21:56:16+08:00</published><updated>2024-09-13T21:56:16+08:00</updated><id>http://songzy12.github.io/2024/09/13/code-server</id><content type="html" xml:base="http://songzy12.github.io/2024/09/13/code-server.html"><![CDATA[<p>How to install and use <a href="https://github.com/coder/code-server">Code Server</a>.</p>
 
 <h2>Install</h2>
 
@@ -289,8 +289,8 @@ source ~/.bashrc
 <ul>
 <li><a href="https://github.com/songzy12/IMO">https://github.com/songzy12/IMO</a></li>
 <li><a href="https://github.com/songzy12/yau-contest">https://github.com/songzy12/yau-contest</a></li>
-<li><a href="https://github.com/songzy12/alibaba-mathematics-competition">https://github.com/songzy12/alibaba-mathematics-competition</a></li>
 <li><a href="https://github.com/songzy12/ProjectEuler">https://github.com/songzy12/ProjectEuler</a></li>
+<li><a href="https://github.com/songzy12/alibaba-mathematics-competition">https://github.com/songzy12/alibaba-mathematics-competition</a></li>
 <li><a href="https://github.com/songzy12/kaggle-santa-competitions">https://github.com/songzy12/kaggle-santa-competitions</a></li>
 </ul>
 </li>
@@ -307,7 +307,9 @@ source ~/.bashrc
 <ul>
 <li><a href="https://github.com/songzy12/CVE">https://github.com/songzy12/CVE</a></li>
 <li><a href="https://github.com/songzy12/AVD">https://github.com/songzy12/AVD</a></li>
-<li><a href="https://github.com/songzy12/defend_the_web">https://github.com/songzy12/defend_the_web</a></li>
+<li><a href="https://github.com/songzy12/ctf_101">https://github.com/songzy12/ctf_101</a></li>
+<li><a href="https://github.com/songzy12/hack_this">https://github.com/songzy12/hack_this</a></li>
+<li><a href="https://github.com/songzy12/challenges_re">https://github.com/songzy12/challenges_re</a></li>
 </ul>
 </li>
 <li>Web Crawler
