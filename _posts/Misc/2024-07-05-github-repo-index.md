@@ -27,8 +27,8 @@ An index of my GitHub repositories.
   * https://github.com/songzy12/hack_this
   * https://github.com/songzy12/challenges_re
 * Web Crawler
-  * https://github.com/songzy12/weibo_crawler
-  * https://github.com/songzy12/bilibili_crawler
+  * https://github.com/songzy12/weibo_toolkit
+  * https://github.com/songzy12/bilibili_dynamic_crawler
 * Game AI
   * https://github.com/songzy12/RAIC
   * https://github.com/songzy12/Lux-AI
