@@ -25,7 +25,10 @@ An index of my GitHub repositories.
   * https://github.com/songzy12/AVD
   * https://github.com/songzy12/ctf_101
   * https://github.com/songzy12/hack_this
+  * https://github.com/songzy12/wechall
+  * https://github.com/songzy12/cryptohack
   * https://github.com/songzy12/challenges_re
+  * https://github.com/songzy12/pwnable
 * Web Crawler
   * https://github.com/songzy12/weibo_toolkit
   * https://github.com/songzy12/bilibili_dynamic_crawler
