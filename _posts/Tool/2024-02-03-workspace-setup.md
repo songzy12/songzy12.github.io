@@ -99,13 +99,19 @@ wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
 sh install.sh
 ```
 
+### p10k
+
 <https://github.com/romkatv/powerlevel10k>
 
 ```
 git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
 ```
 
-Set `ZSH_THEME="powerlevel10k/powerlevel10k"` in `~/.zshrc`.
+Then in `~/.zshrc`:
+
+```
+ZSH_THEME="powerlevel10k/powerlevel10k"
+```
 
 ## tmux
 
