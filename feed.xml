@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-09-29T20:34:27+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Code Server</title><link href="http://songzy12.github.io/2024/09/13/code-server.html" rel="alternate" type="text/html" title="Code Server" /><published>2024-09-13T21:56:16+08:00</published><updated>2024-09-13T21:56:16+08:00</updated><id>http://songzy12.github.io/2024/09/13/code-server</id><content type="html" xml:base="http://songzy12.github.io/2024/09/13/code-server.html"><![CDATA[<p>How to install and use <a href="https://github.com/coder/code-server">Code Server</a>.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-10-02T14:52:23+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Code Server</title><link href="http://songzy12.github.io/2024/09/13/code-server.html" rel="alternate" type="text/html" title="Code Server" /><published>2024-09-13T21:56:16+08:00</published><updated>2024-09-13T21:56:16+08:00</updated><id>http://songzy12.github.io/2024/09/13/code-server</id><content type="html" xml:base="http://songzy12.github.io/2024/09/13/code-server.html"><![CDATA[<p>How to install and use <a href="https://github.com/coder/code-server">Code Server</a>.</p>
 
 <h2>Install</h2>
 
@@ -144,6 +144,8 @@ export HTTPS_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
 </code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up http/https proxy inside WSL.]]></summary></entry><entry><title type="html">GitBook</title><link href="http://songzy12.github.io/2024/07/17/gitbook.html" rel="alternate" type="text/html" title="GitBook" /><published>2024-07-17T19:25:18+08:00</published><updated>2024-07-17T19:25:18+08:00</updated><id>http://songzy12.github.io/2024/07/17/gitbook</id><content type="html" xml:base="http://songzy12.github.io/2024/07/17/gitbook.html"><![CDATA[<p>Basic usage of GitBook.</p>
 
 <h2>Install</h2>
+
+<p><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
 
 <pre><code>brew install nvm
 </code></pre>
@@ -573,7 +575,7 @@ source ~/.local/bin/virtualenvwrapper.sh
 <p><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
 
 <pre><code>wget -qO- 
-https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 </code></pre>
 
 
@@ -592,13 +594,13 @@ nvm ls-remote
 <p><a href="https://developer.aliyun.com/mirror/NPM">https://developer.aliyun.com/mirror/NPM</a></p>
 
 <pre><code>npm config get registry
-npm config set registry https://registry.npm.taobao.org
+npm config set registry http://registry.npmmirror.com
 </code></pre>
 
 <h3>yarn registry</h3>
 
 <pre><code>yarn config get registry
-yarn config set registry https://registry.npm.taobao.org
+yarn config set registry http://registry.npmmirror.com
 </code></pre>
 
 <h2>ruby</h2>
