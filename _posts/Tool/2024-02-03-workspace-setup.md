@@ -187,7 +187,7 @@ source ~/.local/bin/virtualenvwrapper.sh
 
 ```
 wget -qO- 
-https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 ```
 
 ```
@@ -205,14 +205,14 @@ nvm install
 
 ```
 npm config get registry
-npm config set registry https://registry.npm.taobao.org
+npm config set registry http://registry.npmmirror.com
 ```
 
 ### yarn registry
 
 ```
 yarn config get registry
-yarn config set registry https://registry.npm.taobao.org
+yarn config set registry http://registry.npmmirror.com
 ```
 
 ## ruby
