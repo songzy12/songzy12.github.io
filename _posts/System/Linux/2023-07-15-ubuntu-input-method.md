@@ -8,12 +8,6 @@ Set up Chinese input method on ubuntu.
 
 ## ibus
 
-## fcitx5
-
 ```
-sudo apt remove ibus
-
-sudo apt install fcitx-pinyin
-
-reboot
+sudo apt install ibus-libpinyin
 ```
