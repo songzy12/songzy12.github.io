@@ -10,7 +10,7 @@ permalink: /about/
 
 SWE
 
-* Core - Developer Service - Mobile Harness (Sept 2024 ~ now)
+* Core - Developer - OmniLab (Sept 2024 ~ now)
 * Core - i18n - Translation Console (Jan 2023 ~ Aug 2024)
   * Message Extraction
   * Translation Dump 
