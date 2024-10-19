@@ -43,3 +43,5 @@ sudo service code-server@$USER status
 set -x
 ssh -N -L 8080:127.0.0.1:8080 songzy@maomaosenlin.cc
 ```
+
+Then, you can visit http://localhost:8080 in your local machine to access the code server started in remote machine.
