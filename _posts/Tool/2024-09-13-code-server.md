@@ -26,6 +26,8 @@ sudo systemctl enable --now code-server@$USER
 
 ## SSH Port Forwarding
 
+### Remote Host
+
 https://coder.com/docs/code-server/guide#port-forwarding-via-ssh
 
 ```
@@ -37,7 +39,7 @@ sed -i.bak 's/auth: password/auth: none/' ~/.config/code-server/config.yaml
 sudo service code-server@$USER status
 ```
 
-### Local Machine
+### Local Client
 
 ```
 set -x
@@ -45,3 +47,8 @@ ssh -N -L 8080:127.0.0.1:8080 songzy@maomaosenlin.cc
 ```
 
 Then, you can visit http://localhost:8080 in your local machine to access the code server started in remote machine.
+
+## Alternatives
+
+- [vscode.dev](https://code.visualstudio.com/blogs/2021/10/20/vscode-dev): This is a lightweight vscode running in browser to manipulate **local** files.
+- [GitHub Codespaces](https://github.com/features/codespaces): This is not free, and has network connection issue (you know it) from time to time.
