@@ -56,8 +56,6 @@
 
 <p>NOTE: Without the &ldquo;browser&rdquo; requirement, you can use vscode directly to access files in remote cloud machine from any computers.</p>
 
-<p>Caveats: Some extensions are not avaliable in the extension market, you might need to install them manually.</p>
-
 <h2>Install</h2>
 
 <p><a href="https://coder.com/docs/code-server/install#debian-ubuntu">https://coder.com/docs/code-server/install#debian-ubuntu</a></p>
@@ -99,6 +97,26 @@ ssh -N -L 8080:127.0.0.1:8080 songzy@maomaosenlin.cc
 </code></pre>
 
 <p>Then, you can visit <a href="http://localhost:8080">http://localhost:8080</a> in your local machine to access the code server started in remote machine.</p>
+
+<h2>Extensions</h2>
+
+<p>Some extensions are not avaliable in the default extension market, you might need to install them manually. Let us use the &ldquo;C/C++&rdquo; extension as an example.</p>
+
+<p>First, find the extension download link from the &ldquo;Version History&rdquo; tab of the vscode extension marketplace:
+<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools&amp;ssr=false#version-history">https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools&amp;ssr=false#version-history</a></p>
+
+<p>Then, in your remote machine, use wget to download the extension:</p>
+
+<pre><code>wget https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-vscode/vsextensions/cpptools/1.23.0/vspackage\?targetPlatform\=linux-x64
+</code></pre>
+
+<p>The file downloaded by <code>wget</code> (or <code>curl</code>) cannot be installed directly since it is in a gzip format. So we need to first rename it with suffix <code>.gz</code> and then <code>gunzip</code> it:</p>
+
+<pre><code>mv vspackage\?targetPlatform=linux-x64 ms-vscode.cpptools-1.10.3@linux-x64.vsix.gz
+gunzip ms-vscode.cpptools-1.10.3@linux-x64.vsix.gz
+</code></pre>
+
+<p>Then, you can install the <code>ms-vscode.cpptools-1.10.3@linux-x64.vsix</code> either from commandline or search for the &ldquo;Extensions: Install from VSIX&rdquo; after typing &ldquo;Shift-Command-P&rdquo;.</p>
 
 <h2>Alternatives</h2>
 
