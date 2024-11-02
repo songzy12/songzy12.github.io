@@ -6,6 +6,10 @@ date: 2024-09-13T21:56:16+08:00
 
 How to install and use [Code Server](https://github.com/coder/code-server).
 
+## Motivation
+
+This way, we can put our project codes in **remote cloud machines**, and access it from a **browser** in **any other computers**.
+
 ## Install
 
 https://coder.com/docs/code-server/install#debian-ubuntu
