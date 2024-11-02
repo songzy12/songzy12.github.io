@@ -10,6 +10,10 @@ How to install and use [Code Server](https://github.com/coder/code-server).
 
 This way, we can put our project codes in **remote cloud machines**, and access it from a **browser** in **any other computers**.
 
+NOTE: Without the "browser" requirement, you can use vscode directly to access files in remote cloud machine from any computers.
+
+Caveats: Some extensions are not avaliable in the extension market, you might need to install them manually.
+
 ## Install
 
 https://coder.com/docs/code-server/install#debian-ubuntu
