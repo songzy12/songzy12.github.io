@@ -71,6 +71,8 @@ curl -fOL https://github.com/coder/code-server/releases/download/v$VERSION/code-
 
 <h2>SSH Port Forwarding</h2>
 
+<h3>Remote Host</h3>
+
 <p><a href="https://coder.com/docs/code-server/guide#port-forwarding-via-ssh">https://coder.com/docs/code-server/guide#port-forwarding-via-ssh</a></p>
 
 <pre><code># Replaces "auth: password" with "auth: none" in the code-server config.
@@ -82,13 +84,21 @@ sed -i.bak 's/auth: password/auth: none/' ~/.config/code-server/config.yaml
 <pre><code>sudo service code-server@$USER status
 </code></pre>
 
-<h3>Local Machine</h3>
+<h3>Local Client</h3>
 
 <pre><code>set -x
 ssh -N -L 8080:127.0.0.1:8080 songzy@maomaosenlin.cc
 </code></pre>
 
 <p>Then, you can visit <a href="http://localhost:8080">http://localhost:8080</a> in your local machine to access the code server started in remote machine.</p>
+
+<h2>Alternatives</h2>
+
+<ul>
+<li><a href="https://code.visualstudio.com/blogs/2021/10/20/vscode-dev">vscode.dev</a>: This is a lightweight vscode running in browser to manipulate <strong>local</strong> files.</li>
+<li><a href="https://github.com/features/codespaces">GitHub Codespaces</a>: This is not free, and has network connection issue (you know it) from time to time.</li>
+</ul>
+
 
   </div><a class="u-url" href="/2024/09/13/code-server.html" hidden></a>
 </article>
