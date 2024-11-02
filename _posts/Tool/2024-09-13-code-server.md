@@ -12,8 +12,6 @@ This way, we can put our project codes in **remote cloud machines**, and access 
 
 NOTE: Without the "browser" requirement, you can use vscode directly to access files in remote cloud machine from any computers.
 
-Caveats: Some extensions are not avaliable in the extension market, you might need to install them manually.
-
 ## Install
 
 https://coder.com/docs/code-server/install#debian-ubuntu
@@ -55,6 +53,28 @@ ssh -N -L 8080:127.0.0.1:8080 songzy@maomaosenlin.cc
 ```
 
 Then, you can visit http://localhost:8080 in your local machine to access the code server started in remote machine.
+
+## Extensions
+
+Some extensions are not avaliable in the default extension market, you might need to install them manually. Let us use the "C/C++" extension as an example.
+
+First, find the extension download link from the "Version History" tab of the vscode extension marketplace: 
+<https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools&ssr=false#version-history>
+
+Then, in your remote machine, use wget to download the extension:
+
+```
+wget https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-vscode/vsextensions/cpptools/1.23.0/vspackage\?targetPlatform\=linux-x64
+```
+
+The file downloaded by `wget` (or `curl`) cannot be installed directly since it is in a gzip format. So we need to first rename it with suffix `.gz` and then `gunzip` it:
+
+```
+mv vspackage\?targetPlatform=linux-x64 ms-vscode.cpptools-1.10.3@linux-x64.vsix.gz
+gunzip ms-vscode.cpptools-1.10.3@linux-x64.vsix.gz
+```
+
+Then, you can install the `ms-vscode.cpptools-1.10.3@linux-x64.vsix` either from commandline or search for the "Extensions: Install from VSIX" after typing "Shift-Command-P".
 
 ## Alternatives
 
