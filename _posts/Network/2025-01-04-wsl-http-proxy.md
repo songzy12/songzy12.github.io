@@ -1,26 +1,38 @@
 ---
 layout: post
 title: "WSL HTTP Proxy"
-date: 2024-07-31T13:52:26+00:00
+date: 2025-01-04T23:20:26+08:00
 ---
 
 Set up http/https proxy inside WSL.
 
 <https://learn.microsoft.com/en-us/windows/wsl/networking>
 
+## Port
+
+If the v2ray has the following setting:
+
+```
+本地：[socks:10808] | [http:10809]
+局域网：[socks:10810] | [http:10811]
+```
+
+Then:
+
+```
+PROXY_PORT=10811
+```
+
 ## NAT
 
 ```
 WINDOWS_HOST=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
-PROXY_PORT=10809
 
 export http_proxy=http://$WINDOWS_HOST:$PROXY_PORT
 export https_proxy=http://$WINDOWS_HOST:$PROXY_PORT
 export HTTP_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
 export HTTPS_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
 ```
-
-Remember to check your vpn client monitored port configuration.
 
 ## Mirrored
 
@@ -39,7 +51,6 @@ Then in WSL2:
 
 ```
 WINDOWS_HOST=localhost
-PROXY_PORT=10809
 
 export http_proxy=http://$WINDOWS_HOST:$PROXY_PORT
 export https_proxy=http://$WINDOWS_HOST:$PROXY_PORT
