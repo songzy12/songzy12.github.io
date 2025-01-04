@@ -10,15 +10,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Set up http/https proxy inside WSL." />
 <meta property="og:description" content="Set up http/https proxy inside WSL." />
-<link rel="canonical" href="http://songzy12.github.io/2024/07/31/wsl-http-proxy.html" />
-<meta property="og:url" content="http://songzy12.github.io/2024/07/31/wsl-http-proxy.html" />
+<link rel="canonical" href="http://songzy12.github.io/2025/01/04/wsl-http-proxy.html" />
+<meta property="og:url" content="http://songzy12.github.io/2025/01/04/wsl-http-proxy.html" />
 <meta property="og:site_name" content="Secret Base" />
 <meta property="og:type" content="article" />
-<meta property="article:published_time" content="2024-07-31T21:52:26+08:00" />
+<meta property="article:published_time" content="2025-01-04T23:20:26+08:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="WSL HTTP Proxy" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2024-07-31T21:52:26+08:00","datePublished":"2024-07-31T21:52:26+08:00","description":"Set up http/https proxy inside WSL.","headline":"WSL HTTP Proxy","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2024/07/31/wsl-http-proxy.html"},"url":"http://songzy12.github.io/2024/07/31/wsl-http-proxy.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2025-01-04T23:20:26+08:00","datePublished":"2025-01-04T23:20:26+08:00","description":"Set up http/https proxy inside WSL.","headline":"WSL HTTP Proxy","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2025/01/04/wsl-http-proxy.html"},"url":"http://songzy12.github.io/2025/01/04/wsl-http-proxy.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
 <body><header class="site-header" role="banner">
@@ -43,7 +43,7 @@
   <header class="post-header">
     <h1 class="post-title p-name" itemprop="name headline">WSL HTTP Proxy</h1>
     <p class="post-meta">
-      <time class="dt-published" datetime="2024-07-31T21:52:26+08:00" itemprop="datePublished">Jul 31, 2024
+      <time class="dt-published" datetime="2025-01-04T23:20:26+08:00" itemprop="datePublished">Jan 4, 2025
       </time></p>
   </header>
 
@@ -52,18 +52,28 @@
 
 <p><a href="https://learn.microsoft.com/en-us/windows/wsl/networking">https://learn.microsoft.com/en-us/windows/wsl/networking</a></p>
 
+<h2>Port</h2>
+
+<p>If the v2ray has the following setting:</p>
+
+<pre><code>本地：[socks:10808] | [http:10809]
+局域网：[socks:10810] | [http:10811]
+</code></pre>
+
+<p>Then:</p>
+
+<pre><code>PROXY_PORT=10811
+</code></pre>
+
 <h2>NAT</h2>
 
 <pre><code>WINDOWS_HOST=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
-PROXY_PORT=10809
 
 export http_proxy=http://$WINDOWS_HOST:$PROXY_PORT
 export https_proxy=http://$WINDOWS_HOST:$PROXY_PORT
 export HTTP_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
 export HTTPS_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
 </code></pre>
-
-<p>Remember to check your vpn client monitored port configuration.</p>
 
 <h2>Mirrored</h2>
 
@@ -80,7 +90,6 @@ autoProxy=true
 <p>Then in WSL2:</p>
 
 <pre><code>WINDOWS_HOST=localhost
-PROXY_PORT=10809
 
 export http_proxy=http://$WINDOWS_HOST:$PROXY_PORT
 export https_proxy=http://$WINDOWS_HOST:$PROXY_PORT
@@ -88,7 +97,7 @@ export HTTP_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
 export HTTPS_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
 </code></pre>
 
-  </div><a class="u-url" href="/2024/07/31/wsl-http-proxy.html" hidden></a>
+  </div><a class="u-url" href="/2025/01/04/wsl-http-proxy.html" hidden></a>
 </article>
 
       </div>

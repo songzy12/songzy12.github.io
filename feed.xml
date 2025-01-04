@@ -1,4 +1,51 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2024-12-21T23:55:20+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Windows VPN Hotspot</title><link href="http://songzy12.github.io/2024/11/22/windows-vpn-hotspot.html" rel="alternate" type="text/html" title="Windows VPN Hotspot" /><published>2024-11-22T20:14:54+08:00</published><updated>2024-11-22T20:14:54+08:00</updated><id>http://songzy12.github.io/2024/11/22/windows-vpn-hotspot</id><content type="html" xml:base="http://songzy12.github.io/2024/11/22/windows-vpn-hotspot.html"><![CDATA[<p>With VPN enabled on Windows, how to share it with mobile device like Quest 2?</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-01-04T23:21:02+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL HTTP Proxy</title><link href="http://songzy12.github.io/2025/01/04/wsl-http-proxy.html" rel="alternate" type="text/html" title="WSL HTTP Proxy" /><published>2025-01-04T23:20:26+08:00</published><updated>2025-01-04T23:20:26+08:00</updated><id>http://songzy12.github.io/2025/01/04/wsl-http-proxy</id><content type="html" xml:base="http://songzy12.github.io/2025/01/04/wsl-http-proxy.html"><![CDATA[<p>Set up http/https proxy inside WSL.</p>
+
+<p><a href="https://learn.microsoft.com/en-us/windows/wsl/networking">https://learn.microsoft.com/en-us/windows/wsl/networking</a></p>
+
+<h2>Port</h2>
+
+<p>If the v2ray has the following setting:</p>
+
+<pre><code>本地：[socks:10808] | [http:10809]
+局域网：[socks:10810] | [http:10811]
+</code></pre>
+
+<p>Then:</p>
+
+<pre><code>PROXY_PORT=10811
+</code></pre>
+
+<h2>NAT</h2>
+
+<pre><code>WINDOWS_HOST=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
+
+export http_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export https_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTP_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTPS_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+</code></pre>
+
+<h2>Mirrored</h2>
+
+<p>In <code>C:\Users\songz\.wslconfig</code> of Windows host:</p>
+
+<pre><code>[experimental]
+autoMemoryReclaim=gradual  # gradual  | dropcache | disabled
+networkingMode=mirrored
+dnsTunneling=true
+firewall=true
+autoProxy=true
+</code></pre>
+
+<p>Then in WSL2:</p>
+
+<pre><code>WINDOWS_HOST=localhost
+
+export http_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export https_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTP_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTPS_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up http/https proxy inside WSL.]]></summary></entry><entry><title type="html">Windows VPN Hotspot</title><link href="http://songzy12.github.io/2024/11/22/windows-vpn-hotspot.html" rel="alternate" type="text/html" title="Windows VPN Hotspot" /><published>2024-11-22T20:14:54+08:00</published><updated>2024-11-22T20:14:54+08:00</updated><id>http://songzy12.github.io/2024/11/22/windows-vpn-hotspot</id><content type="html" xml:base="http://songzy12.github.io/2024/11/22/windows-vpn-hotspot.html"><![CDATA[<p>With VPN enabled on Windows, how to share it with mobile device like Quest 2?</p>
 
 <ol>
 <li>Install VPN on Quest 2, without dependicy on Windows: <a href="https://zh.wizcase.com/blog/%E5%A6%82%E4%BD%95%E5%9C%A8-oculus-quest-2-%E4%B8%8A%E5%AE%89%E8%A3%85%E5%B9%B6%E4%BD%BF%E7%94%A8-vpn/">https://zh.wizcase.com/blog/%E5%A6%82%E4%BD%95%E5%9C%A8-oculus-quest-2-%E4%B8%8A%E5%AE%89%E8%A3%85%E5%B9%B6%E4%BD%BF%E7%94%A8-vpn/</a></li>
@@ -137,45 +184,7 @@ sudo codesign --force --deep --sign - ~/.V2rayU/V2rayUTool
 sudo codesign --force --deep --sign - ~/.V2rayU/v2ray-core/v2ray
 </code></p>
 
-<p>然后就能正常运行了。</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to resolve: &ldquo;V2rayU"将对你的电脑造成伤害]]></summary></entry><entry><title type="html">WSL HTTP Proxy</title><link href="http://songzy12.github.io/2024/07/31/wsl-http-proxy.html" rel="alternate" type="text/html" title="WSL HTTP Proxy" /><published>2024-07-31T21:52:26+08:00</published><updated>2024-07-31T21:52:26+08:00</updated><id>http://songzy12.github.io/2024/07/31/wsl-http-proxy</id><content type="html" xml:base="http://songzy12.github.io/2024/07/31/wsl-http-proxy.html"><![CDATA[<p>Set up http/https proxy inside WSL.</p>
-
-<p><a href="https://learn.microsoft.com/en-us/windows/wsl/networking">https://learn.microsoft.com/en-us/windows/wsl/networking</a></p>
-
-<h2>NAT</h2>
-
-<pre><code>WINDOWS_HOST=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
-PROXY_PORT=10809
-
-export http_proxy=http://$WINDOWS_HOST:$PROXY_PORT
-export https_proxy=http://$WINDOWS_HOST:$PROXY_PORT
-export HTTP_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
-export HTTPS_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
-</code></pre>
-
-<p>Remember to check your vpn client monitored port configuration.</p>
-
-<h2>Mirrored</h2>
-
-<p>In <code>C:\Users\songz\.wslconfig</code> of Windows host:</p>
-
-<pre><code>[experimental]
-autoMemoryReclaim=gradual  # gradual  | dropcache | disabled
-networkingMode=mirrored
-dnsTunneling=true
-firewall=true
-autoProxy=true
-</code></pre>
-
-<p>Then in WSL2:</p>
-
-<pre><code>WINDOWS_HOST=localhost
-PROXY_PORT=10809
-
-export http_proxy=http://$WINDOWS_HOST:$PROXY_PORT
-export https_proxy=http://$WINDOWS_HOST:$PROXY_PORT
-export HTTP_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
-export HTTPS_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up http/https proxy inside WSL.]]></summary></entry><entry><title type="html">GitBook</title><link href="http://songzy12.github.io/2024/07/17/gitbook.html" rel="alternate" type="text/html" title="GitBook" /><published>2024-07-17T19:25:18+08:00</published><updated>2024-07-17T19:25:18+08:00</updated><id>http://songzy12.github.io/2024/07/17/gitbook</id><content type="html" xml:base="http://songzy12.github.io/2024/07/17/gitbook.html"><![CDATA[<p>Basic usage of GitBook.</p>
+<p>然后就能正常运行了。</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to resolve: &ldquo;V2rayU"将对你的电脑造成伤害]]></summary></entry><entry><title type="html">GitBook</title><link href="http://songzy12.github.io/2024/07/17/gitbook.html" rel="alternate" type="text/html" title="GitBook" /><published>2024-07-17T19:25:18+08:00</published><updated>2024-07-17T19:25:18+08:00</updated><id>http://songzy12.github.io/2024/07/17/gitbook</id><content type="html" xml:base="http://songzy12.github.io/2024/07/17/gitbook.html"><![CDATA[<p>Basic usage of GitBook.</p>
 
 <h2>Install</h2>
 
