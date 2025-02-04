@@ -9,5 +9,5 @@ Set up Chinese input method on ubuntu.
 ## ibus
 
 ```
-sudo apt install ibus-libpinyin
+sudo apt install ibus-pinyin
 ```
