@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-02-13T21:26:26+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL HTTP Proxy</title><link href="http://songzy12.github.io/2025/01/04/wsl-http-proxy.html" rel="alternate" type="text/html" title="WSL HTTP Proxy" /><published>2025-01-04T23:20:26+08:00</published><updated>2025-01-04T23:20:26+08:00</updated><id>http://songzy12.github.io/2025/01/04/wsl-http-proxy</id><content type="html" xml:base="http://songzy12.github.io/2025/01/04/wsl-http-proxy.html"><![CDATA[<p>Set up http/https proxy inside WSL.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-02-14T20:29:20+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL HTTP Proxy</title><link href="http://songzy12.github.io/2025/01/04/wsl-http-proxy.html" rel="alternate" type="text/html" title="WSL HTTP Proxy" /><published>2025-01-04T23:20:26+08:00</published><updated>2025-01-04T23:20:26+08:00</updated><id>http://songzy12.github.io/2025/01/04/wsl-http-proxy</id><content type="html" xml:base="http://songzy12.github.io/2025/01/04/wsl-http-proxy.html"><![CDATA[<p>Set up http/https proxy inside WSL.</p>
 
 <p><a href="https://learn.microsoft.com/en-us/windows/wsl/networking">https://learn.microsoft.com/en-us/windows/wsl/networking</a></p>
 
@@ -136,21 +136,6 @@ gunzip ms-vscode.cpptools-1.10.3@linux-x64.vsix.gz
 <li>GPU: NVIDIA GeForce RTX 4060 8G</li>
 <li>RAM: 16G</li>
 <li>Disk: 1T SSD</li>
-</ul>
-
-
-<h2>MacBook Pro 14" 2021</h2>
-
-<ul>
-<li>Processor: M1 Pro
-
-<ul>
-<li>8-core CPU</li>
-<li>14-core GPU</li>
-</ul>
-</li>
-<li>RAM: 16G</li>
-<li>Disk: 512G SSD</li>
 </ul>
 
 
