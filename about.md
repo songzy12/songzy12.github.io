@@ -59,4 +59,3 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 * <https://github.com/songzy12>
 * <https://kaggle.com/songzy12>
 * <https://codeforces.com/profile/songzy12>
-* <https://hackerrank.com/profile/songzy12>
