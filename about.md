@@ -11,6 +11,7 @@ permalink: /about/
 SWE
 
 * Core - Developer - OmniLab (Sept 2024 ~ now)
+  * Smart Job Coordinator
 * Core - i18n - Translation Console (Jan 2023 ~ Aug 2024)
   * Message Extraction
   * Translation Dump 
@@ -59,3 +60,4 @@ Google Scholar: <https://scholar.google.ae/citations?hl=en&user=FdlwqUkAAAAJ>
 * <https://github.com/songzy12>
 * <https://kaggle.com/songzy12>
 * <https://codeforces.com/profile/songzy12>
+* <https://ctf.bugku.com/user/info/id/120849.html>
