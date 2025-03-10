@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Windows Terminal Font | Secret Base</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Windows Terminal Font" />
+<meta name="author" content="Zhengyang Song" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Fixing font/color issue I came across when using Windows terminals." />
+<meta property="og:description" content="Fixing font/color issue I came across when using Windows terminals." />
+<link rel="canonical" href="http://songzy12.github.io/2021/05/01/windows-terminal-font.html" />
+<meta property="og:url" content="http://songzy12.github.io/2021/05/01/windows-terminal-font.html" />
+<meta property="og:site_name" content="Secret Base" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-05-01T14:08:18+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Windows Terminal Font" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2021-05-01T14:08:18+08:00","datePublished":"2021-05-01T14:08:18+08:00","description":"Fixing font/color issue I came across when using Windows terminals.","headline":"Windows Terminal Font","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2021/05/01/windows-terminal-font.html"},"url":"http://songzy12.github.io/2021/05/01/windows-terminal-font.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Secret Base</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Windows Terminal Font</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-05-01T14:08:18+08:00" itemprop="datePublished">May 1, 2021
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Fixing font/color issue I came across when using Windows terminals.</p>
+
+<h2>Powerline Fonts</h2>
+
+<p><a href="https://github.com/microsoft/WSL/issues/1517">https://github.com/microsoft/WSL/issues/1517</a></p>
+
+<p><a href="https://github.com/powerline/fonts">https://github.com/powerline/fonts</a></p>
+
+<pre><code>/c/Users/songzy/.local/share/fonts/ -&gt; C:\Windows\Fonts
+</code></pre>
+
+<p><code>DejaVu Sans Mono for Powerline</code>.</p>
+
+<h2>Add Fonts to Registry</h2>
+
+<p>This will affect what fonts are avaliable in cmd properties menu.</p>
+
+<p><a href="https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/">https://www.maketecheasier.com/add-custom-fonts-command-prompt-windows10/</a></p>
+
+<pre><code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Console\TrueTypeFont
+</code></pre>
+
+<h2>tmux reset font</h2>
+
+<p><a href="https://github.com/microsoft/WSL/issues/3988">https://github.com/microsoft/WSL/issues/3988</a></p>
+
+<h3>CodePage</h3>
+
+<p><a href="https://ss64.com/nt/chcp.html">https://ss64.com/nt/chcp.html</a></p>
+
+<p>This will influence the behaviors of tmux, vim, cmd, powershell, etc.</p>
+
+<h4>437</h4>
+
+<ol>
+<li>Open <code>regedit</code>.</li>
+<li>Find this. <code>HKEY_CURRENT_USER\Console\C:_Program Files_WindowsApps_CanonicalGroupLimited.Ubuntu20.04onWindows_2004.2020.812.0_x64__79rhkp1fndgsc_ubuntu2004.exe</code>.</li>
+<li>then, add CodePage (Type: DWORD, Value: 0x01b5).</li>
+</ol>
+
+
+<h4>65001</h4>
+
+<p><a href="https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8">https://superuser.com/questions/269818/change-default-code-page-of-windows-console-to-utf-8</a></p>
+
+<p><code>Language settings</code> -> <code>Administrative language settings</code> -> <code>Change system locale...</code> -> <code>Beta: Use Unicode UTF-8 for worldwide language support</code>.</p>
+
+<h2>PowerShell reset font</h2>
+
+<p>PowerShell reset font to <code>raster</code> instead of using <code>consolas</code> as configured.</p>
+
+<p><a href="https://github.com/microsoft/terminal/issues/280">https://github.com/microsoft/terminal/issues/280</a></p>
+
+<h2>Reference</h2>
+
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/DejaVu_fonts">https://en.wikipedia.org/wiki/DejaVu_fonts</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Code_page_437">https://en.wikipedia.org/wiki/Code_page_437</a></li>
+</ul>
+
+
+  </div><a class="u-url" href="/2021/05/01/windows-terminal-font.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Secret Base</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

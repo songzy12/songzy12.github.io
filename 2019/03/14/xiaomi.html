@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Xiaomi | Secret Base</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Xiaomi" />
+<meta name="author" content="Zhengyang Song" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Xiaomi 刷系统。" />
+<meta property="og:description" content="Xiaomi 刷系统。" />
+<link rel="canonical" href="http://songzy12.github.io/2019/03/14/xiaomi.html" />
+<meta property="og:url" content="http://songzy12.github.io/2019/03/14/xiaomi.html" />
+<meta property="og:site_name" content="Secret Base" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-14T01:09:49+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Xiaomi" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2019-03-14T01:09:49+08:00","datePublished":"2019-03-14T01:09:49+08:00","description":"Xiaomi 刷系统。","headline":"Xiaomi","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2019/03/14/xiaomi.html"},"url":"http://songzy12.github.io/2019/03/14/xiaomi.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Secret Base</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Xiaomi</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-03-14T01:09:49+08:00" itemprop="datePublished">Mar 14, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Xiaomi 刷系统。</p>
+
+<p>小米 Note：</p>
+
+<p><a href="http://www.miui.com/thread-18831512-1-1.html">http://www.miui.com/thread-18831512-1-1.html</a></p>
+
+<p>如何线刷：</p>
+
+<p><a href="http://www.miui.com/shuaji-393.html">http://www.miui.com/shuaji-393.html</a></p>
+
+<p>线刷工具选项错误：</p>
+
+<p><a href="http://bbs.xiaomi.cn/t-13302104">http://bbs.xiaomi.cn/t-13302104</a></p>
+
+<p>Google 全家桶：</p>
+
+<p><a href="https://opengapps.org/app/">https://opengapps.org/app/</a></p>
+
+<p>如何选择不同的 suite:</p>
+
+<p><a href="https://github.com/opengapps/opengapps/wiki/Package-Comparison">https://github.com/opengapps/opengapps/wiki/Package-Comparison</a></p>
+
+<p>结论：mini 是最合适的。</p>
+
+<p>安装 Google 全家桶后闪退。查看 log:</p>
+
+<pre><code>adb logcat *:E
+</code></pre>
+
+
+
+<pre><code>03-14 15:56:16.090 20886 20886 E WebViewFactory: Chromium WebView package does not exist
+03-14 15:56:16.090 20886 20886 E WebViewFactory: android.webkit.WebViewFactory$MissingWebViewPackageException: Failed to load WebView provider: No WebView installed
+
+03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: FATAL EXCEPTION: main
+03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: Process: com.google.android.gms.ui, PID: 20886
+03-14 15:56:16.177 20886 20886 E DeviceDoctorHandler: java.lang.RuntimeException: Unable to start activity ComponentInfo{com.google.android.gms/com.google.android.gms.auth.uiflows.minutemaid.MinuteMaidActivity}: android.util.AndroidRuntimeException: android.webkit.WebViewFactory$MissingWebViewPackageException: Failed to load WebView provider: No WebView installed
+</code></pre>
+
+<p>所以就是 WebView 的问题，然后参考这个：</p>
+
+<p><a href="https://www.quora.com/How-do-I-enable-Android-system-web-view-in-Android-7">https://www.quora.com/How-do-I-enable-Android-system-web-view-in-Android-7</a></p>
+
+<p>顺便回答了这个问题：</p>
+
+<p><a href="https://www.zhihu.com/question/63714089">https://www.zhihu.com/question/63714089</a></p>
+
+<p>输入法设置也闪退：</p>
+
+<pre><code>03-14 19:29:40.418 16063 16063 E AndroidRuntime: FATAL EXCEPTION: main
+03-14 19:29:40.418 16063 16063 E AndroidRuntime: Process: com.android.inputmethod.latin, PID: 16063
+03-14 19:29:40.418 16063 16063 E AndroidRuntime: java.lang.RuntimeException: Unable to resume activity {com.android.inputmethod.latin/com.google.android.apps.inputmethod.latin.preference.SettingsActivity}: java.lang.RuntimeException: Preference xml file not specified
+</code></pre>
+
+<p><a href="https://github.com/opengapps/aosp_build/issues/116">https://github.com/opengapps/aosp_build/issues/116</a></p>
+
+<p>说什么清了 data 然后重装 GBoard.</p>
+
+<pre><code>adb shell ls -lR | grep inputmethod
+adb shell ls -lR | grep LatinIMEGooglePrebuilt
+</code></pre>
+
+<p>查看包名：</p>
+
+<p><a href="https://stackoverflow.com/questions/6289149/read-the-package-name-of-an-android-apk">https://stackoverflow.com/questions/6289149/read-the-package-name-of-an-android-apk</a></p>
+
+<pre><code>adb shell "pm list packages -f"
+</code></pre>
+
+<p>重装：</p>
+
+<p><a href="https://stackoverflow.com/questions/12483720/adb-how-to-reinstall-an-app-without-retaining-the-data">https://stackoverflow.com/questions/12483720/adb-how-to-reinstall-an-app-without-retaining-the-data</a></p>
+
+<pre><code>adb uninstall com.android.inputmethod.latin
+adb install -r GBoard.apk
+</code></pre>
+
+
+
+<pre><code>adb shell pm clear com.android.inputmethod.latin
+adb install -r GBoard.apk
+</code></pre>
+
+<p>好的上面这两个都是不行的。看来目前就只能 wipe data 然后重装。</p>
+
+  </div><a class="u-url" href="/2019/03/14/xiaomi.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Secret Base</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

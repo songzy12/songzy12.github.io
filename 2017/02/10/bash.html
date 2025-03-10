@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Bash | Secret Base</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Bash" />
+<meta name="author" content="Zhengyang Song" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Basic usage of Bash." />
+<meta property="og:description" content="Basic usage of Bash." />
+<link rel="canonical" href="http://songzy12.github.io/2017/02/10/bash.html" />
+<meta property="og:url" content="http://songzy12.github.io/2017/02/10/bash.html" />
+<meta property="og:site_name" content="Secret Base" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-02-10T15:29:38+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Bash" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2017-02-10T15:29:38+08:00","datePublished":"2017-02-10T15:29:38+08:00","description":"Basic usage of Bash.","headline":"Bash","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/02/10/bash.html"},"url":"http://songzy12.github.io/2017/02/10/bash.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Secret Base</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Bash</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-02-10T15:29:38+08:00" itemprop="datePublished">Feb 10, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Basic usage of Bash.</p>
+
+<h2>source</h2>
+
+<p>It executes the content of the file in the current shell.</p>
+
+<p>synonym: <code>.</code> (period).</p>
+
+<h2>$-</h2>
+
+<pre><code>echo $-
+himBH
+</code></pre>
+
+<ul>
+<li>h: hashall:</li>
+<li>i: interactive</li>
+<li>m: monitor mode: <code>CTRL+Z</code>, <code>fg</code></li>
+<li>H: history expand: <code>~/.bash_history</code>, <code>!!</code></li>
+<li>B: brace expansion: <code>cp file{,.bak}</code></li>
+</ul>
+
+
+<p><code>if [ "${-#*i}" != "$-" ]</code> checking if your shell is interactive or not</p>
+
+<h2>$</h2>
+
+<ul>
+<li><code>$*</code>: equivalent to <code>$1c$2c...</code></li>
+<li><code>$@</code>: equivalent to <code>$1</code> <code>$2</code> &hellip;</li>
+<li><code>$#</code>: number of position parameters in decimal</li>
+<li><code>$?</code>: exit status of the most recently executed foreground pipeline</li>
+<li><code>$-</code>: the current option flags as specified upon invocation</li>
+<li><code>$$</code>: the process ID of the shell</li>
+<li><code>$!</code>: the process ID of the job most recently placed into background</li>
+<li><code>$0</code>: the name of the shell or shell script</li>
+<li><code>$_</code>: the absolution path name used to invoke the shell</li>
+</ul>
+
+
+<h2>&ndash;</h2>
+
+<p>A double dash (<code>--</code>) is used in bash built-in commands and many other commands to signify the end of command options, after which only positional parameters are accepted.</p>
+
+<p>Example use: lets say you want to grep a file for the string <code>-v</code> - normally <code>-v</code> will be considered the option to reverse the matching meaning (only show lines that do not match), but with <code>--</code> you can grep for string <code>-v</code> like this:</p>
+
+<pre><code>grep -- -v file
+</code></pre>
+
+<h2>[ ]</h2>
+
+<p><code>[ ]</code> vs <code>[[ ]]</code> are test operators</p>
+
+<ul>
+<li>You no longer have to quote variables like mad because <code>[[</code> handles empty strings and strings with whitespace more intuitively.</li>
+<li>It lets you use <code>&amp;&amp;</code> and <code>||</code> operators for boolean tests and <code>&lt;</code> and <code>&gt;</code> for string comparisons.</li>
+<li>It has a wonderful <code>=~</code> operator for doing regular expression matches.</li>
+<li>You get pattern matching aka globbing for free.</li>
+</ul>
+
+
+<pre><code>if [ -f "$FILE" ]
+if [[ -f $FILE ]]
+
+if [ "$ANSWER" = y -o "$ANSWER" = yes ]
+if [[ $ANSWER =~ ^y(es)?$ ]]
+
+if [[ $ANSWER = y* ]]
+</code></pre>
+
+
+
+<pre><code>-z字串 字串长度伪则为真。
+-n字串 字串长度不伪则为真。
+</code></pre>
+
+
+
+<pre><code>-e文件名 如果文件存在则为真。
+-r文件名 如果文件存在且可读则为真。
+-w文件名 如果文件存在且可写则为真。
+-x文件名 如果文件存在且可执行则为真。
+-s文件名 如果文件存在且至少有一个字符则为真。
+-d文件名 如果文件存在且为目录则为真。
+-f文件名 如果文件存在且为普通文件则为真。
+-c文件名 如果文件存在且为字符型特殊文件则为真。
+-b文件名 如果文件存在且为块特殊文件则为真
+</code></pre>
+
+<h2>()</h2>
+
+<p><code>$()</code> is command substitution</p>
+
+<pre><code>$ echo "my hostname is: $(hostname)"
+my uptime is: MYPC
+</code></pre>
+
+<p><code>$(( ))</code> is arithmetic expansion</p>
+
+<pre><code>$ echo "$(( 5 + 5 ))"
+10
+</code></pre>
+
+<p><code>${ }</code> This is used to refer to variables and avoid confusion over their name.</p>
+
+<pre><code>$ v="hello"
+$ echo "$vbye"
+
+$ echo "${v}bye"
+hellobye
+</code></pre>
+
+<p>Also, it is used to reference array elements:</p>
+
+<pre><code>$ declare -A my_arr
+$ my_arr[a]="hello"
+$ echo "${my_arr[a]}"
+hello
+</code></pre>
+
+<p><code>( )</code> and <code>{ }</code> are also used as grouping commands</p>
+
+<p><code>( )</code> runs in a subshell:</p>
+
+<pre><code>$ v=5
+$ ( v=2; echo "$v" )
+2
+$ echo "$v"
+5
+</code></pre>
+
+<p>Whereas <code>{ list, }</code> does not:</p>
+
+<pre><code>$ v=5
+$ { v=2; echo "$v"; }
+2
+$ echo "$v"
+2
+</code></pre>
+
+<h2>{ }</h2>
+
+<ul>
+<li><code>${value:-word}</code>: 当变量未定义或者值为空时,返回值为word的内容,否则返回变量的值.</li>
+<li><code>${value:=word}</code>: 与前者类似,只是若变量未定义或者值为空时,在返回word的值的同时将word赋值给value</li>
+<li><code>${value:?message}</code>: 若变量以赋值的话,正常替换.否则将消息message送到标准错误输出(若此替换出现在Shell程序中,那么该程序将终止运行)</li>
+<li><code>${value:+word}</code>: 若变量以赋值的话,其值才用word替换,否则不进行任何替换</li>
+<li><code>${value:offset}</code>, <code>${value:offset:length}</code>: 从变量中提取子串,这里offset和length可以是算术表达式.</li>
+<li><code>${#value}</code>: 变量的字符个数</li>
+<li><code>${value#pattern}</code>, <code>${value##pattern}</code>: 去掉value中与pattern相匹配的部分,条件是value的开头与pattern相匹配 #与##的区别在于一个是最短匹配模式,一个是最长匹配模式.</li>
+<li><code>${value%pattern}</code>, <code>${value%%pattern}</code>: 于(7)类似,只是是从value的尾部于pattern相匹配,%与%%的区别与#与##一样</li>
+<li><code>${value/pattern/string}</code>, <code>${value//pattern/string}</code>: 进行变量内容的替换,把与pattern匹配的部分替换为string的内容,/与//的区别与上同</li>
+</ul>
+
+
+<pre><code>INFORMIX_HOME="${INFORMIX_HOME%/}" # Strip the trailing / (if exists)
+</code></pre>
+
+<p>注意: 上述条件变量替换中,除(2)外,其余均不影响变量本身的值</p>
+
+<h2>set</h2>
+
+<pre><code>set -euxo pipefail
+</code></pre>
+
+<ul>
+<li><code>-x</code>: print commands and their arguments as they are executed</li>
+<li><code>-e</code>: equivalent to <code>cmd1 &amp;&amp; cmd2 &amp;&amp; cmd3</code></li>
+<li><code>-u</code>: The shell prints a message to stderr when it tries to expand a variable that is not set. Also it immediately exits.</li>
+<li><code>-o option-name</code>: set the variable corresponding to option-name.</li>
+<li><code>+o option-name</code>: using <code>+</code> rather than <code>-</code> will cause the option to be turned off.</li>
+<li><code>-o pipefail</code>: Pipelines fail on the first command which fails instead of dying later on down the pipeline. This is especially good when cmd3 is a command that always succeeds (like <code>echo</code>)</li>
+<li><code>-f</code>: disable filename expansion (globbing) upon seeing <code>*</code>, <code>?</code>, etc.</li>
+</ul>
+
+
+<h2>bash</h2>
+
+<p><a href="http://www.tldp.org/LDP/abs/html/options.html">here</a></p>
+
+<pre><code>-s  stdin   Read commands from stdin
+</code></pre>
+
+<h2>BASH_SOURCE</h2>
+
+<pre><code>#!/bin/sh
+echo "${BASH_SOURCE[0]}"
+echo "${BASH_SOURCE}"
+echo "$( dirname "${BASH_SOURCE[0]}" )"
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &amp;&amp; pwd )"
+echo $DIR
+</code></pre>
+
+
+
+<pre><code>./abc/test.sh
+./abc/test.sh
+./abc/
+/home/abc
+</code></pre>
+
+<p><code>DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &amp;&amp; pwd )"</code> 得到shell脚本文件所在完整路径（绝对路径）及文件名（无论<code>source</code>,<code>sh</code>,<code>.</code>三种调用方式），且不改变shell的当前目录。</p>
+
+  </div><a class="u-url" href="/2017/02/10/bash.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Secret Base</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
