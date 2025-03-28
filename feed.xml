@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-03-10T21:25:34+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL HTTP Proxy</title><link href="http://songzy12.github.io/2025/01/04/wsl-http-proxy.html" rel="alternate" type="text/html" title="WSL HTTP Proxy" /><published>2025-01-04T23:20:26+08:00</published><updated>2025-01-04T23:20:26+08:00</updated><id>http://songzy12.github.io/2025/01/04/wsl-http-proxy</id><content type="html" xml:base="http://songzy12.github.io/2025/01/04/wsl-http-proxy.html"><![CDATA[<p>Set up http/https proxy inside WSL.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-03-28T16:25:20+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">WSL HTTP Proxy</title><link href="http://songzy12.github.io/2025/01/04/wsl-http-proxy.html" rel="alternate" type="text/html" title="WSL HTTP Proxy" /><published>2025-01-04T23:20:26+08:00</published><updated>2025-01-04T23:20:26+08:00</updated><id>http://songzy12.github.io/2025/01/04/wsl-http-proxy</id><content type="html" xml:base="http://songzy12.github.io/2025/01/04/wsl-http-proxy.html"><![CDATA[<p>Set up http/https proxy inside WSL.</p>
 
 <p><a href="https://learn.microsoft.com/en-us/windows/wsl/networking">https://learn.microsoft.com/en-us/windows/wsl/networking</a></p>
 
@@ -146,18 +146,6 @@ gunzip ms-vscode.cpptools-1.10.3@linux-x64.vsix.gz
 <li>GPU: NVIDIA GeForce 940MX 2GB</li>
 <li>RAM: 16G</li>
 <li>Disk: 128G SSD + 500G HDD</li>
-</ul>
-
-
-<h2>MacBook Air 13" 2015</h2>
-
-<p><a href="https://support.apple.com/en-us/111956">https://support.apple.com/en-us/111956</a></p>
-
-<ul>
-<li>CPU: Intel Core i5-5250U</li>
-<li>GPU: Intel HD Graphics 6000</li>
-<li>RAM: 8G</li>
-<li>Disk: 128G SSD</li>
 </ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[A collection of my personal laptop devices.]]></summary></entry><entry><title type="html">V2Ray Client - Mac</title><link href="http://songzy12.github.io/2024/08/13/v2ray-client-mac.html" rel="alternate" type="text/html" title="V2Ray Client - Mac" /><published>2024-08-13T22:28:17+08:00</published><updated>2024-08-13T22:28:17+08:00</updated><id>http://songzy12.github.io/2024/08/13/v2ray-client-mac</id><content type="html" xml:base="http://songzy12.github.io/2024/08/13/v2ray-client-mac.html"><![CDATA[<p>How to resolve: &ldquo;V2rayU"将对你的电脑造成伤害</p>
 
 <p><a href="https://discussionschinese.apple.com/thread/254968153">https://discussionschinese.apple.com/thread/254968153</a></p>
