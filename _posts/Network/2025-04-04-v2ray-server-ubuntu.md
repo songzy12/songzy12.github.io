@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "V2Ray Server - Ubuntu"
-date: 2024-07-17T10:08:09+08:00
+date: 2025-04-04T10:08:09+08:00
 ---
 
 How to set up v2ray server on Ubuntu.
