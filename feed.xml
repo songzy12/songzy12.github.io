@@ -1,4 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-04-07T09:03:30+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2025/04/07/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2025-04-07T08:29:08+08:00</published><updated>2025-04-07T08:29:08+08:00</updated><id>http://songzy12.github.io/2025/04/07/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2025/04/07/workspace-setup.html"><![CDATA[<p>Steps to set up my personal workspace.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-04-07T20:03:34+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Ubuntu Input Method</title><link href="http://songzy12.github.io/2025/04/07/ubuntu-input-method.html" rel="alternate" type="text/html" title="Ubuntu Input Method" /><published>2025-04-07T20:02:14+08:00</published><updated>2025-04-07T20:02:14+08:00</updated><id>http://songzy12.github.io/2025/04/07/ubuntu-input-method</id><content type="html" xml:base="http://songzy12.github.io/2025/04/07/ubuntu-input-method.html"><![CDATA[<p>Set up Chinese input method on ubuntu.</p>
+
+<h2>ibus</h2>
+
+<pre><code>sudo apt install ibus-pinyin
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up Chinese input method on ubuntu.]]></summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2025/04/07/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2025-04-07T08:29:08+08:00</published><updated>2025-04-07T08:29:08+08:00</updated><id>http://songzy12.github.io/2025/04/07/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2025/04/07/workspace-setup.html"><![CDATA[<p>Steps to set up my personal workspace.</p>
 
 <h2>apt</h2>
 
@@ -662,10 +667,4 @@ npm install gitbook-cli@2.1.2 -g
 </li>
 </ul>
 </li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[An index of my GitHub repositories.]]></summary></entry><entry><title type="html">Cloudtop Collection</title><link href="http://songzy12.github.io/2024/06/28/cloudtop.html" rel="alternate" type="text/html" title="Cloudtop Collection" /><published>2024-06-28T11:26:52+08:00</published><updated>2024-06-28T11:26:52+08:00</updated><id>http://songzy12.github.io/2024/06/28/cloudtop</id><content type="html" xml:base="http://songzy12.github.io/2024/06/28/cloudtop.html"><![CDATA[<p>A collection of my personal cloudtop devices.</p>
-
-<ul>
-<li>songzy.cc: DigitalOcean + NameCheap (<s>Vultr + NameCheap + CloudFlare</s>)</li>
-<li>songzy.cool: DigitalOcean + NameCheap</li>
-<li>maomaosenlin.cc: Tencent Cloud</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[A collection of my personal cloudtop devices.]]></summary></entry></feed>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[An index of my GitHub repositories.]]></summary></entry></feed>
