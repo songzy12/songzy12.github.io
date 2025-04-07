@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Workspace Setup"
-date: 2024-02-03T16:29:08+08:00
+date: 2025-04-07T08:29:08+08:00
 ---
 
 Steps to set up my personal workspace.
@@ -74,6 +74,8 @@ git config --global user.name "Zhengyang Song"
 ```
 
 ### ssh https
+
+<https://stackoverflow.com/questions/15589682/how-to-fix-ssh-connect-to-host-github-com-port-22-connection-timed-out-for-g>
 
 ```
 vi ~/.ssh/config
