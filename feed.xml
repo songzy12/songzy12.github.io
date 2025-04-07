@@ -1,4 +1,247 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-04-04T15:41:40+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">V2Ray Server - Ubuntu</title><link href="http://songzy12.github.io/2025/04/04/v2ray-server-ubuntu.html" rel="alternate" type="text/html" title="V2Ray Server - Ubuntu" /><published>2025-04-04T10:08:09+08:00</published><updated>2025-04-04T10:08:09+08:00</updated><id>http://songzy12.github.io/2025/04/04/v2ray-server-ubuntu</id><content type="html" xml:base="http://songzy12.github.io/2025/04/04/v2ray-server-ubuntu.html"><![CDATA[<p>How to set up v2ray server on Ubuntu.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-04-07T09:03:30+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2025/04/07/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2025-04-07T08:29:08+08:00</published><updated>2025-04-07T08:29:08+08:00</updated><id>http://songzy12.github.io/2025/04/07/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2025/04/07/workspace-setup.html"><![CDATA[<p>Steps to set up my personal workspace.</p>
+
+<h2>apt</h2>
+
+<p>Project link: <a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
+
+<pre><code>sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+</code></pre>
+
+<h2>brew</h2>
+
+<pre><code># 查看 brew.git 当前源
+$ cd "$(brew --repo)" &amp;&amp; git remote -v
+origin    https://github.com/Homebrew/brew.git (fetch)
+origin    https://github.com/Homebrew/brew.git (push)
+
+# 查看 homebrew-core.git 当前源
+$ cd "$(brew --repo homebrew/core)" &amp;&amp; git remote -v
+origin    https://github.com/Homebrew/homebrew-core.git (fetch)
+origin    https://github.com/Homebrew/homebrew-core.git (push)
+</code></pre>
+
+
+
+<pre><code># 替换各个源
+$ git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+$ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+$ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
+
+# zsh 替换 brew bintray 镜像
+$ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' &gt;&gt; ~/.zshrc
+$ source ~/.zshrc
+
+# 刷新源
+$ brew update
+</code></pre>
+
+
+
+<pre><code>echo 'export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" #brew.idayer.com' &gt;&gt; ~/.zshrc
+</code></pre>
+
+<h2>wget</h2>
+
+<pre><code>vi ~/.wgetrc
+</code></pre>
+
+
+
+<pre><code>http_proxy=http://localhost:10809
+https_proxy=http://localhost:10809
+</code></pre>
+
+<h2>git</h2>
+
+<h3>editor</h3>
+
+<pre><code>git config --global core.editor "vim"
+</code></pre>
+
+<h3>user</h3>
+
+<pre><code>git config --global user.email "songzy_thu@163.com"
+git config --global user.name "Zhengyang Song"
+</code></pre>
+
+<h3>ssh https</h3>
+
+<p><a href="https://stackoverflow.com/questions/15589682/how-to-fix-ssh-connect-to-host-github-com-port-22-connection-timed-out-for-g">https://stackoverflow.com/questions/15589682/how-to-fix-ssh-connect-to-host-github-com-port-22-connection-timed-out-for-g</a></p>
+
+<pre><code>vi ~/.ssh/config
+</code></pre>
+
+
+
+<pre><code>Host github.com
+  Hostname ssh.github.com
+  Port 443
+</code></pre>
+
+<h2>zsh</h2>
+
+<pre><code>sudo apt install zsh
+</code></pre>
+
+<p><a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
+
+<pre><code>wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+
+sh install.sh
+</code></pre>
+
+<h3>p10k</h3>
+
+<p><a href="https://github.com/romkatv/powerlevel10k">https://github.com/romkatv/powerlevel10k</a></p>
+
+<pre><code>git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+</code></pre>
+
+<p>Then in <code>~/.zshrc</code>:</p>
+
+<pre><code>ZSH_THEME="powerlevel10k/powerlevel10k"
+</code></pre>
+
+<h2>tmux</h2>
+
+<pre><code>vi ~/.tmux.conf
+</code></pre>
+
+
+
+<pre><code>set -g default-shell /usr/bin/zsh
+set -g default-terminal "xterm-256color"
+</code></pre>
+
+<h2>python</h2>
+
+<h3>pip source</h3>
+
+<pre><code>sudo apt install python3-pip
+</code></pre>
+
+<p><a href="https://pip.pypa.io/en/stable/user_guide/#config-file">https://pip.pypa.io/en/stable/user_guide/#config-file</a>
+<a href="https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4">https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4</a></p>
+
+<pre><code>mkdir ~/.pip
+
+echo "[global]" &gt; ~/.pip/pip.conf
+echo "  index-url = https://mirrors.aliyun.com/pypi/simple/" &gt;&gt; ~/.pip/pip.conf
+echo "[install]" &gt;&gt; ~/.pip/pip.conf
+echo "  trusted-host=mirrors.aliyun.com" &gt;&gt; ~/.pip/pip.conf
+echo "" &gt;&gt; ~/.pip/pip.conf
+</code></pre>
+
+<h3>jupyter notebook</h3>
+
+<pre><code>jupyter notebook --generate-config
+vi ~/.jupyter/jupyter_notebook_config.py
+</code></pre>
+
+
+
+<pre><code>c.NotebookApp.use_redirect_file = False
+</code></pre>
+
+
+
+<pre><code>pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+</code></pre>
+
+<h3>virtualenvwrapper</h3>
+
+<pre><code>sudo apt install virtualenv
+</code></pre>
+
+<p><a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html">https://virtualenvwrapper.readthedocs.io/en/latest/install.html</a></p>
+
+<pre><code>pip install virtualenvwrapper
+</code></pre>
+
+
+
+<pre><code># vi ~/.bashrc
+vi ~/.zshrc
+</code></pre>
+
+
+
+<pre><code>export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# source /usr/local/bin/virtualenvwrapper.sh
+source ~/.local/bin/virtualenvwrapper.sh
+</code></pre>
+
+<h2>nodejs</h2>
+
+<h3>nvm</h3>
+
+<p><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
+
+<pre><code>wget -qO- 
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+</code></pre>
+
+
+
+<pre><code>nvm ls
+nvm ls-remote
+</code></pre>
+
+
+
+<pre><code>nvm install 
+</code></pre>
+
+<h3>npm registry</h3>
+
+<p><a href="https://developer.aliyun.com/mirror/NPM">https://developer.aliyun.com/mirror/NPM</a></p>
+
+<pre><code>npm config get registry
+npm config set registry http://registry.npmmirror.com
+</code></pre>
+
+<h3>yarn registry</h3>
+
+<pre><code>yarn config get registry
+yarn config set registry http://registry.npmmirror.com
+</code></pre>
+
+<h2>ruby</h2>
+
+<pre><code># 添加镜像源并移除默认源
+gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
+# 列出已有源
+gem sources -l
+# 应该只有镜像源一个
+</code></pre>
+
+<h3>bundler</h3>
+
+<pre><code>bundle config mirror.https://rubygems.org https://mirrors.tuna.tsinghua.edu.cn/rubygems
+</code></pre>
+
+<h2>docker</h2>
+
+<pre><code>mkdir -p /etc/docker
+
+sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
+{
+  "registry-mirrors": ["http://hub-mirror.c.163.com"]
+}
+</code></pre>
+
+
+
+<pre><code>sudo service docker restart
+</code></pre>
+
+
+
+<pre><code>docker info
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Steps to set up my personal workspace.]]></summary></entry><entry><title type="html">V2Ray Server - Ubuntu</title><link href="http://songzy12.github.io/2025/04/04/v2ray-server-ubuntu.html" rel="alternate" type="text/html" title="V2Ray Server - Ubuntu" /><published>2025-04-04T10:08:09+08:00</published><updated>2025-04-04T10:08:09+08:00</updated><id>http://songzy12.github.io/2025/04/04/v2ray-server-ubuntu</id><content type="html" xml:base="http://songzy12.github.io/2025/04/04/v2ray-server-ubuntu.html"><![CDATA[<p>How to set up v2ray server on Ubuntu.</p>
 
 <p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
 
@@ -425,245 +668,4 @@ npm install gitbook-cli@2.1.2 -g
 <li>songzy.cc: DigitalOcean + NameCheap (<s>Vultr + NameCheap + CloudFlare</s>)</li>
 <li>songzy.cool: DigitalOcean + NameCheap</li>
 <li>maomaosenlin.cc: Tencent Cloud</li>
-</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[A collection of my personal cloudtop devices.]]></summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2024/02/03/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2024-02-03T16:29:08+08:00</published><updated>2024-02-03T16:29:08+08:00</updated><id>http://songzy12.github.io/2024/02/03/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2024/02/03/workspace-setup.html"><![CDATA[<p>Steps to set up my personal workspace.</p>
-
-<h2>apt</h2>
-
-<p>Project link: <a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
-
-<pre><code>sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
-</code></pre>
-
-<h2>brew</h2>
-
-<pre><code># 查看 brew.git 当前源
-$ cd "$(brew --repo)" &amp;&amp; git remote -v
-origin    https://github.com/Homebrew/brew.git (fetch)
-origin    https://github.com/Homebrew/brew.git (push)
-
-# 查看 homebrew-core.git 当前源
-$ cd "$(brew --repo homebrew/core)" &amp;&amp; git remote -v
-origin    https://github.com/Homebrew/homebrew-core.git (fetch)
-origin    https://github.com/Homebrew/homebrew-core.git (push)
-</code></pre>
-
-
-
-<pre><code># 替换各个源
-$ git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
-$ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
-$ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
-
-# zsh 替换 brew bintray 镜像
-$ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' &gt;&gt; ~/.zshrc
-$ source ~/.zshrc
-
-# 刷新源
-$ brew update
-</code></pre>
-
-
-
-<pre><code>echo 'export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" #brew.idayer.com' &gt;&gt; ~/.zshrc
-</code></pre>
-
-<h2>wget</h2>
-
-<pre><code>vi ~/.wgetrc
-</code></pre>
-
-
-
-<pre><code>http_proxy=http://localhost:10809
-https_proxy=http://localhost:10809
-</code></pre>
-
-<h2>git</h2>
-
-<h3>editor</h3>
-
-<pre><code>git config --global core.editor "vim"
-</code></pre>
-
-<h3>user</h3>
-
-<pre><code>git config --global user.email "songzy_thu@163.com"
-git config --global user.name "Zhengyang Song"
-</code></pre>
-
-<h3>ssh https</h3>
-
-<pre><code>vi ~/.ssh/config
-</code></pre>
-
-
-
-<pre><code>Host github.com
-  Hostname ssh.github.com
-  Port 443
-</code></pre>
-
-<h2>zsh</h2>
-
-<pre><code>sudo apt install zsh
-</code></pre>
-
-<p><a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
-
-<pre><code>wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
-
-sh install.sh
-</code></pre>
-
-<h3>p10k</h3>
-
-<p><a href="https://github.com/romkatv/powerlevel10k">https://github.com/romkatv/powerlevel10k</a></p>
-
-<pre><code>git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
-</code></pre>
-
-<p>Then in <code>~/.zshrc</code>:</p>
-
-<pre><code>ZSH_THEME="powerlevel10k/powerlevel10k"
-</code></pre>
-
-<h2>tmux</h2>
-
-<pre><code>vi ~/.tmux.conf
-</code></pre>
-
-
-
-<pre><code>set -g default-shell /usr/bin/zsh
-set -g default-terminal "xterm-256color"
-</code></pre>
-
-<h2>python</h2>
-
-<h3>pip source</h3>
-
-<pre><code>sudo apt install python3-pip
-</code></pre>
-
-<p><a href="https://pip.pypa.io/en/stable/user_guide/#config-file">https://pip.pypa.io/en/stable/user_guide/#config-file</a>
-<a href="https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4">https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4</a></p>
-
-<pre><code>mkdir ~/.pip
-
-echo "[global]" &gt; ~/.pip/pip.conf
-echo "  index-url = https://mirrors.aliyun.com/pypi/simple/" &gt;&gt; ~/.pip/pip.conf
-echo "[install]" &gt;&gt; ~/.pip/pip.conf
-echo "  trusted-host=mirrors.aliyun.com" &gt;&gt; ~/.pip/pip.conf
-echo "" &gt;&gt; ~/.pip/pip.conf
-</code></pre>
-
-<h3>jupyter notebook</h3>
-
-<pre><code>jupyter notebook --generate-config
-vi ~/.jupyter/jupyter_notebook_config.py
-</code></pre>
-
-
-
-<pre><code>c.NotebookApp.use_redirect_file = False
-</code></pre>
-
-
-
-<pre><code>pip install jupyter_contrib_nbextensions
-jupyter contrib nbextension install --user
-</code></pre>
-
-<h3>virtualenvwrapper</h3>
-
-<pre><code>sudo apt install virtualenv
-</code></pre>
-
-<p><a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html">https://virtualenvwrapper.readthedocs.io/en/latest/install.html</a></p>
-
-<pre><code>pip install virtualenvwrapper
-</code></pre>
-
-
-
-<pre><code># vi ~/.bashrc
-vi ~/.zshrc
-</code></pre>
-
-
-
-<pre><code>export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-# source /usr/local/bin/virtualenvwrapper.sh
-source ~/.local/bin/virtualenvwrapper.sh
-</code></pre>
-
-<h2>nodejs</h2>
-
-<h3>nvm</h3>
-
-<p><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
-
-<pre><code>wget -qO- 
-https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
-</code></pre>
-
-
-
-<pre><code>nvm ls
-nvm ls-remote
-</code></pre>
-
-
-
-<pre><code>nvm install 
-</code></pre>
-
-<h3>npm registry</h3>
-
-<p><a href="https://developer.aliyun.com/mirror/NPM">https://developer.aliyun.com/mirror/NPM</a></p>
-
-<pre><code>npm config get registry
-npm config set registry http://registry.npmmirror.com
-</code></pre>
-
-<h3>yarn registry</h3>
-
-<pre><code>yarn config get registry
-yarn config set registry http://registry.npmmirror.com
-</code></pre>
-
-<h2>ruby</h2>
-
-<pre><code># 添加镜像源并移除默认源
-gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
-# 列出已有源
-gem sources -l
-# 应该只有镜像源一个
-</code></pre>
-
-<h3>bundler</h3>
-
-<pre><code>bundle config mirror.https://rubygems.org https://mirrors.tuna.tsinghua.edu.cn/rubygems
-</code></pre>
-
-<h2>docker</h2>
-
-<pre><code>mkdir -p /etc/docker
-
-sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
-{
-  "registry-mirrors": ["http://hub-mirror.c.163.com"]
-}
-</code></pre>
-
-
-
-<pre><code>sudo service docker restart
-</code></pre>
-
-
-
-<pre><code>docker info
-</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Steps to set up my personal workspace.]]></summary></entry></feed>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[A collection of my personal cloudtop devices.]]></summary></entry></feed>
