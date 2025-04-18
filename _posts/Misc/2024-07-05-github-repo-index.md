@@ -8,32 +8,27 @@ An index of my GitHub repositories.
 
 * Algorithm & Data Structure
   * https://github.com/songzy12/HackerRank
-  * https://github.com/songzy12/TopCoder-SRM
   * https://github.com/songzy12/CodeForces
 * Math & Optimization
-  * https://github.com/songzy12/IMO
-  * https://github.com/songzy12/yau-contest
   * https://github.com/songzy12/ProjectEuler
-  * https://github.com/songzy12/alibaba-mathematics-competition
-  * https://github.com/songzy12/kaggle-santa-competitions
+  * https://github.com/songzy12/santa-competitions
 * Programming Language
   * https://github.com/songzy12/SICP
   * https://github.com/songzy12/python_challenge
   * https://github.com/songzy12/Haskell-99
 * Security
+  * https://github.com/songzy12/ctf_101
   * https://github.com/songzy12/CVE
   * https://github.com/songzy12/AVD
-  * https://github.com/songzy12/ctf_101
-  * https://github.com/songzy12/hack_this
-  * https://github.com/songzy12/wechall
+  * https://github.com/songzy12/defend_the_web
+  * https://github.com/songzy12/we_chall
   * https://github.com/songzy12/cryptohack
   * https://github.com/songzy12/challenges_re
   * https://github.com/songzy12/pwnable
 * Web Crawler
-  * https://github.com/songzy12/weibo_toolkit
-  * https://github.com/songzy12/bilibili_dynamic_crawler
+  * https://github.com/songzy12/weibo_tool
+  * https://github.com/songzy12/bilibili_crawler
 * Game AI
-  * https://github.com/songzy12/RAIC
   * https://github.com/songzy12/Lux-AI
 * NLP Models
   * FastText (2016): https://github.com/songzy12/FastText
@@ -49,10 +44,10 @@ An index of my GitHub repositories.
   * (2019) https://github.com/songzy12/microsoft-malware-prediction
 * Android
   * https://github.com/songzy12/AndroidRotationSensor
-* Chrome Extenstion
+* Chrome
   * https://github.com/songzy12/SirsiDynixAssistant
 * Homework
-  * https://github.com/songzy12/XiaoMu
+  * https://github.com/songzy12/QA
   * https://github.com/songzy12/IIIS_PreliminaryExam
   * Master
     * https://github.com/songzy12/largest_empty_convex_polygon
