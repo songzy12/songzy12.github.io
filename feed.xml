@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-04-12T21:16:02+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Ubuntu Input Method</title><link href="http://songzy12.github.io/2025/04/07/ubuntu-input-method.html" rel="alternate" type="text/html" title="Ubuntu Input Method" /><published>2025-04-07T20:02:14+08:00</published><updated>2025-04-07T20:02:14+08:00</updated><id>http://songzy12.github.io/2025/04/07/ubuntu-input-method</id><content type="html" xml:base="http://songzy12.github.io/2025/04/07/ubuntu-input-method.html"><![CDATA[<p>Set up Chinese input method on ubuntu.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-04-18T14:52:44+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Ubuntu Input Method</title><link href="http://songzy12.github.io/2025/04/07/ubuntu-input-method.html" rel="alternate" type="text/html" title="Ubuntu Input Method" /><published>2025-04-07T20:02:14+08:00</published><updated>2025-04-07T20:02:14+08:00</updated><id>http://songzy12.github.io/2025/04/07/ubuntu-input-method</id><content type="html" xml:base="http://songzy12.github.io/2025/04/07/ubuntu-input-method.html"><![CDATA[<p>Set up Chinese input method on ubuntu.</p>
 
 <h2>ibus</h2>
 
@@ -565,18 +565,14 @@ npm install gitbook-cli@2.1.2 -g
 
 <ul>
 <li><a href="https://github.com/songzy12/HackerRank">https://github.com/songzy12/HackerRank</a></li>
-<li><a href="https://github.com/songzy12/TopCoder-SRM">https://github.com/songzy12/TopCoder-SRM</a></li>
 <li><a href="https://github.com/songzy12/CodeForces">https://github.com/songzy12/CodeForces</a></li>
 </ul>
 </li>
 <li>Math &amp; Optimization
 
 <ul>
-<li><a href="https://github.com/songzy12/IMO">https://github.com/songzy12/IMO</a></li>
-<li><a href="https://github.com/songzy12/yau-contest">https://github.com/songzy12/yau-contest</a></li>
 <li><a href="https://github.com/songzy12/ProjectEuler">https://github.com/songzy12/ProjectEuler</a></li>
-<li><a href="https://github.com/songzy12/alibaba-mathematics-competition">https://github.com/songzy12/alibaba-mathematics-competition</a></li>
-<li><a href="https://github.com/songzy12/kaggle-santa-competitions">https://github.com/songzy12/kaggle-santa-competitions</a></li>
+<li><a href="https://github.com/songzy12/santa-competitions">https://github.com/songzy12/santa-competitions</a></li>
 </ul>
 </li>
 <li>Programming Language
@@ -590,11 +586,11 @@ npm install gitbook-cli@2.1.2 -g
 <li>Security
 
 <ul>
+<li><a href="https://github.com/songzy12/ctf_101">https://github.com/songzy12/ctf_101</a></li>
 <li><a href="https://github.com/songzy12/CVE">https://github.com/songzy12/CVE</a></li>
 <li><a href="https://github.com/songzy12/AVD">https://github.com/songzy12/AVD</a></li>
-<li><a href="https://github.com/songzy12/ctf_101">https://github.com/songzy12/ctf_101</a></li>
-<li><a href="https://github.com/songzy12/hack_this">https://github.com/songzy12/hack_this</a></li>
-<li><a href="https://github.com/songzy12/wechall">https://github.com/songzy12/wechall</a></li>
+<li><a href="https://github.com/songzy12/defend_the_web">https://github.com/songzy12/defend_the_web</a></li>
+<li><a href="https://github.com/songzy12/we_chall">https://github.com/songzy12/we_chall</a></li>
 <li><a href="https://github.com/songzy12/cryptohack">https://github.com/songzy12/cryptohack</a></li>
 <li><a href="https://github.com/songzy12/challenges_re">https://github.com/songzy12/challenges_re</a></li>
 <li><a href="https://github.com/songzy12/pwnable">https://github.com/songzy12/pwnable</a></li>
@@ -603,14 +599,13 @@ npm install gitbook-cli@2.1.2 -g
 <li>Web Crawler
 
 <ul>
-<li><a href="https://github.com/songzy12/weibo_toolkit">https://github.com/songzy12/weibo_toolkit</a></li>
-<li><a href="https://github.com/songzy12/bilibili_dynamic_crawler">https://github.com/songzy12/bilibili_dynamic_crawler</a></li>
+<li><a href="https://github.com/songzy12/weibo_tool">https://github.com/songzy12/weibo_tool</a></li>
+<li><a href="https://github.com/songzy12/bilibili_crawler">https://github.com/songzy12/bilibili_crawler</a></li>
 </ul>
 </li>
 <li>Game AI
 
 <ul>
-<li><a href="https://github.com/songzy12/RAIC">https://github.com/songzy12/RAIC</a></li>
 <li><a href="https://github.com/songzy12/Lux-AI">https://github.com/songzy12/Lux-AI</a></li>
 </ul>
 </li>
@@ -640,7 +635,7 @@ npm install gitbook-cli@2.1.2 -g
 <li><a href="https://github.com/songzy12/AndroidRotationSensor">https://github.com/songzy12/AndroidRotationSensor</a></li>
 </ul>
 </li>
-<li>Chrome Extenstion
+<li>Chrome
 
 <ul>
 <li><a href="https://github.com/songzy12/SirsiDynixAssistant">https://github.com/songzy12/SirsiDynixAssistant</a></li>
@@ -649,7 +644,7 @@ npm install gitbook-cli@2.1.2 -g
 <li>Homework
 
 <ul>
-<li><a href="https://github.com/songzy12/XiaoMu">https://github.com/songzy12/XiaoMu</a></li>
+<li><a href="https://github.com/songzy12/QA">https://github.com/songzy12/QA</a></li>
 <li><a href="https://github.com/songzy12/IIIS_PreliminaryExam">https://github.com/songzy12/IIIS_PreliminaryExam</a></li>
 <li>Master
 
