@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-04-18T14:52:44+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Ubuntu Input Method</title><link href="http://songzy12.github.io/2025/04/07/ubuntu-input-method.html" rel="alternate" type="text/html" title="Ubuntu Input Method" /><published>2025-04-07T20:02:14+08:00</published><updated>2025-04-07T20:02:14+08:00</updated><id>http://songzy12.github.io/2025/04/07/ubuntu-input-method</id><content type="html" xml:base="http://songzy12.github.io/2025/04/07/ubuntu-input-method.html"><![CDATA[<p>Set up Chinese input method on ubuntu.</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-04-19T15:09:40+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Ubuntu Input Method</title><link href="http://songzy12.github.io/2025/04/07/ubuntu-input-method.html" rel="alternate" type="text/html" title="Ubuntu Input Method" /><published>2025-04-07T20:02:14+08:00</published><updated>2025-04-07T20:02:14+08:00</updated><id>http://songzy12.github.io/2025/04/07/ubuntu-input-method</id><content type="html" xml:base="http://songzy12.github.io/2025/04/07/ubuntu-input-method.html"><![CDATA[<p>Set up Chinese input method on ubuntu.</p>
 
 <h2>ibus</h2>
 
@@ -586,14 +586,23 @@ npm install gitbook-cli@2.1.2 -g
 <li>Security
 
 <ul>
-<li><a href="https://github.com/songzy12/ctf_101">https://github.com/songzy12/ctf_101</a></li>
-<li><a href="https://github.com/songzy12/CVE">https://github.com/songzy12/CVE</a></li>
-<li><a href="https://github.com/songzy12/AVD">https://github.com/songzy12/AVD</a></li>
+<li><a href="https://github.com/songzy12/ctf_101">https://github.com/songzy12/ctf_101</a>
+
+<ul>
 <li><a href="https://github.com/songzy12/defend_the_web">https://github.com/songzy12/defend_the_web</a></li>
 <li><a href="https://github.com/songzy12/we_chall">https://github.com/songzy12/we_chall</a></li>
 <li><a href="https://github.com/songzy12/cryptohack">https://github.com/songzy12/cryptohack</a></li>
 <li><a href="https://github.com/songzy12/challenges_re">https://github.com/songzy12/challenges_re</a></li>
 <li><a href="https://github.com/songzy12/pwnable">https://github.com/songzy12/pwnable</a></li>
+</ul>
+</li>
+<li>In the Wild
+
+<ul>
+<li><a href="https://github.com/songzy12/CVE">https://github.com/songzy12/CVE</a></li>
+<li><a href="https://github.com/songzy12/AVD">https://github.com/songzy12/AVD</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li>Web Crawler
