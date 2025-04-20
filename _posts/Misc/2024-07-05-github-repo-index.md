@@ -17,6 +17,8 @@ An index of my GitHub repositories.
   * https://github.com/songzy12/python_challenge
   * https://github.com/songzy12/Haskell-99
 * Security
+  * https://github.com/songzy12/xCTF
+  * https://github.com/songzy12/bugku
   * https://github.com/songzy12/ctf_101
     * https://github.com/songzy12/defend_the_web
     * https://github.com/songzy12/we_chall
