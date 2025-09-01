@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Docker | Secret Base</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Docker" />
+<meta name="author" content="Zhengyang Song" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Basic usage of Docker." />
+<meta property="og:description" content="Basic usage of Docker." />
+<link rel="canonical" href="http://songzy12.github.io/2016/12/21/docker.html" />
+<meta property="og:url" content="http://songzy12.github.io/2016/12/21/docker.html" />
+<meta property="og:site_name" content="Secret Base" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2016-12-21T14:10:56+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Docker" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2016-12-21T14:10:56+08:00","datePublished":"2016-12-21T14:10:56+08:00","description":"Basic usage of Docker.","headline":"Docker","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2016/12/21/docker.html"},"url":"http://songzy12.github.io/2016/12/21/docker.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Secret Base</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Docker</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2016-12-21T14:10:56+08:00" itemprop="datePublished">Dec 21, 2016
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Basic usage of Docker.</p>
+
+<pre><code>sudo docker build -t tc-informix .
+sudo docker run -it --name iif_developer_edition --privileged -p 9088:9088 -p 9089:9089 -p 27017:27017 -p 27018:27018 -p 27883:27883 -e LICENSE=accept tc-informix
+</code></pre>
+
+<h2>images</h2>
+
+<pre><code>sudo docker images
+</code></pre>
+
+<h2>rmi</h2>
+
+<pre><code>sudo docker rmi $(sudo docker images -q -f dangling=true)
+</code></pre>
+
+<h2>run</h2>
+
+<pre><code>sudo docker run -it --rm ubuntu:14.04 bash
+</code></pre>
+
+<h2>ps</h2>
+
+<pre><code>sudo docker ps
+sudo docker logs [container ID or NAMES]
+</code></pre>
+
+<h2>rm</h2>
+
+<pre><code>docker rm $(docker ps -a -q)
+</code></pre>
+
+<h2>start, stop, attach</h2>
+
+<pre><code>sudo docker stop d457395b35e2
+sudo docker ps -a
+sudo docker start d457395b35e2
+docker exec -it d457395b35e2 bash
+</code></pre>
+
+
+
+<pre><code>sudo docker attach nostalgic_hypatia
+</code></pre>
+
+<h2>logs</h2>
+
+<pre><code>sudo docker logs -t iif_developer_edition
+</code></pre>
+
+<p>日志文件位于 <code>var/lib/docker/containers/&lt;container_id&gt;</code>，文件名为 <code>&lt;container_id&gt;-json.log</code></p>
+
+<h2>Dockerfile</h2>
+
+<pre><code>touch Dockerfile
+</code></pre>
+
+
+
+<pre><code>FROM nginx
+RUN echo '&lt;h1&gt;Hello, Docker!&lt;/h1&gt;' &gt; /usr/share/nginx/html/index.html
+</code></pre>
+
+<p>Docker has a default entrypoint which is <code>/bin/sh -c</code> but does not have a default command.</p>
+
+<p>When you run docker like this: <code>docker run -i -t ubuntu bash</code> the entrypoint is the default <code>/bin/sh -c</code>, the image is <code>ubuntu</code> and the command is <code>bash</code>.</p>
+
+<p>The command is run via the entrypoint. i.e., the actual thing that gets executed is <code>/bin/sh -c bash</code>. This allowed docker to implement <code>RUN</code> quickly by relying on the shell&rsquo;s parser. Later on, people asked to be able to customize this so <code>ENTRYPOINT</code> and <code>-entrypoint</code> has been introduced.</p>
+
+<p>An other example would be to have any cli as entrypoint. For instance, if you have a redis image, instead of running <code>docker run redisimg redis -H something -u toto get key</code>, you can simply have <code>ENTRYPOINT ["redis", "-H", "something", "-u", "toto"]</code> and then run like this for the same result: <code>docker run redisimg get key</code>.</p>
+
+<p>When the operator executes <code>docker run --privileged</code>, Docker will enable to access to all devices on the host as well as set some configuration in AppArmor or SELinux to allow the container nearly all the same access to the host as processes running outside containers on the host.</p>
+
+<hr />
+
+<h2>install</h2>
+
+<pre><code>sudo apt-get install docker-engine
+sudo service docker start
+sudo docker run hello-world
+</code></pre>
+
+<h2>service</h2>
+
+<pre><code>Cannot connect to the Docker daemon. Is the docker daemon running on this host?
+</code></pre>
+
+
+
+<pre><code>sudo service docker start
+sudo docker build -t tc-cache .
+</code></pre>
+
+<hr />
+
+<h2>pull</h2>
+
+<pre><code>sudo docker pull ubuntu:14.04
+</code></pre>
+
+<h2>commit</h2>
+
+<pre><code>sudo docker pull nginx
+sudo docker run --name webserver -d -p 80:80 nginx
+sudo docker exec -it webserver bash
+</code></pre>
+
+
+
+<pre><code>echo '&lt;h1&gt;Hello, Docker!&lt;/h1&gt;' &gt; /usr/share/nginx/html/index.html
+exit
+</code></pre>
+
+
+
+<pre><code>sudo docker diff webserver
+sudo docker commit \
+    --author "Tao Wang &lt;twang2218@gmail.com&gt;" \
+    --message "修改了默认网页" \
+    webserver \
+    nginx:v2
+sudo docker images nginx
+sudo docker history nginx:v2
+sudo docker run --name web2 -d -p 81:80 nginx:v2
+</code></pre>
+
+<h2>build</h2>
+
+<pre><code>docker build -t nginx:v3 .
+</code></pre>
+
+<p>因此，<code>COPY</code> 这类指令中的源文件的路径都是相对路径。这也是初学者经常会问的为什么 <code>COPY ../package.json /app</code> 或者 <code>COPY /opt/xxxx /app</code> 无法工作的原因，因为这些路径已经超出了上下文的范围，Docker 引擎无法获得这些位置的文件。如果真的需要那些文件，应该将它们复制到上下文目录中去。</p>
+
+<h2>export</h2>
+
+<pre><code>sudo docker export 7691a814370e &gt; ubuntu.tar
+cat ubuntu.tar | sudo docker import - test/ubuntu:v1.0
+</code></pre>
+
+  </div><a class="u-url" href="/2016/12/21/docker.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Secret Base</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

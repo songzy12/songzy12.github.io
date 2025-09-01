@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-09-01T15:52:45+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Ubuntu Input Method</title><link href="http://songzy12.github.io/2025/04/07/ubuntu-input-method.html" rel="alternate" type="text/html" title="Ubuntu Input Method" /><published>2025-04-07T20:02:14+08:00</published><updated>2025-04-07T20:02:14+08:00</updated><id>http://songzy12.github.io/2025/04/07/ubuntu-input-method</id><content type="html" xml:base="http://songzy12.github.io/2025/04/07/ubuntu-input-method.html"><![CDATA[<p>Set up Chinese input method on ubuntu.</p>
+
+<h2>ibus</h2>
+
+<pre><code>sudo apt install ibus-pinyin
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up Chinese input method on ubuntu.]]></summary></entry><entry><title type="html">Workspace Setup</title><link href="http://songzy12.github.io/2025/04/07/workspace-setup.html" rel="alternate" type="text/html" title="Workspace Setup" /><published>2025-04-07T08:29:08+08:00</published><updated>2025-04-07T08:29:08+08:00</updated><id>http://songzy12.github.io/2025/04/07/workspace-setup</id><content type="html" xml:base="http://songzy12.github.io/2025/04/07/workspace-setup.html"><![CDATA[<p>Steps to set up my personal workspace.</p>
+
+<h2>apt</h2>
+
+<p>Project link: <a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
+
+<pre><code>sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+</code></pre>
+
+<h2>brew</h2>
+
+<pre><code># 查看 brew.git 当前源
+$ cd "$(brew --repo)" &amp;&amp; git remote -v
+origin    https://github.com/Homebrew/brew.git (fetch)
+origin    https://github.com/Homebrew/brew.git (push)
+
+# 查看 homebrew-core.git 当前源
+$ cd "$(brew --repo homebrew/core)" &amp;&amp; git remote -v
+origin    https://github.com/Homebrew/homebrew-core.git (fetch)
+origin    https://github.com/Homebrew/homebrew-core.git (push)
+</code></pre>
+
+
+
+<pre><code># 替换各个源
+$ git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+$ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+$ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
+
+# zsh 替换 brew bintray 镜像
+$ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' &gt;&gt; ~/.zshrc
+$ source ~/.zshrc
+
+# 刷新源
+$ brew update
+</code></pre>
+
+
+
+<pre><code>echo 'export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" #brew.idayer.com' &gt;&gt; ~/.zshrc
+</code></pre>
+
+<h2>wget</h2>
+
+<pre><code>vi ~/.wgetrc
+</code></pre>
+
+
+
+<pre><code>http_proxy=http://localhost:10809
+https_proxy=http://localhost:10809
+</code></pre>
+
+<h2>git</h2>
+
+<h3>editor</h3>
+
+<pre><code>git config --global core.editor "vim"
+</code></pre>
+
+<h3>user</h3>
+
+<pre><code>git config --global user.email "songzy_thu@163.com"
+git config --global user.name "Zhengyang Song"
+</code></pre>
+
+<h3>ssh https</h3>
+
+<p><a href="https://stackoverflow.com/questions/15589682/how-to-fix-ssh-connect-to-host-github-com-port-22-connection-timed-out-for-g">https://stackoverflow.com/questions/15589682/how-to-fix-ssh-connect-to-host-github-com-port-22-connection-timed-out-for-g</a></p>
+
+<pre><code>vi ~/.ssh/config
+</code></pre>
+
+
+
+<pre><code>Host github.com
+  Hostname ssh.github.com
+  Port 443
+</code></pre>
+
+<h2>zsh</h2>
+
+<pre><code>sudo apt install zsh
+</code></pre>
+
+<p><a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
+
+<pre><code>wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+
+sh install.sh
+</code></pre>
+
+<h3>p10k</h3>
+
+<p><a href="https://github.com/romkatv/powerlevel10k">https://github.com/romkatv/powerlevel10k</a></p>
+
+<pre><code>git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+</code></pre>
+
+<p>Then in <code>~/.zshrc</code>:</p>
+
+<pre><code>ZSH_THEME="powerlevel10k/powerlevel10k"
+</code></pre>
+
+<h2>tmux</h2>
+
+<pre><code>vi ~/.tmux.conf
+</code></pre>
+
+
+
+<pre><code>set -g default-shell /usr/bin/zsh
+set -g default-terminal "xterm-256color"
+</code></pre>
+
+<h2>python</h2>
+
+<h3>pip source</h3>
+
+<pre><code>sudo apt install python3-pip
+</code></pre>
+
+<p><a href="https://pip.pypa.io/en/stable/user_guide/#config-file">https://pip.pypa.io/en/stable/user_guide/#config-file</a>
+<a href="https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4">https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4</a></p>
+
+<pre><code>mkdir ~/.pip
+
+echo "[global]" &gt; ~/.pip/pip.conf
+echo "  index-url = https://mirrors.aliyun.com/pypi/simple/" &gt;&gt; ~/.pip/pip.conf
+echo "[install]" &gt;&gt; ~/.pip/pip.conf
+echo "  trusted-host=mirrors.aliyun.com" &gt;&gt; ~/.pip/pip.conf
+echo "" &gt;&gt; ~/.pip/pip.conf
+</code></pre>
+
+<h3>jupyter notebook</h3>
+
+<pre><code>jupyter notebook --generate-config
+vi ~/.jupyter/jupyter_notebook_config.py
+</code></pre>
+
+
+
+<pre><code>c.NotebookApp.use_redirect_file = False
+</code></pre>
+
+
+
+<pre><code>pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+</code></pre>
+
+<h3>virtualenvwrapper</h3>
+
+<pre><code>sudo apt install virtualenv
+</code></pre>
+
+<p><a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html">https://virtualenvwrapper.readthedocs.io/en/latest/install.html</a></p>
+
+<pre><code>pip install virtualenvwrapper
+</code></pre>
+
+
+
+<pre><code># vi ~/.bashrc
+vi ~/.zshrc
+</code></pre>
+
+
+
+<pre><code>export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# source /usr/local/bin/virtualenvwrapper.sh
+source ~/.local/bin/virtualenvwrapper.sh
+</code></pre>
+
+<h2>nodejs</h2>
+
+<h3>nvm</h3>
+
+<p><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
+
+<pre><code>wget -qO- 
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+</code></pre>
+
+
+
+<pre><code>nvm ls
+nvm ls-remote
+</code></pre>
+
+
+
+<pre><code>nvm install 
+</code></pre>
+
+<h3>npm registry</h3>
+
+<p><a href="https://developer.aliyun.com/mirror/NPM">https://developer.aliyun.com/mirror/NPM</a></p>
+
+<pre><code>npm config get registry
+npm config set registry http://registry.npmmirror.com
+</code></pre>
+
+<h3>yarn registry</h3>
+
+<pre><code>yarn config get registry
+yarn config set registry http://registry.npmmirror.com
+</code></pre>
+
+<h2>ruby</h2>
+
+<pre><code># 添加镜像源并移除默认源
+gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
+# 列出已有源
+gem sources -l
+# 应该只有镜像源一个
+</code></pre>
+
+<h3>bundler</h3>
+
+<pre><code>bundle config mirror.https://rubygems.org https://mirrors.tuna.tsinghua.edu.cn/rubygems
+</code></pre>
+
+<h2>docker</h2>
+
+<pre><code>mkdir -p /etc/docker
+
+sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
+{
+  "registry-mirrors": ["http://hub-mirror.c.163.com"]
+}
+</code></pre>
+
+
+
+<pre><code>sudo service docker restart
+</code></pre>
+
+
+
+<pre><code>docker info
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Steps to set up my personal workspace.]]></summary></entry><entry><title type="html">V2Ray Server - Ubuntu</title><link href="http://songzy12.github.io/2025/04/04/v2ray-server-ubuntu.html" rel="alternate" type="text/html" title="V2Ray Server - Ubuntu" /><published>2025-04-04T10:08:09+08:00</published><updated>2025-04-04T10:08:09+08:00</updated><id>http://songzy12.github.io/2025/04/04/v2ray-server-ubuntu</id><content type="html" xml:base="http://songzy12.github.io/2025/04/04/v2ray-server-ubuntu.html"><![CDATA[<p>How to set up v2ray server on Ubuntu.</p>
+
+<p><a href="https://github.com/v2fly/fhs-install-v2ray">https://github.com/v2fly/fhs-install-v2ray</a></p>
+
+<h2>v2fly</h2>
+
+<pre><code>// 安裝執行檔和 .dat 資料檔
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-release.sh)
+
+// 只更新 .dat 資料檔
+bash &lt;(curl -L https://raw.githubusercontent.com/v2fly/fhs-install-v2ray/master/install-dat-release.sh)
+</code></pre>
+
+<h2>ufw</h2>
+
+<pre><code>ufw allow http
+ufw allow https
+</code></pre>
+
+<h2>config</h2>
+
+<pre><code>vi /usr/local/etc/v2ray/config.json
+</code></pre>
+
+<h3>server</h3>
+
+<pre><code>{
+  "inbounds": [
+    {
+      "port": 443,
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "899cbb8a-fad2-45bd-8608-8483956d641c",
+            "level": 1,
+            "alterId": 0
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "certificates": [
+            {
+              "certificateFile": "/usr/local/etc/v2ray/songzy.cc.cer",
+              "keyFile": "/usr/local/etc/v2ray/songzy.cc.key"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {}
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ]
+}
+</code></pre>
+
+<p>Note: remember to set the value <code>inbounds.settings.clients.id</code> correctly.</p>
+
+<h2>tls (acme.sh)</h2>
+
+<pre><code>DOMAIN_NAME=songzy.cc
+</code></pre>
+
+<h3>install</h3>
+
+<pre><code>apt install socat
+curl https://get.acme.sh | sh
+source ~/.bashrc 
+</code></pre>
+
+<h3>register</h3>
+
+<pre><code>acme.sh --register-account -m songzy_thu@163.com
+</code></pre>
+
+<h3>issue &amp; installcert</h3>
+
+<pre><code>acme.sh --issue -d $DOMAIN_NAME --standalone -k ec-256 --debug
+</code></pre>
+
+
+
+<pre><code>acme.sh --installcert -d $DOMAIN_NAME --fullchainpath /usr/local/etc/v2ray/$DOMAIN_NAME.cer --keypath /usr/local/etc/v2ray/$DOMAIN_NAME.key --ecc
+</code></pre>
+
+<h3>renew</h3>
+
+<pre><code>acme.sh --renew -d $DOMAIN_NAME --force --ecc --debug
+</code></pre>
+
+<h3>vmess aead</h3>
+
+<pre><code>env v2ray.vmess.aead.forced=false /usr/local/bin/v2ray run -config /usr/local/etc/v2ray/config.json
+</code></pre>
+
+<h2>ip check</h2>
+
+<p><a href="https://www.toolsdaquan.com/ipcheck/">https://www.toolsdaquan.com/ipcheck/</a></p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to set up v2ray server on Ubuntu.]]></summary></entry><entry><title type="html">WSL HTTP Proxy</title><link href="http://songzy12.github.io/2025/01/04/wsl-http-proxy.html" rel="alternate" type="text/html" title="WSL HTTP Proxy" /><published>2025-01-04T23:20:26+08:00</published><updated>2025-01-04T23:20:26+08:00</updated><id>http://songzy12.github.io/2025/01/04/wsl-http-proxy</id><content type="html" xml:base="http://songzy12.github.io/2025/01/04/wsl-http-proxy.html"><![CDATA[<p>Set up http/https proxy inside WSL.</p>
+
+<p><a href="https://learn.microsoft.com/en-us/windows/wsl/networking">https://learn.microsoft.com/en-us/windows/wsl/networking</a></p>
+
+<h2>Port</h2>
+
+<p>If the v2ray has the following setting:</p>
+
+<pre><code>本地：[socks:10808] | [http:10809]
+局域网：[socks:10810] | [http:10811]
+</code></pre>
+
+<p>Then:</p>
+
+<pre><code>PROXY_PORT=10811
+</code></pre>
+
+<h2>NAT</h2>
+
+<pre><code>WINDOWS_HOST=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
+
+export http_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export https_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTP_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTPS_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+</code></pre>
+
+<h2>Mirrored</h2>
+
+<p>In <code>C:\Users\songz\.wslconfig</code> of Windows host:</p>
+
+<pre><code>[experimental]
+autoMemoryReclaim=gradual  # gradual  | dropcache | disabled
+networkingMode=mirrored
+dnsTunneling=true
+firewall=true
+autoProxy=true
+</code></pre>
+
+<p>Then in WSL2:</p>
+
+<pre><code>WINDOWS_HOST=localhost
+
+export http_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export https_proxy=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTP_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+export HTTPS_PROXY=http://$WINDOWS_HOST:$PROXY_PORT
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Set up http/https proxy inside WSL.]]></summary></entry><entry><title type="html">Windows VPN Hotspot</title><link href="http://songzy12.github.io/2024/11/22/windows-vpn-hotspot.html" rel="alternate" type="text/html" title="Windows VPN Hotspot" /><published>2024-11-22T20:14:54+08:00</published><updated>2024-11-22T20:14:54+08:00</updated><id>http://songzy12.github.io/2024/11/22/windows-vpn-hotspot</id><content type="html" xml:base="http://songzy12.github.io/2024/11/22/windows-vpn-hotspot.html"><![CDATA[<p>With VPN enabled on Windows, how to share it with mobile device like Quest 2?</p>
+
+<ol>
+<li>Windows hotpot with proxy setting on mobile device: <a href="https://mission-young.github.io/2020/05/02/V2ray-%E5%85%B1%E4%BA%AB%E7%83%AD%E7%82%B9/">https://mission-young.github.io/2020/05/02/V2ray-%E5%85%B1%E4%BA%AB%E7%83%AD%E7%82%B9/</a></li>
+<li>Windows hotpot with TUN mode of VPN client, no need for proxy setting on mobile device: <a href="https://docs.gtk.pw/contents/tun.html">https://docs.gtk.pw/contents/tun.html</a></li>
+<li>Windows hotpot with SSTap, no need for proxy setting on mobile device: <a href="https://www.sainnhe.dev/post/v2ray-hotspot/#%E9%80%9A%E8%BF%87%E7%94%B5%E8%84%91%E5%88%9B%E5%BB%BA%E7%83%AD%E7%82%B9">https://www.sainnhe.dev/post/v2ray-hotspot/#%E9%80%9A%E8%BF%87%E7%94%B5%E8%84%91%E5%88%9B%E5%BB%BA%E7%83%AD%E7%82%B9</a></li>
+<li>Install VPN on Quest 2, without dependicy on Windows: <a href="https://zh.wizcase.com/blog/%E5%A6%82%E4%BD%95%E5%9C%A8-oculus-quest-2-%E4%B8%8A%E5%AE%89%E8%A3%85%E5%B9%B6%E4%BD%BF%E7%94%A8-vpn/">https://zh.wizcase.com/blog/%E5%A6%82%E4%BD%95%E5%9C%A8-oculus-quest-2-%E4%B8%8A%E5%AE%89%E8%A3%85%E5%B9%B6%E4%BD%BF%E7%94%A8-vpn/</a></li>
+</ol>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[With VPN enabled on Windows, how to share it with mobile device like Quest 2?]]></summary></entry><entry><title type="html">Code Server</title><link href="http://songzy12.github.io/2024/09/13/code-server.html" rel="alternate" type="text/html" title="Code Server" /><published>2024-09-13T21:56:16+08:00</published><updated>2024-09-13T21:56:16+08:00</updated><id>http://songzy12.github.io/2024/09/13/code-server</id><content type="html" xml:base="http://songzy12.github.io/2024/09/13/code-server.html"><![CDATA[<p>How to install and use <a href="https://github.com/coder/code-server">Code Server</a>.</p>
+
+<h2>Motivation</h2>
+
+<p>This way, we can put our project codes in <strong>remote cloud machines</strong>, and access it from a <strong>browser</strong> in <strong>any other computers</strong>.</p>
+
+<p>NOTE: Without the &ldquo;browser&rdquo; requirement, you can use vscode directly to access files in remote cloud machine from any computers.</p>
+
+<h2>Install</h2>
+
+<p><a href="https://coder.com/docs/code-server/install#debian-ubuntu">https://coder.com/docs/code-server/install#debian-ubuntu</a></p>
+
+<pre><code>export VERSION=4.92.2
+curl -fOL https://github.com/coder/code-server/releases/download/v$VERSION/code-server_${VERSION}_amd64.deb
+</code></pre>
+
+
+
+<pre><code>sudo dpkg -i code-server_${VERSION}_amd64.deb
+</code></pre>
+
+
+
+<pre><code>sudo systemctl enable --now code-server@$USER
+# Now visit http://127.0.0.1:8080. Your password is in ~/.config/code-server/config.yaml
+</code></pre>
+
+<h2>SSH Port Forwarding</h2>
+
+<h3>Remote Host</h3>
+
+<p><a href="https://coder.com/docs/code-server/guide#port-forwarding-via-ssh">https://coder.com/docs/code-server/guide#port-forwarding-via-ssh</a></p>
+
+<pre><code># Replaces "auth: password" with "auth: none" in the code-server config.
+sed -i.bak 's/auth: password/auth: none/' ~/.config/code-server/config.yaml
+</code></pre>
+
+
+
+<pre><code>sudo service code-server@$USER status
+</code></pre>
+
+<h3>Local Client</h3>
+
+<pre><code>set -x
+ssh -N -L 8080:127.0.0.1:8080 songzy@maomaosenlin.cc
+</code></pre>
+
+<p>Then, you can visit <a href="http://localhost:8080">http://localhost:8080</a> in your local machine to access the code server started in remote machine.</p>
+
+<h2>Extensions</h2>
+
+<p>Some extensions are not avaliable in the default extension market, you might need to install them manually. Let us use the &ldquo;C/C++&rdquo; extension as an example.</p>
+
+<p>First, find the extension download link from the &ldquo;Version History&rdquo; tab of the vscode extension marketplace:
+<a href="https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools&amp;ssr=false#version-history">https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools&amp;ssr=false#version-history</a></p>
+
+<p>Then, in your remote machine, use wget to download the extension:</p>
+
+<pre><code>wget https://marketplace.visualstudio.com/_apis/public/gallery/publishers/ms-vscode/vsextensions/cpptools/1.23.0/vspackage\?targetPlatform\=linux-x64
+</code></pre>
+
+<p>The file downloaded by <code>wget</code> (or <code>curl</code>) cannot be installed directly since it is in a gzip format. So we need to first rename it with suffix <code>.gz</code> and then <code>gunzip</code> it:</p>
+
+<pre><code>mv vspackage\?targetPlatform=linux-x64 ms-vscode.cpptools-1.10.3@linux-x64.vsix.gz
+gunzip ms-vscode.cpptools-1.10.3@linux-x64.vsix.gz
+</code></pre>
+
+<p>Then, you can install the <code>ms-vscode.cpptools-1.10.3@linux-x64.vsix</code> either from commandline or search for the &ldquo;Extensions: Install from VSIX&rdquo; after typing &ldquo;Shift-Command-P&rdquo;.</p>
+
+<h2>Alternatives</h2>
+
+<ul>
+<li><a href="https://code.visualstudio.com/blogs/2021/10/20/vscode-dev">vscode.dev</a>: This is a lightweight vscode running in browser to manipulate <strong>local</strong> files.</li>
+<li><a href="https://github.com/features/codespaces">GitHub Codespaces</a>: This is not free, and has network connection issue (you know it) from time to time.</li>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to install and use Code Server.]]></summary></entry><entry><title type="html">Laptop Collection</title><link href="http://songzy12.github.io/2024/08/23/laptop.html" rel="alternate" type="text/html" title="Laptop Collection" /><published>2024-08-23T10:40:00+08:00</published><updated>2024-08-23T10:40:00+08:00</updated><id>http://songzy12.github.io/2024/08/23/laptop</id><content type="html" xml:base="http://songzy12.github.io/2024/08/23/laptop.html"><![CDATA[<p>A collection of my personal laptop devices.</p>
+
+<h2>OMEN 9 Slim (2023)</h2>
+
+<ul>
+<li>CPU: Intel Core i9-13900HX</li>
+<li>GPU: NVIDIA GeForce RTX 4060 8G</li>
+<li>Memory: 16G</li>
+<li>Storage: 1T SSD</li>
+</ul>
+
+
+<h2>MacBook Air M1 (2020)</h2>
+
+<ul>
+<li>Chip: M1</li>
+<li>Memory: 16G</li>
+<li>Storage: 1T SSD</li>
+</ul>
+
+
+<h2>ThinkPad T470 (2017)</h2>
+
+<ul>
+<li>CPU: Intel Core i5-7200U</li>
+<li>GPU: NVIDIA GeForce 940MX 2GB</li>
+<li>Memory: 16G</li>
+<li>Storage: 128G SSD + 500G HDD</li>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[A collection of my personal laptop devices.]]></summary></entry><entry><title type="html">V2Ray Client - Mac</title><link href="http://songzy12.github.io/2024/08/13/v2ray-client-mac.html" rel="alternate" type="text/html" title="V2Ray Client - Mac" /><published>2024-08-13T22:28:17+08:00</published><updated>2024-08-13T22:28:17+08:00</updated><id>http://songzy12.github.io/2024/08/13/v2ray-client-mac</id><content type="html" xml:base="http://songzy12.github.io/2024/08/13/v2ray-client-mac.html"><![CDATA[<p>How to resolve: &ldquo;V2rayU"将对你的电脑造成伤害</p>
+
+<p><a href="https://discussionschinese.apple.com/thread/254968153">https://discussionschinese.apple.com/thread/254968153</a></p>
+
+<p>证书过期问题导致的：</p>
+
+<p>第一步，执行
+<code>
+sudo codesign --force --deep --sign - /Applications/V2rayU.app
+</code></p>
+
+<p>第二步，在应用程序中找到V2rayU，右键，显示简介，勾选覆盖恶意软件保护</p>
+
+<p>第三步，打开软件</p>
+
+<p>第四步，执行
+<code>
+sudo codesign --force --deep --sign - ~/.V2rayU/V2rayUTool
+sudo codesign --force --deep --sign - ~/.V2rayU/v2ray-core/v2ray
+</code></p>
+
+<p>然后就能正常运行了。</p>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[How to resolve: &ldquo;V2rayU"将对你的电脑造成伤害]]></summary></entry><entry><title type="html">GitBook</title><link href="http://songzy12.github.io/2024/07/17/gitbook.html" rel="alternate" type="text/html" title="GitBook" /><published>2024-07-17T19:25:18+08:00</published><updated>2024-07-17T19:25:18+08:00</updated><id>http://songzy12.github.io/2024/07/17/gitbook</id><content type="html" xml:base="http://songzy12.github.io/2024/07/17/gitbook.html"><![CDATA[<p>Basic usage of GitBook.</p>
+
+<h2>Install</h2>
+
+<p><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
+
+<pre><code>brew install nvm
+</code></pre>
+
+
+
+<pre><code>nvm install 12
+nvm use 12
+npm install graceful-fs@4.2.0 -g
+npm install gitbook-cli@2.1.2 -g
+</code></pre>
+
+<h2>Run</h2>
+
+<pre><code>gitbook init
+</code></pre>
+
+
+
+<pre><code>gitbook serve
+</code></pre>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[Basic usage of GitBook.]]></summary></entry><entry><title type="html">GitHub Repo Index</title><link href="http://songzy12.github.io/2024/07/05/github-repo-index.html" rel="alternate" type="text/html" title="GitHub Repo Index" /><published>2024-07-05T19:32:45+08:00</published><updated>2024-07-05T19:32:45+08:00</updated><id>http://songzy12.github.io/2024/07/05/github-repo-index</id><content type="html" xml:base="http://songzy12.github.io/2024/07/05/github-repo-index.html"><![CDATA[<p>An index of my GitHub repositories.</p>
+
+<ul>
+<li>Algorithm &amp; Data Structure
+
+<ul>
+<li><a href="https://github.com/songzy12/HackerRank">https://github.com/songzy12/HackerRank</a></li>
+<li><a href="https://github.com/songzy12/CodeForces">https://github.com/songzy12/CodeForces</a></li>
+</ul>
+</li>
+<li>Math &amp; Optimization
+
+<ul>
+<li><a href="https://github.com/songzy12/ProjectEuler">https://github.com/songzy12/ProjectEuler</a></li>
+<li><a href="https://github.com/songzy12/santa-competitions">https://github.com/songzy12/santa-competitions</a></li>
+</ul>
+</li>
+<li>Programming Language
+
+<ul>
+<li><a href="https://github.com/songzy12/SICP">https://github.com/songzy12/SICP</a></li>
+<li><a href="https://github.com/songzy12/python_challenge">https://github.com/songzy12/python_challenge</a></li>
+<li><a href="https://github.com/songzy12/Haskell-99">https://github.com/songzy12/Haskell-99</a></li>
+</ul>
+</li>
+<li>Security
+
+<ul>
+<li><a href="https://github.com/songzy12/xCTF">https://github.com/songzy12/xCTF</a></li>
+<li><a href="https://github.com/songzy12/bugku">https://github.com/songzy12/bugku</a></li>
+<li><a href="https://github.com/songzy12/ctf_101">https://github.com/songzy12/ctf_101</a>
+
+<ul>
+<li><a href="https://github.com/songzy12/defend_the_web">https://github.com/songzy12/defend_the_web</a></li>
+<li><a href="https://github.com/songzy12/we_chall">https://github.com/songzy12/we_chall</a></li>
+<li><a href="https://github.com/songzy12/cryptohack">https://github.com/songzy12/cryptohack</a></li>
+<li><a href="https://github.com/songzy12/challenges_re">https://github.com/songzy12/challenges_re</a></li>
+<li><a href="https://github.com/songzy12/pwnable">https://github.com/songzy12/pwnable</a></li>
+</ul>
+</li>
+<li>In the Wild
+
+<ul>
+<li><a href="https://github.com/songzy12/CVE">https://github.com/songzy12/CVE</a></li>
+<li><a href="https://github.com/songzy12/AVD">https://github.com/songzy12/AVD</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Web Crawler
+
+<ul>
+<li><a href="https://github.com/songzy12/weibo_tool">https://github.com/songzy12/weibo_tool</a></li>
+<li><a href="https://github.com/songzy12/bilibili_crawler">https://github.com/songzy12/bilibili_crawler</a></li>
+</ul>
+</li>
+<li>Game AI
+
+<ul>
+<li><a href="https://github.com/songzy12/Lux-AI">https://github.com/songzy12/Lux-AI</a></li>
+</ul>
+</li>
+<li>NLP Models
+
+<ul>
+<li>FastText (2016): <a href="https://github.com/songzy12/FastText">https://github.com/songzy12/FastText</a></li>
+<li>ConvS2S (2017): <a href="https://github.com/songzy12/ConvS2S">https://github.com/songzy12/ConvS2S</a></li>
+<li>ULMFiT (2018): <a href="https://github.com/songzy12/ULMFiT">https://github.com/songzy12/ULMFiT</a></li>
+<li>LongFormer (2020): <a href="https://github.com/songzy12/LongFormer">https://github.com/songzy12/LongFormer</a></li>
+<li>DeBERTa (2020): <a href="https://github.com/songzy12/DeBERTa">https://github.com/songzy12/DeBERTa</a></li>
+</ul>
+</li>
+<li>Machine Learning
+
+<ul>
+<li>(2017) <a href="https://github.com/songzy12/text-normalization-challenge">https://github.com/songzy12/text-normalization-challenge</a></li>
+<li>(2017) <a href="https://github.com/songzy12/spooky-author-identification">https://github.com/songzy12/spooky-author-identification</a></li>
+<li>(2017) <a href="https://github.com/songzy12/kkbox-music-recommendation-challenge">https://github.com/songzy12/kkbox-music-recommendation-challenge</a></li>
+<li>(2018) <a href="https://github.com/songzy12/jigsaw-toxic-comment-classification-challenge">https://github.com/songzy12/jigsaw-toxic-comment-classification-challenge</a></li>
+<li>(2019) <a href="https://github.com/songzy12/microsoft-malware-prediction">https://github.com/songzy12/microsoft-malware-prediction</a></li>
+</ul>
+</li>
+<li>Android
+
+<ul>
+<li><a href="https://github.com/songzy12/AndroidRotationSensor">https://github.com/songzy12/AndroidRotationSensor</a></li>
+</ul>
+</li>
+<li>Chrome
+
+<ul>
+<li><a href="https://github.com/songzy12/SirsiDynixAssistant">https://github.com/songzy12/SirsiDynixAssistant</a></li>
+</ul>
+</li>
+<li>Homework
+
+<ul>
+<li><a href="https://github.com/songzy12/QA">https://github.com/songzy12/QA</a></li>
+<li><a href="https://github.com/songzy12/IIIS_PreliminaryExam">https://github.com/songzy12/IIIS_PreliminaryExam</a></li>
+<li>Master
+
+<ul>
+<li><a href="https://github.com/songzy12/largest_empty_convex_polygon">https://github.com/songzy12/largest_empty_convex_polygon</a></li>
+<li><a href="https://github.com/songzy12/citation_count_prediction">https://github.com/songzy12/citation_count_prediction</a></li>
+<li><a href="https://github.com/songzy12/6.824-golabs-2017">https://github.com/songzy12/6.824-golabs-2017</a></li>
+<li><a href="https://github.com/Sun-Jc/EtherLend">https://github.com/Sun-Jc/EtherLend</a></li>
+</ul>
+</li>
+<li>Bachelor
+
+<ul>
+<li><a href="https://github.com/songzy12/nachos">https://github.com/songzy12/nachos</a></li>
+<li><a href="https://github.com/songzy12/6.824-golabs-2015">https://github.com/songzy12/6.824-golabs-2015</a></li>
+<li><a href="https://github.com/songzy12/avazu-ctr-prediction">https://github.com/songzy12/avazu-ctr-prediction</a></li>
+<li><a href="https://github.com/songzy12/ray_tracing">https://github.com/songzy12/ray_tracing</a></li>
+<li><a href="https://github.com/songzy12/mesh_simplification">https://github.com/songzy12/mesh_simplification</a></li>
+<li><a href="https://github.com/songzy12/decaf">https://github.com/songzy12/decaf</a></li>
+<li><a href="https://github.com/songzy12/Y86">https://github.com/songzy12/Y86</a></li>
+<li><a href="https://github.com/songzy12/pet">https://github.com/songzy12/pet</a></li>
+<li><a href="https://github.com/songzy12/csapp-3e-labs">https://github.com/songzy12/csapp-3e-labs</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>]]></content><author><name>Zhengyang Song</name></author><summary type="html"><![CDATA[An index of my GitHub repositories.]]></summary></entry></feed>

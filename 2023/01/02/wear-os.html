@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Wear OS | Secret Base</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Wear OS" />
+<meta name="author" content="Zhengyang Song" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Google Pixel Watch app will crash on Honor 20 Pro with HarmonyOS 2.0.0." />
+<meta property="og:description" content="Google Pixel Watch app will crash on Honor 20 Pro with HarmonyOS 2.0.0." />
+<link rel="canonical" href="http://songzy12.github.io/2023/01/02/wear-os.html" />
+<meta property="og:url" content="http://songzy12.github.io/2023/01/02/wear-os.html" />
+<meta property="og:site_name" content="Secret Base" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-01-02T21:06:00+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Wear OS" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2023-01-02T21:06:00+08:00","datePublished":"2023-01-02T21:06:00+08:00","description":"Google Pixel Watch app will crash on Honor 20 Pro with HarmonyOS 2.0.0.","headline":"Wear OS","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2023/01/02/wear-os.html"},"url":"http://songzy12.github.io/2023/01/02/wear-os.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Secret Base</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Wear OS</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2023-01-02T21:06:00+08:00" itemprop="datePublished">Jan 2, 2023
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Google Pixel Watch app will crash on Honor 20 Pro with HarmonyOS 2.0.0.</p>
+
+<h2>Logcat</h2>
+
+<pre><code>2023-01-02 21:40:49.866 16383-16383/? E/PrivacyConsentApi: Exception while registering consent listener
+    equ: 17: API: Wearable.API is not available on this device. Connection failed with: epo{statusCode=API_UNAVAILABLE, resolution=null, message=null}
+        at erk.d(PG:1)
+        at ese.s(PG:7)
+        at ese.f(PG:2)
+        at ese.j(PG:21)
+        at ese.i(PG:1)
+        at androidx.wear.ambient.AmbientModeSupport$AmbientController.b(PG:1)
+        at etr.a(PG:1)
+        at etl.d(PG:6)
+        at etm.handleMessage(PG:38)
+        at android.os.Handler.dispatchMessage(Handler.java:110)
+        at exp.b(PG:1)
+        at exp.dispatchMessage(PG:1)
+        at android.os.Looper.loop(Looper.java:219)
+        at android.os.HandlerThread.run(HandlerThread.java:67)
+</code></pre>
+
+
+
+<pre><code>2023-01-02 21:03:20.439 1568-2418/? E/ActivityTaskManager: START {hwFlg=0x10 cmp=com.google.android.wearable.app.cn/com.google.android.gms.wearable.consent.TermsOfServiceActivity (has extras)} result: -92
+2023-01-02 21:03:20.441 14409-14409/? E/AndroidRuntime: FATAL EXCEPTION: main
+    Process: com.google.android.apps.wear.companion, PID: 14409
+    java.lang.RuntimeException: Unable to start activity ComponentInfo{com.google.android.apps.wear.companion/com.google.android.libraries.wear.companion.invisibleactivity.impl.InvisibleActivity}: android.content.ActivityNotFoundException: Unable to find explicit activity class {com.google.android.wearable.app.cn/com.google.android.gms.wearable.consent.TermsOfServiceActivity}; have you declared this activity in your AndroidManifest.xml?
+        at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:4060)
+        at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:4247)
+        at android.app.servertransaction.LaunchActivityItem.execute(LaunchActivityItem.java:91)
+        at android.app.servertransaction.TransactionExecutor.executeCallbacks(TransactionExecutor.java:149)
+        at android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java:103)
+        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2613)
+        at android.os.Handler.dispatchMessage(Handler.java:110)
+        at android.os.Looper.loop(Looper.java:219)
+        at android.app.ActivityThread.main(ActivityThread.java:8668)
+        at java.lang.reflect.Method.invoke(Native Method)
+        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:513)
+        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1109)
+     Caused by: android.content.ActivityNotFoundException: Unable to find explicit activity class {com.google.android.wearable.app.cn/com.google.android.gms.wearable.consent.TermsOfServiceActivity}; have you declared this activity in your AndroidManifest.xml?
+        at android.app.Instrumentation.checkStartActivityResult(Instrumentation.java:2118)
+        at android.app.Instrumentation.execStartActivity(Instrumentation.java:1746)
+        at android.app.Activity.startActivityForResult(Activity.java:5412)
+        at vp.b(PG:1)
+        at androidx.activity.result.ActivityResultRegistry.f(PG:13)
+        at qz.b(PG:4)
+        at hwu.b(PG:1)
+        at jcn.a(PG:39)
+        at hwv.a(PG:7)
+        at com.google.android.libraries.wear.companion.invisibleactivity.impl.InvisibleActivity.onCreate(PG:11)
+        at android.app.Activity.performCreate(Activity.java:8214)
+        at android.app.Activity.performCreate(Activity.java:8202)
+        at android.app.Instrumentation.callActivityOnCreate(Instrumentation.java:1320)
+        at android.app.ActivityThread.performLaunchActivity(ActivityThread.java:4033)
+        at android.app.ActivityThread.handleLaunchActivity(ActivityThread.java:4247) 
+        at android.app.servertransaction.LaunchActivityItem.execute(LaunchActivityItem.java:91) 
+        at android.app.servertransaction.TransactionExecutor.executeCallbacks(TransactionExecutor.java:149) 
+        at android.app.servertransaction.TransactionExecutor.execute(TransactionExecutor.java:103) 
+        at android.app.ActivityThread$H.handleMessage(ActivityThread.java:2613) 
+        at android.os.Handler.dispatchMessage(Handler.java:110) 
+        at android.os.Looper.loop(Looper.java:219) 
+        at android.app.ActivityThread.main(ActivityThread.java:8668) 
+        at java.lang.reflect.Method.invoke(Native Method) 
+        at com.android.internal.os.RuntimeInit$MethodAndArgsCaller.run(RuntimeInit.java:513) 
+        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:1109) 
+</code></pre>
+
+<h2>Debug</h2>
+
+<p><a href="https://support.google.com/googlepixelwatch/answer/12652073?hl=en">https://support.google.com/googlepixelwatch/answer/12652073?hl=en</a></p>
+
+<blockquote><p>To connect Google Pixel Watch, you need an Android phone running Android OS version 8.0 or higher.
+iOS phones are not currently supported.</p></blockquote>
+
+<p><a href="https://www.androidauthority.com/harmony-os-2-android-1231446/">https://www.androidauthority.com/harmony-os-2-android-1231446/</a></p>
+
+<blockquote><p>Huawei’s HarmonyOS 2.0 may be based on Android 10.</p></blockquote>
+
+<p><a href="https://support.google.com/googlepixelwatch/thread/183791114/google-pixel-watch-app-crashes-when-setting-up-device?hl=en">https://support.google.com/googlepixelwatch/thread/183791114/google-pixel-watch-app-crashes-when-setting-up-device?hl=en</a></p>
+
+<blockquote><p>The pixel watch app crashes whenever I click &ldquo;continue&rdquo; (and also &ldquo;Pair with emulator&rdquo; option in the menu) on the setup page.</p>
+
+<p>For more context, I&rsquo;m using a Huawei P30 Pro running Harmony OS 2.0.0.268, which should be equivalent to Android 10.</p></blockquote>
+
+<p><a href="https://support.google.com/wearos/answer/9266307">https://support.google.com/wearos/answer/9266307</a></p>
+
+<blockquote><p>Watches that run Wear OS 3 are not compatible with the Wear OS app.</p></blockquote>
+
+<p><a href="https://developer.android.com/training/wearables/creating-app-china">https://developer.android.com/training/wearables/creating-app-china</a></p>
+
+<blockquote><p>com.google.android.wearable.app.cn</p></blockquote>
+
+  </div><a class="u-url" href="/2023/01/02/wear-os.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Secret Base</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>LaTeX | Secret Base</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="LaTeX" />
+<meta name="author" content="Zhengyang Song" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Basic usage of LaTeX." />
+<meta property="og:description" content="Basic usage of LaTeX." />
+<link rel="canonical" href="http://songzy12.github.io/2018/06/30/latex.html" />
+<meta property="og:url" content="http://songzy12.github.io/2018/06/30/latex.html" />
+<meta property="og:site_name" content="Secret Base" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2018-06-30T12:00:04+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="LaTeX" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2018-06-30T12:00:04+08:00","datePublished":"2018-06-30T12:00:04+08:00","description":"Basic usage of LaTeX.","headline":"LaTeX","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2018/06/30/latex.html"},"url":"http://songzy12.github.io/2018/06/30/latex.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Secret Base</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">LaTeX</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2018-06-30T12:00:04+08:00" itemprop="datePublished">Jun 30, 2018
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Basic usage of LaTeX.</p>
+
+<h2>todo</h2>
+
+<pre><code>\usepackage[colorinlistoftodos]{todonotes}
+
+\todo[inline, color=green!40]{This is an inline comment.}
+</code></pre>
+
+<h2>enumitem</h2>
+
+<pre><code>\usepackage{enumitem}
+
+\maketitle
+\begin{enumerate}[label=(\alph*)]
+\item an apple
+\item a banana
+\end{enumerate}
+</code></pre>
+
+<h2>verb</h2>
+
+<pre><code>\verb|.bib|
+</code></pre>
+
+<h2>href</h2>
+
+<pre><code>\href{https://www.overleaf.com/blog/184}{Mendeley}
+</code></pre>
+
+<h2>equiv</h2>
+
+<pre><code>a\equiv b \bmod p
+</code></pre>
+
+<h2>matrix</h2>
+
+<pre><code>x^{(1)}=\begin{bmatrix}\frac{3}{2}\\[0.3em]\frac{9}{4}\end{bmatrix}, 
+</code></pre>
+
+<p>Just use overleaf <a href="https://www.overleaf.com/5269090dsqmsd#/16588846/">here</a>.</p>
+
+<h2>jumpnav-main</h2>
+
+<pre><code>\documentclass[chi_draft]{sigchi}
+\begin{document}
+%\usepackage{natbib}
+
+\title{}
+\author{}
+
+\maketitle
+
+\input{abstract}
+
+
+\input{intro}
+\input{related}
+\input{data}
+\input{problem}
+\input{observations}
+\input{approach}
+\input{exp}
+\input{conclusion}
+
+\bibliographystyle{SIGCHI-Reference-Format}
+\bibliography{references}
+
+\end{document}
+</code></pre>
+
+<h2>convex optimization</h2>
+
+<pre><code>\begin{alignat*}{2}
+\min\quad &amp; -2x_1-x_2+x_3 \\
+\mbox{s.t.}\quad
+&amp;x_1+x_2+2x_3 \le 6  \\
+&amp;x_1+4x_2-x_3 \le 4  \\
+&amp;x_1, x_2, x_3 \ge 0
+\end{alignat*}
+</code></pre>
+
+<h2>MISC</h2>
+
+<pre><code>\noindent
+\textbf{}
+\LaTeX{}
+\TeX\
+\TeX{}
+\textbackslash
+\textit{} 
+\empha{}
+{\bf }
+\smallskip
+\bigskip
+</code></pre>
+
+<h2>tikz</h2>
+
+<p><a href="http://cremeronline.com/LaTeX/minimaltikz.pdf">here</a></p>
+
+<pre><code>\begin{center}
+\begin{tikzpicture}[domain=0:0.5,xscale=13,yscale=3.8]
+\draw[&lt;-&gt;] (0,2) node[left]{EUR}-- (0,0) -- (.7,0) node[below] {$q$};
+\draw[red] plot (\x, {0.25+\x/2+\x*\x/2}) node[right] {$v_1(x)$};
+\draw[green] plot (\x, {0.025+\x+\x*\x}) node[right] {$v_2(x)$};
+\draw[thin, dashed] plot (\x, {0.275+1.5*\x+1.5*\x*\x}) ;
+\draw[thick,domain=0:0.33666] plot (\x, {0.05+2*\x+2*\x*\x}) ;
+\draw[thick,domain=0.33666:0.5]
+plot (\x, {0.5+\x+\x*\x}) node[right] {$2\min[v_1,v_2]$};
+\end{tikzpicture}
+\end{center}
+</code></pre>
+
+<h2>tabular*</h2>
+
+<p><a href="https://en.wikibooks.org/wiki/LaTeX/Tables#The_tabular.2A_environment">table</a>.</p>
+
+<pre><code>\begin{tabular*}{0.75\textwidth}{@{\extracolsep{\fill} } | c | c | c | r | }
+  \hline
+  label 1 &amp; label 2 &amp; label 3 &amp; label 4 \\
+  \hline 
+  item 1  &amp; item 2  &amp; item 3  &amp; item 4  \\
+  \hline
+\end{tabular*}
+</code></pre>
+
+<h3>multirow</h3>
+
+<pre><code>{
+\begin{table}
+\caption{Statistics of the Dataset}
+\label{tab:dataset}
+\centering
+    \begin{tabular}{c|c|c|c}
+    \hline \hline
+    \multirow{3}{*}{Science}   &amp; \multirow{2}{*}{Video} &amp; Count &amp; \\ \cline{3-4}
+                               &amp;                        &amp; Avg. length &amp; \\ \cline{2-4}
+                               &amp; User &amp; Count &amp;  \\ \cline{2-4}
+                               &amp; \multirow{3}{*}{Back-jumps} &amp; Count &amp;       \\ \cline{3-4}
+                               &amp;                             &amp; Max back-jumps/video &amp;       \\ \cline{3-4}
+                               &amp;                             &amp; Min back-jumps/video &amp;       \\ \cline{2-4}
+    \hline \hline
+    \end{tabular}
+\end{table}
+}
+</code></pre>
+
+<h2>caption</h2>
+
+<pre><code>\usepackage{caption} 
+\captionsetup[table]{skip=10pt}
+</code></pre>
+
+<h2>pdflatex</h2>
+
+<pre><code>\documentclass{article}
+
+\begin{document}
+First document. This is a simple example, with no 
+extra parameters or packages included. \cite{knuthwebsite}.
+\end{document}
+</code></pre>
+
+
+
+<pre><code>sudo apt-get install texlive
+pdftex /path/to/myfile.tex
+</code></pre>
+
+<h2>bibtex</h2>
+
+<p><code>article.tex</code></p>
+
+<pre><code>\documentclass{article}
+\usepackage{natbib}
+
+\begin{document}
+First document. This is a simple example, with no 
+extra parameters or packages included. \cite{knuthwebsite}.
+
+\bibliographystyle{alpha}
+\bibliography{article}
+\end{document}
+</code></pre>
+
+<p><code>article.bib</code></p>
+
+<pre><code>@misc{knuthwebsite,
+    author    = "Donald Knuth",
+    title     = "Knuth: Computers and Typesetting",
+    url       = "http://www-cs-faculty.stanford.edu/\~{}uno/abcde.html"
+}
+</code></pre>
+
+<p>Suppose you have <code>article.tex</code> and <code>article.bib</code>. You need to run:</p>
+
+<ul>
+<li>latex article.tex (this will generate a document with question marks in place of unknown references)</li>
+<li>bibtex article (this will parse all the .bib files that were included in the article and generate metainformation regarding references)</li>
+<li>latex article.tex (this will generate document with all the references in the correct places)</li>
+<li>latex article.tex (just in case if adding references broke page numbering somewhere)</li>
+</ul>
+
+
+<p>Just add the following line to your <code>~/.bashrc</code> file (modify the main keyword accordingly to the name of your <code>.tex</code> and <code>.bib</code> files)</p>
+
+<pre><code>alias texbib='pdflatex main.tex &amp;&amp; bibtex main &amp;&amp; pdflatex main.tex &amp;&amp; pdflatex main.tex &amp;&amp; gnome-open main.pdf'
+</code></pre>
+
+<h2>xelatex</h2>
+
+<p>需要用 <code>xecjk</code> 或 <code>zhspacing</code> 设置中文字体。 <code>XeTex</code> 缺省设了英文字体 <code>Latin Modern</code>，所以你能看到英文字。</p>
+
+<pre><code>\documentclass{article}
+\usepackage{xeCJK}
+
+\setCJKmainfont{simsun.ttf}
+\setCJKsansfont{simhei.ttf}
+\setCJKmonofont{simfang.ttf}
+
+\begin{document}
+
+\title{作业}
+\author{宋正阳}
+\date{\today}
+
+\maketitle
+
+\end{document}
+</code></pre>
+
+<h2>font</h2>
+
+<pre><code>Fontconfig warning: "/etc/fonts/conf.d/65-droid-sans-fonts.conf", line 96: Having multiple values in &lt;test&gt; isn't supported and may not work as expected
+</code></pre>
+
+
+
+<pre><code>sudo apt install --reinstall fontconfig
+
+&lt;test name="lang"&gt;
+  &lt;string&gt;zh-cn&lt;/string&gt;
+  &lt;string&gt;zh-sg&lt;/string&gt;
+  &lt;string&gt;zh-hk&lt;/string&gt;
+  &lt;string&gt;zh-tw&lt;/string&gt;
+  &lt;string&gt;zh&lt;/string&gt;
+&lt;/test&gt;
+
+&lt;test name="lang"&gt;
+  &lt;string&gt;zh-cn&lt;/string&gt;
+&lt;/test&gt;
+</code></pre>
+
+  </div><a class="u-url" href="/2018/06/30/latex.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Secret Base</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

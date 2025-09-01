@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Nexus6P | Secret Base</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Nexus6P" />
+<meta name="author" content="Zhengyang Song" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Nexus 6P 刷系统。" />
+<meta property="og:description" content="Nexus 6P 刷系统。" />
+<link rel="canonical" href="http://songzy12.github.io/2019/03/03/nexus6p.html" />
+<meta property="og:url" content="http://songzy12.github.io/2019/03/03/nexus6p.html" />
+<meta property="og:site_name" content="Secret Base" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2019-03-03T14:59:18+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Nexus6P" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2019-03-03T14:59:18+08:00","datePublished":"2019-03-03T14:59:18+08:00","description":"Nexus 6P 刷系统。","headline":"Nexus6P","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2019/03/03/nexus6p.html"},"url":"http://songzy12.github.io/2019/03/03/nexus6p.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Secret Base</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Nexus6P</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2019-03-03T14:59:18+08:00" itemprop="datePublished">Mar 3, 2019
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Nexus 6P 刷系统。</p>
+
+<p>Windows 10 自带开启热点功能，搜索 <code>hotspot</code>.</p>
+
+<p><a href="https://withdewhua.space/2018/10/13/http-proxy-share/#windows">https://withdewhua.space/2018/10/13/http-proxy-share/#windows</a></p>
+
+<p>然后设置 shadowsocks 允许 LAN 代理：<code>Allow Clients from LAN</code></p>
+
+<p>在 Nexus 6P 启动界面配置代理手动：</p>
+
+<pre><code>ipconfig
+
+Wireless LAN adapter Local Area Connection* 15:
+
+   Connection-specific DNS Suffix  . :
+   Link-local IPv6 Address . . . . . : fe80::99f2:dfc9:5e94:373c%27
+   IPv4 Address. . . . . . . . . . . : 192.168.137.1
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . :
+</code></pre>
+
+<p>解锁 Nexus 6P:</p>
+
+<p><a href="http://www.mk52.cn/jiaocheng/1324.html">http://www.mk52.cn/jiaocheng/1324.html</a></p>
+
+<pre><code>adb reboot bootloader
+fastboot devices
+fastboot flashing unlock
+fastboot reboot
+</code></pre>
+
+<p>如何进入 recovery mode:</p>
+
+<p><a href="http://www.mk52.cn/jiaocheng/1335.html">http://www.mk52.cn/jiaocheng/1335.html</a></p>
+
+<p>修复教程：</p>
+
+<p><a href="https://www.xda-developers.com/nexus-6p-bootloop-fix/">https://www.xda-developers.com/nexus-6p-bootloop-fix/</a></p>
+
+<p><a href="https://forum.xda-developers.com/nexus-6p/general/guide-fix-nexus-6p-bootloop-death-blod-t3640279">https://forum.xda-developers.com/nexus-6p/general/guide-fix-nexus-6p-bootloop-death-blod-t3640279</a></p>
+
+<pre><code>fastboot devices
+fastboot flash boot N2G48B_4Cores.img
+</code></pre>
+
+<p>现在问题变成了一直卡在开机 logo 界面（相对于无限重启）。</p>
+
+<p><a href="https://blog.csdn.net/anod/article/details/84297347">https://blog.csdn.net/anod/article/details/84297347</a></p>
+
+<p>刷入对应版本 (N2G48B) 的 OTA:</p>
+
+<p><a href="https://developers.google.com/android/ota">https://developers.google.com/android/ota</a></p>
+
+<p><a href="https://dl.google.com/dl/android/aosp/angler-ota-n2g48b-8166f6bf.zip">https://dl.google.com/dl/android/aosp/angler-ota-n2g48b-8166f6bf.zip</a></p>
+
+<pre><code>adb devices
+adb sideload angler-ota-n2g48b-*.zip
+</code></pre>
+
+<p>或许直接看这个：</p>
+
+<p><a href="https://forum.xda-developers.com/nexus-6p/help/help-unbricking-nexus-6p-t3382895">https://forum.xda-developers.com/nexus-6p/help/help-unbricking-nexus-6p-t3382895</a></p>
+
+<p>和上面一样，报错：</p>
+
+<pre><code>This package is for "angler" devices; this is a "".
+</code></pre>
+
+<p>原因在这里：</p>
+
+<p><a href="https://www.securitynewspaper.com/2017/05/12/oneplus-otas-analysis-exploitation/">https://www.securitynewspaper.com/2017/05/12/oneplus-otas-analysis-exploitation/</a></p>
+
+<p>或者这里：</p>
+
+<p><a href="https://drive.google.com/file/d/0Bz6x7k-VkpUJRjl6WjRhVmdXU0E/view">https://drive.google.com/file/d/0Bz6x7k-VkpUJRjl6WjRhVmdXU0E/view</a></p>
+
+<blockquote><p>You are now on the Android Recovery screen. On the third line at the top of the screen you
+will see something that looks like this:
+6.0.1 / MOB30I / 2756745
+The middle one is your current Build Number. Make note of this as the Rescue OTA you
+need corresponds to this one or a more recent one. (NOTE: You cannot install an older one
+than your current Build Number.)</p></blockquote>
+
+<p>总算是把 boot.img 恢复了，还是送到淘宝店家去修吧。</p>
+
+  </div><a class="u-url" href="/2019/03/03/nexus6p.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Secret Base</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

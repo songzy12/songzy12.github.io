@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Octopress 3.0 | Secret Base</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Octopress 3.0" />
+<meta name="author" content="Zhengyang Song" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Basic usage of Octopress." />
+<meta property="og:description" content="Basic usage of Octopress." />
+<link rel="canonical" href="http://songzy12.github.io/2024/02/03/octopress-3-0.html" />
+<meta property="og:url" content="http://songzy12.github.io/2024/02/03/octopress-3-0.html" />
+<meta property="og:site_name" content="Secret Base" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-02-03T14:08:14+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Octopress 3.0" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2024-02-03T14:08:14+08:00","datePublished":"2024-02-03T14:08:14+08:00","description":"Basic usage of Octopress.","headline":"Octopress 3.0","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2024/02/03/octopress-3-0.html"},"url":"http://songzy12.github.io/2024/02/03/octopress-3-0.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Secret Base</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Octopress 3.0</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2024-02-03T14:08:14+08:00" itemprop="datePublished">Feb 3, 2024
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Basic usage of Octopress.</p>
+
+<h2>Install</h2>
+
+<h3>rbenv</h3>
+
+<pre><code>sudo apt install rbenv
+</code></pre>
+
+
+
+<pre><code>git clone https://github.com/rbenv/ruby-build.git "$(rbenv root)"/plugins/ruby-build
+CFLAGS="-Wno-error=implicit-function-declaration -Wcompound-token-split-by-macro" rbenv install 2.7.1
+</code></pre>
+
+<p>Then, append the following configs into your <code>~/.zshrc</code>:</p>
+
+<pre><code>export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
+</code></pre>
+
+
+
+<pre><code>rbenv versions
+rbenv local 2.7.1
+rbenv local --unset
+</code></pre>
+
+<h3>Gemfile</h3>
+
+<pre><code>source "https://gems.ruby-china.com"
+
+gem "jekyll", "~&gt; 3.8.4"
+gem 'octopress', '~&gt; 3.0.0'
+gem "minima", "~&gt; 2.0"
+
+group :jekyll_plugins do
+  gem "jekyll-feed", "~&gt; 0.6"
+end
+
+gem 'rdiscount', '~&gt; 2.0'
+gem 'sinatra', '~&gt; 1.4.2'
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+gem "wdm", "~&gt; 0.1.0" if Gem.win_platform?
+</code></pre>
+
+<h3>Bundler</h3>
+
+<p><a href="https://bundler.io/guides/getting_started.html">https://bundler.io/guides/getting_started.html</a></p>
+
+<pre><code>bundle install
+bundle clean --force
+
+bundle update --bundler
+</code></pre>
+
+<h2>Usage</h2>
+
+<h3>new post</h3>
+
+<pre><code>bundle exec octopress new post hello -D Ruby
+</code></pre>
+
+<h3>build</h3>
+
+<p>Here we set <code>JEKYLL_ENV=production</code> to enable <code>google_analytics</code> and <code>disqus</code>.</p>
+
+<pre><code>export JEKYLL_ENV=production
+bundle exec jekyll serve
+</code></pre>
+
+<h3>deploy</h3>
+
+<pre><code>bundle exec jekyll build
+bundle exec octopress deploy
+</code></pre>
+
+<p>在 <code>_config.yml</code>(<a href="https://jekyllrb.com/docs/configuration/default/">default</a>) 中配置了 <code>jekyll build</code> 时将静态文件生成到哪里：</p>
+
+<pre><code>source              : .
+destination         : ./_site
+</code></pre>
+
+<p>在 <code>_deploy.yml</code> 中配置了 <code>octopress deploy</code> 时将存放在哪里的静态文件发布到哪里：</p>
+
+<pre><code>site_dir: _site                           # Location of your static site files.
+
+# Note on git_branch:
+# If using GitHub project pages, set the branch to 'gh-pages'.
+# For GitHub user/organization pages or Heroku, set the branch to 'master'.
+#
+git_branch: master                        # Git branch where static site files are commited
+</code></pre>
+
+<p>在 <a href="https://github.com/songzy12/songzy12.github.io/settings/pages">GitHub Pages Settings</a> 里配置了 GitHub 用于网页渲染的静态文件来源：</p>
+
+<pre><code>Your GitHub Pages site is currently being built from the master branch. Learn more.
+</code></pre>
+
+<h3>source</h3>
+
+<p>源码和网站是在同一个 repo 的不同 branch 底下的。</p>
+
+<pre><code>git add .
+git commit -m "$(date)"
+git push origin source
+</code></pre>
+
+<h2>Theme</h2>
+
+<p><a href="https://jekyllrb.com/docs/themes/">https://jekyllrb.com/docs/themes/</a></p>
+
+<p><a href="https://github.com/jekyll/minima">https://github.com/jekyll/minima</a></p>
+
+<h3>layouts</h3>
+
+<pre><code>ls $(bundle show minima)/_layouts
+ls $(bundle show minima)/_includes
+</code></pre>
+
+<h4>header</h4>
+
+<pre><code>vi $(bundle show minima)/_includes/header.html
+</code></pre>
+
+<h4>footer</h4>
+
+<pre><code>vi $(bundle show minima)/_includes/footer.html
+</code></pre>
+
+<h2>Extension</h2>
+
+<h3>disqus</h3>
+
+<pre><code>disqus:
+  shortname: my_disqus_shortname
+</code></pre>
+
+<h3>google_analytics</h3>
+
+<pre><code>google_analytics: UA-NNNNNNNN-N
+</code></pre>
+
+<h2>Config</h2>
+
+<p><code>_config.yml</code></p>
+
+<pre><code>title:  Secret Base
+author: Zhengyang Song
+email: songzy.thu@gmail.com
+description: &gt;- # this means to ignore newlines until "baseurl:"
+  All those little bugs I have ever met.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "http://songzy12.github.io" # the base hostname &amp; protocol for your site, e.g. http://example.com
+github_username:  songzy12
+
+# Default extension for new posts and pages
+post_ext: md
+page_ext: html
+
+# Default templates for posts and pages
+# Found in _templates/
+post_layout: post
+page_layout: page
+
+# Format titles with titlecase?
+titlecase: true
+
+# Change default template file (in _templates/)
+post_template: post
+page_template: page
+draft_template: draft
+
+# Build settings
+markdown: rdiscount
+rdiscount:
+  extensions:
+    - autolink
+    - footnotes
+    - smart
+theme: minima
+plugins:
+  - jekyll-feed
+
+header_pages:
+  - about.md
+
+show_excerpts: true
+
+google_analytics: UA-147981013-1
+
+disqus:
+  shortname: songzy12-github-io
+</code></pre>
+
+  </div><a class="u-url" href="/2024/02/03/octopress-3-0.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Secret Base</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

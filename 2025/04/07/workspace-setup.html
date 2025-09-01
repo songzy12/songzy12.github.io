@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Workspace Setup | Secret Base</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Workspace Setup" />
+<meta name="author" content="Zhengyang Song" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Steps to set up my personal workspace." />
+<meta property="og:description" content="Steps to set up my personal workspace." />
+<link rel="canonical" href="http://songzy12.github.io/2025/04/07/workspace-setup.html" />
+<meta property="og:url" content="http://songzy12.github.io/2025/04/07/workspace-setup.html" />
+<meta property="og:site_name" content="Secret Base" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2025-04-07T08:29:08+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Workspace Setup" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2025-04-07T08:29:08+08:00","datePublished":"2025-04-07T08:29:08+08:00","description":"Steps to set up my personal workspace.","headline":"Workspace Setup","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2025/04/07/workspace-setup.html"},"url":"http://songzy12.github.io/2025/04/07/workspace-setup.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Secret Base</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Workspace Setup</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2025-04-07T08:29:08+08:00" itemprop="datePublished">Apr 7, 2025
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Steps to set up my personal workspace.</p>
+
+<h2>apt</h2>
+
+<p>Project link: <a href="https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/">https://mirror.tuna.tsinghua.edu.cn/help/ubuntu/</a></p>
+
+<pre><code>sudo sed -i "s@http://.*archive.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+sudo sed -i "s@http://.*security.ubuntu.com@https://mirrors.tuna.tsinghua.edu.cn@g" /etc/apt/sources.list
+</code></pre>
+
+<h2>brew</h2>
+
+<pre><code># 查看 brew.git 当前源
+$ cd "$(brew --repo)" &amp;&amp; git remote -v
+origin    https://github.com/Homebrew/brew.git (fetch)
+origin    https://github.com/Homebrew/brew.git (push)
+
+# 查看 homebrew-core.git 当前源
+$ cd "$(brew --repo homebrew/core)" &amp;&amp; git remote -v
+origin    https://github.com/Homebrew/homebrew-core.git (fetch)
+origin    https://github.com/Homebrew/homebrew-core.git (push)
+</code></pre>
+
+
+
+<pre><code># 替换各个源
+$ git -C "$(brew --repo)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/brew.git
+$ git -C "$(brew --repo homebrew/core)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-core.git
+$ git -C "$(brew --repo homebrew/cask)" remote set-url origin https://mirrors.tuna.tsinghua.edu.cn/git/homebrew/homebrew-cask.git
+
+# zsh 替换 brew bintray 镜像
+$ echo 'export HOMEBREW_BOTTLE_DOMAIN=https://mirrors.tuna.tsinghua.edu.cn/homebrew-bottles' &gt;&gt; ~/.zshrc
+$ source ~/.zshrc
+
+# 刷新源
+$ brew update
+</code></pre>
+
+
+
+<pre><code>echo 'export HOMEBREW_API_DOMAIN="https://mirrors.ustc.edu.cn/homebrew-bottles/api" #brew.idayer.com' &gt;&gt; ~/.zshrc
+</code></pre>
+
+<h2>wget</h2>
+
+<pre><code>vi ~/.wgetrc
+</code></pre>
+
+
+
+<pre><code>http_proxy=http://localhost:10809
+https_proxy=http://localhost:10809
+</code></pre>
+
+<h2>git</h2>
+
+<h3>editor</h3>
+
+<pre><code>git config --global core.editor "vim"
+</code></pre>
+
+<h3>user</h3>
+
+<pre><code>git config --global user.email "songzy_thu@163.com"
+git config --global user.name "Zhengyang Song"
+</code></pre>
+
+<h3>ssh https</h3>
+
+<p><a href="https://stackoverflow.com/questions/15589682/how-to-fix-ssh-connect-to-host-github-com-port-22-connection-timed-out-for-g">https://stackoverflow.com/questions/15589682/how-to-fix-ssh-connect-to-host-github-com-port-22-connection-timed-out-for-g</a></p>
+
+<pre><code>vi ~/.ssh/config
+</code></pre>
+
+
+
+<pre><code>Host github.com
+  Hostname ssh.github.com
+  Port 443
+</code></pre>
+
+<h2>zsh</h2>
+
+<pre><code>sudo apt install zsh
+</code></pre>
+
+<p><a href="https://github.com/ohmyzsh/ohmyzsh">https://github.com/ohmyzsh/ohmyzsh</a></p>
+
+<pre><code>wget https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh
+
+sh install.sh
+</code></pre>
+
+<h3>p10k</h3>
+
+<p><a href="https://github.com/romkatv/powerlevel10k">https://github.com/romkatv/powerlevel10k</a></p>
+
+<pre><code>git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+</code></pre>
+
+<p>Then in <code>~/.zshrc</code>:</p>
+
+<pre><code>ZSH_THEME="powerlevel10k/powerlevel10k"
+</code></pre>
+
+<h2>tmux</h2>
+
+<pre><code>vi ~/.tmux.conf
+</code></pre>
+
+
+
+<pre><code>set -g default-shell /usr/bin/zsh
+set -g default-terminal "xterm-256color"
+</code></pre>
+
+<h2>python</h2>
+
+<h3>pip source</h3>
+
+<pre><code>sudo apt install python3-pip
+</code></pre>
+
+<p><a href="https://pip.pypa.io/en/stable/user_guide/#config-file">https://pip.pypa.io/en/stable/user_guide/#config-file</a>
+<a href="https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4">https://gist.github.com/MaHu6/228fe96b2b81c677ae5c950a6b8d55c4</a></p>
+
+<pre><code>mkdir ~/.pip
+
+echo "[global]" &gt; ~/.pip/pip.conf
+echo "  index-url = https://mirrors.aliyun.com/pypi/simple/" &gt;&gt; ~/.pip/pip.conf
+echo "[install]" &gt;&gt; ~/.pip/pip.conf
+echo "  trusted-host=mirrors.aliyun.com" &gt;&gt; ~/.pip/pip.conf
+echo "" &gt;&gt; ~/.pip/pip.conf
+</code></pre>
+
+<h3>jupyter notebook</h3>
+
+<pre><code>jupyter notebook --generate-config
+vi ~/.jupyter/jupyter_notebook_config.py
+</code></pre>
+
+
+
+<pre><code>c.NotebookApp.use_redirect_file = False
+</code></pre>
+
+
+
+<pre><code>pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
+</code></pre>
+
+<h3>virtualenvwrapper</h3>
+
+<pre><code>sudo apt install virtualenv
+</code></pre>
+
+<p><a href="https://virtualenvwrapper.readthedocs.io/en/latest/install.html">https://virtualenvwrapper.readthedocs.io/en/latest/install.html</a></p>
+
+<pre><code>pip install virtualenvwrapper
+</code></pre>
+
+
+
+<pre><code># vi ~/.bashrc
+vi ~/.zshrc
+</code></pre>
+
+
+
+<pre><code>export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
+# source /usr/local/bin/virtualenvwrapper.sh
+source ~/.local/bin/virtualenvwrapper.sh
+</code></pre>
+
+<h2>nodejs</h2>
+
+<h3>nvm</h3>
+
+<p><a href="https://github.com/nvm-sh/nvm">https://github.com/nvm-sh/nvm</a></p>
+
+<pre><code>wget -qO- 
+https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+</code></pre>
+
+
+
+<pre><code>nvm ls
+nvm ls-remote
+</code></pre>
+
+
+
+<pre><code>nvm install 
+</code></pre>
+
+<h3>npm registry</h3>
+
+<p><a href="https://developer.aliyun.com/mirror/NPM">https://developer.aliyun.com/mirror/NPM</a></p>
+
+<pre><code>npm config get registry
+npm config set registry http://registry.npmmirror.com
+</code></pre>
+
+<h3>yarn registry</h3>
+
+<pre><code>yarn config get registry
+yarn config set registry http://registry.npmmirror.com
+</code></pre>
+
+<h2>ruby</h2>
+
+<pre><code># 添加镜像源并移除默认源
+gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
+# 列出已有源
+gem sources -l
+# 应该只有镜像源一个
+</code></pre>
+
+<h3>bundler</h3>
+
+<pre><code>bundle config mirror.https://rubygems.org https://mirrors.tuna.tsinghua.edu.cn/rubygems
+</code></pre>
+
+<h2>docker</h2>
+
+<pre><code>mkdir -p /etc/docker
+
+sudo tee /etc/docker/daemon.json &lt;&lt;-'EOF'
+{
+  "registry-mirrors": ["http://hub-mirror.c.163.com"]
+}
+</code></pre>
+
+
+
+<pre><code>sudo service docker restart
+</code></pre>
+
+
+
+<pre><code>docker info
+</code></pre>
+
+  </div><a class="u-url" href="/2025/04/07/workspace-setup.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Secret Base</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

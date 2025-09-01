@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Random Variable Expectation | Secret Base</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Random Variable Expectation" />
+<meta name="author" content="Zhengyang Song" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="一枚硬币, 扔出 H 的概率为 $p$, T 的概率为 $q$, 计算首次扔出 $T\underbrace{H\dots H}_{k}​$ 所需投掷次数的数学期望。" />
+<meta property="og:description" content="一枚硬币, 扔出 H 的概率为 $p$, T 的概率为 $q$, 计算首次扔出 $T\underbrace{H\dots H}_{k}​$ 所需投掷次数的数学期望。" />
+<link rel="canonical" href="http://songzy12.github.io/2017/03/22/random-variable-expectation.html" />
+<meta property="og:url" content="http://songzy12.github.io/2017/03/22/random-variable-expectation.html" />
+<meta property="og:site_name" content="Secret Base" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-03-22T13:11:13+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Random Variable Expectation" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2017-03-22T13:11:13+08:00","datePublished":"2017-03-22T13:11:13+08:00","description":"一枚硬币, 扔出 H 的概率为 $p$, T 的概率为 $q$, 计算首次扔出 $T\\underbrace{H\\dots H}_{k}​$ 所需投掷次数的数学期望。","headline":"Random Variable Expectation","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/03/22/random-variable-expectation.html"},"url":"http://songzy12.github.io/2017/03/22/random-variable-expectation.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Secret Base</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Random Variable Expectation</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-03-22T13:11:13+08:00" itemprop="datePublished">Mar 22, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>一枚硬币, 扔出 H 的概率为 $p$, T 的概率为 $q$, 计算首次扔出 $T\underbrace{H\dots H}_{k}​$ 所需投掷次数的数学期望。</p>
+
+<p>我们先来考虑 $\underbrace{H\dots H}_{k}$ 这样简单后的情形，然后试图将其推广到任意模式的一般情况。</p>
+
+<p>记 随机变量 $X_k$ 为 首次投掷出 $\underbrace{H\dots H}_{k}​$ 所需的次数。</p>
+
+<h3>Solution 1</h3>
+
+<p>设我们要求的数学期望为 $e$, 则有</p>
+
+<p>$$
+e = q (1+e) + p q (2+e) + p p q (3+e) + p^{k-1} q (k+e) + p<sup>k</sup> k
+$$</p>
+
+<p>这是对前 $k$ 位可能出现的模式进行分类讨论得到的。</p>
+
+<p>记 $S=1+2p+3p<sup>2</sup>+\dots+kp^{k-1}$, 可得 $S=1/q((1-p<sup>k</sup>)/q-kp<sup>k</sup>)$.</p>
+
+<pre><code>  e 
+= q(1+2p+3p^2+\dots+kp^{k-1})+kp^k+q(1+p+\dots+p^{k-1})e
+= q\cdot 1/q ((1-p^k)/q-kp^k) + kp^k + q 1/q(1-p^k) e
+= (1-p^k)/q + (1-p^k) e
+</code></pre>
+
+<p>从而</p>
+
+<p>$$e = 1/q (1/p ^k - 1)$$</p>
+
+<p>这与我们上面的结果是吻合的。</p>
+
+<p>推广：首次投掷出 HTHHT</p>
+
+<p>$$e = q(1+e) + pp(2+e) + pqq(3+e) + pqpq(4+e) + pqppp(5+e) + pqppq 5$$</p>
+
+<h3>Solution 2</h3>
+
+<pre><code>X_k = (X_{k-1} + 1)\cdot p + (X_{k-1} + 1 + X_k)\cdot q
+X_0 = 0 
+</code></pre>
+
+
+
+<pre><code>X_k = 1/p X_{k-1} + 1/p
+</code></pre>
+
+
+
+<pre><code>X_k = 1/q (1/p ^k - 1)
+</code></pre>
+
+<p>而递推式的由来在于</p>
+
+<pre><code>  Pr(X_k = n) 
+= Pr(X_{k-1} = n-1) p + \sum_m [ Pr(X_{k-1}=m) q Pr(X_{k}=n-m-1) ]
+= p Pr(X_{k-1}+1 = n) + q \sum_m [ Pr(X_{k-1}=m) Pr(X_{k}+1=n-m) ] 
+</code></pre>
+
+<p>也就是</p>
+
+<pre><code>X_k = p (X_{k-1}+1) + q (X_{k-1}+X_{k}+1)
+</code></pre>
+
+<p>这是由于对于随机变量 <code>X, Y, Z</code>, 若 <code>Z=X+Y</code>，则</p>
+
+<pre><code>Pr(Z=n) = \sum_m [Pr(X=m) Pr(Y=n-m)]
+</code></pre>
+
+<p>递推法可以使得我们顺便求出所有的 <code>X_k</code></p>
+
+<p>推广：首次投掷出 HTHHT</p>
+
+<h3>Solution 3</h3>
+
+<p>If <code>f(x)</code> is the generating function of the probability <code>p_n</code> of the ending after <code>n</code> tosses</p>
+
+<pre><code>f(x) = \sum_n p_n x^n
+</code></pre>
+
+<p>Consider the following toss strings, probabilities, and terms</p>
+
+<pre><code>T                               q           qx
+HT                              pq          pqx^2
+HHT                             p^2q        p^2qx^3
+\underbrace{H\dots H}_{k-1}T    p^{k-1}q    p^{k-1}qx^k
+\underbrace{H\dots H}_k         p^{k}       p^kx^k
+</code></pre>
+
+<p>We get the generating function of the probability of ending after <code>n</code> tosses to be</p>
+
+<pre><code>f(x) 
+= \sum_m (\sum_{t=1}^k p^{t-1}qx^t)^m p^kx^k
+= p^kx^k / (1-\sum_{t=1}^k p^{t-1}qx^t)
+</code></pre>
+
+
+
+<pre><code>f'(1) = \sum p_n n = 
+</code></pre>
+
+<p>推广：首次投掷出 HTHHT</p>
+
+<pre><code>T       qx
+HH      p^2x^2
+HTT     pq^2x^3
+HTHT    p^2q^2x^4
+HTHHH   p^4qx^5
+HTHHT   p^3q^2x^5
+</code></pre>
+
+
+
+<pre><code>f(x) 
+=\sum (qx+p^2x^2+pq^2x^3+p^2q^2x^4+p^4qx^5)^m p^3q^2x^5
+=
+</code></pre>
+
+  </div><a class="u-url" href="/2017/03/22/random-variable-expectation.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Secret Base</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

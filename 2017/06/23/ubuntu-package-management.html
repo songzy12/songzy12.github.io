@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Ubuntu Package Management | Secret Base</title>
+<meta name="generator" content="Jekyll v3.8.7" />
+<meta property="og:title" content="Ubuntu Package Management" />
+<meta name="author" content="Zhengyang Song" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Package management on Ubuntu using apt/dpkg" />
+<meta property="og:description" content="Package management on Ubuntu using apt/dpkg" />
+<link rel="canonical" href="http://songzy12.github.io/2017/06/23/ubuntu-package-management.html" />
+<meta property="og:url" content="http://songzy12.github.io/2017/06/23/ubuntu-package-management.html" />
+<meta property="og:site_name" content="Secret Base" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2017-06-23T14:38:26+08:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Ubuntu Package Management" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Zhengyang Song"},"dateModified":"2017-06-23T14:38:26+08:00","datePublished":"2017-06-23T14:38:26+08:00","description":"Package management on Ubuntu using apt/dpkg","headline":"Ubuntu Package Management","mainEntityOfPage":{"@type":"WebPage","@id":"http://songzy12.github.io/2017/06/23/ubuntu-package-management.html"},"url":"http://songzy12.github.io/2017/06/23/ubuntu-package-management.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://songzy12.github.io/feed.xml" title="Secret Base" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">Secret Base</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Ubuntu Package Management</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2017-06-23T14:38:26+08:00" itemprop="datePublished">Jun 23, 2017
+      </time></p>
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p>Package management on Ubuntu using apt/dpkg</p>
+
+<h2>lsb_release</h2>
+
+<p>Linux Standard Base.</p>
+
+<pre><code>lsb_release -a
+cat /etc/issue
+</code></pre>
+
+<h2>apt</h2>
+
+<pre><code>E: Could not get lock /var/lib/dpkg/lock - open (11: Resource temporarily unavailable)
+E: Unable to lock the administration directory (/var/lib/dpkg/), is another process using it?
+
+sudo rm /var/cache/apt/archives/lock
+sudo rm /var/lib/dpkg/lock
+</code></pre>
+
+
+
+<pre><code>Reading package lists... Error!
+E: Encountered a section with no Package: header
+E: Problem with MergeList /var/lib/apt/lists/cn.archive.ubuntu.com_ubuntu_dists_xenial-backports_main_binary-amd64_Packages
+E: The package lists or status file could not be parsed or opened.
+
+sudo rm -vf /var/lib/apt/lists/*
+sudo apt-get update
+</code></pre>
+
+<h3>upgrade</h3>
+
+<pre><code>sudo apt-get update
+sudo apt upgrade
+</code></pre>
+
+
+
+<pre><code>2 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
+29 not fully installed or removed.
+</code></pre>
+
+<h3>autoclean, clean, autoremove</h3>
+
+<ul>
+<li><code>clean</code>: clean clears out the local repository of retrieved package files. It removes everything but the lock file from <code>/var/cache/apt/archives/</code> and <code>/var/cache/apt/archives/partial/</code>. When APT is used as a dselect(1) method, clean is run automatically. Those who do not use dselect will likely want to run apt-get clean from time to time to free up disk space.</li>
+<li><code>autoclean</code>: Like clean, autoclean clears out the local repository of retrieved package files. The difference is that it only removes package files that can no longer be downloaded, and are largely useless. This allows a cache to be maintained over a long period without it growing out of control. The configuration option <code>APT::Clean-Installed</code> will prevent installed packages from being erased if it is set to off.</li>
+<li><code>autoremove</code>: is used to remove packages that were automatically installed to satisfy dependencies for some package and that are no more needed.</li>
+</ul>
+
+
+<h2>dpkg</h2>
+
+<pre><code>29 not fully installed or removed.
+</code></pre>
+
+
+
+<pre><code>sudo apt install -f
+</code></pre>
+
+<p>Searches for packages that have been installed only partially on your system. dpkg will suggest what to do with them to get them working.</p>
+
+<pre><code>sudo dpkg -C 
+</code></pre>
+
+
+
+<pre><code>The following packages have been unpacked but not yet configured.
+</code></pre>
+
+
+
+<pre><code>sudo dpkg --configure -a
+</code></pre>
+
+
+
+<pre><code>dpkg-query: package 'ibus-table' is not installed
+</code></pre>
+
+
+
+<pre><code>sudo apt install ibus-table
+</code></pre>
+
+  </div><a class="u-url" href="/2017/06/23/ubuntu-package-management.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Secret Base</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Zhengyang Song</li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/songzy12"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">songzy12</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>All those little bugs I have ever met.</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
