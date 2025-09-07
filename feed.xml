@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-09-03T21:35:15+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Windows VPN Hotspot</title><link href="http://songzy12.github.io/2025/09/03/windows-vpn-hotspot.html" rel="alternate" type="text/html" title="Windows VPN Hotspot" /><published>2025-09-03T21:33:54+08:00</published><updated>2025-09-03T21:33:54+08:00</updated><id>http://songzy12.github.io/2025/09/03/windows-vpn-hotspot</id><content type="html" xml:base="http://songzy12.github.io/2025/09/03/windows-vpn-hotspot.html"><![CDATA[<p>With VPN enabled on Windows, how to share it with mobile device like Quest 2?</p>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.7">Jekyll</generator><link href="http://songzy12.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="http://songzy12.github.io/" rel="alternate" type="text/html" /><updated>2025-09-07T14:33:02+08:00</updated><id>http://songzy12.github.io/feed.xml</id><title type="html">Secret Base</title><subtitle>All those little bugs I have ever met.</subtitle><author><name>Zhengyang Song</name></author><entry><title type="html">Windows VPN Hotspot</title><link href="http://songzy12.github.io/2025/09/03/windows-vpn-hotspot.html" rel="alternate" type="text/html" title="Windows VPN Hotspot" /><published>2025-09-03T21:33:54+08:00</published><updated>2025-09-03T21:33:54+08:00</updated><id>http://songzy12.github.io/2025/09/03/windows-vpn-hotspot</id><content type="html" xml:base="http://songzy12.github.io/2025/09/03/windows-vpn-hotspot.html"><![CDATA[<p>With VPN enabled on Windows, how to share it with mobile device like Quest 2?</p>
 
 <p>Windows hotpot with SSTap, no need for proxy setting on mobile device:</p>
 
 <ol>
 <li>V2Ray</li>
 <li>SSTap</li>
-<li>Connecity / Speedify</li>
+<li>Connecity Hotspot</li>
 </ol>
 
 
