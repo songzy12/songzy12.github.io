@@ -29,26 +29,31 @@ An index of my GitHub repositories.
     * https://github.com/songzy12/CVE
     * https://github.com/songzy12/AVD
 * Web Crawler
-  * https://github.com/songzy12/weibo_tool
-  * https://github.com/songzy12/bilibili_crawler
-* Game AI
-  * https://github.com/songzy12/Lux-AI
-* NLP Models
-  * FastText (2016): https://github.com/songzy12/FastText
-  * ConvS2S (2017): https://github.com/songzy12/ConvS2S
-  * ULMFiT (2018): https://github.com/songzy12/ULMFiT
-  * LongFormer (2020): https://github.com/songzy12/LongFormer
-  * DeBERTa (2020): https://github.com/songzy12/DeBERTa
+  * weibo: https://github.com/songzy12/weibo_tool
+  * bilibili: https://github.com/songzy12/bilibili_crawler
+  * xhs: 
+  * javtxt:
+* AI
+  * Game AI: https://github.com/songzy12/Lux-AI
+  * Chess AI:
+  * Math AI:
+  * Coding AI:
+* Android
+  * https://github.com/songzy12/AndroidRotationSensor
+* Chrome
+  * https://github.com/songzy12/SirsiDynixAssistant
 * Machine Learning
   * (2017) https://github.com/songzy12/text-normalization-challenge
   * (2017) https://github.com/songzy12/spooky-author-identification
   * (2017) https://github.com/songzy12/kkbox-music-recommendation-challenge
   * (2018) https://github.com/songzy12/jigsaw-toxic-comment-classification-challenge
   * (2019) https://github.com/songzy12/microsoft-malware-prediction
-* Android
-  * https://github.com/songzy12/AndroidRotationSensor
-* Chrome
-  * https://github.com/songzy12/SirsiDynixAssistant
+* NLP Models
+  * FastText (2016): https://github.com/songzy12/FastText
+  * ConvS2S (2017): https://github.com/songzy12/ConvS2S
+  * ULMFiT (2018): https://github.com/songzy12/ULMFiT
+  * LongFormer (2020): https://github.com/songzy12/LongFormer
+  * DeBERTa (2020): https://github.com/songzy12/DeBERTa
 * Homework
   * https://github.com/songzy12/QA
   * https://github.com/songzy12/IIIS_PreliminaryExam
