@@ -16,6 +16,8 @@ An index of my GitHub repositories.
   * https://github.com/songzy12/SICP
   * https://github.com/songzy12/python_challenge
   * https://github.com/songzy12/Haskell-99
+
+---
 * Security
   * https://github.com/songzy12/xCTF
   * https://github.com/songzy12/bugku
@@ -28,6 +30,12 @@ An index of my GitHub repositories.
   * In the Wild
     * https://github.com/songzy12/CVE
     * https://github.com/songzy12/AVD
+* Android
+  * https://github.com/songzy12/AndroidRotationSensor
+* Chrome
+  * https://github.com/songzy12/SirsiDynixAssistant
+
+---
 * Web Crawler
   * weibo: https://github.com/songzy12/weibo_tool
   * bilibili: https://github.com/songzy12/bilibili_crawler
@@ -38,10 +46,12 @@ An index of my GitHub repositories.
   * Chess AI:
   * Math AI:
   * Coding AI:
-* Android
-  * https://github.com/songzy12/AndroidRotationSensor
-* Chrome
-  * https://github.com/songzy12/SirsiDynixAssistant
+* LLM
+  * DeekSeek:
+* CV
+  * Stable Diffusion:
+
+---
 * Machine Learning
   * (2017) https://github.com/songzy12/text-normalization-challenge
   * (2017) https://github.com/songzy12/spooky-author-identification
@@ -54,6 +64,8 @@ An index of my GitHub repositories.
   * ULMFiT (2018): https://github.com/songzy12/ULMFiT
   * LongFormer (2020): https://github.com/songzy12/LongFormer
   * DeBERTa (2020): https://github.com/songzy12/DeBERTa
+
+---
 * Homework
   * https://github.com/songzy12/QA
   * https://github.com/songzy12/IIIS_PreliminaryExam
