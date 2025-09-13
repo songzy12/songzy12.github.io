@@ -6,39 +6,21 @@ date: 2024-07-05T19:32:45+08:00
 
 An index of my GitHub repositories.
 
+---
+
 * Algorithm & Data Structure
   * https://github.com/songzy12/HackerRank
   * https://github.com/songzy12/CodeForces
-
----
-
-* Android
-  * https://github.com/songzy12/AndroidRotationSensor
-* Chrome
-  * https://github.com/songzy12/SirsiDynixAssistant
-* Crawler
-  * weibo: https://github.com/songzy12/weibo_tool
-  * bilibili: https://github.com/songzy12/bilibili_crawler
-  * xhs: 
-  * javtxt:
-
----
-
 * Math & Optimization
   * https://github.com/songzy12/ProjectEuler
   * https://github.com/songzy12/santa-competitions
-* AI
-  * Game AI: https://github.com/songzy12/Lux-AI
-  * Chess AI:
-  * Math AI:
-  * Coding AI:
-
----
-
 * Programming Language
   * https://github.com/songzy12/SICP
   * https://github.com/songzy12/python_challenge
   * https://github.com/songzy12/Haskell-99
+
+---
+
 * Security
   * https://github.com/songzy12/xCTF
   * https://github.com/songzy12/bugku
@@ -54,6 +36,30 @@ An index of my GitHub repositories.
 
 ---
 
+* Chrome
+  * Extension: https://github.com/songzy12/SirsiDynixAssistant
+* Crawler
+  * weibo: https://github.com/songzy12/weibo_tool
+  * bilibili: https://github.com/songzy12/bilibili_crawler
+  * zhihu:
+  * xhs: 
+  * javtxt:
+
+---
+
+* AI
+  * Game AI: https://github.com/songzy12/Lux-AI
+  * Chess AI:
+  * Math AI:
+  * Coding AI:
+* LLM
+  * DeepSeek:
+  * Gemini:
+* CV
+  * Stable Diffusion:
+
+---
+
 * Machine Learning
   * (2017) https://github.com/songzy12/text-normalization-challenge
   * (2017) https://github.com/songzy12/spooky-author-identification
@@ -66,10 +72,11 @@ An index of my GitHub repositories.
   * ULMFiT (2018): https://github.com/songzy12/ULMFiT
   * LongFormer (2020): https://github.com/songzy12/LongFormer
   * DeBERTa (2020): https://github.com/songzy12/DeBERTa
-* LLM
-  * DeekSeek:
-* CV
-  * Stable Diffusion:
+
+---
+
+* Android
+  * https://github.com/songzy12/AndroidRotationSensor
 
 ---
 
