@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Ubuntu Input Method"
 date: 2025-12-20T12:21:14+08:00
 categories: Linux

@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "OMEN WSL GPU"
 date: 2022-08-31T20:18:22+08:00
 categories: Hardware - GPU

@@ -1,12 +1,7 @@
 ---
-layout: post
 title: "Tencent SNG"
 date: 2018-04-17 19:56:43 +0800
-comments: true
 categories: Algorithm - Interview
-keywords: 
-description: 
-
 ---
 
 腾讯 SNG 校招面试分享。

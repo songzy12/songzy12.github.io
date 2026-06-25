@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "WSL Export/Import"
 date: 2022-12-08T22:11:00+08:00
 categories: WSL

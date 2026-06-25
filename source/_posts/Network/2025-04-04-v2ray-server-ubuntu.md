@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "V2Ray Server - Ubuntu"
 date: 2025-04-04T10:08:09+08:00
 categories: Network

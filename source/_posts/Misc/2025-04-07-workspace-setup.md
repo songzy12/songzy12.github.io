@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Workspace Setup"
 date: 2025-04-07T08:29:08+08:00
 categories: Misc

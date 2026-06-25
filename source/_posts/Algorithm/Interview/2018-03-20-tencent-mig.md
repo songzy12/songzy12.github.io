@@ -1,12 +1,7 @@
 ---
-layout: post
 title: "Tencent MIG"
 date: 2018-03-20 10:51:00 +0800
-comments: true
 categories: Algorithm - Interview
-keywords: 
-description: 
-
 ---
 
 腾讯 MIG 校招面试分享。

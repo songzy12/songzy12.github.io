@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "School Projects"
 date: 2019-07-15T12:45:52+08:00
 categories: Misc

@@ -1,10 +1,7 @@
 ---
-layout: post
 title: "Poison and Prisoner"
 date: 2017-03-04 13:52:30 +0800
-comments: true
 categories: Algorithm
-
 ---
 
 10000桶酒，其中1桶是毒酒；48小时后要举行酒会；毒酒喝下去会在之后的第23-24小时内毒死人。

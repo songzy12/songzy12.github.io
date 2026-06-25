@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "GitHub Repo Index"
 date: 2024-07-05T19:32:45+08:00
 categories: Misc

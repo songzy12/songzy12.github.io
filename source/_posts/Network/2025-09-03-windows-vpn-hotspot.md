@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Windows VPN Hotspot"
 date: 2025-09-03T21:33:54+08:00
 categories: Network

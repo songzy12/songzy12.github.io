@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "Code Server"
 date: 2024-09-13T21:56:16+08:00
 categories: Tool

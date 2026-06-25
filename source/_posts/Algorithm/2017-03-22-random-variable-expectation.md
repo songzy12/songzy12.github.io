@@ -1,10 +1,7 @@
 ---
-layout: post
 title: "Random Variable Expectation"
 date: 2017-03-22 13:11:13 +0800
-comments: true
 categories: Algorithm
-
 ---
 
 一枚硬币, 扔出 H 的概率为 $p$, T 的概率为 $q$, 计算首次扔出 $T\underbrace{H\dots H}_{k}​$ 所需投掷次数的数学期望。 

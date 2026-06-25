@@ -1,5 +1,4 @@
 ---
-layout: post
 title: "WSL HTTP Proxy"
 date: 2025-01-04T23:20:26+08:00
 categories: Network

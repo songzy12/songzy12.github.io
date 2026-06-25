@@ -1,12 +1,7 @@
 ---
-layout: post
 title: "Tencent IEG"
 date: 2018-01-31 20:13:35 +0800
-comments: true
 categories: Algorithm - Interview
-keywords: 
-description: 
-
 ---
 
 腾讯互娱校招面试算法题。

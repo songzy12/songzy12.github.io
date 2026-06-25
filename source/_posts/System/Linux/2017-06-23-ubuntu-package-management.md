@@ -1,10 +1,7 @@
 ---
-layout: post
 title: "Ubuntu Package Management"
 date: 2017-06-23 14:38:26 +0800
-comments: true
 categories: Linux
-
 ---
 
 Package management on Ubuntu using apt/dpkg
