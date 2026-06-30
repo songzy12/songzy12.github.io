@@ -6,6 +6,8 @@ categories: Algorithm
 
 一枚硬币, 扔出 H 的概率为 $p$, T 的概率为 $q$, 计算首次扔出 $T\underbrace{H\dots H}_{k}​$ 所需投掷次数的数学期望。 
 
+<!-- more -->
+
 
 我们先来考虑 $\underbrace{H\dots H}_{k}$ 这样简单后的情形，然后试图将其推广到任意模式的一般情况。
 

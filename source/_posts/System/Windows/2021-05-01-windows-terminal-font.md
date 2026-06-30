@@ -5,6 +5,8 @@ categories: Windows
 ---
 
 Fixing font/color issue I came across when using Windows terminals.
+ 
+ <!-- more -->
 
 ## Powerline Fonts
 

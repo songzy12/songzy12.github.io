@@ -5,6 +5,8 @@ categories: Misc
 ---
 
 An index of my GitHub repositories.
+ 
+ <!-- more -->
 
 ---
 

@@ -5,6 +5,8 @@ categories: Network
 ---
 
 Set up v2ray client on Ubuntu.
+ 
+ <!-- more -->
 
 <https://github.com/v2fly/fhs-install-v2ray>
 

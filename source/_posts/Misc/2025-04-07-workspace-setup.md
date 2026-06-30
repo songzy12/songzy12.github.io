@@ -5,6 +5,8 @@ categories: Misc
 ---
 
 Steps to set up my personal workspace.
+ 
+ <!-- more -->
 
 ## apt
 
@@ -195,8 +197,7 @@ source ~/.local/bin/virtualenvwrapper.sh
 <https://github.com/nvm-sh/nvm>
 
 ```
-wget -qO- 
-https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
+wget -qO- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash
 ```
 
 ```

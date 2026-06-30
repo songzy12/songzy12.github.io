@@ -5,6 +5,8 @@ categories: Network
 ---
 
 Set up v2ray client on Windows.
+ 
+ <!-- more -->
 
 <https://github.com/2dust/v2rayN/releases>
 

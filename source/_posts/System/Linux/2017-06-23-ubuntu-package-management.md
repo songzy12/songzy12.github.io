@@ -15,6 +15,8 @@ lsb_release -a
 cat /etc/issue
 ```
 
+<!-- more -->
+
 ## apt
 
 ```
