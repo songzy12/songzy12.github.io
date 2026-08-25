@@ -149,20 +149,17 @@ echo "  trusted-host=mirrors.aliyun.com" >> ~/.pip/pip.conf
 echo "" >> ~/.pip/pip.conf
 ```
 
-### jupyter notebook
+### venv
 
 ```
-jupyter notebook --generate-config
-vi ~/.jupyter/jupyter_notebook_config.py
-```
+python -m venv .venv
 
-```
-c.NotebookApp.use_redirect_file = False
-```
+# Activate
+source .venv/bin/activate  # On macOS/Linux
+# .venv\Scripts\activate     # On Windows
 
-```
-pip install jupyter_contrib_nbextensions
-jupyter contrib nbextension install --user
+# Deactivate
+deactivate
 ```
 
 ### virtualenvwrapper
@@ -188,6 +185,22 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 # source /usr/local/bin/virtualenvwrapper.sh
 # source /usr/share/virtualenvwrapper/virtualenvwrapper.sh
 source ~/.local/bin/virtualenvwrapper.sh
+```
+
+### jupyter notebook
+
+```
+jupyter notebook --generate-config
+vi ~/.jupyter/jupyter_notebook_config.py
+```
+
+```
+c.NotebookApp.use_redirect_file = False
+```
+
+```
+pip install jupyter_contrib_nbextensions
+jupyter contrib nbextension install --user
 ```
 
 ## nodejs
