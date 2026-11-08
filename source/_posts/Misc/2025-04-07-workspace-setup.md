@@ -238,22 +238,6 @@ yarn config get registry
 yarn config set registry http://registry.npmmirror.com
 ```
 
-## ruby
-
-```
-# 添加镜像源并移除默认源
-gem sources --add https://mirrors.tuna.tsinghua.edu.cn/rubygems/ --remove https://rubygems.org/
-# 列出已有源
-gem sources -l
-# 应该只有镜像源一个
-```
-
-### bundler
-
-```
-bundle config mirror.https://rubygems.org https://mirrors.tuna.tsinghua.edu.cn/rubygems
-```
-
 ## docker
 
 ```
@@ -271,4 +255,11 @@ sudo service docker restart
 
 ```
 docker info
+```
+
+## system monitor 
+
+```
+sudo apt install gnome-system-monitor
+sudo apt install gnome-shell-extension-system-monitor
 ```
